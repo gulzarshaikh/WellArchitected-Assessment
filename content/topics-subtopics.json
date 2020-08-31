@@ -1,0 +1,18 @@
+{
+    "topics": [
+        {
+            "name": "Architecture",
+            "subtopics": [
+                "Design",
+                "Dependencies"
+            ]
+        },
+        {
+            "name": "Application Platform Availability",
+            "subtopics": [
+                "Application State and Configuration",
+                "Compute Availability"
+            ]
+        }
+    ]
+}
