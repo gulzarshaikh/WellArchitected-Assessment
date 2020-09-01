@@ -1,0 +1,51 @@
+[
+    {
+        "tags": ["reliability", "scalability"],
+        "title": "Does the application support multi-region deployments?",
+        "subText": "Multiple regions should be used for failover purposes in a disaster state, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active strategies. ([Failover strategies](https://docs.microsoft.com/en-us/azure/availability-zones/az-overview#availability-zones))",
+        "category": "applicationdesign",
+        "subCategory": "design"
+    },
+    {
+        "tags": ["reliability", "scalability"],
+        "title": "Within a region is the application architecture designed to use Availability Zones?",
+        "subText": "Availability Zones can be used to optimise application availability within a region by providing datacenter level fault tolerance. However, the application architecture must not share dependencies between zones to use them effectively. It is also important to note that Availability Zones may introduce performance and cost considerations for applications which are extremely 'chatty' across zones given the implied physical separation between each zone and inter-zone bandwidth charges ([Availability Zones](https://docs.microsoft.com/en-us/azure/availability-zones/az-overview#availability-zones))",
+        "category": "applicationdesign",
+        "subCategory": "design"
+    },
+    {
+        "tags": ["reliability", "scalability"],
+        "title": "Is component proximity required for application performance reasons?",
+        "subText": "If all or part of the application is highly sensitive to latency it may mandate component co-locality which can limit the applicability of multi-region and multi-zone strategies",
+        "category": "applicationdesign",
+        "subCategory": "design"
+    },
+    {
+        "tags": ["reliability"],
+        "title": "Can the application operate with reduced functionality or degraded performance in the presence of an outage?",
+        "subText": "Avoiding failure is impossible in the public cloud, and as a result applications require resilience to respond to outages and deliver reliability. The application should therefore be designed to operate even when impacted by regional, zonal, service or component failures across critical application scenarios and functionality.",
+        "category": "applicationdesign",
+        "subCategory": "design"
+    },
+    {
+        "tags": ["reliability"],
+        "title": "Is the application designed to use managed services?",
+        "subText": "Azure managed services provide native resiliency capabilities to support overall application reliability, and where possible platform as a service offerings should be used to leverage these capabilities (Use managed services)",,
+        "category": "applicationdesign",
+        "subCategory": "design"
+    },
+    {
+        "tags": ["reliability", "scalability"],
+        "title": "Has the application been designed to scale-out?",
+        "subText": "Azure provides elastic scalability, however, applications must leverage a scale-unit approach to navigate service and subscription limits to ensure that individual components and the application as a whole can scale horizontally (Design to scale out)",,
+        "category": "applicationdesign",
+        "subCategory": "design"
+    },
+    {
+        "tags": ["reliability", "scalability"],
+        "title": "Is the application deployed across multiple Azure subscriptions?",
+        "subText": "Understanding the subscription landscape of the application and how components are organized within or across subscriptions is important when analyzing if relevant subscription limits or quotas can be navigated",
+        "category": "applicationdesign",
+        "subCategory": "design"
+    }
+]
