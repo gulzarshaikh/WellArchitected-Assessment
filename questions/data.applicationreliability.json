@@ -30,14 +30,14 @@
     {
         "tags": ["reliability"],
         "title": "Is the application designed to use managed services?",
-        "subText": "Azure managed services provide native resiliency capabilities to support overall application reliability, and where possible platform as a service offerings should be used to leverage these capabilities (Use managed services)",,
+        "subText": "Azure managed services provide native resiliency capabilities to support overall application reliability, and where possible platform as a service offerings should be used to leverage these capabilities (Use managed services)",
         "category": "applicationdesign",
         "subCategory": "design"
     },
     {
         "tags": ["reliability", "scalability"],
         "title": "Has the application been designed to scale-out?",
-        "subText": "Azure provides elastic scalability, however, applications must leverage a scale-unit approach to navigate service and subscription limits to ensure that individual components and the application as a whole can scale horizontally (Design to scale out)",,
+        "subText": "Azure provides elastic scalability, however, applications must leverage a scale-unit approach to navigate service and subscription limits to ensure that individual components and the application as a whole can scale horizontally (Design to scale out)",
         "category": "applicationdesign",
         "subCategory": "design"
     },
