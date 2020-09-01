@@ -3,13 +3,13 @@
         "type":"question",
         "tags": ["opex"],
         "title": "Is the application deployed across multiple Azure regions and/or utilizing Availability Zones?",
-        "subText": "Understanding the global operational footprint, for failover or performance purposes, is critical to evaluating overall operations. Generally speaking, multiple Azure regions should be used for disaster recovery procedures, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active recovery strategies ([Failover strategies](https://docs.microsoft.com/en-us/azure/architecture/framework/resiliency/backup-and-recovery)).<br /> [Availability Zones](https://docs.microsoft.com/en-us/azure/availability-zones/az-overview#availability-zones) are a high-availability offering that protects your applications and data from datacenter failures. Using zone-redundant or zonal (pinned to a specific AZ) deployments can increase resiliency of an application",
+        "context": "Understanding the global operational footprint, for failover or performance purposes, is critical to evaluating overall operations. Generally speaking, multiple Azure regions should be used for disaster recovery procedures, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active recovery strategies ([Failover strategies](https://docs.microsoft.com/en-us/azure/architecture/framework/resiliency/backup-and-recovery)).<br /> [Availability Zones](https://docs.microsoft.com/en-us/azure/availability-zones/az-overview#availability-zones) are a high-availability offering that protects your applications and data from datacenter failures. Using zone-redundant or zonal (pinned to a specific AZ) deployments can increase resiliency of an application",
         "category": "applicationdesign",
         "subCategory": "design",
         "subQuestions": [
             {
                 "title": "Is the application deployed in either active-active, active-passive, or isolated configurations across leveraged regions?",
-                "subText": "The regional deployment strategy will partly shape operational boundaries, particularly where operational procedures for recovery and scale are concerned"
+                "context": "The regional deployment strategy will partly shape operational boundaries, particularly where operational procedures for recovery and scale are concerned"
             }
         ]
     },
@@ -17,7 +17,7 @@
         "type":"question",
         "tags": ["opex"],
         "title": "Are there any regulatory requirements around data sovereignty?",
-        "subText": "Regulatory requirements may mandate that operational data, such as application logs and metrics, remain within a certain geo-political region. This has obvious implications for how the application should be operationalized",
+        "context": "Regulatory requirements may mandate that operational data, such as application logs and metrics, remain within a certain geo-political region. This has obvious implications for how the application should be operationalized",
         "category": "applicationdesign",
         "subCategory": "design"
     },
@@ -25,7 +25,7 @@
         "type":"question",
         "tags": ["opex"],
         "title": "Does the application have components on-premises or in another cloud platform?",
-        "subText": "Hybrid and cross-cloud workloads with components on-premises or on different cloud platforms, such as AWS or GCP, introduce additional operational considerations around achieving a 'single pane of glass' for operations",
+        "context": "Hybrid and cross-cloud workloads with components on-premises or on different cloud platforms, such as AWS or GCP, introduce additional operational considerations around achieving a 'single pane of glass' for operations",
         "category": "applicationdesign",
         "subCategory": "design"
     },
@@ -33,7 +33,7 @@
         "type":"question",
         "tags": ["opex"],
         "title": "Is the application designed to use managed services?",
-        "subText": "Azure managed services provide native capabilities to support application operations, and where possible platform as a service offerings should be used to leverage these capabilities and reduce the overall management and operational burden ([Use managed services](https://docs.microsoft.com/en-us/azure/architecture/guide/design-principles/managed-services))",
+        "context": "Azure managed services provide native capabilities to support application operations, and where possible platform as a service offerings should be used to leverage these capabilities and reduce the overall management and operational burden ([Use managed services](https://docs.microsoft.com/en-us/azure/architecture/guide/design-principles/managed-services))",
         "category": "applicationdesign",
         "subCategory": "design"
     },
@@ -41,7 +41,7 @@
         "type":"question",
         "tags": ["opex"],
         "title": "Has the application been designed to scale-out?",
-        "subText": "Azure provides elastic scalability, however, applications must leverage a scale-unit approach to navigate service and subscription limits to ensure that individual components and the application as a whole can scale horizontally ([Design to scale out](https://docs.microsoft.com/en-us/azure/architecture/guide/design-principles/scale-out))",
+        "context": "Azure provides elastic scalability, however, applications must leverage a scale-unit approach to navigate service and subscription limits to ensure that individual components and the application as a whole can scale horizontally ([Design to scale out](https://docs.microsoft.com/en-us/azure/architecture/guide/design-principles/scale-out))",
         "category": "applicationdesign",
         "subCategory": "design"
     },
@@ -49,25 +49,25 @@
         "type":"question",
         "tags": ["opex"],
         "title": "Are availability targets such as Service Level Agreements (SLAs), Service Level Indicators (SLIs), and Service Level Objectives (SLOs) defined for the application and/or key scenarios?",
-        "subText": "Understanding customer availability expectations is vital to reviewing overall operations for the application. For instance, if a customer is striving to achieve an application SLO of 99.999%, the level of inherent operational actionality required by the application is going to be far greater than if an SLO of 99.9% was the aspiration",
+        "context": "Understanding customer availability expectations is vital to reviewing overall operations for the application. For instance, if a customer is striving to achieve an application SLO of 99.999%, the level of inherent operational actionality required by the application is going to be far greater than if an SLO of 99.9% was the aspiration",
         "category": "applicationdesign",
         "subCategory": "targets",
         "subQuestions": [
             {
                 "title": "Are SLAs/SLOs/SLIs for all leveraged dependencies understood?",
-                "subText": "Availability targets for any dependencies leveraged by the application should be understood and ideally align with application targets"
+                "context": "Availability targets for any dependencies leveraged by the application should be understood and ideally align with application targets"
             },
             {
                 "title": "Are availability targets considered while the system is running in disaster recovery mode?",
-                "subText": "If targets must also apply in a failure state then an n+1 model should be used to achieve greater availability and resiliency, where n is the capacity needed to deliver required availability"
+                "context": "If targets must also apply in a failure state then an n+1 model should be used to achieve greater availability and resiliency, where n is the capacity needed to deliver required availability"
             },
             {
                 "title": "Are these availability targets monitored and measured?",
-                "subText": "Monitoring and measuring application availability is vital to qualifying overall application health and progress towards defined targets. \n- Mean Time To Recover (MTTR): The average time it takes to restore a particular component after a failure has occurred.\n- Mean Time Between Failures (MTBF): The average time between failures of a particular component"
+                "context": "Monitoring and measuring application availability is vital to qualifying overall application health and progress towards defined targets. \n- Mean Time To Recover (MTTR): The average time it takes to restore a particular component after a failure has occurred.\n- Mean Time Between Failures (MTBF): The average time between failures of a particular component"
             },
             {
                 "title": "What are the consequences if availability targets are not satisfied?",
-                "subText": "Are there any penalties, such as financial charges, associated with failing to meet SLA commitments?"
+                "context": "Are there any penalties, such as financial charges, associated with failing to meet SLA commitments?"
             }
         ]
     }
