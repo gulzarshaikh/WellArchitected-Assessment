@@ -1,0 +1,64 @@
+# This is a basic workflow to help you get started with Actions
+
+name: HugoDocs
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    branches: [ nielshugopoc ]
+
+jobs:
+  HugoGenerate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      
+      - uses: srt32/hugo-action@master
+        name: Create Hugo Environment
+        with: 
+          args: new site waf --force
+
+      - name: Setup the files in the Hugo structure
+        run: |
+          sudo mkdir waf/layouts/waf
+          sudo mkdir waf/content/waf
+          sudo touch waf/content/waf/waf.md
+
+          sudo cp data/*.json waf/data
+          sudo cp template/reliabilityassessment.md waf/layouts/waf/waf.html
+
+      - uses: srt32/hugo-action@master
+        name: Build Hugo content
+        with: 
+          args: -s waf      
+
+      - name: Show files
+        shell: pwsh
+        run: |
+          gci -Recurse
+
+      - name: Copy files out of Hugo
+        run: |
+          mkdir -p output
+          cp waf/public/waf/index.html output/waf-reliability.md
+
+      - name: Push files to repo
+        shell: pwsh
+        run: |
+          git config --global user.name 'Github Action'
+          git config --global user.email 'nielsactiontest@users.noreply.github.com'
+     
+          git add 'output/'
+          git status --short
+
+          $message = git log -1 --pretty=format:"%s"
+
+          if(git status -uno --short) {
+            git commit -am "Auto update: $message"
+            git push origin
+          } 
+          else {
+            Write-Output "No changes to commit. Bye."
+          }
