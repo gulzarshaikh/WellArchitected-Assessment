@@ -1,6 +1,9 @@
 # Reliability Assessment
 
 
+* Do developers like beer?
+> Beer comes in a bottle or a can and is often served in a glass.
+
 * Does the application support multi-region deployments?
 > Multiple regions should be used for failover purposes in a disaster state, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active strategies    ([Failover strategies](https://docs.microsoft.com/en-us/azure/availability-zones/az-overview#availability-zones))
 
