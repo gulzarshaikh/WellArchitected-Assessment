@@ -1,9 +1,10 @@
 [
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Application Design",
     "subCategory": "Design",
     "title": "Does the application support multi-region deployments?",
@@ -11,9 +12,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Application Design",
     "subCategory": "Design",
     "title": "Within a region is the application architecture designed to use Availability Zones?",
@@ -21,9 +23,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Application Design",
     "subCategory": "Design",
     "title": "Is component proximity required for application performance reasons?",
@@ -31,9 +34,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Application Design",
     "subCategory": "Design",
     "title": "Can the application operate with reduced functionality or degraded performance in the presence of an outage?",
@@ -41,9 +45,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Application Design",
     "subCategory": "Design",
     "title": "Is the application designed to use managed services?",
@@ -51,9 +56,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Application Design",
     "subCategory": "Design",
     "title": "Has the application been designed to scale-out?",
@@ -61,9 +67,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Application Design",
     "subCategory": "Design",
     "title": "Is the application deployed across multiple Azure subscriptions?",
@@ -71,9 +78,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Application Design",
     "subCategory": "Failure Mode Analysis",
     "title": "Has pathwise analysis been conducted to identify key flows within the application?",
@@ -81,9 +89,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Application Design",
     "subCategory": "Failure Mode Analysis",
     "title": "Have all fault-points and fault-modes been identified?",
@@ -91,9 +100,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Application Design",
     "subCategory": "Failure Mode Analysis",
     "title": "Have all single points of failure been eliminated?",
@@ -101,9 +111,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Application Design",
     "subCategory": "Failure Mode Analysis",
     "title": "Have all 'singletons' been eliminated?",
@@ -111,9 +122,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Application Design",
     "subCategory": "Dependencies",
     "title": "Are all internal and external dependencies identified and categorized as either weak or strong?",
@@ -121,9 +133,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Application Design",
     "subCategory": "Dependencies",
     "title": "Are all platform level dependencies identified and understood?",
@@ -131,9 +144,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Application Design",
     "subCategory": "Dependencies",
     "title": "Can the application operate in the absence of its dependencies?",
@@ -141,9 +155,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Application Design",
     "subCategory": "Dependencies",
     "title": "Is the lifecycle of the application decoupled from its dependencies?",
@@ -151,9 +166,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Resiliency & Recovery",
     "subCategory": "Approach",
     "title": "Is an availability strategy defined? i.e. multi-geo, full/partial",
@@ -161,9 +177,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Resiliency & Recovery",
     "subCategory": "Approach",
     "title": "Has a Business Continuity Disaster Recovery (BCDR) strategy been defined for the application and/or its key scenarios? ",
@@ -171,9 +188,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Resiliency & Recovery",
     "subCategory": "Availability Targets",
     "title": "Are availability targets such as Service Level Agreements (SLAs), Service Level Indicators (SLIs), and Service Level Objectives (SLOs) defined for the application and/or key scenarios?",
@@ -191,9 +209,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Resiliency & Recovery",
     "subCategory": "Availability Targets",
     "title": "Are these availability targets monitored and measured?",
@@ -201,9 +220,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Resiliency & Recovery",
     "subCategory": "Recovery Targets",
     "title": "Are recovery targets such as Recovery Time Objective (RTO) and Recovery Point Objective (RPO) defined for the application and/or key scenarios?",
@@ -211,9 +231,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Resiliency & Recovery",
     "subCategory": "Recovery Targets",
     "title": "Are recovery steps defined for failover and failback?",
@@ -221,9 +242,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Resiliency & Recovery",
     "subCategory": "Recovery Targets",
     "title": "Has the failover and failback approach been tested/validated at least once?",
@@ -231,9 +253,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Capacity & Service Availability",
     "subCategory": "Service Availability",
     "title": "Are Azure services available in the required regions?",
@@ -241,9 +264,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Capacity & Service Availability",
     "subCategory": "Service Availability",
     "title": "Are Azure Availability Zones available in the required regions?",
@@ -251,9 +275,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Capacity & Service Availability",
     "subCategory": "Service Availability",
     "title": "Are any preview services/capabilities required in production?",
@@ -261,9 +286,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Capacity & Service Availability",
     "subCategory": "Service Availability",
     "title": "Are all APIs/SDKs validated against target runtime/languages for required functionality?",
@@ -271,9 +297,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Capacity & Service Availability",
     "subCategory": "Capacity",
     "title": "Is there a capacity model for the application?",
@@ -281,9 +308,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Capacity & Service Availability",
     "subCategory": "Capacity",
     "title": "Is the required capacity (initial and future growth) within Azure service scale limits and quotas?",
@@ -291,9 +319,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Capacity & Service Availability",
     "subCategory": "Capacity",
     "title": "Is the required capacity (initial and future growth) available within targeted regions?",
@@ -301,9 +330,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Capacity & Service Availability",
     "subCategory": "Capacity",
     "title": "Is capacity utilization monitored and used to forecast future growth?",
@@ -311,9 +341,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Capacity & Service Availability",
     "subCategory": "Capacity",
     "title": "Is the process to provision and deprovision capacity automated?",
@@ -321,9 +352,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Application Platform Availability",
     "subCategory": "Application State and Configuration",
     "title": "Is the application stateless or stateful? If it is stateful, is the state externalized in a data store?",
@@ -331,9 +363,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Application Platform Availability",
     "subCategory": "Application State and Configuration",
     "title": "Is the session state (if any) non-sticky and externalized to a data store?",
@@ -341,9 +374,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Application Platform Availability",
     "subCategory": "Application State and Configuration",
     "title": "Is application configuration deployed with the application?",
@@ -351,9 +385,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Application Platform Availability",
     "subCategory": "Service SKU",
     "title": "Are all application platform services running in a HA configuration/SKU? ",
@@ -361,9 +396,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Application Platform Availability",
     "subCategory": "Compute Availability",
     "title": "Is the application platform deployed across multiple regions?",
@@ -377,9 +413,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Application Platform Availability",
     "subCategory": "Compute Availability",
     "title": "Is the underlying application platform service Availability Zone aware?",
@@ -387,9 +424,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Application Platform Availability",
     "subCategory": "Compute Availability",
     "title": "Is the application hosted across 2 or more application platform nodes?",
@@ -403,9 +441,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Application Platform Availability",
     "subCategory": "Compute Availability",
     "title": "How is the client traffic routed to the application in the case of region, zone or network outage?",
@@ -413,9 +452,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Data Platform Availability",
     "subCategory": "Service SKU",
     "title": "Are all data and storage services running in a HA configuration/SKU?",
@@ -423,9 +463,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Data Platform Availability",
     "subCategory": "Consistency",
     "title": "How does CAP theorem apply to the data platform and key application scenarios?",
@@ -433,9 +474,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Data Platform Availability",
     "subCategory": "Consistency",
     "title": "Are data types categorized by data consistency requirements?",
@@ -443,9 +485,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Data Platform Availability",
     "subCategory": "Replication and Redundancy",
     "title": "Is data replicated across paired regions and/or Availability Zones",
@@ -453,9 +496,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Data Platform Availability",
     "subCategory": "Replication and Redundancy",
     "title": "Is data backed-up to zone-redundant or geo-redundant storage?",
@@ -463,9 +507,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Data Platform Availability",
     "subCategory": "Replication and Redundancy",
     "title": "Has a data restore process been defined and tested to ensure a consistent application state?",
@@ -473,9 +518,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Data Platform Availability",
     "subCategory": "Replication and Redundancy",
     "title": "How is application traffic routed to data sources in the case of region, zone, or network outage?",
@@ -483,9 +529,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Networking & Connectivity",
     "subCategory": "Connectivity",
     "title": "Is a global load balancer used to distribute traffic and/or failover across regions? ",
@@ -493,9 +540,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Networking & Connectivity",
     "subCategory": "Connectivity",
     "title": "For cross-premises connectivity (ExpressRoute or VPN) are there redundant connections from different locations?",
@@ -503,9 +551,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Networking & Connectivity",
     "subCategory": "Connectivity",
     "title": "Has a failure path been simulated to ensure connectivity is available over alternative paths?",
@@ -513,9 +562,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Networking & Connectivity",
     "subCategory": "Connectivity",
     "title": "Have all single points of failure been eliminated from the data path (on-premises and Azure)?",
@@ -523,9 +573,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Networking & Connectivity",
     "subCategory": "Zone-Aware Services",
     "title": "Are ExpressRoute/VPN zone-redundant Virtual Network Gateways used?",
@@ -533,9 +584,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Networking & Connectivity",
     "subCategory": "Zone-Aware Services",
     "title": "If used, is Azure Application Gateway v2 deployed in a zone-redundant configuration?",
@@ -543,9 +595,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Networking & Connectivity",
     "subCategory": "Zone-Aware Services",
     "title": "Is Azure Load Balancer Standard being used to load-balance traffic across Availability Zones?",
@@ -553,9 +606,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Networking & Connectivity",
     "subCategory": "Zone-Aware Services",
     "title": "Are health probes configured for Azure Load Balancer(s)/Azure Application Gateway(s)?",
@@ -563,9 +617,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Networking & Connectivity",
     "subCategory": "Zone-Aware Services",
     "title": "Do health probes assess critical application dependencies?",
@@ -573,9 +628,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Scalability & Performance",
     "subCategory": "App Performance",
     "title": "Does the application logic handle exceptions and errors using resiliency patterns?",
@@ -583,9 +639,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Scalability & Performance",
     "subCategory": "App Performance",
     "title": "Does the application require long running TCP connections?",
@@ -593,9 +650,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Scalability & Performance",
     "subCategory": "Data Size/Growth",
     "title": "Are target data sizes and associated growth rates calculated per scenario or service?",
@@ -603,9 +661,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Scalability & Performance",
     "subCategory": "Data Size/Growth",
     "title": "Are there any mitigation plans defined in case data size exceeds limits?",
@@ -613,9 +672,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Scalability & Performance",
     "subCategory": "Data Latency and Throughput",
     "title": "Are latency targets defined, tested, and validated for key scenarios? ",
@@ -623,9 +683,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Scalability & Performance",
     "subCategory": "Data Latency and Throughput",
     "title": "Are throughput targets defined, tested, and validated for key scenarios?",
@@ -633,9 +694,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Scalability & Performance",
     "subCategory": "Network Throughput and Latency",
     "title": "Are there any components/scenarios that are very sensitive to network latency?",
@@ -643,9 +705,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Scalability & Performance",
     "subCategory": "Network Throughput and Latency",
     "title": "Have gateways (ExpressRoute or VPN) been sized accordingly to the expected cross-premises network throughput?",
@@ -653,9 +716,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Scalability & Performance",
     "subCategory": "Network Throughput and Latency",
     "title": "Does the application require dedicated bandwidth?",
@@ -663,9 +727,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Scalability & Performance",
     "subCategory": "Network Throughput and Latency",
     "title": "If NVAs are used, has expected throughput been tested?",
@@ -679,9 +744,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Scalability & Performance",
     "subCategory": "Elasticity",
     "title": "Can the application scale horizontally in response to changing load?",
@@ -689,9 +755,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Scalability & Performance",
     "subCategory": "Elasticity",
     "title": "Has the time to scale in/out been measured?",
@@ -699,9 +766,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Scalability & Performance",
     "subCategory": "Elasticity",
     "title": "Is autoscaling enabled and integrated within Azure Monitor?",
@@ -715,9 +783,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Security & Compliance",
     "subCategory": "Identity and Access",
     "title": "Is the identity provider and associated dependencies highly available?",
@@ -725,9 +794,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Security & Compliance",
     "subCategory": "Identity and Access",
     "title": "Has role-based and/or resource-based authorization been configured within Azure AD?",
@@ -745,9 +815,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Security & Compliance",
     "subCategory": "Identity and Access",
     "title": "Are Azure AD emergency access accounts and processes defined for recovering from identity failures?",
@@ -755,9 +826,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Security & Compliance",
     "subCategory": "Network Security",
     "title": "Are all external application endpoints secured?",
@@ -765,9 +837,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Security & Compliance",
     "subCategory": "Network Security",
     "title": "Is communication to Azure PaaS services secured using VNet Service Endpoints or Private Link?",
@@ -775,9 +848,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Security & Compliance",
     "subCategory": "Network Security",
     "title": "If data exfiltration concerns exist for services where Private Link is not yet supported, is filtering via Azure Firewall or an NVA being used?",
@@ -785,9 +859,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Security & Compliance",
     "subCategory": "Network Security",
     "title": "Are Network Security Groups (NSGs) being used?",
@@ -801,9 +876,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Security & Compliance",
     "subCategory": "Key Management",
     "title": "Are keys and secrets backed-up to geo-redundant storage?",
@@ -817,9 +893,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Security & Compliance",
     "subCategory": "Key Management",
     "title": "Is Soft-Delete enabled for Key Vaults and Key Vault objects?",
@@ -827,9 +904,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Security & Compliance",
     "subCategory": "Key Management",
     "title": "Is the process for key and certificate rotation automated and tested?",
@@ -837,9 +915,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Security & Compliance",
     "subCategory": "Data Protection and Compliance",
     "title": "Has monitoring for continuous compliance been implemented?",
@@ -847,9 +926,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Site Reliability Engineering & DevOps",
     "subCategory": "Deployment Automation",
     "title": "How long does it take to deploy an entire production environment?",
@@ -857,9 +937,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Site Reliability Engineering & DevOps",
     "subCategory": "Deployment Automation",
     "title": "Can the application be deployed automatically from scratch without any manual operations?",
@@ -873,9 +954,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Site Reliability Engineering & DevOps",
     "subCategory": "Deployment Automation",
     "title": "Can N-1 or N+1 versions be deployed via automated pipelines where N is current deployment version in production?",
@@ -883,9 +965,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Site Reliability Engineering & DevOps",
     "subCategory": "Deployment Automation",
     "title": "Does the application deployment process leverage blue-green deployments and/or canary releases?",
@@ -893,9 +976,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Site Reliability Engineering & DevOps",
     "subCategory": "Monitoring and Measurement",
     "title": "Is there a health model for the application?",
@@ -909,9 +993,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Site Reliability Engineering & DevOps",
     "subCategory": "Monitoring and Measurement",
     "title": "Is white-box monitoring used to instrument the application with semantic logs and metrics?",
@@ -919,9 +1004,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Site Reliability Engineering & DevOps",
     "subCategory": "Monitoring and Measurement",
     "title": "Is the application instrumented to measure the customer experience?",
@@ -929,9 +1015,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Site Reliability Engineering & DevOps",
     "subCategory": "Monitoring and Measurement",
     "title": "Is the application instrumented to track calls to dependent services?",
@@ -939,9 +1026,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Site Reliability Engineering & DevOps",
     "subCategory": "Monitoring and Measurement",
     "title": "Is black-box monitoring used to measure platform services and the resulting customer experience?",
@@ -949,9 +1037,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Site Reliability Engineering & DevOps",
     "subCategory": "Monitoring and Measurement",
     "title": "Are all platform logs for services correlated with application telemetry?",
@@ -959,9 +1048,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Site Reliability Engineering & DevOps",
     "subCategory": "Monitoring and Measurement",
     "title": "Are there known gaps in application observability that led to missed incidents and/or false positives?",
@@ -969,9 +1059,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Site Reliability Engineering & DevOps",
     "subCategory": "Monitoring and Measurement",
     "title": "Are error budgets used to track service reliability?",
@@ -979,9 +1070,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Site Reliability Engineering & DevOps",
     "subCategory": "Monitoring and Measurement",
     "title": "Is there an policy that dictates what will happen when the error budget has been exhausted?",
@@ -989,9 +1081,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Site Reliability Engineering & DevOps",
     "subCategory": "Alerting",
     "title": "Have Azure Service Health alerts been created to respond to Service level events?",
@@ -999,9 +1092,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Site Reliability Engineering & DevOps",
     "subCategory": "Alerting",
     "title": "Have Azure Resource Health alerts been created to respond to Resource level events?",
@@ -1009,9 +1103,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Site Reliability Engineering & DevOps",
     "subCategory": "Alerting",
     "title": "Do all alerts require an immediate response from an on-call engineer?",
@@ -1019,9 +1114,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Site Reliability Engineering & DevOps",
     "subCategory": "Testing and Validation",
     "title": "Is the application tested for performance, scalability and resiliency?",
@@ -1035,9 +1131,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Site Reliability Engineering & DevOps",
     "subCategory": "Testing and Validation",
     "title": "Are these tests automated and carried out periodically or on-demand?",
@@ -1045,9 +1142,10 @@
   },
   {
     "type": "question",
-    "tags": [
+    "pillars": [
       "reliability"
     ],
+    "lens": "application",
     "category": "Site Reliability Engineering & DevOps",
     "subCategory": "Testing and Validation",
     "title": "Do critical test environments have 1:1 parity with the production environment?",
