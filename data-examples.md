@@ -87,7 +87,6 @@
             Resources
             |where  type =~ 'Microsoft.DocumentDb/databaseAccounts'
             |where array_length( properties.locations) <=1
-            ``` "      
-    ]
+            ``` "
 }
 ```
