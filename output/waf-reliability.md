@@ -1,7 +1,7 @@
 # Reliability Assessment
 
 
-* Do developers like beer?
+* Do developers like cold beer?
 > Beer comes in a bottle or a can and is often served in a glass.
 
 * Does the application support multi-region deployments?
