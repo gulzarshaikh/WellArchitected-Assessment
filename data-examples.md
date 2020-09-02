@@ -43,7 +43,7 @@
 }
 ```
 
-## Title with bullet list
+## Recommendations with bullet list
 [Example Source](https://github.com/Azure/WellArchitected-ReliabilityAssessment/blob/main/docs/Service-Resiliency.md#app-service-environments)
 ```json
 {
@@ -56,18 +56,18 @@
     "title": "In addition to the general recomendations for App Service Plans, App Service Environments (ASE) has additional configuration recomendations since it provides control over underlying compute resources to achieve greater isolation.",
     "children": [
         {
-            "title": "Ensure ASE is deployed within in highly available configuration across Availability Zones",
+            "title": "<li>Ensure ASE is deployed within in highly available configuration across Availability Zones",
             "context": "Configuring ASE to use Availability Zones by deploying ASE across specific zones ensures applications can continue to operate even in the event of a data center level failure. This provides excellent redundancy without requiring multiple deployments in different Azure regions."
         },
         {
-            "title": "Ensure the ASE Network is configured correctly.",
+            "title": "<li>Ensure the ASE Network is configured correctly.",
             "context": "One common ASE pitfall occurs when ASE is deployed into a subnet with an IP Address space that is too small to support future expansion. In such cases, ASE can be left unable to scale without redeploying the entire environment into a larger subnet. It is highly recomended that adequate IP addresses be used to support either the maximum number of workers or the largest number considered workloads will need. A single ASE cluster can scale to 201 instance, which would require a /24 subnet."
         }
     ]
 }
 ```
 
-## Title with code block
+## Artefact with code block
 [Example Source](https://github.com/Azure/WellArchitected-ReliabilityAssessment/blob/main/docs/Service-Resiliency.md#supporting-source-artefacts-1)
 
 ```json
