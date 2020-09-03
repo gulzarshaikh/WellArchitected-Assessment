@@ -52,7 +52,12 @@ jobs:
       - uses: srt32/hugo-action@master
         name: Build Hugo content
         with: 
-          args: -s waf      
+          args: -s waf
+                
+      - name: Show all files
+        shell: pwsh
+        run: |
+          gci -Recurse
 
       - name: Copy files out of Hugo
         shell: pwsh
