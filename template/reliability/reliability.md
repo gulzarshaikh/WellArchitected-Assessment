@@ -1,7 +1,11 @@
+{{ $filter := slice "reliability"}}
 # Reliability Assessment
 
-{{ range $.Site.Data.input }}
+{{ range where .Site.Data.input "pillars" "intersect" $filter }}
 * {{ .title }}
-> {{ .context }}
+    > {{ .context }}
+    {{ range .children }}
+    - {{ .title }}
+        > {{ .context }}
+    {{ end }}
 {{ end }}
-
