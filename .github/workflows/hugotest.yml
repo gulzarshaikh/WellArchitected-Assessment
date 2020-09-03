@@ -16,33 +16,57 @@ jobs:
       - uses: actions/checkout@v2
       
       - uses: srt32/hugo-action@master
-        name: Create Hugo Environment
+        name: Create a new Hugo Environment
         with: 
           args: new site waf --force
 
-      - name: Setup the files in the Hugo structure
-        run: |
-          sudo mkdir waf/layouts/waf
-          sudo mkdir waf/content/waf
-          sudo touch waf/content/waf/waf.md
+      #- name: Setup the files in the Hugo structure
+        #run: |
+          #sudo mkdir waf/layouts/waf
+          #sudo mkdir waf/content/waf
+          #sudo touch waf/content/waf/waf.md
 
-          sudo cp data/*.json waf/data
-          sudo cp template/reliabilityassessment.md waf/layouts/waf/waf.html
+          #sudo cp data/*.json waf/data
+          #sudo cp template/reliabilityassessment.md waf/layouts/waf/waf.html
+
+      - name: Move files into the Hugo directories
+        shell: pwsh
+        run: |
+          # Make a nice sudo function in powershell :)
+          function Invoke-MySudo { & /usr/bin/env sudo pwsh -command "& $args" }
+          set-alias sudo invoke-mysudo 
+
+          # Give Hugo some data files:
+          Get-ChildItem -R data | where { $_.Name -match ".json$" } | % { sudo Copy-Item -Path $_.FullName -Destination "waf/data/$($_.Name)"  }
+          
+          # Each directory in the template directory must be copied to Hugo.
+          # Hugo requires a specific structure. Each project directory must exist under /content and waf/layouts
+          Get-ChildItem -Directory template | % {
+            sudo New-Item -ItemType Directory -Path "waf/content/$($_.Name)"
+            sudo New-Item -ItemType Directory -Path "waf/layouts/$($_.Name)"
+
+            sudo New-Item -ItemType File -Path "waf/content/$($_.Name)/$($_.Name).md"
+            sudo Copy-Item -Path "template/$($_.Name)/*.md" -Destination "waf/layouts/$($_.Name)"
+          }
 
       - uses: srt32/hugo-action@master
         name: Build Hugo content
         with: 
           args: -s waf      
 
-      - name: Show files
+      - name: Copy files out of Hugo
+        shell: pwsh
+        run: |
+          # Process the output for each of the 'projects' that went in
+            Get-ChildItem -Directory template | % {
+              New-Item -ItemType Directory -Path "output/$($_.Name)" -Force
+              Copy-Item -Path "waf/public/$($_.Name)/index.html" -Destination "output/$($_.Name)/$($_.Name).md"
+            }
+
+      - name: Show all files
         shell: pwsh
         run: |
           gci -Recurse
-
-      - name: Copy files out of Hugo
-        run: |
-          mkdir -p output
-          cp waf/public/waf/index.html output/waf-reliability.md
 
       - name: Push files to repo
         shell: pwsh
