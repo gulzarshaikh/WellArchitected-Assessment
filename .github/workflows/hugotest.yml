@@ -40,20 +40,26 @@ jobs:
           Get-ChildItem -R data | where { $_.Name -match ".json$" } | % { sudo Copy-Item -Path $_.FullName -Destination "waf/data/$($_.Name)"  }
           
           # Each directory in the template directory must be copied to Hugo.
-          # Hugo requires a specific structure. Each project directory must exist under /content and waf/layouts
           Get-ChildItem -Directory template | % {
+            # Create project directories under content and layouts:
             sudo New-Item -ItemType Directory -Path "waf/content/$($_.Name)"
             sudo New-Item -ItemType Directory -Path "waf/layouts/$($_.Name)"
 
+            # The content directories each need an empty .md file in them
             sudo New-Item -ItemType File -Path "waf/content/$($_.Name)/$($_.Name).md"
-            sudo Copy-Item -Path "template/$($_.Name)/*.md" -Destination "waf/layouts/$($_.Name)"
+
+            # The template files have to be in the project directories under layouts, with html extensions:
+            Get-ChildItem -Path template/$($_.Name) | % {
+              $filename = $_.Name -replace "\.md$",""
+              sudo Copy-Item -Path $_.FullName -Destination "waf/layouts/$filename.html"
+            }            
           }
 
       - uses: srt32/hugo-action@master
         name: Build Hugo content
         with: 
           args: -s waf
-                
+
       - name: Show all files
         shell: pwsh
         run: |
