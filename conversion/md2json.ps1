@@ -1,7 +1,7 @@
 
-$md = Get-Content -Path ./conversion/app_operationalexcellence.md
+$md = Get-Content -Path ./conversion/sourcedata/app_operationalexcellence.md
 
-$outfilename = "output_opex.json"
+$outfilename = "./conversion/output/output_opex.json"
 
 $pillar = "opex"
 
