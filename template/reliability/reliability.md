@@ -28,6 +28,10 @@
         {{ range (and (where $filtered "category" $category) (where $filtered "subCategory" $subCategory)) }}
 * {{ .title }}
   > {{ .context }}
+            {{ range .children }}
+  - {{ .title }}
+    > {{ .context }}
+            {{ end }}
         {{ end }}
     {{ end }}
 {{ end }}
