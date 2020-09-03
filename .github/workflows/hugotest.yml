@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: HugoDocs
+name: Generate Output Markdown
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
@@ -9,7 +9,7 @@ on:
     branches: [ nielshugopoc ]
 
 jobs:
-  HugoGenerate:
+  HugoBuild:
     runs-on: ubuntu-latest
 
     steps:
@@ -19,15 +19,6 @@ jobs:
         name: Create a new Hugo Environment
         with: 
           args: new site waf --force
-
-      #- name: Setup the files in the Hugo structure
-        #run: |
-          #sudo mkdir waf/layouts/waf
-          #sudo mkdir waf/content/waf
-          #sudo touch waf/content/waf/waf.md
-
-          #sudo cp data/*.json waf/data
-          #sudo cp template/reliabilityassessment.md waf/layouts/waf/waf.html
 
       - name: Move files into the Hugo directories
         shell: pwsh
@@ -39,7 +30,7 @@ jobs:
           # Give Hugo some data files:
           Get-ChildItem -R data | where { $_.Name -match ".json$" } | % { sudo Copy-Item -Path $_.FullName -Destination "waf/data/$($_.Name)"  }
           
-          # Each directory in the template directory must be copied to Hugo.
+          # Each directory in the template directory will be a content type in Hugo.
           Get-ChildItem -Directory template | % {
             $project = $_.Name
             # Create project directories under content and layouts:
@@ -61,11 +52,6 @@ jobs:
         with: 
           args: -s waf
 
-      - name: Show all files
-        shell: pwsh
-        run: |
-          gci -Recurse
-
       - name: Copy files out of Hugo
         shell: pwsh
         run: |
@@ -75,16 +61,16 @@ jobs:
               Copy-Item -Path "waf/public/$($_.Name)/index.html" -Destination "output/$($_.Name)/$($_.Name).md"
             }
 
-      - name: Show all files
-        shell: pwsh
-        run: |
-          gci -Recurse
+#      - name: (Debug) Show all files
+#        shell: pwsh
+#        run: |
+#          gci -Recurse
 
       - name: Push files to repo
         shell: pwsh
         run: |
           git config --global user.name 'Github Action'
-          git config --global user.email 'nielsactiontest@users.noreply.github.com'
+          git config --global user.email 'wellarchitected@users.noreply.github.com'
      
           git add 'output/'
           git status --short
