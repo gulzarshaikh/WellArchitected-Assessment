@@ -1,5 +1,9 @@
 
-$md = Get-Content -Path ./conversion/appreliability.md
+$md = Get-Content -Path ./conversion/app_operationalexcellence.md
+
+$outfilename = "output_opex.json"
+
+$pillar = "opex"
 
 #List of items/questions that will form the json structure
 $items = @()
@@ -14,7 +18,8 @@ $currentSubCategory = ""
 # Something to take care of all the weird markdown characters in the content
 function strip($text)
 {
-    return $text.ToString() -replace "(^\s*[#*>-]*\s*)|([*]\s*$)",""
+    $stripped = $text.ToString() -replace "(^\s*([#*>-]|[>\s\*])*\s*)|([*]\s*$)",""
+    return $stripped
 }
 
 $md | % {
@@ -88,7 +93,7 @@ $md | % {
         # Start a new question
         $currentItem = [ordered]@{
             type = "question";
-            pillars = @("reliability");
+            pillars = @($pillar);
             lens = "application";
             category = $currentCategory;
             subCategory = $currentSubCategory;
@@ -121,7 +126,7 @@ $md | % {
     }
 
     # Yay! Context! (from either a question or a subquestion)
-    elseif($_.ToString() -match "^\s*[>]\S")
+    elseif($_.ToString() -match "^\s*[>]\s?\S")
     {
         #Write-Host "$($_) is context"
 
@@ -130,8 +135,11 @@ $md | % {
         {
             $currentSubItem.context = strip -text $_
         }
+        elseif($currentItem -ne $null) {
+            $currentItem.context += strip -text $_
+        }
         else {
-            $currentItem.context = strip -text $_
+            Write-Host "Cannot set context as item is null: $_" 
         }
     }
 
@@ -145,12 +153,19 @@ $md | % {
         {
             $currentSubItem.context += strip -text $_
         }
-        else {
+        elseif($currentItem -ne $null) {
             $currentItem.context += strip -text $_
         }
+        else {
+            Write-Host "Cannot set context as item is null: $_"
+        }
+    }
+    elseif($_.ToString().Trim() -ne "") {
+        Write-Host "No match for:"
+        Write-Host $_
     }
 
 }
 
 
-$items | ConvertTo-Json -Depth 10 | Out-File "conversion/output.json"
+$items | ConvertTo-Json -Depth 10 | Out-File "conversion/$outfilename"
