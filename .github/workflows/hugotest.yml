@@ -41,17 +41,18 @@ jobs:
           
           # Each directory in the template directory must be copied to Hugo.
           Get-ChildItem -Directory template | % {
+            $project = $_.Name
             # Create project directories under content and layouts:
-            sudo New-Item -ItemType Directory -Path "waf/content/$($_.Name)"
-            sudo New-Item -ItemType Directory -Path "waf/layouts/$($_.Name)"
+            sudo New-Item -ItemType Directory -Path "waf/content/$project"
+            sudo New-Item -ItemType Directory -Path "waf/layouts/$project"
 
             # The content directories each need an empty .md file in them
-            sudo New-Item -ItemType File -Path "waf/content/$($_.Name)/$($_.Name).md"
+            sudo New-Item -ItemType File -Path "waf/content/$project/$project.md"
 
             # The template files have to be in the project directories under layouts, with html extensions:
-            Get-ChildItem -Path template/$($_.Name) | % {
+            Get-ChildItem -Path template/$project | % {
               $filename = $_.Name -replace "\.md$",""
-              sudo Copy-Item -Path $_.FullName -Destination "waf/layouts/$filename.html"
+              sudo Copy-Item -Path $_.FullName -Destination "waf/layouts/$project/$filename.html"
             }            
           }
 
