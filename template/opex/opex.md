@@ -1,6 +1,6 @@
 # Operational Excellence Assessment
 
-{{ range $.Site.Data.applicationopex }}
+{{ range $.Site.Data.input }}
 * {{ .title }}
 > {{ .context }}
 {{ end }}

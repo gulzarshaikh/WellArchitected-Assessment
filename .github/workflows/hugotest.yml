@@ -14,6 +14,21 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+
+      - name: Merge data files
+        shell: pwsh
+        run: |
+          $AllItems = @()
+          Get-ChildItem -Path data | where { $_.Name -match ".json$" } | % {
+              Get-Content -Path $_.FullName | ConvertFrom-Json | %{
+                  if($_) 
+                  {
+                      $AllItems += $_
+                  }
+              }
+          }
+
+          $AllItems | ConvertTo-Json -Depth 10| Out-File allinput.json
       
       - uses: srt32/hugo-action@master
         name: Create a new Hugo Environment
@@ -27,8 +42,11 @@ jobs:
           function Invoke-MySudo { & /usr/bin/env sudo pwsh -command "& $args" }
           set-alias sudo invoke-mysudo 
 
-          # Give Hugo some data files:
-          Get-ChildItem -R data | where { $_.Name -match ".json$" } | % { sudo Copy-Item -Path $_.FullName -Destination "waf/data/$($_.Name)"  }
+          # Give Hugo all data files:
+          #Get-ChildItem -R data | where { $_.Name -match ".json$" } | % { sudo Copy-Item -Path $_.FullName -Destination "waf/data/$($_.Name)"  }
+
+          # Give Hugo our one big data file:
+          sudo Copy-Item -Path allinput.json -Destination waf/data/input.json
           
           # Each directory in the template directory will be a content type in Hugo.
           Get-ChildItem -Directory template | % {

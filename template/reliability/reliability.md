@@ -1,6 +1,6 @@
 # Reliability Assessment
 
-{{ range $.Site.Data.applicationreliability }}
+{{ range $.Site.Data.input }}
 * {{ .title }}
 > {{ .context }}
 {{ end }}
