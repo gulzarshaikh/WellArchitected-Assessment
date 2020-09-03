@@ -1,7 +1,7 @@
+{{ $filter := slice "opex"}}
 # Operational Excellence Assessment
 
-{{ range $.Site.Data.input }}
+{{ range where .Site.Data.input "pillars" "intersect" $filter }}
 * {{ .title }}
 > {{ .context }}
 {{ end }}
-
