@@ -3,9 +3,9 @@
 
 {{ range where .Site.Data.input "pillars" "intersect" $filter }}
 * {{ .title }}
->* {{ .context }}*
+    >* {{ .context }}*
     {{ range .children }}
     - {{ .title }}
-    >* {{ .context }}*
+        >* {{ .context }}*
     {{ end }}
 {{ end }}
