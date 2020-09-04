@@ -93,7 +93,7 @@ jobs:
         if: ${{ always() }}
         shell: pwsh
         run: |
-          gci -Recurse
+          gci -Recurse /
 
       - name: Push files to repo
         shell: pwsh
