@@ -89,10 +89,11 @@ jobs:
             }
           }
 
-#      - name: (Debug) Show all files
-#        shell: pwsh
-#        run: |
-#          gci -Recurse
+      - name: (Debug) Show all files
+        if: ${{ always() }}
+        shell: pwsh
+        run: |
+          gci -Recurse
 
       - name: Push files to repo
         shell: pwsh
