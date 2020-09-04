@@ -38,29 +38,27 @@ jobs:
       - name: Move files into the Hugo directories
         shell: pwsh
         run: |
-          # Make a nice sudo function in powershell :)
-          # We need this because the current user does not have permissions to write to the Hugo directory structure
-          function Invoke-MySudo { & /usr/bin/env sudo pwsh -command "& $args" }
-          set-alias sudo invoke-mysudo 
+          # give build agent the required permissions 
+          sudo chmod a+rw waf/ -R
 
           # Give Hugo our one big data file generated in the first step:
-          sudo Copy-Item -Path allinput.json -Destination waf/data/input.json
+          Copy-Item -Path allinput.json -Destination waf/data/input.json
           
           # Each directory in the template directory will be a 'content type' in Hugo.
           # The subdirectories of /template are referred to as 'projects' here.
           Get-ChildItem -Directory template | % {
             $project = $_.Name
             # Create project directories under content and layouts:
-            sudo New-Item -ItemType Directory -Path "waf/content/$project"
-            sudo New-Item -ItemType Directory -Path "waf/layouts/$project"
+            New-Item -ItemType Directory -Path "waf/content/$project"
+            New-Item -ItemType Directory -Path "waf/layouts/$project"
 
             # The content directories each need an empty .md file in them
-            sudo New-Item -ItemType File -Path "waf/content/$project/$project.md"
+            New-Item -ItemType File -Path "waf/content/$project/$project.md"
 
             # The template files have to be in the project directories under layouts, with html extensions:
             Get-ChildItem -Path template/$project | % {
               $filename = $_.Name -replace "\.md$",""
-              sudo Copy-Item -Path $_.FullName -Destination "waf/layouts/$project/$filename.html"
+              Copy-Item -Path $_.FullName -Destination "waf/layouts/$project/$filename.html"
             }            
           }
 
