@@ -3,7 +3,7 @@
     
 ## Design
         
-* Do developers like cold beer?
+* Do developers like very cold beer?
   > Beer comes in a bottle or a can and is often served in a glass.
             
         
