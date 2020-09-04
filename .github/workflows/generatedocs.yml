@@ -33,7 +33,7 @@ jobs:
       - uses: srt32/hugo-action@master
         name: Create a new Hugo Environment
         with: 
-          args: new site waf --force
+          args: new site waf -d /tmp/waf
 
       - name: Move files into the Hugo directories
         shell: pwsh
@@ -44,23 +44,28 @@ jobs:
           set-alias sudo invoke-mysudo 
 
           # Give Hugo our one big data file generated in the first step:
-          sudo Copy-Item -Path allinput.json -Destination waf/data/input.json
+          #sudo 
+          Copy-Item -Path allinput.json -Destination /tmp/waf/data/input.json
           
           # Each directory in the template directory will be a 'content type' in Hugo.
           # The subdirectories of /template are referred to as 'projects' here.
           Get-ChildItem -Directory template | % {
             $project = $_.Name
             # Create project directories under content and layouts:
-            sudo New-Item -ItemType Directory -Path "waf/content/$project"
-            sudo New-Item -ItemType Directory -Path "waf/layouts/$project"
+            #sudo 
+            New-Item -ItemType Directory -Path "/tmp/waf/content/$project"
+            #sudo 
+            New-Item -ItemType Directory -Path "/tmp/waf/layouts/$project"
 
             # The content directories each need an empty .md file in them
-            sudo New-Item -ItemType File -Path "waf/content/$project/$project.md"
+            #sudo 
+            New-Item -ItemType File -Path "/tmp/waf/content/$project/$project.md"
 
             # The template files have to be in the project directories under layouts, with html extensions:
             Get-ChildItem -Path template/$project | % {
               $filename = $_.Name -replace "\.md$",""
-              sudo Copy-Item -Path $_.FullName -Destination "waf/layouts/$project/$filename.html"
+              #sudo 
+              Copy-Item -Path $_.FullName -Destination "/tmp/waf/layouts/$project/$filename.html"
             }            
           }
 
@@ -77,7 +82,7 @@ jobs:
           Get-ChildItem -Directory template | % {
             New-Item -ItemType Directory -Path "output/$($_.Name)" -Force
             try {
-              Copy-Item -Path "waf/public/$($_.Name)/index.html" -Destination "output/$($_.Name)/$($_.Name).md"
+              Copy-Item -Path "/tmp/waf/public/$($_.Name)/index.html" -Destination "output/$($_.Name)/$($_.Name).md"
             } catch {
               Write-Warning "Hugo output for $($_.Name) could not be found."
               continue;
