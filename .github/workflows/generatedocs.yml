@@ -40,7 +40,6 @@ jobs:
         run: |
           # give build agent the required permissions 
           sudo chmod a+rw waf/ -R
-          #sudo chown $USER:$USER -R waf/
 
           # Give Hugo our one big data file generated in the first step:
           Copy-Item -Path allinput.json -Destination waf/data/input.json
