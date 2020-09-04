@@ -33,7 +33,7 @@ jobs:
       - uses: srt32/hugo-action@master
         name: Create a new Hugo Environment
         with: 
-          args: new site waf -d /tmp/waf
+          args: new site /tmp/waf
 
       - name: Move files into the Hugo directories
         shell: pwsh
