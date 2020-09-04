@@ -2,7 +2,7 @@ name: Generate Output Markdown
 
 on:
   push:
-#    branches: [ nielshugopoc ]
+#    branches: [ nielshugopoc ] 
 
 jobs:
   HugoBuild:
