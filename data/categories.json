@@ -1,0 +1,36 @@
+[
+    {
+        "id": "dummy",
+        "title": "Dummy category",
+        "subCategories": [
+            {
+                "id": "dummy_foo",
+                "title": "FOO"
+            }
+        ]
+    },
+    {
+        "id": "appdesign",
+        "title": "Application Design",
+        "subCategories": [
+            {
+                "id": "appdesign_design",
+                "title": "Design"
+            },
+            {
+                "id": "appdesign_targetsnfrs",
+                "title": "Targets & Non Functional Requirements"
+            }
+        ]
+    },
+    {
+        "id": "healthmodelling",
+        "title": "Health Modelling",
+        "subCategories": [
+            {
+                "id": "healthmodelling_resourcemonitoring",
+                "title": "Resource/Infrastructure Level Monitoring"
+            }
+        ]
+    }
+]
