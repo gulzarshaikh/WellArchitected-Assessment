@@ -24,21 +24,30 @@ This list contains design considerations and recommended configuration options, 
 {{- end -}}
 
 
-{{range $category, $subCategories := $categoriesDict}}
+{{- $types := slice "Design Considerations" "Configuration Recommendations" -}}
+
+{{- range $category, $subCategories := $categoriesDict }}
 # {{ $category }}
-    {{ range $subCategory := $subCategories}}
+    {{- range $subCategory := $subCategories}}
 ## {{ $subCategory }}
-        {{ range (and (where $filtered "category" $category) (where $filtered "subCategory" $subCategory)) }}
+        {{- $allItemsInSubCategory := (and (where $filtered "category" $category) (where $filtered "subCategory" $subCategory)) }}
+            {{- range $type := $types }}
+                {{- $itemsInType := where $allItemsInSubCategory "type" $type }}
+                {{- if $itemsInType }}
+### {{ $type }}
+                    {{- range $itemsInType }}
 * {{ .title }}
-            {{ with .context}}
+            {{- with .context}}
   > {{ . }}
             {{ end }}
-            {{ range .children }}
+            {{- range .children }}
   - {{ .title }}
-                {{ with .context}}
+                {{- with .context}}
     > {{ . }}
-                {{ end }}
-            {{ end }}
-        {{ end }}
-    {{ end }}
-{{ end }}
+                    {{ end }}
+                    {{ end }}
+                {{- end }}
+            {{- end }}
+        {{- end }}
+    {{- end }}
+{{- end }}
