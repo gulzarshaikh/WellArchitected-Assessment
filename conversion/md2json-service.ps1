@@ -4,6 +4,7 @@ $md = Get-Content -Path ./conversion/sourcedata/service_reliability.md
 $outfilename = "./conversion/output/output_service_reliability.json"
 
 $pillar = "reliability"
+$lens = "service"
 
 #List of items/questions that will form the json structure
 $items = @()
@@ -146,7 +147,7 @@ $md | % {
         $currentItem = [ordered]@{
             type = $currentType;
             pillars = @($pillar);
-            lens = "application";
+            lens = $lens;
             category = $currentCategory;
             subCategory = $currentSubCategory;
             title = strip -text $_;

@@ -4,7 +4,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Compute",
     "subCategory": "Virtual Machines",
     "title": "Microsoft provides a 1) 95% SLA for single instance virtual machines using Standard HDD storage for all OS and Data disks, 2) 99.5% SLA for single instance virtual machines using Standard SSD storage for all OS and Data disks, 3) 99.9% SLA for single instance virtual machines using Premium storage for all OS and Data disks, 4) 99.95% SLA for all virtual machines that have two or more instances in the same Availability Set or Dedicated Host Group, and a 5) 99.99% SLA for all virtual machines that have two or more instances deployed across two or more Availability Zones in the same region.",
@@ -15,7 +15,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Compute",
     "subCategory": "Virtual Machines",
     "title": "For all virtual machines requiring resiliency, it is highly recommended that:",
@@ -41,7 +41,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Compute",
     "subCategory": "Virtual Machines",
     "title": "Azure Metadata Service Scheduled Events should be used to proactively respond to maintenance events (i.e. reboots) and limit disruption to virtual machines.",
@@ -52,7 +52,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Compute",
     "subCategory": "Virtual Machines",
     "title": "Azure Backup should be used to back-up virtual machines within a Recovery Services Vault, to protect against accidental data loss.",
@@ -69,7 +69,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Compute",
     "subCategory": "Virtual Machines",
     "title": "Enable diagnostic logging for all virtual machines to ensure health metrics, boot diagnostics and infrastructure logs are routed to Log Analytics or an alternative log aggregation technology.",
@@ -80,7 +80,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Compute",
     "subCategory": "Virtual Machines",
     "title": "Establish virtual machine Resource Health alerts to notify key stakeholders when resource health events occur.",
@@ -91,7 +91,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Compute",
     "subCategory": "Virtual Machines",
     "title": "To ensure application scalability while navigating within disk sizing thresholds, it is highly recommended that applications be installed on data disks rather than thee OS disk."
@@ -101,7 +101,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Compute",
     "subCategory": "Virtual Machines",
     "title": "To identify resiliency risks to existing compute resources and support continuous compliance for new resources within a customer tenant, it is recommended that Azure Policy and Azure Resource Graph be used to Audit the use of non-resilient deployment configurations."
@@ -111,7 +111,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Compute",
     "subCategory": "Virtual Machines",
     "title": "Query to **identify standalone single instance VMs that are not protected by a minimum SLA of at least 99.5%**. It will return all VM instances that are not deployed within an Availability Set or across Availability Zones and are not using either Standard SSD or Premium SSD for both OS and Data disks.",
@@ -127,7 +127,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Compute",
     "subCategory": "Virtual Machines",
     "title": "The following query expands on the identification of standalone instances by **identifying any Availability Sets containing single instance VMs**, which are exposed to the same risks as standalone single instances outside of an Availability Set.",
@@ -138,7 +138,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Compute",
     "subCategory": "Virtual Machines",
     "title": "Azure policy definition to **audit standalone single instance VMs that are not protected by a SLA**. It will flag an audit event for all Virtual Machine instances that are not deployed witin an Availability Set or across Availability Zones and are not using Premium Storage for both OS and Data disks. It also encompasses both Virtual Machine and Virtual Machine Scale Set resources.",
@@ -154,7 +154,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Compute",
     "subCategory": "Virtual Machines",
     "title": "Azure policy definition to **audit Availability Sets containing single instance VMs that are not protected by a SLA**. It will flag an audit event for all Availability Sets that does not contain multiple instances.",
@@ -165,7 +165,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Compute",
     "subCategory": "Azure Kubernetes Service (AKS)",
     "title": "For customers subscribing to the Azure Kubernetes Service (AKS) Uptime SLA, Microsoft guarantees 1) 99.95% availability of the Kubernetes API server endpoint for AKS Clusters that use Azure Availability Zones, and 2) 99.9% availability for AKS Clusters that not use Azure Availability Zones. For customers that do not wish to subscribe to the AKS uptime SLA, Microsoft provides a service level objective (SLO) of 99.5%."
@@ -175,7 +175,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Compute",
     "subCategory": "Azure Kubernetes Service (AKS)",
     "title": "The SLA for agent (worker) nodes within an AKS cluster is covered by the standard [Virtual Machine SLA](#virtual-machines) which is dependent on the chosen deployment configuration and whether an Availability Set or Availability Zones are used.",
@@ -186,7 +186,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Compute",
     "subCategory": "Azure Kubernetes Service (AKS)",
     "title": "For all AKS clusters requiring resiliency, it is highly recommended that:",
@@ -204,7 +204,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Compute",
     "subCategory": "Azure Kubernetes Service (AKS)",
     "title": "Virtual Machine Scale Set deployment configurations should be used to unlock cluster autoscaling and the use of multiple node pools.",
@@ -219,7 +219,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Compute",
     "subCategory": "Azure Kubernetes Service (AKS)",
     "title": "Use [Managed Identities](https://docs.microsoft.com/azure/aks/use-managed-identity) to avoid having to manage and rotate service principles."
@@ -229,7 +229,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Compute",
     "subCategory": "Azure Kubernetes Service (AKS)",
     "title": "Adopt a [multi-region strategy](https://docs.microsoft.com/en-gb/azure/aks/operator-best-practices-multi-region#plan-for-multiregion-deployment) by deploying AKS clusters deployed across different Azure regions to maximize availability and provide business continuity.",
@@ -244,7 +244,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Compute",
     "subCategory": "Azure Kubernetes Service (AKS)",
     "title": "Store container images within Azure Container Registry and enable [geo-replication](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region#enable-geo-replication-for-container-images) to replicate container images across leveraged AKS regions. "
@@ -254,7 +254,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Compute",
     "subCategory": "Azure Kubernetes Service (AKS)",
     "title": "Query to identify AKS clusters that are not deployed across **Availability Zones**:",
@@ -265,7 +265,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Compute",
     "subCategory": "Azure Kubernetes Service (AKS)",
     "title": "Query to identify AKS clusters that are deployed within a AvailabilitySet:",
@@ -276,7 +276,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Compute",
     "subCategory": "Azure Kubernetes Service (AKS)",
     "title": "Query to identify AKS clusters that are not deployed using a **Managed Identity**:",
@@ -287,7 +287,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Compute",
     "subCategory": "Azure App Service",
     "title": "Microsoft guarantees that Apps will be available 99.95% of the time. However, no SLA is provided for Apps using either the Free or Shared tiers.",
@@ -298,7 +298,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Compute",
     "subCategory": "Azure App Service",
     "title": "Azure App Service provides a number of configuration options that are not enabled by default. For all App Services requiring resiliency, it is highly recommended that:",
@@ -345,7 +345,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Compute",
     "subCategory": "Azure App Service",
     "title": "For App Service Environments, ensure ASE is deployed within in [highly available configuration](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/enterprise-integration/ase-high-availability-deployment) across Availability Zones.",
@@ -356,7 +356,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Compute",
     "subCategory": "Azure App Service",
     "title": "For App Service Environments, ensure the [ASE Network](https://docs.microsoft.com/en-us/azure/app-service/environment/network-info) is configured correctly.",
@@ -367,7 +367,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Compute",
     "subCategory": "Azure App Service",
     "title": "For App Service Environments, consider configuring [Upgrade Preference](https://docs.microsoft.com/en-us/azure/app-service/environment/using-an-ase#upgrade-preference) if multiple environments are used.",
@@ -378,7 +378,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Compute",
     "subCategory": "Azure App Service",
     "title": "For App Service Environments, plan for scaling out the ASE cluster",
@@ -389,7 +389,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Compute",
     "subCategory": "Azure App Service",
     "title": "When deploying application code or configuration, it is highly recommended that:",
@@ -413,7 +413,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Compute",
     "subCategory": "Azure App Service",
     "title": "Query to identify App Service Plans with **only 1 instance**:",
@@ -424,7 +424,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Compute",
     "subCategory": "Azure App Service",
     "title": "[The Ultimate Guide to Running Healthy Apps in the Cloud](https://azure.github.io/AppService/2020/05/15/Robust-Apps-for-the-cloud.html)"
@@ -434,7 +434,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Compute",
     "subCategory": "Service Fabric",
     "title": "Azure Service Fabric does not provide its own SLA. The availability of Service Fabric clusters is based on the underlying Virtual Machine and Storage resources used."
@@ -444,7 +444,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Compute",
     "subCategory": "Service Fabric",
     "title": "Virtual Machine Scale Sets also do not have an SLA, since the SLA for Virtual Machines applies here. If the Virtual Machine Scale Set includes Virtual Machines in at least 2 Fault Domains, the availability of the underlying Virtual Machines SLA for two or more instances applies. If the scale set contains a single Virtual Machine, the availability for a Single Instance Virtual Machine applies.",
@@ -455,7 +455,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Compute",
     "subCategory": "Service Fabric",
     "title": "Review the [Service Fabric production readiness checklist](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-production-readiness-checklist)"
@@ -465,7 +465,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Compute",
     "subCategory": "Service Fabric",
     "title": "Use durability level Silver (5 VMs) or higher for production scenarios. ",
@@ -476,7 +476,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Compute",
     "subCategory": "Service Fabric",
     "title": "Use reliability level Silver or higher for production scenarios."
@@ -486,7 +486,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Compute",
     "subCategory": "Service Fabric",
     "title": "For critical workloads, consider using Availability Zones for your Service Fabric clusters. ",
@@ -497,7 +497,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Compute",
     "subCategory": "Service Fabric",
     "title": "To expose services on the Service Fabric cluster, use a reverse proxy such as the Service Fabric reverse proxy or Traefik. When exposing APIs hosted on the cluster, consider using Azure API Management.",
@@ -508,7 +508,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Compute",
     "subCategory": "Service Fabric",
     "title": "For production scenarios, use the Standard tier load balancer. The Basic SKU is free, but does not have an SLA."
@@ -518,7 +518,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Compute",
     "subCategory": "Service Fabric",
     "title": "Keep the different node types and gateway services on different subnets."
@@ -528,7 +528,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Compute",
     "subCategory": "Service Fabric",
     "title": "Apply Network Security Groups (NSG) to restrict traffic flow between subnets/node types. Ensure that the [correct ports](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-best-practices-networking#cluster-networking) are opened for managing the cluster. ",
@@ -539,7 +539,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Compute",
     "subCategory": "Service Fabric",
     "title": "When using secrets (connection strings, passwords) in SF services, either retrieve them directly from Keyvault at runtime or use the [Service Fabric Secrets Store](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-secret-store)"
@@ -549,7 +549,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Compute",
     "subCategory": "Service Fabric",
     "title": "When using the Service Fabric Secret Store to distribute secrets, use a separate data encipherment certificate to encrypt the values. ",
@@ -560,7 +560,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Compute",
     "subCategory": "Service Fabric",
     "title": "Do not use self-signed certificates for production scenarios. Either provision a certificate through your PKI or use a public certificate authority."
@@ -570,7 +570,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Compute",
     "subCategory": "Service Fabric",
     "title": "Deploy certificates by adding them to Azure Keyvault and referencing the URI in your deployment."
@@ -580,7 +580,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Compute",
     "subCategory": "Service Fabric",
     "title": "Have a process in place for monitoring the expiration date of certificates. ",
@@ -591,7 +591,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Compute",
     "subCategory": "Service Fabric",
     "title": "Enable Azure Active Directory integration for your cluster to ensure users can access Service Fabric Explorer using their AAD credentials. Do not distribute the cluster certificate among users to access Explorer. "
@@ -601,7 +601,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Compute",
     "subCategory": "Service Fabric",
     "title": "Exclude the Service Fabric processes from Windows Defender to improve performance",
@@ -612,7 +612,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Data ",
     "subCategory": "Azure SQL Database \t",
     "title": "Azure SQL Database is a fully managed platform as a service (PaaS) database engine that handles most of the database management functions . Azure SQL Database is always running on the latest stable version of the SQL Server database engine and patched OS with 99.99% availability. PaaS capabilities that are built into Azure SQL Database enable you to focus on the domain-specific database administration and optimization activities that are critical for your business. "
@@ -622,7 +622,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Data ",
     "subCategory": "Azure SQL Database \t",
     "title": "Azure SQL Database is having built-in regional high availability and turnkey geo-replication to any Azure region. It includes intelligence to support self-driving features such as performance tuning, threat monitoring, and vulnerability assessments and provides fully automated patching and updating of the code base."
@@ -632,7 +632,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Data ",
     "subCategory": "Azure SQL Database \t",
     "title": "Azure SQL Database Business Critical or Premium tiers configured as Zone Redundant Deployments have an availability guarantee of at least 99.995%."
@@ -642,7 +642,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Data ",
     "subCategory": "Azure SQL Database \t",
     "title": "Azure SQL Database Business Critical or Premium tiers not configured for Zone Redundant Deployments, General Purpose, Standard, or Basic tiers, or Hyperscale tier with two or more replicas have an availability guarantee of at least 99.99%."
@@ -652,7 +652,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Data ",
     "subCategory": "Azure SQL Database \t",
     "title": "Azure SQL Database Hyperscale tier with one replica has an availability guarantee of at least 99.95% and 99.9% for zero replicas."
@@ -662,7 +662,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Data ",
     "subCategory": "Azure SQL Database \t",
     "title": "Azure SQL Database Business Critical tier configured with geo-replication has a guarantee of Recovery point objective (RPO) of 5 sec for 100% of deployed hours."
@@ -672,7 +672,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Data ",
     "subCategory": "Azure SQL Database \t",
     "title": "Azure SQL Database Business Critical tier configured with geo-replication has a guarantee of Recovery time objective (RTO) of 30 sec for 100% of deployed hours."
@@ -682,7 +682,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Data ",
     "subCategory": "Azure SQL Database \t",
     "title": "Use point-in-time restore**  to recover from human error. Point-in-time restore returns your database to an earlier point in time to recover data from changes done inadvertently. For more information, read the PITR documentation for https://docs.microsoft.com/en-us/azure/azure-sql/database/recovery-using-backups#point-in-time-restore "
@@ -692,7 +692,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Data ",
     "subCategory": "Azure SQL Database \t",
     "title": "Use geo-restore to recover from a service outage**. You can restore a database on any SQL Database server or an instance database on any managed instance in any Azure region from the most recent geo-replicated backups. Geo-restore uses a geo-replicated backup as its source. You can request geo-restore even if the database or datacenter is inaccessible due to an outage. Geo-restore restores a database from a geo-redundant backup. For more information, see [Recover an Azure SQL database using automated database backups](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups)"
@@ -702,7 +702,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Data ",
     "subCategory": "Azure SQL Database \t",
     "title": "Use sharding**: Sharding is a technique of distributing data and processing across many identically structured databases , provides an alternative to traditional scale-up approaches both in terms of cost and elasticity. Consider using sharding to partition the database horizontally. Sharding can provide fault isolation. For more information, see [Scaling out with Azure SQL Database.](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-scale-introduction)"
@@ -712,7 +712,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Data ",
     "subCategory": "Azure SQL Database \t",
     "title": "Define an application performance SLA and monitor it with alerts**. Detecting quickly when your application performance inadvertently degrades below an acceptable level is important to maintain high resiliency. Use the monitoring solution defined above to set alerts on key query performance metrics to you can take action when the performance breaks the SLA. [Monitor Your Database](https://docs.microsoft.com/en-us/azure/azure-sql/database/monitor-tune-overview)"
@@ -722,7 +722,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Data ",
     "subCategory": "Azure SQL Database \t",
     "title": "Configure HA/DR that best feed your needs from following options**   : Azure Sql DB  offers the following capabilities for recovering from an outage, It is advised to implement one or combination of one or more depending on Business RTO/RPO requirements : ",
@@ -743,7 +743,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Data ",
     "subCategory": "Azure SQL Database \t",
     "title": "Monitor your Azure Sql DB in near-real time to detect reliability incidents**. Use one of the available solutions to monitor SQL DB to detect potential reliability incidents early and make your databases more reliable. Choosing a near real-time monitoring solution is key to quickly react to incidents. Learn more details about Azure SQL Analytics [Here](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/azure-sql#analyze-data-and-create-alerts)  "
@@ -753,7 +753,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Data ",
     "subCategory": "Azure SQL Database \t",
     "title": "Backup your keys**: If you are not [using encryption keys in Azure key vault to protect your data](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-always-encrypted-azure-key-vault) , backup your keys!"
@@ -763,7 +763,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Data ",
     "subCategory": "Azure SQL Database \t",
     "title": "Implement Retry Logic** :  Although Azure SQL Database is resilient on the transitive infrastructure failures, these failures might affect your connectivity. When a transient error occurs while working with SQL Database, make sure your code must be able to retry the call. Follow the link for detailed instruction on how to [Implement retry logic](https://docs.microsoft.com/en-us/azure/azure-sql/database/troubleshoot-common-connectivity-issues). "
@@ -773,7 +773,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Data ",
     "subCategory": "Azure SQL Managed Instance",
     "title": "Use point-in-time restore to recover from human error**. Point-in-time restore returns your database to an earlier point in time to recover data from changes done inadvertently. For more information, read the [PITR documentation for managed instance](https://docs.microsoft.com/en-us/azure/azure-sql/database/recovery-using-backups#point-in-time-restore)"
@@ -783,7 +783,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Data ",
     "subCategory": "Azure SQL Managed Instance",
     "title": "Use geo-restore to recover from a service outage**. Geo-restore restores a database from a geo-redundant backup into a managed instance in a different region. For more information, see [Recover a database using Geo-restore documentation](https://docs.microsoft.com/en-us/azure/azure-sql/database/auto-failover-group-overview)"
@@ -793,7 +793,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Data ",
     "subCategory": "Azure SQL Managed Instance",
     "title": "Define an application performance SLA and monitor it with alerts**. Detecting quickly when your application performance inadvertently degrades below an acceptable level is important to maintain high resiliency. Use the monitoring solution defined above to set alerts on key query performance metrics to you can take action when the performance breaks the SLA."
@@ -803,7 +803,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Data ",
     "subCategory": "Azure SQL Managed Instance",
     "title": "Consider the time required for certain operations**. Make sure you separate time to thoroughly test the amount of time required to scale up and down (change the size) your existing managed instance, and to create a new managed instance. This will ensure that you understand completely how these time consuming operations will affect your RTO and RPO."
@@ -813,7 +813,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Data ",
     "subCategory": "Azure SQL Managed Instance",
     "title": "Use Business Critical tier**. This tier provides higher resiliency to failures and faster failover times due to the underlying HA architecture, among other benefits. For more information, see [SQL Managed Instance High availability](https://docs.microsoft.com/en-us/azure/azure-sql/database/high-availability-sla)"
@@ -823,7 +823,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Data ",
     "subCategory": "Azure SQL Managed Instance",
     "title": "Configure a secondary instance and an Auto-failover group to enable failover to another region**. If an outage impacts one or more of the databases in the managed instance, you can manually or automatically failover all the databases inside the instance to a secondary region. For more information, read the [Auto-failover groups documentation for managed instance](https://docs.microsoft.com/en-us/azure/azure-sql/database/auto-failover-group-overview)"
@@ -833,7 +833,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Data ",
     "subCategory": "Azure SQL Managed Instance",
     "title": "Monitor your SQL MI instance in near-real time to detect reliability incidents**. Use one of the available solutions to monitor your SQL MI to detect potential reliability incidents early and make your databases more reliable. Choosing a near real-time monitoring solution is key to quickly react to incidents. For more information, read the [Azure SQL Managed Instance monitoring options](http://aka.ms/mi-monitoring)"
@@ -843,7 +843,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Data ",
     "subCategory": "Azure SQL Managed Instance",
     "title": "Implement Retry Logic** :  Although Azure SQL MI is resilient on the transitive infrastructure failures, these failures might affect your connectivity. When a transient error occurs while working with SQL MI, make sure your code must be able to retry the call. Follow the link for detailed instruction on how to [Implement retry logic](https://docs.microsoft.com/en-us/azure/azure-sql/database/troubleshoot-common-connectivity-issues). "
@@ -853,7 +853,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Data ",
     "subCategory": "Cosmos DB",
     "title": "99.99% SLAs for throughput, consistency, availability and latency for Database Accounts scoped to a single Azure region configured with any of the five Consistency Levels or Database Accounts spanning to multiple Azure regions, configured with any of the four relaxed Consistency Levels. "
@@ -863,7 +863,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Data ",
     "subCategory": "Cosmos DB",
     "title": "99.999% SLA for read availability for Database Accounts spanning two or more Azure region."
@@ -873,7 +873,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Data ",
     "subCategory": "Cosmos DB",
     "title": "99.999% SLA for both read and write availability with the configuration of multiple Azure regions as writable endpoints.",
@@ -884,7 +884,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Data ",
     "subCategory": "Cosmos DB",
     "title": "It is strongly recommended that you configure the Azure Cosmos accounts used for production workloads to enable [automatic failover](https://docs.microsoft.com/en-us/azure/cosmos-db/high-availability#multi-region-accounts-with-a-single-write-region-write-region-outage). "
@@ -894,7 +894,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Data ",
     "subCategory": "Cosmos DB",
     "title": "Session is default consistency level, and it is the most widely used [consistency level](https://docs.microsoft.com/en-us/azure/cosmos-db/consistency-levels). It is the recommended consistency level to start with as it receives data later but in the same order as the writes."
@@ -904,7 +904,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Data ",
     "subCategory": "Cosmos DB",
     "title": "Use [Azure Monitor](https://docs.microsoft.com/en-us/azure/cosmos-db/monitor-cosmos-db) to see the provisioned autoscale max RU/s (Autoscale Max Throughput) and the RU/s the system is currently scaled to (Provisioned Throughput)."
@@ -914,7 +914,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Data ",
     "subCategory": "Cosmos DB",
     "title": "Understand your traffic pattern in order to pick the right option for [provisioned throughput types](https://docs.microsoft.com/en-us/azure/cosmos-db/how-to-choose-offer)."
@@ -924,7 +924,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Data ",
     "subCategory": "Cosmos DB",
     "title": "For new applications, if you don’t know your traffic pattern yet, start at the entry point RU/s to avoid over-provisioning in the beginning."
@@ -934,7 +934,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Data ",
     "subCategory": "Cosmos DB",
     "title": "For existing applications:",
@@ -955,7 +955,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Data ",
     "subCategory": "Cosmos DB",
     "title": "Of all hours in a month, if you set provisioned RU/s T and use the full amount for 66% of the hours or more, it's estimated you'll save with standard (manual) provisioned RU/s. If you set autoscale max RU/s Tmax and use the full amount Tmax for 66% of the hours or less, it's estimated you'll save with autoscale."
@@ -965,7 +965,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Data ",
     "subCategory": "Cosmos DB",
     "title": "If multi-master option is enabled on Cosmos DB, it is important to understand [Conflict Types and Resolution Policies](https://docs.microsoft.com/en-us/azure/cosmos-db/conflict-resolution-policies)."
@@ -975,7 +975,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Data ",
     "subCategory": "Cosmos DB",
     "title": "[Selecting partition key](https://docs.microsoft.com/en-us/azure/cosmos-db/partitioning-overview#choose-partitionkey) is a simple, but very important design choice:",
@@ -1002,7 +1002,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Data ",
     "subCategory": "Cosmos DB",
     "title": "For query-intensive workloads, use Windows 64-bit instead of Linux or Windows 32-bit host processing. "
@@ -1012,7 +1012,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Data ",
     "subCategory": "Cosmos DB",
     "title": "If client is consuming more than 50,000 RU/s, there could be bottleneck due to machine capping out on CPU or network utilization. If you reach this point, it is recommended to scale out client applications across multiple servers."
@@ -1022,7 +1022,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Data ",
     "subCategory": "Cosmos DB",
     "title": "Call [OpenAsync](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.documents.client.documentclient.openasync?view=azure-dotnet) to avoid startup latency on first request."
@@ -1032,7 +1032,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Data ",
     "subCategory": "Cosmos DB",
     "title": "In order to avoid network latency, collocate client in same region as cosmos db."
@@ -1042,7 +1042,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Data ",
     "subCategory": "Cosmos DB",
     "title": "Increase the number of threads /tasks."
@@ -1052,7 +1052,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Data ",
     "subCategory": "Cosmos DB",
     "title": "To reduce latency and CPU jitter, it is recommended to enable accelerated networking on client virtual machines both [Windows](https://docs.microsoft.com/en-us/azure/virtual-network/create-vm-accelerated-networking-powershell) and [Linux](https://docs.microsoft.com/en-us/azure/virtual-network/create-vm-accelerated-networking-cli).    "
@@ -1062,7 +1062,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Data ",
     "subCategory": "Cosmos DB",
     "title": "Implement [retry logic](https://docs.microsoft.com/en-us/azure/architecture/best-practices/retry-service-specific#cosmos-db) in your client."
@@ -1072,7 +1072,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Data ",
     "subCategory": "Cosmos DB",
     "title": "In order to check if multi location is not selected you can use the following query: ",
@@ -1083,7 +1083,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Data ",
     "subCategory": "Cosmos DB",
     "title": "To check for cosmosdb instances where automatic failover is not enabled:",
@@ -1094,7 +1094,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Data ",
     "subCategory": "Cosmos DB",
     "title": "Query to see the list of multi-region writes:",
@@ -1105,7 +1105,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Data ",
     "subCategory": "Cosmos DB",
     "title": "To see the consistency levels for your cosmos db accounts you can use the query below: ",
@@ -1116,7 +1116,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Data ",
     "subCategory": "Cosmos DB",
     "title": "[High Availability in Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/high-availability)"
@@ -1126,7 +1126,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Data ",
     "subCategory": "Cosmos DB",
     "title": "[Auto-Scale FAQ](https://docs.microsoft.com/en-us/azure/cosmos-db/autoscale-faq)"
@@ -1136,7 +1136,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Data ",
     "subCategory": "Cosmos DB",
     "title": "[Performance Tips for Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/performance-tips)"
@@ -1146,7 +1146,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Messaging",
     "subCategory": "Event Grid",
     "title": "Azure EventGrid provides a 99.99% uptime SLA"
@@ -1156,7 +1156,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Messaging",
     "subCategory": "Event Grid",
     "title": "In case of a multi-region Azure solution, deploy an Event Grid instance per region."
@@ -1166,7 +1166,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Messaging",
     "subCategory": "Event Grid",
     "title": "In high-throughput scenarios, use batched events. This means that the service will deliver a json array with multiple events to the subscribers, instead of an array with one event. The consuming application must be able to process these arrays."
@@ -1176,7 +1176,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Messaging",
     "subCategory": "Event Grid",
     "title": "Event batches cannot exceed 1MB in size. This means that if the message payload is large, only one or a few messages will fit in the batch. This means that the consuming service will need to process more event batches. If your event has a large payload, consider storing it elsewhere (e.g. blob storage) and passing a reference in the event. When integrating with third-party services through the CloudEvents schema, it is recommended [not to exceed 64kb events](https://github.com/cloudevents/spec/blob/v1.0/spec.md#size-limits)."
@@ -1186,7 +1186,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Messaging",
     "subCategory": "Event Grid",
     "title": "Batch size selection depends on the payload size and the message volume. This should be a configurable parameter and optimizing this should be done during load-testing. "
@@ -1196,7 +1196,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Messaging",
     "subCategory": "Event Grid",
     "title": "If EventGrid delivers to an endpoint that holds custom code, ensure that the message is accepted with an HTTP 200-204 response only when it can be successfully processed. "
@@ -1206,7 +1206,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Messaging",
     "subCategory": "Event Grid",
     "title": "Monitor EventGrid for failed event publishing (Publish Failed metric). Additionally, the 'Unmatched' metric will show messages that are published, but not matched to any subscription. Depending on your application architecutre, the latter may be intentional."
@@ -1216,7 +1216,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Messaging",
     "subCategory": "Event Grid",
     "title": "Monitor EventGrid for failed event delivery. The 'Delivery Failed' metric will increase every time a message cannot be delivered to an event handler (timeout or a non 200-204 HTTP status code). Additionally, if an event must not be lost, set up a Dead-Letter-Queue (DLQ) storage account. This is where events that cannot be delivered after the maximum retry count will be placed. Optionally, implement a notification system on the DLQ storage account, e.g. by handling a 'new file' event through Event Grid."
@@ -1226,7 +1226,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Messaging",
     "subCategory": "Event Hub",
     "title": "Azure Event Hubs has a [published SLA](https://azure.microsoft.com/en-us/support/legal/sla/event-hubs) of 99.95% for the Basic and Standard Tiers, and 99.99% for the Dedicated Tier."
@@ -1236,7 +1236,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Messaging",
     "subCategory": "Event Hub",
     "title": "The number of partitions reflect the degree of downstream paralellism you can achieve. For maximum throughput, use the maximum number of partitions (32) when creating the Event Hub. This will allow you to scale up to 32 concurrent processing entities and will offer the highest send/receive availability."
@@ -1246,7 +1246,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Messaging",
     "subCategory": "Event Hub",
     "title": "In high-throughput scenarios, use batched events. This means that the service will deliver a json array with multiple events to the subscribers, instead of an array with one event. The consuming application must be able to process these arrays."
@@ -1256,7 +1256,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Messaging",
     "subCategory": "Event Hub",
     "title": "As part of your solution-wide availability and disaster recovery strategy, consider enabling the EventHub geo disaster-recovery option. This will allow the creation of a seconary namespace in a different region. Note that only the active namespace receives messages at any time and that messages and events themselves are not replicated to the secondary region. ",
@@ -1267,7 +1267,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Messaging",
     "subCategory": "Event Hub",
     "title": "When developing new applications, use EventProcessorClient (.Net and Java) or EventHubConsumerClient (Python and Javascript) as the client SDK. EventProcessorHost has been deprecated. "
@@ -1277,7 +1277,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Messaging",
     "subCategory": "Event Hub",
     "title": "Every consumer can read events from 1 to 32 partitions. To achieve maximum scale on the side of the consuming application, every consumer should read from a single partition. "
@@ -1287,7 +1287,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Messaging",
     "subCategory": "Event Hub",
     "title": "Do not publish events to a specific partition. If ordering of events is essential, implement this downstream or use a different messaging service instead."
@@ -1297,7 +1297,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Messaging",
     "subCategory": "Event Hub",
     "title": "Create SendOnly and ListenOnly policies for the event publisher and consumer, respecively. "
@@ -1307,7 +1307,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Messaging",
     "subCategory": "Event Hub",
     "title": "When publishing events frequently, use the AMQP protocol when possible. AMQP has higher network costs when initializing the session, however HTTPS requires additional TLS overhead for every request. AMQP has higher performance for frequent publishers."
@@ -1317,7 +1317,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Messaging",
     "subCategory": "Event Hub",
     "title": "When a solution has a large number of independent event publishers, consider using Event Publishers for fine-grained access control. Note that is automatically sets the partition key to the publisher name, so this should only be used if the events originate from all publishers evenly. "
@@ -1327,7 +1327,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Messaging",
     "subCategory": "Event Hub",
     "title": "When using the Capture feature, carefully consider the configuration of the time window and file size, especially with low event volumes. Data Lake will charge small for a minimal file size for storage (gen1) or minimal transaction size (gen2). This means that if you set the time window so low that the file has not reached minimum size, you will incur a lot of extra cost."
@@ -1337,7 +1337,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Messaging",
     "subCategory": "Event Hub",
     "title": "Ensure each consuming application uses a seprate consumer group and only one active receiver per consumer group is in place. "
@@ -1347,7 +1347,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Messaging",
     "subCategory": "Event Hub",
     "title": "When using the SDK to send events to Event Hubs, ensure the exceptions thrown by the [retry policy](https://docs.microsoft.com/en-us/azure/architecture/best-practices/retry-service-specific#event-hubs) (EventHubsException or OperationCancelledException) are properly caught. When using HTTPS, ensure a proper retry pattern is implemented."
@@ -1357,7 +1357,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Messaging",
     "subCategory": "Event Hub",
     "title": "Find Event Hub namespaces with 'Basic' SKU:",
@@ -1368,7 +1368,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Messaging",
     "subCategory": "Service Bus",
     "title": "For Service Bus Queues and Topics, Microsoft guarantees that at least 99.9% of the time, properly configured applications will be able to send or receive messages or perform other operations on a deployed Queue or Topic. [SLA Documentation](https://azure.microsoft.com/en-us/support/legal/sla/service-bus)"
@@ -1378,7 +1378,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Messaging",
     "subCategory": "Service Bus",
     "title": "However, when deploying Service Bus with Geo-disaster recovery and in availability zones, the SLO increases dramatically, but does not change the financially backed SLA of 99.9% availability."
@@ -1388,7 +1388,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Messaging",
     "subCategory": "Service Bus",
     "title": "[Partitioned Queues and Topics](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-partitioning)"
@@ -1398,7 +1398,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Messaging",
     "subCategory": "Service Bus",
     "title": "[Express Entities](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress)"
@@ -1408,7 +1408,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Messaging",
     "subCategory": "Service Bus",
     "title": "In addition to the documentation on [Service Bus Premium and Standard messaging tiers](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging), these features are only available on the Premium SKU.",
@@ -1447,7 +1447,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Messaging",
     "subCategory": "Service Bus",
     "title": "If you need mission critical messaging with queues/topics, Service Bus Premium is recommended with Geo-Disaster Recovery. Choosing the pattern is dependent on the busincess requirements and the recovery time objective (RTO)."
@@ -1457,7 +1457,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Messaging",
     "subCategory": "Service Bus",
     "title": "Geo-Disaster",
@@ -1481,7 +1481,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Messaging",
     "subCategory": "Service Bus",
     "title": "Make the namespace zone redundant (only available with Premium)"
@@ -1491,7 +1491,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Messaging",
     "subCategory": "Service Bus",
     "title": "Review the Service Bus performance improvements documentation https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-performance-improvements"
@@ -1501,7 +1501,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Messaging",
     "subCategory": "Service Bus",
     "title": "Connect to Service Bus with the AMQP protocol and utilize Service Endpoints or Private Endpoints when possible. This keeps traffic on the Azure Backbone. Note: the default connection protocol for Microsoft.Azure.ServiceBus and Windows.Azure.ServiceBus namespaces is AMQP."
@@ -1511,7 +1511,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Messaging",
     "subCategory": "Service Bus",
     "title": "Ensure that Service Bus messaging exceptions are handled properly.",
@@ -1522,7 +1522,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Messaging",
     "subCategory": "Service Bus",
     "title": "Query to identify Service Bus Instances that are not on the premium tier:",
@@ -1533,7 +1533,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Messaging",
     "subCategory": "Service Bus",
     "title": "Query to identify premium Service Bus Instances that are not zone redundant:",
@@ -1544,7 +1544,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Messaging",
     "subCategory": "Service Bus",
     "title": "Query to identify premium Service Bus Instances that are not using private endpoints:",
@@ -1555,7 +1555,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Messaging",
     "subCategory": "Storage Queues",
     "title": "Azure Storage Queues follow the SLA statements of the general [Storage Account service](https://azure.microsoft.com/en-us/support/legal/sla/storage/v1_5/). Currently (v1.5) this specifies a 99.9% guarantee for LRS, ZRS and GRS accounts and a 99.99% guarantee for RA-GRS (provided that requests to RA-GRS switch to secondary endpoints if there is no success on the primary endpoint)"
@@ -1565,7 +1565,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Messaging",
     "subCategory": "Storage Queues",
     "title": "Since Storage Queues are part of the Azure Storage service, please refer to the general storage guidance, in addition to the configuration recommendations mentioned below."
@@ -1575,7 +1575,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Messaging",
     "subCategory": "Storage Queues",
     "title": "Using geo-zone-redundant storage (GZRS) or read-access geo-zone-redundant storage (RA-GZRS) will provide 16 nines or durability and will protect against failover if an entire datacenter becomes unavailable. https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy "
@@ -1585,7 +1585,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Messaging",
     "subCategory": "Storage Queues",
     "title": "For an SLA increase from three to four nines, use geo-redundant storage with read access and configure the client application to fail over to secondary read endpoints if the primary endpoints fail to respond. This consideration should be part of the overall reliability strategy of your solution."
@@ -1595,7 +1595,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Messaging",
     "subCategory": "Storage Queues",
     "title": "Refer to the 'Storage' guidance for specifics on data recovery for storage accounts"
@@ -1605,7 +1605,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Messaging",
     "subCategory": "Storage Queues",
     "title": "Ensure that for all clients accessing the storage account, a proper [retry policy](https://docs.microsoft.com/en-us/azure/architecture/best-practices/retry-service-specific#azure-storage) is implemented."
@@ -1615,7 +1615,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Messaging",
     "subCategory": "Storage Queues",
     "title": "Query to identify storage accounts using V1 storage accounts:",
@@ -1626,7 +1626,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Messaging",
     "subCategory": "Storage Queues",
     "title": "Query to identify storage accounts using locally redundant storage (LRS):",
@@ -1637,7 +1637,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Hybrid",
     "subCategory": "Azure Stack Hub",
     "title": "Microsoft does not provide an SLA for Azure Stack Hub** because Microsoft does not have control over customer datacenter reliability, people, and processes."
@@ -1647,7 +1647,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Hybrid",
     "subCategory": "Azure Stack Hub",
     "title": "Azure Stack Hub currently only supports a single Scale Unit (SU) within in a single Region, which can consist of between 4 and 16 servers that use Hyper-V failover clustering; each region serves as an independent Azure Stack Hub \"stamp\" with separate portal and API endpoints.",
@@ -1658,7 +1658,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Hybrid",
     "subCategory": "Azure Stack Hub",
     "title": "Azure Stack Hub supports **Premium Storage** to ensure compatibility, however, provisioning premium storage accounts or disks does not guarantee that storage objects will be allocated onto SSD or NVMe drives."
@@ -1668,7 +1668,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Hybrid",
     "subCategory": "Azure Stack Hub",
     "title": "Azure Stack Hub supports only a subset of [VPN Gateway SKUs](https://docs.microsoft.com/en-us/azure-stack/user/azure-stack-vpn-gateway-about-vpn-gateways#estimated-aggregate-throughput-by-sku) available in Azure with a limited bandwidth of 100 or 200 Mbps. ",
@@ -1679,7 +1679,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Hybrid",
     "subCategory": "Azure Stack Hub",
     "title": "Azure Stack Hub does currently not support [Virtual network peering](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview). ",
@@ -1690,7 +1690,7 @@
     "pillars": [
       "reliability"
     ],
-    "lens": "application",
+    "lens": "service",
     "category": "Hybrid",
     "subCategory": "Azure Stack Hub",
     "title": "Treat Azure Stack Hub as a scale unit and deploy multiple instances to remove Azure Stack Hub as a single point of failure for encompassed workloads. ",
