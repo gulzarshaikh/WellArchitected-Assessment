@@ -1,4 +1,4 @@
-# Service-specific reliability recommendation
+# Service-specific reliability guidance
 
 This list contains design considerations and recommended configuration options, specific to individual Azure services.
 # Compute
@@ -6,12 +6,12 @@ This list contains design considerations and recommended configuration options, 
 ### Design Considerations
 * Microsoft provides a 1) 95% SLA for single instance virtual machines using Standard HDD storage for all OS and Data disks, 2) 99.5% SLA for single instance virtual machines using Standard SSD storage for all OS and Data disks, 3) 99.9% SLA for single instance virtual machines using Premium storage for all OS and Data disks, 4) 99.95% SLA for all virtual machines that have two or more instances in the same Availability Set or Dedicated Host Group, and a 5) 99.99% SLA for all virtual machines that have two or more instances deployed across two or more Availability Zones in the same region.
   > [Virtual Machine Service Level Agreements](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/)
-            
+                    
 ### Configuration Recommendations
 * For all virtual machines requiring resiliency, it is highly recommended that:
   - Managed Disks should be used for all virtual machine OS and Data disks to ensure resilience across underlying storage stamps within a datacenter.
     > [Managed Disk Benefits](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/managed-disks-overview#benefits-of-managed-disks)
-                    
+                        
                     
   - Singleton workloads should use Premium Managed Disks to enhance resiliency and obtain a 99.9% SLA as well as dedicated performance characteristics.
                     
@@ -19,31 +19,31 @@ This list contains design considerations and recommended configuration options, 
                     
   - Where appropriate virtual machines should be deployed across Availability Zones to maximize resilience within a region.
     > [Datacenter Fault Tolerance](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability#use-availability-zones-to-protect-from-datacenter-level-failures)
-                    
+                        
                     
 * Azure Metadata Service Scheduled Events should be used to proactively respond to maintenance events (i.e. reboots) and limit disruption to virtual machines.
   > [Azure Metadata Service Scheduled Events](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/scheduled-events)
-            
+                    
 * Azure Backup should be used to back-up virtual machines within a Recovery Services Vault, to protect against accidental data loss.
   > [Azure Backup](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-introduction)
-            
+                    
   - Enable Soft Delete for the Recovery Services vault to protect against accidental or malicious deletion of backup data, ensuring the ability to recover.
     > [Azre Backup Soft Delete](https://docs.microsoft.com/en-us/azure/backup/backup-azure-security-feature-cloud)
-                    
+                        
                     
 * Enable diagnostic logging for all virtual machines to ensure health metrics, boot diagnostics and infrastructure logs are routed to Log Analytics or an alternative log aggregation technology.
   > [Diagnostic Logs](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/platform-logs-overview)
-            
+                    
 * Establish virtual machine Resource Health alerts to notify key stakeholders when resource health events occur.
   > An appropriate threshold for resource unavailability must be set to minimize signal to noise ratios so that transient faults do not generate an alert. For example, configuring a virtual machine alert with an unavailability threshold of 1 minute before an alert is triggered.[Resource Health Alerts](https://docs.microsoft.com/en-gb/azure/service-health/resource-health-alert-arm-template-guide)
-            
+                    
 * To ensure application scalability while navigating within disk sizing thresholds, it is highly recommended that applications be installed on data disks rather than thee OS disk.
 ## Azure Kubernetes Service (AKS)
 ### Design Considerations
 * For customers subscribing to the Azure Kubernetes Service (AKS) Uptime SLA, Microsoft guarantees 1) 99.95% availability of the Kubernetes API server endpoint for AKS Clusters that use Azure Availability Zones, and 2) 99.9% availability for AKS Clusters that not use Azure Availability Zones. For customers that do not wish to subscribe to the AKS uptime SLA, Microsoft provides a service level objective (SLO) of 99.5%.
 * The SLA for agent (worker) nodes within an AKS cluster is covered by the standard [Virtual Machine SLA](#virtual-machines) which is dependent on the chosen deployment configuration and whether an Availability Set or Availability Zones are used.
   > [AKS Service Level Agreements](https://azure.microsoft.com/support/legal/sla/kubernetes-service/v1_1/)[AKS Uptime SLA Offering](https://docs.microsoft.com/en-us/azure/aks/uptime-sla)
-            
+                    
 ### Configuration Recommendations
 * For all AKS clusters requiring resiliency, it is highly recommended that:
   - Use [Availability Zones](https://docs.microsoft.com/azure/aks/availability-zones) to maximize resilience within a region by distributing AKS agent nodes across physically separate data centers.
@@ -62,74 +62,74 @@ This list contains design considerations and recommended configuration options, 
 ### Design Considerations
 * Microsoft guarantees that Apps will be available 99.95% of the time. However, no SLA is provided for Apps using either the Free or Shared tiers.
   > [SLA for App Service](https://azure.microsoft.com/en-us/support/legal/sla/app-service/v1_4/)
-            
+                    
 ### Configuration Recommendations
 * Azure App Service provides a number of configuration options that are not enabled by default. For all App Services requiring resiliency, it is highly recommended that:
   - Use Basic or higher plans with 2 or more worker instances for high availability.
                     
   - Evaluate the use of [TCP and SNAT ports](https://docs.microsoft.com/en-us/azure/app-service/troubleshoot-intermittent-outbound-connection-errors#cause) to avoid outbound connection errors
     > TCP connections are used for all outbound connections whereas SNAT ports are used when making outbound connections to public IP addresses.SNAT port exhaustion is a common failure scenario that can be predicted by load testing while monitoring ports using Azure Diagnostics. If a load test results in SNAT errors, it is necessary to either scale across more/larger workers, or implement coding practices to help preserve and re-use SNAT ports, such as connection pooling and the lazy loading of resources.It is recommended not to exceed 100 simultaneous outbound connections to a public IP Address per worker, and to avoid communicating with downstream services via public IP addresses when a private address (Private Endpoint) or Service Endpoint through vNet Integration could be used.TCP port exhaustion happens when the sum of connection from a given worker exceeds the capacity. The number of available TCP ports depend on the size of the worker. The following table lists the current limits:|  |Small (B1, S1, P1, I1)|Medium (B2, S2, P2, I2)|Large (B3, S3, P3, I3)||---------|---------|---------|---------||TCP ports|1920|3968|8064|Applications with lots of longstanding connections require ports to be left open for long periods of time, which can lead to TCP Connection exhaustion. TCP Connection limits are fixed based on instance size, so it is necessary to scale up to a larger worker size to increase the allotment of TCP connections, or implement code level mitigations to govern connection usage. Similar to SNAT port exhaustion, Azure Diagnostics can be used to identify if a problem exists with TCP port limits.
-                    
+                        
                     
   - Enable [AutoHeal](https://azure.github.io/AppService/2018/09/10/Announcing-the-New-Auto-Healing-Experience-in-App-Service-Diagnostics.html) to automatically recycle unhealthy workers.
     > This feature is currently only available to Windows Plans.
-                    
+                        
                     
   - Enable [Health Check](https://aka.ms/appservicehealthcheck) to identify non-responsive workers.
     > Any health check is better than none at all, however, the logic behind endpoint tests should assess all critical downstream dependencies to ensure overall health. It is also recommended practice to track application health and cache status in real time as this removes unnecessary delays before  action can be taken.
-                    
+                        
                     
   - Enable [AutoScale](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/autoscale-get-started?toc=/azure/app-service/toc.json) to ensure adequate resources are available to service requests.
     > The default limit of App Service workers is 30.  If the App Service routinely uses 15 or more instances, consider opening a support ticket to increase the maximum number of workers to 2x the instance count required to serve normal peak load.
-                    
+                        
                     
   - Enable [Local Cache](https://docs.microsoft.com/en-us/azure/app-service/overview-local-cache) to reduce dependencies on cluster file servers.
     > Enabling local cache is not always appropriate because it can lead to slower worker startup times. However, when coupled with Deployment Slots, it can improve resiliency by removing dependencies on file servers and also reduces storage-related recycle events. However, Local cache should not be used with a single worker instance or when shared storage is required.
-                    
+                        
                     
   - Enable [Diagnostic Logging](https://docs.microsoft.com/en-us/Azure/app-service/troubleshoot-diagnostic-logs) to provide insight into application behavior.
     > Diagnostic logging provides the ability to ingest rich application and platform level logs into either Log Analytics, Azure Storage, or a third party tool via Event Hub.
-                    
+                        
                     
   - Enable [Application Insights Alerts](https://docs.microsoft.com/en-us/Azure/azure-monitor/app/azure-web-apps) to be made aware of fault conditions.
     > Application performance monitoring with Application Insights provides deep insights into application performance. For Windows Plans a &#39;codeless deployment&#39; approach is possible to quickly get insights without changing any code.
-                    
+                        
                     
   - Review [Azure App Service diagnostics](https://docs.microsoft.com/en-us/azure/app-service/overview-diagnostics) to ensure common problems are addressed.
     > It is a good practice to regularly review service-related diagnostics and recommendations and take action as appropriate.
-                    
+                        
                     
 * For App Service Environments, ensure ASE is deployed within in [highly available configuration](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/enterprise-integration/ase-high-availability-deployment) across Availability Zones.
   > Configuring ASE to use Availability Zones by deploying ASE across specific zones ensures applications can continue to operate even in the event of a data center level failure. This provides excellent redundancy without requiring multiple deployments in different Azure regions.
-            
+                    
 * For App Service Environments, ensure the [ASE Network](https://docs.microsoft.com/en-us/azure/app-service/environment/network-info) is configured correctly.
   > One common ASE pitfall occurs when ASE is deployed into a subnet with an IP Address space that is too small to support future expansion. In such cases, ASE can be left unable to scale without redeploying the entire environment into a larger subnet. It is highly recomended that adequate IP addresses be used to support either the maximum number of workers or the largest number considered workloads will need. A single ASE cluster can scale to 201 instance, which would require a /24 subnet.
-            
+                    
 * For App Service Environments, consider configuring [Upgrade Preference](https://docs.microsoft.com/en-us/azure/app-service/environment/using-an-ase#upgrade-preference) if multiple environments are used.
   > If lower environments are used for staging or testing, consideration should be given to configuring these environments to receive updates sooner than the production environment. This will help to identify any conflicts or problems with an update and provides a window to mitigate issues before they reach the production environment.If multiple load balanced (zonal) production deployments are used, upgrade preference can also be used to protect the broader environment against issues from platform upgrades.
-            
+                    
 * For App Service Environments, plan for scaling out the ASE cluster
   > Scaling ASE instances vertically or horizontally currently takes 30-60 minutes as new private instances need to be provisioned. It is highly recomended that effort be invested up-front to plan for scaling during spikes in load or transient failure scenarios.
-            
+                    
 * When deploying application code or configuration, it is highly recommended that:
   - Use [Deployment Slots](https://docs.microsoft.com/en-us/azure/app-service/deploy-staging-slots) for resilient code deployments.
     > Deployment Slots allow for code to be deployed to instances that are warmed-up before serving production traffic.[Azure Friday](https://www.youtube.com/watch?v=MP8fXgxq6xo)[blog post](https://ruslany.net/2019/06/azure-app-service-deployment-slots-tips-and-tricks/)
-                    
+                        
                     
   - Avoid Unnecessary Worker restarts
     > There are a number of events that can lead App Service workers to restart, such as content deployment, App Settings changes, and VNet intergration configuration changes. It is best practice to make changes in a deployment slot other than the slot currently configured to accept production traffic. After workers are recycled and warmed up, a &#34;swap&#34; can be performed without unnecessary down time.
-                    
+                        
                     
   - Use [&#34;Run From Package&#34;](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) to avoid deployment conflicts
     > Run from Package provides several advantages:Eliminates file lock conflicts between deployment and runtime.Ensures only full-deployed apps are running at any time.May reduce cold-start times, particularly for JavaScript functions with large npm package trees.
-                    
+                        
                     
 ## Service Fabric
 ### Design Considerations
 * Azure Service Fabric does not provide its own SLA. The availability of Service Fabric clusters is based on the underlying Virtual Machine and Storage resources used.
 * Virtual Machine Scale Sets also do not have an SLA, since the SLA for Virtual Machines applies here. If the Virtual Machine Scale Set includes Virtual Machines in at least 2 Fault Domains, the availability of the underlying Virtual Machines SLA for two or more instances applies. If the scale set contains a single Virtual Machine, the availability for a Single Instance Virtual Machine applies.
   > [Service Fabric](https://azure.microsoft.com/en-us/support/legal/sla/service-fabric/v1_0/)[Virtual Machine Scale Set](https://azure.microsoft.com/en-us/support/legal/sla/virtual-machine-scale-sets/v1_1/)
-            
+                    
 # Data 
 ## Azure SQL Database 	
 ### Configuration Recommendations
@@ -155,7 +155,7 @@ This list contains design considerations and recommended configuration options, 
 * 99.999% SLA for read availability for Database Accounts spanning two or more Azure region.
 * 99.999% SLA for both read and write availability with the configuration of multiple Azure regions as writable endpoints.
   > [Cosmos DB Service Level Agreements](https://azure.microsoft.com/en-us/support/legal/sla/cosmos-db/v1_3/)
-            
+                    
 ### Configuration Recommendations
 * It is strongly recommended that you configure the Azure Cosmos accounts used for production workloads to enable [automatic failover](https://docs.microsoft.com/en-us/azure/cosmos-db/high-availability#multi-region-accounts-with-a-single-write-region-write-region-outage). 
 * Session is default consistency level, and it is the most widely used [consistency level](https://docs.microsoft.com/en-us/azure/cosmos-db/consistency-levels). It is the recommended consistency level to start with as it receives data later but in the same order as the writes.
@@ -195,14 +195,14 @@ This list contains design considerations and recommended configuration options, 
 * Microsoft does not provide an SLA for Azure Stack Hub** because Microsoft does not have control over customer datacenter reliability, people, and processes.
 * Azure Stack Hub currently only supports a single Scale Unit (SU) within in a single Region, which can consist of between 4 and 16 servers that use Hyper-V failover clustering; each region serves as an independent Azure Stack Hub &#34;stamp&#34; with separate portal and API endpoints.
   > Azure Stack Hub does therefore **not support Availability Zones** as it currently consists only of a single &#34;region&#34; (aka a single physical location). High availability to cope with outages of a single location should be implemented by using two Azure Stack Hub instances deployed into different pyhsical locations.
-            
+                    
 * Azure Stack Hub supports **Premium Storage** to ensure compatibility, however, provisioning premium storage accounts or disks does not guarantee that storage objects will be allocated onto SSD or NVMe drives.
 * Azure Stack Hub supports only a subset of [VPN Gateway SKUs](https://docs.microsoft.com/en-us/azure-stack/user/azure-stack-vpn-gateway-about-vpn-gateways#estimated-aggregate-throughput-by-sku) available in Azure with a limited bandwidth of 100 or 200 Mbps. 
   > Only one site-to-site (S2S) VPN connection can be created between two Azure Stack Hub deployments. This is due to a limitation in the platform that only allows a single VPN connection to the same IP address. Multiple S2S VPN connections with higher throughput can be established using 3rd-party NVAs.
-            
+                    
 * Azure Stack Hub does currently not support [Virtual network peering](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview). 
   > Two networks (on the same Azure Stack Hub &#34;stamp&#34;) can also not be connected via Azure (Stack) VPN GWs as they&#39;re sharing the same IP address. Virtual networks on Azure Stack Hub can be connected using 3rd-party NVAs (e.g. [Fortinet Fortigate](https://docs.microsoft.com/en-us/azure-stack/user/azure-stack-network-howto-vnet-to-vnet?view=azs-2002)).
-            
+                    
 ### Configuration Recommendations
 * Treat Azure Stack Hub as a scale unit and deploy multiple instances to remove Azure Stack Hub as a single point of failure for encompassed workloads. 
   - Deploy workloads in either an active-active or active-passive configuration across Azure Stack Hub stamps and/or Azure.
@@ -227,7 +227,7 @@ This list contains design considerations and recommended configuration options, 
 * In high-throughput scenarios, use batched events. This means that the service will deliver a json array with multiple events to the subscribers, instead of an array with one event. The consuming application must be able to process these arrays.
 * As part of your solution-wide availability and disaster recovery strategy, consider enabling the EventHub geo disaster-recovery option. This will allow the creation of a seconary namespace in a different region. Note that only the active namespace receives messages at any time and that messages and events themselves are not replicated to the secondary region. 
   > Note: The RTO for the regional failover is &#39;up to 30 minutes&#39;. Confirm this aligns with the requirements of the customer and fits in the broader availability strategy. If a higher RTO is required, consider implementing a client-side failover pattern too.
-            
+                    
 * When developing new applications, use EventProcessorClient (.Net and Java) or EventHubConsumerClient (Python and Javascript) as the client SDK. EventProcessorHost has been deprecated. 
 * Every consumer can read events from 1 to 32 partitions. To achieve maximum scale on the side of the consuming application, every consumer should read from a single partition. 
 * Do not publish events to a specific partition. If ordering of events is essential, implement this downstream or use a different messaging service instead.
@@ -278,7 +278,7 @@ This list contains design considerations and recommended configuration options, 
 * Connect to Service Bus with the AMQP protocol and utilize Service Endpoints or Private Endpoints when possible. This keeps traffic on the Azure Backbone. Note: the default connection protocol for Microsoft.Azure.ServiceBus and Windows.Azure.ServiceBus namespaces is AMQP.
 * Ensure that Service Bus messaging exceptions are handled properly.
   > [Service Bus Messaging Exceptions](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-exceptions)
-            
+                    
 ## Storage Queues
 ### Design Considerations
 * Azure Storage Queues follow the SLA statements of the general [Storage Account service](https://azure.microsoft.com/en-us/support/legal/sla/storage/v1_5/). Currently (v1.5) this specifies a 99.9% guarantee for LRS, ZRS and GRS accounts and a 99.99% guarantee for RA-GRS (provided that requests to RA-GRS switch to secondary endpoints if there is no success on the primary endpoint)
