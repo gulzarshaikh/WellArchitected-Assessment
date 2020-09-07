@@ -1,5 +1,7 @@
 # Reliability Assessment
 
+> Relates to: Application Design, Failure Mode Analysis, Application Dependencies
+
 {{- $pillars := slice "reliability" -}}
 
 {{- $filtered := where $.Site.Data.input "pillars" "intersect" $pillars -}}
