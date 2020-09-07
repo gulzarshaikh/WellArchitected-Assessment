@@ -135,9 +135,9 @@ Resources
 
 * Store container images within Azure Container Registry and enable [geo-replication](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region#enable-geo-replication-for-container-images) to replicate container images across leveraged AKS regions. 
 
-## Supporting Source Artifacts
+### Supporting Source Artifacts
 
-### Azure Resource Graph
+#### Azure Resource Graph
 
 * Query to identify AKS clusters that are not deployed across **Availability Zones**:
 

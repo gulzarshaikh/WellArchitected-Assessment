@@ -75,12 +75,6 @@ $md | % {
     elseif($_.ToString() -match "^\s*[#]{1}\s")
     {
         Write-Host "$_ is an H1 heading."
-    }
-
-    # It is a H2
-    elseif($_.ToString() -match "^\s*[#]{2}\s")
-    {
-        #Write-Host "$_ is a category"
 
         # Finding a new category means we're done with the current questions
         if($currentSubItem -ne $null)
@@ -98,10 +92,10 @@ $md | % {
         $currentCategory = strip -text $_
     }
 
-    # It's a H3
-    elseif($_.ToString() -match "^\s*[#]{3}\s")
+    # It is a H2
+    elseif($_.ToString() -match "^\s*[#]{2}\s")
     {
-        #Write-Host "$_ is a subcategory"
+        #Write-Host "$_ is a category"
         if($currentSubItem -ne $null)
         {
             $currentItem.children += $currentSubItem
@@ -115,13 +109,19 @@ $md | % {
         }
 
         $currentSubCategory = strip -text $_
+    }
+
+    # It's a H3
+    elseif($_.ToString() -match "^\s*[#]{3}\s")
+    {
+        #Write-Host "$_ is a subcategory"
         $currentType = strip -text $_
     }
 
     # It's a H4. 
     elseif($_.ToString() -match "^\s*[#]{4}\s")
     {
-        Write-Host "$_ is a sub-subcategory, but we're ignoring those."
+        #Write-Host "$_ is a sub-subcategory, but we're ignoring those."
     }
 
     # It's a question!
@@ -218,7 +218,7 @@ $md | % {
 
 
     elseif($_.ToString().Trim() -ne "") {
-        Write-Host "No match for:"
+       # Write-Host "No match for:"
         Write-Host $_
         $nomatchcount++
     }
