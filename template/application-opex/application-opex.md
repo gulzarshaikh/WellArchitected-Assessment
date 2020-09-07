@@ -1,8 +1,9 @@
 # Operational Excellence Assessment
 
 {{- $pillars := slice "opex" -}}
+{{- $lens := "application" -}}
 
-{{- $filtered := (and (where $.Site.Data.input "pillars" "intersect" $pillars) (where $.Site.Data.input "lens" "application")) -}}
+{{- $filtered := (and (where $.Site.Data.input "pillars" "intersect" $pillars) (where $.Site.Data.input "lens" $lens)) -}}
 
 {{- $categoriesDict := dict -}}
 

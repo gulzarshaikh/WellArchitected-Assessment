@@ -3,8 +3,9 @@
 > Relates to: Application Design, Failure Mode Analysis, Application Dependencies
 
 {{- $pillars := slice "reliability" -}}
+{{- $lens := "application" -}}
 
-{{- $filtered := (and (where $.Site.Data.input "pillars" "intersect" $pillars) (where $.Site.Data.input "lens" "application")) -}}
+{{- $filtered := (and (where $.Site.Data.input "pillars" "intersect" $pillars) (where $.Site.Data.input "lens" $lens)) -}}
 
 {{- $categoriesDict := dict -}}
 

@@ -3,8 +3,9 @@
 This is a combined assessment for reliability and Operational Excellence
 
 {{- $pillars := slice "reliability" "opex" -}}
+{{- $lens := "application" -}}
 
-{{- $filtered := (and (where $.Site.Data.input "pillars" "intersect" $pillars) (where $.Site.Data.input "lens" "application")) -}}
+{{- $filtered := (and (where $.Site.Data.input "pillars" "intersect" $pillars) (where $.Site.Data.input "lens" $lens)) -}}
 
 {{- $categoriesDict := dict -}}
 
