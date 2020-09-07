@@ -2,7 +2,7 @@
 
 {{- $pillars := slice "opex" -}}
 
-{{- $filtered := where $.Site.Data.input "pillars" "intersect" $pillars -}}
+{{- $filtered := (and (where $.Site.Data.input "pillars" "intersect" $pillars) (where $.Site.Data.input "lens" "application")) -}}
 
 {{- $categoriesDict := dict -}}
 

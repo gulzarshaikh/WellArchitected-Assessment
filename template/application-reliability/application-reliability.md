@@ -1,10 +1,10 @@
-# Reliability & OpEx Assessment
+# Reliability Assessment
 
-This is a combined assessment for reliability and Operational Excellence
+> Relates to: Application Design, Failure Mode Analysis, Application Dependencies
 
-{{- $pillars := slice "reliability" "opex" -}}
+{{- $pillars := slice "reliability" -}}
 
-{{- $filtered := where $.Site.Data.input "pillars" "intersect" $pillars -}}
+{{- $filtered := (and (where $.Site.Data.input "pillars" "intersect" $pillars) (where $.Site.Data.input "lens" "application")) -}}
 
 {{- $categoriesDict := dict -}}
 
