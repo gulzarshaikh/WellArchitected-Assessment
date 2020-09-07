@@ -1,0 +1,113 @@
+name: Generate Output Markdown
+
+on:
+  push:
+#    branches: [ nielshugopoc ] 
+
+jobs:
+  HugoBuild:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Merge data files
+        shell: pwsh
+        run: |
+          # All content of the 'data' directory is parsed and merged into a single json file
+          # that contains all the input. We're saving this one-up from the checked-out structure
+          # to avoid name collisions with files in the repo.
+
+          $AllItems = @()
+          Get-ChildItem -Path data | where { $_.Name -match ".json$" } | % {
+              Get-Content -Path $_.FullName | ConvertFrom-Json | %{
+                  if($_) 
+                  {
+                      $AllItems += $_
+                  }
+              }
+          }
+
+          $AllItems | ConvertTo-Json -Depth 10| Out-File allinput.json
+      
+      - uses: srt32/hugo-action@master
+        name: Create a new Hugo Environment
+        with: 
+          args: new site waf
+
+      - name: Move files into the Hugo directories
+        shell: pwsh
+        run: |
+          # give build agent the required permissions 
+          sudo chmod a+rw waf/ -R
+
+          # Give Hugo our one big data file generated in the first step:
+          Copy-Item -Path allinput.json -Destination waf/data/input.json
+          
+          # Each directory in the template directory will be a 'content type' in Hugo.
+          # The subdirectories of /template are referred to as 'projects' here.
+          Get-ChildItem -Directory template | % {
+            $project = $_.Name
+            # Create project directories under content and layouts:
+            New-Item -ItemType Directory -Path "waf/content/$project"
+            New-Item -ItemType Directory -Path "waf/layouts/$project"
+
+            # The content directories each need an empty .md file in them
+            New-Item -ItemType File -Path "waf/content/$project/$project.md"
+
+            # The template files have to be in the project directories under layouts, with html extensions:
+            Get-ChildItem -Path template/$project | % {
+              $filename = $_.Name -replace "\.md$",""
+              Copy-Item -Path $_.FullName -Destination "waf/layouts/$project/$filename.html"
+            }            
+          }
+
+      - uses: srt32/hugo-action@master
+        name: Build Hugo content
+        with: 
+          args: -s waf
+
+      - name: Copy files out of Hugo
+        shell: pwsh
+        run: |
+          # Process the output for each of the 'projects' that went in
+          # We use the directories under /template to get their names
+          Get-ChildItem -Directory template | % {
+            New-Item -ItemType Directory -Path "output/$($_.Name)" -Force
+            try {
+              Copy-Item -Path "waf/public/$($_.Name)/index.html" -Destination "output/$($_.Name)/$($_.Name).md"
+            } catch {
+              Write-Warning "Hugo output for $($_.Name) could not be found."
+              continue;
+            }
+          }
+
+      - name: Push files to repo
+        shell: pwsh
+        run: |
+          # Set the name on the commits as it will appear in Github
+          git config --global user.name 'Github Action'
+          git config --global user.email 'wellarchitected@users.noreply.github.com'
+     
+          # Everything coming from Hugo is in the output dir by now
+          git add 'output/'
+          git status --short
+
+          # Get the name of the commit that triggered the workflow, 
+          # so we can refer to it in our automated commit message.
+          $message = git log -1 --pretty=format:"%s"
+
+          # Only commit if there are changes to commit, otherwise commit will throw an error.
+          if(git status -uno --short) {
+            git commit -am "Auto update: $message"
+            git push origin
+          } 
+          else {
+            Write-Output "No changes to commit. Bye."
+          }
+
+#      - name: (Debug) Show all files
+#        if: ${{ always() }}
+#        shell: pwsh
+#        run: |
+#          gci -Recurse
