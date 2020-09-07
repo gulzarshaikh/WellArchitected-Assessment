@@ -1,4 +1,4 @@
-# Service-specific reliability recommendation
+# Service-specific reliability guidance
 
 This list contains design considerations and recommended configuration options, specific to individual Azure services.
 
@@ -31,20 +31,20 @@ This list contains design considerations and recommended configuration options, 
     {{- range $subCategory := $subCategories}}
 ## {{ $subCategory }}
         {{- $allItemsInSubCategory := (and (where $filtered "category" $category) (where $filtered "subCategory" $subCategory)) }}
-            {{- range $type := $types }}
-                {{- $itemsInType := where $allItemsInSubCategory "type" $type }}
-                {{- if $itemsInType }}
+        {{- range $type := $types }}
+            {{- $itemsInType := where $allItemsInSubCategory "type" $type }}
+            {{- if $itemsInType }}
 ### {{ $type }}
-                    {{- range $itemsInType }}
+                {{- range $itemsInType }}
 * {{ .title }}
-            {{- with .context}}
+                    {{- with .context}}
   > {{ . }}
-            {{ end }}
-            {{- range .children }}
-  - {{ .title }}
-                {{- with .context}}
-    > {{ . }}
                     {{ end }}
+                    {{- range .children }}
+  - {{ .title }}
+                        {{- with .context}}
+    > {{ . }}
+                        {{ end }}
                     {{ end }}
                 {{- end }}
             {{- end }}
