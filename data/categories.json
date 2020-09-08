@@ -1,0 +1,44 @@
+[
+    {
+        "id": "compute",
+        "title": "Compute",
+        "subCategories": [
+            {
+                "id": "aks",
+                "title": "Azure Kubernetes Service (AKS)"
+            },
+            {
+                "id": "appservices",
+                "title": "Azure App Service"
+            },
+            {
+                "id": "sf",
+                "title": "Service Fabric"
+            }
+        ]
+    },
+    {
+        "id": "appdesign",
+        "title": "Application Design",
+        "subCategories": [
+            {
+                "id": "appdesign_design",
+                "title": "Design"
+            },
+            {
+                "id": "appdesign_targetsnfrs",
+                "title": "Targets & Non Functional Requirements"
+            }
+        ]
+    },
+    {
+        "id": "healthmodelling",
+        "title": "Health Modelling",
+        "subCategories": [
+            {
+                "id": "healthmodelling_resourcemonitoring",
+                "title": "Resource/Infrastructure Level Monitoring"
+            }
+        ]
+    }
+]

@@ -19,7 +19,7 @@ jobs:
           # to avoid name collisions with files in the repo.
 
           $AllItems = @()
-          Get-ChildItem -Path data | where { $_.Name -match ".json$" } | % {
+          Get-ChildItem -Path data | where { $_.Name -match ".data.json$" } | % {
               Get-Content -Path $_.FullName | ConvertFrom-Json | %{
                   if($_) 
                   {

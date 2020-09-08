@@ -2,7 +2,8 @@
     {
       "type": "question",
       "pillars": [
-        "opex"
+        "opex",
+        "reliabilty"
       ],
       "lens": "application",
       "category": "Application Design",
@@ -14,6 +15,10 @@
           "title": "Is the application deployed in either active-active, active-passive, or isolated configurations across leveraged regions?",
           "context": "The regional deployment strategy will partly shape operational boundaries, particularly where operational procedures for recovery and scale are concerned"
         }
+      ],
+      "answers":[
+        "Yes, we using AZs",
+        "no, nothing"
       ]
     },
     {
