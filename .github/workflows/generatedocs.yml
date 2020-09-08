@@ -2,7 +2,9 @@ name: Generate Output Markdown
 
 on:
   push:
-#    branches: [ nielshugopoc ] 
+    branches:
+      - master
+      - workflowdev 
 
 jobs:
   HugoBuild:
@@ -57,6 +59,7 @@ jobs:
             $project = $project -replace "(^template.)|(\.md$)",""
 
             Write-Output "Adding project $project to Hugo."
+
             # Create project directories under content and layouts:
             New-Item -ItemType Directory -Path "waf/content/$project"
             New-Item -ItemType Directory -Path "waf/layouts/$project"
@@ -87,7 +90,6 @@ jobs:
             # Figure out and create the (nested) output directory
             $outputdir = $_.Directory.FullName.Substring($_.Directory.FullName.IndexOf("template"))
             $outputdir = "output/{0}"-f ($outputdir -replace "^template.","")
-            Write-Host "Project $project with outputdir $outputdir"
             New-Item -ItemType Directory -Path $outputdir -Force
 
             try {
@@ -122,8 +124,8 @@ jobs:
             Write-Output "No changes to commit. Bye."
           }
 
-      - name: (Debug) Show all files
-        if: ${{ always() }}
-        shell: pwsh
-        run: |
-          gci -Recurse
+#      - name: (Debug) Show all files
+#        if: ${{ always() }}
+#        shell: pwsh
+#        run: |
+#          gci -Recurse
