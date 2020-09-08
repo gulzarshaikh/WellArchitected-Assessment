@@ -17,9 +17,8 @@ This list contains design considerations and recommended configuration options, 
             {{- $contentInSubCategory := (and (where $filtered "category" $category.title) (where $filtered "subCategory" $subCategory.title)) -}}
             {{- if $contentInSubCategory }}
 ## {{ $subCategory.title }}
-                {{- $allItemsInSubCategory := (and (where $filtered "category" $category) (where $filtered "subCategory" $subCategory)) }}
                 {{- range $type := $types }}
-                    {{- $itemsInType := where $allItemsInSubCategory "type" $type }}
+                    {{- $itemsInType := where $contentInSubCategory "type" $type }}
                     {{- if $itemsInType }}
 ### {{ $type }}
                         {{- range $itemsInType }}
