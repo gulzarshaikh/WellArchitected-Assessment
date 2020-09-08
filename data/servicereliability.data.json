@@ -619,113 +619,113 @@
     "context": "By default, Windows Defender antivirus is installed on Windows Server 2016 and 2019. To reduce any performance impact and resource consumption overhead incurred by Windows Defender, and if your security policies allow you to exclude processes and paths for open-source software, you can [exclude](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-best-practices-security#windows-defender) the Service Fabric executables from Defender scans."
   },
   {
-    "type": "Design Considerations\t",
+    "type": "Design Considerations",
     "pillars": [
       "reliability"
     ],
     "lens": "service",
     "category": "Data ",
-    "subCategory": "Azure SQL Database \t",
+    "subCategory": "Azure SQL Database",
     "title": "Azure SQL Database is a fully managed platform as a service (PaaS) database engine that handles most of the database management functions . Azure SQL Database is always running on the latest stable version of the SQL Server database engine and patched OS with 99.99% availability. PaaS capabilities that are built into Azure SQL Database enable you to focus on the domain-specific database administration and optimization activities that are critical for your business. "
   },
   {
-    "type": "Design Considerations\t",
+    "type": "Design Considerations",
     "pillars": [
       "reliability"
     ],
     "lens": "service",
     "category": "Data ",
-    "subCategory": "Azure SQL Database \t",
+    "subCategory": "Azure SQL Database",
     "title": "Azure SQL Database is having built-in regional high availability and turnkey geo-replication to any Azure region. It includes intelligence to support self-driving features such as performance tuning, threat monitoring, and vulnerability assessments and provides fully automated patching and updating of the code base."
   },
   {
-    "type": "Design Considerations\t",
+    "type": "Design Considerations",
     "pillars": [
       "reliability"
     ],
     "lens": "service",
     "category": "Data ",
-    "subCategory": "Azure SQL Database \t",
+    "subCategory": "Azure SQL Database",
     "title": "Azure SQL Database Business Critical or Premium tiers configured as Zone Redundant Deployments have an availability guarantee of at least 99.995%."
   },
   {
-    "type": "Design Considerations\t",
+    "type": "Design Considerations",
     "pillars": [
       "reliability"
     ],
     "lens": "service",
     "category": "Data ",
-    "subCategory": "Azure SQL Database \t",
+    "subCategory": "Azure SQL Database",
     "title": "Azure SQL Database Business Critical or Premium tiers not configured for Zone Redundant Deployments, General Purpose, Standard, or Basic tiers, or Hyperscale tier with two or more replicas have an availability guarantee of at least 99.99%."
   },
   {
-    "type": "Design Considerations\t",
+    "type": "Design Considerations",
     "pillars": [
       "reliability"
     ],
     "lens": "service",
     "category": "Data ",
-    "subCategory": "Azure SQL Database \t",
+    "subCategory": "Azure SQL Database",
     "title": "Azure SQL Database Hyperscale tier with one replica has an availability guarantee of at least 99.95% and 99.9% for zero replicas."
   },
   {
-    "type": "Design Considerations\t",
+    "type": "Design Considerations",
     "pillars": [
       "reliability"
     ],
     "lens": "service",
     "category": "Data ",
-    "subCategory": "Azure SQL Database \t",
+    "subCategory": "Azure SQL Database",
     "title": "Azure SQL Database Business Critical tier configured with geo-replication has a guarantee of Recovery point objective (RPO) of 5 sec for 100% of deployed hours."
   },
   {
-    "type": "Design Considerations\t",
+    "type": "Design Considerations",
     "pillars": [
       "reliability"
     ],
     "lens": "service",
     "category": "Data ",
-    "subCategory": "Azure SQL Database \t",
+    "subCategory": "Azure SQL Database",
     "title": "Azure SQL Database Business Critical tier configured with geo-replication has a guarantee of Recovery time objective (RTO) of 30 sec for 100% of deployed hours."
   },
   {
-    "type": "Design Considerations\t",
+    "type": "Design Considerations",
     "pillars": [
       "reliability"
     ],
     "lens": "service",
     "category": "Data ",
-    "subCategory": "Azure SQL Database \t",
+    "subCategory": "Azure SQL Database",
     "title": "Use point-in-time restore**  to recover from human error. Point-in-time restore returns your database to an earlier point in time to recover data from changes done inadvertently. For more information, read the PITR documentation for https://docs.microsoft.com/en-us/azure/azure-sql/database/recovery-using-backups#point-in-time-restore "
   },
   {
-    "type": "Design Considerations\t",
+    "type": "Design Considerations",
     "pillars": [
       "reliability"
     ],
     "lens": "service",
     "category": "Data ",
-    "subCategory": "Azure SQL Database \t",
+    "subCategory": "Azure SQL Database",
     "title": "Use geo-restore to recover from a service outage**. You can restore a database on any SQL Database server or an instance database on any managed instance in any Azure region from the most recent geo-replicated backups. Geo-restore uses a geo-replicated backup as its source. You can request geo-restore even if the database or datacenter is inaccessible due to an outage. Geo-restore restores a database from a geo-redundant backup. For more information, see [Recover an Azure SQL database using automated database backups](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups)"
   },
   {
-    "type": "Design Considerations\t",
+    "type": "Design Considerations",
     "pillars": [
       "reliability"
     ],
     "lens": "service",
     "category": "Data ",
-    "subCategory": "Azure SQL Database \t",
+    "subCategory": "Azure SQL Database",
     "title": "Use sharding**: Sharding is a technique of distributing data and processing across many identically structured databases , provides an alternative to traditional scale-up approaches both in terms of cost and elasticity. Consider using sharding to partition the database horizontally. Sharding can provide fault isolation. For more information, see [Scaling out with Azure SQL Database.](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-scale-introduction)"
   },
   {
-    "type": "Design Considerations\t",
+    "type": "Design Considerations",
     "pillars": [
       "reliability"
     ],
     "lens": "service",
     "category": "Data ",
-    "subCategory": "Azure SQL Database \t",
+    "subCategory": "Azure SQL Database",
     "title": "Define an application performance SLA and monitor it with alerts**. Detecting quickly when your application performance inadvertently degrades below an acceptable level is important to maintain high resiliency. Use the monitoring solution defined above to set alerts on key query performance metrics to you can take action when the performance breaks the SLA. [Monitor Your Database](https://docs.microsoft.com/en-us/azure/azure-sql/database/monitor-tune-overview)"
   },
   {
@@ -735,7 +735,7 @@
     ],
     "lens": "service",
     "category": "Data ",
-    "subCategory": "Azure SQL Database \t",
+    "subCategory": "Azure SQL Database",
     "title": "Configure HA/DR that best feed your needs from following options**   : Azure Sql DB  offers the following capabilities for recovering from an outage, It is advised to implement one or combination of one or more depending on Business RTO/RPO requirements : ",
     "children": [
       {
@@ -756,7 +756,7 @@
     ],
     "lens": "service",
     "category": "Data ",
-    "subCategory": "Azure SQL Database \t",
+    "subCategory": "Azure SQL Database",
     "title": "Monitor your Azure Sql DB in near-real time to detect reliability incidents**. Use one of the available solutions to monitor SQL DB to detect potential reliability incidents early and make your databases more reliable. Choosing a near real-time monitoring solution is key to quickly react to incidents. Learn more details about Azure SQL Analytics [Here](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/azure-sql#analyze-data-and-create-alerts)  "
   },
   {
@@ -766,7 +766,7 @@
     ],
     "lens": "service",
     "category": "Data ",
-    "subCategory": "Azure SQL Database \t",
+    "subCategory": "Azure SQL Database",
     "title": "Backup your keys**: If you are not [using encryption keys in Azure key vault to protect your data](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-always-encrypted-azure-key-vault) , backup your keys!"
   },
   {
@@ -776,7 +776,7 @@
     ],
     "lens": "service",
     "category": "Data ",
-    "subCategory": "Azure SQL Database \t",
+    "subCategory": "Azure SQL Database",
     "title": "Implement Retry Logic** :  Although Azure SQL Database is resilient on the transitive infrastructure failures, these failures might affect your connectivity. When a transient error occurs while working with SQL Database, make sure your code must be able to retry the call. Follow the link for detailed instruction on how to [Implement retry logic](https://docs.microsoft.com/en-us/azure/azure-sql/database/troubleshoot-common-connectivity-issues). "
   },
   {
