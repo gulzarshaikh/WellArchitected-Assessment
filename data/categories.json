@@ -1,11 +1,19 @@
 [
     {
-        "id": "dummy",
-        "title": "Dummy category",
+        "id": "compute",
+        "title": "Compute",
         "subCategories": [
             {
-                "id": "dummy_foo",
-                "title": "FOO"
+                "id": "aks",
+                "title": "Azure Kubernetes Service (AKS)"
+            },
+            {
+                "id": "appservices",
+                "title": "Azure App Service"
+            },
+            {
+                "id": "sf",
+                "title": "Service Fabric"
             }
         ]
     },
