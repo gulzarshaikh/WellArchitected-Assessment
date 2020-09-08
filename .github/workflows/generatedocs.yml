@@ -59,7 +59,7 @@ jobs:
             $project = $project -replace "(^template.)|(\.md$)",""
 
             Write-Output "Adding project $project to Hugo."
-            
+
             # Create project directories under content and layouts:
             New-Item -ItemType Directory -Path "waf/content/$project"
             New-Item -ItemType Directory -Path "waf/layouts/$project"
@@ -124,8 +124,8 @@ jobs:
             Write-Output "No changes to commit. Bye."
           }
 
-      - name: (Debug) Show all files
-        if: ${{ always() }}
-        shell: pwsh
-        run: |
-          gci -Recurse
+#      - name: (Debug) Show all files
+#        if: ${{ always() }}
+#        shell: pwsh
+#        run: |
+#          gci -Recurse
