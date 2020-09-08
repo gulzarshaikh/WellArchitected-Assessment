@@ -7,7 +7,7 @@ This list contains design considerations and recommended configuration options, 
 
 {{- $filtered := (and (where $.Site.Data.input "pillars" "intersect" $pillars) (where $.Site.Data.input "lens" $lens)) -}}
 
-{{- $types := slice "Design Considerations" "Configuration Recommendations" -}}
+{{- $types := slice "Design Considerations" "Configuration Recommendations" "Supporting Source Artifacts" -}}
 
 {{- range $category := $.Site.Data.categories -}}
     {{- $contentInCategory := where $filtered "category" $category.title -}}
@@ -23,11 +23,17 @@ This list contains design considerations and recommended configuration options, 
 ### {{ $type }}
                         {{- range $itemsInType }}
 * {{ .title }}
+                            {{- with .code}}
+  {{ (print "```\n" . "```\n") | markdownify }} 
+                            {{ end }}    
                             {{- with .context}}
   > {{ . }}
                             {{ end }}
                             {{- range .children }}
   - {{ .title }}
+                                {{- with .code}}
+    {{ (print "```\n" . "```\n") | markdownify }} 
+                                {{ end }}   
                                 {{- with .context}}
     > {{ . }}
                                 {{ end }}
