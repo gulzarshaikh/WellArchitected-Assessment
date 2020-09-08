@@ -23,6 +23,29 @@ This list contains design considerations and recommended configuration options, 
   - Internet facing workloads should leverage Azure Front Door, [Azure Traffic Manager](https://docs.microsoft.com/en-gb/azure/aks/operator-best-practices-multi-region#use-azure-traffic-manager-to-route-traffic), or a third-party CDN to route traffic globally across AKS clusters.
                             
 * Store container images within Azure Container Registry and enable [geo-replication](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region#enable-geo-replication-for-container-images) to replicate container images across leveraged AKS regions. 
+### Supporting Source Artifacts
+* Query to identify AKS clusters that are not deployed across **Availability Zones**:
+  <pre><code>Resources
+| where
+    type =~ 'Microsoft.ContainerService/managedClusters'
+	and isnull(zones)
+</code></pre> 
+                            
+* Query to identify AKS clusters that are deployed within a AvailabilitySet:
+  <pre><code>Resources
+| where
+    type =~ 'Microsoft.ContainerService/managedClusters'
+	and properties.agentPoolProfiles[0].type != 'VirtualMachineScaleSets'
+| project name, location, resourceGroup, subscriptionId, properties.agentPoolProfiles[0].type
+</code></pre> 
+                            
+* Query to identify AKS clusters that are not deployed using a **Managed Identity**:
+  <pre><code>Resources
+| where
+    type =~ 'Microsoft.ContainerService/managedClusters'
+	and isnull(identity)
+</code></pre> 
+                            
 ## Azure App Service
 ### Design Considerations
 * Microsoft guarantees that Apps will be available 99.95% of the time. However, no SLA is provided for Apps using either the Free or Shared tiers.
