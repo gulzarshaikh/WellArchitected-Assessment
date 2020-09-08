@@ -43,11 +43,20 @@ jobs:
 
           # Give Hugo our one big data file generated in the first step:
           Copy-Item -Path allinput.json -Destination waf/data/input.json
+
+          # Copy data files that are not containing questions into Hugo, e.g. categories
+          Get-ChildItem -Path data | where { $_.Name -notmatch ".data.json$" } | % {
+              Copy-Item -Path $_.FullName -Destination "waf/data"
+          }
           
-          # Each directory in the template directory will be a 'content type' in Hugo.
-          # The subdirectories of /template are referred to as 'projects' here.
-          Get-ChildItem -Directory template | % {
-            $project = $_.Name
+          # Each file in the template directory will be a 'content type' in Hugo.
+          
+          Get-ChildItem -Recurse -File template | % {
+            $project = $_.FullName.Substring($_.FullName.IndexOf("template"))
+            $project = $project -replace "/","-"
+            $project = $project -replace "(^template.)|(\.md$)",""
+
+            Write-Output "Adding project $project to Hugo."
             # Create project directories under content and layouts:
             New-Item -ItemType Directory -Path "waf/content/$project"
             New-Item -ItemType Directory -Path "waf/layouts/$project"
@@ -56,10 +65,7 @@ jobs:
             New-Item -ItemType File -Path "waf/content/$project/$project.md"
 
             # The template files have to be in the project directories under layouts, with html extensions:
-            Get-ChildItem -Path template/$project | % {
-              $filename = $_.Name -replace "\.md$",""
-              Copy-Item -Path $_.FullName -Destination "waf/layouts/$project/$filename.html"
-            }            
+            Copy-Item -Path $_.FullName -Destination "waf/layouts/$project/$project.html"
           }
 
       - uses: srt32/hugo-action@master
@@ -72,10 +78,20 @@ jobs:
         run: |
           # Process the output for each of the 'projects' that went in
           # We use the directories under /template to get their names
-          Get-ChildItem -Directory template | % {
-            New-Item -ItemType Directory -Path "output/$($_.Name)" -Force
+
+          Get-ChildItem -Recurse -File template | % {
+            $project = $_.FullName.Substring($_.FullName.IndexOf("template"))
+            $project = $project -replace "/","-"
+            $project = $project -replace "(^template.)|(\.md$)",""
+
+            # Figure out and create the (nested) output directory
+            $outputdir = $_.Directory.FullName.Substring($_.Directory.FullName.IndexOf("template"))
+            $outputdir = "output/{0}"-f ($outputdir -replace "^template.","")
+            Write-Host "Project $project with outputdir $outputdir"
+            New-Item -ItemType Directory -Path $outputdir -Force
+
             try {
-              Copy-Item -Path "waf/public/$($_.Name)/index.html" -Destination "output/$($_.Name)/$($_.Name).md"
+              Copy-Item -Path "waf/public/$project/index.html" -Destination "$outputdir/$($_.Name)"
             } catch {
               Write-Warning "Hugo output for $($_.Name) could not be found."
               continue;
@@ -106,8 +122,8 @@ jobs:
             Write-Output "No changes to commit. Bye."
           }
 
-#      - name: (Debug) Show all files
-#        if: ${{ always() }}
-#        shell: pwsh
-#        run: |
-#          gci -Recurse
+      - name: (Debug) Show all files
+        if: ${{ always() }}
+        shell: pwsh
+        run: |
+          gci -Recurse
