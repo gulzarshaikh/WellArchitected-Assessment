@@ -1,43 +1,269 @@
 [
     {
-        "id": "compute",
-        "title": "Compute",
-        "subCategories": [
-            {
-                "id": "aks",
-                "title": "Azure Kubernetes Service (AKS)"
-            },
-            {
-                "id": "appservices",
-                "title": "Azure App Service"
-            },
-            {
-                "id": "sf",
-                "title": "Service Fabric"
-            }
-        ]
-    },
-    {
-        "id": "appdesign",
         "title": "Application Design",
         "subCategories": [
             {
-                "id": "appdesign_design",
+                "title": "Application Composition"
+            },
+            {
+                "title": "Dependencies"
+            },
+            {
                 "title": "Design"
             },
             {
-                "id": "appdesign_targetsnfrs",
+                "title": "Failure Mode Analysis"
+            },
+            {
+                "title": "Key Scenarios"
+            },
+            {
                 "title": "Targets & Non Functional Requirements"
             }
         ]
     },
     {
-        "id": "healthmodelling",
+        "title": "Application Platform Availability",
+        "subCategories": [
+            {
+                "title": "Application State and Configuration"
+            },
+            {
+                "title": "Compute Availability"
+            },
+            {
+                "title": "Service SKU"
+            }
+        ]
+    },
+    {
+        "title": "Capacity & Service Availability",
+        "subCategories": [
+            {
+                "title": "Capacity"
+            },
+            {
+                "title": "Service Availability"
+            }
+        ]
+    },
+    {
+        "title": "Compute",
+        "subCategories": [
+            {
+                "title": "Azure App Service"
+            },
+            {
+                "title": "Azure Kubernetes Service (AKS)"
+            },
+            {
+                "title": "Service Fabric"
+            },
+            {
+                "title": "Virtual Machines"
+            }
+        ]
+    },
+    {
+        "title": "Data ",
+        "subCategories": [
+            {
+                "title": "Azure SQL Database"
+            },
+            {
+                "title": "Azure SQL Managed Instance"
+            },
+            {
+                "title": "Cosmos DB"
+            }
+        ]
+    },
+    {
+        "title": "Data Platform Availability",
+        "subCategories": [
+            {
+                "title": "Consistency"
+            },
+            {
+                "title": "Replication and Redundancy"
+            },
+            {
+                "title": "Service SKU"
+            }
+        ]
+    },
+    {
+        "title": "Deployment & Testing",
+        "subCategories": [
+            {
+                "title": "Application Deployments"
+            },
+            {
+                "title": "Application Infrastructure Deployments & Infrastructure as Code (IaC)"
+            },
+            {
+                "title": "Build Environments"
+            },
+            {
+                "title": "Testing & Validation"
+            }
+        ]
+    },
+    {
         "title": "Health Modelling",
         "subCategories": [
             {
-                "id": "healthmodelling_resourcemonitoring",
+                "title": "Alerting"
+            },
+            {
+                "title": "Application Level Monitoring"
+            },
+            {
+                "title": "Dashboarding"
+            },
+            {
+                "title": "Data Interpretation & Health Modelling"
+            },
+            {
                 "title": "Resource/Infrastructure Level Monitoring"
+            }
+        ]
+    },
+    {
+        "title": "Hybrid",
+        "subCategories": [
+            {
+                "title": "Azure Stack Hub"
+            }
+        ]
+    },
+    {
+        "title": "Messaging",
+        "subCategories": [
+            {
+                "title": "Event Grid"
+            },
+            {
+                "title": "Event Hub"
+            },
+            {
+                "title": "Service Bus"
+            },
+            {
+                "title": "Storage Queues"
+            }
+        ]
+    },
+    {
+        "title": "Networking & Connectivity",
+        "subCategories": [
+            {
+                "title": "Connectivity"
+            },
+            {
+                "title": "Zone-Aware Services"
+            }
+        ]
+    },
+    {
+        "title": "Operational Model & DevOps",
+        "subCategories": [
+            {
+                "title": "Common Engineering Criteria "
+            },
+            {
+                "title": "Roles & Responsibilities"
+            },
+            {
+                "title": "Testing & Validation"
+            }
+        ]
+    },
+    {
+        "title": "Operational Procedures",
+        "subCategories": [
+            {
+                "title": "Configuration & Secrets Management"
+            },
+            {
+                "title": "Operational Lifecycles"
+            },
+            {
+                "title": "Patch & Update Process (PNU)"
+            },
+            {
+                "title": "Recovery & Failover"
+            },
+            {
+                "title": "Scalability & Capacity Model"
+            }
+        ]
+    },
+    {
+        "title": "Resiliency & Recovery",
+        "subCategories": [
+            {
+                "title": "Approach"
+            },
+            {
+                "title": "Availability Targets"
+            },
+            {
+                "title": "Recovery Targets"
+            }
+        ]
+    },
+    {
+        "title": "Scalability & Performance",
+        "subCategories": [
+            {
+                "title": "App Performance"
+            },
+            {
+                "title": "Data Latency and Throughput"
+            },
+            {
+                "title": "Data Size/Growth"
+            },
+            {
+                "title": "Elasticity"
+            },
+            {
+                "title": "Network Throughput and Latency"
+            }
+        ]
+    },
+    {
+        "title": "Security & Compliance",
+        "subCategories": [
+            {
+                "title": "Data Protection and Compliance"
+            },
+            {
+                "title": "Identity and Access"
+            },
+            {
+                "title": "Key Management"
+            },
+            {
+                "title": "Network Security"
+            }
+        ]
+    },
+    {
+        "title": "Site Reliability Engineering & DevOps",
+        "subCategories": [
+            {
+                "title": "Alerting"
+            },
+            {
+                "title": "Deployment Automation"
+            },
+            {
+                "title": "Monitoring and Measurement"
+            },
+            {
+                "title": "Testing and Validation"
             }
         ]
     }

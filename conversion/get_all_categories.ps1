@@ -1,5 +1,5 @@
 $AllItems = @()
-Get-ChildItem -Path data | where { $_.Name -match ".json$" } | % {
+Get-ChildItem -Path data | where { $_.Name -match ".data.json$" } | % {
     Get-Content -Path $_.FullName | ConvertFrom-Json | %{
         if($_) 
         {
@@ -15,11 +15,24 @@ $allCategories = $allCategories | Sort-Object -Property category,subcategory | G
 $categoriesWithSubs = @()
 
 ForEach ($item in $allCategories){
-    if((Get-Member -InputObject $categoriesWithSubs | select -Property category) -match $item.category){
+    if($item.category -notin $categoriesWithSubs.title){
+        $category = New-Object -TypeName psobject
+        $category | add-member -MemberType NoteProperty -Name title -Value $item.category
+        $subCategories = @()
+        $subcategory = New-Object -TypeName psobject
+        $subcategory | add-member -MemberType NoteProperty -Name title -Value $item.subCategory
+        $subCategories += $subcategory
+        $category | add-member -MemberType NoteProperty -Name subCategories -Value $subCategories
 
+        $categoriesWithSubs += $category
     }
     else 
     {
-        $categoriesWithSubs += $item
+        $existingItem = $categoriesWithSubs | Where-Object title -match $item.category
+        $subcategory = New-Object -TypeName psobject
+        $subcategory | add-member -MemberType NoteProperty -Name title -Value $item.subCategory
+        $existingItem.subCategories += $subcategory
     }
 }
+
+$categoriesWithSubs | ConvertTo-Json -Depth 5 | Out-File conversion/categories.json
