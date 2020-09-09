@@ -104,7 +104,7 @@ jobs:
         run: |
           # Which directories are we dealing with?
           # $templatedir = $env:TEMPLATEDIR
-          # $outputdir = $env:OUTPUTDIR
+          $outputdir = $env:OUTPUTDIR
 
           # Clear the content of the output dir.
           # This is to ensure that there is no output of deleted templates
