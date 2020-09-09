@@ -1,0 +1,32 @@
+name: Validate Pull Requests
+
+on:
+  pull_request:
+
+jobs:
+  Validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Set working directories
+        run: |
+          # Define the names of content directories, for use in the rest of the workflow
+          echo '::set-env name=DATADIR::data'
+          echo '::set-env name=TEMPLATEDIR::template'
+          echo '::set-env name=OUTPUTDIR::Assessments'
+
+      - name: Validate JSON
+        shell: pwsh
+        run: |
+          Get-ChildItem -Path $env:DATADIR | % {
+            $file = $_.FullName
+              $content = Get-Content -Path $file
+              try {
+                $json = $content | ConvertFrom-Json
+              }
+              catch {
+                Write-Error "Invalid JSON in file $file"
+              }
+          }
