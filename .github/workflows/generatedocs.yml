@@ -79,6 +79,15 @@ jobs:
           # Which directories are we dealing with?
           $outputdir = $env:OUTPUTDIR
 
+          # Restructure output to the right directories.
+          Get-ChildItem "$env:GENERATOR_ROOT/output" | % {
+              $destPath = "$env:GENERATOR_ROOT/output-move/" + ((Split-Path $_ -Leaf) -replace "-","/")
+              $destDir = Split-Path $destPath -Parent
+              New-Item -ItemType Directory $destDir -Force
+              
+              Copy-Item $_.FullName -Destination $destPath -Recurse -Force
+          }
+
           # Clear the content of the output dir.
           # This is to ensure that there is no output of deleted templates
           if(Test-Path $outputdir)
@@ -86,7 +95,7 @@ jobs:
             Remove-Item -Path "$outputdir/*" -Recurse -Force
           }
 
-          Copy-Item -Path $env:GENERATOR_ROOT/output/* -Destination $outputdir/
+          Copy-Item -Path $env:GENERATOR_ROOT/output-move/* -Destination $outputdir/
 
       - name: Push files to repo
         shell: pwsh
