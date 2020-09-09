@@ -102,9 +102,6 @@ jobs:
       - name: Copy files out of Hugo
         shell: pwsh
         run: |
-          # give build agent the required permissions 
-          sudo chmod a+rw $env:GENERATOR_ROOT/ -R
-          
           # Which directories are we dealing with?
           # $templatedir = $env:TEMPLATEDIR
           $outputdir = $env:OUTPUTDIR
@@ -116,7 +113,8 @@ jobs:
             Remove-Item -Path "$outputdir/*" -Recurse -Force
           }
 
-          Copy-Item -Path $env:GENERATOR_ROOT/output/* -Destination $output/
+          #Copy-Item -Path $env:GENERATOR_ROOT/output/* -Destination $output/
+          Get-ChildItem $env:GENERATOR_ROOT/output/ | Copy-Item -Destination $output/ -Recurse
           
 
           # Process the output for each of the 'projects' that went in
