@@ -39,7 +39,7 @@ jobs:
               }
           }
 
-          $AllItems | ConvertTo-Json -Depth 10| Out-File "{0}/data/input.json" -f $env:GENERATOR_ROOT
+          $AllItems | ConvertTo-Json -Depth 10| Out-File "$env:GENERATOR_ROOT/data/input.json"
 
           # Copy the rest of data files which don't contain questions, e.g. categories
           Get-ChildItem -Path $env:DATADIR | where { $_.Name -notmatch ".data.json$" } | % {
