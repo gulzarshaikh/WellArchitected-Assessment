@@ -30,7 +30,6 @@ Is the directory that has the templates for rendering the data files into ready-
 * **Assessments**
 This directory holds the Well Architected assessments. You will likely find what you need here. Do not attempt to modify these files directly, since they are auto-generated.
 
-
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
@@ -44,3 +43,13 @@ provided by the bot. You will only need to do this once across all repos using o
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
 For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
 contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+
+## Build on your own
+
+We designed the output files to be generated automatically, using GitHub Action. But if you want to build the content on a local machine, you absolutely can!
+
+* TODO: how, prerequisites etc.
+
+## Create custom output formats
+
+By default the content is generated into Markdown using templates in the `template` directory. To create your own output formats (like CSV), you can simply adapt the templates and restructure the content - it's just text.
