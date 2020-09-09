@@ -29,10 +29,7 @@ jobs:
           # that contains all the input. We're saving this one-up from the checked-out structure
           # to avoid name collisions with files in the repo.
 
-          # Copy the rest of data files which don't contain questions, e.g. categories
-          Get-ChildItem -Path $env:DATADIR | where { $_.Name -notmatch ".data.json$" } | % {
-              Copy-Item -Path $_.FullName -Destination $env:GENERATOR_ROOT/data -Recurse -Force
-          }
+          New-Item -ItemType Directory -Path $env:GENERATOR_ROOT/data
 
           $AllItems = @()
           Get-ChildItem -Path $env:DATADIR | where { $_.Name -match ".data.json$" } | % {
@@ -45,6 +42,11 @@ jobs:
           }
 
           $AllItems | ConvertTo-Json -Depth 10| Out-File "$env:GENERATOR_ROOT/data/input.json"
+
+          # Copy the rest of data files which don't contain questions, e.g. categories
+          Get-ChildItem -Path $env:DATADIR | where { $_.Name -notmatch ".data.json$" } | % {
+              Copy-Item -Path $_.FullName -Destination $env:GENERATOR_ROOT/data
+          }
       
       # - uses: srt32/hugo-action@master
       #   name: Create a new Hugo Environment
