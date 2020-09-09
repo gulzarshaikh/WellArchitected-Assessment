@@ -46,12 +46,6 @@ This project has adopted the [Microsoft Open Source Code of Conduct](https://ope
 For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
 contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
 
-## Build on your own
-
-We designed the output files to be generated automatically, using GitHub Action. But if you want to build the content on a local machine, you absolutely can!
-
-* TODO: how, prerequisites etc.
-
 ## Add content
 
 While the content is currently driven by the CA&E team, if you find spelling errors, typos, illogical questions or you feel there's content missing, feel free to contribute by creating a Pull Request. The team will triage it.
@@ -59,3 +53,7 @@ While the content is currently driven by the CA&E team, if you find spelling err
 ## Create custom output formats
 
 By default the content is generated into Markdown using templates in the `template` directory. To create your own output formats (like CSV), you can simply adapt the templates and restructure the content - it's just text.
+
+## Build on your own
+
+We designed the output files to be generated automatically, using GitHub Action. But if you want to build the content on a local machine, you can, using the Hugo generator and proper configuration. See the Action definition for inspiration.
