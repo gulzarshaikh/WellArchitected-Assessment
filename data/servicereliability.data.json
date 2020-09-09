@@ -696,7 +696,7 @@
     "lens": "service",
     "category": "Data ",
     "subCategory": "Azure SQL Database",
-    "title": "Use point-in-time restore**  to recover from human error. Point-in-time restore returns your database to an earlier point in time to recover data from changes done inadvertently. For more information, read the PITR documentation for https://docs.microsoft.com/en-us/azure/azure-sql/database/recovery-using-backups#point-in-time-restore "
+    "title": "Use point-in-time restore.  to recover from human error. Point-in-time restore returns your database to an earlier point in time to recover data from changes done inadvertently. For more information, read the PITR documentation for https://docs.microsoft.com/en-us/azure/azure-sql/database/recovery-using-backups#point-in-time-restore "
   },
   {
     "type": "Design Considerations",
@@ -706,7 +706,7 @@
     "lens": "service",
     "category": "Data ",
     "subCategory": "Azure SQL Database",
-    "title": "Use geo-restore to recover from a service outage**. You can restore a database on any SQL Database server or an instance database on any managed instance in any Azure region from the most recent geo-replicated backups. Geo-restore uses a geo-replicated backup as its source. You can request geo-restore even if the database or datacenter is inaccessible due to an outage. Geo-restore restores a database from a geo-redundant backup. For more information, see [Recover an Azure SQL database using automated database backups](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups)"
+    "title": "Use geo-restore to recover from a service outage. You can restore a database on any SQL Database server or an instance database on any managed instance in any Azure region from the most recent geo-replicated backups. Geo-restore uses a geo-replicated backup as its source. You can request geo-restore even if the database or datacenter is inaccessible due to an outage. Geo-restore restores a database from a geo-redundant backup. For more information, see [Recover an Azure SQL database using automated database backups](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups)"
   },
   {
     "type": "Design Considerations",
@@ -716,7 +716,7 @@
     "lens": "service",
     "category": "Data ",
     "subCategory": "Azure SQL Database",
-    "title": "Use sharding**: Sharding is a technique of distributing data and processing across many identically structured databases , provides an alternative to traditional scale-up approaches both in terms of cost and elasticity. Consider using sharding to partition the database horizontally. Sharding can provide fault isolation. For more information, see [Scaling out with Azure SQL Database.](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-scale-introduction)"
+    "title": "Use sharding Sharding is a technique of distributing data and processing across many identically structured databases , provides an alternative to traditional scale-up approaches both in terms of cost and elasticity. Consider using sharding to partition the database horizontally. Sharding can provide fault isolation. For more information, see [Scaling out with Azure SQL Database.](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-scale-introduction)"
   },
   {
     "type": "Design Considerations",
@@ -726,7 +726,7 @@
     "lens": "service",
     "category": "Data ",
     "subCategory": "Azure SQL Database",
-    "title": "Define an application performance SLA and monitor it with alerts**. Detecting quickly when your application performance inadvertently degrades below an acceptable level is important to maintain high resiliency. Use the monitoring solution defined above to set alerts on key query performance metrics to you can take action when the performance breaks the SLA. [Monitor Your Database](https://docs.microsoft.com/en-us/azure/azure-sql/database/monitor-tune-overview)"
+    "title": "Define an application performance SLA and monitor it with alerts. Detecting quickly when your application performance inadvertently degrades below an acceptable level is important to maintain high resiliency. Use the monitoring solution defined above to set alerts on key query performance metrics to you can take action when the performance breaks the SLA. [Monitor Your Database](https://docs.microsoft.com/en-us/azure/azure-sql/database/monitor-tune-overview)"
   },
   {
     "type": "Configuration Recommendations",
@@ -736,16 +736,16 @@
     "lens": "service",
     "category": "Data ",
     "subCategory": "Azure SQL Database",
-    "title": "Configure HA/DR that best feed your needs from following options**   : Azure Sql DB  offers the following capabilities for recovering from an outage, It is advised to implement one or combination of one or more depending on Business RTO/RPO requirements : ",
+    "title": "Configure HA/DR that best feed your needs from following options: Azure Sql DB  offers the following capabilities for recovering from an outage, It is advised to implement one or combination of one or more depending on Business RTO/RPO requirements : ",
     "children": [
       {
-        "title": "Use Active Geo-Replication** :  Use Active Geo-Replication to create a readable secondary in a different region. If your primary database fails, perform a manual failover to the secondary database. Until you fail over, the secondary database remains read-only. [Active geo-replication](https://docs.microsoft.com/en-us/azure/azure-sql/database/active-geo-replication-overview) enables you to create readable replicas and manually failover to any replica in case of a datacenter outage or application upgrade. Up to 4 secondaries are supported in the same or different regions, and the secondaries can also be used for read-only access queries. The failover must be initiated manually by the application or the user. After failover, the new primary has a different connection end point. "
+        "title": "Use Active Geo-Replication:  Use Active Geo-Replication to create a readable secondary in a different region. If your primary database fails, perform a manual failover to the secondary database. Until you fail over, the secondary database remains read-only. [Active geo-replication](https://docs.microsoft.com/en-us/azure/azure-sql/database/active-geo-replication-overview) enables you to create readable replicas and manually failover to any replica in case of a datacenter outage or application upgrade. Up to 4 secondaries are supported in the same or different regions, and the secondaries can also be used for read-only access queries. The failover must be initiated manually by the application or the user. After failover, the new primary has a different connection end point. "
       },
       {
-        "title": "Use Auto Failover Groups** : A failover group can include one or multiple databases, typically used by the same application. Additionally, you can use the readable secondary databases to offload read-only query workloads. Because auto-failover groups involve multiple databases, these databases must be configured on the primary server. Auto-failover groups support replication of all databases in the group to only one secondary server or instance in a different region. Learn more about [AutoFailover Groups](https://docs.microsoft.com/en-us/azure/azure-sql/database/auto-failover-group-overview?tabs=azure-powershell)  and  [DR design](https://docs.microsoft.com/en-us/azure/azure-sql/database/designing-cloud-solutions-for-disaster-recovery).\t"
+        "title": "Use Auto Failover Groups: A failover group can include one or multiple databases, typically used by the same application. Additionally, you can use the readable secondary databases to offload read-only query workloads. Because auto-failover groups involve multiple databases, these databases must be configured on the primary server. Auto-failover groups support replication of all databases in the group to only one secondary server or instance in a different region. Learn more about [AutoFailover Groups](https://docs.microsoft.com/en-us/azure/azure-sql/database/auto-failover-group-overview?tabs=azure-powershell)  and  [DR design](https://docs.microsoft.com/en-us/azure/azure-sql/database/designing-cloud-solutions-for-disaster-recovery).\t"
       },
       {
-        "title": "Use Zone-Redundant database** : By default, the cluster of nodes for the premium availability model is created in the same datacenter. With the introduction of Azure Availability Zones, SQL Database can place different replicas of the Business Critical database to different availability zones in the same region. To eliminate a single point of failure, the control ring is also duplicated across multiple zones as three gateway rings (GW). The routing to a specific gateway ring is controlled by [Azure Traffic Manager](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-overview) (ATM). Because the zone redundant configuration in the Premium or Business Critical service tiers does not create additional database redundancy, you can enable it at no extra cost. Learn More on Zone-redundant databases [here](https://docs.microsoft.com/en-us/azure/azure-sql/database/high-availability-sla) "
+        "title": "Use Zone-Redundant database: By default, the cluster of nodes for the premium availability model is created in the same datacenter. With the introduction of Azure Availability Zones, SQL Database can place different replicas of the Business Critical database to different availability zones in the same region. To eliminate a single point of failure, the control ring is also duplicated across multiple zones as three gateway rings (GW). The routing to a specific gateway ring is controlled by [Azure Traffic Manager](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-overview) (ATM). Because the zone redundant configuration in the Premium or Business Critical service tiers does not create additional database redundancy, you can enable it at no extra cost. Learn More on Zone-redundant databases [here](https://docs.microsoft.com/en-us/azure/azure-sql/database/high-availability-sla) "
       }
     ]
   },
@@ -757,7 +757,7 @@
     "lens": "service",
     "category": "Data ",
     "subCategory": "Azure SQL Database",
-    "title": "Monitor your Azure Sql DB in near-real time to detect reliability incidents**. Use one of the available solutions to monitor SQL DB to detect potential reliability incidents early and make your databases more reliable. Choosing a near real-time monitoring solution is key to quickly react to incidents. Learn more details about Azure SQL Analytics [Here](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/azure-sql#analyze-data-and-create-alerts)  "
+    "title": "Monitor your Azure Sql DB in near-real time to detect reliability incidents. Use one of the available solutions to monitor SQL DB to detect potential reliability incidents early and make your databases more reliable. Choosing a near real-time monitoring solution is key to quickly react to incidents. Learn more details about Azure SQL Analytics [Here](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/azure-sql#analyze-data-and-create-alerts)  "
   },
   {
     "type": "Configuration Recommendations",
@@ -767,7 +767,7 @@
     "lens": "service",
     "category": "Data ",
     "subCategory": "Azure SQL Database",
-    "title": "Backup your keys**: If you are not [using encryption keys in Azure key vault to protect your data](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-always-encrypted-azure-key-vault) , backup your keys!"
+    "title": "Backup your keys: If you are not [using encryption keys in Azure key vault to protect your data](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-always-encrypted-azure-key-vault) , backup your keys!"
   },
   {
     "type": "Configuration Recommendations",
@@ -777,7 +777,7 @@
     "lens": "service",
     "category": "Data ",
     "subCategory": "Azure SQL Database",
-    "title": "Implement Retry Logic** :  Although Azure SQL Database is resilient on the transitive infrastructure failures, these failures might affect your connectivity. When a transient error occurs while working with SQL Database, make sure your code must be able to retry the call. Follow the link for detailed instruction on how to [Implement retry logic](https://docs.microsoft.com/en-us/azure/azure-sql/database/troubleshoot-common-connectivity-issues). "
+    "title": "Implement Retry Logic: Although Azure SQL Database is resilient on the transitive infrastructure failures, these failures might affect your connectivity. When a transient error occurs while working with SQL Database, make sure your code must be able to retry the call. Follow the link for detailed instruction on how to [Implement retry logic](https://docs.microsoft.com/en-us/azure/azure-sql/database/troubleshoot-common-connectivity-issues). "
   },
   {
     "type": "Design Considerations ",
@@ -787,7 +787,7 @@
     "lens": "service",
     "category": "Data ",
     "subCategory": "Azure SQL Managed Instance",
-    "title": "Use point-in-time restore to recover from human error**. Point-in-time restore returns your database to an earlier point in time to recover data from changes done inadvertently. For more information, read the [PITR documentation for managed instance](https://docs.microsoft.com/en-us/azure/azure-sql/database/recovery-using-backups#point-in-time-restore)"
+    "title": "Use point-in-time restore to recover from human error. Point-in-time restore returns your database to an earlier point in time to recover data from changes done inadvertently. For more information, read the [PITR documentation for managed instance](https://docs.microsoft.com/en-us/azure/azure-sql/database/recovery-using-backups#point-in-time-restore)"
   },
   {
     "type": "Design Considerations ",
@@ -797,7 +797,7 @@
     "lens": "service",
     "category": "Data ",
     "subCategory": "Azure SQL Managed Instance",
-    "title": "Use geo-restore to recover from a service outage**. Geo-restore restores a database from a geo-redundant backup into a managed instance in a different region. For more information, see [Recover a database using Geo-restore documentation](https://docs.microsoft.com/en-us/azure/azure-sql/database/auto-failover-group-overview)"
+    "title": "Use geo-restore to recover from a service outage. Geo-restore restores a database from a geo-redundant backup into a managed instance in a different region. For more information, see [Recover a database using Geo-restore documentation](https://docs.microsoft.com/en-us/azure/azure-sql/database/auto-failover-group-overview)"
   },
   {
     "type": "Design Considerations ",
@@ -807,7 +807,7 @@
     "lens": "service",
     "category": "Data ",
     "subCategory": "Azure SQL Managed Instance",
-    "title": "Define an application performance SLA and monitor it with alerts**. Detecting quickly when your application performance inadvertently degrades below an acceptable level is important to maintain high resiliency. Use the monitoring solution defined above to set alerts on key query performance metrics to you can take action when the performance breaks the SLA."
+    "title": "Define an application performance SLA and monitor it with alerts. Detecting quickly when your application performance inadvertently degrades below an acceptable level is important to maintain high resiliency. Use the monitoring solution defined above to set alerts on key query performance metrics to you can take action when the performance breaks the SLA."
   },
   {
     "type": "Design Considerations ",
@@ -817,7 +817,7 @@
     "lens": "service",
     "category": "Data ",
     "subCategory": "Azure SQL Managed Instance",
-    "title": "Consider the time required for certain operations**. Make sure you separate time to thoroughly test the amount of time required to scale up and down (change the size) your existing managed instance, and to create a new managed instance. This will ensure that you understand completely how these time consuming operations will affect your RTO and RPO."
+    "title": "Consider the time required for certain operations. Make sure you separate time to thoroughly test the amount of time required to scale up and down (change the size) your existing managed instance, and to create a new managed instance. This will ensure that you understand completely how these time consuming operations will affect your RTO and RPO."
   },
   {
     "type": "Configuration Recommendations",
@@ -827,7 +827,7 @@
     "lens": "service",
     "category": "Data ",
     "subCategory": "Azure SQL Managed Instance",
-    "title": "Use Business Critical tier**. This tier provides higher resiliency to failures and faster failover times due to the underlying HA architecture, among other benefits. For more information, see [SQL Managed Instance High availability](https://docs.microsoft.com/en-us/azure/azure-sql/database/high-availability-sla)"
+    "title": "Use Business Critical tier. This tier provides higher resiliency to failures and faster failover times due to the underlying HA architecture, among other benefits. For more information, see [SQL Managed Instance High availability](https://docs.microsoft.com/en-us/azure/azure-sql/database/high-availability-sla)"
   },
   {
     "type": "Configuration Recommendations",
@@ -837,7 +837,7 @@
     "lens": "service",
     "category": "Data ",
     "subCategory": "Azure SQL Managed Instance",
-    "title": "Configure a secondary instance and an Auto-failover group to enable failover to another region**. If an outage impacts one or more of the databases in the managed instance, you can manually or automatically failover all the databases inside the instance to a secondary region. For more information, read the [Auto-failover groups documentation for managed instance](https://docs.microsoft.com/en-us/azure/azure-sql/database/auto-failover-group-overview)"
+    "title": "Configure a secondary instance and an Auto-failover group to enable failover to another region. If an outage impacts one or more of the databases in the managed instance, you can manually or automatically failover all the databases inside the instance to a secondary region. For more information, read the [Auto-failover groups documentation for managed instance](https://docs.microsoft.com/en-us/azure/azure-sql/database/auto-failover-group-overview)"
   },
   {
     "type": "Configuration Recommendations",
@@ -847,7 +847,7 @@
     "lens": "service",
     "category": "Data ",
     "subCategory": "Azure SQL Managed Instance",
-    "title": "Monitor your SQL MI instance in near-real time to detect reliability incidents**. Use one of the available solutions to monitor your SQL MI to detect potential reliability incidents early and make your databases more reliable. Choosing a near real-time monitoring solution is key to quickly react to incidents. For more information, read the [Azure SQL Managed Instance monitoring options](http://aka.ms/mi-monitoring)"
+    "title": "Monitor your SQL MI instance in near-real time to detect reliability incidents. Use one of the available solutions to monitor your SQL MI to detect potential reliability incidents early and make your databases more reliable. Choosing a near real-time monitoring solution is key to quickly react to incidents. For more information, read the [Azure SQL Managed Instance monitoring options](http://aka.ms/mi-monitoring)"
   },
   {
     "type": "Configuration Recommendations",
@@ -857,7 +857,7 @@
     "lens": "service",
     "category": "Data ",
     "subCategory": "Azure SQL Managed Instance",
-    "title": "Implement Retry Logic** :  Although Azure SQL MI is resilient on the transitive infrastructure failures, these failures might affect your connectivity. When a transient error occurs while working with SQL MI, make sure your code must be able to retry the call. Follow the link for detailed instruction on how to [Implement retry logic](https://docs.microsoft.com/en-us/azure/azure-sql/database/troubleshoot-common-connectivity-issues). "
+    "title": "Implement Retry Logic: Although Azure SQL MI is resilient on the transitive infrastructure failures, these failures might affect your connectivity. When a transient error occurs while working with SQL MI, make sure your code must be able to retry the call. Follow the link for detailed instruction on how to [Implement retry logic](https://docs.microsoft.com/en-us/azure/azure-sql/database/troubleshoot-common-connectivity-issues). "
   },
   {
     "type": "Design Considerations",
@@ -1651,7 +1651,7 @@
     "lens": "service",
     "category": "Hybrid",
     "subCategory": "Azure Stack Hub",
-    "title": "Microsoft does not provide an SLA for Azure Stack Hub** because Microsoft does not have control over customer datacenter reliability, people, and processes."
+    "title": "Microsoft does not provide an SLA for Azure Stack Hub because Microsoft does not have control over customer datacenter reliability, people, and processes."
   },
   {
     "type": "Design Considerations",

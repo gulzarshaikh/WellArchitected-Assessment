@@ -2,8 +2,7 @@
     {
       "type": "question",
       "pillars": [
-        "opex",
-        "reliabilty"
+        "opex"
       ],
       "lens": "application",
       "category": "Application Design",
@@ -15,10 +14,6 @@
           "title": "Is the application deployed in either active-active, active-passive, or isolated configurations across leveraged regions?",
           "context": "The regional deployment strategy will partly shape operational boundaries, particularly where operational procedures for recovery and scale are concerned"
         }
-      ],
-      "answers":[
-        "Yes, we using AZs",
-        "no, nothing"
       ]
     },
     {
@@ -141,7 +136,7 @@
         },
         {
           "title": "Are these availability targets monitored and measured?",
-          "context": "Mean Time Between Failures (MTBF)**: The average time between failures of a particular component"
+          "context": "Mean Time Between Failures (MTBF): The average time between failures of a particular component"
         },
         {
           "title": "What are the consequences if availability targets are not satisfied?",
@@ -158,7 +153,7 @@
       "category": "Application Design",
       "subCategory": "Targets & Non Functional Requirements",
       "title": "Are recovery targets such as Recovery Time Objective (RTO) and Recovery Point Objective (RPO) defined for the application and/or key scenarios?",
-      "context": "Understanding customer reliability expectations is vital to reviewing the overall reliability of the application. For instance, if a customer is striving to achieve an application RTO of less than a minute then back-up based and active-passive disaster recovery strategies are unlikely to be appropriateRecovery time objective (RTO)**: The maximum acceptable time the application is unavailable after a disaster incidentRecovery point objective (RPO)**: The maximum duration of data loss that is acceptable during a disaster event"
+      "context": "Understanding customer reliability expectations is vital to reviewing the overall reliability of the application. For instance, if a customer is striving to achieve an application RTO of less than a minute then back-up based and active-passive disaster recovery strategies are unlikely to be appropriate \nRecovery time objective (RTO): The maximum acceptable time the application is unavailable after a disaster incident \nRecovery point objective (RPO): The maximum duration of data loss that is acceptable during a disaster event"
     },
     {
       "type": "question",
@@ -1090,7 +1085,7 @@
       "category": "Deployment & Testing",
       "subCategory": "Testing & Validation",
       "title": "Is the application tested for performance, scalability, and resiliency?",
-      "context": "Performance Testing** : *Performance testing is the superset of both load and stress testing. The primary goal of performance testing is to validate benchmark behaviour for the application([Performance Testing](https://docs.microsoft.com/en-us/azure/architecture/checklist/dev-ops#testing))Load Testing** : *Load testing validates application scalability by rapidly and/or gradually increasing the load on the application until it reaches a threshold/limitStress Testing** : *Stress testing is a type of negative testing which involves various activities to overload existing resources and remove components to understand overall resiliency and how the application responds to issues",
+      "context": "Performance Testing: Performance testing is the superset of both load and stress testing. The primary goal of performance testing is to validate benchmark behaviour for the application([Performance Testing](https://docs.microsoft.com/en-us/azure/architecture/checklist/dev-ops#testing))\nLoad Testing : Load testing validates application scalability by rapidly and/or gradually increasing the load on the application until it reaches a threshold/limit \nStress Testing : *Stress testing is a type of negative testing which involves various activities to overload existing resources and remove components to understand overall resiliency and how the application responds to issues",
       "children": [
         {
           "title": "When do you do test for performance, scalability, and resiliency?",
