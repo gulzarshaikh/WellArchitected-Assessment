@@ -95,7 +95,7 @@ jobs:
 
           # Clear the content of the output dir.
           # This is to ensure that there is no output of deleted templates
-          if($outputdir)
+          if(Test-Path $outputdir)
           {
             Remove-Item -Path "$outputdir/*" -Recurse -Force
           }
