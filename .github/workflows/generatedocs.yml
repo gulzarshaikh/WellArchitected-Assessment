@@ -58,7 +58,7 @@ jobs:
           $templatedir = $env:TEMPLATEDIR
 
           # give build agent the required permissions 
-          sudo chmod a+rw waf/ -R
+          sudo chmod a+rw $env:GENERATOR_ROOT/ -R
 
           # Give Hugo our one big data file generated in the first step:
           #Copy-Item -Path $env:GENERATOR_ROOT/data/allinput.json -Destination /data/input.json
