@@ -52,6 +52,10 @@ We designed the output files to be generated automatically, using GitHub Action.
 
 * TODO: how, prerequisites etc.
 
+## Add content
+
+While the content is currently driven by the CA&E team, if you find spelling errors, typos, illogical questions or you feel there's content missing, feel free to contribute by creating a Pull Request. The team will triage it.
+
 ## Create custom output formats
 
 By default the content is generated into Markdown using templates in the `template` directory. To create your own output formats (like CSV), you can simply adapt the templates and restructure the content - it's just text.
