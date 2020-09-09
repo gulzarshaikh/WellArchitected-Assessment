@@ -88,7 +88,7 @@ jobs:
             #New-Item -ItemType File -Path "waf/content/$project/$project.md"
 
             # The template files have to be in the project directories under layouts, with html extensions:
-            Copy-Item -Path $_.FullName -Destination "waf/templates/$project/$project.md"
+            Copy-Item -Path $_.FullName -Destination "$env:GENERATOR_ROOT/templates/$project/$project.md"
           }
 
       - uses: srt32/hugo-action@master
