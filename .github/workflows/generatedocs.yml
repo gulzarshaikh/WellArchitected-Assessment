@@ -13,6 +13,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Set working directories
+        run: |
+          # Define the names of content directories, for use in the rest of the workflow
+          echo '::set-env name=DATADIR::data'
+          echo '::set-env name=TEMPLATEDIR::template'
+          echo '::set-env name=OUTPUTDIR::Assessments'
+
       - name: Merge data files
         shell: pwsh
         run: |
@@ -21,7 +28,7 @@ jobs:
           # to avoid name collisions with files in the repo.
 
           $AllItems = @()
-          Get-ChildItem -Path data | where { $_.Name -match ".data.json$" } | % {
+          Get-ChildItem -Path $env:DATADIR | where { $_.Name -match ".data.json$" } | % {
               Get-Content -Path $_.FullName | ConvertFrom-Json | %{
                   if($_) 
                   {
@@ -40,6 +47,9 @@ jobs:
       - name: Move files into the Hugo directories
         shell: pwsh
         run: |
+          # What's the name of the template directory?
+          $templatedir = $env:TEMPLATEDIR
+
           # give build agent the required permissions 
           sudo chmod a+rw waf/ -R
 
@@ -53,10 +63,10 @@ jobs:
           
           # Each file in the template directory will be a 'content type' in Hugo.
           
-          Get-ChildItem -Recurse -File template | % {
-            $project = $_.FullName.Substring($_.FullName.IndexOf("template"))
+          Get-ChildItem -Recurse -File $templatedir | % {
+            $project = $_.FullName.Substring($_.FullName.IndexOf($templatedir))
             $project = $project -replace "/","-"
-            $project = $project -replace "(^template.)|(\.md$)",""
+            $project = $project -replace "(^$templatedir.)|(\.md$)",""
 
             Write-Output "Adding project $project to Hugo."
 
@@ -79,21 +89,25 @@ jobs:
       - name: Copy files out of Hugo
         shell: pwsh
         run: |
+          # Which directories are we dealing with?
+          $templatedir = $env:TEMPLATEDIR
+          $outputdir = $env:OUTPUTDIR
+
           # Process the output for each of the 'projects' that went in
           # We use the directories under /template to get their names
 
-          Get-ChildItem -Recurse -File template | % {
-            $project = $_.FullName.Substring($_.FullName.IndexOf("template"))
+          Get-ChildItem -Recurse -File $templatedir | % {
+            $project = $_.FullName.Substring($_.FullName.IndexOf($templatedir))
             $project = $project -replace "/","-"
-            $project = $project -replace "(^template.)|(\.md$)",""
+            $project = $project -replace "(^$templatedir.)|(\.md$)",""
 
             # Figure out and create the (nested) output directory
-            $outputdir = $_.Directory.FullName.Substring($_.Directory.FullName.IndexOf("template"))
-            $outputdir = "output/{0}"-f ($outputdir -replace "^template.","")
-            New-Item -ItemType Directory -Path $outputdir -Force
+            $output = $_.Directory.FullName.Substring($_.Directory.FullName.IndexOf($templatedir))
+            $output = "{0}/{1}"-f $outputdir, ($output -replace "^$templatedir.","")
+            New-Item -ItemType Directory -Path $output -Force
 
             try {
-              Copy-Item -Path "waf/public/$project/index.html" -Destination "$outputdir/$($_.Name)"
+              Copy-Item -Path "waf/public/$project/index.html" -Destination "$output/$($_.Name)"
             } catch {
               Write-Warning "Hugo output for $($_.Name) could not be found."
               continue;
@@ -103,12 +117,15 @@ jobs:
       - name: Push files to repo
         shell: pwsh
         run: |
+          # Get outputdir from variables
+          $outputdir = $env:OUTPUTDIR
+          
           # Set the name on the commits as it will appear in Github
           git config --global user.name 'Github Action'
           git config --global user.email 'wellarchitected@users.noreply.github.com'
      
           # Everything coming from Hugo is in the output dir by now
-          git add 'output/'
+          git add $outputdir
           git status --short
 
           # Get the name of the commit that triggered the workflow, 
