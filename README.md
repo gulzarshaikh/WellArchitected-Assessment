@@ -46,7 +46,7 @@ By default the content is generated into Markdown using templates in the `templa
 
 ## Build on your own
 
-We designed the output files to be generated automatically, using GitHub Action. But if you want to build the content on a local machine, you can, using the Hugo generator and proper configuration. See the Action definition for inspiration.
+We designed the output files to be generated automatically, using GitHub Action. But if you want to build the content on a local machine, you can, using the Hugo generator and proper configuration. See the Action definition for inspiration. Otherwise you can also use any other tools or script (bash, powershell, etc.) to generate output from the JSON content.
 
 ## Disclaimer
 
