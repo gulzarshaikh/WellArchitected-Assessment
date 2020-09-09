@@ -3,22 +3,22 @@
     "title": "Application Design",
     "subCategories": [
       {
+        "title": "Design"
+      },
+      {
         "title": "Application Composition"
       },
       {
         "title": "Dependencies"
       },
       {
-        "title": "Design"
-      },
-      {
-        "title": "Failure Mode Analysis"
-      },
-      {
         "title": "Key Scenarios"
       },
       {
         "title": "Targets & Non Functional Requirements"
+      },
+      {
+        "title": "Failure Mode Analysis"
       }
     ]
   },
@@ -113,19 +113,19 @@
     "title": "Health Modelling",
     "subCategories": [
       {
-        "title": "Alerting"
-      },
-      {
         "title": "Application Level Monitoring"
       },
       {
-        "title": "Dashboarding"
+        "title": "Resource/Infrastructure Level Monitoring"
       },
       {
         "title": "Data Interpretation & Health Modelling"
       },
       {
-        "title": "Resource/Infrastructure Level Monitoring"
+        "title": "Dashboarding"
+      },
+      {
+        "title": "Alerting"
       }
     ]
   },
@@ -169,13 +169,13 @@
     "title": "Operational Model & DevOps",
     "subCategories": [
       {
+        "title": "Testing & Validation"
+      },
+      {
         "title": "Common Engineering Criteria "
       },
       {
         "title": "Roles & Responsibilities"
-      },
-      {
-        "title": "Testing & Validation"
       }
     ]
   },
@@ -254,13 +254,13 @@
     "title": "Site Reliability Engineering & DevOps",
     "subCategories": [
       {
-        "title": "Alerting"
-      },
-      {
         "title": "Deployment Automation"
       },
       {
         "title": "Monitoring and Measurement"
+      },
+      {
+        "title": "Alerting"
       },
       {
         "title": "Testing and Validation"
