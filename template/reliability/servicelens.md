@@ -5,7 +5,8 @@ This list contains design considerations and recommended configuration options, 
 {{- $pillars := slice "reliability" -}}
 {{- $lens := "service" -}}
 
-{{- $filtered := (and (where $.Site.Data.input "pillars" "intersect" $pillars) (where $.Site.Data.input "lens" $lens)) -}}
+{{- $filtered := where $.Site.Data.input "pillars" "intersect" $pillars -}}
+{{- $filtered = where $filtered "lens" $lens -}}
 
 {{- $types := slice "Design Considerations" "Configuration Recommendations" "Supporting Source Artifacts" -}}
 

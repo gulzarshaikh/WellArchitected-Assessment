@@ -3,8 +3,8 @@
 {{- $pillars := slice "opex" -}}
 {{- $lens := "application" -}}
 
-{{- $filtered := (and (where $.Site.Data.input "pillars" "intersect" $pillars) (where $.Site.Data.input "lens" $lens)) -}}
-
+{{- $filtered := where $.Site.Data.input "pillars" "intersect" $pillars -}}
+{{- $filtered = where $filtered "lens" $lens -}}
 
 {{- range $category := $.Site.Data.categories -}}
     {{- $questionsInCategory := where $filtered "category" $category.title -}}
