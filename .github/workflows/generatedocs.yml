@@ -94,7 +94,7 @@ jobs:
       - uses: srt32/hugo-action@master
         name: Build Hugo content
         with: 
-          args: -s $env:GENERATOR_ROOT
+          args: -s generator
 
       # - name: Copy files out of Hugo
       #   shell: pwsh
