@@ -99,40 +99,43 @@ jobs:
         with: 
           args: -s generator
 
-      # - name: Copy files out of Hugo
-      #   shell: pwsh
-      #   run: |
-      #     # Which directories are we dealing with?
-      #     $templatedir = $env:TEMPLATEDIR
-      #     $outputdir = $env:OUTPUTDIR
+      - name: Copy files out of Hugo
+        shell: pwsh
+        run: |
+          # Which directories are we dealing with?
+          # $templatedir = $env:TEMPLATEDIR
+          # $outputdir = $env:OUTPUTDIR
 
-      #     # Clear the content of the output dir.
-      #     # This is to ensure that there is no output of deleted templates
-      #     if(Test-Path $outputdir)
-      #     {
-      #       Remove-Item -Path "$outputdir/*" -Recurse -Force
-      #     }
+          # Clear the content of the output dir.
+          # This is to ensure that there is no output of deleted templates
+          if(Test-Path $outputdir)
+          {
+            Remove-Item -Path "$outputdir/*" -Recurse -Force
+          }
 
-      #     # Process the output for each of the 'projects' that went in
-      #     # We use the directories under /template to get their names
+          Copy-Item -Path $env:GENERATOR_ROOT/output/* -Destination $output/
+          
 
-      #     Get-ChildItem -Recurse -File $templatedir | % {
-      #       $project = $_.FullName.Substring($_.FullName.IndexOf($templatedir))
-      #       $project = $project -replace "/","-"
-      #       $project = $project -replace "(^$templatedir.)|(\.md$)",""
+          # Process the output for each of the 'projects' that went in
+          # We use the directories under /template to get their names
 
-      #       # Figure out and create the (nested) output directory
-      #       $output = $_.Directory.FullName.Substring($_.Directory.FullName.IndexOf($templatedir))
-      #       $output = "{0}/{1}"-f $outputdir, ($output -replace "^$templatedir.","")
-      #       New-Item -ItemType Directory -Path $output -Force
+          # Get-ChildItem -Recurse -File $templatedir | % {
+          #   $project = $_.FullName.Substring($_.FullName.IndexOf($templatedir))
+          #   $project = $project -replace "/","-"
+          #   $project = $project -replace "(^$templatedir.)|(\.md$)",""
 
-      #       try {
-      #         Copy-Item -Path "waf/public/$project/index.html" -Destination "$output/$($_.Name)"
-      #       } catch {
-      #         Write-Warning "Hugo output for $($_.Name) could not be found."
-      #         continue;
-      #       }
-      #     }
+          #   # Figure out and create the (nested) output directory
+          #   $output = $_.Directory.FullName.Substring($_.Directory.FullName.IndexOf($templatedir))
+          #   $output = "{0}/{1}"-f $outputdir, ($output -replace "^$templatedir.","")
+          #   New-Item -ItemType Directory -Path $output -Force
+
+          #   try {
+          #     Copy-Item -Path "waf/public/$project/index.html" -Destination "$output/$($_.Name)"
+          #   } catch {
+          #     Write-Warning "Hugo output for $($_.Name) could not be found."
+          #     continue;
+          #   }
+          # }
 
       # - name: Push files to repo
       #   shell: pwsh
