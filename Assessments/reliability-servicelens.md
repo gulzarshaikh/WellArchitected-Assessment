@@ -1,4 +1,4 @@
-# Service-specific operational guidance
+# Service-specific reliability guidance
 
 This list contains design considerations and recommended configuration options, specific to individual Azure services.
 # Compute
@@ -69,6 +69,14 @@ This list contains design considerations and recommended configuration options, 
     > Run from Package provides several advantages:Eliminates file lock conflicts between deployment and runtime.Ensures only full-deployed apps are running at any time.May reduce cold-start times, particularly for JavaScript functions with large npm package trees.
                                 
                             
+### Supporting Source Artifacts
+* Query to identify App Service Plans with **only 1 instance**:
+  <pre><code>Resources
+| where type == &quot;microsoft.web/serverfarms&quot; and properties.computeMode == 'Dedicated'
+| where sku.capacity == 1
+</code></pre> 
+                            
+* [The Ultimate Guide to Running Healthy Apps in the Cloud](https://azure.github.io/AppService/2020/05/15/Robust-Apps-for-the-cloud.html)
 ## Azure Kubernetes Service (AKS)
 ### Design Considerations
 * For customers subscribing to the Azure Kubernetes Service (AKS) Uptime SLA, Microsoft guarantees 1) 99.95% availability of the Kubernetes API server endpoint for AKS Clusters that use Azure Availability Zones, and 2) 99.9% availability for AKS Clusters that not use Azure Availability Zones. For customers that do not wish to subscribe to the AKS uptime SLA, Microsoft provides a service level objective (SLO) of 99.5%.
@@ -89,6 +97,29 @@ This list contains design considerations and recommended configuration options, 
   - Internet facing workloads should leverage Azure Front Door, [Azure Traffic Manager](https://docs.microsoft.com/en-gb/azure/aks/operator-best-practices-multi-region#use-azure-traffic-manager-to-route-traffic), or a third-party CDN to route traffic globally across AKS clusters.
                             
 * Store container images within Azure Container Registry and enable [geo-replication](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region#enable-geo-replication-for-container-images) to replicate container images across leveraged AKS regions. 
+### Supporting Source Artifacts
+* Query to identify AKS clusters that are not deployed across **Availability Zones**:
+  <pre><code>Resources
+| where
+    type =~ 'Microsoft.ContainerService/managedClusters'
+	and isnull(zones)
+</code></pre> 
+                            
+* Query to identify AKS clusters that are deployed within a AvailabilitySet:
+  <pre><code>Resources
+| where
+    type =~ 'Microsoft.ContainerService/managedClusters'
+	and properties.agentPoolProfiles[0].type != 'VirtualMachineScaleSets'
+| project name, location, resourceGroup, subscriptionId, properties.agentPoolProfiles[0].type
+</code></pre> 
+                            
+* Query to identify AKS clusters that are not deployed using a **Managed Identity**:
+  <pre><code>Resources
+| where
+    type =~ 'Microsoft.ContainerService/managedClusters'
+	and isnull(identity)
+</code></pre> 
+                            
 ## Service Fabric
 ### Design Considerations
 * Azure Service Fabric does not provide its own SLA. The availability of Service Fabric clusters is based on the underlying Virtual Machine and Storage resources used.
@@ -145,27 +176,27 @@ This list contains design considerations and recommended configuration options, 
 * Azure SQL Database Hyperscale tier with one replica has an availability guarantee of at least 99.95% and 99.9% for zero replicas.
 * Azure SQL Database Business Critical tier configured with geo-replication has a guarantee of Recovery point objective (RPO) of 5 sec for 100% of deployed hours.
 * Azure SQL Database Business Critical tier configured with geo-replication has a guarantee of Recovery time objective (RTO) of 30 sec for 100% of deployed hours.
-* Use point-in-time restore**  to recover from human error. Point-in-time restore returns your database to an earlier point in time to recover data from changes done inadvertently. For more information, read the PITR documentation for https://docs.microsoft.com/en-us/azure/azure-sql/database/recovery-using-backups#point-in-time-restore 
-* Use geo-restore to recover from a service outage**. You can restore a database on any SQL Database server or an instance database on any managed instance in any Azure region from the most recent geo-replicated backups. Geo-restore uses a geo-replicated backup as its source. You can request geo-restore even if the database or datacenter is inaccessible due to an outage. Geo-restore restores a database from a geo-redundant backup. For more information, see [Recover an Azure SQL database using automated database backups](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups)
-* Use sharding**: Sharding is a technique of distributing data and processing across many identically structured databases , provides an alternative to traditional scale-up approaches both in terms of cost and elasticity. Consider using sharding to partition the database horizontally. Sharding can provide fault isolation. For more information, see [Scaling out with Azure SQL Database.](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-scale-introduction)
-* Define an application performance SLA and monitor it with alerts**. Detecting quickly when your application performance inadvertently degrades below an acceptable level is important to maintain high resiliency. Use the monitoring solution defined above to set alerts on key query performance metrics to you can take action when the performance breaks the SLA. [Monitor Your Database](https://docs.microsoft.com/en-us/azure/azure-sql/database/monitor-tune-overview)
+* Use point-in-time restore.  to recover from human error. Point-in-time restore returns your database to an earlier point in time to recover data from changes done inadvertently. For more information, read the PITR documentation for https://docs.microsoft.com/en-us/azure/azure-sql/database/recovery-using-backups#point-in-time-restore 
+* Use geo-restore to recover from a service outage. You can restore a database on any SQL Database server or an instance database on any managed instance in any Azure region from the most recent geo-replicated backups. Geo-restore uses a geo-replicated backup as its source. You can request geo-restore even if the database or datacenter is inaccessible due to an outage. Geo-restore restores a database from a geo-redundant backup. For more information, see [Recover an Azure SQL database using automated database backups](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups)
+* Use sharding Sharding is a technique of distributing data and processing across many identically structured databases , provides an alternative to traditional scale-up approaches both in terms of cost and elasticity. Consider using sharding to partition the database horizontally. Sharding can provide fault isolation. For more information, see [Scaling out with Azure SQL Database.](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-scale-introduction)
+* Define an application performance SLA and monitor it with alerts. Detecting quickly when your application performance inadvertently degrades below an acceptable level is important to maintain high resiliency. Use the monitoring solution defined above to set alerts on key query performance metrics to you can take action when the performance breaks the SLA. [Monitor Your Database](https://docs.microsoft.com/en-us/azure/azure-sql/database/monitor-tune-overview)
 ### Configuration Recommendations
-* Configure HA/DR that best feed your needs from following options**   : Azure Sql DB  offers the following capabilities for recovering from an outage, It is advised to implement one or combination of one or more depending on Business RTO/RPO requirements : 
-  - Use Active Geo-Replication** :  Use Active Geo-Replication to create a readable secondary in a different region. If your primary database fails, perform a manual failover to the secondary database. Until you fail over, the secondary database remains read-only. [Active geo-replication](https://docs.microsoft.com/en-us/azure/azure-sql/database/active-geo-replication-overview) enables you to create readable replicas and manually failover to any replica in case of a datacenter outage or application upgrade. Up to 4 secondaries are supported in the same or different regions, and the secondaries can also be used for read-only access queries. The failover must be initiated manually by the application or the user. After failover, the new primary has a different connection end point. 
+* Configure HA/DR that best feed your needs from following options: Azure Sql DB  offers the following capabilities for recovering from an outage, It is advised to implement one or combination of one or more depending on Business RTO/RPO requirements : 
+  - Use Active Geo-Replication:  Use Active Geo-Replication to create a readable secondary in a different region. If your primary database fails, perform a manual failover to the secondary database. Until you fail over, the secondary database remains read-only. [Active geo-replication](https://docs.microsoft.com/en-us/azure/azure-sql/database/active-geo-replication-overview) enables you to create readable replicas and manually failover to any replica in case of a datacenter outage or application upgrade. Up to 4 secondaries are supported in the same or different regions, and the secondaries can also be used for read-only access queries. The failover must be initiated manually by the application or the user. After failover, the new primary has a different connection end point. 
                             
-  - Use Auto Failover Groups** : A failover group can include one or multiple databases, typically used by the same application. Additionally, you can use the readable secondary databases to offload read-only query workloads. Because auto-failover groups involve multiple databases, these databases must be configured on the primary server. Auto-failover groups support replication of all databases in the group to only one secondary server or instance in a different region. Learn more about [AutoFailover Groups](https://docs.microsoft.com/en-us/azure/azure-sql/database/auto-failover-group-overview?tabs=azure-powershell)  and  [DR design](https://docs.microsoft.com/en-us/azure/azure-sql/database/designing-cloud-solutions-for-disaster-recovery).	
+  - Use Auto Failover Groups: A failover group can include one or multiple databases, typically used by the same application. Additionally, you can use the readable secondary databases to offload read-only query workloads. Because auto-failover groups involve multiple databases, these databases must be configured on the primary server. Auto-failover groups support replication of all databases in the group to only one secondary server or instance in a different region. Learn more about [AutoFailover Groups](https://docs.microsoft.com/en-us/azure/azure-sql/database/auto-failover-group-overview?tabs=azure-powershell)  and  [DR design](https://docs.microsoft.com/en-us/azure/azure-sql/database/designing-cloud-solutions-for-disaster-recovery).	
                             
-  - Use Zone-Redundant database** : By default, the cluster of nodes for the premium availability model is created in the same datacenter. With the introduction of Azure Availability Zones, SQL Database can place different replicas of the Business Critical database to different availability zones in the same region. To eliminate a single point of failure, the control ring is also duplicated across multiple zones as three gateway rings (GW). The routing to a specific gateway ring is controlled by [Azure Traffic Manager](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-overview) (ATM). Because the zone redundant configuration in the Premium or Business Critical service tiers does not create additional database redundancy, you can enable it at no extra cost. Learn More on Zone-redundant databases [here](https://docs.microsoft.com/en-us/azure/azure-sql/database/high-availability-sla) 
+  - Use Zone-Redundant database: By default, the cluster of nodes for the premium availability model is created in the same datacenter. With the introduction of Azure Availability Zones, SQL Database can place different replicas of the Business Critical database to different availability zones in the same region. To eliminate a single point of failure, the control ring is also duplicated across multiple zones as three gateway rings (GW). The routing to a specific gateway ring is controlled by [Azure Traffic Manager](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-overview) (ATM). Because the zone redundant configuration in the Premium or Business Critical service tiers does not create additional database redundancy, you can enable it at no extra cost. Learn More on Zone-redundant databases [here](https://docs.microsoft.com/en-us/azure/azure-sql/database/high-availability-sla) 
                             
-* Monitor your Azure Sql DB in near-real time to detect reliability incidents**. Use one of the available solutions to monitor SQL DB to detect potential reliability incidents early and make your databases more reliable. Choosing a near real-time monitoring solution is key to quickly react to incidents. Learn more details about Azure SQL Analytics [Here](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/azure-sql#analyze-data-and-create-alerts)  
-* Backup your keys**: If you are not [using encryption keys in Azure key vault to protect your data](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-always-encrypted-azure-key-vault) , backup your keys!
-* Implement Retry Logic** :  Although Azure SQL Database is resilient on the transitive infrastructure failures, these failures might affect your connectivity. When a transient error occurs while working with SQL Database, make sure your code must be able to retry the call. Follow the link for detailed instruction on how to [Implement retry logic](https://docs.microsoft.com/en-us/azure/azure-sql/database/troubleshoot-common-connectivity-issues). 
+* Monitor your Azure Sql DB in near-real time to detect reliability incidents. Use one of the available solutions to monitor SQL DB to detect potential reliability incidents early and make your databases more reliable. Choosing a near real-time monitoring solution is key to quickly react to incidents. Learn more details about Azure SQL Analytics [Here](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/azure-sql#analyze-data-and-create-alerts)  
+* Backup your keys: If you are not [using encryption keys in Azure key vault to protect your data](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-always-encrypted-azure-key-vault) , backup your keys!
+* Implement Retry Logic: Although Azure SQL Database is resilient on the transitive infrastructure failures, these failures might affect your connectivity. When a transient error occurs while working with SQL Database, make sure your code must be able to retry the call. Follow the link for detailed instruction on how to [Implement retry logic](https://docs.microsoft.com/en-us/azure/azure-sql/database/troubleshoot-common-connectivity-issues). 
 ## Azure SQL Managed Instance
 ### Configuration Recommendations
-* Use Business Critical tier**. This tier provides higher resiliency to failures and faster failover times due to the underlying HA architecture, among other benefits. For more information, see [SQL Managed Instance High availability](https://docs.microsoft.com/en-us/azure/azure-sql/database/high-availability-sla)
-* Configure a secondary instance and an Auto-failover group to enable failover to another region**. If an outage impacts one or more of the databases in the managed instance, you can manually or automatically failover all the databases inside the instance to a secondary region. For more information, read the [Auto-failover groups documentation for managed instance](https://docs.microsoft.com/en-us/azure/azure-sql/database/auto-failover-group-overview)
-* Monitor your SQL MI instance in near-real time to detect reliability incidents**. Use one of the available solutions to monitor your SQL MI to detect potential reliability incidents early and make your databases more reliable. Choosing a near real-time monitoring solution is key to quickly react to incidents. For more information, read the [Azure SQL Managed Instance monitoring options](http://aka.ms/mi-monitoring)
-* Implement Retry Logic** :  Although Azure SQL MI is resilient on the transitive infrastructure failures, these failures might affect your connectivity. When a transient error occurs while working with SQL MI, make sure your code must be able to retry the call. Follow the link for detailed instruction on how to [Implement retry logic](https://docs.microsoft.com/en-us/azure/azure-sql/database/troubleshoot-common-connectivity-issues). 
+* Use Business Critical tier. This tier provides higher resiliency to failures and faster failover times due to the underlying HA architecture, among other benefits. For more information, see [SQL Managed Instance High availability](https://docs.microsoft.com/en-us/azure/azure-sql/database/high-availability-sla)
+* Configure a secondary instance and an Auto-failover group to enable failover to another region. If an outage impacts one or more of the databases in the managed instance, you can manually or automatically failover all the databases inside the instance to a secondary region. For more information, read the [Auto-failover groups documentation for managed instance](https://docs.microsoft.com/en-us/azure/azure-sql/database/auto-failover-group-overview)
+* Monitor your SQL MI instance in near-real time to detect reliability incidents. Use one of the available solutions to monitor your SQL MI to detect potential reliability incidents early and make your databases more reliable. Choosing a near real-time monitoring solution is key to quickly react to incidents. For more information, read the [Azure SQL Managed Instance monitoring options](http://aka.ms/mi-monitoring)
+* Implement Retry Logic: Although Azure SQL MI is resilient on the transitive infrastructure failures, these failures might affect your connectivity. When a transient error occurs while working with SQL MI, make sure your code must be able to retry the call. Follow the link for detailed instruction on how to [Implement retry logic](https://docs.microsoft.com/en-us/azure/azure-sql/database/troubleshoot-common-connectivity-issues). 
 ## Cosmos DB
 ### Design Considerations
 * 99.99% SLAs for throughput, consistency, availability and latency for Database Accounts scoped to a single Azure region configured with any of the five Consistency Levels or Database Accounts spanning to multiple Azure regions, configured with any of the four relaxed Consistency Levels. 
@@ -206,11 +237,40 @@ This list contains design considerations and recommended configuration options, 
 * Increase the number of threads /tasks.
 * To reduce latency and CPU jitter, it is recommended to enable accelerated networking on client virtual machines both [Windows](https://docs.microsoft.com/en-us/azure/virtual-network/create-vm-accelerated-networking-powershell) and [Linux](https://docs.microsoft.com/en-us/azure/virtual-network/create-vm-accelerated-networking-cli).    
 * Implement [retry logic](https://docs.microsoft.com/en-us/azure/architecture/best-practices/retry-service-specific#cosmos-db) in your client.
+### Supporting Source Artifacts
+* In order to check if multi location is not selected you can use the following query: 
+  <pre><code>Resources
+|where  type =~ 'Microsoft.DocumentDb/databaseAccounts'
+|where array_length( properties.locations) &lt;=1
+</code></pre> 
+                            
+* To check for cosmosdb instances where automatic failover is not enabled:
+  <pre><code>Resources
+|where  type =~ 'Microsoft.DocumentDb/databaseAccounts'
+|where properties.enableAutomaticFailover!=True
+</code></pre> 
+                            
+* Query to see the list of multi-region writes:
+  <pre><code>resources
+| where type == &quot;microsoft.documentdb/databaseaccounts&quot;
+ and properties.enableMultipleWriteLocations == &quot;true&quot;
+</code></pre> 
+                            
+* To see the consistency levels for your cosmos db accounts you can use the query below: 
+  <pre><code>Resources
+| project name, type, location, consistencyLevel = properties.consistencyPolicy.defaultConsistencyLevel 
+| where type == &quot;microsoft.documentdb/databaseaccounts&quot; 
+| order by name asc
+</code></pre> 
+                            
+* [High Availability in Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/high-availability)
+* [Auto-Scale FAQ](https://docs.microsoft.com/en-us/azure/cosmos-db/autoscale-faq)
+* [Performance Tips for Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/performance-tips)
 # Hybrid
         
 ## Azure Stack Hub
 ### Design Considerations
-* Microsoft does not provide an SLA for Azure Stack Hub** because Microsoft does not have control over customer datacenter reliability, people, and processes.
+* Microsoft does not provide an SLA for Azure Stack Hub because Microsoft does not have control over customer datacenter reliability, people, and processes.
 * Azure Stack Hub currently only supports a single Scale Unit (SU) within in a single Region, which can consist of between 4 and 16 servers that use Hyper-V failover clustering; each region serves as an independent Azure Stack Hub &#34;stamp&#34; with separate portal and API endpoints.
   > Azure Stack Hub does therefore **not support Availability Zones** as it currently consists only of a single &#34;region&#34; (aka a single physical location). High availability to cope with outages of a single location should be implemented by using two Azure Stack Hub instances deployed into different pyhsical locations.
                             
@@ -256,6 +316,14 @@ This list contains design considerations and recommended configuration options, 
 * When using the Capture feature, carefully consider the configuration of the time window and file size, especially with low event volumes. Data Lake will charge small for a minimal file size for storage (gen1) or minimal transaction size (gen2). This means that if you set the time window so low that the file has not reached minimum size, you will incur a lot of extra cost.
 * Ensure each consuming application uses a seprate consumer group and only one active receiver per consumer group is in place. 
 * When using the SDK to send events to Event Hubs, ensure the exceptions thrown by the [retry policy](https://docs.microsoft.com/en-us/azure/architecture/best-practices/retry-service-specific#event-hubs) (EventHubsException or OperationCancelledException) are properly caught. When using HTTPS, ensure a proper retry pattern is implemented.
+### Supporting Source Artifacts
+* Find Event Hub namespaces with &#39;Basic&#39; SKU:
+  <pre><code>Resources 
+| where type == 'microsoft.eventhub/namespaces'
+| where sku.name == 'Basic'
+| project resourceGroup, name, sku.name
+</code></pre> 
+                            
 ## Service Bus
 ### Design Considerations
 * For Service Bus Queues and Topics, Microsoft guarantees that at least 99.9% of the time, properly configured applications will be able to send or receive messages or perform other operations on a deployed Queue or Topic. [SLA Documentation](https://azure.microsoft.com/en-us/support/legal/sla/service-bus)
@@ -298,6 +366,33 @@ This list contains design considerations and recommended configuration options, 
 * Ensure that Service Bus messaging exceptions are handled properly.
   > [Service Bus Messaging Exceptions](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-exceptions)
                             
+### Supporting Source Artifacts
+* Query to identify Service Bus Instances that are not on the premium tier:
+  <pre><code>Resources
+| where
+	type == 'microsoft.servicebus/namespaces'
+| where
+	sku.tier != 'Premium'
+</code></pre> 
+                            
+* Query to identify premium Service Bus Instances that are not zone redundant:
+  <pre><code>Resources
+| where
+	type == 'microsoft.servicebus/namespaces'
+| where
+	sku.tier == 'Premium'
+	and properties.zoneRedundant == 'false'
+</code></pre> 
+                            
+* Query to identify premium Service Bus Instances that are not using private endpoints:
+  <pre><code>Resources
+| where
+	type == 'microsoft.servicebus/namespaces'
+| where
+	sku.tier == 'Premium'
+	and isempty(properties.privateEndpointConnections)
+</code></pre> 
+                            
 ## Storage Queues
 ### Design Considerations
 * Azure Storage Queues follow the SLA statements of the general [Storage Account service](https://azure.microsoft.com/en-us/support/legal/sla/storage/v1_5/). Currently (v1.5) this specifies a 99.9% guarantee for LRS, ZRS and GRS accounts and a 99.99% guarantee for RA-GRS (provided that requests to RA-GRS switch to secondary endpoints if there is no success on the primary endpoint)
@@ -307,3 +402,18 @@ This list contains design considerations and recommended configuration options, 
 * For an SLA increase from three to four nines, use geo-redundant storage with read access and configure the client application to fail over to secondary read endpoints if the primary endpoints fail to respond. This consideration should be part of the overall reliability strategy of your solution.
 * Refer to the &#39;Storage&#39; guidance for specifics on data recovery for storage accounts
 * Ensure that for all clients accessing the storage account, a proper [retry policy](https://docs.microsoft.com/en-us/azure/architecture/best-practices/retry-service-specific#azure-storage) is implemented.
+### Supporting Source Artifacts
+* Query to identify storage accounts using V1 storage accounts:
+  <pre><code>Resources
+| where
+	type == 'microsoft.storage/storageaccounts'
+	and kind == 'Storage'
+</code></pre> 
+                            
+* Query to identify storage accounts using locally redundant storage (LRS):
+  <pre><code>Resources
+| where
+	type == 'microsoft.storage/storageaccounts'
+	and sku.name =~ 'Standard_LRS'
+</code></pre> 
+                            
