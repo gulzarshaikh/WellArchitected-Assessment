@@ -93,6 +93,13 @@ jobs:
           $templatedir = $env:TEMPLATEDIR
           $outputdir = $env:OUTPUTDIR
 
+          # Clear the content of the output dir.
+          # This is to ensure that there is no output of deleted templates
+          if(Test-Path $outputdir)
+          {
+            Remove-Item -Path "$outputdir/*" -Recurse -Force
+          }
+
           # Process the output for each of the 'projects' that went in
           # We use the directories under /template to get their names
 
