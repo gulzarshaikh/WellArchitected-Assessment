@@ -10,12 +10,12 @@ In addition to the different 'Pillars' mentioned above, the assessments are also
  * _Service_ zooms in on each of the Azure services that have been used in the solution
  * _Scenario_ addresses some of the solution scenarios and the general recommendations they come with, for example Internet of Things or SAP. 
 
-# Table of contents (links to be added)
+# Table of contents
 
 |||||
 | --- | --- | --- | --- |
-| **Reliability** | Application | Service | Scenario |
-| **Operational Excellence** | Application | Service | Scenario |
+| **Reliability** | [Application](./Assessments/reliability/applicationlens.md) | [Service](Assessments/reliability/servicelens.md) | Scenario |
+| **Operational Excellence** | [Application](./Assessments/opex/applicationlens.md) | [Service](./Assessments/opex/servicelens.md) | Scenario |
 | **Security** | Application | Service | Scenario |
 | **Cost-Optimization** | Application | Service | Scenario |
 | **Scalability** | Application | Service | Scenario |
