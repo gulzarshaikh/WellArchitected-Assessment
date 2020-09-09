@@ -4,7 +4,8 @@ on:
   push:
     branches:
       - main
-      - workflowdev 
+      - workflowdev
+      - martin-hugodev
 
 jobs:
   HugoBuild:
@@ -19,6 +20,7 @@ jobs:
           echo '::set-env name=DATADIR::data'
           echo '::set-env name=TEMPLATEDIR::template'
           echo '::set-env name=OUTPUTDIR::Assessments'
+          echo '::set-env name=GENERATOR_ROOT::generator'
 
       - name: Merge data files
         shell: pwsh
@@ -37,12 +39,17 @@ jobs:
               }
           }
 
-          $AllItems | ConvertTo-Json -Depth 10| Out-File allinput.json
+          $AllItems | ConvertTo-Json -Depth 10| Out-File "{0}/data/input.json" -f $env:GENERATOR_ROOT
+
+          # Copy the rest of data files which don't contain questions, e.g. categories
+          Get-ChildItem -Path $env:DATADIR | where { $_.Name -notmatch ".data.json$" } | % {
+              Copy-Item -Path $_.FullName -Destination $env:GENERATOR_ROOT/data
+          }
       
-      - uses: srt32/hugo-action@master
-        name: Create a new Hugo Environment
-        with: 
-          args: new site waf
+      # - uses: srt32/hugo-action@master
+      #   name: Create a new Hugo Environment
+      #   with: 
+      #     args: new site waf
 
       - name: Move files into the Hugo directories
         shell: pwsh
@@ -54,102 +61,104 @@ jobs:
           sudo chmod a+rw waf/ -R
 
           # Give Hugo our one big data file generated in the first step:
-          Copy-Item -Path allinput.json -Destination waf/data/input.json
+          #Copy-Item -Path $env:GENERATOR_ROOT/data/allinput.json -Destination /data/input.json
 
           # Copy data files that are not containing questions into Hugo, e.g. categories
-          Get-ChildItem -Path data | where { $_.Name -notmatch ".data.json$" } | % {
-              Copy-Item -Path $_.FullName -Destination "waf/data"
-          }
+          # Get-ChildItem -Path data | where { $_.Name -notmatch ".data.json$" } | % {
+          #     Copy-Item -Path $_.FullName -Destination "waf/data"
+          # }
           
           # Each file in the template directory will be a 'content type' in Hugo.
           
           Get-ChildItem -Recurse -File $templatedir | % {
-            $project = $_.FullName.Substring($_.FullName.IndexOf($templatedir))
-            $project = $project -replace "/","-"
-            $project = $project -replace "(^$templatedir.)|(\.md$)",""
+            $project =  (Split-Path $_ -Parent | Split-Path -Leaf) + "-" + (Split-Path $_ -LeafBase)  
+          
+            # $project = $_.FullName.Substring($_.FullName.IndexOf($templatedir))
+            # $project = $project -replace "/","-"
+            # $project = $project -replace "(^$templatedir.)|(\.md$)",""
 
             Write-Output "Adding project $project to Hugo."
 
             # Create project directories under content and layouts:
-            New-Item -ItemType Directory -Path "waf/content/$project"
-            New-Item -ItemType Directory -Path "waf/layouts/$project"
+            # New-Item -ItemType Directory -Path "waf/content/$project"
+            # New-Item -ItemType Directory -Path "waf/layouts/$project"
+            New-Item -ItemType Directory -Path "$env:GENERATOR_ROOT/templates/$project"
 
             # The content directories each need an empty .md file in them
-            New-Item -ItemType File -Path "waf/content/$project/$project.md"
+            #New-Item -ItemType File -Path "waf/content/$project/$project.md"
 
             # The template files have to be in the project directories under layouts, with html extensions:
-            Copy-Item -Path $_.FullName -Destination "waf/layouts/$project/$project.html"
+            Copy-Item -Path $_.FullName -Destination "waf/templates/$project/$project.md"
           }
 
       - uses: srt32/hugo-action@master
         name: Build Hugo content
         with: 
-          args: -s waf
+          args: -s $env:GENERATOR_ROOT
 
-      - name: Copy files out of Hugo
-        shell: pwsh
-        run: |
-          # Which directories are we dealing with?
-          $templatedir = $env:TEMPLATEDIR
-          $outputdir = $env:OUTPUTDIR
+      # - name: Copy files out of Hugo
+      #   shell: pwsh
+      #   run: |
+      #     # Which directories are we dealing with?
+      #     $templatedir = $env:TEMPLATEDIR
+      #     $outputdir = $env:OUTPUTDIR
 
-          # Clear the content of the output dir.
-          # This is to ensure that there is no output of deleted templates
-          if(Test-Path $outputdir)
-          {
-            Remove-Item -Path "$outputdir/*" -Recurse -Force
-          }
+      #     # Clear the content of the output dir.
+      #     # This is to ensure that there is no output of deleted templates
+      #     if(Test-Path $outputdir)
+      #     {
+      #       Remove-Item -Path "$outputdir/*" -Recurse -Force
+      #     }
 
-          # Process the output for each of the 'projects' that went in
-          # We use the directories under /template to get their names
+      #     # Process the output for each of the 'projects' that went in
+      #     # We use the directories under /template to get their names
 
-          Get-ChildItem -Recurse -File $templatedir | % {
-            $project = $_.FullName.Substring($_.FullName.IndexOf($templatedir))
-            $project = $project -replace "/","-"
-            $project = $project -replace "(^$templatedir.)|(\.md$)",""
+      #     Get-ChildItem -Recurse -File $templatedir | % {
+      #       $project = $_.FullName.Substring($_.FullName.IndexOf($templatedir))
+      #       $project = $project -replace "/","-"
+      #       $project = $project -replace "(^$templatedir.)|(\.md$)",""
 
-            # Figure out and create the (nested) output directory
-            $output = $_.Directory.FullName.Substring($_.Directory.FullName.IndexOf($templatedir))
-            $output = "{0}/{1}"-f $outputdir, ($output -replace "^$templatedir.","")
-            New-Item -ItemType Directory -Path $output -Force
+      #       # Figure out and create the (nested) output directory
+      #       $output = $_.Directory.FullName.Substring($_.Directory.FullName.IndexOf($templatedir))
+      #       $output = "{0}/{1}"-f $outputdir, ($output -replace "^$templatedir.","")
+      #       New-Item -ItemType Directory -Path $output -Force
 
-            try {
-              Copy-Item -Path "waf/public/$project/index.html" -Destination "$output/$($_.Name)"
-            } catch {
-              Write-Warning "Hugo output for $($_.Name) could not be found."
-              continue;
-            }
-          }
+      #       try {
+      #         Copy-Item -Path "waf/public/$project/index.html" -Destination "$output/$($_.Name)"
+      #       } catch {
+      #         Write-Warning "Hugo output for $($_.Name) could not be found."
+      #         continue;
+      #       }
+      #     }
 
-      - name: Push files to repo
-        shell: pwsh
-        run: |
-          # Get outputdir from variables
-          $outputdir = $env:OUTPUTDIR
+      # - name: Push files to repo
+      #   shell: pwsh
+      #   run: |
+      #     # Get outputdir from variables
+      #     $outputdir = $env:OUTPUTDIR
           
-          # Set the name on the commits as it will appear in Github
-          git config --global user.name 'Github Action'
-          git config --global user.email 'wellarchitected@users.noreply.github.com'
+      #     # Set the name on the commits as it will appear in Github
+      #     git config --global user.name 'Github Action'
+      #     git config --global user.email 'wellarchitected@users.noreply.github.com'
      
-          # Everything coming from Hugo is in the output dir by now
-          git add $outputdir
-          git status --short
+      #     # Everything coming from Hugo is in the output dir by now
+      #     git add $outputdir
+      #     git status --short
 
-          # Get the name of the commit that triggered the workflow, 
-          # so we can refer to it in our automated commit message.
-          $message = git log -1 --pretty=format:"%s"
+      #     # Get the name of the commit that triggered the workflow, 
+      #     # so we can refer to it in our automated commit message.
+      #     $message = git log -1 --pretty=format:"%s"
 
-          # Only commit if there are changes to commit, otherwise commit will throw an error.
-          if(git status -uno --short) {
-            git commit -am "Auto update: $message"
-            git push origin
-          } 
-          else {
-            Write-Output "No changes to commit. Bye."
-          }
+      #     # Only commit if there are changes to commit, otherwise commit will throw an error.
+      #     if(git status -uno --short) {
+      #       git commit -am "Auto update: $message"
+      #       git push origin
+      #     } 
+      #     else {
+      #       Write-Output "No changes to commit. Bye."
+      #     }
 
-#      - name: (Debug) Show all files
-#        if: ${{ always() }}
-#        shell: pwsh
-#        run: |
-#          gci -Recurse
+      - name: (Debug) Show all files
+        shell: pwsh
+        run: |
+          gci -Recurse
