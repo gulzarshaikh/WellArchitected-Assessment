@@ -420,7 +420,7 @@
     ]
   },
   {
-    "type": "Supporting Source Artefacts",
+    "type": "Supporting Source Artifacts",
     "pillars": [
       "reliability"
     ],
@@ -431,7 +431,7 @@
     "code": "Resources\n| where type == \"microsoft.web/serverfarms\" and properties.computeMode == 'Dedicated'\n| where sku.capacity == 1\n"
   },
   {
-    "type": "Supporting Source Artefacts",
+    "type": "Supporting Source Artifacts",
     "pillars": [
       "reliability"
     ],
@@ -1079,7 +1079,7 @@
     "title": "Implement [retry logic](https://docs.microsoft.com/en-us/azure/architecture/best-practices/retry-service-specific#cosmos-db) in your client."
   },
   {
-    "type": "Supporting Source Artefacts",
+    "type": "Supporting Source Artifacts",
     "pillars": [
       "reliability"
     ],
@@ -1090,7 +1090,7 @@
     "code": "Resources\n|where  type =~ 'Microsoft.DocumentDb/databaseAccounts'\n|where array_length( properties.locations) <=1\n"
   },
   {
-    "type": "Supporting Source Artefacts",
+    "type": "Supporting Source Artifacts",
     "pillars": [
       "reliability"
     ],
@@ -1101,7 +1101,7 @@
     "code": "Resources\n|where  type =~ 'Microsoft.DocumentDb/databaseAccounts'\n|where properties.enableAutomaticFailover!=True\n"
   },
   {
-    "type": "Supporting Source Artefacts",
+    "type": "Supporting Source Artifacts",
     "pillars": [
       "reliability"
     ],
@@ -1112,7 +1112,7 @@
     "code": "resources\n| where type == \"microsoft.documentdb/databaseaccounts\"\n and properties.enableMultipleWriteLocations == \"true\"\n"
   },
   {
-    "type": "Supporting Source Artefacts",
+    "type": "Supporting Source Artifacts",
     "pillars": [
       "reliability"
     ],
@@ -1123,7 +1123,7 @@
     "code": "Resources\n| project name, type, location, consistencyLevel = properties.consistencyPolicy.defaultConsistencyLevel \n| where type == \"microsoft.documentdb/databaseaccounts\" \n| order by name asc\n"
   },
   {
-    "type": "Supporting Source Artefacts",
+    "type": "Supporting Source Artifacts",
     "pillars": [
       "reliability"
     ],
@@ -1133,7 +1133,7 @@
     "title": "[High Availability in Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/high-availability)"
   },
   {
-    "type": "Supporting Source Artefacts",
+    "type": "Supporting Source Artifacts",
     "pillars": [
       "reliability"
     ],
@@ -1143,7 +1143,7 @@
     "title": "[Auto-Scale FAQ](https://docs.microsoft.com/en-us/azure/cosmos-db/autoscale-faq)"
   },
   {
-    "type": "Supporting Source Artefacts",
+    "type": "Supporting Source Artifacts",
     "pillars": [
       "reliability"
     ],
@@ -1364,7 +1364,7 @@
     "title": "When using the SDK to send events to Event Hubs, ensure the exceptions thrown by the [retry policy](https://docs.microsoft.com/en-us/azure/architecture/best-practices/retry-service-specific#event-hubs) (EventHubsException or OperationCancelledException) are properly caught. When using HTTPS, ensure a proper retry pattern is implemented."
   },
   {
-    "type": "Supporting Source Artefacts",
+    "type": "Supporting Source Artifacts",
     "pillars": [
       "reliability"
     ],
@@ -1529,7 +1529,7 @@
     "context": "[Service Bus Messaging Exceptions](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-exceptions)"
   },
   {
-    "type": "Supporting Source Artefacts",
+    "type": "Supporting Source Artifacts",
     "pillars": [
       "reliability"
     ],
@@ -1540,7 +1540,7 @@
     "code": "Resources\n| where\n\ttype == 'microsoft.servicebus/namespaces'\n| where\n\tsku.tier != 'Premium'\n"
   },
   {
-    "type": "Supporting Source Artefacts",
+    "type": "Supporting Source Artifacts",
     "pillars": [
       "reliability"
     ],
@@ -1551,7 +1551,7 @@
     "code": "Resources\n| where\n\ttype == 'microsoft.servicebus/namespaces'\n| where\n\tsku.tier == 'Premium'\n\tand properties.zoneRedundant == 'false'\n"
   },
   {
-    "type": "Supporting Source Artefacts",
+    "type": "Supporting Source Artifacts",
     "pillars": [
       "reliability"
     ],
@@ -1622,7 +1622,7 @@
     "title": "Ensure that for all clients accessing the storage account, a proper [retry policy](https://docs.microsoft.com/en-us/azure/architecture/best-practices/retry-service-specific#azure-storage) is implemented."
   },
   {
-    "type": "Supporting Source Artefacts",
+    "type": "Supporting Source Artifacts",
     "pillars": [
       "reliability"
     ],
@@ -1633,7 +1633,7 @@
     "code": "Resources\n| where\n\ttype == 'microsoft.storage/storageaccounts'\n\tand kind == 'Storage'\n"
   },
   {
-    "type": "Supporting Source Artefacts",
+    "type": "Supporting Source Artifacts",
     "pillars": [
       "reliability"
     ],
