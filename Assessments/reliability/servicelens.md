@@ -71,10 +71,12 @@ This list contains design considerations and recommended configuration options, 
                             
 ### Supporting Source Artifacts
 * Query to identify App Service Plans with **only 1 instance**:
-  <pre><code>Resources
-| where type == &quot;microsoft.web/serverfarms&quot; and properties.computeMode == 'Dedicated'
+```
+Resources
+| where type == "microsoft.web/serverfarms" and properties.computeMode == 'Dedicated'
 | where sku.capacity == 1
-</code></pre> 
+```
+ 
                             
 * [The Ultimate Guide to Running Healthy Apps in the Cloud](https://azure.github.io/AppService/2020/05/15/Robust-Apps-for-the-cloud.html)
 ## Azure Kubernetes Service (AKS)
@@ -99,26 +101,32 @@ This list contains design considerations and recommended configuration options, 
 * Store container images within Azure Container Registry and enable [geo-replication](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region#enable-geo-replication-for-container-images) to replicate container images across leveraged AKS regions. 
 ### Supporting Source Artifacts
 * Query to identify AKS clusters that are not deployed across **Availability Zones**:
-  <pre><code>Resources
+```
+Resources
 | where
     type =~ 'Microsoft.ContainerService/managedClusters'
 	and isnull(zones)
-</code></pre> 
+```
+ 
                             
 * Query to identify AKS clusters that are deployed within a AvailabilitySet:
-  <pre><code>Resources
+```
+Resources
 | where
     type =~ 'Microsoft.ContainerService/managedClusters'
 	and properties.agentPoolProfiles[0].type != 'VirtualMachineScaleSets'
 | project name, location, resourceGroup, subscriptionId, properties.agentPoolProfiles[0].type
-</code></pre> 
+```
+ 
                             
 * Query to identify AKS clusters that are not deployed using a **Managed Identity**:
-  <pre><code>Resources
+```
+Resources
 | where
     type =~ 'Microsoft.ContainerService/managedClusters'
 	and isnull(identity)
-</code></pre> 
+```
+ 
                             
 ## Service Fabric
 ### Design Considerations
@@ -239,29 +247,37 @@ This list contains design considerations and recommended configuration options, 
 * Implement [retry logic](https://docs.microsoft.com/en-us/azure/architecture/best-practices/retry-service-specific#cosmos-db) in your client.
 ### Supporting Source Artifacts
 * In order to check if multi location is not selected you can use the following query: 
-  <pre><code>Resources
+```
+Resources
 |where  type =~ 'Microsoft.DocumentDb/databaseAccounts'
-|where array_length( properties.locations) &lt;=1
-</code></pre> 
+|where array_length( properties.locations) <=1
+```
+ 
                             
 * To check for cosmosdb instances where automatic failover is not enabled:
-  <pre><code>Resources
+```
+Resources
 |where  type =~ 'Microsoft.DocumentDb/databaseAccounts'
 |where properties.enableAutomaticFailover!=True
-</code></pre> 
+```
+ 
                             
 * Query to see the list of multi-region writes:
-  <pre><code>resources
-| where type == &quot;microsoft.documentdb/databaseaccounts&quot;
- and properties.enableMultipleWriteLocations == &quot;true&quot;
-</code></pre> 
+```
+resources
+| where type == "microsoft.documentdb/databaseaccounts"
+ and properties.enableMultipleWriteLocations == "true"
+```
+ 
                             
 * To see the consistency levels for your cosmos db accounts you can use the query below: 
-  <pre><code>Resources
+```
+Resources
 | project name, type, location, consistencyLevel = properties.consistencyPolicy.defaultConsistencyLevel 
-| where type == &quot;microsoft.documentdb/databaseaccounts&quot; 
+| where type == "microsoft.documentdb/databaseaccounts" 
 | order by name asc
-</code></pre> 
+```
+ 
                             
 * [High Availability in Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/high-availability)
 * [Auto-Scale FAQ](https://docs.microsoft.com/en-us/azure/cosmos-db/autoscale-faq)
@@ -356,11 +372,13 @@ This list contains design considerations and recommended configuration options, 
 * When using the SDK to send events to Event Hubs, ensure the exceptions thrown by the [retry policy](https://docs.microsoft.com/en-us/azure/architecture/best-practices/retry-service-specific#event-hubs) (EventHubsException or OperationCancelledException) are properly caught. When using HTTPS, ensure a proper retry pattern is implemented.
 ### Supporting Source Artifacts
 * Find Event Hub namespaces with &#39;Basic&#39; SKU:
-  <pre><code>Resources 
+```
+Resources 
 | where type == 'microsoft.eventhub/namespaces'
 | where sku.name == 'Basic'
 | project resourceGroup, name, sku.name
-</code></pre> 
+```
+ 
                             
 ## Service Bus
 ### Design Considerations
@@ -406,30 +424,36 @@ This list contains design considerations and recommended configuration options, 
                             
 ### Supporting Source Artifacts
 * Query to identify Service Bus Instances that are not on the premium tier:
-  <pre><code>Resources
+```
+Resources
 | where
 	type == 'microsoft.servicebus/namespaces'
 | where
 	sku.tier != 'Premium'
-</code></pre> 
+```
+ 
                             
 * Query to identify premium Service Bus Instances that are not zone redundant:
-  <pre><code>Resources
+```
+Resources
 | where
 	type == 'microsoft.servicebus/namespaces'
 | where
 	sku.tier == 'Premium'
 	and properties.zoneRedundant == 'false'
-</code></pre> 
+```
+ 
                             
 * Query to identify premium Service Bus Instances that are not using private endpoints:
-  <pre><code>Resources
+```
+Resources
 | where
 	type == 'microsoft.servicebus/namespaces'
 | where
 	sku.tier == 'Premium'
 	and isempty(properties.privateEndpointConnections)
-</code></pre> 
+```
+ 
                             
 ## Storage Queues
 ### Design Considerations
@@ -442,16 +466,20 @@ This list contains design considerations and recommended configuration options, 
 * Ensure that for all clients accessing the storage account, a proper [retry policy](https://docs.microsoft.com/en-us/azure/architecture/best-practices/retry-service-specific#azure-storage) is implemented.
 ### Supporting Source Artifacts
 * Query to identify storage accounts using V1 storage accounts:
-  <pre><code>Resources
+```
+Resources
 | where
 	type == 'microsoft.storage/storageaccounts'
 	and kind == 'Storage'
-</code></pre> 
+```
+ 
                             
 * Query to identify storage accounts using locally redundant storage (LRS):
-  <pre><code>Resources
+```
+Resources
 | where
 	type == 'microsoft.storage/storageaccounts'
 	and sku.name =~ 'Standard_LRS'
-</code></pre> 
+```
+ 
                             
