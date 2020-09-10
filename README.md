@@ -38,7 +38,7 @@ There are several ways to contibute to this project.
 
 ## Add content
 
-While the content is currently driven by the CA&E team, if you find spelling errors, typos, illogical questions or you feel there's content missing, feel free to contribute by creating a Pull Request. The team will triage it.
+While the content is currently mainly driven by the CA&E team, if you find spelling errors, typos, illogical questions or you feel there's content missing, feel free to contribute by creating a Pull Request. The team will triage it.
 
 ## Create custom output formats
 
