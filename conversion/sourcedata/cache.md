@@ -52,3 +52,5 @@ Resources
 | where type == 'microsoft.cache/redis'
 | where properties.sku.name != 'Premium'
 ```
+
+# the end

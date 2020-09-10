@@ -1301,7 +1301,18 @@
     "category": "Data",
     "subCategory": "Azure Cache for Redis",
     "title": "Review the [How to administer Azure Cache for Redis](https://docs.microsoft.com/en-us/azure/azure-cache-for-redis/cache-administration#reboot) to understand how data loss can occur with cache reboots and how to test the application for resiliency."
-  },  
+  },
+  {
+    "type": "Supporting Source Artefacts",
+    "pillars": [
+      "reliability"
+    ],
+    "lens": "service",
+    "category": "Data",
+    "subCategory": "Azure Cache for Redis",
+    "title": "Query to identify Redis Instances that are not on the premium tier:",
+    "code": "Resources \n| where type == 'microsoft.cache/redis'\n| where properties.sku.name != 'Premium'\n"
+  },
   {
     "type": "Design Considerations",
     "pillars": [
