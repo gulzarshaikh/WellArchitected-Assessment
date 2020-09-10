@@ -167,5 +167,18 @@ $md | % {
 
 }
 
+# If there are still open items, add them:
+if($currentSubItem -ne $null)
+{
+    $currentItem.children += $currentSubItem
+    $currentSubItem = $null
+}
+
+if($currentItem -ne $null)
+{
+    $items += $currentItem
+    $currentItem = $null
+}
+
 
 $items | ConvertTo-Json -Depth 10 | Out-File "conversion/$outfilename"
