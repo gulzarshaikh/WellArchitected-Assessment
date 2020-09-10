@@ -69,6 +69,7 @@ jobs:
 
           Get-ChildItem -Recurse -File $templatedir | % {
             # Get output names in the form of "pillar-lens" (e.g. "opex-servicelens").
+            # Currently this approach is limited to one level of nesting and will not work for deeper sub-directories.
             $project =  (Split-Path $_ -Parent | Split-Path -Leaf) + "-" + (Split-Path $_ -LeafBase)  
           
             Write-Output "Adding project $project to Hugo."
@@ -88,6 +89,7 @@ jobs:
         shell: pwsh
         run: |
           # Which directories are we dealing with?
+          $templatedir = $env:TEMPLATEDIR
           $outputdir = $env:OUTPUTDIR
 
           # Clear the content of the output dir.
@@ -99,16 +101,14 @@ jobs:
 
           # Restructure output to the right directories.
           # e.g. "Assesments/opex/applicationlens.md"
-          Get-ChildItem "$env:GENERATOR_ROOT/output" | % {
-              # Extracting folder structure from naming convention.
-              $destPath = "$outputdir/" + ((Split-Path $_ -Leaf) -replace "-","/")
+           Get-ChildItem $templatedir -Recurse -File | % {
+              $pillar = (Split-Path $_ -Parent | Split-Path -Leaf)
+              $lens = (Split-Path $_ -LeafBase)
+              # Create necessary directory structure, don't worry about folder existing.
+              New-Item -ItemType Directory "$outputdir/$pillar" -Force
               
-              # To create the directory structure, we need parent name.
-              $destDir = Split-Path $destPath -Parent
-              New-Item -ItemType Directory $destDir -Force
-              
-              Write-Host "Copy $destPath..."
-              Copy-Item $_.FullName -Destination $destPath -Recurse -Force
+              Write-Host "Copy to $outputdir/$pillar/$lens.md"
+              Copy-Item $env:GENERATOR_ROOT/output/$pillar-$lens.md -Destination $outputdir/$pillar/$lens.md
           }
 
       - name: Push files to repo
