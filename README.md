@@ -26,7 +26,7 @@ In addition to the different 'Pillars' mentioned above, the assessments are also
 # Repository structure
 
 * **Data**
-Is the directory holding all the assessment content. New questions should be submitted to this directory in a Pull Request. 
+Is the directory holding all the assessment content in a JSON structure. New questions should be submitted to this directory in a Pull Request. 
 * **Template**
 Is the directory that has the templates for rendering the data files into ready-to-consume formats.
 * **Assessments**
