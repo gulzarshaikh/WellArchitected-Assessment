@@ -108,7 +108,7 @@
     "title": "To ensure application scalability while navigating within disk sizing thresholds, it is highly recommended that applications be installed on data disks rather than thee OS disk."
   },
   {
-    "type": "Supporting Artifacts",
+    "type": "Supporting Source Artifacts",
     "pillars": [
       "reliability"
     ],
@@ -118,7 +118,7 @@
     "title": "To identify resiliency risks to existing compute resources and support continuous compliance for new resources within a customer tenant, it is recommended that Azure Policy and Azure Resource Graph be used to Audit the use of non-resilient deployment configurations."
   },
   {
-    "type": "Supporting Artifacts",
+    "type": "Supporting Source Artifacts",
     "pillars": [
       "reliability"
     ],
@@ -134,7 +134,7 @@
     ]
   },
   {
-    "type": "Supporting Artifacts",
+    "type": "Supporting Source Artifacts",
     "pillars": [
       "reliability"
     ],
@@ -145,7 +145,7 @@
     "code": "Resources\n| where \n    type =~ 'Microsoft.Compute/availabilitySets'\n| where \n    tags != '{\"Skip\":\"\"}'\n| where \n\tarray_length(properties.virtualMachines) <= 1\n| where\n\tproperties.platformFaultDomainCount <= 1\n"
   },
   {
-    "type": "Supporting Artifacts",
+    "type": "Supporting Source Artifacts",
     "pillars": [
       "reliability"
     ],
@@ -161,7 +161,7 @@
 
   },
   {
-    "type": "Supporting Artifacts",
+    "type": "Supporting Source Artifacts",
     "pillars": [
       "reliability"
     ],
@@ -1303,7 +1303,7 @@
     "title": "Review the [How to administer Azure Cache for Redis](https://docs.microsoft.com/en-us/azure/azure-cache-for-redis/cache-administration#reboot) to understand how data loss can occur with cache reboots and how to test the application for resiliency."
   },
   {
-    "type": "Supporting Source Artefacts",
+    "type": "Supporting Source Artifacts",
     "pillars": [
       "reliability"
     ],
