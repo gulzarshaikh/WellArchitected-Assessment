@@ -2,8 +2,6 @@ name: Generate Output Markdown
 
 on:
   push:
-    branches:
-      - main
 
 jobs:
   HugoBuild:
@@ -83,6 +81,7 @@ jobs:
       - uses: srt32/hugo-action@master
         name: Build Hugo content
         with: 
+          # TODO: make path dynamic
           args: -s generator
 
       - name: Copy files out of Hugo
