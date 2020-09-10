@@ -79,15 +79,20 @@ jobs:
           # Which directories are we dealing with?
           $outputdir = $env:OUTPUTDIR
 
+          # Clear the content of the output dir.
+          # This is to ensure that there is no output of deleted templates.
           if(Test-Path $outputdir)
           {
             Remove-Item -Path "$outputdir/*" -Recurse -Force
           }
 
           # Restructure output to the right directories.
+          # e.g. "Assesments/opex/applicationlens.md"
           Get-ChildItem "$env:GENERATOR_ROOT/output" | % {
-              #$destPath = "$env:GENERATOR_ROOT/output-move/" + ((Split-Path $_ -Leaf) -replace "-","/")
+              # Extracting folder structure from naming convention.
               $destPath = "$outputdir/" + ((Split-Path $_ -Leaf) -replace "-","/")
+              
+              # To create the directory structure, we need parent name.
               $destDir = Split-Path $destPath -Parent
               New-Item -ItemType Directory $destDir -Force
               
@@ -95,44 +100,35 @@ jobs:
               Copy-Item $_.FullName -Destination $destPath -Recurse -Force
           }
 
-          # # Clear the content of the output dir.
-          # # This is to ensure that there is no output of deleted templates
-          # if(Test-Path $outputdir)
-          # {
-          #   Remove-Item -Path "$outputdir/*" -Recurse -Force
-          # }
-
-          # Copy-Item -Path $env:GENERATOR_ROOT/output-move/* -Destination $outputdir/ -Recurse
-
-      # - name: Push files to repo
-      #   shell: pwsh
-      #   run: |
-      #     # Get outputdir from variables
-      #     $outputdir = $env:OUTPUTDIR
-          
-      #     # Set the name on the commits as it will appear in Github
-      #     git config --global user.name 'Github Action'
-      #     git config --global user.email 'wellarchitected@users.noreply.github.com'
-     
-      #     # Everything coming from Hugo is in the output dir by now
-      #     git add $outputdir
-      #     git status --short
-
-      #     # Get the name of the commit that triggered the workflow, 
-      #     # so we can refer to it in our automated commit message.
-      #     $message = git log -1 --pretty=format:"%s"
-
-      #     # Only commit if there are changes to commit, otherwise commit will throw an error.
-      #     if(git status -uno --short) {
-      #       git commit -am "Auto update: $message"
-      #       git push origin
-      #     } 
-      #     else {
-      #       Write-Output "No changes to commit. Bye."
-      #     }
-
-      - name: (Debug) Show all files
-        if: ${{ always() }}
+      - name: Push files to repo
         shell: pwsh
         run: |
-          gci -Recurse
+          # Get outputdir from variables
+          $outputdir = $env:OUTPUTDIR
+          
+          # Set the name on the commits as it will appear in Github
+          git config --global user.name 'Github Action'
+          git config --global user.email 'wellarchitected@users.noreply.github.com'
+     
+          # Everything coming from Hugo is in the output dir by now
+          git add $outputdir
+          git status --short
+
+          # Get the name of the commit that triggered the workflow, 
+          # so we can refer to it in our automated commit message.
+          $message = git log -1 --pretty=format:"%s"
+
+          # Only commit if there are changes to commit, otherwise commit will throw an error.
+          if(git status -uno --short) {
+            git commit -am "Auto update: $message"
+            git push origin
+          } 
+          else {
+            Write-Output "No changes to commit. Bye."
+          }
+
+      # - name: (Debug) Show all files
+      #   if: ${{ always() }}
+      #   shell: pwsh
+      #   run: |
+      #     gci -Recurse
