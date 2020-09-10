@@ -26,7 +26,7 @@ In addition to the different 'Pillars' mentioned above, the assessments are also
 # Repository structure
 
 * **Data**
-Is the directory holding all the assessment content. New questions should be submitted to this directory in a Pull Request. 
+Is the directory holding all the assessment content in a JSON structure. New questions should be submitted to this directory in a Pull Request. 
 * **Template**
 Is the directory that has the templates for rendering the data files into ready-to-consume formats.
 * **Assessments**
@@ -38,7 +38,7 @@ There are several ways to contibute to this project.
 
 ## Add content
 
-While the content is currently driven by the CA&E team, if you find spelling errors, typos, illogical questions or you feel there's content missing, feel free to contribute by creating a Pull Request. The team will triage it.
+While the content is currently mainly driven by the CA&E team, if you find spelling errors, typos, illogical questions or you feel there's content missing, feel free to contribute by creating a Pull Request. The team will triage it.
 
 ## Create custom output formats
 

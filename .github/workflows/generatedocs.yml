@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - main
-      - workflowdev
-      - martin-hugodev
 
 jobs:
   HugoBuild:
@@ -21,6 +19,20 @@ jobs:
           echo '::set-env name=TEMPLATEDIR::template'
           echo '::set-env name=OUTPUTDIR::Assessments'
           echo '::set-env name=GENERATOR_ROOT::generator'
+
+      - name: Validate JSON
+        shell: pwsh
+        run: |
+          Get-ChildItem -Path $env:DATADIR | % {
+            $file = $_.FullName
+              $content = Get-Content -Path $file
+              try {
+                $json = $content | ConvertFrom-Json
+              }
+              catch {
+                Write-Error "Invalid JSON in file $file"
+              }
+          }
 
       - name: Merge data files
         shell: pwsh
