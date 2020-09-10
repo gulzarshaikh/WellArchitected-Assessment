@@ -835,6 +835,36 @@
     ],
     "lens": "application",
     "category": "Security & Compliance",
+    "subCategory": "Security Center",
+    "title": "Is Azure Security Center Standard tier enabled for all subscriptions and reporting to centralized workspaces? Also, is automatic provisioning enabled for all subscriptions? ([Security Center Data Collection](https://docs.microsoft.com/en-us/azure/security-center/security-center-enable-data-collection))"
+  },
+  {
+    "type": "question",
+    "pillars": [
+      "reliability"
+    ],
+    "lens": "application",
+    "category": "Security & Compliance",
+    "subCategory": "Security Center",
+    "title": "Is Azure Security Center's Secure Score being formally reviewed and improved on a regular basis? ([Security Center Secure Score](https://docs.microsoft.com/en-us/azure/security-center/secure-score-security-controls))"
+  },
+  {
+    "type": "question",
+    "pillars": [
+      "reliability"
+    ],
+    "lens": "application",
+    "category": "Security & Compliance",
+    "subCategory": "Security Center",
+    "title": "Are contact details set in security center to the appropriate email distribution list? ([Security Center Contact Details](https://docs.microsoft.com/en-us/azure/security-center/security-center-provide-security-contact-details))"
+  },
+  {
+    "type": "question",
+    "pillars": [
+      "reliability"
+    ],
+    "lens": "application",
+    "category": "Security & Compliance",
     "subCategory": "Network Security",
     "title": "Are all external application endpoints secured?",
     "context": "External application endpoints should be protected against common attack vectors, such as Denial of Service (DoS) attacks like Slowloris, to prevent potential application downtime due to malicious intent. Azure native technologies such as Azure Firewall, Application Gateway/Azure Front Door WAF, and DDoS Protection Standard Plan can be used to achieve requisite protection([Azure DDoS Protection](https://docs.microsoft.com/en-us/azure/virtual-network/ddos-protection-overview))"
@@ -1122,8 +1152,8 @@
       "reliability"
     ],
     "lens": "application",
-    "category": "Site Reliability Engineering & DevOps",
-    "subCategory": "Testing and Validation",
+    "category": "Deployment & Testing",
+    "subCategory": "Testing & Validation",
     "title": "Is the application tested for performance, scalability and resiliency?",
     "context": "Performance Testing: Performance testing is the superset of both load and stress testing. The primary goal of performance testing is to validate benchmark behaviour for the application \nLoad Testing : Load testing validates application scalability by rapidly and/or gradually increasing the load on the application until it reaches a threshold/limit \nStress Testing: Stress testing is a type of negative testing which involves various activities to overload existing resources and remove components to understand overall resiliency and how the application responds to issues.",
     "children": [
@@ -1139,8 +1169,8 @@
       "reliability"
     ],
     "lens": "application",
-    "category": "Site Reliability Engineering & DevOps",
-    "subCategory": "Testing and Validation",
+    "category": "Deployment & Testing",
+    "subCategory": "Testing & Validation",
     "title": "Are these tests automated and carried out periodically or on-demand?",
     "context": "Testing should be fully automated where possible and performed as part of the deployment lifecycle to validate the impact of all application changes"
   },
@@ -1150,8 +1180,8 @@
       "reliability"
     ],
     "lens": "application",
-    "category": "Site Reliability Engineering & DevOps",
-    "subCategory": "Testing and Validation",
+    "category": "Deployment & Testing",
+    "subCategory": "Testing & Validation",
     "title": "Do critical test environments have 1:1 parity with the production environment?",
     "context": "To completely validate the suitability of application changes, all changes should be tested in an environment that is fully reflective of production, to ensure there is no potential impact from environment deltas"
   }
