@@ -1,7 +1,7 @@
 cls
-$md = Get-Content -Path ./conversion/sourcedata/service_reliability.md
+$md = Get-Content -Path ./conversion/sourcedata/cache.md
 
-$outfilename = "./conversion/output/output_service_reliability.json"
+$outfilename = "./conversion/output/output_cache.json"
 
 $pillar = "reliability"
 $lens = "service"
@@ -43,7 +43,7 @@ $md | % {
     {
         if($_.ToString() -match "^\s*[``]{3}")
         {
-            #Write-Host "end of code block: $_"
+            Write-Host "end of code block: $_"
             # it's the end of the code block!
 
             if($currentSubItem -ne $null)
@@ -67,7 +67,7 @@ $md | % {
     # Oh cool this is code!
     elseif($_.ToString() -match "^\s*[``]{3}")
     {
-        #Write-Host "start of code block: $_"
+        Write-Host "start of code block: $_"
         # Start a new codeblock
         $currentCode = ""
     }
@@ -75,7 +75,7 @@ $md | % {
     # It is a H1
     elseif($_.ToString() -match "^\s*[#]{1}\s")
     {
-        Write-Host "$_ is an H1 heading."
+        #Write-Host "$_ is an H1 heading."
 
         # Finding a new category means we're done with the current questions
         if($currentSubItem -ne $null)
@@ -115,7 +115,7 @@ $md | % {
     # It's a H3
     elseif($_.ToString() -match "^\s*[#]{3}\s")
     {
-        #Write-Host "$_ is a subcategory"
+        Write-Host "$_ is a subcategory"
         $currentType = strip -text $_
     }
 
