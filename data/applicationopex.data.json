@@ -1196,7 +1196,7 @@
       ],
       "lens": "application",
       "category": "Operational Model & DevOps",
-      "subCategory": "Testing & Validation",
+      "subCategory": "General",
       "title": "Are specific methodologies, like DevOps, used to structure the development and operations process? ",
       "context": "The contraction of “Dev” and “Ops” refers to replacing siloed Development and Operations to create multidisciplinary teams that now work together with shared and efficient practices and tools. Essential DevOps practices include agile planning, continuous integration, continuous delivery, and monitoring of applications (from [docs.microsoft.com](https://docs.microsoft.com/en-us/azure/devops/learn/what-is-devops))."
     },
@@ -1207,7 +1207,7 @@
       ],
       "lens": "application",
       "category": "Operational Model & DevOps",
-      "subCategory": "Testing & Validation",
+      "subCategory": "General",
       "title": "Is the current development and operations process connected to a Service Management framework like ISO or ITIL?",
       "context": "[ITIL](https://en.wikipedia.org/wiki/ITIL) is a set of detailed [IT service management (ITSM)](https://en.wikipedia.org/wiki/IT_service_management) practices that can complement DevOps by providing support for products and services built and deployed using DevOps practices."
     },
