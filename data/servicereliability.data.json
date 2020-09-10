@@ -1303,7 +1303,7 @@
     "title": "Review the [How to administer Azure Cache for Redis](https://docs.microsoft.com/en-us/azure/azure-cache-for-redis/cache-administration#reboot) to understand how data loss can occur with cache reboots and how to test the application for resiliency."
   },
   {
-    "type": "Supporting Source Artefacts",
+    "type": "Supporting Source Artifacts",
     "pillars": [
       "reliability"
     ],
