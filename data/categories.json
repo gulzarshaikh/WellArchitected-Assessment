@@ -239,6 +239,9 @@
         },
         {
           "title": "Cosmos DB"
+        },
+        {
+          "title": "Azure Cache for Redis"
         }
       ]
     },
