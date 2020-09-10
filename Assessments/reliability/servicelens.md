@@ -335,6 +335,7 @@ Resources
 * Azure Stack Hub does currently not support [Virtual network peering](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview). 
   > Two networks (on the same Azure Stack Hub &#34;stamp&#34;) can also not be connected via Azure (Stack) VPN GWs as they&#39;re sharing the same IP address. Virtual networks on Azure Stack Hub can be connected using 3rd-party NVAs (e.g. [Fortinet Fortigate](https://docs.microsoft.com/en-us/azure-stack/user/azure-stack-network-howto-vnet-to-vnet?view=azs-2002)).
                             
+* Apply general Azure configuration recommendations for all Azure Stack Hub services.
 ### Configuration Recommendations
 * Treat Azure Stack Hub as a scale unit and deploy multiple instances to remove Azure Stack Hub as a single point of failure for encompassed workloads. 
   - Deploy workloads in either an active-active or active-passive configuration across Azure Stack Hub stamps and/or Azure.
