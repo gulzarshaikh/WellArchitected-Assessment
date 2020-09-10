@@ -320,6 +320,15 @@ Resources
                             
 * Use one static or singleton implementation of the connection multiplexer to Redis and follow the [best practices guide](https://docs.microsoft.com/en-us/azure/azure-cache-for-redis/cache-best-practices).
 * Review the [How to administer Azure Cache for Redis](https://docs.microsoft.com/en-us/azure/azure-cache-for-redis/cache-administration#reboot) to understand how data loss can occur with cache reboots and how to test the application for resiliency.
+### Supporting Source Artifacts
+* Query to identify Redis Instances that are not on the premium tier:
+```
+Resources 
+| where type == 'microsoft.cache/redis'
+| where properties.sku.name != 'Premium'
+```
+ 
+                            
 # Hybrid
         
 ## Azure Stack Hub
