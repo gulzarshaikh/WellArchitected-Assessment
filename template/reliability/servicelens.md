@@ -25,7 +25,7 @@ This list contains design considerations and recommended configuration options, 
                         {{- range $itemsInType }}
 * {{ .title }}
                             {{- with .code}}
-  {{ (print "```\n" . "```\n") | markdownify }} 
+{{ safeHTML (htmlUnescape (print "```\n" . "```\n")) }} 
                             {{ end }}    
                             {{- with .context}}
   > {{ . }}
@@ -33,7 +33,7 @@ This list contains design considerations and recommended configuration options, 
                             {{- range .children }}
   - {{ .title }}
                                 {{- with .code}}
-    {{ (print "```\n" . "```\n") | markdownify }} 
+{{ safeHTML (htmlUnescape (print "```\n" . "```\n")) }} 
                                 {{ end }}   
                                 {{- with .context}}
     > {{ . }}
