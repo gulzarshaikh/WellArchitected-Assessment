@@ -1,11 +1,7 @@
 name: Generate Output Markdown
 
 on:
-  pull_request:
-  #push:
-  #  branches:
-  #    - main
-  #    - workflowdev 
+  push:
 
 jobs:
   HugoBuild:
