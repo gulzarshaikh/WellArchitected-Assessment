@@ -96,7 +96,7 @@ jobs:
             Remove-Item -Path "$outputdir/*" -Recurse -Force
           }
 
-          Copy-Item -Path $env:GENERATOR_ROOT/output-move/* -Destination $outputdir/
+          Copy-Item -Path $env:GENERATOR_ROOT/output-move/* -Destination $outputdir/ -Recurse
 
       # - name: Push files to repo
       #   shell: pwsh
