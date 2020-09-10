@@ -85,6 +85,7 @@ jobs:
               $destDir = Split-Path $destPath -Parent
               New-Item -ItemType Directory $destDir -Force
               
+              Write-Host "Copy $destPath..."
               Copy-Item $_.FullName -Destination $destPath -Recurse -Force
           }
 
