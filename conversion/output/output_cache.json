@@ -1,0 +1,152 @@
+[
+  {
+    "type": "Design Considerations",
+    "pillars": [
+      "reliability"
+    ],
+    "lens": "service",
+    "category": "Data",
+    "subCategory": "Azure Cache for Redis",
+    "title": "99.9% SLA for the cache endpoints and internet gateway will have connectivity"
+  },
+  {
+    "type": "Design Considerations",
+    "pillars": [
+      "reliability"
+    ],
+    "lens": "service",
+    "category": "Data",
+    "subCategory": "Azure Cache for Redis",
+    "title": "SLA only covers Standard and Premium tier caches. Basic tier is not covered.",
+    "context": "[Azure Cache for Redis Service Level Agreements](https://azure.microsoft.com/en-us/support/legal/sla/cache/v1_0)",
+    "children": [
+      {
+        "title": "Redis (REmote DIctionary Server) is an in memory cache for key value pairs and has High Availablity (HA) by default (except Basic tier). There are three tiers for Azure Cache for Redis: Basic, Standard and Premium."
+      }
+    ]
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability"
+    ],
+    "lens": "service",
+    "category": "Data",
+    "subCategory": "Azure Cache for Redis",
+    "title": "Basic - (Not recommended for production workloads) Single node, multiple sizes, ideal for development/test and non-critical workloads. The basic tier has no SLA."
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability"
+    ],
+    "lens": "service",
+    "category": "Data",
+    "subCategory": "Azure Cache for Redis",
+    "title": "Standard - A replicated cache in a two node Primary/Secondary configuration managed by Microsoft, with a high availability SLA."
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability"
+    ],
+    "lens": "service",
+    "category": "Data",
+    "subCategory": "Azure Cache for Redis",
+    "title": "Premium - Includes all standard-tier features and including the following:",
+    "children": [
+      {
+        "title": "Faster hardware/performance compared to Basic or Standard-tier"
+      },
+      {
+        "title": "Larger cache size (up to 120GB)"
+      },
+      {
+        "title": "[Data persistence](https://redis.io/topics/persistence): RDB (Redis Database File) and AOF (Append Only File)"
+      },
+      {
+        "title": "VNET support"
+      },
+      {
+        "title": "[Clustering](https://docs.microsoft.com/en-us/azure/azure-cache-for-redis/cache-how-to-premium-clustering)"
+      },
+      {
+        "title": "Geo-Replication - a secondary cache is in another region and replicates data from the primary for disaster recovery. To failover to the secondary, the caches need to be unlinked manually and then the secondary is availabile for writes. The application writing to Redis will need to be updated with the secondary's cache connection string."
+      },
+      {
+        "title": "Availability Zones (preview) - Deploy the cache and replicas across availability zones. Note: By default, each deployment will have one replica per shard. Persistence, clustering, and geo-replication are all disabled at this time with deployments that have more than one replica. Your nodes will be distributed evenly across all zones. You should have a replica count >= number of zones."
+      },
+      {
+        "title": "Import/Export"
+      }
+    ]
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability"
+    ],
+    "lens": "service",
+    "category": "Data",
+    "subCategory": "Azure Cache for Redis",
+    "title": "Schedule Updates - Schedule the days and times that Redis Server updates will be applied to the cache. This does not include Azure updates or updates to the VM operating System. "
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability"
+    ],
+    "lens": "service",
+    "category": "Data",
+    "subCategory": "Azure Cache for Redis",
+    "title": "Monitor the cache and/or set alerts for exceptions, high CPU, high memory usage, server load and evicted keys for insights when to scale the cache. If the cache needs to be scaled, understanding when to scale is important because it will increase CPU during the scaling event to migrate data."
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability"
+    ],
+    "lens": "service",
+    "category": "Data",
+    "subCategory": "Azure Cache for Redis",
+    "title": "Deploying the cache inside of a VNET gives the customer more control over the traffic that is able to connect to the cache. Make sure that the subnet has sufficient address space available to deploy the cache nodes and shards (cluster)."
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability"
+    ],
+    "lens": "service",
+    "category": "Data",
+    "subCategory": "Azure Cache for Redis",
+    "title": "Configure Data Persistence to save a copy of the cache to Azure Storage or use Geo-Replication depending on the business requirement.",
+    "children": [
+      {
+        "title": "Data Persistence - if the master and replica reboot, the data will automatically be loaded from the storage account"
+      },
+      {
+        "title": "Geo-Replication - the secondary cache needs to be unlinked from the primary. The secondary will now become the primary and be able to receive 'writes'."
+      }
+    ]
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability"
+    ],
+    "lens": "service",
+    "category": "Data",
+    "subCategory": "Azure Cache for Redis",
+    "title": "Use one static or singleton implementation of the connection multiplexer to Redis and follow the [best practices guide](https://docs.microsoft.com/en-us/azure/azure-cache-for-redis/cache-best-practices)."
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability"
+    ],
+    "lens": "service",
+    "category": "Data",
+    "subCategory": "Azure Cache for Redis",
+    "title": "Review the [How to administer Azure Cache for Redis](https://docs.microsoft.com/en-us/azure/azure-cache-for-redis/cache-administration#reboot) to understand how data loss can occur with cache reboots and how to test the application for resiliency."
+  }
+]
