@@ -571,4 +571,8 @@ Stress Testing: Stress testing is a type of negative testing which involves vari
   > To completely validate the suitability of application changes, all changes should be tested in an environment that is fully reflective of production, to ensure there is no potential impact from environment deltas
             
                   
+* Are application changes tested in a canary environment before being applied to production?
+  > Azure uses canary regions to test and validate new services and capabilities before they are more broadly rolled out to other Azure regions. Where appropriate the application can also use canary environments to validate changes before wider production rollout. Moreover, certain large application platforms may also derive benefit from leveraging Azure canary regions as a basis for validating the potential impact of Azure platform changes on the application
+            
+                  
               

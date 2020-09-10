@@ -226,6 +226,20 @@ $md | % {
 
 }
 
+# If there is still an open item, add it
+if($currentSubItem -ne $null)
+{
+    $currentItem.children += $currentSubItem
+    $currentSubItem = $null
+}
+
+if($currentItem -ne $null)
+{
+    $items += $currentItem
+    $currentItem = $null
+}
+
+
 Write-Output "Found no match for $nomatchcount lines."
 
 $items | ConvertTo-Json -Depth 10 | Out-File $outfilename
