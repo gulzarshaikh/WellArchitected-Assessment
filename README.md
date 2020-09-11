@@ -1,5 +1,5 @@
 
-[![Well-Architected Assessment](./media/well-architected.png "Well-Architected Assessment")](#)
+[![Well-Architected Assessment](./well-architected.png "Well-Architected Assessment")](#)
 
 # Introduction
 
