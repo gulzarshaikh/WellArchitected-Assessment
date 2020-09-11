@@ -20,7 +20,7 @@ In addition to the different 'Pillars' mentioned above, the assessments are also
 | **Operational Excellence** | [Application](./Assessments/opex/applicationlens.md) | [Service](./Assessments/opex/servicelens.md) | Scenario |
 | **Security** | Application | Service | Scenario |
 | **Cost-Optimization** | Application | Service | Scenario |
-| **Scalability** | Application | Service | Scenario |
+| **Performance** | Application | Service | Scenario |
 |||||
 
 # Repository structure
