@@ -1,5 +1,5 @@
 
-[![Well-Architected Assessment](./media/well-architected.png "Well-Architected Assessment")](#)
+[![Well-Architected Assessment](./well-architected.png "Well-Architected Assessment")](#)
 
 # Introduction
 
@@ -20,7 +20,7 @@ In addition to the different 'Pillars' mentioned above, the assessments are also
 | **Operational Excellence** | [Application](./Assessments/opex/applicationlens.md) | [Service](./Assessments/opex/servicelens.md) | Scenario |
 | **Security** | Application | Service | Scenario |
 | **Cost-Optimization** | Application | Service | Scenario |
-| **Scalability** | Application | Service | Scenario |
+| **Performance Efficiency** | Application | Service | Scenario |
 |||||
 
 # Repository structure

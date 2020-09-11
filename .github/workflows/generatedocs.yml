@@ -18,6 +18,9 @@ jobs:
           echo '::set-env name=OUTPUTDIR::Assessments'
           echo '::set-env name=GENERATOR_ROOT::generator'
 
+          mkdir generator
+          cp template/config.toml generator
+
       - name: Validate JSON
         shell: pwsh
         run: |
@@ -67,7 +70,7 @@ jobs:
           # give build agent the required permissions 
           sudo chmod a+rw $env:GENERATOR_ROOT/ -R
 
-          Get-ChildItem -Recurse -File $templatedir | % {
+          Get-ChildItem -Recurse -File $templatedir -Filter *.md | % {
             # Get output names in the form of "pillar-lens" (e.g. "opex-servicelens").
             # Currently this approach is limited to one level of nesting and will not work for deeper sub-directories.
             $project =  (Split-Path $_ -Parent | Split-Path -Leaf) + "-" + (Split-Path $_ -LeafBase)  
@@ -101,7 +104,7 @@ jobs:
 
           # Restructure output to the right directories.
           # e.g. "Assesments/opex/applicationlens.md"
-           Get-ChildItem $templatedir -Recurse -File | % {
+           Get-ChildItem $templatedir -Recurse -File -Filter *.md | % {
               $pillar = (Split-Path $_ -Parent | Split-Path -Leaf)
               $lens = (Split-Path $_ -LeafBase)
               # Create necessary directory structure, don't worry about folder existing.

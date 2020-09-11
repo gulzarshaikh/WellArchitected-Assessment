@@ -14,3 +14,4 @@ disableKinds = ["RSS", "sitemap"]
 [outputFormats]
    [outputFormats.HTML]
      mediaType = "text/html"
+     

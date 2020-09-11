@@ -163,7 +163,7 @@ Resources
   > [Azure Backup](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-introduction)
                             
   - Enable Soft Delete for the Recovery Services vault to protect against accidental or malicious deletion of backup data, ensuring the ability to recover.
-    > [Azre Backup Soft Delete](https://docs.microsoft.com/en-us/azure/backup/backup-azure-security-feature-cloud)
+    > [Azure Backup Soft Delete](https://docs.microsoft.com/en-us/azure/backup/backup-azure-security-feature-cloud)
                                 
                             
 * Enable diagnostic logging for all virtual machines to ensure health metrics, boot diagnostics and infrastructure logs are routed to Log Analytics or an alternative log aggregation technology.
