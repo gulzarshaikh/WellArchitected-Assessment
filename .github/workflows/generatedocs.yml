@@ -19,7 +19,7 @@ jobs:
           echo '::set-env name=GENERATOR_ROOT::generator'
 
           mkdir generator
-          mv template/config.toml generator
+          cp template/config.toml generator
 
       - name: Validate JSON
         shell: pwsh
