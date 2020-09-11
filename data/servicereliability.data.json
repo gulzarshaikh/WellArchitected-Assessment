@@ -71,7 +71,7 @@
     "children": [
       {
         "title": "Enable Soft Delete for the Recovery Services vault to protect against accidental or malicious deletion of backup data, ensuring the ability to recover.",
-        "context": "[Azre Backup Soft Delete](https://docs.microsoft.com/en-us/azure/backup/backup-azure-security-feature-cloud)"
+        "context": "[Azure Backup Soft Delete](https://docs.microsoft.com/en-us/azure/backup/backup-azure-security-feature-cloud)"
       }
     ]
   },
