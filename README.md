@@ -27,7 +27,7 @@ For each scoped assessment, the content is structured through three technical le
 | **Performance Efficiency** | Application | Service | Scenario |
 |||||
 
-# Repository structure
+# Repository Structure
 
 * **data**:
 This directory contains all the raw assessment content within a JSON format. New content to supplement the guidance provided should be submitted to this directory through a Pull Request. 
