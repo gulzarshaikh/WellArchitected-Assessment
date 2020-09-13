@@ -1,4 +1,4 @@
-[![Operational Excellence Assessment](./templates/media/operationalexcellence-icon.png "Operational Excellence Assessment")](#)
+[![Operational Excellence Assessment](/templates/media/operationalexcellence-icon.png "Operational Excellence Assessment")](#)
 
 This operational excellence assessment has been produced to help the global CE&S community to identify optimisations to the operability of applications built on Azure, providing key recommendations to better serve our customers. 
  

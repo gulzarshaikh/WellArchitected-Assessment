@@ -1,4 +1,4 @@
-[![Go-Live Assessment](./templates/media/golive-icon.png "Go-Live Assessment")](#)
+[![Go-Live Assessment](/templates/media/golive-icon.png "Go-Live Assessment")](#)
 
 This go-live assessment has been produced to help the global CE&S community to identify key best practice optimizations for applications built on Azure, providing key recommendations to better serve our customers.
  

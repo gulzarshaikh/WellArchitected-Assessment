@@ -1,4 +1,4 @@
-[![Reliability Assessment](./templates/media/reliability-icon.png "Reliability Assessment")](#)
+[![Reliability Assessment](/templates/media/reliability-icon.png "Reliability Assessment")](#)
 
 This reliability assessment has been produced to help the global CE&S community to identify key risks to the health and availability of applications built on Azure, providing key recommendations to better serve our customers.
  
