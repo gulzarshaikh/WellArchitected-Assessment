@@ -15,7 +15,7 @@ For each scoped assessment, the content is structured through three technical le
 
 * _Scenario_: Extends the application and service lenses with additional review questions and best-practice guidance for specific workload archetypes, such as SAP, HPC, or Internet of Things. 
 
-# Table of contents
+# Assessment Navigation
 
 |||||
 | --- | --- | --- | --- |
