@@ -1,4 +1,4 @@
-# Reliability Assessment
+# Application Reliability
 
 # Navigation Menu
 - [Application Design](#Application-Design)
