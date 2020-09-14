@@ -48,7 +48,6 @@ This reliability assessment has been produced to help the global CE&S community 
     - [Alerting](./application.md#Alerting)
   - [Deployment &amp; Testing](./application.md#Deployment--Testing)
     - [Testing &amp; Validation](./application.md#Testing--Validation)
-
 - [Service Reliability](./service.md)
   - [Compute](./service.md#Compute)
     - [Azure App Service](./service.md#Azure-App-Service)

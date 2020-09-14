@@ -35,5 +35,4 @@ This operational excellence assessment has been produced to help the global CE&S
     - [General](./application.md#General)
     - [Roles &amp; Responsibilities](./application.md#Roles--Responsibilities)
     - [Common Engineering Criteria ](./application.md#Common-Engineering-Criteria-)
-
 - [Service Operational Excellence](./service.md)
