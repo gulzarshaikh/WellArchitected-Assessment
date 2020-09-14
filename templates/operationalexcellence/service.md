@@ -2,7 +2,7 @@
 
 This list contains design considerations and recommended configuration options, specific to individual Azure services.
 
-{{- $pillars := slice "opex" -}}
+{{- $pillars := slice "operationalexcellence" -}}
 {{- $lens := "service" -}}
 
 {{- $filtered := where $.Site.Data.input "pillars" "intersect" $pillars -}}

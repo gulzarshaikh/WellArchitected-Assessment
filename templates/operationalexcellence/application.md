@@ -1,6 +1,6 @@
 # Operational Excellence Assessment
 
-{{- $pillars := slice "opex" -}}
+{{- $pillars := slice "operationalexcellence" -}}
 {{- $lens := "application" -}}
 
 {{- $filtered := where $.Site.Data.input "pillars" "intersect" $pillars -}}
