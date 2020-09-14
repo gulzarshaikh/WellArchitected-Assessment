@@ -11,7 +11,7 @@
     {{- $questionsInCategory := where $filtered "category" $category.title -}}
     {{- if $questionsInCategory }}
 - [{{ $category.title}}](#{{ replace $category.title " " "-" }})
-        {{ range $subCategory := $category.subCategories -}}
+        {{- range $subCategory := $category.subCategories }}
             {{- $questionsInSubCategory := (and (where $filtered "category" $category.title) (where $filtered "subCategory" $subCategory.title)) -}}
             {{- if $questionsInSubCategory }}
   - [{{ $subCategory.title}}](#{{ replace $subCategory.title " " "-" }})
@@ -19,7 +19,6 @@
         {{- end -}}
     {{- end -}}
 {{- end -}}
-
 
 {{- range $category := $.Site.Data.categories -}}
     {{- $questionsInCategory := where $filtered "category" $category.title -}}
