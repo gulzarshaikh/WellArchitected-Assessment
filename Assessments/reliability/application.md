@@ -1,4 +1,54 @@
-# Reliability Assessment
+# Reliability Assessment# Navigation Menu
+- [Application Design](#Application-Design)
+        
+  - [Design](#Design)
+  - [Failure Mode Analysis](#Failure-Mode-Analysis)
+  - [Dependencies](#Dependencies)
+- [Resiliency &amp; Recovery](#Resiliency-&amp;-Recovery)
+        
+  - [Approach](#Approach)
+  - [Availability Targets](#Availability-Targets)
+  - [Recovery Targets](#Recovery-Targets)
+- [Capacity &amp; Service Availability](#Capacity-&amp;-Service-Availability)
+        
+  - [Service Availability](#Service-Availability)
+  - [Capacity](#Capacity)
+- [Application Platform Availability](#Application-Platform-Availability)
+        
+  - [Application State and Configuration](#Application-State-and-Configuration)
+  - [Service SKU](#Service-SKU)
+  - [Compute Availability](#Compute-Availability)
+- [Data Platform Availability](#Data-Platform-Availability)
+        
+  - [Service SKU](#Service-SKU)
+  - [Consistency](#Consistency)
+  - [Replication and Redundancy](#Replication-and-Redundancy)
+- [Networking &amp; Connectivity](#Networking-&amp;-Connectivity)
+        
+  - [Connectivity](#Connectivity)
+  - [Zone-Aware Services](#Zone-Aware-Services)
+- [Scalability &amp; Performance](#Scalability-&amp;-Performance)
+        
+  - [App Performance](#App-Performance)
+  - [Data Size/Growth](#Data-Size/Growth)
+  - [Data Latency and Throughput](#Data-Latency-and-Throughput)
+  - [Network Throughput and Latency](#Network-Throughput-and-Latency)
+  - [Elasticity](#Elasticity)
+- [Security &amp; Compliance](#Security-&amp;-Compliance)
+        
+  - [Identity and Access](#Identity-and-Access)
+  - [Security Center](#Security-Center)
+  - [Network Security](#Network-Security)
+  - [Key Management](#Key-Management)
+  - [Data Protection and Compliance](#Data-Protection-and-Compliance)
+- [Site Reliability Engineering &amp; DevOps](#Site-Reliability-Engineering-&amp;-DevOps)
+        
+  - [Deployment Automation](#Deployment-Automation)
+  - [Monitoring and Measurement](#Monitoring-and-Measurement)
+  - [Alerting](#Alerting)
+- [Deployment &amp; Testing](#Deployment-&amp;-Testing)
+        
+  - [Testing &amp; Validation](#Testing-&amp;-Validation)
 # Application Design
     
 ## Design

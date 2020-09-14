@@ -1,4 +1,36 @@
-# Operational Excellence Assessment
+# Operational Excellence Assessment# Navigation Menu
+- [Application Design](#Application-Design)
+        
+  - [Design](#Design)
+  - [Targets &amp; Non Functional Requirements](#Targets-&amp;-Non-Functional-Requirements)
+  - [Key Scenarios](#Key-Scenarios)
+  - [Dependencies](#Dependencies)
+  - [Application Composition](#Application-Composition)
+- [Health Modelling](#Health-Modelling)
+        
+  - [Application Level Monitoring](#Application-Level-Monitoring)
+  - [Resource/Infrastructure Level Monitoring](#Resource/Infrastructure-Level-Monitoring)
+  - [Data Interpretation &amp; Health Modelling](#Data-Interpretation-&amp;-Health-Modelling)
+  - [Dashboarding](#Dashboarding)
+  - [Alerting](#Alerting)
+- [Operational Procedures](#Operational-Procedures)
+        
+  - [Recovery &amp; Failover](#Recovery-&amp;-Failover)
+  - [Scalability &amp; Capacity Model](#Scalability-&amp;-Capacity-Model)
+  - [Configuration &amp; Secrets Management](#Configuration-&amp;-Secrets-Management)
+  - [Operational Lifecycles](#Operational-Lifecycles)
+  - [Patch &amp; Update Process (PNU)](#Patch-&amp;-Update-Process-(PNU))
+- [Deployment &amp; Testing](#Deployment-&amp;-Testing)
+        
+  - [Application Deployments](#Application-Deployments)
+  - [Application Infrastructure Deployments &amp; Infrastructure as Code (IaC)](#Application-Infrastructure-Deployments-&amp;-Infrastructure-as-Code-(IaC))
+  - [Build Environments](#Build-Environments)
+  - [Testing &amp; Validation](#Testing-&amp;-Validation)
+- [Operational Model &amp; DevOps](#Operational-Model-&amp;-DevOps)
+        
+  - [General](#General)
+  - [Roles &amp; Responsibilities](#Roles-&amp;-Responsibilities)
+  - [Common Engineering Criteria ](#Common-Engineering-Criteria-)
 # Application Design
     
 ## Design
