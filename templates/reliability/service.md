@@ -1,4 +1,4 @@
-# Service-specific reliability guidance
+# Service Reliability
 
 This list contains design considerations and recommended configuration options, specific to individual Azure services.
 

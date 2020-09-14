@@ -1,4 +1,4 @@
-# Operational Excellence Assessment
+# Application Operational Excellence
 
 {{- $pillars := slice "operationalexcellence" -}}
 {{- $lens := "application" -}}
