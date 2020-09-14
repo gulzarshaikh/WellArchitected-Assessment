@@ -137,7 +137,7 @@ jobs:
 
           # Only commit if there are changes to commit, otherwise commit will throw an error.
           if(git status -uno --short) {
-            git commit -am "Auto update: $message"
+            git commit -m "Auto update: $message"
             git push origin
           } 
           else {
