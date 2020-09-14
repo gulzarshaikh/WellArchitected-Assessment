@@ -1,4 +1,4 @@
-# Service-specific reliability guidance
+# Service Reliability
 
 This list contains design considerations and recommended configuration options, specific to individual Azure services.
 
@@ -23,7 +23,6 @@ This list contains design considerations and recommended configuration options, 
         {{- end -}}
     {{- end -}}
 {{- end -}}
-
 
 {{- range $category := $.Site.Data.categories -}}
     {{- $contentInCategory := where $filtered "category" $category.title -}}

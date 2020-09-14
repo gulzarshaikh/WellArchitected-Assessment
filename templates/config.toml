@@ -1,5 +1,5 @@
 languageCode = "en-us"
-title = "WAF Assesment"
+title = "Well-Architected Assessment"
 
 uglyURLs = true
 contentDir = "templates"

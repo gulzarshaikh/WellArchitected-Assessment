@@ -1,4 +1,4 @@
-# Reliability Assessment
+# Application Reliability
 
 {{- $pillars := slice "reliability" -}}
 {{- $lens := "application" -}}

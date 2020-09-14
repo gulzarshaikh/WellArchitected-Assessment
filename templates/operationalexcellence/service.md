@@ -1,8 +1,8 @@
-# Service-specific operational guidance
+# Service Operational Excellence
 
 This list contains design considerations and recommended configuration options, specific to individual Azure services.
 
-{{- $pillars := slice "opex" -}}
+{{- $pillars := slice "operationalexcellence" -}}
 {{- $lens := "service" -}}
 
 {{- $filtered := where $.Site.Data.input "pillars" "intersect" $pillars -}}
@@ -23,7 +23,6 @@ This list contains design considerations and recommended configuration options, 
         {{- end -}}
     {{- end -}}
 {{- end -}}
-
 
 {{- range $category := $.Site.Data.categories -}}
     {{- $contentInCategory := where $filtered "category" $category.title -}}

@@ -1,4 +1,4 @@
-# Operational Excellence Assessment
+# Application Operational Excellence
 
 # Navigation Menu
 - [Application Design](#Application-Design)
