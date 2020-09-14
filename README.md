@@ -6,7 +6,7 @@ This Well-Architected Assessment has been produced to help the global CE&S commu
 
 More specifically, it has been developed to help structure and frame Microsoft-driven Well-Architected Assessments by providing review questions and consolidated best-practice technical guidance aligned to the [Microsoft Azure Well-Architected Framework](https://docs.microsoft.com/azure/architecture/framework/).
 
-The assessment guidance contained within this repo is presented through the scope of each individual Well-Architected tenet (Cost Optimization, Operational Excellence, Performance Efficiency, Reliability, and Security), as well as across all tenets as a 'Go-Live' assessment. 
+The assessment guidance contained within this repo is presented through the scope of each individual Well-Architected tenet (Cost Optimization, Operational Excellence, Performance Efficiency, Reliability, and Security), as well as across all tenets as a 'Go-Live' assessment.
 For each scoped assessment, the content is structured through three technical lenses:
 
 * _Application_: Provides end-to-end review guidance and questions for application assessments across all relevant technical domains
@@ -21,7 +21,7 @@ For each scoped assessment, the content is structured through three technical le
 | --- | --- | --- | --- |
 | [**Go-Live**](./assessments/golive/overview.md) | Application | Service | Scenario 
 | [**Reliability**](./assessments/reliability/overview.md) | [Application](./assessments/reliability/application.md) | [Service](assessments/reliability/service.md) | Scenario |
-| [**Operational Excellence**](((./assessments/opex/overview.md))) | [Application](./assessments/opex/application.md) | [Service](./assessments/opex/service.md) | Scenario |
+| [**Operational Excellence**](((./assessments/operationalexcellence/overview.md))) | [Application](./assessments/operationalexcellence/application.md) | [Service](./assessments/operationalexcellence/service.md) | Scenario |
 | **Security** | Application | Service | Scenario |
 | **Cost-Optimization** | Application | Service | Scenario |
 | **Performance Efficiency** | Application | Service | Scenario |
@@ -30,7 +30,7 @@ For each scoped assessment, the content is structured through three technical le
 # Repository Structure
 
 * **data**:
-This directory contains all the raw assessment content within a JSON format. New content to supplement the guidance provided should be submitted to this directory through a Pull Request. 
+This directory contains all the raw assessment content within a JSON format. New content to supplement the guidance provided should be submitted to this directory through a Pull Request.
 
 * **templates**:
 A directory that contains the templates for rendering data files into ready-to-consume formats for end-users.
@@ -44,7 +44,7 @@ There are several ways to contribute to this project.
 
 ## Add Content
 
-This is a community maintained inner-source project with active members across the field and engineering. We welcome all contributions to the content, from additional questions and guidance to fixes for spelling errors and typos. 
+This is a community maintained inner-source project with active members across the field and engineering. We welcome all contributions to the content, from additional questions and guidance to fixes for spelling errors and typos.
 
 If you have content you would like to add, please feel free to contribute by creating a Pull Request, or by making the wider team aware of potential gaps by creating an Issue.
 
