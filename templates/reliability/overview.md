@@ -28,7 +28,7 @@ This reliability assessment has been produced to help the global CE&S community 
 
 - [Service Reliability](./assessments/reliability/service.md)
 {{- $lensService = "service" -}}
-{{- $filtered = where $filtered "lens" $lensService -}}
+{{- $filtered = where $filtered "lens" $lens -}}
 
 {{- range $category := $.Site.Data.categories -}}
     {{- $questionsInCategory := where $filtered "category" $category.title -}}
