@@ -6,7 +6,7 @@ This reliability assessment has been produced to help the global CE&S community 
 
 {{- $pillars := slice "reliability" -}}
 {{- $filtered := where $.Site.Data.input "pillars" "intersect" $pillars -}}
-{{- $baseUrl := "./assessments/reliability/"}}
+{{- $baseUrl := "./"}}
 {{- $baseUrlApplication := print $baseUrl "application.md"}}
 {{- $baseUrlService := print $baseUrl "service.md"}}
 
