@@ -155,9 +155,6 @@ Resources
                             
 ## Virtual Machines
 ### Design Considerations
-* The virtual machine should be switched on to work.
-  > [Stackoverflow](https://www.stackoverflow.com)
-                            
 * Microsoft provides a 1) 95% SLA for single instance virtual machines using Standard HDD storage for all OS and Data disks, 2) 99.5% SLA for single instance virtual machines using Standard SSD storage for all OS and Data disks, 3) 99.9% SLA for single instance virtual machines using Premium storage for all OS and Data disks, 4) 99.95% SLA for all virtual machines that have two or more instances in the same Availability Set or Dedicated Host Group, and a 5) 99.99% SLA for all virtual machines that have two or more instances deployed across two or more Availability Zones in the same region.
   > [Virtual Machine Service Level Agreements](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/)
                             
