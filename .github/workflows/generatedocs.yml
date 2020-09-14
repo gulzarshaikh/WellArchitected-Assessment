@@ -18,8 +18,8 @@ jobs:
           echo '::set-env name=OUTPUTDIR::assessments'
           echo '::set-env name=GENERATOR_ROOT::generator'
 
-          mkdir generator
-          cp template/config.toml generator
+          mkdir $env:GENERATOR_ROOT
+          cp $env:TEMPLATEDIR/config.toml $env:GENERATOR_ROOT
 
       - name: Validate JSON
         shell: pwsh
