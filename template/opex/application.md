@@ -4,7 +4,7 @@
 {{- $lens := "application" -}}
 
 {{- $filtered := where $.Site.Data.input "pillars" "intersect" $pillars -}}
-{{- $filtered = where $filtered "lens" $lens -}}
+{{- $filtered = where $filtered "lens" $lens }}
 
 # Navigation Menu
 {{- range $category := $.Site.Data.categories -}}

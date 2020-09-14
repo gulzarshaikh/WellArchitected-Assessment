@@ -8,7 +8,7 @@ This list contains design considerations and recommended configuration options, 
 {{- $filtered := where $.Site.Data.input "pillars" "intersect" $pillars -}}
 {{- $filtered = where $filtered "lens" $lens -}}
 
-{{- $types := slice "Design Considerations" "Configuration Recommendations" -}}
+{{- $types := slice "Design Considerations" "Configuration Recommendations" "Supporting Source Artifacts" }}
 
 # Navigation Menu
 {{- range $category := $.Site.Data.categories -}}
