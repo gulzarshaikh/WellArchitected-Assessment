@@ -6,38 +6,42 @@ This reliability assessment has been produced to help the global CE&S community 
 
 {{- $pillars := slice "reliability" -}}
 {{- $filtered := where $.Site.Data.input "pillars" "intersect" $pillars -}}
+{{- $baseUrl := "./assessments/reliability/"}}
+{{- $baseUrlApplication := print $baseUrl "application.md"}}
+{{- $baseUrlService := print $baseUrl "service.md"}}
+
 
 ## Navigation Menu
 
-- [Application Reliability](./assessments/reliability/application.md) 
+- [Application Reliability]({{ $baseUrlApplication }}) 
 {{- $lens := "application" -}}
-{{- $filtered = where $filtered "lens" $lens -}}
+{{- $filteredApp := where $filtered "lens" $lens -}}
 
 {{- range $category := $.Site.Data.categories -}}
-    {{- $questionsInCategory := where $filtered "category" $category.title -}}
+    {{- $questionsInCategory := where $filteredApp "category" $category.title -}}
     {{- if $questionsInCategory }}
-  - [{{ $category.title}}](./assessments/reliability/application.md#{{ replace (replaceRE "[^\\s\\d\\w]" "" $category.title) " " "-" }})
+  - [{{ $category.title}}]({{ $baseUrlApplication }}#{{ replace (replaceRE "[^\\s\\d\\w]" "" $category.title) " " "-" }})
         {{- range $subCategory := $category.subCategories }}
-            {{- $questionsInSubCategory := (and (where $filtered "category" $category.title) (where $filtered "subCategory" $subCategory.title)) -}}
+            {{- $questionsInSubCategory := (and (where $filteredApp "category" $category.title) (where $filtered "subCategory" $subCategory.title)) -}}
             {{- if $questionsInSubCategory }}
-    - [{{ $subCategory.title}}](./assessments/reliability/application.md#{{ replace (replaceRE "[^\\s\\d\\w]" "" $subCategory.title) " " "-" }})
+    - [{{ $subCategory.title}}]({{ $baseUrlApplication }}#{{ replace (replaceRE "[^\\s\\d\\w]" "" $subCategory.title) " " "-" }})
             {{- end -}}
         {{- end -}}
     {{- end -}}
-{{- end -}}
+{{- end }}
 
-- [Service Reliability](./assessments/reliability/service.md)
-{{- $lensService = "service" -}}
-{{- $filtered = where $filtered "lens" $lens -}}
+- [Service Reliability]({{ $baseUrlService }})
+{{- $lens = "service" -}}
+{{- $filteredService := where $filtered "lens" $lens -}}
 
 {{- range $category := $.Site.Data.categories -}}
-    {{- $questionsInCategory := where $filtered "category" $category.title -}}
+    {{- $questionsInCategory := where $filteredService "category" $category.title -}}
     {{- if $questionsInCategory }}
-  - [{{ $category.title}}](./assessments/reliability/service.md#{{ replace (replaceRE "[^\\s\\d\\w]" "" $category.title) " " "-" }})
+  - [{{ $category.title}}]({{ $baseUrlService }}#{{ replace (replaceRE "[^\\s\\d\\w]" "" $category.title) " " "-" }})
         {{- range $subCategory := $category.subCategories }}
-            {{- $questionsInSubCategory := (and (where $filtered "category" $category.title) (where $filtered "subCategory" $subCategory.title)) -}}
+            {{- $questionsInSubCategory := (and (where $filteredService "category" $category.title) (where $filtered "subCategory" $subCategory.title)) -}}
             {{- if $questionsInSubCategory }}
-    - [{{ $subCategory.title}}](./assessments/reliability/service.md#{{ replace (replaceRE "[^\\s\\d\\w]" "" $subCategory.title) " " "-" }})
+    - [{{ $subCategory.title}}]({{ $baseUrlService }}#{{ replace (replaceRE "[^\\s\\d\\w]" "" $subCategory.title) " " "-" }})
             {{- end -}}
         {{- end -}}
     {{- end -}}

@@ -4,11 +4,45 @@ This operational excellence assessment has been produced to help the global CE&S
 
 > Please note it is assumed users of this guidance have familiarity with the application architecture in question, as well as key scenarios and non-functional requirements.
 
-## TODO: Navigation Menu
+{{- $pillars := slice "operationalexcellence" -}}
+{{- $filtered := where $.Site.Data.input "pillars" "intersect" $pillars -}}
+{{- $baseUrl := "./assessments/operationalexcellence/"}}
+{{- $baseUrlApplication := print $baseUrl "application.md"}}
+{{- $baseUrlService := print $baseUrl "service.md"}}
 
-- [Application Operation](./docs/Application-Operations.md)
-  - [Application Design](./docs/Application-Operations.md#Application-Design)
-  - [Health Modelling](./docs/Application-Operations.md#Health-Modelling)
-  - [Operational Procedures](./docs/Application-Operations.md#Operational-Procedures)
-  - [Deployment & Testing](./docs/Application-Operations.md#Deployment--Testing)
-  - [DevOps](./docs/Application-Operations.md#DevOps)
+
+## Navigation Menu
+
+- [Application Operational Excellence]({{ $baseUrlApplication }}) 
+{{- $lens := "application" -}}
+{{- $filteredApp := where $filtered "lens" $lens -}}
+
+{{- range $category := $.Site.Data.categories -}}
+    {{- $questionsInCategory := where $filteredApp "category" $category.title -}}
+    {{- if $questionsInCategory }}
+  - [{{ $category.title}}]({{ $baseUrlApplication }}#{{ replace (replaceRE "[^\\s\\d\\w]" "" $category.title) " " "-" }})
+        {{- range $subCategory := $category.subCategories }}
+            {{- $questionsInSubCategory := (and (where $filteredApp "category" $category.title) (where $filtered "subCategory" $subCategory.title)) -}}
+            {{- if $questionsInSubCategory }}
+    - [{{ $subCategory.title}}]({{ $baseUrlApplication }}#{{ replace (replaceRE "[^\\s\\d\\w]" "" $subCategory.title) " " "-" }})
+            {{- end -}}
+        {{- end -}}
+    {{- end -}}
+{{- end }}
+
+- [Service Operational Excellence]({{ $baseUrlService }})
+{{- $lens = "service" -}}
+{{- $filteredService := where $filtered "lens" $lens -}}
+
+{{- range $category := $.Site.Data.categories -}}
+    {{- $questionsInCategory := where $filteredService "category" $category.title -}}
+    {{- if $questionsInCategory }}
+  - [{{ $category.title}}]({{ $baseUrlService }}#{{ replace (replaceRE "[^\\s\\d\\w]" "" $category.title) " " "-" }})
+        {{- range $subCategory := $category.subCategories }}
+            {{- $questionsInSubCategory := (and (where $filteredService "category" $category.title) (where $filtered "subCategory" $subCategory.title)) -}}
+            {{- if $questionsInSubCategory }}
+    - [{{ $subCategory.title}}]({{ $baseUrlService }}#{{ replace (replaceRE "[^\\s\\d\\w]" "" $subCategory.title) " " "-" }})
+            {{- end -}}
+        {{- end -}}
+    {{- end -}}
+{{- end -}}
