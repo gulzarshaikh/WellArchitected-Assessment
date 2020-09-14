@@ -1,6 +1,8 @@
 # Service-specific reliability guidance
 
-This list contains design considerations and recommended configuration options, specific to individual Azure services.# Navigation Menu
+This list contains design considerations and recommended configuration options, specific to individual Azure services.
+
+# Navigation Menu
 - [Compute](#Compute)
   - [Azure App Service](#Azure-App-Service)
   - [Azure Kubernetes Service (AKS)](#Azure-Kubernetes-Service-(AKS))

@@ -1,4 +1,6 @@
-# Operational Excellence Assessment# Navigation Menu
+# Operational Excellence Assessment
+
+# Navigation Menu
 - [Application Design](#Application-Design)
   - [Design](#Design)
   - [Targets &amp; Non Functional Requirements](#Targets-&amp;-Non-Functional-Requirements)
