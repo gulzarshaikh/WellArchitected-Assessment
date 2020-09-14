@@ -18,6 +18,9 @@ jobs:
           echo '::set-env name=OUTPUTDIR::assessments'
           echo '::set-env name=GENERATOR_ROOT::generator'
 
+      - name: Create directories
+        shell: pwsh
+        run: |
           mkdir $env:GENERATOR_ROOT
           cp $env:TEMPLATEDIR/config.toml $env:GENERATOR_ROOT
 
