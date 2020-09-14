@@ -5,7 +5,7 @@ This list contains design considerations and recommended configuration options, 
 # Navigation Menu
 - [Compute](#Compute)
   - [Azure App Service](#Azure-App-Service)
-  - [Azure Kubernetes Service (AKS)](#Azure-Kubernetes-Service-(AKS))
+  - [Azure Kubernetes Service (AKS)](#Azure-Kubernetes-Service-AKS)
   - [Service Fabric](#Service-Fabric)
   - [Virtual Machines](#Virtual-Machines)
 - [Data ](#Data-)
