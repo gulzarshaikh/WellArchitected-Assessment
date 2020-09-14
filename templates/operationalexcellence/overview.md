@@ -29,7 +29,6 @@ This operational excellence assessment has been produced to help the global CE&S
         {{- end -}}
     {{- end -}}
 {{- end }}
-
 - [Service Operational Excellence]({{ $baseUrlService }})
 {{- $lens = "service" -}}
 {{- $filteredService := where $filtered "lens" $lens -}}

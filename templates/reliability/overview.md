@@ -29,7 +29,6 @@ This reliability assessment has been produced to help the global CE&S community 
         {{- end -}}
     {{- end -}}
 {{- end }}
-
 - [Service Reliability]({{ $baseUrlService }})
 {{- $lens = "service" -}}
 {{- $filteredService := where $filtered "lens" $lens -}}
