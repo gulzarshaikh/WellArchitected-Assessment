@@ -2,7 +2,8 @@
   {
     "type": "Design Considerations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Compute",
@@ -13,7 +14,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Compute",
@@ -39,7 +41,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Compute",
@@ -50,7 +53,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Compute",
@@ -67,7 +71,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Compute",
@@ -78,7 +83,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Compute",
@@ -89,17 +95,19 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Compute",
     "subCategory": "Virtual Machines",
-    "title": "To ensure application scalability while navigating within disk sizing thresholds, it is highly recommended that applications be installed on data disks rather than thee OS disk."
+    "title": "To ensure application scalability while navigating within disk sizing thresholds, it is highly recommended that applications be installed on data disks rather than the OS disk."
   },
   {
-    "type": "Supporting Artifacts",
+    "type": "Supporting Source Artifacts",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Compute",
@@ -107,9 +115,10 @@
     "title": "To identify resiliency risks to existing compute resources and support continuous compliance for new resources within a customer tenant, it is recommended that Azure Policy and Azure Resource Graph be used to Audit the use of non-resilient deployment configurations."
   },
   {
-    "type": "Supporting Artifacts",
+    "type": "Supporting Source Artifacts",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Compute",
@@ -123,9 +132,10 @@
     ]
   },
   {
-    "type": "Supporting Artifacts",
+    "type": "Supporting Source Artifacts",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Compute",
@@ -134,25 +144,22 @@
     "code": "Resources\n| where \n    type =~ 'Microsoft.Compute/availabilitySets'\n| where \n    tags != '{\"Skip\":\"\"}'\n| where \n\tarray_length(properties.virtualMachines) <= 1\n| where\n\tproperties.platformFaultDomainCount <= 1\n"
   },
   {
-    "type": "Supporting Artifacts",
+    "type": "Supporting Source Artifacts",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Compute",
     "subCategory": "Virtual Machines",
     "title": "Azure policy definition to **audit standalone single instance VMs that are not protected by a SLA**. It will flag an audit event for all Virtual Machine instances that are not deployed witin an Availability Set or across Availability Zones and are not using Premium Storage for both OS and Data disks. It also encompasses both Virtual Machine and Virtual Machine Scale Set resources.",
     "context": "[Audit VM/VMSS Standalone Instances](../src/compute/policydefinition_Audit-VMStandaloneInstances.json)"
-
-
-
-
-
   },
   {
-    "type": "Supporting Artifacts",
+    "type": "Supporting Source Artifacts",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Compute",
@@ -163,7 +170,8 @@
   {
     "type": "Design Considerations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Compute",
@@ -202,7 +210,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Compute",
@@ -217,7 +226,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Compute",
@@ -227,7 +237,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Compute",
@@ -242,7 +253,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Compute",
@@ -274,7 +286,8 @@
   {
     "type": "Supporting Source Artifacts",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Compute",
@@ -285,7 +298,8 @@
   {
     "type": "Design Considerations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Compute",
@@ -296,7 +310,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Compute",
@@ -354,7 +369,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Compute",
@@ -365,7 +381,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Compute",
@@ -376,7 +393,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Compute",
@@ -387,7 +405,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Compute",
@@ -411,7 +430,8 @@
   {
     "type": "Supporting Source Artifacts",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Compute",
@@ -422,7 +442,8 @@
   {
     "type": "Supporting Source Artifacts",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Compute",
@@ -453,7 +474,8 @@
   {
     "type": "Design Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Compute",
@@ -463,7 +485,8 @@
   {
     "type": "Design Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Compute",
@@ -474,17 +497,8 @@
   {
     "type": "Design Recommendations",
     "pillars": [
-      "reliability"
-    ],
-    "lens": "service",
-    "category": "Compute",
-    "subCategory": "Service Fabric",
-    "title": "Use reliability level Silver or higher for production scenarios."
-  },
-  {
-    "type": "Design Recommendations",
-    "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Compute",
@@ -493,7 +507,7 @@
     "context": "This means deploying a primary NodeType (and by extension a VM ScaleSet) to each AZ. This will ensure that the Service Fabric system services are spread across zones."
   },
   {
-    "type": "Networking",
+    "type": "Design Recommendations",
     "pillars": [
       "reliability"
     ],
@@ -504,9 +518,10 @@
     "context": "API Management can [integrate](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-api-management-overview) with Service Fabric directly."
   },
   {
-    "type": "Networking",
+    "type": "Design Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Compute",
@@ -514,9 +529,10 @@
     "title": "For production scenarios, use the Standard tier load balancer. The Basic SKU is free, but does not have an SLA."
   },
   {
-    "type": "Networking",
+    "type": "Design Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Compute",
@@ -524,9 +540,10 @@
     "title": "Keep the different node types and gateway services on different subnets."
   },
   {
-    "type": "Networking",
+    "type": "Design Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Compute",
@@ -535,19 +552,21 @@
     "context": "For example, you may have an API Management instance (one subnet), a frontend subnet (exposing a website directly) and a backend subnet (accessible only to frontend), each implemented on a different VM Scale Set."
   },
   {
-    "type": "Networking",
+    "type": "Design Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Compute",
     "subCategory": "Service Fabric",
-    "title": "When using secrets (connection strings, passwords) in SF services, either retrieve them directly from Keyvault at runtime or use the [Service Fabric Secrets Store](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-secret-store)"
+    "title": "When using secrets (connection strings, passwords) in SF services, either retrieve them directly from Key Vault at runtime or use the [Service Fabric Secrets Store](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-secret-store)"
   },
   {
-    "type": "Networking",
+    "type": "Design Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Compute",
@@ -556,9 +575,10 @@
     "context": "This certificate is deployed to the VM scaleset nodes to decrypt the secret values. When using this approach, ensure that secrets are inserted and encrypted at release time. Using this approach means that changing the secrets requires a deployment. Make sure your key-rotation process is fully automated to do this without downtime."
   },
   {
-    "type": "Networking",
+    "type": "Design Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Compute",
@@ -566,9 +586,10 @@
     "title": "Do not use self-signed certificates for production scenarios. Either provision a certificate through your PKI or use a public certificate authority."
   },
   {
-    "type": "Networking",
+    "type": "Design Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Compute",
@@ -576,20 +597,22 @@
     "title": "Deploy certificates by adding them to Azure Keyvault and referencing the URI in your deployment."
   },
   {
-    "type": "Networking",
+    "type": "Design Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Compute",
     "subCategory": "Service Fabric",
-    "title": "Have a process in place for monitoring the expiration date of certificates. ",
+    "title": "Have a process in place for monitoring the expiration date of certificates.",
     "context": "For example, Key Vault offers a feature that sends an email when x% of the certificate's lifespan has elapsed."
   },
   {
-    "type": "Networking",
+    "type": "Design Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Compute",
@@ -597,9 +620,10 @@
     "title": "Enable Azure Active Directory integration for your cluster to ensure users can access Service Fabric Explorer using their AAD credentials. Do not distribute the cluster certificate among users to access Explorer. "
   },
   {
-    "type": "Networking",
+    "type": "Design Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Compute",
@@ -610,17 +634,19 @@
   {
     "type": "Design Considerations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data ",
     "subCategory": "Azure SQL Database",
-    "title": "Azure SQL Database is a fully managed platform as a service (PaaS) database engine that handles most of the database management functions . Azure SQL Database is always running on the latest stable version of the SQL Server database engine and patched OS with 99.99% availability. PaaS capabilities that are built into Azure SQL Database enable you to focus on the domain-specific database administration and optimization activities that are critical for your business. "
+    "title": "Azure SQL Database is a fully managed platform as a service (PaaS) database engine that handles most of the database management functions. Azure SQL Database is always running on the latest stable version of the SQL Server database engine and patched OS with 99.99% availability. PaaS capabilities that are built into Azure SQL Database enable you to focus on the domain-specific database administration and optimization activities that are critical for your business. "
   },
   {
     "type": "Design Considerations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data ",
@@ -630,7 +656,8 @@
   {
     "type": "Design Considerations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data ",
@@ -640,7 +667,8 @@
   {
     "type": "Design Considerations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data ",
@@ -650,7 +678,8 @@
   {
     "type": "Design Considerations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data ",
@@ -660,7 +689,8 @@
   {
     "type": "Design Considerations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data ",
@@ -670,7 +700,8 @@
   {
     "type": "Design Considerations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data ",
@@ -680,17 +711,19 @@
   {
     "type": "Design Considerations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data ",
     "subCategory": "Azure SQL Database",
-    "title": "Use point-in-time restore.  to recover from human error. Point-in-time restore returns your database to an earlier point in time to recover data from changes done inadvertently. For more information, read the PITR documentation for https://docs.microsoft.com/en-us/azure/azure-sql/database/recovery-using-backups#point-in-time-restore "
+    "title": "Use point-in-time restore to recover from human error. Point-in-time restore returns your database to an earlier point in time to recover data from changes done inadvertently. For more information, read the PITR documentation for https://docs.microsoft.com/en-us/azure/azure-sql/database/recovery-using-backups#point-in-time-restore "
   },
   {
     "type": "Design Considerations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data ",
@@ -700,17 +733,19 @@
   {
     "type": "Design Considerations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data ",
     "subCategory": "Azure SQL Database",
-    "title": "Use sharding Sharding is a technique of distributing data and processing across many identically structured databases , provides an alternative to traditional scale-up approaches both in terms of cost and elasticity. Consider using sharding to partition the database horizontally. Sharding can provide fault isolation. For more information, see [Scaling out with Azure SQL Database.](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-scale-introduction)"
+    "title": "Use sharding Sharding is a technique of distributing data and processing across many identically structured databases, provides an alternative to traditional scale-up approaches both in terms of cost and elasticity. Consider using sharding to partition the database horizontally. Sharding can provide fault isolation. For more information, see [Scaling out with Azure SQL Database.](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-scale-introduction)"
   },
   {
     "type": "Design Considerations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data ",
@@ -720,7 +755,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data ",
@@ -741,17 +777,19 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data ",
     "subCategory": "Azure SQL Database",
-    "title": "Monitor your Azure Sql DB in near-real time to detect reliability incidents. Use one of the available solutions to monitor SQL DB to detect potential reliability incidents early and make your databases more reliable. Choosing a near real-time monitoring solution is key to quickly react to incidents. Learn more details about Azure SQL Analytics [Here](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/azure-sql#analyze-data-and-create-alerts)  "
+    "title": "Monitor your Azure SQL DB in near-real time to detect reliability incidents. Use one of the available solutions to monitor SQL DB to detect potential reliability incidents early and make your databases more reliable. Choosing a near real-time monitoring solution is key to quickly react to incidents. Learn more details about Azure SQL Analytics [Here](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/azure-sql#analyze-data-and-create-alerts)  "
   },
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data ",
@@ -761,7 +799,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data ",
@@ -771,7 +810,8 @@
   {
     "type": "Design Considerations ",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data ",
@@ -781,7 +821,8 @@
   {
     "type": "Design Considerations ",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data ",
@@ -791,7 +832,8 @@
   {
     "type": "Design Considerations ",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data ",
@@ -801,7 +843,8 @@
   {
     "type": "Design Considerations ",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data ",
@@ -811,7 +854,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data ",
@@ -821,7 +865,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data ",
@@ -831,7 +876,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data ",
@@ -841,7 +887,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data ",
@@ -851,7 +898,8 @@
   {
     "type": "Design Considerations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data ",
@@ -861,7 +909,8 @@
   {
     "type": "Design Considerations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data ",
@@ -871,7 +920,8 @@
   {
     "type": "Design Considerations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data ",
@@ -882,7 +932,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data ",
@@ -892,7 +943,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data ",
@@ -902,7 +954,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data ",
@@ -912,7 +965,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data ",
@@ -922,7 +976,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data ",
@@ -932,7 +987,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data ",
@@ -953,7 +1009,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data ",
@@ -963,7 +1020,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data ",
@@ -973,12 +1031,13 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data ",
     "subCategory": "Cosmos DB",
-    "title": "[Selecting partition key](https://docs.microsoft.com/en-us/azure/cosmos-db/partitioning-overview#choose-partitionkey) is a simple, but very important design choice:",
+    "title": "[Selecting a partition key](https://docs.microsoft.com/en-us/azure/cosmos-db/partitioning-overview#choose-partitionkey) is a simple, but very important design choice:",
     "children": [
       {
         "title": "You cannot change partition key after it's been created with the collection."
@@ -1000,17 +1059,19 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data ",
     "subCategory": "Cosmos DB",
-    "title": "For query-intensive workloads, use Windows 64-bit instead of Linux or Windows 32-bit host processing. "
+    "title": "For query-intensive workloads, use Windows 64-bit instead of Linux or Windows 32-bit host processing."
   },
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data ",
@@ -1020,7 +1081,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data ",
@@ -1030,17 +1092,19 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data ",
     "subCategory": "Cosmos DB",
-    "title": "In order to avoid network latency, collocate client in same region as cosmos db."
+    "title": "In order to avoid network latency, collocate client in same region as Cosmos DB."
   },
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data ",
@@ -1050,7 +1114,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data ",
@@ -1060,7 +1125,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data ",
@@ -1070,7 +1136,8 @@
   {
     "type": "Supporting Source Artifacts",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data ",
@@ -1081,7 +1148,8 @@
   {
     "type": "Supporting Source Artifacts",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data ",
@@ -1092,7 +1160,8 @@
   {
     "type": "Supporting Source Artifacts",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data ",
@@ -1103,7 +1172,8 @@
   {
     "type": "Supporting Source Artifacts",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data ",
@@ -1124,7 +1194,8 @@
   {
     "type": "Supporting Source Artifacts",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data ",
@@ -1134,7 +1205,8 @@
   {
     "type": "Supporting Source Artifacts",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data ",
@@ -1144,7 +1216,8 @@
   {
     "type": "Design Considerations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data",
@@ -1154,7 +1227,8 @@
   {
     "type": "Design Considerations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data",
@@ -1170,7 +1244,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data",
@@ -1180,7 +1255,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data",
@@ -1190,7 +1266,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data",
@@ -1226,7 +1303,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data",
@@ -1236,7 +1314,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data",
@@ -1246,7 +1325,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data",
@@ -1274,7 +1354,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data",
@@ -1284,7 +1365,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data",
@@ -1294,7 +1376,8 @@
   {
     "type": "Supporting Source Artifacts",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Data",
@@ -1305,7 +1388,8 @@
   {
     "type": "Design Considerations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Messaging",
@@ -1325,7 +1409,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Messaging",
@@ -1335,7 +1420,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Messaging",
@@ -1345,7 +1431,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Messaging",
@@ -1355,7 +1442,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Messaging",
@@ -1365,7 +1453,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Messaging",
@@ -1375,7 +1464,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Messaging",
@@ -1385,7 +1475,8 @@
   {
     "type": "Design Considerations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Messaging",
@@ -1395,7 +1486,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Messaging",
@@ -1405,7 +1497,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Messaging",
@@ -1415,7 +1508,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Messaging",
@@ -1426,17 +1520,19 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Messaging",
     "subCategory": "Event Hub",
-    "title": "When developing new applications, use EventProcessorClient (.Net and Java) or EventHubConsumerClient (Python and Javascript) as the client SDK. EventProcessorHost has been deprecated. "
+    "title": "When developing new applications, use EventProcessorClient (.Net and Java) or EventHubConsumerClient (Python and Javascript) as the client SDK. EventProcessorHost has been deprecated."
   },
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Messaging",
@@ -1446,7 +1542,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Messaging",
@@ -1456,17 +1553,19 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Messaging",
     "subCategory": "Event Hub",
-    "title": "Create SendOnly and ListenOnly policies for the event publisher and consumer, respecively. "
+    "title": "Create SendOnly and ListenOnly policies for the event publisher and consumer, respecively."
   },
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Messaging",
@@ -1476,7 +1575,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Messaging",
@@ -1486,7 +1586,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Messaging",
@@ -1496,7 +1597,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Messaging",
@@ -1506,7 +1608,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Messaging",
@@ -1516,7 +1619,8 @@
   {
     "type": "Supporting Source Artifacts",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Messaging",
@@ -1527,7 +1631,8 @@
   {
     "type": "Design Considerations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Messaging",
@@ -1537,7 +1642,8 @@
   {
     "type": "Design Considerations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Messaging",
@@ -1547,7 +1653,8 @@
   {
     "type": "Design Considerations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Messaging",
@@ -1557,7 +1664,8 @@
   {
     "type": "Design Considerations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Messaging",
@@ -1567,7 +1675,8 @@
   {
     "type": "Design Considerations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Messaging",
@@ -1650,7 +1759,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Messaging",
@@ -1660,7 +1770,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Messaging",
@@ -1670,7 +1781,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Messaging",
@@ -1681,7 +1793,8 @@
   {
     "type": "Supporting Source Artifacts",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Messaging",
@@ -1703,7 +1816,8 @@
   {
     "type": "Supporting Source Artifacts",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Messaging",
@@ -1714,7 +1828,8 @@
   {
     "type": "Design Considerations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Messaging",
@@ -1724,7 +1839,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Messaging",
@@ -1754,7 +1870,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Messaging",
@@ -1764,7 +1881,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Messaging",
@@ -1774,7 +1892,8 @@
   {
     "type": "Supporting Source Artifacts",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Messaging",
@@ -1796,7 +1915,8 @@
   {
     "type": "Design Considerations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Hybrid",
@@ -1806,7 +1926,8 @@
   {
     "type": "Design Considerations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Hybrid",
@@ -1849,7 +1970,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Hybrid",
@@ -1864,7 +1986,8 @@
   {
     "type": "Design Considerations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Hybrid",
