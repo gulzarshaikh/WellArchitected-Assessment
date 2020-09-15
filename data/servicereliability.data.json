@@ -2,7 +2,8 @@
   {
     "type": "Design Considerations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Compute",
@@ -13,7 +14,8 @@
   {
     "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Compute",
