@@ -104,7 +104,24 @@ This list contains design considerations and recommended configuration options, 
 * Query to identify AKS clusters that are not deployed using a **Managed Identity**:
 ## Service Fabric
 ## Virtual Machines
+### Design Considerations
+* Microsoft provides a 1) 95% SLA for single instance virtual machines using Standard HDD storage for all OS and Data disks, 2) 99.5% SLA for single instance virtual machines using Standard SSD storage for all OS and Data disks, 3) 99.9% SLA for single instance virtual machines using Premium storage for all OS and Data disks, 4) 99.95% SLA for all virtual machines that have two or more instances in the same Availability Set or Dedicated Host Group, and a 5) 99.99% SLA for all virtual machines that have two or more instances deployed across two or more Availability Zones in the same region.
+  > [Virtual Machine Service Level Agreements](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/)
+                            
 ### Configuration Recommendations
+* For all virtual machines requiring resiliency, it is highly recommended that:
+  - Managed Disks should be used for all virtual machine OS and Data disks to ensure resilience across underlying storage stamps within a datacenter.
+    > [Managed Disk Benefits](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/managed-disks-overview#benefits-of-managed-disks)
+                                
+                            
+  - Singleton workloads should use Premium Managed Disks to enhance resiliency and obtain a 99.9% SLA as well as dedicated performance characteristics.
+                            
+  - Non-Singleton workloads should consider two or more replica instances with Managed disks (Standard or Premium) that are deployed within an Availability Set to obtain a 99.95% SLA or across Availability Zones to obtain a 99.95% SLA.
+                            
+  - Where appropriate virtual machines should be deployed across Availability Zones to maximize resilience within a region.
+    > [Datacenter Fault Tolerance](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability#use-availability-zones-to-protect-from-datacenter-level-failures)
+                                
+                            
 * Azure Metadata Service Scheduled Events should be used to proactively respond to maintenance events (i.e. reboots) and limit disruption to virtual machines.
   > [Azure Metadata Service Scheduled Events](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/scheduled-events)
                             
