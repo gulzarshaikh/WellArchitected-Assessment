@@ -1,4 +1,4 @@
-name: Generate Output Markdown
+name: Generate Assessment Content
 
 on:
   push:
