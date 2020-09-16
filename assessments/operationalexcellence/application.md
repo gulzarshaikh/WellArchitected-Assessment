@@ -32,7 +32,7 @@
     
 ## Design
             
-* Is the application deployed across multiple Azure regions and/or utilizing Availability Zones?
+* Is the application deployed across multiple Azure regions and/or utilizing Availability Zones? 
   > Understanding the global operational footprint, for failover or performance purposes, is critical to evaluating overall operations. Generally speaking, multiple Azure regions should be used for disaster recovery procedures, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active recovery strategies([Failover strategies](https://docs.microsoft.com/en-us/azure/architecture/framework/resiliency/backup-and-recovery)).   [Availability Zones](https://docs.microsoft.com/en-us/azure/availability-zones/az-overview#availability-zones) are a high-availability offering that protects your applications and data from datacenter failures. Using zone-redundant or zonal (pinned to a specific AZ) deployments can increase resiliency of an application
             
     - Is the application deployed in either active-active, active-passive, or isolated configurations across leveraged regions?
