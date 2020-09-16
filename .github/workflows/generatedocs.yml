@@ -2,6 +2,9 @@ name: Generate Output Markdown
 
 on:
   push:
+    paths:
+    - 'data/**'
+    - 'templates/**'
 
 jobs:
   HugoBuild:
