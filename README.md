@@ -48,9 +48,13 @@ This is a community maintained inner-source project with active members across t
 
 If you have content you would like to add, please feel free to contribute by creating a Pull Request, or by making the wider team aware of potential gaps by creating an Issue.
 
+### How to add/edit content
+
+For a detailed guide on how to edit/add content, please head over the [Contributing.md](./Contributing.md)
+
 ## Create Custom Output Formats
 
-By default the content is generated into Markdown using Hugo templates located within the `templates` directory. To create additional output formats, such as CSV, you can simply adapt the templates and restructure the content - it's just text at the end of the day.
+By default the content is generated into Markdown using [Hugo](https://gohugo.io/templates/introduction/) templates located within the `templates` directory. To create additional output formats, such as CSV, you can simply adapt the templates and restructure the content - it's just text at the end of the day.
 
 ## Build Your Own Output
 
