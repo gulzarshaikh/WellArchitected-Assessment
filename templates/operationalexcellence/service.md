@@ -39,12 +39,12 @@ This list contains design considerations and recommended configuration options, 
                         {{- range $itemsInType }}
 * {{ .title }}
                             {{- with .context}}
-  > {{ . }}
+  > {{ safeHTML . }}
                             {{ end }}
                             {{- range .children }}
   - {{ .title }}
                                 {{- with .context}}
-    > {{ . }}
+    > {{ safeHTML . }}
                                 {{ end }}
                             {{ end }}
                         {{- end }}
