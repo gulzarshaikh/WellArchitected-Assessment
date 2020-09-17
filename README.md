@@ -54,7 +54,7 @@ For a detailed guide on how to edit/add content, please head over the [Contribut
 
 ## Create Custom Output Formats
 
-By default the content is generated into Markdown using Hugo templates located within the `templates` directory. To create additional output formats, such as CSV, you can simply adapt the templates and restructure the content - it's just text at the end of the day.
+By default the content is generated into Markdown using [Hugo](https://gohugo.io/templates/introduction/) templates located within the `templates` directory. To create additional output formats, such as CSV, you can simply adapt the templates and restructure the content - it's just text at the end of the day.
 
 ## Build Your Own Output
 

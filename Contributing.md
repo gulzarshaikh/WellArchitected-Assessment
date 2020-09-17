@@ -3,7 +3,7 @@
 
 This guide details on how to the editing process works to contribute content to the repository.
 
-First of all it is important to understand that you do not have to (or even can) modify any of the output files (i.e. the markdown files) directly. Instead you only need to add your content to the data JSON files.
+First of all it is important to understand that you should not modify any of the output files (i.e. the markdown files) directly. Those will be automatically generated using [Hugo](https://gohugo.io/templates/introduction/) as a static-site generator. Instead you only need to add your content to the data JSON files.
 
 ### How to add/edit content
 
@@ -66,3 +66,9 @@ Some artifacts might have more (optional) attributes but for the main content co
  The GitHub Action performs a couple of validations (e.g. that the data files are still valid JSON) and will then run Hugo to render the output files. If successful, you the updated output will be added **to your branch** in the assessments folder. Please make sure you check if the your new content shows up like you expected before you create a Pull Request! 
 
  Once you are satisfied with the result, you can open a Pull Request to get your branch merged into the **main** branch - which makes the content accessible to everybody once approved.
+
+ ## Generate output locally
+
+ When you want to add or edit a larger amount of content, or want to work on the [templates](./templates), pushing every time just to generate the content can be a bit cumbersome. That's why there is a `tools` branch which contains a PowerShell script to run Hugo locally and generate the output on your PC. You can find the script and instructions [here](https://github.com/Azure/WellArchitected-Assessment/tree/tools/tools/run-local).
+
+ For this to run, you need to [install Hugo](https://gohugo.io/getting-started/installing/) locally. Don't worry, you don't need any Go knowledge.
