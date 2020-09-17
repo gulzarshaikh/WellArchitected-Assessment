@@ -48,6 +48,44 @@ This is a community maintained inner-source project with active members across t
 
 If you have content you would like to add, please feel free to contribute by creating a Pull Request, or by making the wider team aware of potential gaps by creating an Issue.
 
+### How to add/edit content
+
+In the **data** directory, you will find various JSON files. Most of the files have the suffix **.data.json** which contain the actual content. Furthermore there is one **categories.json** file which contains the categories and subcategories we use to structure the content. In most cases you will only need to work in the .data.json files.
+
+There are currently the following content types:
+- assessement questions (`Question`)
+- design considerations (`Design Consideration`)
+- configuration recommendation (`Configuration Recommendation`)
+- supporting source artifacts (`Supporting Source Artifact`)
+
+While each content type might have some distinct attributes, mostly they share a common (and mandatory) set. Let's look at one example question to explore the attributes and their meaning:
+
+````
+{
+    "type": "Question",
+    "pillars": [
+      "operationalexcellence",
+      "reliability"
+    ],
+    "lens": "application",
+    "category": "Application Design",
+    "subCategory": "Design",
+    "title": "Is the application deployed across multiple Azure regions and/or utilizing Availability Zones?",
+    "context": "Understanding the global operational footprint, for failover or performance purposes, is critical to evaluating overall operations. Generally speaking, multiple Azure regions should be used for disaster recovery procedures, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active recovery strategies([Failover strategies](https://docs.microsoft.com/en-us/azure/architecture/framework/resiliency/backup-and-recovery)) ...,
+    "children": [
+      {
+        "title": "Is the application deployed in either active-active, active-passive, or isolated configurations across leveraged regions?",
+        "context": "The regional deployment strategy will partly shape operational boundaries, particularly where operational procedures for recovery and scale are concerned"
+      }
+    ]
+}
+````
+
+First of all: The order of the attributes in a JSON file is not important.
+
+- The attribute `type` determines what kind of content this artifact represents (see above for the available types). This determines and in which output the artifact will be used. Questions are used for assessments (application lens) while the others are used in more specific guidance (Service and Scenario lenses).
+- The `pillars` attribute is an array and indicates for which pillars (one or more) this artifact is applicable. There is often an overlap between the different WAF pillars, so when adding new content, think about which pillars this could be useful for.
+
 ## Create Custom Output Formats
 
 By default the content is generated into Markdown using Hugo templates located within the `templates` directory. To create additional output formats, such as CSV, you can simply adapt the templates and restructure the content - it's just text at the end of the day.
