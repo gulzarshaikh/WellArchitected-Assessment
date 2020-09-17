@@ -44,7 +44,7 @@
             
                   
 * Does the application have components on-premises or in another cloud platform?
-  > Hybrid and cross-cloud workloads with components on-premises or on different cloud platforms, such as AWS or GCP, introduce additional operational considerations around achieving a &#39;single pane of glass&#39; for operations
+  > Hybrid and cross-cloud workloads with components on-premises or on different cloud platforms, such as AWS or GCP, introduce additional operational considerations around achieving a 'single pane of glass' for operations
             
                   
 * Is the application designed to use managed services?
@@ -85,7 +85,7 @@
     > Availability targets for any dependencies leveraged by the application should be understood and ideally align with application targets
                       
     - Are availability targets considered while the system is running in disaster recovery mode?
-    > If targets must also apply in a failure state then an n&#43;1 model should be used to achieve greater availability and resiliency, where n is the capacity needed to deliver required availability
+    > If targets must also apply in a failure state then an n+1 model should be used to achieve greater availability and resiliency, where n is the capacity needed to deliver required availability
                       
     - Are these availability targets monitored and measured?
     > Mean Time Between Failures (MTBF): The average time between failures of a particular component
@@ -246,7 +246,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
             
                   
 * Is a health model used to qualify what &#39;healthy&#39; and &#39;unhealthy&#39; states represent for the application?
-  > A holistic application health model should be used to quantify what &#39;healthy&#39; and &#39;unhealthy&#39; states represent across all application components. It is highly recommended that a &#39;traffic light&#39; model be used to indicate a green/healthy state when key non-functional requirements and targets are fully satisfied and resources are optimally utilized, e.g. 95% of requests are processed in &lt;= 500ms with AKS node utilization at x% etc.
+  > A holistic application health model should be used to quantify what 'healthy' and 'unhealthy' states represent across all application components. It is highly recommended that a 'traffic light' model be used to indicate a green/healthy state when key non-functional requirements and targets are fully satisfied and resources are optimally utilized, e.g. 95% of requests are processed in <= 500ms with AKS node utilization at x% etc.
             
     - Are critical system flows used to inform the health model?
     > The health model should be able to surface the respective health of critical system flows or key subsystems to ensure appropriate operational prioritization is applied. For example, the health model should be able to represent the current state of the user login transaction flow
@@ -275,7 +275,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
             
                   
 * Is Role Based Access Control (RBAC) used to control access to dashboards and underlying data?
-  > Access to operational data may be tightly controlled to align with segregation of duties, and careful attention should be made to ensure it doesn&#39;t hinder operational effectiveness; i.e. scenarios where developers have to raise an ITSM ticket to access logs should be avoided
+  > Access to operational data may be tightly controlled to align with segregation of duties, and careful attention should be made to ensure it doesn't hinder operational effectiveness; i.e. scenarios where developers have to raise an ITSM ticket to access logs should be avoided
             
                   
               
@@ -352,7 +352,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 ## Scalability &amp; Capacity Model
             
 * Is there a capacity model for the application?
-  > A capacity model should describe the relationships between the utilization of various components as a ratio, to capture when and how application components should scale-out. For instance, scaling the number of Application Gateway v2 instances may put excess pressure on downstream components unless also scaled to a degree. When modelling capacity for critical system components it is therefore recommended that an N&#43;1 model be applied to ensure complete tolerance to transient faults, where n describes the capacity required to satisfy performance and availability requirements([Performance Efficiency - Capacity](https://docs.microsoft.com/en-us/azure/architecture/framework/scalability/capacity))
+  > A capacity model should describe the relationships between the utilization of various components as a ratio, to capture when and how application components should scale-out. For instance, scaling the number of Application Gateway v2 instances may put excess pressure on downstream components unless also scaled to a degree. When modelling capacity for critical system components it is therefore recommended that an N+1 model be applied to ensure complete tolerance to transient faults, where n describes the capacity required to satisfy performance and availability requirements([Performance Efficiency - Capacity](https://docs.microsoft.com/en-us/azure/architecture/framework/scalability/capacity))
             
                   
 * Is auto-scaling enabled for supporting PaaS and IaaS services?
@@ -368,7 +368,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
             
                   
 * Is the required capacity (initial and future growth) within Azure service scale limits and quotas?
-  > Due to physical and logical resource constraints within the platform, Azure must apply limits and quotas to service scalability, which may be either hard or soft. The application should therefore take a scale-unit approach to navigate within service limits, and where necessary consider multiple subscriptions which are often the boundary for such limits. It is highly recommended that a structured approach to scale be designed up-front rather than resorting to a &#39;spill and fill&#39; model([Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits))
+  > Due to physical and logical resource constraints within the platform, Azure must apply limits and quotas to service scalability, which may be either hard or soft. The application should therefore take a scale-unit approach to navigate within service limits, and where necessary consider multiple subscriptions which are often the boundary for such limits. It is highly recommended that a structured approach to scale be designed up-front rather than resorting to a 'spill and fill' model([Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits))
             
     - Is the required capacity (initial and future growth) available within targeted regions?
     > While the promise of the cloud is infinite scale, the reality is that there are finite resources available and as a result situations can occur where capacity can be constrained due to overall demand. If the application requires a large amount of capacity or expects a significant increase in capacity then effort should be invested to ensure that desired capacity is attainable within selected region(s). For applications leveraging a recovery or active-passive based disaster recovery strategy, consideration should also be given to ensure suitable capacity exists in the secondary region(s) since a regional outage can lead to a significant increase in demand within a paired region due to other customer workloads also failing over. To help mitigate this, consideration should be given to pre-provisioning resources within the secondary region([Azure Capacity](https://aka.ms/AzureCapacity))
@@ -426,7 +426,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
     > Ideally the PNU process should be fully or partially automated to optimize response times for new updates and also to reduce the risks associated with manual intervention
                       
     - Are PNU operations performed &#39;as-code&#39;?
-    > Performing operations &#39;as-code&#39; helps to minimize human error and increase consistency
+    > Performing operations 'as-code' helps to minimize human error and increase consistency
                       
                   
 * How are patches rolled back?
@@ -469,7 +469,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
             
                   
 * Is there a defined hotfix process which bypasses normal deployment procedures?
-  > In some scenarios there is an operational need to rapidly deploy changes, such as critical security updates. Having a defined process for how such changes can be safely and effectively performed helps greatly to prevent &#39;heat of the moment&#39; issues
+  > In some scenarios there is an operational need to rapidly deploy changes, such as critical security updates. Having a defined process for how such changes can be safely and effectively performed helps greatly to prevent 'heat of the moment' issues
             
                   
 * Does the application deployment process leverage blue-green deployments and/or canary releases?
@@ -534,7 +534,7 @@ Stress Testing : *Stress testing is a type of negative testing which involves va
     > While the majority of testing should be performed within the testing and staging environments, it is often beneficial to also run a subset of tests against the production system
                       
     - Is the application tested with injected faults?
-    > It is a common &#34;chaos monkey&#34; practice to verify the effectiveness of operational procedures using artificial faults. For example, taking dependencies offline (stopping API apps, shutting down VMs, etc.), restricting access (enabling firewall rules, changing connection strings, etc.) or forcing failover (database level, Front Door, etc.) is a good way to validate that the application is able to handle faults gracefully
+    > It is a common "chaos monkey" practice to verify the effectiveness of operational procedures using artificial faults. For example, taking dependencies offline (stopping API apps, shutting down VMs, etc.), restricting access (enabling firewall rules, changing connection strings, etc.) or forcing failover (database level, Front Door, etc.) is a good way to validate that the application is able to handle faults gracefully
                       
                   
 * Are smoke tests performed during application deployments?
@@ -562,7 +562,7 @@ Stress Testing : *Stress testing is a type of negative testing which involves va
             
                   
 * Do you perform Business Continuity &#39;fire drills&#39; to test regional failover scenarios?
-  > Business Continuity &#39;fire drills&#39; help to ensure operational readiness and validate the accuracy of recovery procedures ready for critical incidents
+  > Business Continuity 'fire drills' help to ensure operational readiness and validate the accuracy of recovery procedures ready for critical incidents
             
                   
 * What degree of security testing is performed?
@@ -599,7 +599,7 @@ Stress Testing : *Stress testing is a type of negative testing which involves va
     > It is important to understand how operations and development teams collaborate to address operational issues, and what processes exist to support and structure this collaboration. Moreover, mitigating issues might require the involvement of different teams outside of development or operations, such as networking, and in some cases external parties as well. The processes to support this collaboration should also be understood
                       
     - Is the workload isolated to a single operations team?
-    > The goal of workload isolation is to associate an application&#39;s specific resources to a team, so that the team can independently manage all aspects of those resources([Workload isolation](https://docs.microsoft.com/en-us/azure/architecture/framework/devops/app-design#workload-isolation))
+    > The goal of workload isolation is to associate an application's specific resources to a team, so that the team can independently manage all aspects of those resources([Workload isolation](https://docs.microsoft.com/en-us/azure/architecture/framework/devops/app-design#workload-isolation))
                       
                   
 * Are any broader teams responsible for operational aspects of the application? 
