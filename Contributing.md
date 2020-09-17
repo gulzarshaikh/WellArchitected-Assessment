@@ -61,7 +61,7 @@ Some artifacts might have more (optional) attributes but for the main content co
  
  **Important: After you forked the repo, you need to enable the GitHub Action as it is not automatically enabled in the Fork. To do so, head over to "Action" in your forked repo and click on "Enable Workflow". This only has to be done once. If you haven't done this before editing content, you need to make make another commit/push to trigger the workflow to run.**
  
-  As soon as you push a commit (on a new branch) to the repo, a GitHub Action is triggered and the output files are automatically regenerated - including your newly added content. If you are interested on how the Action work, you can take a look at the workflow yaml file in **.github/worksflows/**
+  As soon as you push a commit (on a new branch) to the repo, a GitHub Action is triggered and the output files are automatically regenerated - including your newly added content. If you are interested on how the Action work, you can take a look at the workflow yaml file in **.github/workflows/**
 
  The GitHub Action performs a couple of validations (e.g. that the data files are still valid JSON) and will then run Hugo to render the output files. If successful, you the updated output will be added **to your branch** in the assessments folder. Please make sure you check if the your new content shows up like you expected before you create a Pull Request! 
 
