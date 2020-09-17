@@ -52,7 +52,7 @@ If you have content you would like to add, please feel free to contribute by cre
 
 In the **data** directory, you will find various JSON files. Most of the files have the suffix **.data.json** which contain the actual content. Furthermore there is one **categories.json** file which contains the categories and subcategories we use to structure the content. In most cases you will only need to work in the .data.json files.
 
-During the rendering operations all the .data.json files are merged as a first step. Hence, the split of content between those files is only to provide and easier way to structure it. If you are not completely sure in which file to add new content (or maybe even to add a new .data.json file): Don't worry about this too much. Your content will still be used for rendering in any case!
+During the rendering operations all the .data.json files are merged as a first step. Hence, the split of content between those files is only to provide and easier way to structure it. If you are not completely sure in which file to add new content (or maybe even to add a new .data.json file): Don't worry about this too much. Your content will still be used for rendering in any case.
 
 There are currently the following content types:
 - assessement questions (`Questions`)
