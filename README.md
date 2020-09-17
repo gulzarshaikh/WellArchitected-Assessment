@@ -55,16 +55,16 @@ In the **data** directory, you will find various JSON files. Most of the files h
 During the rendering operations all the .data.json files are merged as a first step. Hence, the split of content between those files is only to provide and easier way to structure it. If you are not completely sure in which file to add new content (or maybe even to add a new .data.json file): Don't worry about this too much. Your content will still be used for rendering in any case!
 
 There are currently the following content types:
-- assessement questions (`Question`)
-- design considerations (`Design Consideration`)
-- configuration recommendation (`Configuration Recommendation`)
-- supporting source artifacts (`Supporting Source Artifact`)
+- assessement questions (`Questions`)
+- design considerations (`Design Considerations`)
+- configuration recommendation (`Configuration Recommendations`)
+- supporting source artifacts (`Supporting Source Artifacts`)
 
 While each content type might have some distinct attributes, mostly they share a common (and mandatory) set. Let's look at one example question to explore the attributes and their meaning:
 
 ````
 {
-    "type": "Question",
+    "type": "Questions",
     "pillars": [
       "operationalexcellence",
       "reliability"
