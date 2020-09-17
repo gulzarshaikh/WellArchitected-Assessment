@@ -50,50 +50,7 @@ If you have content you would like to add, please feel free to contribute by cre
 
 ### How to add/edit content
 
-In the **data** directory, you will find various JSON files. Most of the files have the suffix **.data.json** which contain the actual content. Furthermore there is one **categories.json** file which contains the categories and subcategories we use to structure the content. In most cases you will only need to work in the .data.json files.
-
-During the rendering operations all the .data.json files are merged as a first step. Hence, the split of content between those files is only to provide and easier way to structure it. If you are not completely sure in which file to add new content (or maybe even to add a new .data.json file): Don't worry about this too much. Your content will still be used for rendering in any case.
-
-There are currently the following content types:
-- assessement questions (`Questions`)
-- design considerations (`Design Considerations`)
-- configuration recommendation (`Configuration Recommendations`)
-- supporting source artifacts (`Supporting Source Artifacts`)
-
-While each content type might have some distinct attributes, mostly they share a common (and mandatory) set. Let's look at one example question to explore the attributes and their meaning:
-
-````
-{
-    "type": "Questions",
-    "pillars": [
-      "operationalexcellence",
-      "reliability"
-    ],
-    "lens": "application",
-    "category": "Application Design",
-    "subCategory": "Design",
-    "title": "Is the application deployed across multiple Azure regions and/or utilizing Availability Zones?",
-    "context": "Understanding the global operational footprint, for failover or performance purposes, is critical to evaluating overall operations. Generally speaking, multiple Azure regions should be used for disaster recovery procedures, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active recovery strategies([Failover strategies](https://docs.microsoft.com/en-us/azure/architecture/framework/resiliency/backup-and-recovery)) ...,
-    "children": [
-      {
-        "title": "Is the application deployed in either active-active, active-passive, or isolated configurations across leveraged regions?",
-        "context": "The regional deployment strategy will partly shape operational boundaries, particularly where operational procedures for recovery and scale are concerned"
-      }
-    ]
-}
-````
-
-First of all: The order of the attributes in a JSON file is not important.
-
-- The attribute `type` determines what kind of content this artifact represents (see above for the available types). This determines and in which output the artifact will be used. Questions are used for assessments (application lens) while the others are used in more specific guidance (Service and Scenario lenses).
-- The `pillars` attribute is an array and indicates for which pillars (one or more) this artifact is applicable. There is often an overlap between the different WAF pillars, so when adding new content, think about which pillars this could be useful for.
-- `lens` is either `application` (this will be mostly applicable for type Question), `service` (for Service-specific guidance) or `scenario`.
-- `category` and `subCategory` are important attributes. To drive unification across all the content, there is a curated list of available (sub-)categories in the `categories.json` In most cases we expect that new content will fit into an existing subcategory. Only if that is really not that case, add a new (sub-)category to the categories.json and add this in your Pull Request. **Important: Any content which references a (sub)category that does not exist in the categories.json file, will not be rendered in the output!**
-- `title` is the actual main part of the content that gets rendered. In the case of a Question, this is the question itself. For design considerations and configuration recommendations, this is the guidance text.
-- `context` is an optional attribute - although it should be filled in most cases to provide more clarity and details to the question/guidance.
-- `children` is an optional array of artifacts that will be rendered as sub-elements of the artifact. They share all the attributes like type and category with their parents so those do not need to be specified again.
-
-Some artifacts might have more (optional) attributes but for the main content contributions those mentioned above should be sufficiant. Also, when adding new content, it is mostly the easiest approach to take existing artifacts as examples and start from there.
+For a detailed guide on how to edit/add content, please head over the [Contributing.md](./Contributing.md)
 
 ## Create Custom Output Formats
 
