@@ -53,7 +53,7 @@ First of all: The order of the attributes in a JSON file is not important.
 - `context` is an optional attribute - although it should be filled in most cases to provide more clarity and details to the question/guidance.
 - `children` is an optional array of artifacts that will be rendered as sub-elements of the artifact. They share all the attributes like type and category with their parents so those do not need to be specified again.
 
-Some artifacts might have more (optional) attributes but for the main content contributions those mentioned above should be sufficient. Also, when adding new content, it is mostly the easiest approach to take existing artifacts as examples and start from there.
+Some artifacts might have more (optional) attributes but for the main content contributions those mentioned above should be sufficient. Also, when adding new content, it is often the easiest approach to take existing artifacts as examples and start from there.
 
 ## Build process and Pull Requests
 
@@ -63,12 +63,12 @@ Some artifacts might have more (optional) attributes but for the main content co
  
   As soon as you push a commit (on a new branch) to the repo, a GitHub Action is triggered and the output files are automatically regenerated - including your newly added content. If you are interested on how the Action work, you can take a look at the workflow yaml file in **.github/workflows/**
 
- The GitHub Action performs a couple of validations (e.g. that the data files are still valid JSON) and will then run Hugo to render the output files. If successful, you the updated output will be added **to your branch** in the assessments folder. Please make sure you check if the your new content shows up like you expected before you create a Pull Request! 
+ The GitHub Action performs a couple of validations (e.g. that the data files are still valid JSON) and will then run Hugo to render the output files. If successful, the updated output will be added **to your branch** in the assessments folder. Please make sure you check if the your new content shows up like you expected before you create a Pull Request! 
 
  Once you are satisfied with the result, you can open a Pull Request to get your branch merged into the **main** branch - which makes the content accessible to everybody once approved.
 
  ## Generate output locally
 
- When you want to add or edit a larger amount of content, or want to work on the [templates](./templates), pushing every time just to generate the content can be a bit cumbersome. That's why there is a `tools` branch which contains a PowerShell script to run Hugo locally and generate the output on your PC. You can find the script and instructions [here](https://github.com/Azure/WellArchitected-Assessment/tree/tools/tools/run-local).
+ When you want to add or edit a larger amount of content, or want to work on the [templates](./templates), pushing every time just to generate the output can be a bit cumbersome. That's why there is a `tools` branch which contains a PowerShell script to run Hugo locally and generate the output on your PC. You can find the script and instructions [here](https://github.com/Azure/WellArchitected-Assessment/tree/tools/tools/run-local).
 
  For this to run, you need to [install Hugo](https://gohugo.io/getting-started/installing/) locally. Don't worry, you don't need any Go knowledge.
