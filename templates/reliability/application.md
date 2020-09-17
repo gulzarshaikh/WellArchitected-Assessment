@@ -30,10 +30,10 @@
 ## {{ $subCategory.title }}
             {{ range $question := $questionsInSubCategory }}
 * {{ .title }}
-  > {{ .context }}
+  > {{ safeHTML .context }}
             {{ range .children }}
     - {{ .title }}
-    > {{ .context }}
+    > {{ safeHTML .context }}
                       {{ end }}
                   {{ end }}
               {{ end }}
