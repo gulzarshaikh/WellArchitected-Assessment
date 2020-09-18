@@ -20,6 +20,8 @@ This list contains design considerations and recommended configuration options, 
   - [Event Hub](#Event-Hub)
   - [Service Bus](#Service-Bus)
   - [Storage Queues](#Storage-Queues)
+  - [IoT Hub](#IoT-Hub)
+  - [IoT Hub Device Provisioning Service](#IoT-Hub-Device-Provisioning-Service)
 # Compute
         
 ## Azure App Service
@@ -359,3 +361,23 @@ This list contains design considerations and recommended configuration options, 
 * Ensure that for all clients accessing the storage account, a proper [retry policy](https://docs.microsoft.com/en-us/azure/architecture/best-practices/retry-service-specific#azure-storage) is implemented.
 ### Supporting Source Artifacts
 * Query to identify storage accounts using V1 storage accounts:
+## IoT Hub
+### Design Considerations
+* Azure IoT Hub has a [published SLA](https://azure.microsoft.com/en-us/support/legal/sla/iot-hub) of 99.9% for the Basic and Standard tiers, there is no SLA for the Free tier.
+### Configuration Recommendations
+* The number of Device-to-cloud partitions for the Event Hub-compatible endpoint reflect the degree of downstream parallelism you can achieve. For maximum throughput, use the maximum number of partitions (32) when creating the IoT Hub - if you are planning to use the built-in endpoint. This will allow you to scale up to 32 concurrent processing entities and will offer the highest send/receive availability. This number cannot be changed after creation.
+* In high-throughput scenarios, use batched events. This means that the service will deliver an array with multiple events to the consumers, instead of an array with one event. The consuming application must be able to process these arrays.
+* As part of your solution-wide availability and disaster recovery strategy, consider using the IoT Hub [cross-region Disaster Recovery option](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-ha-dr#cross-region-dr). This will move the IoT Hub endpoint to the paired Azure region. Note that only the device registry gets replicated. Events themselves are not replicated to the secondary region.
+  > Note: The RTO for the customer-initiated failover is 'between 10 minutes to a couple of hours'. For a Microsoft-initiated failover the RTO is '2-26 hours'. Confirm this aligns with the requirements of the customer and fits in the broader availability strategy. If a higher RTO is required, consider implementing a client-side failover pattern, too.
+                            
+* When sending events frequently, use the AMQP or MQTT protocol when possible. AMQP and MQTT have higher network costs when initializing the session, however HTTPS requires additional TLS overhead for every request. AMQP and MQTT have higher performance for frequent publishers.
+* When using an SDK to send events to IoT Hubs, ensure the exceptions thrown by the [retry policy](https://docs.microsoft.com/en-us/azure/architecture/best-practices/retry-service-specific#iot-hub) (EventHubsException or OperationCancelledException) are properly caught. When using HTTPS, ensure a proper retry pattern is implemented.
+* When using message routing feature in IoT Hub, latency of the message delivery increases. On average this [should not exceed 500 ms](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-messages-d2c#latency), but be aware that there is no guarantee for the delivery latency. If you require the minimum possible latency, consider to not use routing and read the events from the built-in endpoint.
+* If you are using [X.509 certificates](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-security-x509-get-started#get-x509-ca-certificates) for the device connection, it is recommended to use only certificates validated by a root CA in production environment. Make sure you have processes in place to update the certificate before they expire.
+* Adding more than one IoT Hub per region does not offer additional resiliency as chances are, that all hubs might still run on the same underlying cluster. For scaling reasons it is usually sufficient to increase the tier and/or allocated IoT Hub units.
+* If the RTOs offered by either customer- or Microsoft-initiated failover (see above) are not sufficient, it is recommended to provision a second IoT Hub in another region and have routing logic on the device. This can be further enhanced with a &#39;Concierge Service&#39;. See [here](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-ha-dr#achieve-cross-region-ha) for more details.
+* To avoid telemetry interruption due to throttling / fully used quota, consider adding a [custom auto-scaling solution](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-scaling#auto-scale).
+* When reading device telemetry from the built-in Event Hub-compatible endpoint, refer to the recommendation regarding [Event Hub consumers](#Event-Hub) in this document.
+## IoT Hub Device Provisioning Service
+### Design Considerations
+* Azure IoT Hub Device Provisioning Service has a [published SLA](https://azure.microsoft.com/en-us/support/legal/sla/iot-hub) of 99.9%.

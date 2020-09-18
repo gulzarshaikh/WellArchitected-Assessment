@@ -53,3 +53,5 @@ This operational excellence assessment has been produced to help the global CE&S
     - [Event Hub](./service.md#Event-Hub)
     - [Service Bus](./service.md#Service-Bus)
     - [Storage Queues](./service.md#Storage-Queues)
+    - [IoT Hub](./service.md#IoT-Hub)
+    - [IoT Hub Device Provisioning Service](./service.md#IoT-Hub-Device-Provisioning-Service)
