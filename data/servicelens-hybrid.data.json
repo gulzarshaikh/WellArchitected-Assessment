@@ -20,7 +20,7 @@
         "category": "Hybrid",
         "subCategory": "Azure Stack Hub",
         "title": "Azure Stack Hub currently only supports a single Scale Unit (SU) within in a single Region, which can consist of between 4 and 16 servers that use Hyper-V failover clustering; each region serves as an independent Azure Stack Hub \"stamp\" with separate portal and API endpoints.",
-        "context": "Azure Stack Hub does therefore **not support Availability Zones** as it currently consists only of a single \"region\" (aka a single physical location). High availability to cope with outages of a single location should be implemented by using two Azure Stack Hub instances deployed into different pyhsical locations."
+        "context": "Azure Stack Hub does therefore **not support Availability Zones** as it currently consists only of a single \"region\" (aka a single physical location). High availability to cope with outages of a single location should be implemented by using two Azure Stack Hub instances deployed into different physical locations."
     },
     {
         "type": "Design Considerations",

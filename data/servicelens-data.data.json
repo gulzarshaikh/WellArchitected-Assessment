@@ -411,7 +411,7 @@
                 "title": "You cannot change partition key after it's been created with the collection."
             },
             {
-                "title": "Your partition key should be a property that has a value which doesn not change. If a property is your partition key, you can't update that property's value."
+                "title": "Your partition key should be a property that has a value which does not change. If a property is your partition key, you can't update that property's value."
             },
             {
                 "title": "Make sure picking a partition key which has a high cardinality. The property should have a wide range of possible values."

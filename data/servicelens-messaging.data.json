@@ -73,7 +73,7 @@
     "lens": "service",
     "category": "Messaging",
     "subCategory": "Event Grid",
-    "title": "Monitor EventGrid for failed event publishing (Publish Failed metric). Additionally, the 'Unmatched' metric will show messages that are published, but not matched to any subscription. Depending on your application architecutre, the latter may be intentional."
+    "title": "Monitor EventGrid for failed event publishing (Publish Failed metric). Additionally, the 'Unmatched' metric will show messages that are published, but not matched to any subscription. Depending on your application architecture, the latter may be intentional."
   },
   {
     "type": "Configuration Recommendations",
@@ -106,7 +106,7 @@
     "lens": "service",
     "category": "Messaging",
     "subCategory": "Event Hub",
-    "title": "The number of partitions reflect the degree of downstream paralellism you can achieve. For maximum throughput, use the maximum number of partitions (32) when creating the Event Hub. This will allow you to scale up to 32 concurrent processing entities and will offer the highest send/receive availability."
+    "title": "The number of partitions reflect the degree of downstream parallelism you can achieve. For maximum throughput, use the maximum number of partitions (32) when creating the Event Hub. This will allow you to scale up to 32 concurrent processing entities and will offer the highest send/receive availability."
   },
   {
     "type": "Configuration Recommendations",
@@ -128,7 +128,7 @@
     "lens": "service",
     "category": "Messaging",
     "subCategory": "Event Hub",
-    "title": "As part of your solution-wide availability and disaster recovery strategy, consider enabling the EventHub geo disaster-recovery option. This will allow the creation of a seconary namespace in a different region. Note that only the active namespace receives messages at any time and that messages and events themselves are not replicated to the secondary region. ",
+    "title": "As part of your solution-wide availability and disaster recovery strategy, consider enabling the EventHub geo disaster-recovery option. This will allow the creation of a secondary namespace in a different region. Note that only the active namespace receives messages at any time and that messages and events themselves are not replicated to the secondary region. ",
     "context": "Note: The RTO for the regional failover is 'up to 30 minutes'. Confirm this aligns with the requirements of the customer and fits in the broader availability strategy. If a higher RTO is required, consider implementing a client-side failover pattern too."
   },
   {
@@ -173,7 +173,7 @@
     "lens": "service",
     "category": "Messaging",
     "subCategory": "Event Hub",
-    "title": "Create SendOnly and ListenOnly policies for the event publisher and consumer, respecively."
+    "title": "Create SendOnly and ListenOnly policies for the event publisher and consumer, respectively."
   },
   {
     "type": "Configuration Recommendations",
@@ -217,7 +217,7 @@
     "lens": "service",
     "category": "Messaging",
     "subCategory": "Event Hub",
-    "title": "Ensure each consuming application uses a seprate consumer group and only one active receiver per consumer group is in place. "
+    "title": "Ensure each consuming application uses a separate consumer group and only one active receiver per consumer group is in place. "
   },
   {
     "type": "Configuration Recommendations",
@@ -334,7 +334,7 @@
     "lens": "service",
     "category": "Messaging",
     "subCategory": "Service Bus",
-    "title": "If you need mission critical messaging with queues/topics, Service Bus Premium is recommended with Geo-Disaster Recovery. Choosing the pattern is dependent on the busincess requirements and the recovery time objective (RTO)."
+    "title": "If you need mission critical messaging with queues/topics, Service Bus Premium is recommended with Geo-Disaster Recovery. Choosing the pattern is dependent on the business requirements and the recovery time objective (RTO)."
   },
   {
     "type": "Configuration Recommendations",

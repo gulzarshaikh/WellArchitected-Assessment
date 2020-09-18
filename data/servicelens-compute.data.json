@@ -152,7 +152,7 @@
         "lens": "service",
         "category": "Compute",
         "subCategory": "Virtual Machines",
-        "title": "Azure policy definition to **audit standalone single instance VMs that are not protected by a SLA**. It will flag an audit event for all Virtual Machine instances that are not deployed witin an Availability Set or across Availability Zones and are not using Premium Storage for both OS and Data disks. It also encompasses both Virtual Machine and Virtual Machine Scale Set resources.",
+        "title": "Azure policy definition to **audit standalone single instance VMs that are not protected by a SLA**. It will flag an audit event for all Virtual Machine instances that are not deployed within an Availability Set or across Availability Zones and are not using Premium Storage for both OS and Data disks. It also encompasses both Virtual Machine and Virtual Machine Scale Set resources.",
         "context": "[Audit VM/VMSS Standalone Instances](../src/compute/policydefinition_Audit-VMStandaloneInstances.json)"
     },
     {
@@ -376,7 +376,7 @@
         "category": "Compute",
         "subCategory": "Azure App Service",
         "title": "For App Service Environments, ensure the [ASE Network](https://docs.microsoft.com/en-us/azure/app-service/environment/network-info) is configured correctly.",
-        "context": "One common ASE pitfall occurs when ASE is deployed into a subnet with an IP Address space that is too small to support future expansion. In such cases, ASE can be left unable to scale without redeploying the entire environment into a larger subnet. It is highly recomended that adequate IP addresses be used to support either the maximum number of workers or the largest number considered workloads will need. A single ASE cluster can scale to 201 instance, which would require a /24 subnet."
+        "context": "One common ASE pitfall occurs when ASE is deployed into a subnet with an IP Address space that is too small to support future expansion. In such cases, ASE can be left unable to scale without redeploying the entire environment into a larger subnet. It is highly recommended that adequate IP addresses be used to support either the maximum number of workers or the largest number considered workloads will need. A single ASE cluster can scale to 201 instance, which would require a /24 subnet."
     },
     {
         "type": "Configuration Recommendations",
@@ -400,7 +400,7 @@
         "category": "Compute",
         "subCategory": "Azure App Service",
         "title": "For App Service Environments, plan for scaling out the ASE cluster",
-        "context": "Scaling ASE instances vertically or horizontally currently takes 30-60 minutes as new private instances need to be provisioned. It is highly recomended that effort be invested up-front to plan for scaling during spikes in load or transient failure scenarios."
+        "context": "Scaling ASE instances vertically or horizontally currently takes 30-60 minutes as new private instances need to be provisioned. It is highly recommended that effort be invested up-front to plan for scaling during spikes in load or transient failure scenarios."
     },
     {
         "type": "Configuration Recommendations",
@@ -419,7 +419,7 @@
             },
             {
                 "title": "Avoid Unnecessary Worker restarts",
-                "context": "There are a number of events that can lead App Service workers to restart, such as content deployment, App Settings changes, and VNet intergration configuration changes. It is best practice to make changes in a deployment slot other than the slot currently configured to accept production traffic. After workers are recycled and warmed up, a \"swap\" can be performed without unnecessary down time."
+                "context": "There are a number of events that can lead App Service workers to restart, such as content deployment, App Settings changes, and VNet integration configuration changes. It is best practice to make changes in a deployment slot other than the slot currently configured to accept production traffic. After workers are recycled and warmed up, a \"swap\" can be performed without unnecessary down time."
             },
             {
                 "title": "Use [\"Run From Package\"](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) to avoid deployment conflicts",
