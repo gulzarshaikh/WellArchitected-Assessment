@@ -73,7 +73,7 @@
     ],
     "lens": "application",
     "category": "Application Design",
-    "subCategory": "Targets & Non Functional Requirements and one more",
+    "subCategory": "Targets & Non Functional Requirements",
     "title": "Are availability targets such as Service Level Agreements (SLAs), Service Level Indicators (SLIs), and Service Level Objectives (SLOs) defined for the application and/or key scenarios?",
     "context": "Understanding customer availability expectations is vital to reviewing overall operations for the application. For instance, if a customer is striving to achieve an application SLO of 99.999%, the level of inherent operational actionality required by the application is going to far greater than if an SLO of 99.9% was the aspiration",
     "children": [
