@@ -23,17 +23,6 @@
     ]
   },
   {
-    "title": "Resiliency & Recovery",
-    "subCategories": [
-      {
-        "title": "Approach"
-      },
-      {
-        "title": "Availability & Recovery Targets"
-      }
-    ]
-  },
-  {
     "title": "Health Modelling",
     "subCategories": [
       {
@@ -134,9 +123,6 @@
       },
       {
         "title": "Network Security"
-      },
-      {
-        "title": "Data Protection and Compliance"
       }
     ]
   },
