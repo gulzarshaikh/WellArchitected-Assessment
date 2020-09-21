@@ -7,8 +7,7 @@
   - [Dependencies](#Dependencies)
 - [Resiliency &amp; Recovery](#Resiliency--Recovery)
   - [Approach](#Approach)
-  - [Availability Targets](#Availability-Targets)
-  - [Recovery Targets](#Recovery-Targets)
+  - [Availability &amp; Recovery Targets](#Availability--Recovery-Targets)
 - [Health Modelling](#Health-Modelling)
   - [Data Interpretation &amp; Health Modelling](#Data-Interpretation--Health-Modelling)
   - [Alerting](#Alerting)
@@ -139,7 +138,7 @@
             
                   
               
-## Availability Targets
+## Availability &amp; Recovery Targets
             
 * Are availability targets such as Service Level Agreements (SLAs), Service Level Indicators (SLIs), and Service Level Objectives (SLOs) defined for the application and/or key scenarios?
   > Understanding customer availability expectations is vital to reviewing the overall reliability of the application. For instance, if a customer is striving to achieve an application SLO of 99.999%, the level of inherent resiliency required by the application is going to far greater than if an SLO of 99.9% was the aspiration
@@ -160,9 +159,6 @@ Mean Time To Recover (MTTR): The average time it takes to restore a particular c
 Mean Time Between Failures (MTBF): The average time between failures of a particular component
             
                   
-              
-## Recovery Targets
-            
 * Are recovery targets such as Recovery Time Objective (RTO) and Recovery Point Objective (RPO) defined for the application and/or key scenarios?
   > Understanding customer reliability expectations is vital to reviewing the overall reliability of the application. For instance, if a customer is striving to achieve an application RTO of less than a minute then back-up based and active-passive disaster recovery strategies are unlikely to be appropriate 
 Recovery time objective (RTO): The maximum acceptable time the application is unavailable after a disaster incident 
