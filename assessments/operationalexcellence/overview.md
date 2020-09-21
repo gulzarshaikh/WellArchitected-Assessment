@@ -37,6 +37,7 @@ This operational excellence assessment has been produced to help the global CE&S
   - [Operational Model &amp; DevOps](./application.md#Operational-Model--DevOps)
     - [General](./application.md#General)
     - [Roles &amp; Responsibilities](./application.md#Roles--Responsibilities)
+    - [Common Engineering Criteria](./application.md#Common-Engineering-Criteria)
 - [Service Operational Excellence](./service.md)
   - [Compute](./service.md#Compute)
     - [Azure App Service](./service.md#Azure-App-Service)
