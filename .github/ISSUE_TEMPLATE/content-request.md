@@ -16,7 +16,7 @@ _Select the type of your content (**select only one item**):_
 <!-- insert an 'x' into one of the checkboxes below -->
 * [] assessment questions
 * [] design considerations
-* [] configuration recommendation
+* [] configuration recommendations
 * [] supporting source artifacts
 
 **WAF pillar**
@@ -27,8 +27,8 @@ _Select the WAF pillar your content applies to (**select one or more**):_
 * [] performance
 * [] security
 
-**Lense**
-_Select the correct lense for your content (**select one**):_
+**Lens**
+_Select the correct lens for your content (**select one**):_
 <!-- insert an 'x' into one of the checkboxes below -->
 * [] application
 * [] service
