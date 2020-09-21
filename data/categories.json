@@ -23,20 +23,6 @@
     ]
   },
   {
-    "title": "Resiliency & Recovery",
-    "subCategories": [
-      {
-        "title": "Approach"
-      },
-      {
-        "title": "Availability Targets"
-      },
-      {
-        "title": "Recovery Targets"
-      }
-    ]
-  },
-  {
     "title": "Health Modelling",
     "subCategories": [
       {
@@ -53,6 +39,9 @@
       },
       {
         "title": "Alerting"
+      },
+      {
+        "title": "Monitoring and Measurement"
       }
     ]
   },
@@ -70,9 +59,6 @@
   {
     "title": "Application Platform Availability",
     "subCategories": [
-      {
-        "title": "Application State and Configuration"
-      },
       {
         "title": "Service SKU"
       },
@@ -137,26 +123,6 @@
       },
       {
         "title": "Network Security"
-      },
-      {
-        "title": "Key Management"
-      },
-      {
-        "title": "Data Protection and Compliance"
-      }
-    ]
-  },
-  {
-    "title": "Site Reliability Engineering & DevOps",
-    "subCategories": [
-      {
-        "title": "Deployment Automation"
-      },
-      {
-        "title": "Monitoring and Measurement"
-      },
-      {
-        "title": "Alerting"
       }
     ]
   },
@@ -207,7 +173,7 @@
         "title": "Roles & Responsibilities"
       },
       {
-        "title": "Common Engineering Criteria "
+        "title": "Common Engineering Criteria"
       }
     ]
   },
@@ -229,7 +195,7 @@
     ]
   },
   {
-    "title": "Data ",
+    "title": "Data",
     "subCategories": [
       {
         "title": "Azure SQL Database"
