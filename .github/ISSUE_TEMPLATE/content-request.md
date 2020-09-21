@@ -20,8 +20,8 @@ _Select the type of your content (**select only one item**):_
 * [] configuration recommendations
 * [] supporting source artifacts
 
-**WAF pillar**
-_Select the WAF pillar your content applies to (**select one or more**):_
+**Pillar**
+_Select the WellArchitected pillar your content applies to (**select one or more**):_
 <!-- [Hint] Insert an 'x' into one of the checkboxes below -->
 * [] reliability
 * [] operationalexcellence
@@ -47,7 +47,7 @@ _Title is the actual main part of the content that gets rendered. In the case of
 
 **Context**
 _Context is an optional attribute - although it should be filled in most cases to provide more clarity and details to the question/guidance. Ideally this provides a link (in Markdown) to some Microsoft/Azure documentation which contains more details._
-<!-- Your Content can contain Markdown -->
+<!-- [Hint] Your content can contain Markdown. -->
 
 **Describe alternatives you've considered**
 _Does the repository already contain similar or related content?_
