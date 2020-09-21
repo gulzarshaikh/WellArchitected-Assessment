@@ -1600,7 +1600,7 @@
       "reliability"
     ],
     "lens": "application",
-    "category": "Operational Procedure",
+    "category": "Operational Procedures",
     "subCategory": "Configuration & Secrets Management",
     "title": "Is the application stateless or stateful? If it is stateful, is the state externalized in a data store?",
     "context": "Stateless processes can easily be hosted across multiple compute instances to meet scale demands, as well as helping to reduce complexity and ensure high cacheability([Stateless web services](https://docs.microsoft.com/en-us/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices))"
@@ -1611,7 +1611,7 @@
       "reliability"
     ],
     "lens": "application",
-    "category": "Operational Procedure",
+    "category": "Operational Procedures",
     "subCategory": "Configuration & Secrets Management",
     "title": "Is the session state (if any) non-sticky and externalized to a data store?",
     "context": "Sticky session state limits application scalability because it is not possible to balance load. With sticky sessions all requests from a client must be sent to the same compute instance where the session state was initially created, regardless of the load on that compute instance. Externalizing session state allows for traffic to be evenly distributed across multiple compute nodes, with required state retrieved from the external data store([Avoid session state](https://docs.microsoft.com/en-us/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#sessionstate))"
