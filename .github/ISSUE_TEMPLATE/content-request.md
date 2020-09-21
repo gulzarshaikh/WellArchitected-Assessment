@@ -9,7 +9,7 @@ assignees: ''
 
 **Important!** Before you submit a new content request, please read the [Contributing](/Azure/WellArchitected-Assessment/blob/main/Contributing.md) guide carefully!
 
-There is a curated list of available (sub-)categories in the categories.json In most cases we expect that new content will fit into an existing subcategory.
+There is a curated list of available (sub-)categories in the [categories.json](/Azure/WellArchitected-Assessment/blob/main/data/categories.json) In most cases we expect that new content will fit into an existing subcategory.
 
 **Type**
 _Select the type of your content (**select only one item**):_
@@ -42,10 +42,10 @@ _Select the correct lens for your content (**select one**):_
 _Title is the actual main part of the content that gets rendered. In the case of a Question, this is the question itself. For design considerations and configuration recommendations, this is the guidance text._
 
 **Context**
-_Context is an optional attribute - although it should be filled in most cases to provide more clarity and details to the question/guidance._
+_Context is an optional attribute - although it should be filled in most cases to provide more clarity and details to the question/guidance. Ideally this provides a link (in Markdown) to some Microsoft/Azure documentation which contains more details._
 
 **Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
+_Does the repository already contain similar or related content?_
 
 **Additional context**
-Add any other context or screenshots about the feature request here.
+_Add any other context, links or references about the content request here._
