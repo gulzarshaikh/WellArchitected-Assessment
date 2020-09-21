@@ -55,7 +55,7 @@ This reliability assessment has been produced to help the global CE&S community 
     - [Azure Kubernetes Service (AKS)](./service.md#Azure-Kubernetes-Service-AKS)
     - [Service Fabric](./service.md#Service-Fabric)
     - [Virtual Machines](./service.md#Virtual-Machines)
-  - [Data ](./service.md#Data-)
+  - [Data](./service.md#Data)
     - [Azure SQL Database](./service.md#Azure-SQL-Database)
     - [Azure SQL Managed Instance](./service.md#Azure-SQL-Managed-Instance)
     - [Cosmos DB](./service.md#Cosmos-DB)

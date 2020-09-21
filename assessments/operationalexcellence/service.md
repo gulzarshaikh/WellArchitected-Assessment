@@ -8,7 +8,7 @@ This list contains design considerations and recommended configuration options, 
   - [Azure Kubernetes Service (AKS)](#Azure-Kubernetes-Service-AKS)
   - [Service Fabric](#Service-Fabric)
   - [Virtual Machines](#Virtual-Machines)
-- [Data ](#Data-)
+- [Data](#Data)
   - [Azure SQL Database](#Azure-SQL-Database)
   - [Azure SQL Managed Instance](#Azure-SQL-Managed-Instance)
   - [Cosmos DB](#Cosmos-DB)
@@ -159,7 +159,7 @@ This list contains design considerations and recommended configuration options, 
 * Azure policy definition to **audit Availability Sets containing single instance VMs that are not protected by a SLA**. It will flag an audit event for all Availability Sets that does not contain multiple instances.
   > [Audit Availability Sets With Single Instances](../src/compute/policydefinition_Audit-AvailabilitySetSingleInstances.json)
                             
-# Data 
+# Data
         
 ## Azure SQL Database
 ### Design Considerations
