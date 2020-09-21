@@ -5,7 +5,7 @@
       "operationalexcellence"
     ],
     "lens": "application",
-    "category": "Application Design",
+    "category": "Application Design BLA!",
     "subCategory": "Design",
     "title": "Are there any regulatory requirements around data sovereignty?",
     "context": "Regulatory requirements may mandate that operational data, such as application logs and metrics, remain within a certain geo-political region. This has obvious implications for how the application should be operationalized"
@@ -17,7 +17,7 @@
     ],
     "lens": "application",
     "category": "Application Design",
-    "subCategory": "Design",
+    "subCategory": "Design FOO",
     "title": "Does the application have components on-premises or in another cloud platform?",
     "context": "Hybrid and cross-cloud workloads with components on-premises or on different cloud platforms, such as AWS or GCP, introduce additional operational considerations around achieving a 'single pane of glass' for operations"
   },
