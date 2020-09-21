@@ -6,7 +6,7 @@
             "operationalexcellence"
         ],
         "lens": "service",
-        "category": "Data ",
+        "category": "Data",
         "subCategory": "Azure SQL Database",
         "title": "Azure SQL Database is a fully managed platform as a service (PaaS) database engine that handles most of the database management functions. Azure SQL Database is always running on the latest stable version of the SQL Server database engine and patched OS with 99.99% availability. PaaS capabilities that are built into Azure SQL Database enable you to focus on the domain-specific database administration and optimization activities that are critical for your business. "
     },
@@ -17,7 +17,7 @@
             "operationalexcellence"
         ],
         "lens": "service",
-        "category": "Data ",
+        "category": "Data",
         "subCategory": "Azure SQL Database",
         "title": "Azure SQL Database is having built-in regional high availability and turnkey geo-replication to any Azure region. It includes intelligence to support self-driving features such as performance tuning, threat monitoring, and vulnerability assessments and provides fully automated patching and updating of the code base."
     },
@@ -28,7 +28,7 @@
             "operationalexcellence"
         ],
         "lens": "service",
-        "category": "Data ",
+        "category": "Data",
         "subCategory": "Azure SQL Database",
         "title": "Azure SQL Database Business Critical or Premium tiers configured as Zone Redundant Deployments have an availability guarantee of at least 99.995%."
     },
@@ -39,7 +39,7 @@
             "operationalexcellence"
         ],
         "lens": "service",
-        "category": "Data ",
+        "category": "Data",
         "subCategory": "Azure SQL Database",
         "title": "Azure SQL Database Business Critical or Premium tiers not configured for Zone Redundant Deployments, General Purpose, Standard, or Basic tiers, or Hyperscale tier with two or more replicas have an availability guarantee of at least 99.99%."
     },
@@ -50,7 +50,7 @@
             "operationalexcellence"
         ],
         "lens": "service",
-        "category": "Data ",
+        "category": "Data",
         "subCategory": "Azure SQL Database",
         "title": "Azure SQL Database Hyperscale tier with one replica has an availability guarantee of at least 99.95% and 99.9% for zero replicas."
     },
@@ -61,7 +61,7 @@
             "operationalexcellence"
         ],
         "lens": "service",
-        "category": "Data ",
+        "category": "Data",
         "subCategory": "Azure SQL Database",
         "title": "Azure SQL Database Business Critical tier configured with geo-replication has a guarantee of Recovery point objective (RPO) of 5 sec for 100% of deployed hours."
     },
@@ -72,7 +72,7 @@
             "operationalexcellence"
         ],
         "lens": "service",
-        "category": "Data ",
+        "category": "Data",
         "subCategory": "Azure SQL Database",
         "title": "Azure SQL Database Business Critical tier configured with geo-replication has a guarantee of Recovery time objective (RTO) of 30 sec for 100% of deployed hours."
     },
@@ -83,7 +83,7 @@
             "operationalexcellence"
         ],
         "lens": "service",
-        "category": "Data ",
+        "category": "Data",
         "subCategory": "Azure SQL Database",
         "title": "Use point-in-time restore to recover from human error. Point-in-time restore returns your database to an earlier point in time to recover data from changes done inadvertently. For more information, read the PITR documentation for https://docs.microsoft.com/en-us/azure/azure-sql/database/recovery-using-backups#point-in-time-restore "
     },
@@ -94,7 +94,7 @@
             "operationalexcellence"
         ],
         "lens": "service",
-        "category": "Data ",
+        "category": "Data",
         "subCategory": "Azure SQL Database",
         "title": "Use geo-restore to recover from a service outage. You can restore a database on any SQL Database server or an instance database on any managed instance in any Azure region from the most recent geo-replicated backups. Geo-restore uses a geo-replicated backup as its source. You can request geo-restore even if the database or datacenter is inaccessible due to an outage. Geo-restore restores a database from a geo-redundant backup. For more information, see [Recover an Azure SQL database using automated database backups](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups)"
     },
@@ -105,7 +105,7 @@
             "operationalexcellence"
         ],
         "lens": "service",
-        "category": "Data ",
+        "category": "Data",
         "subCategory": "Azure SQL Database",
         "title": "Use sharding Sharding is a technique of distributing data and processing across many identically structured databases, provides an alternative to traditional scale-up approaches both in terms of cost and elasticity. Consider using sharding to partition the database horizontally. Sharding can provide fault isolation. For more information, see [Scaling out with Azure SQL Database.](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-scale-introduction)"
     },
@@ -116,7 +116,7 @@
             "operationalexcellence"
         ],
         "lens": "service",
-        "category": "Data ",
+        "category": "Data",
         "subCategory": "Azure SQL Database",
         "title": "Define an application performance SLA and monitor it with alerts. Detecting quickly when your application performance inadvertently degrades below an acceptable level is important to maintain high resiliency. Use the monitoring solution defined above to set alerts on key query performance metrics to you can take action when the performance breaks the SLA. [Monitor Your Database](https://docs.microsoft.com/en-us/azure/azure-sql/database/monitor-tune-overview)"
     },
@@ -127,7 +127,7 @@
             "operationalexcellence"
         ],
         "lens": "service",
-        "category": "Data ",
+        "category": "Data",
         "subCategory": "Azure SQL Database",
         "title": "Configure HA/DR that best feed your needs from following options: Azure Sql DB  offers the following capabilities for recovering from an outage, It is advised to implement one or combination of one or more depending on Business RTO/RPO requirements : ",
         "children": [
@@ -149,7 +149,7 @@
             "operationalexcellence"
         ],
         "lens": "service",
-        "category": "Data ",
+        "category": "Data",
         "subCategory": "Azure SQL Database",
         "title": "Monitor your Azure SQL DB in near-real time to detect reliability incidents. Use one of the available solutions to monitor SQL DB to detect potential reliability incidents early and make your databases more reliable. Choosing a near real-time monitoring solution is key to quickly react to incidents. Learn more details about Azure SQL Analytics [Here](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/azure-sql#analyze-data-and-create-alerts)  "
     },
@@ -160,7 +160,7 @@
             "operationalexcellence"
         ],
         "lens": "service",
-        "category": "Data ",
+        "category": "Data",
         "subCategory": "Azure SQL Database",
         "title": "Backup your keys: If you are not [using encryption keys in Azure key vault to protect your data](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-always-encrypted-azure-key-vault) , backup your keys!"
     },
@@ -171,7 +171,7 @@
             "operationalexcellence"
         ],
         "lens": "service",
-        "category": "Data ",
+        "category": "Data",
         "subCategory": "Azure SQL Database",
         "title": "Implement Retry Logic: Although Azure SQL Database is resilient on the transitive infrastructure failures, these failures might affect your connectivity. When a transient error occurs while working with SQL Database, make sure your code must be able to retry the call. Follow the link for detailed instruction on how to [Implement retry logic](https://docs.microsoft.com/en-us/azure/azure-sql/database/troubleshoot-common-connectivity-issues). "
     },
@@ -182,7 +182,7 @@
             "operationalexcellence"
         ],
         "lens": "service",
-        "category": "Data ",
+        "category": "Data",
         "subCategory": "Azure SQL Managed Instance",
         "title": "Use point-in-time restore to recover from human error. Point-in-time restore returns your database to an earlier point in time to recover data from changes done inadvertently. For more information, read the [PITR documentation for managed instance](https://docs.microsoft.com/en-us/azure/azure-sql/database/recovery-using-backups#point-in-time-restore)"
     },
@@ -193,7 +193,7 @@
             "operationalexcellence"
         ],
         "lens": "service",
-        "category": "Data ",
+        "category": "Data",
         "subCategory": "Azure SQL Managed Instance",
         "title": "Use geo-restore to recover from a service outage. Geo-restore restores a database from a geo-redundant backup into a managed instance in a different region. For more information, see [Recover a database using Geo-restore documentation](https://docs.microsoft.com/en-us/azure/azure-sql/database/auto-failover-group-overview)"
     },
@@ -204,7 +204,7 @@
             "operationalexcellence"
         ],
         "lens": "service",
-        "category": "Data ",
+        "category": "Data",
         "subCategory": "Azure SQL Managed Instance",
         "title": "Define an application performance SLA and monitor it with alerts. Detecting quickly when your application performance inadvertently degrades below an acceptable level is important to maintain high resiliency. Use the monitoring solution defined above to set alerts on key query performance metrics to you can take action when the performance breaks the SLA."
     },
@@ -215,7 +215,7 @@
             "operationalexcellence"
         ],
         "lens": "service",
-        "category": "Data ",
+        "category": "Data",
         "subCategory": "Azure SQL Managed Instance",
         "title": "Consider the time required for certain operations. Make sure you separate time to thoroughly test the amount of time required to scale up and down (change the size) your existing managed instance, and to create a new managed instance. This will ensure that you understand completely how these time consuming operations will affect your RTO and RPO."
     },
@@ -226,7 +226,7 @@
             "operationalexcellence"
         ],
         "lens": "service",
-        "category": "Data ",
+        "category": "Data",
         "subCategory": "Azure SQL Managed Instance",
         "title": "Use Business Critical tier. This tier provides higher resiliency to failures and faster failover times due to the underlying HA architecture, among other benefits. For more information, see [SQL Managed Instance High availability](https://docs.microsoft.com/en-us/azure/azure-sql/database/high-availability-sla)"
     },
@@ -237,7 +237,7 @@
             "operationalexcellence"
         ],
         "lens": "service",
-        "category": "Data ",
+        "category": "Data",
         "subCategory": "Azure SQL Managed Instance",
         "title": "Configure a secondary instance and an Auto-failover group to enable failover to another region. If an outage impacts one or more of the databases in the managed instance, you can manually or automatically failover all the databases inside the instance to a secondary region. For more information, read the [Auto-failover groups documentation for managed instance](https://docs.microsoft.com/en-us/azure/azure-sql/database/auto-failover-group-overview)"
     },
@@ -248,7 +248,7 @@
             "operationalexcellence"
         ],
         "lens": "service",
-        "category": "Data ",
+        "category": "Data",
         "subCategory": "Azure SQL Managed Instance",
         "title": "Monitor your SQL MI instance in near-real time to detect reliability incidents. Use one of the available solutions to monitor your SQL MI to detect potential reliability incidents early and make your databases more reliable. Choosing a near real-time monitoring solution is key to quickly react to incidents. For more information, read the [Azure SQL Managed Instance monitoring options](http://aka.ms/mi-monitoring)"
     },
@@ -259,7 +259,7 @@
             "operationalexcellence"
         ],
         "lens": "service",
-        "category": "Data ",
+        "category": "Data",
         "subCategory": "Azure SQL Managed Instance",
         "title": "Implement Retry Logic: Although Azure SQL MI is resilient on the transitive infrastructure failures, these failures might affect your connectivity. When a transient error occurs while working with SQL MI, make sure your code must be able to retry the call. Follow the link for detailed instruction on how to [Implement retry logic](https://docs.microsoft.com/en-us/azure/azure-sql/database/troubleshoot-common-connectivity-issues). "
     },
@@ -270,7 +270,7 @@
             "operationalexcellence"
         ],
         "lens": "service",
-        "category": "Data ",
+        "category": "Data",
         "subCategory": "Cosmos DB",
         "title": "99.99% SLAs for throughput, consistency, availability and latency for Database Accounts scoped to a single Azure region configured with any of the five Consistency Levels or Database Accounts spanning to multiple Azure regions, configured with any of the four relaxed Consistency Levels. "
     },
@@ -281,7 +281,7 @@
             "operationalexcellence"
         ],
         "lens": "service",
-        "category": "Data ",
+        "category": "Data",
         "subCategory": "Cosmos DB",
         "title": "99.999% SLA for read availability for Database Accounts spanning two or more Azure region."
     },
@@ -292,7 +292,7 @@
             "operationalexcellence"
         ],
         "lens": "service",
-        "category": "Data ",
+        "category": "Data",
         "subCategory": "Cosmos DB",
         "title": "99.999% SLA for both read and write availability with the configuration of multiple Azure regions as writable endpoints.",
         "context": "[Cosmos DB Service Level Agreements](https://azure.microsoft.com/en-us/support/legal/sla/cosmos-db/v1_3/)"
@@ -304,7 +304,7 @@
             "operationalexcellence"
         ],
         "lens": "service",
-        "category": "Data ",
+        "category": "Data",
         "subCategory": "Cosmos DB",
         "title": "It is strongly recommended that you configure the Azure Cosmos accounts used for production workloads to enable [automatic failover](https://docs.microsoft.com/en-us/azure/cosmos-db/high-availability#multi-region-accounts-with-a-single-write-region-write-region-outage). "
     },
@@ -315,7 +315,7 @@
             "operationalexcellence"
         ],
         "lens": "service",
-        "category": "Data ",
+        "category": "Data",
         "subCategory": "Cosmos DB",
         "title": "Session is default consistency level, and it is the most widely used [consistency level](https://docs.microsoft.com/en-us/azure/cosmos-db/consistency-levels). It is the recommended consistency level to start with as it receives data later but in the same order as the writes."
     },
@@ -326,7 +326,7 @@
             "operationalexcellence"
         ],
         "lens": "service",
-        "category": "Data ",
+        "category": "Data",
         "subCategory": "Cosmos DB",
         "title": "Use [Azure Monitor](https://docs.microsoft.com/en-us/azure/cosmos-db/monitor-cosmos-db) to see the provisioned autoscale max RU/s (Autoscale Max Throughput) and the RU/s the system is currently scaled to (Provisioned Throughput)."
     },
@@ -337,7 +337,7 @@
             "operationalexcellence"
         ],
         "lens": "service",
-        "category": "Data ",
+        "category": "Data",
         "subCategory": "Cosmos DB",
         "title": "Understand your traffic pattern in order to pick the right option for [provisioned throughput types](https://docs.microsoft.com/en-us/azure/cosmos-db/how-to-choose-offer)."
     },
@@ -348,7 +348,7 @@
             "operationalexcellence"
         ],
         "lens": "service",
-        "category": "Data ",
+        "category": "Data",
         "subCategory": "Cosmos DB",
         "title": "For new applications, if you don’t know your traffic pattern yet, start at the entry point RU/s to avoid over-provisioning in the beginning."
     },
@@ -359,7 +359,7 @@
             "operationalexcellence"
         ],
         "lens": "service",
-        "category": "Data ",
+        "category": "Data",
         "subCategory": "Cosmos DB",
         "title": "For existing applications:",
         "children": [
@@ -381,7 +381,7 @@
             "operationalexcellence"
         ],
         "lens": "service",
-        "category": "Data ",
+        "category": "Data",
         "subCategory": "Cosmos DB",
         "title": "Of all hours in a month, if you set provisioned RU/s T and use the full amount for 66% of the hours or more, it's estimated you'll save with standard (manual) provisioned RU/s. If you set autoscale max RU/s Tmax and use the full amount Tmax for 66% of the hours or less, it's estimated you'll save with autoscale."
     },
@@ -392,7 +392,7 @@
             "operationalexcellence"
         ],
         "lens": "service",
-        "category": "Data ",
+        "category": "Data",
         "subCategory": "Cosmos DB",
         "title": "If multi-master option is enabled on Cosmos DB, it is important to understand [Conflict Types and Resolution Policies](https://docs.microsoft.com/en-us/azure/cosmos-db/conflict-resolution-policies)."
     },
@@ -403,7 +403,7 @@
             "operationalexcellence"
         ],
         "lens": "service",
-        "category": "Data ",
+        "category": "Data",
         "subCategory": "Cosmos DB",
         "title": "[Selecting a partition key](https://docs.microsoft.com/en-us/azure/cosmos-db/partitioning-overview#choose-partitionkey) is a simple, but very important design choice:",
         "children": [
@@ -431,7 +431,7 @@
             "operationalexcellence"
         ],
         "lens": "service",
-        "category": "Data ",
+        "category": "Data",
         "subCategory": "Cosmos DB",
         "title": "For query-intensive workloads, use Windows 64-bit instead of Linux or Windows 32-bit host processing."
     },
@@ -442,7 +442,7 @@
             "operationalexcellence"
         ],
         "lens": "service",
-        "category": "Data ",
+        "category": "Data",
         "subCategory": "Cosmos DB",
         "title": "If client is consuming more than 50,000 RU/s, there could be bottleneck due to machine capping out on CPU or network utilization. If you reach this point, it is recommended to scale out client applications across multiple servers."
     },
@@ -453,7 +453,7 @@
             "operationalexcellence"
         ],
         "lens": "service",
-        "category": "Data ",
+        "category": "Data",
         "subCategory": "Cosmos DB",
         "title": "Call [OpenAsync](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.documents.client.documentclient.openasync?view=azure-dotnet) to avoid startup latency on first request."
     },
@@ -464,7 +464,7 @@
             "operationalexcellence"
         ],
         "lens": "service",
-        "category": "Data ",
+        "category": "Data",
         "subCategory": "Cosmos DB",
         "title": "In order to avoid network latency, collocate client in same region as Cosmos DB."
     },
@@ -475,7 +475,7 @@
             "operationalexcellence"
         ],
         "lens": "service",
-        "category": "Data ",
+        "category": "Data",
         "subCategory": "Cosmos DB",
         "title": "Increase the number of threads /tasks."
     },
@@ -486,7 +486,7 @@
             "operationalexcellence"
         ],
         "lens": "service",
-        "category": "Data ",
+        "category": "Data",
         "subCategory": "Cosmos DB",
         "title": "To reduce latency and CPU jitter, it is recommended to enable accelerated networking on client virtual machines both [Windows](https://docs.microsoft.com/en-us/azure/virtual-network/create-vm-accelerated-networking-powershell) and [Linux](https://docs.microsoft.com/en-us/azure/virtual-network/create-vm-accelerated-networking-cli).    "
     },
@@ -497,7 +497,7 @@
             "operationalexcellence"
         ],
         "lens": "service",
-        "category": "Data ",
+        "category": "Data",
         "subCategory": "Cosmos DB",
         "title": "Implement [retry logic](https://docs.microsoft.com/en-us/azure/architecture/best-practices/retry-service-specific#cosmos-db) in your client."
     },
@@ -508,7 +508,7 @@
             "operationalexcellence"
         ],
         "lens": "service",
-        "category": "Data ",
+        "category": "Data",
         "subCategory": "Cosmos DB",
         "title": "In order to check if multi location is not selected you can use the following query: ",
         "code": "Resources\n|where  type =~ 'Microsoft.DocumentDb/databaseAccounts'\n|where array_length( properties.locations) <=1\n"
@@ -520,7 +520,7 @@
             "operationalexcellence"
         ],
         "lens": "service",
-        "category": "Data ",
+        "category": "Data",
         "subCategory": "Cosmos DB",
         "title": "To check for cosmosdb instances where automatic failover is not enabled:",
         "code": "Resources\n|where  type =~ 'Microsoft.DocumentDb/databaseAccounts'\n|where properties.enableAutomaticFailover!=True\n"
@@ -532,7 +532,7 @@
             "operationalexcellence"
         ],
         "lens": "service",
-        "category": "Data ",
+        "category": "Data",
         "subCategory": "Cosmos DB",
         "title": "Query to see the list of multi-region writes:",
         "code": "resources\n| where type == \"microsoft.documentdb/databaseaccounts\"\n and properties.enableMultipleWriteLocations == \"true\"\n"
@@ -544,7 +544,7 @@
             "operationalexcellence"
         ],
         "lens": "service",
-        "category": "Data ",
+        "category": "Data",
         "subCategory": "Cosmos DB",
         "title": "To see the consistency levels for your cosmos db accounts you can use the query below: ",
         "code": "Resources\n| project name, type, location, consistencyLevel = properties.consistencyPolicy.defaultConsistencyLevel \n| where type == \"microsoft.documentdb/databaseaccounts\" \n| order by name asc\n"
@@ -555,7 +555,7 @@
             "reliability"
         ],
         "lens": "service",
-        "category": "Data ",
+        "category": "Data",
         "subCategory": "Cosmos DB",
         "title": "[High Availability in Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/high-availability)"
     },
@@ -566,7 +566,7 @@
             "operationalexcellence"
         ],
         "lens": "service",
-        "category": "Data ",
+        "category": "Data",
         "subCategory": "Cosmos DB",
         "title": "[Auto-Scale FAQ](https://docs.microsoft.com/en-us/azure/cosmos-db/autoscale-faq)"
     },
@@ -577,7 +577,7 @@
             "operationalexcellence"
         ],
         "lens": "service",
-        "category": "Data ",
+        "category": "Data",
         "subCategory": "Cosmos DB",
         "title": "[Performance Tips for Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/performance-tips)"
     },

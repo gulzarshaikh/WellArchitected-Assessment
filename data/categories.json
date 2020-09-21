@@ -173,7 +173,7 @@
         "title": "Roles & Responsibilities"
       },
       {
-        "title": "Common Engineering Criteria "
+        "title": "Common Engineering Criteria"
       }
     ]
   },
@@ -195,7 +195,7 @@
     ]
   },
   {
-    "title": "Data ",
+    "title": "Data",
     "subCategories": [
       {
         "title": "Azure SQL Database"
