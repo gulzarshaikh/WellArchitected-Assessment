@@ -4,11 +4,10 @@
 - [Application Design](#Application-Design)
   - [Design](#Design)
   - [Failure Mode Analysis](#Failure-Mode-Analysis)
+  - [Targets &amp; Non Functional Requirements](#Targets--Non-Functional-Requirements)
   - [Dependencies](#Dependencies)
-- [Resiliency &amp; Recovery](#Resiliency--Recovery)
-  - [Approach](#Approach)
-  - [Availability &amp; Recovery Targets](#Availability--Recovery-Targets)
 - [Health Modelling](#Health-Modelling)
+  - [Resource/Infrastructure Level Monitoring](#ResourceInfrastructure-Level-Monitoring)
   - [Data Interpretation &amp; Health Modelling](#Data-Interpretation--Health-Modelling)
   - [Alerting](#Alerting)
   - [Monitoring and Measurement](#Monitoring-and-Measurement)
@@ -35,7 +34,6 @@
   - [Identity and Access](#Identity-and-Access)
   - [Security Center](#Security-Center)
   - [Network Security](#Network-Security)
-  - [Data Protection and Compliance](#Data-Protection-and-Compliance)
 - [Operational Procedures](#Operational-Procedures)
   - [Recovery &amp; Failover](#Recovery--Failover)
   - [Scalability &amp; Capacity Model](#Scalability--Capacity-Model)
@@ -76,6 +74,14 @@
   > Understanding the subscription landscape of the application and how components are organized within or across subscriptions is important when analyzing if relevant subscription limits or quotas can be navigated
             
                   
+* Is an availability strategy defined? i.e. multi-geo, full/partial
+  > An availability strategy should capture how the application remains available when in a failure state and should apply across all application components and the application deployment stamp as a whole such as via multi-geo scale-unit deployment approach
+            
+                  
+* Has a Business Continuity Disaster Recovery (BCDR) strategy been defined for the application and/or its key scenarios? 
+  > A disaster recovery strategy should capture how the application responds to a disaster situation such as a regional outage or the loss of a critical platform service, using either a re-deployment, warm-spare active-passive, or hot-spare active-active approach
+            
+                  
               
 ## Failure Mode Analysis
             
@@ -93,6 +99,34 @@
                   
 * Have all &#39;singletons&#39; been eliminated?
   > A 'singleton' describes a logical component within an application for which there can only ever be a single instance. It can apply to stateful architectural components or application code constructs. Ultimately, singletons introduce a significant risk by creating single points of failure within the application design
+            
+                  
+              
+## Targets &amp; Non Functional Requirements
+            
+* Are availability targets such as Service Level Agreements (SLAs), Service Level Indicators (SLIs), and Service Level Objectives (SLOs) defined for the application and/or key scenarios?
+  > Understanding customer availability expectations is vital to reviewing overall operations for the application. For instance, if a customer is striving to achieve an application SLO of 99.999%, the level of inherent operational actionality required by the application is going to far greater than if an SLO of 99.9% was the aspiration
+            
+    - Are SLAs/SLOs/SLIs for all leveraged dependencies understood?
+    > Availability targets for any dependencies leveraged by the application should be understood and ideally align with application targets
+                      
+    - Has a composite SLA been calculated for the application and/or key scenarios using Azure SLAs?
+    > A composite SLA captures the end-to-end SLA across all application components and dependencies. It is calculated using the individual SLAs of Azure services housing application components and provides an important indicator of designed availability in relation to customer expectations and targets([Composite SLAs](https://docs.microsoft.com/en-us/azure/architecture/framework/resiliency/business-metrics#understand-service-level-agreements))
+                      
+    - Are availability targets considered while the system is running in disaster recovery mode?
+    > If targets must also apply in a failure state then an n+1 model should be used to achieve greater availability and resiliency, where n is the capacity needed to deliver required availability
+                      
+    - Are these availability targets monitored and measured?
+    > Mean Time Between Failures (MTBF): The average time between failures of a particular component
+                      
+    - What are the consequences if availability targets are not satisfied?
+    > Are there any penalties, such as financial charges, associated with failing to meet SLA commitments
+                      
+                  
+* Are recovery targets such as Recovery Time Objective (RTO) and Recovery Point Objective (RPO) defined for the application and/or key scenarios?
+  > Understanding customer reliability expectations is vital to reviewing the overall reliability of the application. For instance, if a customer is striving to achieve an application RTO of less than a minute then back-up based and active-passive disaster recovery strategies are unlikely to be appropriate 
+Recovery time objective (RTO): The maximum acceptable time the application is unavailable after a disaster incident 
+Recovery point objective (RPO): The maximum duration of data loss that is acceptable during a disaster event
             
                   
               
@@ -125,49 +159,15 @@
             
                   
               
-# Resiliency &amp; Recovery
-    
-## Approach
-            
-* Is an availability strategy defined? i.e. multi-geo, full/partial
-  > An availability strategy should capture how the application remains available when in a failure state and should apply across all application components and the application deployment stamp as a whole such as via multi-geo scale-unit deployment approach
-            
-                  
-* Has a Business Continuity Disaster Recovery (BCDR) strategy been defined for the application and/or its key scenarios? 
-  > A disaster recovery strategy should capture how the application responds to a disaster situation such as a regional outage or the loss of a critical platform service, using either a re-deployment, warm-spare active-passive, or hot-spare active-active approach
-            
-                  
-              
-## Availability &amp; Recovery Targets
-            
-* Are availability targets such as Service Level Agreements (SLAs), Service Level Indicators (SLIs), and Service Level Objectives (SLOs) defined for the application and/or key scenarios?
-  > Understanding customer availability expectations is vital to reviewing the overall reliability of the application. For instance, if a customer is striving to achieve an application SLO of 99.999%, the level of inherent resiliency required by the application is going to far greater than if an SLO of 99.9% was the aspiration
-            
-    - Are SLAs/SLOs/SLIs for all leveraged dependencies understood?
-    > Availability targets for any dependencies leveraged by the application should be understood and ideally align with application targets
-                      
-    - Has a composite SLA been calculated for the application and/or key scenarios using Azure SLAs?
-    > A composite SLA captures the end-to-end SLA across all application components and dependencies. It is calculated using the individual SLAs of Azure services housing application components and provides an important indicator of designed availability in relation to customer expectations and targets([Composite SLAs](https://docs.microsoft.com/en-us/azure/architecture/framework/resiliency/business-metrics#understand-service-level-agreements))
-                      
-    - Are availability targets considered while the system is running in disaster recovery mode?
-    > If targets must also apply in a failure state then an n+1 model should be used to achieve greater availability and resiliency, where n is the capacity needed to deliver required availability
-                      
-                  
-* Are these availability targets monitored and measured?
-  > Monitoring and measuring application availability is vital to qualifying overall application health and progress towards defined targets.
-Mean Time To Recover (MTTR): The average time it takes to restore a particular component after a failure has occurred 
-Mean Time Between Failures (MTBF): The average time between failures of a particular component
-            
-                  
-* Are recovery targets such as Recovery Time Objective (RTO) and Recovery Point Objective (RPO) defined for the application and/or key scenarios?
-  > Understanding customer reliability expectations is vital to reviewing the overall reliability of the application. For instance, if a customer is striving to achieve an application RTO of less than a minute then back-up based and active-passive disaster recovery strategies are unlikely to be appropriate 
-Recovery time objective (RTO): The maximum acceptable time the application is unavailable after a disaster incident 
-Recovery point objective (RPO): The maximum duration of data loss that is acceptable during a disaster event
-            
-                  
-              
 # Health Modelling
     
+## Resource/Infrastructure Level Monitoring
+            
+* Is resource level monitoring enforced throughout the application?
+  > All application resources should be configured to route diagnostic logs and metrics to the chosen log aggregation technology. Azure Policy should also be used as a device to ensure the consistent use of diagnostic settings across the application, to enforce the desired configuration for each Azure service
+            
+                  
+              
 ## Data Interpretation &amp; Health Modelling
             
 * Are application level events automatically correlated with resource level metrics to quantify the current application state?
@@ -528,13 +528,6 @@ Public Preview : SLAs do not apply and formal support may be provided on a best-
     - Are NSG flow logs being collected?
     > NSG flow logs should be captured and analyzed to monitor performance and security([Why use NSG flow logs](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-flow-logging-overview#why-use-flow-logs))
                       
-                  
-              
-## Data Protection and Compliance
-            
-* Has monitoring for continuous compliance been implemented?
-  > Azure Policy provides native governance capabilities to monitor and enforce the continuous compliance of underlying application resources
-            
                   
               
 # Operational Procedures

@@ -88,6 +88,9 @@
     - Are SLAs/SLOs/SLIs for all leveraged dependencies understood?
     > Availability targets for any dependencies leveraged by the application should be understood and ideally align with application targets
                       
+    - Has a composite SLA been calculated for the application and/or key scenarios using Azure SLAs?
+    > A composite SLA captures the end-to-end SLA across all application components and dependencies. It is calculated using the individual SLAs of Azure services housing application components and provides an important indicator of designed availability in relation to customer expectations and targets([Composite SLAs](https://docs.microsoft.com/en-us/azure/architecture/framework/resiliency/business-metrics#understand-service-level-agreements))
+                      
     - Are availability targets considered while the system is running in disaster recovery mode?
     > If targets must also apply in a failure state then an n+1 model should be used to achieve greater availability and resiliency, where n is the capacity needed to deliver required availability
                       
