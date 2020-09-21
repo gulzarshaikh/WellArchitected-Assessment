@@ -16,7 +16,7 @@ _Select the type of your content (**select only one item**):_
 <!-- insert an 'x' into one of the checkboxes below -->
 * [] assessment questions
 * [] design considerations
-* [] configuration recommendation
+* [] configuration recommendations
 * [] supporting source artifacts
 
 **WAF pillar**

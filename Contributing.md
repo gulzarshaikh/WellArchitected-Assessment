@@ -14,7 +14,7 @@ During the rendering operations all the .data.json files are merged as a first s
 There are currently the following content types:
 - assessment questions (`Questions`)
 - design considerations (`Design Considerations`)
-- configuration recommendation (`Configuration Recommendations`)
+- configuration recommendations (`Configuration Recommendations`)
 - supporting source artifacts (`Supporting Source Artifacts`)
 
 ### JSON structure
