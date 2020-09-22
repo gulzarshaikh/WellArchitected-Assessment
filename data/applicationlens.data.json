@@ -288,9 +288,9 @@
     "category": "Application Design",
     "subCategory": "Application Composition",
     "title": "Are components hosted on shared application or data platforms which are used by other applications?",
-    "context": "Do application components leverage shared data platforms, such as a central data lake, or application hosting platforms, such as a centrally managed AKS or ASE cluster",
-    "recommendation": "",
-    "id": ""
+    "context": "Do application components leverage shared data platforms, such as a central data lake, or application hosting platforms, such as a centrally managed AKS or ASE cluster?",
+    "recommendation": "Make sure you understand the design decisions and implications of using shared hosting platforms.",
+    "id": "app_design_shared_platforms"
   },
   {
     "type": "Questions",
@@ -301,17 +301,17 @@
     "category": "Application Design",
     "subCategory": "Application Composition",
     "title": "Do you monitor and regularly review new features and capabilities?",
-    "context": "Azure is continuously evolving, with new features and services becoming available which may be beneficial for the application",
-    "recommendation": "",
+    "context": "Azure is continuously evolving, with new features and services becoming available which may be beneficial for the application.",
+    "recommendation": "Keep up to date on newest developments and feature updates, at least for services most relevant to your application.",
     "children": [
       {
         "title": "Do you subscribe to Azure service announcements for new features and capabilities?",
-        "context": "Service announcements provide insights into new features and services, as well as features or services which become deprecated",
-        "recommendation": "",
-        "id": ""
+        "context": "Service announcements provide insights into new features and services, as well as features or services which become deprecated.",
+        "recommendation": "Use announcement subscriptions to stay up to date.",
+        "id": "app_design_new_features_announcements"
       }
     ],
-    "id": ""
+    "id": "app_design_new_features"
   },
   {
     "type": "Questions",
@@ -322,9 +322,9 @@
     "category": "Health Modelling",
     "subCategory": "Application Level Monitoring",
     "title": "Is an Application Performance Management (APM) tool used collect application level logs?",
-    "context": "An APM technology, such as Application Insights, should be used to manage the performance and availability of the application, aggregating application level logs and events for subsequent interpretation",
-    "recommendation": "",
-    "id": ""
+    "context": "In order to successfuly maintain the application it's important to 'turn the lights on' and have clear visibility of important metrics both in real-time and historically.",
+    "recommendation": "An APM technology, such as Application Insights, should be used to manage the performance and availability of the application, aggregating application level logs and events for subsequent interpretation.",
+    "id": "health_apm"
   },
   {
     "type": "Questions",
@@ -334,10 +334,10 @@
     "lens": "application",
     "category": "Health Modelling",
     "subCategory": "Application Level Monitoring",
-    "title": "Are application logs collected from different application environments? ",
-    "context": "Application logs and events should be collected across all major environments to support the end-to-end application lifecycle. However, a sufficient degree of separation should be in-place to ensure non-critical environments to not convolute production log interpretation",
-    "recommendation": "",
-    "id": ""
+    "title": "Are application logs collected from different application environments?",
+    "context": "Application logs support the end-to-end application lifecycle. Logging is essential in understanding how trhe application operates in various environments and what events occur and under which conditions.",
+    "recommendation": "Application logs and events should be collected across all major environments. Sufficient degree of separation and filtering should be in place to ensure non-critical environments do not convolute production log interpretation.",
+    "id": "health_logs_collected"
   },
   {
     "type": "Questions",
@@ -348,9 +348,9 @@
     "category": "Health Modelling",
     "subCategory": "Application Level Monitoring",
     "title": "Are log messages captured in a structured format?",
-    "context": "Application events should ideally be captured as a structured data type with machine-readable data points which can easily be indexed and searched, rather than an unstructured string",
-    "recommendation": "",
-    "id": ""
+    "context": "Structured format, following well-known schema can help in parsing and analyzing logs.",
+    "recommendation": "Application events should ideally be captured as a structured data type with machine-readable data points which can easily be indexed and searched, rather than an unstructured string.",
+    "id": "health_logs_structured"
   },
   {
     "type": "Questions",
@@ -361,9 +361,9 @@
     "category": "Health Modelling",
     "subCategory": "Application Level Monitoring",
     "title": "Are log levels used to capture different types of application events?",
-    "context": "Different log levels, such as INFO, WARNING, ERROR, and DEBUG should be pre-configured and applied within relevant environments, such as DEBUG for a development environment. The approach to change log levels should be simple configuration change to support operational scenarios where it is necessary to elevate the log level within an environment",
-    "recommendation": "",
-    "id": ""
+    "context": "Different log levels, such as INFO, WARNING, ERROR, and DEBUG can be used across environments (such as DEBUG for development environment).",
+    "recommendation": "Different log levels, such as INFO, WARNING, ERROR, and DEBUG should be pre-configured and applied within relevant environments. The approach to change log levels should be simple configuration change to support operational scenarios where it is necessary to elevate the log level within an environment.",
+    "id": "health_log_levels"
   },
   {
     "type": "Questions",
@@ -374,9 +374,9 @@
     "category": "Health Modelling",
     "subCategory": "Application Level Monitoring",
     "title": "Are application events correlated across all application components?",
-    "context": "Log events coming from different application components or different component tiers of the application should be correlated to build end-to-end transaction flows (see [Distributed tracing](https://docs.microsoft.com/en-us/azure/architecture/microservices/logging-monitoring#distributed-tracing)). For instance, this is often achieved by using consistent correlation IDs transferred between components within a transaction",
-    "recommendation": "",
-    "id": ""
+    "context": "[Distributed tracing](https://docs.microsoft.com/azure/architecture/microservices/logging-monitoring#distributed-tracing) provides the ability to build and visualize end-to-end transaction flows for the application.",
+    "recommendation": "Log events coming from different application components or different component tiers of the application should be correlated to build end-to-end transaction flows. For instance, this is often achieved by using consistent correlation IDs transferred between components within a transaction.",
+    "id": "health_events_correlated"
   },
   {
     "type": "Questions",
@@ -387,17 +387,17 @@
     "category": "Health Modelling",
     "subCategory": "Application Level Monitoring",
     "title": "Is it possible to evaluate critical application performance targets and non-functional requirements (NFRs)?",
-    "context": "Application level metrics should include end-to-end transaction times of key technical functions, such as database queries, response times for external API calls, failure rates of processing steps, etc.",
-    "recommendation": "",
+    "context": "",
+    "recommendation": "Application level metrics should include end-to-end transaction times of key technical functions, such as database queries, response times for external API calls, failure rates of processing steps, etc.",
     "children": [
       {
         "title": "Is the end-to-end performance of critical system flows monitored?",
-        "context": "It should be possible to correlate application log events across critical system flows, such as user login, to fully assess the health of key scenarios in the context of targets and NFRs",
-        "recommendation": "",
-        "id": ""
+        "context": "To fully assess the health of key scenarios in the context of targets and NFRs, application log events across critical system flows should be correlated.",
+        "recommendation": "Correlate application log events across critical system flows, such as user login.",
+        "id": "health_critical_performance_monitoring"
       }
     ],
-    "id": ""
+    "id": "health_critical_performance_targets"
   },
   {
     "type": "Questions",
@@ -408,9 +408,9 @@
     "category": "Health Modelling",
     "subCategory": "Resource/Infrastructure Level Monitoring",
     "title": "Which log aggregation technology is used to collect logs and metrics from Azure resources?",
-    "context": "Log aggregation technologies, such as Azure Log Analytics or Splunk, should be used to collate logs and metrics across all application components for subsequent evaluation. Resources may include Azure IaaS and PaaS services as well as 3rd-party appliances such as firewalls or Anti-Malware solutions used in the application. For instance, if Azure Event Hub is used, the Diagnostic Settings should be configured to push logs and metrics to the data sink([Event Hub Diagnostic Logs](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-diagnostic-logs))",
+    "context": "Log aggregation technologies, such as Azure Log Analytics or Splunk, should be used to collate logs and metrics across all application components for subsequent evaluation. Resources may include Azure IaaS and PaaS services as well as 3rd-party appliances such as firewalls or Anti-Malware solutions used in the application. For instance, if Azure Event Hub is used, the Diagnostic Settings should be configured to push logs and metrics to the data sink([Event Hub Diagnostic Logs](https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs))",
     "recommendation": "",
-    "id": ""
+    "id": "health_log_aggregation_technology"
   },
   {
     "type": "Questions",
@@ -421,9 +421,9 @@
     "category": "Health Modelling",
     "subCategory": "Resource/Infrastructure Level Monitoring",
     "title": "Are you collecting Azure Activity Logs within the log aggregation tool?",
-    "context": "Azure Activity Logs provide audit information about when an Azure resource is modified, such as when a virtual machine is started or stopped. Such information is extremely useful for the interpretation and troubleshooting of operational issues, as it provides transparency around configuration changes",
-    "recommendation": "",
-    "id": ""
+    "context": "Azure Activity Logs provide audit information about when an Azure resource is modified, such as when a virtual machine is started or stopped. Such information is extremely useful for the interpretation and troubleshooting of operational issues, as it provides transparency around configuration changes.",
+    "recommendation": "Azure Activity Logs should be collected and aggregated.",
+    "id": "health_activity_logs_aggregation"
   },
   {
     "type": "Questions",
@@ -435,9 +435,9 @@
     "category": "Health Modelling",
     "subCategory": "Resource/Infrastructure Level Monitoring",
     "title": "Is resource level monitoring enforced throughout the application?",
-    "context": "All application resources should be configured to route diagnostic logs and metrics to the chosen log aggregation technology. Azure Policy should also be used as a device to ensure the consistent use of diagnostic settings across the application, to enforce the desired configuration for each Azure service",
-    "recommendation": "",
-    "id": ""
+    "context": "",
+    "recommendation": "All application resources should be configured to route diagnostic logs and metrics to the chosen log aggregation technology. Azure Policy should also be used as a device to ensure the consistent use of diagnostic settings across the application, to enforce the desired configuration for each Azure service.",
+    "id": "health_resource_monitoring"
   },
   {
     "type": "Questions",
@@ -447,10 +447,10 @@
     "lens": "application",
     "category": "Health Modelling",
     "subCategory": "Resource/Infrastructure Level Monitoring",
-    "title": "Are logs and metrics available for critical internal dependencies? ",
-    "context": "To be able to build a robust application health model it is vital that visibility into the operational state of critical internal dependencies, such as a shared NVA or Express Route connection, be achieved",
-    "recommendation": "",
-    "id": ""
+    "title": "Are logs and metrics available for critical internal dependencies?",
+    "context": "To be able to build a robust application health model it is vital that visibility into the operational state of critical internal dependencies, such as a shared NVA or Express Route connection, be achieved.",
+    "recommendation": "Make sure logs and key metrics of critical components are collected and stored.",
+    "id": "health_logs_internal_dependencies"
   },
   {
     "type": "Questions",
@@ -461,9 +461,9 @@
     "category": "Health Modelling",
     "subCategory": "Resource/Infrastructure Level Monitoring",
     "title": "Are critical external dependencies monitored? ",
-    "context": "Critical external dependencies, such as an API service, should be monitored to ensure operational visibility of dependency health. For instance, a probe could be used to measure the availability and latency of an external API",
-    "recommendation": "",
-    "id": ""
+    "context": "It's common for applications to depend on other services or libraries. Despite these are external, it is still possible to monitor their health and availability using probes.",
+    "recommendation": "Critical external dependencies, such as an API service, should be monitored to ensure operational visibility of dependency health. For instance, a probe could be used to measure the availability and latency of an external API.",
+    "id": "health_critical_dependencies_monitored"
   },
   {
     "type": "Questions",
@@ -474,9 +474,9 @@
     "category": "Health Modelling",
     "subCategory": "Data Interpretation & Health Modelling",
     "title": "Are application and resource level logs aggregated in a single data sink, or is it possible to cross-query events at both levels?",
-    "context": "To build a robust application health model it is vital that application and resource level data be correlated and evaluated together to optimize the detection of issues and troubleshooting of detected issues",
-    "recommendation": "",
-    "id": ""
+    "context": "To build a robust application health model it is vital that application and resource level data be correlated and evaluated together to optimize the detection of issues and troubleshooting of detected issues.",
+    "recommendation": "Implement a unified solution to aggregate and query application and resource level logs, such as Azure Log Analytics.",
+    "id": "health_logs_aggregated"
   },
   {
     "type": "Questions",
@@ -488,9 +488,9 @@
     "category": "Health Modelling",
     "subCategory": "Data Interpretation & Health Modelling",
     "title": "Are application level events automatically correlated with resource level metrics to quantify the current application state?",
-    "context": "The overall health state can be impacted by both application-level issues as well as resource-level failures. Telemetry correlation should be used to ensure transactions can be mapped through the end-to-end application and critical system flows, as this is vital to root cause analysis for failures. Platform-level metrics and logs such as CPU percentage, network in/out, and disk operations/sec should be collected from the application to inform a health model and detect/predict issues([Telemetry correlation](https://docs.microsoft.com/en-us/azure/azure-monitor/app/correlation)). This can also help to distinguish between transient and non-transient faults",
+    "context": "The overall health state can be impacted by both application-level issues as well as resource-level failures. Telemetry correlation should be used to ensure transactions can be mapped through the end-to-end application and critical system flows, as this is vital to root cause analysis for failures. Platform-level metrics and logs such as CPU percentage, network in/out, and disk operations/sec should be collected from the application to inform a health model and detect/predict issues([Telemetry correlation](https://docs.microsoft.com/azure/azure-monitor/app/correlation)). This can also help to distinguish between transient and non-transient faults",
     "recommendation": "",
-    "id": ""
+    "id": "health_events_correlated_metrics"
   },
   {
     "type": "Questions",
