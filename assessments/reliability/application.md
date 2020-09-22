@@ -164,14 +164,14 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 ## Resource/Infrastructure Level Monitoring
             
 * Is resource level monitoring enforced throughout the application?
-  > All application resources should be configured to route diagnostic logs and metrics to the chosen log aggregation technology. Azure Policy should also be used as a device to ensure the consistent use of diagnostic settings across the application, to enforce the desired configuration for each Azure service
+  > 
             
                   
               
 ## Data Interpretation &amp; Health Modelling
             
 * Are application level events automatically correlated with resource level metrics to quantify the current application state?
-  > The overall health state can be impacted by both application-level issues as well as resource-level failures. Telemetry correlation should be used to ensure transactions can be mapped through the end-to-end application and critical system flows, as this is vital to root cause analysis for failures. Platform-level metrics and logs such as CPU percentage, network in/out, and disk operations/sec should be collected from the application to inform a health model and detect/predict issues([Telemetry correlation](https://docs.microsoft.com/en-us/azure/azure-monitor/app/correlation)). This can also help to distinguish between transient and non-transient faults
+  > The overall health state can be impacted by both application-level issues as well as resource-level failures. Telemetry correlation should be used to ensure transactions can be mapped through the end-to-end application and critical system flows, as this is vital to root cause analysis for failures. Platform-level metrics and logs such as CPU percentage, network in/out, and disk operations/sec should be collected from the application to inform a health model and detect/predict issues([Telemetry correlation](https://docs.microsoft.com/azure/azure-monitor/app/correlation)). This can also help to distinguish between transient and non-transient faults
             
                   
 * Is a health model used to qualify what &#39;healthy&#39; and &#39;unhealthy&#39; states represent for the application?
