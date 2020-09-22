@@ -66,6 +66,45 @@ jobs:
           Get-ChildItem -Path $env:DATADIR | where { $_.Name -notmatch ".data.json$" } | % {
               Copy-Item -Path $_.FullName -Destination $env:GENERATOR_ROOT/data
           }
+
+      - name: Check categories
+        shell: pwsh
+        run: |
+          # This will check whether only (sub)categories from the categories.json are used    
+          $foundIssues = $false
+          $validCategories = Get-Content -Path $env:GENERATOR_ROOT/data/categories.json | ConvertFrom-Json 
+
+          $AllItems = Get-Content -Path $env:GENERATOR_ROOT/data/input.json | ConvertFrom-Json
+
+          # Get all used categories from the input.json and filter to unique
+          $allCategories = $allitems | Select-Object -Property category,subcategory | Sort-Object -Property category,subcategory | Get-Unique -AsString
+
+          foreach($item in $allCategories) 
+          {
+              if($item.category -notin $validCategories.title)
+              {
+                  Write-Warning "Category '$($item.category)' does not exist in categories.json"
+                  $foundIssues = $true
+              }
+              else
+              {
+                  $category = $validCategories | Where-Object title -match $item.category
+                  if($item.subCategory -notin $category.subCategories.title)
+                  {
+                      Write-Warning "Sub Category '$($item.subCategory)' for category '$($category.title)' does not exist in categories.json"
+                      $foundIssues = $true
+                  }
+              }
+          }
+
+          if($foundIssues) 
+          {
+              Write-Error "Please fix the mismatching (sub)categories or add new categories to the categories.json"
+          }
+          else
+          {
+              Write-Host "All good! All used categories exist in the categories.json"
+          }
       
       - name: Move files into the Hugo directories
         shell: pwsh

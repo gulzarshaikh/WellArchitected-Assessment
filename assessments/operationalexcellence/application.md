@@ -30,6 +30,7 @@
 - [Operational Model &amp; DevOps](#Operational-Model--DevOps)
   - [General](#General)
   - [Roles &amp; Responsibilities](#Roles--Responsibilities)
+  - [Common Engineering Criteria](#Common-Engineering-Criteria)
 # Application Design
     
 ## Design
@@ -654,5 +655,20 @@ Stress Testing : *Stress testing is a type of negative testing which involves va
     - Does anyone have long-standing write-access to production environments?
     > Write-access to production systems should be limited to service principals and no user accounts have regular write-access
                       
+                  
+              
+## Common Engineering Criteria
+            
+* Is the choice and desired configuration of Azure services centrally governed or can the developers pick and choose?
+  > Many customers govern service configuration through a catalogue of allowed services that developers and application owners must pick from
+            
+                  
+* Are tools and processes in place to govern available services, enforce mandatory operational functionality and ensure compliance? 
+  > Proper standards for naming, tagging, the deployment of specific configurations such as diagnostic logging, and the available set of services and regions is important to drive consistency and ensure compliance. Solutions like [Azure Policy](https://docs.microsoft.com/en-us/azure/governance/policy/overview) can help to enforce and assess compliance at-scale.
+            
+                  
+* Are standards, policies, restrictions and best practices defined as code?
+  > Policy-as-Code provides the same benefits as Infrastructure-as-Code in regards to versioning, automation, documentation as well as encouraging consistency and reproducibility. Available solutions in the market are [Azure Policy](https://docs.microsoft.com/en-us/azure/governance/policy/overview) or [HashiCorp Sentinel](https://www.hashicorp.com/resources/introduction-sentinel-compliance-policy-as-code/).
+            
                   
               
