@@ -88,40 +88,40 @@
     "subCategory": "Targets & Non Functional Requirements",
     "title": "Are availability targets such as Service Level Agreements (SLAs), Service Level Indicators (SLIs), and Service Level Objectives (SLOs) defined for the application and/or key scenarios?",
     "context": "Understanding customer availability expectations is vital to reviewing overall operations for the application. For instance, if a customer is striving to achieve an application SLO of 99.999%, the level of inherent operational actionality required by the application is going to far greater than if an SLO of 99.9% was the aspiration",
-    "recommendation": "",
+    "recommendation": "Having clearly defined availability targets is crucial in order to have a goal to work and measure against. This will also determine which services an application can leverage vs. those which do not qualify in terms of the SLA they offer.",
     "children": [
       {
         "title": "Are SLAs/SLOs/SLIs for all leveraged dependencies understood?",
         "context": "Availability targets for any dependencies leveraged by the application should be understood and ideally align with application targets",
-        "recommendation": "",
-        "id": ""
+        "recommendation": "Make sure SLAs/SLOs/SLIs for all leveraged dependencies are understood",
+        "id": "app_design_targets_deps"
       },
       {
         "title": "Has a composite SLA been calculated for the application and/or key scenarios using Azure SLAs?",
         "context": "A composite SLA captures the end-to-end SLA across all application components and dependencies. It is calculated using the individual SLAs of Azure services housing application components and provides an important indicator of designed availability in relation to customer expectations and targets([Composite SLAs](https://docs.microsoft.com/en-us/azure/architecture/framework/resiliency/business-metrics#understand-service-level-agreements))",
-        "recommendation": "",
-        "id": ""
+        "recommendation": "Make sure the composite SLA of all components and dependencies on the critical paths are understood.",
+        "id": "app_design_compositesla"
       },
       {
         "title": "Are availability targets considered while the system is running in disaster recovery mode?",
-        "context": "If targets must also apply in a failure state then an n+1 model should be used to achieve greater availability and resiliency, where n is the capacity needed to deliver required availability",
-        "recommendation": "",
-        "id": ""
+        "context": "The above defined targets might or might not be applied when running in DR mode. This depends from application to application.",
+        "recommendation": "If targets must also apply in a failure state then an n+1 model should be used to achieve greater availability and resiliency, where n is the capacity needed to deliver required availability",
+        "id": "app_design_targets_drmode"
       },
       {
         "title": "Are these availability targets monitored and measured?",
-        "context": "Mean Time Between Failures (MTBF): The average time between failures of a particular component",
-        "recommendation": "",
-        "id": ""
+        "context": "Monitoring and measuring application availability is vital to qualifying overall application health and progress towards defined targets.",
+        "recommendation": "Make sure you measure and monitor key targets such as\n- **Mean Time Between Failures (MTBF)**: The average time between failures of a particular component\n- **Mean Time Between Failures (MTBF)**: The average time between failures of a particular component",
+        "id": "app_design_targets_smonitoring"
       },
       {
         "title": "What are the consequences if availability targets are not satisfied?",
         "context": "Are there any penalties, such as financial charges, associated with failing to meet SLA commitments",
-        "recommendation": "",
-        "id": ""
+        "recommendation": "It should be fully understood what are the consequences if availability targets are not satisfied. This will also inform when to initiate a failover case.",
+        "id": "app_design_targets_notsatisfied"
       }
     ],
-    "id": ""
+    "id": "app_design_availabilitytargets"
   },
   {
     "type": "Questions",
