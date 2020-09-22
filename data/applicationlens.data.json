@@ -82,6 +82,7 @@
     "subCategory": "Targets & Non Functional Requirements",
     "title": "Are availability targets such as Service Level Agreements (SLAs), Service Level Indicators (SLIs), and Service Level Objectives (SLOs) defined for the application and/or key scenarios?",
     "context": "Understanding customer availability expectations is vital to reviewing overall operations for the application. For instance, if a customer is striving to achieve an application SLO of 99.999%, the level of inherent operational actionality required by the application is going to far greater than if an SLO of 99.9% was the aspiration",
+    "recommendation": "",
     "children": [
       {
         "title": "Are SLAs/SLOs/SLIs for all leveraged dependencies understood?",
@@ -108,8 +109,7 @@
         "context": "Are there any penalties, such as financial charges, associated with failing to meet SLA commitments",
         "recommendation": ""
       }
-    ],
-    "recommendation": ""
+    ]
   },
   {
     "type": "Questions",
@@ -134,6 +134,7 @@
     "subCategory": "Targets & Non Functional Requirements",
     "title": "Are there well defined performance requirements for the application and/or key scenarios?",
     "context": "Non-functional performance requirements, such as those relating to end-user experiences (e.g. average and maximum response times) are vital to assessing the overall health of an application, and is a critical lens required for assessing operations",
+    "recommendation": "",
     "children": [
       {
         "title": "Does the application have predictable traffic patterns? or is load highly volatile?",
@@ -155,8 +156,7 @@
         "context": "Monitoring and measuring end-to-end application performance is vital to qualifying overall application health and progress towards defined targets",
         "recommendation": ""
       }
-    ],
-    "recommendation": ""
+    ]
   },
   {
     "type": "Questions",
@@ -168,14 +168,14 @@
     "subCategory": "Key Scenarios",
     "title": "Have critical system flows through the application been defined for all key business scenarios?",
     "context": "Path-wise analysis should be used to define critical system flows for key business scenarios, such as the checkout process for an eCommerce application. Understanding critical system flows is vital to assessing overall operational effectiveness, and should be used to inform a health model for the application",
+    "recommendation": "",
     "children": [
       {
         "title": "Do these critical system flows have distinct availability, performance, or recovery targets? ",
         "context": "Critical sub-systems or paths through the application may have higher expectations around availability, recovery, and performance due to the criticality of associated business scenarios and functionality",
         "recommendation": ""
       }
-    ],
-    "recommendation": ""
+    ]
   },
   {
     "type": "Questions",
@@ -200,6 +200,7 @@
     "subCategory": "Dependencies",
     "title": "Are all internal and external dependencies identified and categorized as either weak or strong?",
     "context": "Internal dependencies describe components within the application scope which are required for the application to fully operate, while external dependencies captures required components outside the scope of the application, such as another application or third-party service. Such dependencies may be categorized as either strong or weak based on whether or not the application is able to continue operating in a degraded fashion in their absence([Twelve-Factor App: Dependencies](https://12factor.net/dependencies))",
+    "recommendation": "",
     "children": [
       {
         "title": "Do you maintain a complete list of application dependencies?",
@@ -211,8 +212,7 @@
         "context": "Strong dependencies play a critical role in application function and availability meaning their absence will have a significant impact, while the absence of weak dependencies may only impact specific features and not affect overall availability",
         "recommendation": ""
       }
-    ],
-    "recommendation": ""
+    ]
   },
   {
     "type": "Questions",
@@ -237,6 +237,7 @@
     "subCategory": "Application Composition",
     "title": "What Azure services are used by the application?",
     "context": "It is important to understand what Azure services, such as App Services and Event Hub, are used by the application platform to host both application code and data",
+    "recommendation": "",
     "children": [
       {
         "title": "What operational features/capabilities are used for leveraged services?",
@@ -248,8 +249,7 @@
         "context": "It is important to understand what technologies are used by the application and must be managed, such as .NET Core , Spring, or Node.js",
         "recommendation": ""
       }
-    ],
-    "recommendation": ""
+    ]
   },
   {
     "type": "Questions",
@@ -273,14 +273,14 @@
     "subCategory": "Application Composition",
     "title": "Do you monitor and regularly review new features and capabilities?",
     "context": "Azure is continuously evolving, with new features and services becoming available which may be beneficial for the application",
+    "recommendation": "",
     "children": [
       {
         "title": "Do you subscribe to Azure service announcements for new features and capabilities?",
         "context": "Service announcements provide insights into new features and services, as well as features or services which become deprecated",
         "recommendation": ""
       }
-    ],
-    "recommendation": ""
+    ]
   },
   {
     "type": "Questions",
@@ -352,14 +352,14 @@
     "subCategory": "Application Level Monitoring",
     "title": "Is it possible to evaluate critical application performance targets and non-functional requirements (NFRs)?",
     "context": "Application level metrics should include end-to-end transaction times of key technical functions, such as database queries, response times for external API calls, failure rates of processing steps, etc.",
+    "recommendation": "",
     "children": [
       {
         "title": "Is the end-to-end performance of critical system flows monitored?",
         "context": "It should be possible to correlate application log events across critical system flows, such as user login, to fully assess the health of key scenarios in the context of targets and NFRs",
         "recommendation": ""
       }
-    ],
-    "recommendation": ""
+    ]
   },
   {
     "type": "Questions",
@@ -470,6 +470,7 @@
     "subCategory": "Data Interpretation & Health Modelling",
     "title": "Is a health model used to qualify what 'healthy' and 'unhealthy' states represent for the application?",
     "context": "A holistic application health model should be used to quantify what 'healthy' and 'unhealthy' states represent across all application components. It is highly recommended that a 'traffic light' model be used to indicate a green/healthy state when key non-functional requirements and targets are fully satisfied and resources are optimally utilized, e.g. 95% of requests are processed in <= 500ms with AKS node utilization at x% etc. Once established, this health model should inform critical monitoring metrics across system components and operational sub-system composition. It is important to note that the health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state.",
+    "recommendation": "",
     "children": [
       {
         "title": "Are critical system flows used to inform the health model?",
@@ -481,8 +482,7 @@
         "context": "The health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state",
         "recommendation": ""
       }
-    ],
-    "recommendation": ""
+    ]
   },
   {
     "type": "Questions",
@@ -653,6 +653,7 @@
     "subCategory": "Recovery & Failover",
     "title": "Are recovery steps defined for failover and failback?",
     "context": "The steps required to fail over the application to a secondary Azure region in failure situations should be codified, preferably in an automated manner, to ensure capabilities exist to effectively respond to an outage in a way that limits impact. Similar codified steps should also exist to capture the process required to failback the application to the primary region once a failover triggering issue has been addressed",
+    "recommendation": "",
     "children": [
       {
         "title": "Has the failover and failback approach been tested/validated at least once?",
@@ -674,8 +675,7 @@
         "context": "For example, is it possible to failover the compute cluster to a secondary region while keeping the database running in the primary region",
         "recommendation": ""
       }
-    ],
-    "recommendation": ""
+    ]
   },
   {
     "type": "Questions",
@@ -688,14 +688,14 @@
     "subCategory": "Recovery & Failover",
     "title": "Are automated recovery procedures in place for common failure event?",
     "context": "Automated responses to specific events help to reduce response times and limit errors associated with manual processes",
+    "recommendation": "",
     "children": [
       {
         "title": "Are these automated recovery procedures tested and validated on a regular basis?",
         "context": "Automated operational responses should be tested frequently as part of the normal application lifecycle to ensure operational effectiveness",
         "recommendation": ""
       }
-    ],
-    "recommendation": ""
+    ]
   },
   {
     "type": "Questions",
@@ -708,14 +708,14 @@
     "subCategory": "Recovery & Failover",
     "title": "Are critical manual processes defined and documented for manual failure responses?",
     "context": "Operational runbooks should be defined to codify the procedures and relevant information needed for operations staff to respond to failures and maintain operational health",
+    "recommendation": "",
     "children": [
       {
         "title": "Are these manual operational runbooks tested and validated on a regular basis?",
         "context": "Manual operational runbooks should be tested frequently as part of the normal application lifecycle to ensure appropriateness and efficiency",
         "recommendation": ""
       }
-    ],
-    "recommendation": ""
+    ]
   },
   {
     "type": "Questions",
@@ -776,14 +776,14 @@
     "subCategory": "Scalability & Capacity Model",
     "title": "Is the required capacity (initial and future growth) within Azure service scale limits and quotas?",
     "context": "Due to physical and logical resource constraints within the platform, Azure must apply limits and quotas to service scalability, which may be either hard or soft. The application should therefore take a scale-unit approach to navigate within service limits, and where necessary consider multiple subscriptions which are often the boundary for such limits. It is highly recommended that a structured approach to scale be designed up-front rather than resorting to a 'spill and fill' model([Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits))",
+    "recommendation": "",
     "children": [
       {
         "title": "Is the required capacity (initial and future growth) available within targeted regions?",
         "context": "While the promise of the cloud is infinite scale, the reality is that there are finite resources available and as a result situations can occur where capacity can be constrained due to overall demand. If the application requires a large amount of capacity or expects a significant increase in capacity then effort should be invested to ensure that desired capacity is attainable within selected region(s). For applications leveraging a recovery or active-passive based disaster recovery strategy, consideration should also be given to ensure suitable capacity exists in the secondary region(s) since a regional outage can lead to a significant increase in demand within a paired region due to other customer workloads also failing over. To help mitigate this, consideration should be given to pre-provisioning resources within the secondary region([Azure Capacity](https://aka.ms/AzureCapacity))",
         "recommendation": ""
       }
-    ],
-    "recommendation": ""
+    ]
   },
   {
     "type": "Questions",
@@ -870,14 +870,14 @@
     "subCategory": "Configuration & Secrets Management",
     "title": "Are keys and secrets backed-up to geo-redundant storage?",
     "context": "Keys and secrets should be backed up to geo-redundant storage so that they can be accessed in the event of a regional failure and support recovery objectives. In the event of a regional outage, the Key Vault service will automatically be failed over to the secondary region in a read-only state([Azure Key Vault availability and reliability](https://docs.microsoft.com/en-us/azure/key-vault/general/disaster-recovery-guidance))",
+    "recommendation": "",
     "children": [
       {
         "title": "Are certificate/key backups and data backups stored in different geo-redundant storage accounts?",
         "context": "Encryption keys and data should be backed up separately to optimise the security of underlying data",
         "recommendation": ""
       }
-    ],
-    "recommendation": ""
+    ]
   },
   {
     "type": "Questions",
@@ -914,6 +914,7 @@
     "subCategory": "Patch & Update Process (PNU)",
     "title": "Is the PNU process defined and for all relevant application components?",
     "context": "The PNU process will vary based on the type of Azure service used (i.e. VM, VMSS, Containers on AKS). Applications using IaaS will typically require more investment to define a PNU process",
+    "recommendation": "",
     "children": [
       {
         "title": "Is the PNU process automated?",
@@ -925,8 +926,7 @@
         "context": "Performing operations 'as-code' helps to minimize human error and increase consistency",
         "recommendation": ""
       }
-    ],
-    "recommendation": ""
+    ]
   },
   {
     "type": "Questions",
@@ -998,14 +998,14 @@
     "subCategory": "Application Deployments",
     "title": "What is the process to deploy application releases to production?",
     "context": "The entire end-to-end CI/CD deployment process should be understood",
+    "recommendation": "",
     "children": [
       {
         "title": "How long does it take to deploy an entire production environment?",
         "context": "The time it takes to perform a complete environment deployment should align with recovery targets",
         "recommendation": ""
       }
-    ],
-    "recommendation": ""
+    ]
   },
   {
     "type": "Questions",
@@ -1030,14 +1030,14 @@
     "subCategory": "Application Deployments",
     "title": "Can the application be deployed automatically from scratch without any manual operations?",
     "context": "Manual deployment steps introduce significant risks where human error is concerned and also increases overall deployment times. Automated end-to-end deployments, with manual approval gates where necessary, should be used to ensure a consistent and efficient deployment process([Deployment considerations for DevOps](https://docs.microsoft.com/en-us/azure/architecture/framework/devops/deployment))",
+    "recommendation": "",
     "children": [
       {
         "title": "Is there a documented process for any portions of the deployment that require manual intervention?",
         "context": "Without detailed release process documentation, there is a much higher risk of an operator improperly configuring settings for the application",
         "recommendation": ""
       }
-    ],
-    "recommendation": ""
+    ]
   },
   {
     "type": "Questions",
@@ -1099,14 +1099,14 @@
     "subCategory": "Application Deployments",
     "title": "How does the development team manage application source code, builds, and releases?",
     "context": "The use of source code control systems, such as Azure Repos or GitHub, and build and release systems, such as Azure Pipelines or GitHub Actions, should be understood, including the corresponding processes to access, review and approve changes",
+    "recommendation": "",
     "children": [
       {
         "title": "If Git is used for source control, what branching strategy is used?",
         "context": "To optimize for collaboration and ensure developers spend less time managing version control and more time developing code, a clear and simple branching strategy should be used, such as Trunk-Based Development which is employed internally within Microsoft Engineering([Microsoft Git Strategy](https://docs.microsoft.com/en-us/azure/devops/learn/devops-at-microsoft/use-git-microsoft))",
         "recommendation": ""
       }
-    ],
-    "recommendation": ""
+    ]
   },
   {
     "type": "Questions",
@@ -1118,6 +1118,7 @@
     "subCategory": "Application Infrastructure Deployments & Infrastructure as Code (IaC)",
     "title": "Is application infrastructure defined as code?",
     "context": "It is highly recommended do describe the entire infrastructure as code, using either ARM Templates, Terraform, or other tools. This allows for proper versioning and configuration management, encouraging consistency and reproducibility across environments",
+    "recommendation": "",
     "children": [
       {
         "title": "Are any operational changes performed outside of IaC?",
@@ -1129,8 +1130,7 @@
         "context": "Configuration drift occurs when changes are applied outside of IaC processes such as manual changes. Tools like terraform support a plan command that helps to identify change and monitor configuration drift, with Azure as the ultimate source of truth",
         "recommendation": ""
       }
-    ],
-    "recommendation": ""
+    ]
   },
   {
     "type": "Questions",
@@ -1204,6 +1204,7 @@
     "subCategory": "Testing & Validation",
     "title": "Is the application tested for performance, scalability, and resiliency?",
     "context": "Performance Testing: Performance testing is the superset of both load and stress testing. The primary goal of performance testing is to validate benchmark behaviour for the application([Performance Testing](https://docs.microsoft.com/en-us/azure/architecture/checklist/dev-ops#testing))\nLoad Testing : Load testing validates application scalability by rapidly and/or gradually increasing the load on the application until it reaches a threshold/limit \nStress Testing : *Stress testing is a type of negative testing which involves various activities to overload existing resources and remove components to understand overall resiliency and how the application responds to issues",
+    "recommendation": "",
     "children": [
       {
         "title": "When do you do test for performance, scalability, and resiliency?",
@@ -1220,8 +1221,7 @@
         "context": "It is a common \"chaos monkey\" practice to verify the effectiveness of operational procedures using artificial faults. For example, taking dependencies offline (stopping API apps, shutting down VMs, etc.), restricting access (enabling firewall rules, changing connection strings, etc.) or forcing failover (database level, Front Door, etc.) is a good way to validate that the application is able to handle faults gracefully",
         "recommendation": ""
       }
-    ],
-    "recommendation": ""
+    ]
   },
   {
     "type": "Questions",
@@ -1366,6 +1366,7 @@
     "subCategory": "Roles & Responsibilities",
     "title": "Is there a separation between development and operations?",
     "context": "A true DevOps model positions the responsibility of operations with developers, but many customers do not fully embrace DevOps and maintain some degree of team separation between operations and development, either to enforce clear segregation of duties for regulated environments, or to share operations as a business function",
+    "recommendation": "",
     "children": [
       {
         "title": "Does the development team own production deployments?",
@@ -1382,8 +1383,7 @@
         "context": "The goal of workload isolation is to associate an application's specific resources to a team, so that the team can independently manage all aspects of those resources([Workload isolation](https://docs.microsoft.com/en-us/azure/architecture/framework/devops/app-design#workload-isolation))",
         "recommendation": ""
       }
-    ],
-    "recommendation": ""
+    ]
   },
   {
     "type": "Questions",
@@ -1431,14 +1431,14 @@
     "subCategory": "Roles & Responsibilities",
     "title": "Are tools or processes in place to grant access on a just in-time basis?",
     "context": "For example, Azure AD [Privileged Identity Management](https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-configure) provides time-based and approval-based role activation to mitigate the risks of excessive, unnecessary, or misused access permissions on resources that you care about",
+    "recommendation": "",
     "children": [
       {
         "title": "Does anyone have long-standing write-access to production environments?",
         "context": "Write-access to production systems should be limited to service principals and no user accounts have regular write-access",
         "recommendation": ""
       }
-    ],
-    "recommendation": ""
+    ]
   },
   {
     "type": "Questions",
@@ -1804,14 +1804,14 @@
     "subCategory": "Compute Availability",
     "title": "Is the application platform deployed across multiple regions?",
     "context": "The ability to respond to disaster scenarios for overall compute platform availability and application resiliency is dependant on the use of multiple regions or other deployment locations",
+    "recommendation": "",
     "children": [
       {
         "title": "Are paired regions used?",
         "context": "Paired regions exist within the same geography and provide native replication features for recovery purposes, such as Geo-Redundant Storage (GRS) asynchronous replication. In the event of planned maintenance, updates to a region will be performed sequentially only([Business continuity with Azure Paired Regions](https://docs.microsoft.com/en-us/azure/best-practices-availability-paired-regions))",
         "recommendation": ""
       }
-    ],
-    "recommendation": ""
+    ]
   },
   {
     "type": "Questions",
@@ -1835,14 +1835,14 @@
     "subCategory": "Compute Availability",
     "title": "Is the application hosted across 2 or more application platform nodes?",
     "context": "To ensure application platform reliability, it is vital that the application be hosted across at least two nodes to ensure there are no single points of failure. Ideally An n+1 model should be applied for compute availability where n is the number of instances required to support application availability and performance requirements. It is important to note that the higher SLAs provided for virtual machines and associated related platform services, require at least two replica nodes deployed to either an Availability Set or across two or more Availability Zones([SLA for Virtual Machines](https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_9/))",
+    "recommendation": "",
     "children": [
       {
         "title": "Does the application platform use Availability Zones or Availability Sets?",
         "context": "An Availability Set (AS) is a logical construct to inform Azure that it should distribute contained virtual machine instances across multiple fault and update domains within an Azure region. Availability Zones (AZ) elevate the fault level for virtual machines to a physical datacenter by allowing replica instances to be deployed across multiple datacenters within an Azure region. While zones provide greater resiliency than sets, there are performance and cost considerations where applications are extremely 'chatty' across zones given the implied physical separation and inter-zone bandwidth charges. Ultimately, Azure Virtual Machines and Azure PaaS services, such as Service Fabric and Azure Kubernetes Service (AKS) which use virtual machines underneath, can leverage either AZs or an AS to provide application resiliency within a region([Business continuity with data resiliency](https://azurecomcdn.azureedge.net/cvt-27012b3bd03d67c9fa81a9e2f53f7d081c94f3a68c13cdeb7958edf43b7771e8/mediahandler/files/resourcefiles/azure-resiliency-infographic/Azure_resiliency_infographic.pdf))",
         "recommendation": ""
       }
-    ],
-    "recommendation": ""
+    ]
   },
   {
     "type": "Questions",
@@ -2166,14 +2166,14 @@
     "subCategory": "Network Throughput and Latency",
     "title": "If NVAs are used, has expected throughput been tested?",
     "context": "Maximum potential throughput for third-party NVA solutions is based on a combination of the leveraged VM SKU size, support for Accelerated Networking, support for HA ports, and more generally the NVA technology used. Expected throughput should be tested to ensure optimal performance, however, it is best to confirm throughput requirements with the NVA vendor directly",
+    "recommendation": "",
     "children": [
       {
         "title": "Is autoscaling enabled based on throughput",
         "context": "Autoscaling capabilities can vary between NVA solutions, but ultimately help to mitigate common bottle-neck situations",
         "recommendation": ""
       }
-    ],
-    "recommendation": ""
+    ]
   },
   {
     "type": "Questions",
@@ -2209,14 +2209,14 @@
     "subCategory": "Elasticity",
     "title": "Is autoscaling enabled and integrated within Azure Monitor?",
     "context": "Autoscaling can be leveraged to address unanticipated peak loads to help prevent application outages caused by overloading",
+    "recommendation": "",
     "children": [
       {
         "title": "Has autoscaling been tested under sustained load?",
         "context": "The scaling on any single component may have an impact on downstream application components and dependencies. Autoscaling should therefore be tested regularly to help inform and validate a capacity model describing when and how application components should scale",
         "recommendation": ""
       }
-    ],
-    "recommendation": ""
+    ]
   },
   {
     "type": "Questions",
@@ -2240,6 +2240,7 @@
     "subCategory": "Identity and Access",
     "title": "Has role-based and/or resource-based authorization been configured within Azure AD?",
     "context": "Role-based and resource-based authorization are common approaches to authorize users based on required permission scopes([Role-based and resource-based authorization](https://docs.microsoft.com/en-us/azure/architecture/multitenant-identity/authorize))",
+    "recommendation": "",
     "children": [
       {
         "title": "Does the application write-back to Azure AD?",
@@ -2251,8 +2252,7 @@
         "context": "Application code should first try to get tokens silently from a cache before attempting to acquire a token from the identity provider, to optimise performance and maximize availability([Acquire and cache tokens](https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-acquire-cache-tokens))",
         "recommendation": ""
       }
-    ],
-    "recommendation": ""
+    ]
   },
   {
     "type": "Questions",
@@ -2346,14 +2346,14 @@
     "subCategory": "Network Security",
     "title": "Are Network Security Groups (NSGs) being used?",
     "context": "If NSGs are being used to isolate and protect the application, the rule set should be reviewed to confirm that required services are not unintentionally blocked([Azure Platform Considerations for NSGs](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#azure-platform-considerations))",
+    "recommendation": "",
     "children": [
       {
         "title": "Are NSG flow logs being collected?",
         "context": "NSG flow logs should be captured and analyzed to monitor performance and security([Why use NSG flow logs](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-flow-logging-overview#why-use-flow-logs))",
         "recommendation": ""
       }
-    ],
-    "recommendation": ""
+    ]
   },
   {
     "type": "Questions",
