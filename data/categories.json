@@ -1,5 +1,14 @@
 [
   {
+    "title": "General",
+    "subCategories": [
+      {
+        "title": "Unassigned",
+        "comment": "Use this category for any content which do you not want to assign a specific category yet. Enables an easier authoring and you can fix them later."
+      }
+    ]
+  },
+  {
     "title": "Application Design",
     "subCategories": [
       {
