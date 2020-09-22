@@ -10,7 +10,7 @@
     "title": "Are there any regulatory requirements around data sovereignty?",
     "context": "Regulatory requirements may mandate that operational data, such as application logs and metrics, remain within a certain geo-political region. This has obvious implications for how the application should be operationalized",
     "recommendation": "Make sure that all regulatory requirements are known and well understood. Regulatory requirements like data sovereignty and others might affect the overall architecture as well as the selection and configuration of specific PaaS and SaaS services.",
-    "id": ""
+    "id": "app_design_datasovereignty"
   },
   {
     "type": "Questions",
@@ -23,7 +23,7 @@
     "title": "Does the application have components on-premises or in another cloud platform?",
     "context": "Hybrid and cross-cloud workloads with components on-premises or on different cloud platforms, such as AWS or GCP, introduce additional operational considerations around achieving a 'single pane of glass' for operations",
     "recommendation": "Make sure that any hybrid or cross cloud relationships and dependencies are well understood.",
-    "id": ""
+    "id": "app_design_hybrid"
   },
   {
     "type": "Questions",
@@ -36,7 +36,7 @@
     "title": "Is the application implemented with strategies for resiliency and self-healing?",
     "context": "Strategies for resiliency and self-healing include retrying transient failures and failing over to a secondary instance or even another region (see [Designing resilient Azure applications](https://docs.microsoft.com/en-us/azure/architecture/framework/resiliency/app-design))",
     "recommendation": "Consider implementing strategies and capabilities for resiliency and self-healing needed to achieve workload availability targets.",
-    "id": ""
+    "id": "app_design_selfhealing"
   },
   {
     "type": "Questions",
@@ -49,7 +49,7 @@
     "title": "Was the application built natively for the cloud or was an existing on-premises system migrated?",
     "context": "Understanding if the application is cloud-native or not provides a very useful high level indication about potential technical debt for operability",
     "recommendation": "While cloud-native workloads are prefered, migrated or modernized applications are reality and they might not be aware of the available functionality like auto-scaling, platform notifications and other the underlaying cloud platform can offer. Make sure to understand the limitations and implement workarounds if available.",
-    "id": ""
+    "id": "app_design_cloudnative"
   },
   {
     "type": "Questions",
@@ -60,9 +60,9 @@
     "category": "Application Design",
     "subCategory": "Design",
     "title": "Are Azure Tags used to enrich Azure resources with operational meta-data?",
-    "context": "Azure Tags provide the ability to associate critical meta-data as a name-value pair, such as billing information (e.g. cost center code), environment information (e.g. environment type), with Azure resources, resource groups, and subscriptions([Tagging Strategies](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources))",
-    "recommendation": "",
-    "id": ""
+    "context": "Using tags can help to manage resources and make it easier to find relevant items during operational procedures.",
+    "recommendation": "Azure Tags provide the ability to associate critical meta-data as a name-value pair, such as billing information (e.g. cost center code), environment information (e.g. environment type), with Azure resources, resource groups, and subscriptions. See [Tagging Strategies](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/decision-guides/resource-tagging) for best practices.",
+    "id": "app_design_tagging"
   },
   {
     "type": "Questions",
@@ -73,9 +73,9 @@
     "category": "Application Design",
     "subCategory": "Design",
     "title": "Does the application have a well-defined naming standard for Azure resources?",
-    "context": "A well-defined naming convention is important for overall operations, particularly for large application platforms where there are numerous resources([Naming Conventions](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging))",
-    "recommendation": "",
-    "id": ""
+    "context": "A well-defined naming convention is important for overall operations to be able to easily determine the usage of certain resources.",
+    "recommendation": "Having a well-defined naming convention is important for overall operations, particularly for large application platforms where there are numerous resources([Naming Conventions](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging))",
+    "id": "app_design_namingstandards"
   },
   {
     "type": "Questions",
