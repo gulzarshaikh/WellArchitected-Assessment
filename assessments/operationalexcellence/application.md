@@ -127,31 +127,31 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 ## Key Scenarios
             
 * Have critical system flows through the application been defined for all key business scenarios?
-  > Path-wise analysis should be used to define critical system flows for key business scenarios, such as the checkout process for an eCommerce application. Understanding critical system flows is vital to assessing overall operational effectiveness, and should be used to inform a health model for the application
+  > Understanding critical system flows is vital to assessing overall operational effectiveness, and should be used to inform a health model for the application.
             
     - Do these critical system flows have distinct availability, performance, or recovery targets? 
-    > Critical sub-systems or paths through the application may have higher expectations around availability, recovery, and performance due to the criticality of associated business scenarios and functionality
+    > Critical sub-systems or paths through the application may have higher expectations around availability, recovery, and performance due to the criticality of associated business scenarios and functionality.
                       
                   
 * Are there any application components which are less critical and have lower availability or performance requirements?
-  > Similarly, some less critical components or paths through the application may have lower expectations around availability, recovery, and performance
+  > Some less critical components or paths through the application may have lower expectations around availability, recovery, and performance.
             
                   
               
 ## Dependencies
             
 * Are all internal and external dependencies identified and categorized as either weak or strong?
-  > Internal dependencies describe components within the application scope which are required for the application to fully operate, while external dependencies captures required components outside the scope of the application, such as another application or third-party service. Such dependencies may be categorized as either strong or weak based on whether or not the application is able to continue operating in a degraded fashion in their absence([Twelve-Factor App: Dependencies](https://12factor.net/dependencies))
+  > Internal dependencies describe components within the application scope which are required for the application to fully operate, while external dependencies captures required components outside the scope of the application, such as another application or third-party service.
             
     - Do you maintain a complete list of application dependencies?
-    > Examples of typical dependencies include platform dependencies outside the remit of the application, such as Azure Active Directory, Express Route, or a central NVA (Network Virtual Appliance), as well as application dependencies such as APIs which may be in-house or externally owned by a third-party
+    > Examples of typical dependencies include platform dependencies outside the remit of the application, such as Azure Active Directory, Express Route, or a central NVA (Network Virtual Appliance), as well as application dependencies such as APIs which may be in-house or externally owned by a third-party.
                       
     - Is the impact of an outage with each dependency well understood?
-    > Strong dependencies play a critical role in application function and availability meaning their absence will have a significant impact, while the absence of weak dependencies may only impact specific features and not affect overall availability
+    > Strong dependencies play a critical role in application function and availability meaning their absence will have a significant impact, while the absence of weak dependencies may only impact specific features and not affect overall availability.
                       
                   
 * Are SLAs and support agreements in place for all critical dependencies?
-  > The operational commitments of all external and internal dependencies should be understood to inform the broader application operations and health model
+  > Service Level Agreement (SLA) represents a commitment around performance and availability of the application. Understanding the SLA of individual components within the system is essential in order to define reliability targets.
             
                   
 * Is the lifecycle of the application decoupled from its dependencies?
@@ -162,13 +162,13 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 ## Application Composition
             
 * What Azure services are used by the application?
-  > It is important to understand what Azure services, such as App Services and Event Hub, are used by the application platform to host both application code and data
+  > It is important to understand what Azure services, such as App Services and Event Hub, are used by the application platform to host both application code and data.
             
     - What operational features/capabilities are used for leveraged services?
-    > Are operational capabilities, such as auto-scale and auto-heal for AppServices, leveraged to reduce management overheads and support operational effectiveness
+    > Operational capabilities, such as auto-scale and auto-heal for AppServices, can reduce management overheads and support operational effectiveness.
                       
     - What technologies and frameworks are used by the application?
-    > It is important to understand what technologies are used by the application and must be managed, such as .NET Core , Spring, or Node.js
+    > It is important to understand what technologies are used by the application and must be managed, such as .NET Core , Spring, or Node.js.
                       
                   
 * Are components hosted on shared application or data platforms which are used by other applications?

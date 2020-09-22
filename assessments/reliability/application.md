@@ -133,17 +133,17 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 ## Dependencies
             
 * Are all internal and external dependencies identified and categorized as either weak or strong?
-  > Internal dependencies describe components within the application scope which are required for the application to fully operate, while external dependencies captures required components outside the scope of the application, such as another application or third-party service. Such dependencies may be categorized as either strong or weak based on whether or not the application is able to continue operating in a degraded fashion in their absence([Twelve-Factor App: Dependencies](https://12factor.net/dependencies))
+  > Internal dependencies describe components within the application scope which are required for the application to fully operate, while external dependencies captures required components outside the scope of the application, such as another application or third-party service.
             
     - Do you maintain a complete list of application dependencies?
-    > Examples of typical dependencies include platform dependencies outside the remit of the application, such as Azure Active Directory, Express Route, or a central NVA (Network Virtual Appliance), as well as application dependencies such as APIs which may be in-house or externally owned by a third-party
+    > Examples of typical dependencies include platform dependencies outside the remit of the application, such as Azure Active Directory, Express Route, or a central NVA (Network Virtual Appliance), as well as application dependencies such as APIs which may be in-house or externally owned by a third-party.
                       
     - Is the impact of an outage with each dependency well understood?
-    > Strong dependencies play a critical role in application function and availability meaning their absence will have a significant impact, while the absence of weak dependencies may only impact specific features and not affect overall availability
+    > Strong dependencies play a critical role in application function and availability meaning their absence will have a significant impact, while the absence of weak dependencies may only impact specific features and not affect overall availability.
                       
                   
 * Are SLAs and support agreements in place for all critical dependencies?
-  > The operational commitments of all external and internal dependencies should be understood to inform the broader application operations and health model
+  > Service Level Agreement (SLA) represents a commitment around performance and availability of the application. Understanding the SLA of individual components within the system is essential in order to define reliability targets.
             
                   
 * Are all platform-level dependencies identified and understood?
