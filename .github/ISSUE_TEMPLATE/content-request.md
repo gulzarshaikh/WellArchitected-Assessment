@@ -15,25 +15,25 @@ There is a curated list of available (sub-)categories in the [categories.json](/
 _Select the type of your content (**select only one item**):_
 <!-- [Hint] Insert an 'x' into one of the checkboxes below -->
 
-* [] assessment questions
-* [] design considerations
-* [] configuration recommendations
-* [] supporting source artifacts
+* [ ] assessment questions
+* [ ] design considerations
+* [ ] configuration recommendations
+* [ ] supporting source artifacts
 
 **Pillar**
 _Select the WellArchitected pillar your content applies to (**select one or more**):_
 <!-- [Hint] Insert an 'x' into one of the checkboxes below -->
-* [] reliability
-* [] operationalexcellence
-* [] performance
-* [] security
+* [ ] reliability
+* [ ] operationalexcellence
+* [ ] performance
+* [ ] security
 
 **Lens**
 _Select the correct lens for your content (**select one**):_
 <!-- [Hint] Insert an 'x' into one of the checkboxes below -->
-* [] application
-* [] service
-* [] scenario
+* [ ] application
+* [ ] service
+* [ ] scenario
 
 **Category**
 _Select a Category from categories.json (if possible) or explain why you need a new one._
