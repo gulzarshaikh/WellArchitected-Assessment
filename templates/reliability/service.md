@@ -42,7 +42,7 @@ This list contains design considerations and recommended configuration options, 
 {{ safeHTML (htmlUnescape (print "```\n" . "```\n")) }} 
                             {{ end }}    
                             {{- with .context}}
-  > {{ . }}
+  > {{ safeHTML . }}
                             {{ end }}
                             {{- range .children }}
   - {{ .title }}
@@ -50,7 +50,7 @@ This list contains design considerations and recommended configuration options, 
 {{ safeHTML (htmlUnescape (print "```\n" . "```\n")) }} 
                                 {{ end }}   
                                 {{- with .context}}
-    > {{ . }}
+    > {{ safeHTML . }}
                                 {{ end }}
                             {{ end }}
                         {{- end }}

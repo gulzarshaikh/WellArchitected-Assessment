@@ -1,0 +1,84 @@
+[
+    {
+        "type": "Design Considerations",
+        "pillars": [
+            "reliability",
+            "operationalexcellence"
+        ],
+        "lens": "service",
+        "category": "Hybrid",
+        "subCategory": "Azure Stack Hub",
+        "title": "Microsoft does not provide an SLA for Azure Stack Hub because Microsoft does not have control over customer datacenter reliability, people, and processes."
+    },
+    {
+        "type": "Design Considerations",
+        "pillars": [
+            "reliability",
+            "operationalexcellence"
+        ],
+        "lens": "service",
+        "category": "Hybrid",
+        "subCategory": "Azure Stack Hub",
+        "title": "Azure Stack Hub currently only supports a single Scale Unit (SU) within in a single Region, which can consist of between 4 and 16 servers that use Hyper-V failover clustering; each region serves as an independent Azure Stack Hub \"stamp\" with separate portal and API endpoints.",
+        "context": "Azure Stack Hub does therefore **not support Availability Zones** as it currently consists only of a single \"region\" (aka a single physical location). High availability to cope with outages of a single location should be implemented by using two Azure Stack Hub instances deployed into different physical locations."
+    },
+    {
+        "type": "Design Considerations",
+        "pillars": [
+            "reliability"
+        ],
+        "lens": "service",
+        "category": "Hybrid",
+        "subCategory": "Azure Stack Hub",
+        "title": "Azure Stack Hub supports **Premium Storage** to ensure compatibility, however, provisioning premium storage accounts or disks does not guarantee that storage objects will be allocated onto SSD or NVMe drives."
+    },
+    {
+        "type": "Design Considerations",
+        "pillars": [
+            "reliability"
+        ],
+        "lens": "service",
+        "category": "Hybrid",
+        "subCategory": "Azure Stack Hub",
+        "title": "Azure Stack Hub supports only a subset of [VPN Gateway SKUs](https://docs.microsoft.com/en-us/azure-stack/user/azure-stack-vpn-gateway-about-vpn-gateways#estimated-aggregate-throughput-by-sku) available in Azure with a limited bandwidth of 100 or 200 Mbps. ",
+        "context": "Only one site-to-site (S2S) VPN connection can be created between two Azure Stack Hub deployments. This is due to a limitation in the platform that only allows a single VPN connection to the same IP address. Multiple S2S VPN connections with higher throughput can be established using 3rd-party NVAs."
+    },
+    {
+        "type": "Design Considerations",
+        "pillars": [
+            "reliability"
+        ],
+        "lens": "service",
+        "category": "Hybrid",
+        "subCategory": "Azure Stack Hub",
+        "title": "Azure Stack Hub does currently not support [Virtual network peering](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview). ",
+        "context": "Two networks (on the same Azure Stack Hub \"stamp\") can also not be connected via Azure (Stack) VPN GWs as they're sharing the same IP address. Virtual networks on Azure Stack Hub can be connected using 3rd-party NVAs (e.g. [Fortinet Fortigate](https://docs.microsoft.com/en-us/azure-stack/user/azure-stack-network-howto-vnet-to-vnet?view=azs-2002))."
+    },
+    {
+        "type": "Configuration Recommendations",
+        "pillars": [
+            "reliability",
+            "operationalexcellence"
+        ],
+        "lens": "service",
+        "category": "Hybrid",
+        "subCategory": "Azure Stack Hub",
+        "title": "Treat Azure Stack Hub as a scale unit and deploy multiple instances to remove Azure Stack Hub as a single point of failure for encompassed workloads. ",
+        "children": [
+            {
+                "title": "Deploy workloads in either an active-active or active-passive configuration across Azure Stack Hub stamps and/or Azure."
+            }
+        ]
+    },
+    {
+        "type": "Design Considerations",
+        "pillars": [
+            "reliability",
+            "operationalexcellence"
+        ],
+        "lens": "service",
+        "category": "Hybrid",
+        "subCategory": "Azure Stack Hub",
+        "title": "Apply general Azure configuration recommendations for all Azure Stack Hub services."
+    }
+]
