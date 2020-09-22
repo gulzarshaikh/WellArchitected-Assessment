@@ -52,11 +52,11 @@
             
                   
 * Are Azure Tags used to enrich Azure resources with operational meta-data?
-  > Azure Tags provide the ability to associate critical meta-data as a name-value pair, such as billing information (e.g. cost center code), environment information (e.g. environment type), with Azure resources, resource groups, and subscriptions([Tagging Strategies](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources))
+  > Using tags can help to manage resources and make it easier to find relevant items during operational procedures.
             
                   
 * Does the application have a well-defined naming standard for Azure resources?
-  > A well-defined naming convention is important for overall operations, particularly for large application platforms where there are numerous resources([Naming Conventions](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging))
+  > A well-defined naming convention is important for overall operations to be able to easily determine the usage of certain resources.
             
                   
 * Does the application support multi-region deployments?
