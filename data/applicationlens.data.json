@@ -134,8 +134,8 @@
     "subCategory": "Targets & Non Functional Requirements",
     "title": "Are recovery targets such as Recovery Time Objective (RTO) and Recovery Point Objective (RPO) defined for the application and/or key scenarios?",
     "context": "Understanding customer reliability expectations is vital to reviewing the overall reliability of the application. For instance, if a customer is striving to achieve an application RTO of less than a minute then back-up based and active-passive disaster recovery strategies are unlikely to be appropriate \nRecovery time objective (RTO): The maximum acceptable time the application is unavailable after a disaster incident \nRecovery point objective (RPO): The maximum duration of data loss that is acceptable during a disaster event",
-    "recommendation": "",
-    "id": ""
+    "recommendation": "Recovery targets should be defined in accordance to the required RTO and RPO targets for the workloads.",
+    "id": "app_design_recovery_targets"
   },
   {
     "type": "Questions",
@@ -147,34 +147,34 @@
     "subCategory": "Targets & Non Functional Requirements",
     "title": "Are there well defined performance requirements for the application and/or key scenarios?",
     "context": "Non-functional performance requirements, such as those relating to end-user experiences (e.g. average and maximum response times) are vital to assessing the overall health of an application, and is a critical lens required for assessing operations",
-    "recommendation": "",
+    "recommendation": "Work with stakeholders to identify sensible non-functional requirements based on business requirements, research and user testing.",
     "children": [
       {
-        "title": "Does the application have predictable traffic patterns? or is load highly volatile?",
+        "title": "Does the application have predictable traffic patterns? Or is load highly volatile?",
         "context": "Understanding the expected application load and known spikes, such as Black Friday for retail applications, is important when assessing operational effectiveness",
-        "recommendation": "",
-        "id": ""
+        "recommendation": "Traffic patterns should be identified by analyzing historical traffic data and the effect of significant external events on the application.",
+        "id": "app_design_performance_traffic_patterns"
       },
       {
         "title": "Are there any targets defined for the time it takes to perform scale operations?",
-        "context": "The application should be designed to scale to cope with spikes in load in-line with what is an acceptable duration for degraded performance",
-        "recommendation": "",
-        "id": ""
+        "context": "Scale operations (horizontal - changing the number of identical instances, vertical - switching to more/less powerful instances) can be fast, but usually take time to complete. It's important to understand how this delay affects the application under load and if degraded performance is acceptable.",
+        "recommendation": "The application should be designed to scale to cope with spikes in load in-line with what is an acceptable duration for degraded performance.",
+        "id": "app_design_performance_scale_targets"
       },
       {
         "title": "What is the maximum traffic volume the application is expected to serve without performance degradation?",
-        "context": "Scale requirements the application must be able to effectively satisfy, such as the number of concurrent users or requests per second, is a critical lens for assessing operations",
-        "recommendation": "",
-        "id": ""
+        "context": "Scale requirements the application must be able to effectively satisfy, such as the number of concurrent users or requests per second, is a critical lens for assessing operations.",
+        "recommendation": "Traffic limits for the application should be defined in quantified and measureable manner.",
+        "id": "app_design_performance_maximum_traffic"
       },
       {
         "title": "Are these performance targets monitored and measured across the application and/or key scenarios?",
-        "context": "Monitoring and measuring end-to-end application performance is vital to qualifying overall application health and progress towards defined targets",
-        "recommendation": "",
-        "id": ""
+        "context": "Monitoring and measuring end-to-end application performance is vital to qualifying overall application health and progress towards defined targets.",
+        "recommendation": "Automation and specialized tooling (such as Application Insights) should be used to orchestrate and measure application performance.",
+        "id": "app_design_performance_target_monitoring"
       }
     ],
-    "id": ""
+    "id": "app_design_performance_requirements"
   },
   {
     "type": "Questions",
