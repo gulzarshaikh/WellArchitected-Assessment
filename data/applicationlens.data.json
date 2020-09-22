@@ -185,17 +185,17 @@
     "category": "Application Design",
     "subCategory": "Key Scenarios",
     "title": "Have critical system flows through the application been defined for all key business scenarios?",
-    "context": "Path-wise analysis should be used to define critical system flows for key business scenarios, such as the checkout process for an eCommerce application. Understanding critical system flows is vital to assessing overall operational effectiveness, and should be used to inform a health model for the application",
-    "recommendation": "",
+    "context": "Understanding critical system flows is vital to assessing overall operational effectiveness, and should be used to inform a health model for the application.",
+    "recommendation": "Path-wise analysis should be used to define critical system flows for key business scenarios, such as the checkout process for an eCommerce application.",
     "children": [
       {
         "title": "Do these critical system flows have distinct availability, performance, or recovery targets? ",
-        "context": "Critical sub-systems or paths through the application may have higher expectations around availability, recovery, and performance due to the criticality of associated business scenarios and functionality",
-        "recommendation": "",
-        "id": ""
+        "context": "Critical sub-systems or paths through the application may have higher expectations around availability, recovery, and performance due to the criticality of associated business scenarios and functionality.",
+        "recommendation": "Targets should be specific and measureable.",
+        "id": "app_design_critical_flows_targets"
       }
     ],
-    "id": ""
+    "id": "app_design_critical_flows"
   },
   {
     "type": "Questions",
@@ -206,9 +206,9 @@
     "category": "Application Design",
     "subCategory": "Key Scenarios",
     "title": "Are there any application components which are less critical and have lower availability or performance requirements?",
-    "context": "Similarly, some less critical components or paths through the application may have lower expectations around availability, recovery, and performance",
-    "recommendation": "",
-    "id": ""
+    "context": "Some less critical components or paths through the application may have lower expectations around availability, recovery, and performance.",
+    "recommendation": "Identify if there are components with more relaxed performance requirements.",
+    "id": "app_design_less_critical_components"
   },
   {
     "type": "Questions",
@@ -220,23 +220,23 @@
     "category": "Application Design",
     "subCategory": "Dependencies",
     "title": "Are all internal and external dependencies identified and categorized as either weak or strong?",
-    "context": "Internal dependencies describe components within the application scope which are required for the application to fully operate, while external dependencies captures required components outside the scope of the application, such as another application or third-party service. Such dependencies may be categorized as either strong or weak based on whether or not the application is able to continue operating in a degraded fashion in their absence([Twelve-Factor App: Dependencies](https://12factor.net/dependencies))",
-    "recommendation": "",
+    "context": "Internal dependencies describe components within the application scope which are required for the application to fully operate, while external dependencies captures required components outside the scope of the application, such as another application or third-party service.",
+    "recommendation": "Dependencies may be categorized as either strong or weak based on whether or not the application is able to continue operating in a degraded fashion in their absence. ([Twelve-Factor App: Dependencies](https://12factor.net/dependencies))",
     "children": [
       {
         "title": "Do you maintain a complete list of application dependencies?",
-        "context": "Examples of typical dependencies include platform dependencies outside the remit of the application, such as Azure Active Directory, Express Route, or a central NVA (Network Virtual Appliance), as well as application dependencies such as APIs which may be in-house or externally owned by a third-party",
-        "recommendation": "",
-        "id": ""
+        "context": "Examples of typical dependencies include platform dependencies outside the remit of the application, such as Azure Active Directory, Express Route, or a central NVA (Network Virtual Appliance), as well as application dependencies such as APIs which may be in-house or externally owned by a third-party.",
+        "recommendation": "Map application dependencies either as a simple list or a document (usually this is part of a design document or reference architecture).",
+        "id": "app_design_dependencies_list"
       },
       {
         "title": "Is the impact of an outage with each dependency well understood?",
-        "context": "Strong dependencies play a critical role in application function and availability meaning their absence will have a significant impact, while the absence of weak dependencies may only impact specific features and not affect overall availability",
-        "recommendation": "",
-        "id": ""
+        "context": "Strong dependencies play a critical role in application function and availability meaning their absence will have a significant impact, while the absence of weak dependencies may only impact specific features and not affect overall availability.",
+        "recommendation": "Classify dependencies either as strong or weak. This will help identify which components are essential to the application.",
+        "id": "app_design_dependencies_outage_impact"
       }
     ],
-    "id": ""
+    "id": "app_design_dependencies_categorized"
   },
   {
     "type": "Questions",
@@ -248,9 +248,9 @@
     "category": "Application Design",
     "subCategory": "Dependencies",
     "title": "Are SLAs and support agreements in place for all critical dependencies?",
-    "context": "The operational commitments of all external and internal dependencies should be understood to inform the broader application operations and health model",
-    "recommendation": "",
-    "id": ""
+    "context": "Service Level Agreement (SLA) represents a commitment around performance and availability of the application. Understanding the SLA of individual components within the system is essential in order to define reliability targets.",
+    "recommendation": "The operational commitments of all external and internal dependencies should be understood to inform the broader application operations and health model.",
+    "id": "app_design_sla"
   },
   {
     "type": "Questions",
@@ -261,23 +261,23 @@
     "category": "Application Design",
     "subCategory": "Application Composition",
     "title": "What Azure services are used by the application?",
-    "context": "It is important to understand what Azure services, such as App Services and Event Hub, are used by the application platform to host both application code and data",
-    "recommendation": "",
+    "context": "It is important to understand what Azure services, such as App Services and Event Hub, are used by the application platform to host both application code and data.",
+    "recommendation": "All Azure services in use should be identified.",
     "children": [
       {
         "title": "What operational features/capabilities are used for leveraged services?",
-        "context": "Are operational capabilities, such as auto-scale and auto-heal for AppServices, leveraged to reduce management overheads and support operational effectiveness",
-        "recommendation": "",
-        "id": ""
+        "context": "Operational capabilities, such as auto-scale and auto-heal for AppServices, can reduce management overheads and support operational effectiveness.",
+        "recommendation": "Make sure you understand the operational features/capabilities available and how they can be used in the solution.",
+        "id": "app_design_services_operational_features"
       },
       {
         "title": "What technologies and frameworks are used by the application?",
-        "context": "It is important to understand what technologies are used by the application and must be managed, such as .NET Core , Spring, or Node.js",
-        "recommendation": "",
-        "id": ""
+        "context": "It is important to understand what technologies are used by the application and must be managed, such as .NET Core , Spring, or Node.js.",
+        "recommendation": "All technologies and frameworks should be identified.",
+        "id": "app_design_services_frameworks"
       }
     ],
-    "id": ""
+    "id": "app_design_services_used"
   },
   {
     "type": "Questions",
