@@ -76,25 +76,25 @@ jobs:
 
           $AllItems = Get-Content -Path $env:GENERATOR_ROOT/data/input.json | ConvertFrom-Json
 
-          $allCategories = $allitems | Select-Object -Property Category,subcategory
+          # Get all used categories from the input.json and filter to unique
+          $allCategories = $allitems | Select-Object -Property category,subcategory | Sort-Object -Property category,subcategory | Get-Unique -AsString
 
-          # Filter to unique
-          $allCategories = $allCategories | Sort-Object -Property category,subcategory | Get-Unique -AsString
-
-          foreach($item in $allCategories) {
-            if($item.category -notin $validCategories.title)
-            {
-                Write-Warning "Category '$($item.category)' does not exist in categories.json"
-                $foundIssues = $true
-            }
-            else
-            {
-                $category = $validCategories | Where-Object title -match $item.category
-                if($item.subCategory -notin $category.subCategories.title){
-                    Write-Warning "Sub Category '$($item.subCategory)' for category $($category.title) does not exist in categories.json"
-                    $foundIssues = $true
-                }
-            }
+          foreach($item in $allCategories) 
+          {
+              if($item.category -notin $validCategories.title)
+              {
+                  Write-Warning "Category '$($item.category)' does not exist in categories.json"
+                  $foundIssues = $true
+              }
+              else
+              {
+                  $category = $validCategories | Where-Object title -match $item.category
+                  if($item.subCategory -notin $category.subCategories.title)
+                  {
+                      Write-Warning "Sub Category '$($item.subCategory)' for category '$($category.title)' does not exist in categories.json"
+                      $foundIssues = $true
+                  }
+              }
           }
 
           if($foundIssues) 
