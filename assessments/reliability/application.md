@@ -114,10 +114,10 @@
     > A composite SLA captures the end-to-end SLA across all application components and dependencies. It is calculated using the individual SLAs of Azure services housing application components and provides an important indicator of designed availability in relation to customer expectations and targets([Composite SLAs](https://docs.microsoft.com/en-us/azure/architecture/framework/resiliency/business-metrics#understand-service-level-agreements))
                       
     - Are availability targets considered while the system is running in disaster recovery mode?
-    > If targets must also apply in a failure state then an n+1 model should be used to achieve greater availability and resiliency, where n is the capacity needed to deliver required availability
+    > The above defined targets might or might not be applied when running in DR mode. This depends from application to application.
                       
     - Are these availability targets monitored and measured?
-    > Mean Time Between Failures (MTBF): The average time between failures of a particular component
+    > Monitoring and measuring application availability is vital to qualifying overall application health and progress towards defined targets.
                       
     - What are the consequences if availability targets are not satisfied?
     > Are there any penalties, such as financial charges, associated with failing to meet SLA commitments
