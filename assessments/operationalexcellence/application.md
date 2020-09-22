@@ -110,17 +110,17 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 * Are there well defined performance requirements for the application and/or key scenarios?
   > Non-functional performance requirements, such as those relating to end-user experiences (e.g. average and maximum response times) are vital to assessing the overall health of an application, and is a critical lens required for assessing operations
             
-    - Does the application have predictable traffic patterns? or is load highly volatile?
+    - Does the application have predictable traffic patterns? Or is load highly volatile?
     > Understanding the expected application load and known spikes, such as Black Friday for retail applications, is important when assessing operational effectiveness
                       
     - Are there any targets defined for the time it takes to perform scale operations?
-    > The application should be designed to scale to cope with spikes in load in-line with what is an acceptable duration for degraded performance
+    > Scale operations (horizontal - changing the number of identical instances, vertical - switching to more/less powerful instances) can be fast, but usually take time to complete. It's important to understand how this delay affects the application under load and if degraded performance is acceptable.
                       
     - What is the maximum traffic volume the application is expected to serve without performance degradation?
-    > Scale requirements the application must be able to effectively satisfy, such as the number of concurrent users or requests per second, is a critical lens for assessing operations
+    > Scale requirements the application must be able to effectively satisfy, such as the number of concurrent users or requests per second, is a critical lens for assessing operations.
                       
     - Are these performance targets monitored and measured across the application and/or key scenarios?
-    > Monitoring and measuring end-to-end application performance is vital to qualifying overall application health and progress towards defined targets
+    > Monitoring and measuring end-to-end application performance is vital to qualifying overall application health and progress towards defined targets.
                       
                   
               
