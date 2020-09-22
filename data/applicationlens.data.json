@@ -48,7 +48,7 @@
     "subCategory": "Design",
     "title": "Was the application built natively for the cloud or was an existing on-premises system migrated?",
     "context": "Understanding if the application is cloud-native or not provides a very useful high level indication about potential technical debt for operability",
-    "recommendation": "",
+    "recommendation": "While cloud-native workloads are prefered, migrated or modernized applications are reality and they might not be aware of the available functionality like auto-scaling, platform notifications and other the underlaying cloud platform can offer. Make sure to understand the limitations and implement workarounds if available.",
     "id": ""
   },
   {
