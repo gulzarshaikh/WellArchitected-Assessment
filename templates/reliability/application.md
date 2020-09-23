@@ -30,10 +30,15 @@
 ## {{ $subCategory.title }}
             {{ range $question := $questionsInSubCategory }}
 * {{ .title }}
-  > {{ safeHTML .context }}
-            {{ range .children }}
+  
+  {{ if .context }}_{{ safeHTML .context }}_{{ end }}
+  
+  {{ if .recommendation }}> {{ safeHTML .recommendation }}{{ end }}
+        {{ range .children }}
     - {{ .title }}
-    > {{ safeHTML .context }}
+      
+      {{ if .context }}_{{ safeHTML .context }}_{{ end }}
+      {{ if .recommendation }}> {{ safeHTML .recommendation}}{{ end }}
                       {{ end }}
                   {{ end }}
               {{ end }}
