@@ -48,7 +48,7 @@
     "subCategory": "Design",
     "title": "Was the application built natively for the cloud or was an existing on-premises system migrated?",
     "context": "Understanding if the application is cloud-native or not provides a very useful high level indication about potential technical debt for operability",
-    "recommendation": "While cloud-native workloads are prefered, migrated or modernized applications are reality and they might not be aware of the available functionality like auto-scaling, platform notifications and other the underlaying cloud platform can offer. Make sure to understand the limitations and implement workarounds if available.",
+    "recommendation": "While cloud-native workloads are preferred, migrated or modernized applications are reality and they might not be aware of the available functionality like auto-scaling, platform notifications and other the underlaying cloud platform can offer. Make sure to understand the limitations and implement workarounds if available.",
     "id": "app_design_cloudnative"
   },
   {
@@ -164,7 +164,7 @@
       {
         "title": "What is the maximum traffic volume the application is expected to serve without performance degradation?",
         "context": "Scale requirements the application must be able to effectively satisfy, such as the number of concurrent users or requests per second, is a critical lens for assessing operations.",
-        "recommendation": "Traffic limits for the application should be defined in quantified and measureable manner.",
+        "recommendation": "Traffic limits for the application should be defined in quantified and measurable manner.",
         "id": "app_design_performance_maximum_traffic"
       },
       {
@@ -191,7 +191,7 @@
       {
         "title": "Do these critical system flows have distinct availability, performance, or recovery targets? ",
         "context": "Critical sub-systems or paths through the application may have higher expectations around availability, recovery, and performance due to the criticality of associated business scenarios and functionality.",
-        "recommendation": "Targets should be specific and measureable.",
+        "recommendation": "Targets should be specific and measurable.",
         "id": "app_design_critical_flows_targets"
       }
     ],
@@ -322,7 +322,7 @@
     "category": "Health Modelling",
     "subCategory": "Application Level Monitoring",
     "title": "Is an Application Performance Management (APM) tool used collect application level logs?",
-    "context": "In order to successfuly maintain the application it's important to 'turn the lights on' and have clear visibility of important metrics both in real-time and historically.",
+    "context": "In order to successfully maintain the application it's important to 'turn the lights on' and have clear visibility of important metrics both in real-time and historically.",
     "recommendation": "An APM technology, such as Application Insights, should be used to manage the performance and availability of the application, aggregating application level logs and events for subsequent interpretation.",
     "id": "health_apm"
   },
@@ -335,7 +335,7 @@
     "category": "Health Modelling",
     "subCategory": "Application Level Monitoring",
     "title": "Are application logs collected from different application environments?",
-    "context": "Application logs support the end-to-end application lifecycle. Logging is essential in understanding how trhe application operates in various environments and what events occur and under which conditions.",
+    "context": "Application logs support the end-to-end application lifecycle. Logging is essential in understanding how the application operates in various environments and what events occur and under which conditions.",
     "recommendation": "Application logs and events should be collected across all major environments. Sufficient degree of separation and filtering should be in place to ensure non-critical environments do not convolute production log interpretation.",
     "id": "health_logs_collected"
   },
@@ -434,8 +434,8 @@
     "lens": "application",
     "category": "Health Modelling",
     "subCategory": "Resource/Infrastructure Level Monitoring",
-    "title": "Is resource level monitoring enforced throughout the application?",
-    "context": "",
+    "title": "Is resource-level monitoring enforced throughout the application?",
+    "context": "Resource- or infrastructure-level monitoring refers to the used platform services such as Azure VMs, Express Route or SQL Database. But also covers 3rd-party solutions like an NVA.",
     "recommendation": "All application resources should be configured to route diagnostic logs and metrics to the chosen log aggregation technology. Azure Policy should also be used as a device to ensure the consistent use of diagnostic settings across the application, to enforce the desired configuration for each Azure service.",
     "id": "health_resource_monitoring"
   },
@@ -501,9 +501,9 @@
     "category": "Health Modelling",
     "subCategory": "Data Interpretation & Health Modelling",
     "title": "Is the transaction flow data used to generate application/service maps?",
-    "context": "An [Application Map](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-map?tabs=net) can to help spot performance bottlenecks or failure hotspots across components of a distributed application.",
-    "recommendation": "",
-    "id": ""
+    "context": "Is there a correlation between events in different services and are those visualized?",
+    "recommendation": "An [Application Map](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-map?tabs=net) can to help spot performance bottlenecks or failure hotspots across components of a distributed application.",
+    "id": "health_events_applicationmap"
   },
   {
     "type": "Questions",
@@ -515,23 +515,23 @@
     "category": "Health Modelling",
     "subCategory": "Data Interpretation & Health Modelling",
     "title": "Is a health model used to qualify what 'healthy' and 'unhealthy' states represent for the application?",
-    "context": "A holistic application health model should be used to quantify what 'healthy' and 'unhealthy' states represent across all application components. It is highly recommended that a 'traffic light' model be used to indicate a green/healthy state when key non-functional requirements and targets are fully satisfied and resources are optimally utilized, e.g. 95% of requests are processed in <= 500ms with AKS node utilization at x% etc. Once established, this health model should inform critical monitoring metrics across system components and operational sub-system composition. It is important to note that the health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state.",
-    "recommendation": "",
+    "context": "",
+    "recommendation": "A holistic application health model should be used to quantify what 'healthy' and 'unhealthy' states represent across all application components. It is highly recommended that a 'traffic light' model be used to indicate a green/healthy state when key non-functional requirements and targets are fully satisfied and resources are optimally utilized, e.g. 95% of requests are processed in <= 500ms with AKS node utilization at x% etc. Once established, this health model should inform critical monitoring metrics across system components and operational sub-system composition. It is important to note that the health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state.",
     "children": [
       {
         "title": "Are critical system flows used to inform the health model?",
-        "context": "The health model should be able to surface the respective health of critical system flows or key subsystems to ensure appropriate operational prioritization is applied. For example, the health model should be able to represent the current state of the user login transaction flow",
-        "recommendation": "",
-        "id": ""
+        "context": "",
+        "recommendation": "The health model should be able to surface the respective health of critical system flows or key subsystems to ensure appropriate operational prioritization is applied. For example, the health model should be able to represent the current state of the user login transaction flow",
+        "id": "health_healthmodel_systemflows"
       },
       {
         "title": "Can the health model distinguish between transient and non-transient faults?",
-        "context": "The health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state",
-        "recommendation": "",
-        "id": ""
+        "context": "Is the health model treating all failures the same?",
+        "recommendation": "The health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state",
+        "id": "health_healthmodel_transientfaults"
       }
     ],
-    "id": ""
+    "id": "health_healthmodel"
   },
   {
     "type": "Questions",
@@ -542,9 +542,9 @@
     "category": "Health Modelling",
     "subCategory": "Data Interpretation & Health Modelling",
     "title": "Are long-term trends analysed to predict operational issues before they occur?",
-    "context": "Analytics can and should be performed across long-term operational data to help inform operational strategies and also to predict what operational issues are likely to occur and when. For instance, if the average response times have been slowly increasing over time and getting closer to the maximum target",
-    "recommendation": "",
-    "id": ""
+    "context": "Are Operations and/or analytics teams using the stored events for machine learning or similar to make predictions for the future?",
+    "recommendation": "Analytics can and should be performed across long-term operational data to help inform operational strategies and also to predict what operational issues are likely to occur and when. For instance, if the average response times have been slowly increasing over time and getting closer to the maximum target",
+    "id": "health_healthmodel_longtrends"
   },
   {
     "type": "Questions",
@@ -555,9 +555,9 @@
     "category": "Health Modelling",
     "subCategory": "Data Interpretation & Health Modelling",
     "title": "Have retention times for logs and metrics been defined and with housekeeping mechanisms configured?",
-    "context": "Clear retention times should be defined to allow for suitable historic analysis but also control storage costs. Suitable housekeeping tasks should also be used to archive data to cheaper storage or aggregate data for long-term trend analysis",
-    "recommendation": "",
-    "id": ""
+    "context": "",
+    "recommendation": "Clear retention times should be defined to allow for suitable historic analysis but also control storage costs. Suitable housekeeping tasks should also be used to archive data to cheaper storage or aggregate data for long-term trend analysis",
+    "id": "health_healthmodel_retention"
   },
   {
     "type": "Questions",
@@ -568,9 +568,9 @@
     "category": "Health Modelling",
     "subCategory": "Dashboarding",
     "title": "What technology in used to visualize the application health model and encompassed logs and metrics?",
-    "context": "Dashboarding tools, such as Azure Monitor or Grafana, should be used to visualize metrics and events collected at the application and resource levels, to illustrate the health model and the current operational state of the application",
-    "recommendation": "",
-    "id": ""
+    "context": "Visualization, often also called Dashboarding, refers to how data is presented to operations teams and other interested users.",
+    "recommendation": "Dashboarding tools, such as Azure Monitor or Grafana, should be used to visualize metrics and events collected at the application and resource levels, to illustrate the health model and the current operational state of the application",
+    "id": "app_health_dashboarding"
   },
   {
     "type": "Questions",
@@ -580,10 +580,10 @@
     "lens": "application",
     "category": "Health Modelling",
     "subCategory": "Dashboarding",
-    "title": "Are dashboards tailored to a specific audience? ",
-    "context": "Dashboards should be customized to represent the precise lens of interest of the end-user. For example, the areas of interest when evaluating the current state will differ greatly between developers, security and networking. Tailored dashboards makes interpretation easier and accelerates time to detection and action",
-    "recommendation": "",
-    "id": ""
+    "title": "Are dashboards tailored to a specific audience?",
+    "context": "Is there just one big dashboard or do you build individualized solutions for different teams (e.g. networking teams might have a different interest focus than the security team).",
+    "recommendation": "Dashboards should be customized to represent the precise lens of interest of the end-user. For example, the areas of interest when evaluating the current state will differ greatly between developers, security and networking. Tailored dashboards makes interpretation easier and accelerates time to detection and action",
+    "id": "app_health_dashboard_tailored"
   },
   {
     "type": "Questions",
@@ -594,9 +594,9 @@
     "category": "Health Modelling",
     "subCategory": "Dashboarding",
     "title": "Is Role Based Access Control (RBAC) used to control access to dashboards and underlying data?",
-    "context": "Access to operational data may be tightly controlled to align with segregation of duties, and careful attention should be made to ensure it doesn't hinder operational effectiveness; i.e. scenarios where developers have to raise an ITSM ticket to access logs should be avoided",
-    "recommendation": "",
-    "id": ""
+    "context": "Are the dashboards openly available in your organization or do you limit access based on roles etc.?",
+    "recommendation": "Access to operational data may be tightly controlled to align with segregation of duties, and careful attention should be made to ensure it doesn't hinder operational effectiveness; i.e. scenarios where developers have to raise an ITSM ticket to access logs should be avoided",
+    "id": "app_health_dashboard_rbac"
   },
   {
     "type": "Questions",
@@ -608,8 +608,8 @@
     "subCategory": "Alerting",
     "title": "What technology in used for alerting?",
     "context": "Alerts from tools such as Splunk or Azure Monitor proactively notify or respond to operational states that deviate from norm",
-    "recommendation": "",
-    "id": ""
+    "recommendation": "You should not rely on people to actively look for issues. Instead an alerting solution should be in place that can push notifications to relevant teams. For example by email, SMS or into an mobile app.",
+    "id": "app_health_alertingtool"
   },
   {
     "type": "Questions",
@@ -619,10 +619,10 @@
     "lens": "application",
     "category": "Health Modelling",
     "subCategory": "Alerting",
-    "title": "Are specific owners and processes defined for each alert type? ",
+    "title": "Are specific owners and processes defined for each alert type?",
     "context": "Having well-defined owners and response playbooks per alert is vital to optimizing operational effectiveness",
-    "recommendation": "",
-    "id": ""
+    "recommendation": "Instead of treating all alerts the same, there should be a well-defined process which determines what teams are responsible to react to which alert type.",
+    "id": "app_health_alertprocesses"
   },
   {
     "type": "Questions",
@@ -632,10 +632,10 @@
     "lens": "application",
     "category": "Health Modelling",
     "subCategory": "Alerting",
-    "title": "Are operational events prioritized based on business impact? ",
-    "context": "Tagging events with a specific severity or urgency helps operational teams priorities in cases where multiple events require intervention at the same time. For example, alerts concerning critical system flows might require special attention",
-    "recommendation": "",
-    "id": ""
+    "title": "Are operational events prioritized based on business impact?",
+    "context": "Are all alerts being treated the same or do you analyze the potential business impact when defining an alert?",
+    "recommendation": "Tagging events with a specific severity or urgency helps operational teams priorities in cases where multiple events require intervention at the same time. For example, alerts concerning critical system flows might require special attention",
+    "id": "app_health_alertprio"
   },
   {
     "type": "Questions",
@@ -646,9 +646,9 @@
     "category": "Health Modelling",
     "subCategory": "Alerting",
     "title": "Are push notifications enabled to inform responsible parties of alerts in real time?",
-    "context": "It is important that alert owners get reliably notified of alerts, which could use many communication channels such as text messages, emails or push notifications to a mobile app",
-    "recommendation": "",
-    "id": ""
+    "context": "Do teams have to actively monitor the systems and dashboard or are alerts sent to them by email etc.?",
+    "recommendation": "It is important that alert owners get reliably notified of alerts, which could use many communication channels such as text messages, emails or push notifications to a mobile app",
+    "id": "app_health_alertpush"
   },
   {
     "type": "Questions",
@@ -659,9 +659,9 @@
     "category": "Health Modelling",
     "subCategory": "Alerting",
     "title": "Is alerting integrated with an IT Service Management (ITSM) system?",
-    "context": "ITSM systems, such as ServiceNow, can help to document issues, notify and assign responsible parties, and track issues. For example,  operational alerts from the application could for be integrated to automatically create new tickets to track resolution",
-    "recommendation": "",
-    "id": ""
+    "context": "",
+    "recommendation": "ITSM systems, such as ServiceNow, can help to document issues, notify and assign responsible parties, and track issues. For example,  operational alerts from the application could for be integrated to automatically create new tickets to track resolution",
+    "id": "app_health_alertitsm"
   },
   {
     "type": "Questions",
@@ -673,9 +673,9 @@
     "category": "Health Modelling",
     "subCategory": "Alerting",
     "title": "Have Azure Service Health alerts been created to respond to Service-level events?",
-    "context": "Azure Service Health provides a view into the health of Azure services and regions, as well as issuing service impacting communications about outages, planned maintenance activities, and other health advisories. Alerts should be configured to operationalize Service Health events, however, Service Health alerts should not be used to detect issues due to associated latencies; there is a 5 minute SLO for automated issues, but many issues require manual interpretation to define an RCA. Instead, they should be used to provide extremely useful information to help interpret issues that have already been detected and surfaced via the health model, to inform how best to operationally respond([Azure Service Health](https://docs.microsoft.com/en-us/azure/service-health/overview))",
-    "recommendation": "",
-    "id": ""
+    "context": "Azure Service Health provides a view into the health of Azure services and regions, as well as issuing service impacting communications about outages, planned maintenance activities, and other health advisories.",
+    "recommendation": "Azure Service Health Alerts should be configured to operationalize Service Health events, however, Service Health alerts should not be used to detect issues due to associated latencies; there is a 5 minute SLO for automated issues, but many issues require manual interpretation to define an RCA. Instead, they should be used to provide extremely useful information to help interpret issues that have already been detected and surfaced via the health model, to inform how best to operationally respond([Azure Service Health](https://docs.microsoft.com/en-us/azure/service-health/overview))",
+    "id": "app_health_servicehealth"
   },
   {
     "type": "Questions",
@@ -687,9 +687,9 @@
     "category": "Health Modelling",
     "subCategory": "Alerting",
     "title": "Have Azure Resource Health alerts been created to respond to Resource-level events?",
-    "context": "Azure Resource Health provides information about the health of individual resources such as a specific virtual machine, and is highly useful when diagnosing unavailable resources. Alerts should be configured for specific resource groups and resource types, and should be adjusted to maximize signal to noise ratios, i.e. only distribute a notification when a resource becomes unhealthy according to the application health model or due to an Azure platform initiated event. It is therefore important to consider transient issues when setting an appropriate threshold for resource unavailability, such as configuring an alert for a virtual machine with a threshold of 1 minute for unavailability before an alert is triggered",
-    "recommendation": "",
-    "id": ""
+    "context": "Azure Resource Health provides information about the health of individual resources such as a specific virtual machine, and is highly useful when diagnosing unavailable resources.",
+    "recommendation": "Azure Resource Health Alerts should be configured for specific resource groups and resource types, and should be adjusted to maximize signal to noise ratios, i.e. only distribute a notification when a resource becomes unhealthy according to the application health model or due to an Azure platform initiated event. It is therefore important to consider transient issues when setting an appropriate threshold for resource unavailability, such as configuring an alert for a virtual machine with a threshold of 1 minute for unavailability before an alert is triggered",
+    "id": "app_health_resourcehealth"
   },
   {
     "type": "Questions",
@@ -700,9 +700,9 @@
     "category": "Health Modelling",
     "subCategory": "Alerting",
     "title": "Are Azure notifications sent to subscriptions owners received and if necessary properly routed to relevant technical stakeholders?",
-    "context": "Subscription notification emails can contain important service notifications or security alerts([Azure account contact information](https://docs.microsoft.com/en-us/azure/cost-management-billing/manage/change-azure-account-profile#service-and-marketing-emails))",
-    "recommendation": "",
-    "id": ""
+    "context": "Subscription notification emails can contain important service notifications or security alerts([Azure account contact information](https://docs.microsoft.com/en-us/azure/cost-management-billing/manage/change-azure-account-profile#service-and-marketing-emails)).",
+    "recommendation": "Subscription notification emails can contain important service notifications or security alerts([Azure account contact information](https://docs.microsoft.com/en-us/azure/cost-management-billing/manage/change-azure-account-profile#service-and-marketing-emails)). Thus, it is important that those notifications are received and routed to the relevant technical stakeholders.",
+    "id": "app_health_subscriptionnotifications"
   },
   {
     "type": "Questions",
