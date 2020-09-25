@@ -29,19 +29,9 @@
         {{- if $questionsInSubCategory }}
 ## {{ $subCategory.title }}
             {{ range $question := $questionsInSubCategory }}
-* {{ .title }}
-  
-  {{ if .context }}_{{ safeHTML (trim .context " ") }}_{{ end }}
-  
-  {{ if .recommendation }}> {{ safeHTML (trim .recommendation " ") }}{{ end }}
-        {{ range .children }}
-    - {{ .title }}
-      
-      {{ if .context }}_{{ safeHTML (trim .context " ") }}_{{ end }}
-      {{ if .recommendation }}> {{ safeHTML (trim .recommendation " ") }}{{ end }}
-                      {{ end }}
-                  {{ end }}
-              {{ end }}
-            {{- end -}}
+{{ partial "context-recommendation.partial" $question }}
+            {{ end }}
+        {{ end }}
+    {{- end -}}
     {{- end -}}
 {{- end -}}
