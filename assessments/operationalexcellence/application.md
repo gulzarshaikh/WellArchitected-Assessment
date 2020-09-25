@@ -60,7 +60,7 @@
   
   _Understanding if the application is cloud-native or not provides a very useful high level indication about potential technical debt for operability_
   
-  > While cloud-native workloads are prefered, migrated or modernized applications are reality and they might not be aware of the available functionality like auto-scaling, platform notifications and other the underlaying cloud platform can offer. Make sure to understand the limitations and implement workarounds if available.
+  > While cloud-native workloads are preferred, migrated or modernized applications are reality and they might not be aware of the available functionality like auto-scaling, platform notifications and other the underlaying cloud platform can offer. Make sure to understand the limitations and implement workarounds if available.
         
                   
 * Are Azure Tags used to enrich Azure resources with operational meta-data?
@@ -177,7 +177,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
     - What is the maximum traffic volume the application is expected to serve without performance degradation?
       
       _Scale requirements the application must be able to effectively satisfy, such as the number of concurrent users or requests per second, is a critical lens for assessing operations._
-      > Traffic limits for the application should be defined in quantified and measureable manner.
+      > Traffic limits for the application should be defined in quantified and measurable manner.
                       
     - Are these performance targets monitored and measured across the application and/or key scenarios?
       
@@ -197,7 +197,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
     - Do these critical system flows have distinct availability, performance, or recovery targets? 
       
       _Critical sub-systems or paths through the application may have higher expectations around availability, recovery, and performance due to the criticality of associated business scenarios and functionality._
-      > Targets should be specific and measureable.
+      > Targets should be specific and measurable.
                       
                   
 * Are there any application components which are less critical and have lower availability or performance requirements?
@@ -287,14 +287,14 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
             
 * Is an Application Performance Management (APM) tool used collect application level logs?
   
-  _In order to successfuly maintain the application it's important to 'turn the lights on' and have clear visibility of important metrics both in real-time and historically._
+  _In order to successfully maintain the application it's important to 'turn the lights on' and have clear visibility of important metrics both in real-time and historically._
   
   > An APM technology, such as Application Insights, should be used to manage the performance and availability of the application, aggregating application level logs and events for subsequent interpretation.
         
                   
 * Are application logs collected from different application environments?
   
-  _Application logs support the end-to-end application lifecycle. Logging is essential in understanding how trhe application operates in various environments and what events occur and under which conditions._
+  _Application logs support the end-to-end application lifecycle. Logging is essential in understanding how the application operates in various environments and what events occur and under which conditions._
   
   > Application logs and events should be collected across all major environments. Sufficient degree of separation and filtering should be in place to ensure non-critical environments do not convolute production log interpretation.
         
@@ -351,7 +351,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
                   
 * Is resource-level monitoring enforced throughout the application?
   
-  _Resource- or infrastrcture-level monitoring refers to the used platform services such as Azure VMs, Express Route or SQL Database. But also covers 3rd-party solutions like an NVA._
+  _Resource- or infrastructure-level monitoring refers to the used platform services such as Azure VMs, Express Route or SQL Database. But also covers 3rd-party solutions like an NVA._
   
   > All application resources should be configured to route diagnostic logs and metrics to the chosen log aggregation technology. Azure Policy should also be used as a device to ensure the consistent use of diagnostic settings across the application, to enforce the desired configuration for each Azure service.
         
@@ -389,7 +389,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
                   
 * Is the transaction flow data used to generate application/service maps?
   
-  _Is ther a correlation between events in different services and are those visualized?_
+  _Is there a correlation between events in different services and are those visualized?_
   
   > An [Application Map](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-map?tabs=net) can to help spot performance bottlenecks or failure hotspots across components of a distributed application.
         
@@ -444,7 +444,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
                   
 * Is Role Based Access Control (RBAC) used to control access to dashboards and underlying data?
   
-  _Are the dashboards openly available in your organization or do you limit access based on roles etc?_
+  _Are the dashboards openly available in your organization or do you limit access based on roles etc.?_
   
   > Access to operational data may be tightly controlled to align with segregation of duties, and careful attention should be made to ensure it doesn't hinder operational effectiveness; i.e. scenarios where developers have to raise an ITSM ticket to access logs should be avoided
         
@@ -456,7 +456,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
   
   _Alerts from tools such as Splunk or Azure Monitor proactively notify or respond to operational states that deviate from norm_
   
-  > You should not rely on people to activly look for issues. Instead an alerting solution should be in place that can push notifications to relevant teams. For example by email, SMS or into an mobile app.
+  > You should not rely on people to actively look for issues. Instead an alerting solution should be in place that can push notifications to relevant teams. For example by email, SMS or into an mobile app.
         
                   
 * Are specific owners and processes defined for each alert type?
@@ -489,7 +489,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
                   
 * Have Azure Service Health alerts been created to respond to Service-level events?
   
-  _Azure Service Health provides a view into the health of Azure services and regions, as well as issuing service impacting communications about outages, planned maintenance activities, and other health advisories. _
+  _Azure Service Health provides a view into the health of Azure services and regions, as well as issuing service impacting communications about outages, planned maintenance activities, and other health advisories._
   
   > Azure Service Health Alerts should be configured to operationalize Service Health events, however, Service Health alerts should not be used to detect issues due to associated latencies; there is a 5 minute SLO for automated issues, but many issues require manual interpretation to define an RCA. Instead, they should be used to provide extremely useful information to help interpret issues that have already been detected and surfaced via the health model, to inform how best to operationally respond([Azure Service Health](https://docs.microsoft.com/en-us/azure/service-health/overview))
         
