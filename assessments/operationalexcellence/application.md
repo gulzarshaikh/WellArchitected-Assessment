@@ -349,9 +349,9 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
   > Azure Activity Logs should be collected and aggregated.
         
                   
-* Is resource level monitoring enforced throughout the application?
+* Is resource-level monitoring enforced throughout the application?
   
-  
+  _Resource- or infrastrcture-level monitoring refers to the used platform services such as Azure VMs, Express Route or SQL Database. But also covers 3rd-party solutions like an NVA._
   
   > All application resources should be configured to route diagnostic logs and metrics to the chosen log aggregation technology. Azure Policy should also be used as a device to ensure the consistent use of diagnostic settings across the application, to enforce the desired configuration for each Azure service.
         
@@ -389,40 +389,40 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
                   
 * Is the transaction flow data used to generate application/service maps?
   
-  _An [Application Map](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-map?tabs=net) can to help spot performance bottlenecks or failure hotspots across components of a distributed application._
+  _Is ther a correlation between events in different services and are those visualized?_
   
-  
+  > An [Application Map](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-map?tabs=net) can to help spot performance bottlenecks or failure hotspots across components of a distributed application.
         
                   
 * Is a health model used to qualify what &#39;healthy&#39; and &#39;unhealthy&#39; states represent for the application?
   
-  _A holistic application health model should be used to quantify what 'healthy' and 'unhealthy' states represent across all application components. It is highly recommended that a 'traffic light' model be used to indicate a green/healthy state when key non-functional requirements and targets are fully satisfied and resources are optimally utilized, e.g. 95% of requests are processed in <= 500ms with AKS node utilization at x% etc. Once established, this health model should inform critical monitoring metrics across system components and operational sub-system composition. It is important to note that the health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state._
   
   
+  > A holistic application health model should be used to quantify what 'healthy' and 'unhealthy' states represent across all application components. It is highly recommended that a 'traffic light' model be used to indicate a green/healthy state when key non-functional requirements and targets are fully satisfied and resources are optimally utilized, e.g. 95% of requests are processed in <= 500ms with AKS node utilization at x% etc. Once established, this health model should inform critical monitoring metrics across system components and operational sub-system composition. It is important to note that the health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state.
         
     - Are critical system flows used to inform the health model?
       
-      _The health model should be able to surface the respective health of critical system flows or key subsystems to ensure appropriate operational prioritization is applied. For example, the health model should be able to represent the current state of the user login transaction flow_
       
+      > The health model should be able to surface the respective health of critical system flows or key subsystems to ensure appropriate operational prioritization is applied. For example, the health model should be able to represent the current state of the user login transaction flow
                       
     - Can the health model distinguish between transient and non-transient faults?
       
-      _The health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state_
-      
+      _Is the health model treating all failures the same?_
+      > The health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state
                       
                   
 * Are long-term trends analysed to predict operational issues before they occur?
   
-  _Analytics can and should be performed across long-term operational data to help inform operational strategies and also to predict what operational issues are likely to occur and when. For instance, if the average response times have been slowly increasing over time and getting closer to the maximum target_
+  _Are Operations and/or analytics teams using the stored events for machine learning or similar to make predictions for the future?_
   
-  
+  > Analytics can and should be performed across long-term operational data to help inform operational strategies and also to predict what operational issues are likely to occur and when. For instance, if the average response times have been slowly increasing over time and getting closer to the maximum target
         
                   
 * Have retention times for logs and metrics been defined and with housekeeping mechanisms configured?
   
-  _Clear retention times should be defined to allow for suitable historic analysis but also control storage costs. Suitable housekeeping tasks should also be used to archive data to cheaper storage or aggregate data for long-term trend analysis_
   
   
+  > Clear retention times should be defined to allow for suitable historic analysis but also control storage costs. Suitable housekeeping tasks should also be used to archive data to cheaper storage or aggregate data for long-term trend analysis
         
                   
               
@@ -430,23 +430,23 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
             
 * What technology in used to visualize the application health model and encompassed logs and metrics?
   
-  _Dashboarding tools, such as Azure Monitor or Grafana, should be used to visualize metrics and events collected at the application and resource levels, to illustrate the health model and the current operational state of the application_
+  _Visualization, often also called Dashboarding, refers to how data is presented to operations teams and other interested users._
   
-  
+  > Dashboarding tools, such as Azure Monitor or Grafana, should be used to visualize metrics and events collected at the application and resource levels, to illustrate the health model and the current operational state of the application
         
                   
-* Are dashboards tailored to a specific audience? 
+* Are dashboards tailored to a specific audience?
   
-  _Dashboards should be customized to represent the precise lens of interest of the end-user. For example, the areas of interest when evaluating the current state will differ greatly between developers, security and networking. Tailored dashboards makes interpretation easier and accelerates time to detection and action_
+  _Is there just one big dashboard or do you build individualized solutions for different teams (e.g. networking teams might have a different interest focus than the security team)._
   
-  
+  > Dashboards should be customized to represent the precise lens of interest of the end-user. For example, the areas of interest when evaluating the current state will differ greatly between developers, security and networking. Tailored dashboards makes interpretation easier and accelerates time to detection and action
         
                   
 * Is Role Based Access Control (RBAC) used to control access to dashboards and underlying data?
   
-  _Access to operational data may be tightly controlled to align with segregation of duties, and careful attention should be made to ensure it doesn't hinder operational effectiveness; i.e. scenarios where developers have to raise an ITSM ticket to access logs should be avoided_
+  _Are the dashboards openly available in your organization or do you limit access based on roles etc?_
   
-  
+  > Access to operational data may be tightly controlled to align with segregation of duties, and careful attention should be made to ensure it doesn't hinder operational effectiveness; i.e. scenarios where developers have to raise an ITSM ticket to access logs should be avoided
         
                   
               
@@ -456,56 +456,56 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
   
   _Alerts from tools such as Splunk or Azure Monitor proactively notify or respond to operational states that deviate from norm_
   
-  
+  > You should not rely on people to activly look for issues. Instead an alerting solution should be in place that can push notifications to relevant teams. For example by email, SMS or into an mobile app.
         
                   
-* Are specific owners and processes defined for each alert type? 
+* Are specific owners and processes defined for each alert type?
   
   _Having well-defined owners and response playbooks per alert is vital to optimizing operational effectiveness_
   
-  
+  > Instead of treating all alerts the same, there should be a well-defined process which determines what teams are responsible to react to which alert type.
         
                   
-* Are operational events prioritized based on business impact? 
+* Are operational events prioritized based on business impact?
   
-  _Tagging events with a specific severity or urgency helps operational teams priorities in cases where multiple events require intervention at the same time. For example, alerts concerning critical system flows might require special attention_
+  _Are all alerts being treated the same or do you analyze the potential business impact when defining an alert?_
   
-  
+  > Tagging events with a specific severity or urgency helps operational teams priorities in cases where multiple events require intervention at the same time. For example, alerts concerning critical system flows might require special attention
         
                   
 * Are push notifications enabled to inform responsible parties of alerts in real time?
   
-  _It is important that alert owners get reliably notified of alerts, which could use many communication channels such as text messages, emails or push notifications to a mobile app_
+  _Do teams have to actively monitor the systems and dashboard or are alerts sent to them by email etc.?_
   
-  
+  > It is important that alert owners get reliably notified of alerts, which could use many communication channels such as text messages, emails or push notifications to a mobile app
         
                   
 * Is alerting integrated with an IT Service Management (ITSM) system?
   
-  _ITSM systems, such as ServiceNow, can help to document issues, notify and assign responsible parties, and track issues. For example,  operational alerts from the application could for be integrated to automatically create new tickets to track resolution_
   
   
+  > ITSM systems, such as ServiceNow, can help to document issues, notify and assign responsible parties, and track issues. For example,  operational alerts from the application could for be integrated to automatically create new tickets to track resolution
         
                   
 * Have Azure Service Health alerts been created to respond to Service-level events?
   
-  _Azure Service Health provides a view into the health of Azure services and regions, as well as issuing service impacting communications about outages, planned maintenance activities, and other health advisories. Alerts should be configured to operationalize Service Health events, however, Service Health alerts should not be used to detect issues due to associated latencies; there is a 5 minute SLO for automated issues, but many issues require manual interpretation to define an RCA. Instead, they should be used to provide extremely useful information to help interpret issues that have already been detected and surfaced via the health model, to inform how best to operationally respond([Azure Service Health](https://docs.microsoft.com/en-us/azure/service-health/overview))_
+  _Azure Service Health provides a view into the health of Azure services and regions, as well as issuing service impacting communications about outages, planned maintenance activities, and other health advisories. _
   
-  
+  > Azure Service Health Alerts should be configured to operationalize Service Health events, however, Service Health alerts should not be used to detect issues due to associated latencies; there is a 5 minute SLO for automated issues, but many issues require manual interpretation to define an RCA. Instead, they should be used to provide extremely useful information to help interpret issues that have already been detected and surfaced via the health model, to inform how best to operationally respond([Azure Service Health](https://docs.microsoft.com/en-us/azure/service-health/overview))
         
                   
 * Have Azure Resource Health alerts been created to respond to Resource-level events?
   
-  _Azure Resource Health provides information about the health of individual resources such as a specific virtual machine, and is highly useful when diagnosing unavailable resources. Alerts should be configured for specific resource groups and resource types, and should be adjusted to maximize signal to noise ratios, i.e. only distribute a notification when a resource becomes unhealthy according to the application health model or due to an Azure platform initiated event. It is therefore important to consider transient issues when setting an appropriate threshold for resource unavailability, such as configuring an alert for a virtual machine with a threshold of 1 minute for unavailability before an alert is triggered_
+  _Azure Resource Health provides information about the health of individual resources such as a specific virtual machine, and is highly useful when diagnosing unavailable resources._
   
-  
+  > Azure Resource Health Alerts should be configured for specific resource groups and resource types, and should be adjusted to maximize signal to noise ratios, i.e. only distribute a notification when a resource becomes unhealthy according to the application health model or due to an Azure platform initiated event. It is therefore important to consider transient issues when setting an appropriate threshold for resource unavailability, such as configuring an alert for a virtual machine with a threshold of 1 minute for unavailability before an alert is triggered
         
                   
 * Are Azure notifications sent to subscriptions owners received and if necessary properly routed to relevant technical stakeholders?
   
-  _Subscription notification emails can contain important service notifications or security alerts([Azure account contact information](https://docs.microsoft.com/en-us/azure/cost-management-billing/manage/change-azure-account-profile#service-and-marketing-emails))_
+  _Subscription notification emails can contain important service notifications or security alerts([Azure account contact information](https://docs.microsoft.com/en-us/azure/cost-management-billing/manage/change-azure-account-profile#service-and-marketing-emails))._
   
-  
+  > Subscription notification emails can contain important service notifications or security alerts([Azure account contact information](https://docs.microsoft.com/en-us/azure/cost-management-billing/manage/change-azure-account-profile#service-and-marketing-emails)). Thus, it is important that those notifications are received and routed to the relevant technical stakeholders.
         
                   
               
