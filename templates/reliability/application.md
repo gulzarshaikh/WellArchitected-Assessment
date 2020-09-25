@@ -29,7 +29,7 @@
         {{- if $questionsInSubCategory }}
 ## {{ $subCategory.title }}
             {{ range $question := $questionsInSubCategory }}
-{{ partial "context-recommendation.partial" $question }}
+{{ partial "application-question.partial" $question }}
             {{ end }}
         {{ end }}
     {{- end -}}
