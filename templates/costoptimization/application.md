@@ -31,14 +31,14 @@
             {{ range $question := $questionsInSubCategory }}
 * {{ .title }}
   
-  {{ if .context }}_{{ safeHTML .context }}_{{ end }}
+  {{ if .context }}_{{ safeHTML (trim .context " ") }}_{{ end }}
   
-  {{ if .recommendation }}> {{ safeHTML .recommendation }}{{ end }}
+  {{ if .recommendation }}> {{ safeHTML (trim .recommendation " ") }}{{ end }}
         {{ range .children }}
     - {{ .title }}
       
-      {{ if .context }}_{{ safeHTML .context }}_{{ end }}
-      {{ if .recommendation }}> {{ safeHTML .recommendation}}{{ end }}
+      {{ if .context }}_{{ safeHTML (trim .context " ") }}_{{ end }}
+      {{ if .recommendation }}> {{ safeHTML (trim .recommendation " ") }}{{ end }}
                       {{ end }}
                   {{ end }}
               {{ end }}
