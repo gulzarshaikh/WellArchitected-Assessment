@@ -567,7 +567,7 @@
     "lens": "application",
     "category": "Health Modelling",
     "subCategory": "Dashboarding",
-    "title": "What technology in used to visualize the application health model and encompassed logs and metrics?",
+    "title": "What technology is used to visualize the application health model and encompassed logs and metrics?",
     "context": "Visualization, often also called Dashboarding, refers to how data is presented to operations teams and other interested users.",
     "recommendation": "Dashboarding tools, such as Azure Monitor or Grafana, should be used to visualize metrics and events collected at the application and resource levels, to illustrate the health model and the current operational state of the application",
     "id": "app_health_dashboarding"
@@ -606,7 +606,7 @@
     "lens": "application",
     "category": "Health Modelling",
     "subCategory": "Alerting",
-    "title": "What technology in used for alerting?",
+    "title": "What technology is used for alerting?",
     "context": "Alerts from tools such as Splunk or Azure Monitor proactively notify or respond to operational states that deviate from norm",
     "recommendation": "You should not rely on people to actively look for issues. Instead an alerting solution should be in place that can push notifications to relevant teams. For example by email, SMS or into an mobile app.",
     "id": "app_health_alertingtool"
