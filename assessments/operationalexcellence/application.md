@@ -389,7 +389,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
               
 ## Dashboarding
             
-* What technology in used to visualize the application health model and encompassed logs and metrics?
+* What technology is used to visualize the application health model and encompassed logs and metrics?
   
   _Visualization, often also called Dashboarding, refers to how data is presented to operations teams and other interested users._
   > Dashboarding tools, such as Azure Monitor or Grafana, should be used to visualize metrics and events collected at the application and resource levels, to illustrate the health model and the current operational state of the application
@@ -410,7 +410,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
               
 ## Alerting
             
-* What technology in used for alerting?
+* What technology is used for alerting?
   
   _Alerts from tools such as Splunk or Azure Monitor proactively notify or respond to operational states that deviate from norm_
   > You should not rely on people to actively look for issues. Instead an alerting solution should be in place that can push notifications to relevant teams. For example by email, SMS or into an mobile app.
