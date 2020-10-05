@@ -872,7 +872,7 @@
     "category": "Operational Procedures",
     "subCategory": "Scalability & Capacity Model",
     "title": "Is capacity utilization monitored and used to forecast future growth?",
-    "context": "Predicting future growth and capacity demands can prevent outages due to insufficant provisioned capacity over time.",
+    "context": "Predicting future growth and capacity demands can prevent outages due to insufficient provisioned capacity over time.",
     "recommendation": "Especially when demand is fluctuating, it is useful to monitor historical capacity utilization to derive predictions about future growth. Azure Monitor provides the ability to collect utilization metrics for Azure services so that they can be operationalized in the context of a defined capacity model. The Azure Portal can also be used to inspect current subscription usage and quota status([Supported metrics with Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/metrics-supported))",
     "id": "app_ops_scale_utilmonitoring"
   },
@@ -940,7 +940,7 @@
     "subCategory": "Configuration & Secrets Management",
     "title": "Does the application use Managed Identities?",
     "context": "Managed Identities in Azure can be used to securely access Azure services while removing the need to store the secrets or certificates of Service Principals([Managed Identities Overview](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview))",
-    "recommendation": "Wherever possible Azure Managed Identities (either system-managed or user-managed) should be used since they remove the management burden of storing and rotating keys for service principles. Thus, they provide higher security as well as easier maintainance.",
+    "recommendation": "Wherever possible Azure Managed Identities (either system-managed or user-managed) should be used since they remove the management burden of storing and rotating keys for service principles. Thus, they provide higher security as well as easier maintenance.",
     "id": "app_ops_mi"
   },
   {
