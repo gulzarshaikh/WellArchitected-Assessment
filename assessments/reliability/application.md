@@ -889,7 +889,7 @@ Public Preview : SLAs do not apply and formal support may be provided on a best-
             
 * Is capacity utilization monitored and used to forecast future growth?
 
-  _Predicting future growth and capacity demands can prevent outages due to insufficant provisioned capacity over time._
+  _Predicting future growth and capacity demands can prevent outages due to insufficient provisioned capacity over time._
 
   > Especially when demand is fluctuating, it is useful to monitor historical capacity utilization to derive predictions about future growth. Azure Monitor provides the ability to collect utilization metrics for Azure services so that they can be operationalized in the context of a defined capacity model. The Azure Portal can also be used to inspect current subscription usage and quota status([Supported metrics with Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/metrics-supported))
 

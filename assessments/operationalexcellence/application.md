@@ -612,7 +612,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
             
 * Is auto-scaling enabled for supporting PaaS and IaaS services?
 
-  _Are built-in capabilties for automatic scale being used vs. scaling being always a manual decision?_
+  _Are built-in capabilities for automatic scale being used vs. scaling being always a manual decision?_
 
   > Leveraging built-in Auto-scaling capabilities can help to maintain system reliability in times of increased demand while not needing to overprovision resources up-front, by letting a service automatically scale within a pre-configured range of resources. It greatly simplifies management and operational burdens. However, it must take into account the capacity model, else automated scaling of one component can impact downstream services if those are not also automatically scaled accordingly.
 
@@ -645,7 +645,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
             
 * Is capacity utilization monitored and used to forecast future growth?
 
-  _Predicting future growth and capacity demands can prevent outages due to insufficant provisioned capacity over time._
+  _Predicting future growth and capacity demands can prevent outages due to insufficient provisioned capacity over time._
 
   > Especially when demand is fluctuating, it is useful to monitor historical capacity utilization to derive predictions about future growth. Azure Monitor provides the ability to collect utilization metrics for Azure services so that they can be operationalized in the context of a defined capacity model. The Azure Portal can also be used to inspect current subscription usage and quota status([Supported metrics with Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/metrics-supported))
 
@@ -685,7 +685,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
   _Managed Identities in Azure can be used to securely access Azure services while removing the need to store the secrets or certificates of Service Principals([Managed Identities Overview](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview))_
 
-  > Wherever possible Azure Managed Identities (either system-managed or user-managed) should be used since they remove the management burden of storing and rotating keys for service principles. Thus, they provide higher security as well as easier maintainance.
+  > Wherever possible Azure Managed Identities (either system-managed or user-managed) should be used since they remove the management burden of storing and rotating keys for service principles. Thus, they provide higher security as well as easier maintenance.
 
             
 * Are keys and secrets backed-up to geo-redundant storage?
