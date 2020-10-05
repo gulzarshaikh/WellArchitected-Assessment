@@ -810,7 +810,7 @@
     "category": "Operational Procedures",
     "subCategory": "Scalability & Capacity Model",
     "title": "Is auto-scaling enabled for supporting PaaS and IaaS services?",
-    "context": "Are built-in capabilties for automatic scale being used vs. scaling being always a manual decision?",
+    "context": "Are built-in capabilities for automatic scale being used vs. scaling being always a manual decision?",
     "recommendation": "Leveraging built-in Auto-scaling capabilities can help to maintain system reliability in times of increased demand while not needing to overprovision resources up-front, by letting a service automatically scale within a pre-configured range of resources. It greatly simplifies management and operational burdens. However, it must take into account the capacity model, else automated scaling of one component can impact downstream services if those are not also automatically scaled accordingly.",
     "id": "app_ops_scale_autoscale"
   },
