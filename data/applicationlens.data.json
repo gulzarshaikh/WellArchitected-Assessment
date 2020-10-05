@@ -189,7 +189,7 @@
     "recommendation": "Path-wise analysis should be used to define critical system flows for key business scenarios, such as the checkout process for an eCommerce application.",
     "children": [
       {
-        "title": "Do these critical system flows have distinct availability, performance, or recovery targets? ",
+        "title": "Do these critical system flows have distinct availability, performance, or recovery targets?",
         "context": "Critical sub-systems or paths through the application may have higher expectations around availability, recovery, and performance due to the criticality of associated business scenarios and functionality.",
         "recommendation": "Targets should be specific and measurable.",
         "id": "app_design_critical_flows_targets"
@@ -460,7 +460,7 @@
     "lens": "application",
     "category": "Health Modelling",
     "subCategory": "Resource/Infrastructure Level Monitoring",
-    "title": "Are critical external dependencies monitored? ",
+    "title": "Are critical external dependencies monitored?",
     "context": "It's common for applications to depend on other services or libraries. Despite these are external, it is still possible to monitor their health and availability using probes.",
     "recommendation": "Critical external dependencies, such as an API service, should be monitored to ensure operational visibility of dependency health. For instance, a probe could be used to measure the availability and latency of an external API.",
     "id": "health_critical_dependencies_monitored"
@@ -714,35 +714,35 @@
     "category": "Operational Procedures",
     "subCategory": "Recovery & Failover",
     "title": "Are recovery steps defined for failover and failback?",
-    "context": "The steps required to fail over the application to a secondary Azure region in failure situations should be codified, preferably in an automated manner, to ensure capabilities exist to effectively respond to an outage in a way that limits impact. Similar codified steps should also exist to capture the process required to failback the application to the primary region once a failover triggering issue has been addressed",
-    "recommendation": "",
+    "context": "Is there a clearly defined playbook for failover and failback procedures?",
+    "recommendation": "The steps required to fail over the application to a secondary Azure region in failure situations should be codified, preferably in an automated manner, to ensure capabilities exist to effectively respond to an outage in a way that limits impact. Similar codified steps should also exist to capture the process required to failback the application to the primary region once a failover triggering issue has been addressed",
     "children": [
       {
         "title": "Has the failover and failback approach been tested/validated at least once?",
-        "context": "The precise steps required to failover and failback the application must be tested to validate the effectiveness of the defined disaster recovery approach. Testing of the disaster recovery strategy should occur according to a reasonably regular cadence, such as annually, to ensure that operational application changes do not impact the applicability of the selected approach",
-        "recommendation": "",
-        "id": ""
+        "context": "",
+        "recommendation": "The precise steps required to failover and failback the application must be tested to validate the effectiveness of the defined disaster recovery approach. Testing of the disaster recovery strategy should occur according to a reasonably regular cadence, such as annually, to ensure that operational application changes do not impact the applicability of the selected approach",
+        "id": "app_ops_failovertest"
       },
       {
         "title": "How is a failover decided and initiated?",
-        "context": "Regional failovers are significant operational activity and may incur some downtime, degraded functionality, or data loss depending on the recovery strategy used. Hence, the decision process as to what constitutes a failover should be clearly understood",
-        "recommendation": "",
-        "id": ""
+        "context": "Is this fully automated or, if not, is the decision process clearly documented?",
+        "recommendation": "Regional failovers are significant operational activity and may incur some downtime, degraded functionality, or data loss depending on the recovery strategy used. Hence, the decision process as to what constitutes a failover should be clearly understood",
+        "id": "app_ops_failoverdecision"
       },
       {
         "title": "Is the health model being used to classify failover situations?",
-        "context": "A platform service outage in a specific region will likely require a failover to another region, whereas the accidental change of an firewall rule can be mitigated by a recovery process. The health model and all underlying data should be used to interpret which operational procedures should be triggered",
-        "recommendation": "",
-        "id": ""
+        "context": "",
+        "recommendation": "A platform service outage in a specific region will likely require a failover to another region, whereas the accidental change of an firewall rule can be mitigated by a recovery process. The health model and all underlying data should be used to interpret which operational procedures should be triggered",
+        "id": "app_ops_failoverhealthmodel"
       },
       {
         "title": "Can individual components of the application failover independently?",
-        "context": "For example, is it possible to failover the compute cluster to a secondary region while keeping the database running in the primary region",
-        "recommendation": "",
-        "id": ""
+        "context": "For example, is it possible to failover the compute cluster to a secondary region while keeping the database running in the primary region?",
+        "recommendation": "Ideally failover can happen on a component-level instead of needing to failover the entire system together, when, for instance, only one service experiences an outage.",
+        "id": "app_ops_failovercomponents"
       }
     ],
-    "id": ""
+    "id": "app_ops_failoverplan"
   },
   {
     "type": "Questions",
@@ -754,17 +754,17 @@
     "category": "Operational Procedures",
     "subCategory": "Recovery & Failover",
     "title": "Are automated recovery procedures in place for common failure event?",
-    "context": "Automated responses to specific events help to reduce response times and limit errors associated with manual processes",
-    "recommendation": "",
+    "context": "Is there at least some automation for certain failure scenarios or are all those depending on manual intervention?",
+    "recommendation": "Automated responses to specific events help to reduce response times and limit errors associated with manual processes. Thus, wherever possible, it is recommended to have automation in place instead of relying on manual intervention.",
     "children": [
       {
         "title": "Are these automated recovery procedures tested and validated on a regular basis?",
-        "context": "Automated operational responses should be tested frequently as part of the normal application lifecycle to ensure operational effectiveness",
-        "recommendation": "",
-        "id": ""
+        "context": "",
+        "recommendation": "Automated operational responses should be tested frequently as part of the normal application lifecycle to ensure operational effectiveness",
+        "id": "app_ops_failoverregulartests"
       }
     ],
-    "id": ""
+    "id": "app_ops_failoverautomation"
   },
   {
     "type": "Questions",
@@ -776,17 +776,17 @@
     "category": "Operational Procedures",
     "subCategory": "Recovery & Failover",
     "title": "Are critical manual processes defined and documented for manual failure responses?",
-    "context": "Operational runbooks should be defined to codify the procedures and relevant information needed for operations staff to respond to failures and maintain operational health",
-    "recommendation": "",
+    "context": "While full automation is attainable, there might be cases where manual steps cannot be avoided.",
+    "recommendation": "Operational runbooks should be defined to codify the procedures and relevant information needed for operations staff to respond to failures and maintain operational health",
     "children": [
       {
         "title": "Are these manual operational runbooks tested and validated on a regular basis?",
-        "context": "Manual operational runbooks should be tested frequently as part of the normal application lifecycle to ensure appropriateness and efficiency",
-        "recommendation": "",
-        "id": ""
+        "context": "",
+        "recommendation": "Manual operational runbooks should be tested frequently as part of the normal application lifecycle to ensure appropriateness and efficiency",
+        "id": "app_ops_failovermanualstepstests"
       }
     ],
-    "id": ""
+    "id": "app_ops_failovermanualsteps"
   },
   {
     "type": "Questions",
@@ -797,9 +797,9 @@
     "category": "Operational Procedures",
     "subCategory": "Scalability & Capacity Model",
     "title": "Is there a capacity model for the application?",
-    "context": "A capacity model should describe the relationships between the utilization of various components as a ratio, to capture when and how application components should scale-out. For instance, scaling the number of Application Gateway v2 instances may put excess pressure on downstream components unless also scaled to a degree. When modelling capacity for critical system components it is therefore recommended that an N+1 model be applied to ensure complete tolerance to transient faults, where n describes the capacity required to satisfy performance and availability requirements([Performance Efficiency - Capacity](https://docs.microsoft.com/en-us/azure/architecture/framework/scalability/capacity))",
-    "recommendation": "",
-    "id": ""
+    "context": "A capacity model should describe the relationships between the utilization of various components as a ratio, to capture when and how application components should scale-out.",
+    "recommendation": "A capacity model should describe the relationships between the utilization of various components as a ratio, to capture when and how application components should scale-out. For instance, scaling the number of Application Gateway v2 instances may put excess pressure on downstream components unless also scaled to a degree. When modelling capacity for critical system components it is therefore recommended that an N+1 model be applied to ensure complete tolerance to transient faults, where n describes the capacity required to satisfy performance and availability requirements([Performance Efficiency - Capacity](https://docs.microsoft.com/en-us/azure/architecture/framework/scalability/capacity))",
+    "id": "app_ops_scale_capacitymodel"
   },
   {
     "type": "Questions",
@@ -810,9 +810,9 @@
     "category": "Operational Procedures",
     "subCategory": "Scalability & Capacity Model",
     "title": "Is auto-scaling enabled for supporting PaaS and IaaS services?",
-    "context": "Leveraging built-in Auto-scaling capabilities can help to maintain system reliability in times of increased demand while not needing to overprovision resources up-front, by letting a service automatically scale within a pre-configured range of resources. It greatly simplifies management and operational burdens. However, it must take into account the capacity model, else automated scaling of one component can impact downstream services if those are not also automatically scaled accordingly.",
-    "recommendation": "",
-    "id": ""
+    "context": "Are built-in capabilties for automatic scale being used vs. scaling being always a manual decision?",
+    "recommendation": "Leveraging built-in Auto-scaling capabilities can help to maintain system reliability in times of increased demand while not needing to overprovision resources up-front, by letting a service automatically scale within a pre-configured range of resources. It greatly simplifies management and operational burdens. However, it must take into account the capacity model, else automated scaling of one component can impact downstream services if those are not also automatically scaled accordingly.",
+    "id": "app_ops_scale_autoscale"
   },
   {
     "type": "Questions",
@@ -824,9 +824,9 @@
     "category": "Operational Procedures",
     "subCategory": "Scalability & Capacity Model",
     "title": "Is the process to provision and deprovision capacity codified?",
-    "context": "Fluctuation in application traffic is typically expected. To ensure optimal operation is maintained, such variations should be met by automated scalability. The significance of automated capacity responses underpinned by a robust capacity model was highlighted by the COVID-19 crisis where many applications experienced severe traffic variations. While Auto-scaling enables a PaaS or IaaS service to scale within a pre-configured (and often times limited) range of resources, is provisioning or deprovisioning capacity a more advanced and complex process of for example adding additional scale units like additional clusters, instances or deployments. The process should be codified, automated and the effects of adding/removing capacity should be well understood.",
-    "recommendation": "",
-    "id": ""
+    "context": "",
+    "recommendation": "Fluctuation in application traffic is typically expected. To ensure optimal operation is maintained, such variations should be met by automated scalability. The significance of automated capacity responses underpinned by a robust capacity model was highlighted by the COVID-19 crisis where many applications experienced severe traffic variations. While Auto-scaling enables a PaaS or IaaS service to scale within a pre-configured (and often times limited) range of resources, is provisioning or deprovisioning capacity a more advanced and complex process of for example adding additional scale units like additional clusters, instances or deployments. The process should be codified, automated and the effects of adding/removing capacity should be well understood.",
+    "id": "app_ops_scale_codified"
   },
   {
     "type": "Questions",
@@ -838,8 +838,8 @@
     "subCategory": "Scalability & Capacity Model",
     "title": "Is the impact of changes in application health on capacity fully understood?",
     "context": "For example, if an outage in an external API is mitigated by writing messages into a retry queue, this queue will get sudden spikes in load which it will need to be able to handle",
-    "recommendation": "",
-    "id": ""
+    "recommendation": "Any change in the health state of application components can influence the capacity demands on other components. Those impacts need to be fully understood and measures such as auto-scaling need to be in place to handle those.",
+    "id": "app_ops_scale_healthimpact"
   },
   {
     "type": "Questions",
@@ -850,17 +850,17 @@
     "category": "Operational Procedures",
     "subCategory": "Scalability & Capacity Model",
     "title": "Is the required capacity (initial and future growth) within Azure service scale limits and quotas?",
-    "context": "Due to physical and logical resource constraints within the platform, Azure must apply limits and quotas to service scalability, which may be either hard or soft. The application should therefore take a scale-unit approach to navigate within service limits, and where necessary consider multiple subscriptions which are often the boundary for such limits. It is highly recommended that a structured approach to scale be designed up-front rather than resorting to a 'spill and fill' model([Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits))",
-    "recommendation": "",
+    "context": "Due to physical and logical resource constraints within the platform, Azure must apply limits and quotas to service scalability, which may be either hard or soft.",
+    "recommendation": "Due to physical and logical resource constraints within the platform, Azure must apply limits and quotas to service scalability, which may be either hard or soft. The application should therefore take a scale-unit approach to navigate within service limits, and where necessary consider multiple subscriptions which are often the boundary for such limits. It is highly recommended that a structured approach to scale be designed up-front rather than resorting to a 'spill and fill' model([Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits))",
     "children": [
       {
         "title": "Is the required capacity (initial and future growth) available within targeted regions?",
-        "context": "While the promise of the cloud is infinite scale, the reality is that there are finite resources available and as a result situations can occur where capacity can be constrained due to overall demand. If the application requires a large amount of capacity or expects a significant increase in capacity then effort should be invested to ensure that desired capacity is attainable within selected region(s). For applications leveraging a recovery or active-passive based disaster recovery strategy, consideration should also be given to ensure suitable capacity exists in the secondary region(s) since a regional outage can lead to a significant increase in demand within a paired region due to other customer workloads also failing over. To help mitigate this, consideration should be given to pre-provisioning resources within the secondary region([Azure Capacity](https://aka.ms/AzureCapacity))",
-        "recommendation": "",
-        "id": ""
+        "context": "While the promise of the cloud is infinite scale, the reality is that there are finite resources available and as a result situations can occur where capacity can be constrained due to overall demand.",
+        "recommendation": "If the application requires a large amount of capacity or expects a significant increase in capacity then effort should be invested to ensure that desired capacity is attainable within selected region(s). For applications leveraging a recovery or active-passive based disaster recovery strategy, consideration should also be given to ensure suitable capacity exists in the secondary region(s) since a regional outage can lead to a significant increase in demand within a paired region due to other customer workloads also failing over. To help mitigate this, consideration should be given to pre-provisioning resources within the secondary region([Azure Capacity](https://aka.ms/AzureCapacity))",
+        "id": "app_ops_scale_futuregrowth"
       }
     ],
-    "id": ""
+    "id": "app_ops_scale_limits"
   },
   {
     "type": "Questions",
@@ -872,9 +872,9 @@
     "category": "Operational Procedures",
     "subCategory": "Scalability & Capacity Model",
     "title": "Is capacity utilization monitored and used to forecast future growth?",
-    "context": "Azure Monitor provides the ability to collect utilization metrics for Azure services so that they can be operationalized in the context of a defined capacity model. The Azure Portal can also be used to inspect current subscription usage and quota status([Supported metrics with Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/metrics-supported))",
-    "recommendation": "",
-    "id": ""
+    "context": "Predicting future growth and capacity demands can prevent outages due to insufficant provisioned capacity over time.",
+    "recommendation": "Especially when demand is fluctuating, it is useful to monitor historical capacity utilization to derive predictions about future growth. Azure Monitor provides the ability to collect utilization metrics for Azure services so that they can be operationalized in the context of a defined capacity model. The Azure Portal can also be used to inspect current subscription usage and quota status([Supported metrics with Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/metrics-supported))",
+    "id": "app_ops_scale_utilmonitoring"
   },
   {
     "type": "Questions",
@@ -887,8 +887,8 @@
     "subCategory": "Configuration & Secrets Management",
     "title": "Where is application configuration information stored and how does the application access it?",
     "context": "Application configuration information can be stored together with the application itself or preferably using a dedicated configuration management system like Azure App Configuration or Azure Key Vault",
-    "recommendation": "",
-    "id": ""
+    "recommendation": "Preferably configuration information is stored using a dedicated configuration management system like Azure App Configuration or Azure Key Vault so that it can be updated independently of the application code.",
+    "id": "app_ops_configtool"
   },
   {
     "type": "Questions",
@@ -898,10 +898,10 @@
     "lens": "application",
     "category": "Operational Procedures",
     "subCategory": "Configuration & Secrets Management",
-    "title": "Can configuration settings be changed or modified without rebuilding or redeploying the application? ",
-    "context": "Application code and configuration should not share the same lifecycle to enable operational activities that change and update specific configurations without developer involvement or redeployment",
-    "recommendation": "",
-    "id": ""
+    "title": "Can configuration settings be changed or modified without rebuilding or redeploying the application?",
+    "context": "",
+    "recommendation": "Application code and configuration should not share the same lifecycle to enable operational activities that change and update specific configurations without developer involvement or redeployment",
+    "id": "app_ops_configchange"
   },
   {
     "type": "Questions",
@@ -912,9 +912,9 @@
     "category": "Operational Procedures",
     "subCategory": "Configuration & Secrets Management",
     "title": "How are passwords and other secrets managed?",
-    "context": "Tools like Azure Key Vault or HashiCorp Vault should be used to store and manage secrets securely rather than being baked into the application artefact during deployment, as this simplifies operational tasks like key rotation as well as improving overall security",
-    "recommendation": "",
-    "id": ""
+    "context": "Are secrets stored in a specially protected way or in the same way as any other application configuration?",
+    "recommendation": "Tools like Azure Key Vault or HashiCorp Vault should be used to store and manage secrets securely rather than being baked into the application artefact during deployment, as this simplifies operational tasks like key rotation as well as improving overall security",
+    "id": "app_ops_secretmanagement"
   },
   {
     "type": "Questions",
@@ -926,9 +926,9 @@
     "category": "Operational Procedures",
     "subCategory": "Configuration & Secrets Management",
     "title": "Do you have procedures in place for key/secret rotation?",
-    "context": "In the situation where a key or secret becomes compromised, it is important to be able to quickly act and generate new versions. Tools, such as Azure Key Vault should ideally be used to store and manage application secrets to help with rotation processes([Key Vault Key Rotation](https://docs.microsoft.com/en-us/azure/key-vault/secrets/tutorial-rotation-dual))",
-    "recommendation": "",
-    "id": ""
+    "context": "In the situation where a key or secret becomes compromised, it is important to be able to quickly act and generate new versions.",
+    "recommendation": "Tools, such as Azure Key Vault should ideally be used to store and manage application secrets to help with rotation processes([Key Vault Key Rotation](https://docs.microsoft.com/en-us/azure/key-vault/secrets/tutorial-rotation-dual))",
+    "id": "app_ops_secretrotation"
   },
   {
     "type": "Questions",
@@ -940,29 +940,30 @@
     "subCategory": "Configuration & Secrets Management",
     "title": "Does the application use Managed Identities?",
     "context": "Managed Identities in Azure can be used to securely access Azure services while removing the need to store the secrets or certificates of Service Principals([Managed Identities Overview](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview))",
-    "recommendation": "",
-    "id": ""
+    "recommendation": "Wherever possible Azure Managed Identities (either system-managed or user-managed) should be used since they remove the management burden of storing and rotating keys for service principles. Thus, they provide higher security as well as easier maintainance.",
+    "id": "app_ops_mi"
   },
   {
     "type": "Questions",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "application",
     "category": "Operational Procedures",
     "subCategory": "Configuration & Secrets Management",
     "title": "Are keys and secrets backed-up to geo-redundant storage?",
-    "context": "Keys and secrets should be backed up to geo-redundant storage so that they can be accessed in the event of a regional failure and support recovery objectives. In the event of a regional outage, the Key Vault service will automatically be failed over to the secondary region in a read-only state([Azure Key Vault availability and reliability](https://docs.microsoft.com/en-us/azure/key-vault/general/disaster-recovery-guidance))",
-    "recommendation": "",
+    "context": "Keys and secrets must still be available in a failover case.",
+    "recommendation": "Keys and secrets should be backed up to geo-redundant storage so that they can be accessed in the event of a regional failure and support recovery objectives. In the event of a regional outage, the Key Vault service will automatically be failed over to the secondary region in a read-only state([Azure Key Vault availability and reliability](https://docs.microsoft.com/en-us/azure/key-vault/general/disaster-recovery-guidance))",
     "children": [
       {
         "title": "Are certificate/key backups and data backups stored in different geo-redundant storage accounts?",
-        "context": "Encryption keys and data should be backed up separately to optimise the security of underlying data",
-        "recommendation": "",
-        "id": ""
+        "context": "",
+        "recommendation": "Encryption keys and data should be backed up separately to optimise the security of underlying data",
+        "id": "app_ops_secrets_redundancybackups"
       }
     ],
-    "id": ""
+    "id": "app_ops_secrets_redundancy"
   },
   {
     "type": "Questions",
@@ -975,8 +976,8 @@
     "subCategory": "Configuration & Secrets Management",
     "title": "Is Soft-Delete enabled for Key Vaults and Key Vault objects?",
     "context": "The Soft-Delete feature retains resources for a given retention period after a DELETE operation has been performed, while giving the appearance that the object is deleted. It helps to mitigate scenarios where resources are unintentionally, maliciously or incorrectly deleted([Azure Key Vault Soft-Delete](https://docs.microsoft.com/en-us/azure/key-vault/general/overview-soft-delete))",
-    "recommendation": "",
-    "id": ""
+    "recommendation": "Key Vault Soft Delete helps to mitigate scenarios where resources are unintentionally, maliciously or incorrectly deleted([Azure Key Vault Soft-Delete](https://docs.microsoft.com/en-us/azure/key-vault/general/overview-soft-delete)). It is therefore highly recommended to enable this.",
+    "id": "app_ops_secrets_kvsoftdelete"
   },
   {
     "type": "Questions",
@@ -986,10 +987,10 @@
     "lens": "application",
     "category": "Operational Procedures",
     "subCategory": "Configuration & Secrets Management",
-    "title": "Are the expiry dates of SSL certificates monitored and are processes in place to renew them? ",
-    "context": "Expired SSL certificates are one of the most common yet avoidable causes of application outages; even Azure and more recently Microsoft Teams have experienced outages due to expired certificates. Tracking expiry dates and renewing them in due time is therefore highly critical. Ideally the process should be automated, although this often depends on leveraged CA. If not automated, sufficient alerting should be applied to ensure expiry dates do not go unnoticed",
-    "recommendation": "",
-    "id": ""
+    "title": "Are the expiry dates of SSL certificates monitored and are processes in place to renew them?",
+    "context": "Expired SSL certificates are one of the most common yet avoidable causes of application outages; even Azure and more recently Microsoft Teams have experienced outages due to expired certificates.",
+    "recommendation": "Tracking expiry dates of SSL certificates and renewing them in due time is therefore highly critical. Ideally the process should be automated, although this often depends on leveraged CA. If not automated, sufficient alerting should be applied to ensure expiry dates do not go unnoticed",
+    "id": "app_ops_sslcertrenewal"
   },
   {
     "type": "Questions",
@@ -999,24 +1000,24 @@
     "lens": "application",
     "category": "Operational Procedures",
     "subCategory": "Patch & Update Process (PNU)",
-    "title": "Is the PNU process defined and for all relevant application components?",
+    "title": "Is the Patch & Update Process (PNU) process defined and for all relevant application components?",
     "context": "The PNU process will vary based on the type of Azure service used (i.e. VM, VMSS, Containers on AKS). Applications using IaaS will typically require more investment to define a PNU process",
-    "recommendation": "",
+    "recommendation": "The PNU process should be fully defined and understood for all relevant application components",
     "children": [
       {
-        "title": "Is the PNU process automated?",
-        "context": "Ideally the PNU process should be fully or partially automated to optimize response times for new updates and also to reduce the risks associated with manual intervention",
-        "recommendation": "",
-        "id": ""
+        "title": "Is the Patch & Update Process (PNU) process automated?",
+        "context": "",
+        "recommendation": "Ideally the PNU process should be fully or partially automated to optimize response times for new updates and also to reduce the risks associated with manual intervention",
+        "id": "app_ops_pnu_automated"
       },
       {
-        "title": "Are PNU operations performed 'as-code'?",
-        "context": "Performing operations 'as-code' helps to minimize human error and increase consistency",
-        "recommendation": "",
-        "id": ""
+        "title": "Are Patch & Update Process (PNU) operations performed 'as-code'?",
+        "context": "",
+        "recommendation": "Performing operations should be defined 'as-code' since it helps to minimize human error and increase consistency",
+        "id": "app_ops_pnu_ascode"
       }
     ],
-    "id": ""
+    "id": "app_ops_pnu"
   },
   {
     "type": "Questions",
@@ -1027,9 +1028,9 @@
     "category": "Operational Procedures",
     "subCategory": "Patch & Update Process (PNU)",
     "title": "How are patches rolled back?",
-    "context": "It is recommended to have a defined strategy in place to rollback patches in case of an error or unexpected side effects",
-    "recommendation": "",
-    "id": ""
+    "context": "",
+    "recommendation": "It is recommended to have a defined strategy in place to rollback patches in case of an error or unexpected side effects",
+    "id": "app_ops_pnu_rollback"
   },
   {
     "type": "Questions",
@@ -1042,7 +1043,7 @@
     "title": "Are emergency patches handled differently than normal updates?",
     "context": "Emergency patches might contain critical security updates that cannot wait till the next maintenance or release window",
     "recommendation": "",
-    "id": ""
+    "id": "app_ops_pnu_emergency"
   },
   {
     "type": "Questions",
@@ -1053,9 +1054,9 @@
     "category": "Operational Procedures",
     "subCategory": "Patch & Update Process (PNU)",
     "title": "What is the strategy to keep up with changing dependencies?",
-    "context": "Changing dependencies, such as new versions of packages, updated Docker images, should be factored into operational processes; the application team should be subscribed to release notes of dependent services, tools, and libraries",
-    "recommendation": "",
-    "id": ""
+    "context": "",
+    "recommendation": "Changing dependencies, such as new versions of packages, updated Docker images, should be factored into operational processes; the application team should be subscribed to release notes of dependent services, tools, and libraries",
+    "id": "app_ops_pnu_changesdeps"
   },
   {
     "type": "Questions",
@@ -1066,9 +1067,9 @@
     "category": "Operational Procedures",
     "subCategory": "Operational Lifecycles",
     "title": "How are operational shortcomings and failures analysed?",
-    "context": "Reviewing operational incidents where the response and remediation to  issues either failed or could have been optimized is vital to improving overall operational effectiveness. Failures provide a valuable learning opportunity and in some cases these learnings can also be shared across the entire organization",
-    "recommendation": "",
-    "id": ""
+    "context": "",
+    "recommendation": "Reviewing operational incidents where the response and remediation to issues either failed or could have been optimized is vital to improving overall operational effectiveness. Failures provide a valuable learning opportunity and in some cases these learnings can also be shared across the entire organization",
+    "id": "app_ops_lifecycle_review"
   },
   {
     "type": "Questions",
@@ -1079,9 +1080,9 @@
     "category": "Operational Procedures",
     "subCategory": "Operational Lifecycles",
     "title": "Are operational procedures reviewed and refined frequently?",
-    "context": "Operational procedures should be updated based on outcomes from frequent testing",
-    "recommendation": "",
-    "id": ""
+    "context": "",
+    "recommendation": "Operational procedures should be updated based on outcomes from frequent testing",
+    "id": "app_ops_lifecycle_refinement"
   },
   {
     "type": "Questions",
@@ -1092,17 +1093,17 @@
     "category": "Deployment & Testing",
     "subCategory": "Application Deployments",
     "title": "What is the process to deploy application releases to production?",
-    "context": "The entire end-to-end CI/CD deployment process should be understood",
-    "recommendation": "",
+    "context": "",
+    "recommendation": "The entire end-to-end CI/CD deployment process should be understood",
     "children": [
       {
         "title": "How long does it take to deploy an entire production environment?",
         "context": "The time it takes to perform a complete environment deployment should align with recovery targets",
-        "recommendation": "",
-        "id": ""
+        "recommendation": "The time it takes to perform a complete environment deployment should be fully understood as it needs to align with the recovery targets",
+        "id": "app_deploy_cicd_duration"
       }
     ],
-    "id": ""
+    "id": "app_deploy_cicd"
   },
   {
     "type": "Questions",
@@ -1113,9 +1114,9 @@
     "category": "Deployment & Testing",
     "subCategory": "Application Deployments",
     "title": "How often are changes deployed to production?",
-    "context": "Are numerous releases deployed each day or do releases have a fixed cadence, such as every quarter",
+    "context": "Are numerous releases deployed each day or do releases have a fixed cadence, such as every quarter?",
     "recommendation": "",
-    "id": ""
+    "id": "app_deploy_frequency"
   },
   {
     "type": "Questions",
@@ -1127,17 +1128,17 @@
     "category": "Deployment & Testing",
     "subCategory": "Application Deployments",
     "title": "Can the application be deployed automatically from scratch without any manual operations?",
-    "context": "Manual deployment steps introduce significant risks where human error is concerned and also increases overall deployment times. Automated end-to-end deployments, with manual approval gates where necessary, should be used to ensure a consistent and efficient deployment process([Deployment considerations for DevOps](https://docs.microsoft.com/en-us/azure/architecture/framework/devops/deployment))",
-    "recommendation": "",
+    "context": "Manual deployment steps introduce significant risks where human error is concerned and also increases overall deployment times.",
+    "recommendation": "Manual deployment steps introduce significant risks where human error is concerned and also increases overall deployment times. Automated end-to-end deployments, with manual approval gates where necessary, should be used to ensure a consistent and efficient deployment process([Deployment considerations for DevOps](https://docs.microsoft.com/en-us/azure/architecture/framework/devops/deployment))",
     "children": [
       {
         "title": "Is there a documented process for any portions of the deployment that require manual intervention?",
         "context": "Without detailed release process documentation, there is a much higher risk of an operator improperly configuring settings for the application",
-        "recommendation": "",
-        "id": ""
+        "recommendation": "Any manual steps that are required in the deployment pipeline must be clearly documented with roles and responsibilties well defined.",
+        "id": "app_deploy_manualdocs"
       }
     ],
-    "id": ""
+    "id": "app_deploy_fromscratch"
   },
   {
     "type": "Questions",
@@ -1148,9 +1149,9 @@
     "category": "Deployment & Testing",
     "subCategory": "Application Deployments",
     "title": "How long does it take to deploy an entire production environment?",
-    "context": "The entire end-to-end deployment process should be understood and align with recovery targets",
-    "recommendation": "",
-    "id": ""
+    "context": "The time it takes for a full deployment needs to algin with recovery targets",
+    "recommendation": "The entire end-to-end deployment process should be understood and align with recovery targets",
+    "id": "app_deploy_duration"
   },
   {
     "type": "Questions",
@@ -1162,9 +1163,9 @@
     "category": "Deployment & Testing",
     "subCategory": "Application Deployments",
     "title": "Can N-1 or N+1 versions be deployed via automated pipelines where N is current deployment version in production?",
-    "context": "Automated deployment pipelines should allow for quick roll-forward and roll-back deployments to address critical bugs and code updates outside of the normal deployment lifecycle",
-    "recommendation": "",
-    "id": ""
+    "context": "N-1 and N+1 refer to roll-back and roll-forward.",
+    "recommendation": "Automated deployment pipelines should allow for quick roll-forward and roll-back deployments to address critical bugs and code updates outside of the normal deployment lifecycle",
+    "id": "app_deploy_n1"
   },
   {
     "type": "Questions",
@@ -1175,9 +1176,9 @@
     "category": "Deployment & Testing",
     "subCategory": "Application Deployments",
     "title": "Is there a defined hotfix process which bypasses normal deployment procedures?",
-    "context": "In some scenarios there is an operational need to rapidly deploy changes, such as critical security updates. Having a defined process for how such changes can be safely and effectively performed helps greatly to prevent 'heat of the moment' issues",
-    "recommendation": "",
-    "id": ""
+    "context": "",
+    "recommendation": "In some scenarios there is an operational need to rapidly deploy changes, such as critical security updates. Having a defined process for how such changes can be safely and effectively performed helps greatly to prevent 'heat of the moment' issues",
+    "id": "app_deploy_hotfix"
   },
   {
     "type": "Questions",
@@ -1189,9 +1190,9 @@
     "category": "Deployment & Testing",
     "subCategory": "Application Deployments",
     "title": "Does the application deployment process leverage blue-green deployments and/or canary releases?",
-    "context": "Blue-green deployments and/or canary releases can be used to deploy updates in a controlled manner that helps to minimize disruption from unanticipated deployment issues([Stage your workloads](https://docs.microsoft.com/en-us/azure/architecture/framework/devops/deployment#stage-your-workloads)) For example, Azure uses canary regions to test and validate new services and capabilities before they are more broadly rolled out to other Azure regions. Where appropriate the application can also use canary environments to validate changes before wider production rollout. Moreover, certain large application platforms may also derive benefit from leveraging Azure canary regions as a basis for validating the potential impact of Azure platform changes on the application.",
-    "recommendation": "",
-    "id": ""
+    "context": "Blue/green or canary deployments are a way to gradurally release new feature or changes without impacting all users at once.",
+    "recommendation": "Blue-green deployments and/or canary releases can be used to deploy updates in a controlled manner that helps to minimize disruption from unanticipated deployment issues([Stage your workloads](https://docs.microsoft.com/en-us/azure/architecture/framework/devops/deployment#stage-your-workloads)) For example, Azure uses canary regions to test and validate new services and capabilities before they are more broadly rolled out to other Azure regions. Where appropriate the application can also use canary environments to validate changes before wider production rollout. Moreover, certain large application platforms may also derive benefit from leveraging Azure canary regions as a basis for validating the potential impact of Azure platform changes on the application.",
+    "id": "app_deploy_bluegreen"
   },
   {
     "type": "Questions",
@@ -1202,17 +1203,17 @@
     "category": "Deployment & Testing",
     "subCategory": "Application Deployments",
     "title": "How does the development team manage application source code, builds, and releases?",
-    "context": "The use of source code control systems, such as Azure Repos or GitHub, and build and release systems, such as Azure Pipelines or GitHub Actions, should be understood, including the corresponding processes to access, review and approve changes",
-    "recommendation": "",
+    "context": "It is important to understand whether there is a systematic approach to the development and release process.",
+    "recommendation": "The use of source code control systems, such as Azure Repos or GitHub, and build and release systems, such as Azure Pipelines or GitHub Actions, should be understood, including the corresponding processes to access, review and approve changes",
     "children": [
       {
         "title": "If Git is used for source control, what branching strategy is used?",
-        "context": "To optimize for collaboration and ensure developers spend less time managing version control and more time developing code, a clear and simple branching strategy should be used, such as Trunk-Based Development which is employed internally within Microsoft Engineering([Microsoft Git Strategy](https://docs.microsoft.com/en-us/azure/devops/learn/devops-at-microsoft/use-git-microsoft))",
-        "recommendation": "",
-        "id": ""
+        "context": "While there are various valid ways, a clearly defined strategy should be in place and understood",
+        "recommendation": "To optimize for collaboration and ensure developers spend less time managing version control and more time developing code, a clear and simple branching strategy should be used, such as Trunk-Based Development which is employed internally within Microsoft Engineering([Microsoft Git Strategy](https://docs.microsoft.com/en-us/azure/devops/learn/devops-at-microsoft/use-git-microsoft))",
+        "id": "app_deploy_branching"
       }
     ],
-    "id": ""
+    "id": "app_deploy_devprocess"
   },
   {
     "type": "Questions",
@@ -1223,23 +1224,23 @@
     "category": "Deployment & Testing",
     "subCategory": "Application Infrastructure Deployments & Infrastructure as Code (IaC)",
     "title": "Is application infrastructure defined as code?",
-    "context": "It is highly recommended do describe the entire infrastructure as code, using either ARM Templates, Terraform, or other tools. This allows for proper versioning and configuration management, encouraging consistency and reproducibility across environments",
-    "recommendation": "",
+    "context": "",
+    "recommendation": "It is highly recommended do describe the entire infrastructure as code, using either ARM Templates, Terraform, or other tools. This allows for proper versioning and configuration management, encouraging consistency and reproducibility across environments",
     "children": [
       {
         "title": "Are any operational changes performed outside of IaC?",
-        "context": "Are any resources provisioned or operationally configured manually through the Azure Portal or via Azure CLI. It is recommended that even small operational changes and modifications be implemented as-code to track changes and ensure they are fully reproduceable and revertible",
-        "recommendation": "",
-        "id": ""
+        "context": "Are any resources provisioned or operationally configured manually through the Azure Portal or via Azure CLI?",
+        "recommendation": "It is recommended that even small operational changes and modifications be implemented as-code to track changes and ensure they are fully reproduceable and revertible. No infrastructure changes should be done manually outside of IaC.",
+        "id": "app_deploy_iacmanual"
       },
       {
         "title": "How does the application track and address configuration drift?",
-        "context": "Configuration drift occurs when changes are applied outside of IaC processes such as manual changes. Tools like terraform support a plan command that helps to identify change and monitor configuration drift, with Azure as the ultimate source of truth",
-        "recommendation": "",
-        "id": ""
+        "context": "Configuration drift occurs when changes are applied outside of IaC processes such as manual changes.",
+        "recommendation": "Tools like terraform support a plan command that helps to identify change and monitor configuration drift, with Azure as the ultimate source of truth",
+        "id": "app_deploy_configdrift"
       }
     ],
-    "id": ""
+    "id": "app_deploy_iac"
   },
   {
     "type": "Questions",
@@ -1250,9 +1251,9 @@
     "category": "Deployment & Testing",
     "subCategory": "Application Infrastructure Deployments & Infrastructure as Code (IaC)",
     "title": "Is the process to deploy infrastructure automated?",
-    "context": "It is recommended to use build and release tools to define automated or partially automated CI/CD pipelines",
-    "recommendation": "",
-    "id": ""
+    "context": "",
+    "recommendation": "It is recommended to use build and release tools to define automated or partially automated CI/CD pipelines for the entire infrastructure",
+    "id": "app_deploy_iacautomated"
   },
   {
     "type": "Questions",
@@ -1264,9 +1265,9 @@
     "category": "Deployment & Testing",
     "subCategory": "Build Environments",
     "title": "Do critical test environments have 1:1 parity with the production environment?",
-    "context": "To completely validate the suitability of application changes, all changes should be tested in an environment that is fully reflective of production, to ensure there is no potential impact from environment deltas",
-    "recommendation": "",
-    "id": ""
+    "context": "Do test environment differ from production in more than just smaller SKUs being used, e.g. by sharing components between different envs?",
+    "recommendation": "To completely validate the suitability of application changes, all changes should be tested in an environment that is fully reflective of production, to ensure there is no potential impact from environment deltas",
+    "id": "app_deploy_testparity"
   },
   {
     "type": "Questions",
@@ -1277,9 +1278,9 @@
     "category": "Deployment & Testing",
     "subCategory": "Build Environments",
     "title": "Are mocks/stubs used to test external dependencies in non-production environments?",
-    "context": "The use of dependent services should be appropriately reflected in test environments",
-    "recommendation": "",
-    "id": ""
+    "context": "",
+    "recommendation": "The use of dependent services should be appropriately reflected in test environments",
+    "id": "app_deploy_mocks"
   },
   {
     "type": "Questions",
@@ -1290,9 +1291,9 @@
     "category": "Deployment & Testing",
     "subCategory": "Build Environments",
     "title": "Are releases to production gated by having it successfully deployed and tested in other environments?",
-    "context": "It is recommended to have a staged deployment process which requires changes to have been validate in test environments first before they can hit production",
-    "recommendation": "",
-    "id": ""
+    "context": "",
+    "recommendation": "It is recommended to have a staged deployment process which requires changes to have been validate in test environments first before they can hit production",
+    "id": "app_deploy_gates"
   },
   {
     "type": "Questions",
@@ -1303,9 +1304,9 @@
     "category": "Deployment & Testing",
     "subCategory": "Build Environments",
     "title": "Are feature flags used to test features before rolling them out to everyone?",
-    "context": "Feature flags are a technique to help frequently integrate code into a shared repository, even if incomplete. It allows for deployment decisions to be separated from release decisions([Feature Flags](https://docs.microsoft.com/en-us/azure/architecture/framework/devops/development#feature-flags))",
-    "recommendation": "",
-    "id": ""
+    "context": "",
+    "recommendation": "To test new features quickly and without bigger risk, Feature flags are a technique to help frequently integrate code into a shared repository, even if incomplete. It allows for deployment decisions to be separated from release decisions([Feature Flags](https://docs.microsoft.com/en-us/azure/architecture/framework/devops/development#feature-flags))",
+    "id": "app_deploy_featureflags"
   },
   {
     "type": "Questions",
@@ -1375,7 +1376,7 @@
     "lens": "application",
     "category": "Deployment & Testing",
     "subCategory": "Testing & Validation",
-    "title": "Is unit testing performed to validate application functionality? ",
+    "title": "Is unit testing performed to validate application functionality?",
     "context": "Unit tests are typically run by each new version of code committed into version control. Unit Tests should be extensive and quick to verify things like syntax correctness of application code, Resource Manager templates or Terraform configurations, that the code is following best practices, or that they produce the expected results when provided certain inputs([Unit Testing](https://docs.microsoft.com/en-us/azure/architecture/framework/devops/testing#unit-testing))",
     "recommendation": "",
     "id": ""
@@ -1454,7 +1455,7 @@
     "lens": "application",
     "category": "Operational Model & DevOps",
     "subCategory": "General",
-    "title": "Are specific methodologies, like DevOps, used to structure the development and operations process? ",
+    "title": "Are specific methodologies, like DevOps, used to structure the development and operations process?",
     "context": "The contraction of “Dev” and “Ops” refers to replacing siloed Development and Operations to create multidisciplinary teams that now work together with shared and efficient practices and tools. Essential DevOps practices include agile planning, continuous integration, continuous delivery, and monitoring of applications (from [docs.microsoft.com](https://docs.microsoft.com/en-us/azure/devops/learn/what-is-devops)).",
     "recommendation": "",
     "id": ""
@@ -1526,7 +1527,7 @@
     "lens": "application",
     "category": "Operational Model & DevOps",
     "subCategory": "Roles & Responsibilities",
-    "title": "Are any broader teams responsible for operational aspects of the application? ",
+    "title": "Are any broader teams responsible for operational aspects of the application?",
     "context": "Different teams such as Central IT, Security, or Networking may be responsible for aspects of the application which are controlled centrally, such as a shared network virtual appliance (NVA).",
     "recommendation": "",
     "id": ""
@@ -1599,7 +1600,7 @@
     "lens": "application",
     "category": "Operational Model & DevOps",
     "subCategory": "Common Engineering Criteria",
-    "title": "Are tools and processes in place to govern available services, enforce mandatory operational functionality and ensure compliance? ",
+    "title": "Are tools and processes in place to govern available services, enforce mandatory operational functionality and ensure compliance?",
     "context": "Proper standards for naming, tagging, the deployment of specific configurations such as diagnostic logging, and the available set of services and regions is important to drive consistency and ensure compliance. Solutions like [Azure Policy](https://docs.microsoft.com/en-us/azure/governance/policy/overview) can help to enforce and assess compliance at-scale.",
     "recommendation": "",
     "id": ""
@@ -1826,7 +1827,7 @@
     "lens": "application",
     "category": "Application Design",
     "subCategory": "Design",
-    "title": "Has a Business Continuity Disaster Recovery (BCDR) strategy been defined for the application and/or its key scenarios? ",
+    "title": "Has a Business Continuity Disaster Recovery (BCDR) strategy been defined for the application and/or its key scenarios?",
     "context": "A disaster recovery strategy should capture how the application responds to a disaster situation such as a regional outage or the loss of a critical platform service, using either a re-deployment, warm-spare active-passive, or hot-spare active-active approach",
     "recommendation": "",
     "id": ""
@@ -1956,7 +1957,7 @@
     "lens": "application",
     "category": "Application Platform Availability",
     "subCategory": "Service SKU",
-    "title": "Are all application platform services running in a HA configuration/SKU? ",
+    "title": "Are all application platform services running in a HA configuration/SKU?",
     "context": "Azure application platform services offer resiliency features to support application reliability, though they may only be applicable at a certain SKU. For instance, Service Bus Premium SKU provides predictable latency and throughput to mitigate noisy neighbor scenarios, as well as the ability to automatically scale and replicate metadata to another Service Bus instance for failover purposes([Azure Service Bus Premium SKU](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging)",
     "recommendation": "",
     "id": ""
@@ -2128,7 +2129,7 @@
     "lens": "application",
     "category": "Networking & Connectivity",
     "subCategory": "Connectivity",
-    "title": "Is a global load balancer used to distribute traffic and/or failover across regions? ",
+    "title": "Is a global load balancer used to distribute traffic and/or failover across regions?",
     "context": "Azure Front Door, Azure Traffic Manager, or third-party CDN services can be used to direct inbound requests to external-facing application endpoints deployed across multiple regions. It is important to note that Traffic Manager is a DNS based load balancer, so failover must wait for DNS propagation to occur. A sufficiently low TTL (Time To Live) value should be used for DNS records, though not all ISPs may honor this. For application scenarios requiring transparent failover, Azure Front Door should be used([Disaster Recovery using Azure Traffic Manager](https://docs.microsoft.com/en-us/azure/networking/disaster-recovery-dns-traffic-manager))([Azure Frontdoor routing architecture](https://docs.microsoft.com/en-us/azure/frontdoor/front-door-routing-architecture))",
     "recommendation": "",
     "id": ""
