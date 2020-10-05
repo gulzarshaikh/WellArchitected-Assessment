@@ -824,7 +824,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
             
 * Does the application deployment process leverage blue-green deployments and/or canary releases?
 
-  _Blue/green or canary deployments are a way to gradurally release new feature or changes without impacting all users at once._
+  _Blue/green or canary deployments are a way to gradually release new feature or changes without impacting all users at once._
 
   > Blue-green deployments and/or canary releases can be used to deploy updates in a controlled manner that helps to minimize disruption from unanticipated deployment issues([Stage your workloads](https://docs.microsoft.com/en-us/azure/architecture/framework/devops/deployment#stage-your-workloads)) For example, Azure uses canary regions to test and validate new services and capabilities before they are more broadly rolled out to other Azure regions. Where appropriate the application can also use canary environments to validate changes before wider production rollout. Moreover, certain large application platforms may also derive benefit from leveraging Azure canary regions as a basis for validating the potential impact of Azure platform changes on the application.
 
