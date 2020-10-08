@@ -250,5 +250,16 @@
         "title": "IoT Hub Device Provisioning Service"
       }
     ]
+  },
+  {
+    "title": "SAP",
+    "subCategories": [
+      {
+        "title": "Design"
+      },
+      {
+        "title": "Platform support"
+      }
+    ]
   }
 ]
