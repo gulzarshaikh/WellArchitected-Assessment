@@ -20,7 +20,7 @@ For each scoped assessment, the content is structured through three technical le
 |||||
 | --- | --- | --- | --- |
 | [**Go-Live**](./assessments/golive/overview.md) | Application | Service | Scenario 
-| [**Reliability**](./assessments/reliability/overview.md) | [Application](./assessments/reliability/application.md) | [Service](assessments/reliability/service.md) | Scenario |
+| [**Reliability**](./assessments/reliability/overview.md) | [Application](./assessments/reliability/application.md) | [Service](assessments/reliability/service.md) | [Scenario](assessments/reliability/scenario.md) |
 | [**Operational Excellence**](./assessments/operationalexcellence/overview.md) | [Application](./assessments/operationalexcellence/application.md) | [Service](./assessments/operationalexcellence/service.md) | Scenario |
 | **Security** | Application | Service | Scenario |
 | [**Cost Optimization**](./assessments/costoptimization/overview.md) | [Application](./assessments/costoptimization/application.md) | [Service](./assessments/costoptimization/service.md) | Scenario |
