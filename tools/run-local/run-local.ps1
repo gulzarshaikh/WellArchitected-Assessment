@@ -16,7 +16,7 @@ if (Test-Path $generatorDir) {
 New-Item -ItemType Directory $generatorDir
 New-Item -ItemType Directory $generatorDir/data
 New-Item -ItemType Directory $generatorDir/output
-
+New-Item -ItemType Directory $generatorDir/templates/partials
 
 # Validate JSON
 # -------------
@@ -104,6 +104,13 @@ Get-ChildItem -Recurse -File $templateDir -Filter "*.md" | % {
 
     New-Item -ItemType Directory -Path "$generatorDir/templates/$project"
     Copy-Item -Path $_.FullName -Destination "$generatorDir/templates/$project/$project.md"
+}
+
+# Prepare partial content files for Hugo.          
+Get-ChildItem -Recurse -File $templateDir -Filter "*.partial" | % {
+    $partial = Split-Path $_ -Leaf
+    Write-Output "Adding partial file $partial to Hugo."
+    Copy-Item -Path $_.FullName -Destination "$generatorDir/templates/partials/$partial"
 }
 
 # Build Hugo content
