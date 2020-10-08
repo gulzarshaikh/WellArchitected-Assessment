@@ -4,8 +4,11 @@ Adaptation of the series of generator scripts used in GitHub Action. Allows to g
 
 ## Prerequisites
 
-* This scipt expects you to have Hugo installed in PATH. Chocolatey is a nice way of achieving that: `choco install hugo`.
-* PowerShell Core (7) is required.
+* This scipt expects you to have Hugo installed in PATH. Hugo must be at least version 0.4.8.
+    * On Windows: Chocolatey is a nice way of achieving that: `choco install hugo`. 
+    * On Linux: install a release from https://github.com/gohugoio/hugo - e.g. the .deb on Ubuntu using `dpkg -i`.
+* PowerShell Core (7) is required
+    * Install following instructions on the [PowerShell GitHub Repo](https://github.com/PowerShell/PowerShell#get-powershell)
 
 ## How to use with different branch
 
