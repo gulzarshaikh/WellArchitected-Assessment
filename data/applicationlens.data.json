@@ -1366,7 +1366,7 @@
     "title": "When is integration testing performed?",
     "context": "Integration tests should be applied as part of the application deployment process, to ensure that different application components  interact with each other as they should. Integration tests typically take longer than smoke testing, and as a consequence occur at a latter stage of the deployment process so they are executed less frequently([Integration Testing](https://docs.microsoft.com/en-us/azure/architecture/framework/devops/testing#integration-testing)",
     "recommendation": "",
-    "id": ""
+    "id": "app_depl_testing_when"
   },
   {
     "type": "Questions",
