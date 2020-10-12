@@ -29,7 +29,6 @@
 - [Operational Model &amp; DevOps](#Operational-Model--DevOps)
   - [General](#General)
   - [Roles &amp; Responsibilities](#Roles--Responsibilities)
-  - [CI/CD](#CICD)
 - [Identity &amp; Access Control](#Identity--Access-Control)
   - [Separation of duties](#Separation-of-duties)
   - [Control-plane RBAC](#Controlplane-RBAC)
@@ -437,6 +436,34 @@
   > Automated deployment pipelines should allow for quick roll-forward and roll-back deployments to address critical bugs and code updates outside of the normal deployment lifecycle
 
             
+* Is credential scanning included as part of automated build process?
+
+  _Credentials should not be stored in source code or configuration files, because that increases the risk of exposure. Code analyzers (such as Roslyn analyzers for Visual Studio) can prevent from pushing credentials to source code repository and pipeline addons such as CredScan (part of Microsoft Security Code Analysis) help to catch credentials during the build process._
+
+
+
+            
+* How are credentials, certificates and other secrets managed in CI/CD pipelines?
+
+  _Secrets need to be managed in a secure manner inside of the CI/CD pipeline. The secrets needs to be stored either in a secure store inside the pipeline or externally in Azure Key Vault. When deploying application infrastructure (e.g. with Azure Resource Manager or Terraform), credentials and keys should be generated during the process, stored directly in Key Vault and referenced by deployed resources. Hardcoded credentials should be avoided._
+
+
+
+            
+* Is code scan included in continuos integration (CI) process and are dependencies and framework components covered by this process?
+
+  _As part of the continuous integration process it is crucial that every release includes a scan of all components in use. Vulnerable dependencies should be flagged and investigated. This can done in combination with other code scanning tasks (e.g. code churn, test results/coverage)._
+
+
+
+            
+* Are branch policies used in source control management? How are they configured?
+
+  _Branch policies provide additional level of control over the code which is commited to the product. It is a common practice to not allow pushing against the main branch and require pull-request (PR) with code review before merging the changes by at least one reviewer, other than the change author. Different branches can have different purposes and access levels, for example: feature branches are created by developers and are open to push, integration branch requires PR and code-review and production branch requires additional approval from a senior developer before merging._
+
+
+
+            
         
 ## Build Environments
             
@@ -449,6 +476,13 @@
             
         
 ## Testing &amp; Validation
+            
+* Are you using Azure Security Center (ASC) to scan containers for vulnerabilities? Or any third-party solution?
+
+  _Azure Security Center is the Azure-native solution for securing containers. Security Center can protect virtual machines that are running Docker, Azure Kubernetes Service clusters, Azure Container Registry registries. ASC is able to scan container images and identify security issues, or provide real-time threat detection for containerized environments. [Container Security in Security Center](https://docs.microsoft.com/azure/security-center/container-security)_
+
+
+
             
 * Does the organization perform penetration testing or have a third-party entity perform penetration testing to validate the current security defenses put in place?
 
@@ -489,44 +523,6 @@
 * Is the security team involved in the planning and design so that they can implement security controls, auditing, response processes into the solutions?
 
   _There should be a process for onboarding service securely to Azure.  The onboarding process should include reviewing the configuration options to determine what logging/monitoring needs to be established, how to properly harden a resource before it goes into production.  For a list of common criteria for onboarding resoruces, see the [Service Enablement Framework](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/enterprise-scale/security-governance-and-compliance#service-enablement-framework)_
-
-
-
-            
-        
-## CI/CD
-            
-* Is credential scanning included as part of automated build process?
-
-  _Credentials should not be stored in source code or configuration files, because that increases the risk of exposure. Code analyzers (such as Roslyn analyzers for Visual Studio) can prevent from pushing credentials to source code repository and pipeline addons such as CredScan (part of Microsoft Security Code Analysis) help to catch credentials during the build process._
-
-
-
-            
-* How are credentials, certificates and other secrets managed in CI/CD pipelines?
-
-  _Secrets need to be managed in a secure manner inside of the CI/CD pipeline. The secrets needs to be stored either in a secure store inside the pipeline or externally in Azure Key Vault. When deploying application infrastructure (e.g. with Azure Resource Manager or Terraform), credentials and keys should be generated during the process, stored directly in Key Vault and referenced by deployed resources. Hardcoded credentials should be avoided._
-
-
-
-            
-* Is code scan included in continuos integration (CI) process and are dependencies and framework components covered by this process?
-
-  _As part of the continuous integration process it is crucial that every release includes a scan of all components in use. Vulnerable dependencies should be flagged and investigated. This can done in combination with other code scanning tasks (e.g. code churn, test results/coverage)._
-
-
-
-            
-* Are you using Azure Security Center (ASC) to scan containers for vulnerabilities? Or any third-party solution?
-
-  _Azure Security Center is the Azure-native solution for securing containers. Security Center can protect virtual machines that are running Docker, Azure Kubernetes Service clusters, Azure Container Registry registries. ASC is able to scan container images and identify security issues, or provide real-time threat detection for containerized environments. [Container Security in Security Center](https://docs.microsoft.com/azure/security-center/container-security)_
-
-
-
-            
-* Are branch policies used in source control management? How are they configured?
-
-  _Branch policies provide additional level of control over the code which is commited to the product. It is a common practice to not allow pushing against the main branch and require pull-request (PR) with code review before merging the changes by at least one reviewer, other than the change author. Different branches can have different purposes and access levels, for example: feature branches are created by developers and are open to push, integration branch requires PR and code-review and production branch requires additional approval from a senior developer before merging._
 
 
 
