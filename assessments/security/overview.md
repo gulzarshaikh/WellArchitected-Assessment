@@ -35,7 +35,6 @@ This security assessment has been produced to help the global CE&S community to 
   - [Operational Model &amp; DevOps](./application.md#Operational-Model--DevOps)
     - [General](./application.md#General)
     - [Roles &amp; Responsibilities](./application.md#Roles--Responsibilities)
-    - [CI/CD](./application.md#CICD)
   - [Identity &amp; Access Control](./application.md#Identity--Access-Control)
     - [Separation of duties](./application.md#Separation-of-duties)
     - [Control-plane RBAC](./application.md#Controlplane-RBAC)
