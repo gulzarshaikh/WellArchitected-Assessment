@@ -35,11 +35,11 @@
     
 ## Design
             
-* Are there any regulatory requirements around data sovereignty?
+* Are there any regulatory or governance requirements?
 
-  _Regulatory requirements may mandate that operational data, such as application logs and metrics, remain within a certain geo-political region. This has obvious implications for how the application should be operationalized_
+  _Regulatory requirements may mandate that operational data, such as application logs and metrics, remain within a certain geo-political region. This has obvious implications for how the application should be operationalized._
 
-  > Make sure that all regulatory requirements are known and well understood. Regulatory requirements like data sovereignty and others might affect the overall architecture as well as the selection and configuration of specific PaaS and SaaS services.
+  > Make sure that all regulatory requirements are known and well understood. Create processes for obtaining attestations and be familiar with the [Microsoft Trust Center](https://www.microsoft.com/trust-center). Regulatory requirements like data sovereignty and others might affect the overall architecture as well as the selection and configuration of specific PaaS and SaaS services.
 
             
 * Does the application have components on-premises or in another cloud platform?
@@ -258,7 +258,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
     - What technologies and frameworks are used by the application?
 
       _It is important to understand what technologies are used by the application and must be managed, such as .NET Core , Spring, or Node.js._
-      > All technologies and frameworks should be identified.
+      > All technologies and frameworks should be identified. Vulnerabilities of these dependencies must be understood (there are automated solutions on the market that can help: [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/) or [NPM audit](https://docs.npmjs.com/cli/audit)).
 
             
 * Are components hosted on shared application or data platforms which are used by other applications?
@@ -671,14 +671,14 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
   _Are secrets stored in a specially protected way or in the same way as any other application configuration?_
 
-  > Tools like Azure Key Vault or HashiCorp Vault should be used to store and manage secrets securely rather than being baked into the application artefact during deployment, as this simplifies operational tasks like key rotation as well as improving overall security
+  > Tools like Azure Key Vault or HashiCorp Vault should be used to store and manage secrets securely rather than being baked into the application artefact during deployment, as this simplifies operational tasks like key rotation as well as improving overall security. Keys and secrets stored in source code should be identified with static code scanning tools. Ensure that these scans are an integrated part of the continuous integration (CI) process.
 
             
 * Do you have procedures in place for key/secret rotation?
 
-  _In the situation where a key or secret becomes compromised, it is important to be able to quickly act and generate new versions._
+  _In the situation where a key or secret becomes compromised, it is important to be able to quickly act and generate new versions. Key rotation reduces the attack vectors and should be automated and executed without any human interactions._
 
-  > Tools, such as Azure Key Vault should ideally be used to store and manage application secrets to help with rotation processes([Key Vault Key Rotation](https://docs.microsoft.com/en-us/azure/key-vault/secrets/tutorial-rotation-dual))
+  > Secrets (keys, certificates etc.) should be replaced once they have reached the end of their active lifetime or once they have been compromised. Renewed certificates should also use a new key. A process needs to be in place for situations where keys get compromised (leaked) and need to be regenerated on-demand. Tools, such as Azure Key Vault should ideally be used to store and manage application secrets to help with rotation processes([Key Vault Key Rotation](https://docs.microsoft.com/azure/key-vault/secrets/tutorial-rotation-dual))
 
             
 * Does the application use Managed Identities?

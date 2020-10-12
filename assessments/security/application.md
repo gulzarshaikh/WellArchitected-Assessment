@@ -5,6 +5,7 @@
   - [Unassigned](#Unassigned)
 - [Application Design](#Application-Design)
   - [Design](#Design)
+  - [Application Composition](#Application-Composition)
   - [Threat Analysis](#Threat-Analysis)
   - [Security Criteria &amp; Data Classification](#Security-Criteria--Data-Classification)
   - [Dependencies, frameworks and libraries](#Dependencies-frameworks-and-libraries)
@@ -22,6 +23,7 @@
   - [Patch &amp; Update Process (PNU)](#Patch--Update-Process-PNU)
   - [Incident Response](#Incident-Response)
 - [Deployment &amp; Testing](#Deployment--Testing)
+  - [Application Deployments](#Application-Deployments)
   - [Build Environments](#Build-Environments)
   - [Testing &amp; Validation](#Testing--Validation)
 - [Operational Model &amp; DevOps](#Operational-Model--DevOps)
@@ -55,6 +57,13 @@
     
 ## Design
             
+* Are there any regulatory or governance requirements?
+
+  _Regulatory requirements may mandate that operational data, such as application logs and metrics, remain within a certain geo-political region. This has obvious implications for how the application should be operationalized._
+
+  > Make sure that all regulatory requirements are known and well understood. Create processes for obtaining attestations and be familiar with the [Microsoft Trust Center](https://www.microsoft.com/trust-center). Regulatory requirements like data sovereignty and others might affect the overall architecture as well as the selection and configuration of specific PaaS and SaaS services.
+
+            
 * Are errors and exceptions handled properly without exposing information to users?
 
   _Providing unnecessary information to end users in case of application failure should be avoided. Revealing detailed error information (call stack, SQL queries, out of range errors...) can provide attackers with valuable information about the internals of the application. Error handlers should make the application fail gracefully and log the error._
@@ -67,6 +76,26 @@
   _Information revealing the application platform, such as HTTP banners containing framework information ("`X-Powered-By`", "`X-ASPNET-VERSION`"), are commonly used by malicious actors when mapping attack vectors of the application. HTTP headers, error messages, website footers etc. should not contain information about the application platform. Azure CDN or Cloudflare can be used to separate the hosting platform from end users, Azure API Management offers [transformation policies](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies) that allow to modify HTTP headers and remove sensitive information._
 
 
+
+            
+        
+## Application Composition
+            
+* What Azure services are used by the application?
+
+  _It is important to understand what Azure services, such as App Services and Event Hub, are used by the application platform to host both application code and data._
+
+  > All Azure services in use should be identified.
+
+    - What operational features/capabilities are used for leveraged services?
+
+      _Operational capabilities, such as auto-scale and auto-heal for AppServices, can reduce management overheads and support operational effectiveness._
+      > Make sure you understand the operational features/capabilities available and how they can be used in the solution.
+
+    - What technologies and frameworks are used by the application?
+
+      _It is important to understand what technologies are used by the application and must be managed, such as .NET Core , Spring, or Node.js._
+      > All technologies and frameworks should be identified. Vulnerabilities of these dependencies must be understood (there are automated solutions on the market that can help: [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/) or [NPM audit](https://docs.npmjs.com/cli/audit)).
 
             
         
@@ -96,13 +125,6 @@
         
 ## Security Criteria &amp; Data Classification
             
-* Do you have any regulatory or governance requirements?
-
-  _Determine what regulatory requirements they have to meet for the solution. How is this measured and who approves that it meets the requirements. Do they have processes for obtaining attestations and are they aware of the [Microsoft Trust Center](https://www.microsoft.com/trust-center)?_
-
-
-
-            
 * How do you monitor and maintain your compliance?
 
   _Find out how they make sure they maintain compliance as the Azure Platform evolves and they update their application. Are there things preventing them from adopting new features in the platform because it will knock them out of compliance?_
@@ -119,13 +141,6 @@
             
         
 ## Dependencies, frameworks and libraries
-            
-* What are the frameworks and libraries used by the application?
-
-  _Understanding of the frameworks and libraries (custom, OSS, 3rd party, etc.) used by the application and the resulting vulnerabilities is important. There are automated solutions on the market that can help with this assessment: [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/) or [NPM audit](https://docs.npmjs.com/cli/audit)._
-
-
-
             
 * Does the application team maintain a list frameworks and libraries?
 
@@ -334,11 +349,25 @@
   > Preferably configuration information is stored using a dedicated configuration management system like Azure App Configuration or Azure Key Vault so that it can be updated independently of the application code.
 
             
-* Are application keys and secrets stored securely?
+* How are passwords and other secrets managed?
 
-  _API keys, database connection string and passwords need to be stored in a secure store and not within the application code or configuration. Keys and secrets stored in source code should be identified with static code scanning tools. Ensure that these scans are an integrated part of the continuous integration (CI) process._
+  _Are secrets stored in a specially protected way or in the same way as any other application configuration?_
 
+  > Tools like Azure Key Vault or HashiCorp Vault should be used to store and manage secrets securely rather than being baked into the application artefact during deployment, as this simplifies operational tasks like key rotation as well as improving overall security. Keys and secrets stored in source code should be identified with static code scanning tools. Ensure that these scans are an integrated part of the continuous integration (CI) process.
 
+            
+* Do you have procedures in place for key/secret rotation?
+
+  _In the situation where a key or secret becomes compromised, it is important to be able to quickly act and generate new versions. Key rotation reduces the attack vectors and should be automated and executed without any human interactions._
+
+  > Secrets (keys, certificates etc.) should be replaced once they have reached the end of their active lifetime or once they have been compromised. Renewed certificates should also use a new key. A process needs to be in place for situations where keys get compromised (leaked) and need to be regenerated on-demand. Tools, such as Azure Key Vault should ideally be used to store and manage application secrets to help with rotation processes([Key Vault Key Rotation](https://docs.microsoft.com/azure/key-vault/secrets/tutorial-rotation-dual))
+
+            
+* Are the expiry dates of SSL certificates monitored and are processes in place to renew them?
+
+  _Expired SSL certificates are one of the most common yet avoidable causes of application outages; even Azure and more recently Microsoft Teams have experienced outages due to expired certificates._
+
+  > Tracking expiry dates of SSL certificates and renewing them in due time is therefore highly critical. Ideally the process should be automated, although this often depends on leveraged CA. If not automated, sufficient alerting should be applied to ensure expiry dates do not go unnoticed
 
             
 * Are Azure policies used to control the configuration of the solution resources?
@@ -365,27 +394,6 @@
 * What types of keys and secrets are used and how are those generated?
 
   _Different approaches can be used by the workload team. Decisions are often driven by security, compliance and specific data classification requirements. Understanding these requirements is important to determine which key types are best suitable (MMK - Microsoft-managed Keys, CMK - Customer-managed Keys or BYOK - Bring Your Own Key)._
-
-
-
-            
-* What mechanisms are in place for replacing secrets if needed?
-
-  _Secrets (keys, certificates etc.) should be replaced once they have reached the end of their active lifetime or once they have been compromised. Renewed certificates should also use a new key. A process needs to be in place for situations where keys get compromised (leaked) and need to be regenerated on-demand. Example: [secrets rotation in SQL Database](https://docs.microsoft.com/azure/key-vault/secrets/tutorial-rotation)._
-
-
-
-            
-* Are keys and secrets rotated frequently?
-
-  _Key rotation reduces the attack vectors and should be automated and executed without any human interactions._
-
-
-
-            
-* What processes are in place to manage SSL certificates and their renewal?
-
-  _Key and certificate rotation is often the cause of application outages; even Azure itself has fallen victim to expired certificates in the past. It is therefore critical that the rotation of keys and certificates be scheduled and fully operationalized. The rotation process should be fully automated and tested to ensure effectiveness [Azure Key Vault key rotation and auditing](https://docs.microsoft.com/azure/key-vault/secrets/key-rotation-log-monitoring)._
 
 
 
@@ -420,6 +428,16 @@
         
 # Deployment &amp; Testing
     
+## Application Deployments
+            
+* Can N-1 or N+1 versions be deployed via automated pipelines where N is current deployment version in production?
+
+  _N-1 and N+1 refer to roll-back and roll-forward._
+
+  > Automated deployment pipelines should allow for quick roll-forward and roll-back deployments to address critical bugs and code updates outside of the normal deployment lifecycle
+
+            
+        
 ## Build Environments
             
 * Are self-hosted build agents used in the Azure DevOps CI/CD pipelines?
@@ -454,13 +472,6 @@
 * Does the organization leverage DevOps security guidance based on industry lessons-learned, and available automation tools (OWASP guidance, Microsoft toolkit for Secure DevOps etc.)?
 
   _Organizations should leverage a control framework such as NIST, CIS or ASB [(Azure Security Benchmarks)](https://docs.microsoft.com/azure/security/benchmarks/) for securing applications on the cloud rather than starting from zero._
-
-
-
-            
-* Can N-1 or N+1 versions be deployed via automated pipelines where N is current deployment version in production?
-
-  _Automated deployment pipelines should allow for quick roll-forward and roll-back deployments to address critical bugs and code updates outside of the normal deployment lifecycle._
 
 
 
