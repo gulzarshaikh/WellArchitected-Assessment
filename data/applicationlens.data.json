@@ -1353,7 +1353,7 @@
     "title": "Are smoke tests performed during application deployments?",
     "context": "Smoke tests are a lightweight way to perform high-level validation of changes. For instance, performing a ping test immediately after a deployment([Smoke Testing](https://docs.microsoft.com/en-us/azure/architecture/framework/devops/testing#smoke-testing))",
     "recommendation": "",
-    "id": ""
+    "id": "app_depl_testing_smoketest"
   },
   {
     "type": "Questions",
