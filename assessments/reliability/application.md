@@ -43,13 +43,17 @@
   - [Build Environments](#Build-Environments)
   - [Testing &amp; Validation](#Testing--Validation)
 
+
 # Design Principles
 
-The following Design Principles provide context for questions, why a certain aspect is important and how is it applicable to Reliability.
+The following Design Principles provide context for questions, why a certain aspect is important and how is it applicable to this pillar.
 
-- Expect failures
+
+* Expect failures
 
   _When operating on cloud-scale, expect and prepare for failures, rather than trying to prevent them._
+
+
 
 # Application Design
     
