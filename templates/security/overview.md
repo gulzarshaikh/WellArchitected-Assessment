@@ -1,4 +1,4 @@
-[![Security Assessment](/templates/media/reliability-icon.png "Security Assessment")](#)
+[![Security Assessment](/templates/media/security-icon.png "Security Assessment")](#)
 
 This security assessment has been produced to help the global CE&S community to identify key risks to the security of applications built on Azure, providing key recommendations to better serve our customers.
 
