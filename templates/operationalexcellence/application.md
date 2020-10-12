@@ -20,6 +20,14 @@
     {{- end -}}
 {{- end -}}
 
+
+# Design Principles
+{{- $designPrinciples := where $filtered "type" "Design Principles" }}
+{{- range $dp := $designPrinciples -}}
+    - {{ .title }}
+{{ if .context }}  _{{ safeHTML (trim .context " ") }}_{{ end }}
+{{ end }}
+
 {{- range $category := $.Site.Data.categories -}}
     {{- $questionsInCategory := where $filtered "category" $category.title -}}
     {{- if $questionsInCategory }}
