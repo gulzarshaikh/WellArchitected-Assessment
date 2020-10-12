@@ -40,19 +40,19 @@
 The following Design Principles provide context for questions, why a certain aspect is important and how is it applicable to this pillar.
 
 
-* Optimize build and release processes
+## Optimize build and release processes
 
-  _From provisioning with Infrastructure as Code, to build and releases with CI/CD pipelines, to automated testing, embrace software engineering discipline across your entire environment. This approach ensures the creation and management of environments throughout the software development lifecycle is consistent and enables early detection of issues._
-
-
-* Monitor system and operational health
-
-  _Identify and monitor metrics for build and release processes, infrastructure health, and application health. Telemetry is critical to understanding the health of a workload and whether the service is meeting the business goals._
+  From provisioning with Infrastructure as Code, to build and releases with CI/CD pipelines, to automated testing, embrace software engineering discipline across your entire environment. This approach ensures the creation and management of environments throughout the software development lifecycle is consistent and enables early detection of issues. 
 
 
-* Rehearse recovery and practice failure
+## Monitor system and operational health
 
-  _Run DR drills on regular cadence and use chaos engineering practices to identify and remediate weak points in application reliability. Regular rehearsal of failure will validate the effectiveness of recovery processes and ensure teams are familiar with their responsibilities._
+  Identify and monitor metrics for build and release processes, infrastructure health, and application health. Telemetry is critical to understanding the health of a workload and whether the service is meeting the business goals. 
+
+
+## Rehearse recovery and practice failure
+
+  Run DR drills on regular cadence and use chaos engineering practices to identify and remediate weak points in application reliability. Regular rehearsal of failure will validate the effectiveness of recovery processes and ensure teams are familiar with their responsibilities. 
 
 
 
