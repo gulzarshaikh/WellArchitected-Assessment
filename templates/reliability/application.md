@@ -4,8 +4,12 @@
 {{- $lens := "application" -}}
 
 {{- $filtered := where (where (where $.Site.Data.input "pillars" "intersect" $pillars) "lens" $lens) "type" "Questions" }}
+{{ $designPrinciples := where (where $.Site.Data.input "pillars" "intersect" $pillars) "type" "Design Principles" }}
 
 # Navigation Menu
+{{ if $designPrinciples }}
+- [Design Principles](#design-principles)
+{{- end -}}
 {{- range $category := $.Site.Data.categories -}}
     {{- $questionsInCategory := where $filtered "category" $category.title -}}
     {{- if $questionsInCategory }}
@@ -19,7 +23,6 @@
     {{- end -}}
 {{- end }}
 
-{{ $designPrinciples := where (where $.Site.Data.input "pillars" "intersect" $pillars) "type" "Design Principles" }}
 {{ partial "application-designprinciples.partial" $designPrinciples }}
 
 {{- range $category := $.Site.Data.categories -}}

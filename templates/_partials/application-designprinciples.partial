@@ -9,4 +9,7 @@ The following Design Principles provide context for questions, why a certain asp
 {{ if .context }}  _{{ safeHTML (trim .context " ") }}_{{ end }}
 
 {{ end }}
+
+---
+
 {{ end }}
