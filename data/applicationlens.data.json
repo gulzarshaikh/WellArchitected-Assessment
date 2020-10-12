@@ -2,14 +2,15 @@
   {
     "type": "Questions",
     "pillars": [
-      "operationalexcellence"
+      "operationalexcellence",
+      "security"
     ],
     "lens": "application",
     "category": "Application Design",
     "subCategory": "Design",
-    "title": "Are there any regulatory requirements around data sovereignty?",
-    "context": "Regulatory requirements may mandate that operational data, such as application logs and metrics, remain within a certain geo-political region. This has obvious implications for how the application should be operationalized",
-    "recommendation": "Make sure that all regulatory requirements are known and well understood. Regulatory requirements like data sovereignty and others might affect the overall architecture as well as the selection and configuration of specific PaaS and SaaS services.",
+    "title": "Are there any regulatory or governance requirements?",
+    "context": "Regulatory requirements may mandate that operational data, such as application logs and metrics, remain within a certain geo-political region. This has obvious implications for how the application should be operationalized.",
+    "recommendation": "Make sure that all regulatory requirements are known and well understood. Create processes for obtaining attestations and be familiar with the [Microsoft Trust Center](https://www.microsoft.com/trust-center). Regulatory requirements like data sovereignty and others might affect the overall architecture as well as the selection and configuration of specific PaaS and SaaS services.",
     "id": "app_design_datasovereignty"
   },
   {
@@ -255,7 +256,8 @@
   {
     "type": "Questions",
     "pillars": [
-      "operationalexcellence"
+      "operationalexcellence",
+      "security"
     ],
     "lens": "application",
     "category": "Application Design",
@@ -273,7 +275,7 @@
       {
         "title": "What technologies and frameworks are used by the application?",
         "context": "It is important to understand what technologies are used by the application and must be managed, such as .NET Core , Spring, or Node.js.",
-        "recommendation": "All technologies and frameworks should be identified.",
+        "recommendation": "All technologies and frameworks should be identified. Vulnerabilities of these dependencies must be understood (there are automated solutions on the market that can help: [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/) or [NPM audit](https://docs.npmjs.com/cli/audit)).",
         "id": "app_design_services_frameworks"
       }
     ],
@@ -907,28 +909,30 @@
   {
     "type": "Questions",
     "pillars": [
-      "operationalexcellence"
+      "operationalexcellence",
+      "security"
     ],
     "lens": "application",
     "category": "Operational Procedures",
     "subCategory": "Configuration & Secrets Management",
     "title": "How are passwords and other secrets managed?",
     "context": "Are secrets stored in a specially protected way or in the same way as any other application configuration?",
-    "recommendation": "Tools like Azure Key Vault or HashiCorp Vault should be used to store and manage secrets securely rather than being baked into the application artefact during deployment, as this simplifies operational tasks like key rotation as well as improving overall security",
+    "recommendation": "Tools like Azure Key Vault or HashiCorp Vault should be used to store and manage secrets securely rather than being baked into the application artefact during deployment, as this simplifies operational tasks like key rotation as well as improving overall security. Keys and secrets stored in source code should be identified with static code scanning tools. Ensure that these scans are an integrated part of the continuous integration (CI) process.",
     "id": "app_ops_secretmanagement"
   },
   {
     "type": "Questions",
     "pillars": [
       "operationalexcellence",
-      "reliability"
+      "reliability",
+      "security"
     ],
     "lens": "application",
     "category": "Operational Procedures",
     "subCategory": "Configuration & Secrets Management",
     "title": "Do you have procedures in place for key/secret rotation?",
-    "context": "In the situation where a key or secret becomes compromised, it is important to be able to quickly act and generate new versions.",
-    "recommendation": "Tools, such as Azure Key Vault should ideally be used to store and manage application secrets to help with rotation processes([Key Vault Key Rotation](https://docs.microsoft.com/en-us/azure/key-vault/secrets/tutorial-rotation-dual))",
+    "context": "In the situation where a key or secret becomes compromised, it is important to be able to quickly act and generate new versions. Key rotation reduces the attack vectors and should be automated and executed without any human interactions.",
+    "recommendation": "Secrets (keys, certificates etc.) should be replaced once they have reached the end of their active lifetime or once they have been compromised. Renewed certificates should also use a new key. A process needs to be in place for situations where keys get compromised (leaked) and need to be regenerated on-demand. Tools, such as Azure Key Vault should ideally be used to store and manage application secrets to help with rotation processes([Key Vault Key Rotation](https://docs.microsoft.com/azure/key-vault/secrets/tutorial-rotation-dual))",
     "id": "app_ops_secretrotation"
   },
   {
@@ -983,7 +987,8 @@
   {
     "type": "Questions",
     "pillars": [
-      "operationalexcellence"
+      "operationalexcellence",
+      "security"
     ],
     "lens": "application",
     "category": "Operational Procedures",
@@ -1158,7 +1163,8 @@
     "type": "Questions",
     "pillars": [
       "operationalexcellence",
-      "reliability"
+      "reliability",
+      "security"
     ],
     "lens": "application",
     "category": "Deployment & Testing",
@@ -2725,19 +2731,6 @@
     "lens": "application",
     "category": "Application Design",
     "subCategory": "Security Criteria & Data Classification",
-    "title": "Do you have any regulatory or governance requirements?",
-    "recommendation": "",
-    "id": "application_design_291",
-    "context": "Determine what regulatory requirements they have to meet for the solution. How is this measured and who approves that it meets the requirements. Do they have processes for obtaining attestations and are they aware of the [Microsoft Trust Center](https://www.microsoft.com/trust-center)?"
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Application Design",
-    "subCategory": "Security Criteria & Data Classification",
     "title": "How do you monitor and maintain your compliance?",
     "recommendation": "",
     "id": "application_design_6814",
@@ -2764,19 +2757,6 @@
     "lens": "application",
     "category": "Application Design",
     "subCategory": "Dependencies, frameworks and libraries",
-    "title": "What are the frameworks and libraries used by the application?",
-    "recommendation": "",
-    "id": "application_design_8245",
-    "context": "Understanding of the frameworks and libraries (custom, OSS, 3rd party, etc.) used by the application and the resulting vulnerabilities is important. There are automated solutions on the market that can help with this assessment: [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/) or [NPM audit](https://docs.npmjs.com/cli/audit)."
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Application Design",
-    "subCategory": "Dependencies, frameworks and libraries",
     "title": "Does the application team maintain a list frameworks and libraries?",
     "recommendation": "",
     "id": "application_design_9273",
@@ -2794,19 +2774,6 @@
     "recommendation": "",
     "id": "application_design_6294",
     "context": "Application frameworks are frequently provided with updates (e.g. security), released by the vendor or communities. Critical and important security patches need to be prioritized."
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Operational Procedures",
-    "subCategory": "Configuration & Secrets Management",
-    "title": "Are application keys and secrets stored securely?",
-    "recommendation": "",
-    "id": "operational_procedures_9524",
-    "context": "API keys, database connection string and passwords need to be stored in a secure store and not within the application code or configuration. Keys and secrets stored in source code should be identified with static code scanning tools. Ensure that these scans are an integrated part of the continuous integration (CI) process."
   },
   {
     "type": "Questions",
@@ -3152,32 +3119,6 @@
       "security"
     ],
     "lens": "application",
-    "category": "Operational Procedures",
-    "subCategory": "Configuration & Secrets Management",
-    "title": "What mechanisms are in place for replacing secrets if needed?",
-    "recommendation": "",
-    "id": "operational_procedures_4466",
-    "context": "Secrets (keys, certificates etc.) should be replaced once they have reached the end of their active lifetime or once they have been compromised. Renewed certificates should also use a new key. A process needs to be in place for situations where keys get compromised (leaked) and need to be regenerated on-demand. Example: [secrets rotation in SQL Database](https://docs.microsoft.com/azure/key-vault/secrets/tutorial-rotation)."
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Operational Procedures",
-    "subCategory": "Configuration & Secrets Management",
-    "title": "Are keys and secrets rotated frequently?",
-    "recommendation": "",
-    "id": "operational_procedures_9150",
-    "context": "Key rotation reduces the attack vectors and should be automated and executed without any human interactions."
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
     "category": "Networking & Connectivity",
     "subCategory": "Endpoints",
     "title": "Is there a clear distinction between endpoints exposed to public internet and internal ones?",
@@ -3355,19 +3296,6 @@
       "security"
     ],
     "lens": "application",
-    "category": "Operational Procedures",
-    "subCategory": "Configuration & Secrets Management",
-    "title": "What processes are in place to manage SSL certificates and their renewal?",
-    "recommendation": "",
-    "id": "operational_procedures_5965",
-    "context": "Key and certificate rotation is often the cause of application outages; even Azure itself has fallen victim to expired certificates in the past. It is therefore critical that the rotation of keys and certificates be scheduled and fully operationalized. The rotation process should be fully automated and tested to ensure effectiveness [Azure Key Vault key rotation and auditing](https://docs.microsoft.com/azure/key-vault/secrets/key-rotation-log-monitoring)."
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
     "category": "Security & Compliance",
     "subCategory": "Encryption",
     "title": "Are modern hashing functions used?",
@@ -3473,19 +3401,6 @@
     "recommendation": "",
     "id": "operational_model__devops_9812",
     "context": "There should be a process for onboarding service securely to Azure.  The onboarding process should include reviewing the configuration options to determine what logging/monitoring needs to be established, how to properly harden a resource before it goes into production.  For a list of common criteria for onboarding resoruces, see the [Service Enablement Framework](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/enterprise-scale/security-governance-and-compliance#service-enablement-framework)"
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Operational Model & DevOps",
-    "subCategory": "General",
-    "title": "Can N-1 or N+1 versions be deployed via automated pipelines where N is current deployment version in production?",
-    "recommendation": "",
-    "id": "operational_model__devops_1129",
-    "context": "Automated deployment pipelines should allow for quick roll-forward and roll-back deployments to address critical bugs and code updates outside of the normal deployment lifecycle."
   },
   {
     "type": "Questions",
