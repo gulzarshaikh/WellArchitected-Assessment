@@ -1,6 +1,8 @@
 # Application Operational Excellence
 
 # Navigation Menu
+- [General](#General)
+  - [Unassigned](#Unassigned)
 - [Application Design](#Application-Design)
   - [Design](#Design)
   - [Targets &amp; Non Functional Requirements](#Targets--Non-Functional-Requirements)
@@ -30,7 +32,39 @@
 - [Operational Model &amp; DevOps](#Operational-Model--DevOps)
   - [General](#General)
   - [Roles &amp; Responsibilities](#Roles--Responsibilities)
-  - [Common Engineering Criteria](#Common-Engineering-Criteria)
+  - [Common Engineering Criteria](#Common-Engineering-Criteria)# Design Principles- Optimize build and release processes
+  _From provisioning with Infrastructure as Code, to build and releases with CI/CD pipelines, to automated testing, embrace software engineering discipline across your entire environment. This approach ensures the creation and management of environments throughout the software development lifecycle is consistent and enables early detection of issues._
+- Monitor system and operational health
+  _Identify and monitor metrics for build and release processes, infrastructure health, and application health. Telemetry is critical to understanding the health of a workload and whether the service is meeting the business goals._
+- Rehearse recovery and practice failure
+  _Run DR drills on regular cadence and use chaos engineering practices to identify and remediate weak points in application reliability. Regular rehearsal of failure will validate the effectiveness of recovery processes and ensure teams are familiar with their responsibilities._
+
+# General
+    
+## Unassigned
+            
+* Optimize build and release processes
+
+  _From provisioning with Infrastructure as Code, to build and releases with CI/CD pipelines, to automated testing, embrace software engineering discipline across your entire environment. This approach ensures the creation and management of environments throughout the software development lifecycle is consistent and enables early detection of issues._
+
+
+
+            
+* Monitor system and operational health
+
+  _Identify and monitor metrics for build and release processes, infrastructure health, and application health. Telemetry is critical to understanding the health of a workload and whether the service is meeting the business goals._
+
+
+
+            
+* Rehearse recovery and practice failure
+
+  _Run DR drills on regular cadence and use chaos engineering practices to identify and remediate weak points in application reliability. Regular rehearsal of failure will validate the effectiveness of recovery processes and ensure teams are familiar with their responsibilities._
+
+
+
+            
+        
 # Application Design
     
 ## Design
