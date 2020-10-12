@@ -20,18 +20,7 @@
 {{- end }}
 
 {{ $designPrinciples := where (where $.Site.Data.input "pillars" "intersect" $pillars) "type" "Design Principles" }}
-{{- if $designPrinciples -}}
-# Design Principles
-
-The following Design Principles provide context for questions, why a certain aspect is important and how is it applicable to Reliability.
-
-{{ range $designPrinciples -}}
-    - {{ .title }}
-
-{{ if .context }}  _{{ safeHTML (trim .context " ") }}_{{ end }}
-
-{{- end }}
-{{ end }}
+{{ partial "application-designprinciples.partial" $designPrinciples }}
 
 {{- range $category := $.Site.Data.categories -}}
     {{- $questionsInCategory := where $filtered "category" $category.title -}}

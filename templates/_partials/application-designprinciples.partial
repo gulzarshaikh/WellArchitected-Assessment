@@ -1,0 +1,12 @@
+{{- if . -}}
+# Design Principles
+
+The following Design Principles provide context for questions, why a certain aspect is important and how is it applicable to this pillar.
+
+{{ range . }}
+* {{ safeHTML .title }}
+
+{{ if .context }}  _{{ safeHTML (trim .context " ") }}_{{ end }}
+
+{{ end }}
+{{ end }}
