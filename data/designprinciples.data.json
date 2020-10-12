@@ -34,5 +34,17 @@
         "title": "Rehearse recovery and practice failure",
         "context": "Run DR drills on regular cadence and use chaos engineering practices to identify and remediate weak points in application reliability. Regular rehearsal of failure will validate the effectiveness of recovery processes and ensure teams are familiar with their responsibilities.",
         "id": "dp_opex_3"
+    },
+    {
+        "type": "Design Principles",
+        "pillars": [
+            "reliability"
+        ],
+        "lens": "application",
+        "category": "General",
+        "subCategory": "Unassigned",
+        "title": "Expect failures",
+        "context": "When operating on cloud-scale, expect and prepare for failures, rather than trying to prevent them.",
+        "id": "dp_reliability_1"
     }
 ]

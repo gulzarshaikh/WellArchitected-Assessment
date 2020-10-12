@@ -3,8 +3,7 @@
 {{- $pillars := slice "reliability" -}}
 {{- $lens := "application" -}}
 
-{{- $filtered := where $.Site.Data.input "pillars" "intersect" $pillars -}}
-{{- $filtered = where $filtered "lens" $lens }}
+{{- $filtered := where (where (where $.Site.Data.input "pillars" "intersect" $pillars) "lens" $lens) "type" "Questions" }}
 
 # Navigation Menu
 {{- range $category := $.Site.Data.categories -}}
@@ -18,7 +17,21 @@
             {{- end -}}
         {{- end -}}
     {{- end -}}
-{{- end -}}
+{{- end }}
+
+{{ $designPrinciples := where (where $.Site.Data.input "pillars" "intersect" $pillars) "type" "Design Principles" }}
+{{- if $designPrinciples -}}
+# Design Principles
+
+The following Design Principles provide context for questions, why a certain aspect is important and how is it applicable to Reliability.
+
+{{ range $designPrinciples -}}
+    - {{ .title }}
+
+{{ if .context }}  _{{ safeHTML (trim .context " ") }}_{{ end }}
+
+{{- end }}
+{{ end }}
 
 {{- range $category := $.Site.Data.categories -}}
     {{- $questionsInCategory := where $filtered "category" $category.title -}}
