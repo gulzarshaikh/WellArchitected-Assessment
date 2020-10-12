@@ -5,7 +5,7 @@
 $dataDir = "../../data"
 $templateDir = "../../templates"
 $generatorDir = "generator"
-$outputDir = "assesments"
+$outputDir = "assessments"
 
 # Cleanup
 # -------
