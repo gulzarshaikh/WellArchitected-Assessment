@@ -1,6 +1,9 @@
 # Application Operational Excellence
 
+
 # Navigation Menu
+
+- [Design Principles](#design-principles)
 - [Application Design](#Application-Design)
   - [Design](#Design)
   - [Targets &amp; Non Functional Requirements](#Targets--Non-Functional-Requirements)
@@ -32,7 +35,6 @@
   - [Roles &amp; Responsibilities](#Roles--Responsibilities)
   - [Common Engineering Criteria](#Common-Engineering-Criteria)
 
-
 # Design Principles
 
 The following Design Principles provide context for questions, why a certain aspect is important and how is it applicable to this pillar.
@@ -52,6 +54,9 @@ The following Design Principles provide context for questions, why a certain asp
 
   _Run DR drills on regular cadence and use chaos engineering practices to identify and remediate weak points in application reliability. Regular rehearsal of failure will validate the effectiveness of recovery processes and ensure teams are familiar with their responsibilities._
 
+
+
+---
 
 
 # Application Design
