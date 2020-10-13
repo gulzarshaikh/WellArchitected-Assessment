@@ -3,6 +3,9 @@
 
 # Navigation Menu
 
+
+
+
 - [Design Principles](#design-principles)
 - [Application Assessment Checklist](#Application-Assessment-Checklist)
   - [Application Design](#Application-Design)
@@ -444,13 +447,6 @@ Public Preview : SLAs do not apply and formal support may be provided on a best-
 
 
             
-* Are all data and storage services running in a HA configuration/SKU?
-
-  _Azure data platform services offer resiliency features to support application reliability, though they may only be applicable at a certain SKU. For instance, Azure SQL Database Business Critical SKUs, or Azure Storage Zone Redundant Storage (ZRS) with three synchronous replicas spread across AZs_
-
-
-
-            
         
 ### Compute Availability
             
@@ -496,13 +492,6 @@ Public Preview : SLAs do not apply and formal support may be provided on a best-
 ## Data Platform Availability
     
 ### Service SKU
-            
-* Are all application platform services running in a HA configuration/SKU?
-
-  _Azure application platform services offer resiliency features to support application reliability, though they may only be applicable at a certain SKU. For instance, Service Bus Premium SKU provides predictable latency and throughput to mitigate noisy neighbor scenarios, as well as the ability to automatically scale and replicate metadata to another Service Bus instance for failover purposes([Azure Service Bus Premium SKU](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging)_
-
-
-
             
 * Are all data and storage services running in a HA configuration/SKU?
 
