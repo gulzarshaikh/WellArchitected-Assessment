@@ -9,15 +9,16 @@
 # Navigation Menu
 {{ if $designPrinciples }}
 - [Design Principles](#design-principles)
-{{- end -}}
+{{- end }}
+- [Application Assessment Checklist](#Application-Assessment-Checklist)
 {{- range $category := $.Site.Data.categories -}}
     {{- $questionsInCategory := where $filtered "category" $category.title -}}
     {{- if $questionsInCategory }}
-- [{{ $category.title}}](#{{ replace (replaceRE "[^\\s\\d\\w]" "" $category.title) " " "-" }})
+  - [{{ $category.title}}](#{{ replace (replaceRE "[^\\s\\d\\w]" "" $category.title) " " "-" }})
         {{- range $subCategory := $category.subCategories }}
             {{- $questionsInSubCategory := (and (where $filtered "category" $category.title) (where $filtered "subCategory" $subCategory.title)) -}}
             {{- if $questionsInSubCategory }}
-  - [{{ $subCategory.title}}](#{{ replace (replaceRE "[^\\s\\d\\w]" "" $subCategory.title) " " "-" }})
+    - [{{ $subCategory.title}}](#{{ replace (replaceRE "[^\\s\\d\\w]" "" $subCategory.title) " " "-" }})
             {{- end -}}
         {{- end -}}
     {{- end -}}
