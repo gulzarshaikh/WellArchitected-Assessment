@@ -58,10 +58,14 @@ The following Design Principles provide context for questions, why a certain asp
 
 ---
 
+These critical design principals are used as lenses to assess the state of an application deployed on Azure, providing a framework for the following application assessment questions.
 
-# Application Design
+
+
+# Application Assessment Checklist
+## Application Design
     
-## Design
+### Design
             
 * Are there any regulatory requirements around data sovereignty?
 
@@ -141,7 +145,7 @@ The following Design Principles provide context for questions, why a certain asp
 
             
         
-## Targets &amp; Non Functional Requirements
+### Targets &amp; Non Functional Requirements
             
 * Are availability targets such as Service Level Agreements (SLAs), Service Level Indicators (SLIs), and Service Level Objectives (SLOs) defined for the application and/or key scenarios?
 
@@ -214,7 +218,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
             
         
-## Key Scenarios
+### Key Scenarios
             
 * Have critical system flows through the application been defined for all key business scenarios?
 
@@ -236,7 +240,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
             
         
-## Dependencies
+### Dependencies
             
 * Are all internal and external dependencies identified and categorized as either weak or strong?
 
@@ -270,7 +274,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
             
         
-## Application Composition
+### Application Composition
             
 * What Azure services are used by the application?
 
@@ -309,9 +313,9 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
             
         
-# Health Modelling
+## Health Modelling
     
-## Application Level Monitoring
+### Application Level Monitoring
             
 * Is an Application Performance Management (APM) tool used collect application level logs?
 
@@ -361,7 +365,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
             
         
-## Resource/Infrastructure Level Monitoring
+### Resource/Infrastructure Level Monitoring
             
 * Which log aggregation technology is used to collect logs and metrics from Azure resources?
 
@@ -399,7 +403,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
             
         
-## Data Interpretation &amp; Health Modelling
+### Data Interpretation &amp; Health Modelling
             
 * Are application and resource level logs aggregated in a single data sink, or is it possible to cross-query events at both levels?
 
@@ -454,7 +458,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
             
         
-## Dashboarding
+### Dashboarding
             
 * What technology is used to visualize the application health model and encompassed logs and metrics?
 
@@ -478,7 +482,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
             
         
-## Alerting
+### Alerting
             
 * What technology is used for alerting?
 
@@ -537,9 +541,9 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
             
         
-# Security &amp; Compliance
+## Security &amp; Compliance
     
-## Identity and Access
+### Identity and Access
             
 * Are Azure AD emergency access accounts and processes defined for recovering from identity failures?
 
@@ -549,7 +553,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
             
         
-## Security Center
+### Security Center
             
 * Is Azure Security Center Standard tier enabled for all subscriptions and reporting to centralized workspaces? Also, is automatic provisioning enabled for all subscriptions? ([Security Center Data Collection](https://docs.microsoft.com/en-us/azure/security-center/security-center-enable-data-collection))
 
@@ -573,9 +577,9 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
             
         
-# Operational Procedures
+## Operational Procedures
     
-## Recovery &amp; Failover
+### Recovery &amp; Failover
             
 * Are recovery steps defined for failover and failback?
 
@@ -629,7 +633,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
             
         
-## Scalability &amp; Capacity Model
+### Scalability &amp; Capacity Model
             
 * Is there a capacity model for the application?
 
@@ -679,7 +683,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
             
         
-## Configuration &amp; Secrets Management
+### Configuration &amp; Secrets Management
             
 * Where is application configuration information stored and how does the application access it?
 
@@ -743,7 +747,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
             
         
-## Operational Lifecycles
+### Operational Lifecycles
             
 * How are operational shortcomings and failures analysed?
 
@@ -760,7 +764,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
             
         
-## Patch &amp; Update Process (PNU)
+### Patch &amp; Update Process (PNU)
             
 * Is the Patch & Update Process (PNU) process defined and for all relevant application components?
 
@@ -801,9 +805,9 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
             
         
-# Deployment &amp; Testing
+## Deployment &amp; Testing
     
-## Application Deployments
+### Application Deployments
             
 * What is the process to deploy application releases to production?
 
@@ -870,7 +874,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
             
         
-## Application Infrastructure Deployments &amp; Infrastructure as Code (IaC)
+### Application Infrastructure Deployments &amp; Infrastructure as Code (IaC)
             
 * Is application infrastructure defined as code?
 
@@ -897,7 +901,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
             
         
-## Build Environments
+### Build Environments
             
 * Do critical test environments have 1:1 parity with the production environment?
 
@@ -928,7 +932,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
             
         
-## Testing &amp; Validation
+### Testing &amp; Validation
             
 * Is the application tested for performance, scalability, and resiliency?
 
@@ -1011,9 +1015,9 @@ Stress Testing : *Stress testing is a type of negative testing which involves va
 
             
         
-# Operational Model &amp; DevOps
+## Operational Model &amp; DevOps
     
-## General
+### General
             
 * Are specific methodologies, like DevOps, used to structure the development and operations process?
 
@@ -1030,7 +1034,7 @@ Stress Testing : *Stress testing is a type of negative testing which involves va
 
             
         
-## Roles &amp; Responsibilities
+### Roles &amp; Responsibilities
             
 * Has the application been built and maintained in-house or by an external partner?
 
@@ -1095,7 +1099,7 @@ Stress Testing : *Stress testing is a type of negative testing which involves va
 
             
         
-## Common Engineering Criteria
+### Common Engineering Criteria
             
 * Is the choice and desired configuration of Azure services centrally governed or can the developers pick and choose?
 
