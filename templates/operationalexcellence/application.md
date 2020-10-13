@@ -25,15 +25,16 @@
 
 {{ partial "application-designprinciples.partial" $designPrinciples }}
 
+# Application Assessment Checklist
 
 {{- range $category := $.Site.Data.categories -}}
     {{- $questionsInCategory := where $filtered "category" $category.title -}}
     {{- if $questionsInCategory }}
-# {{ $category.title}}
+## {{ $category.title}}
     {{ range $subCategory := $category.subCategories -}}
         {{- $questionsInSubCategory := (and (where $filtered "category" $category.title) (where $filtered "subCategory" $subCategory.title)) -}}
         {{- if $questionsInSubCategory }}
-## {{ $subCategory.title }}
+### {{ $subCategory.title }}
             {{ range $question := $questionsInSubCategory }}
 {{ partial "application-question.partial" $question }}
             {{ end }}

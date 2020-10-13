@@ -12,4 +12,6 @@ The following Design Principles provide context for questions, why a certain asp
 
 ---
 
+These critical design principals are used as lenses to assess the state of an application deployed on Azure, providing a framework for the following application assessment questions.
+
 {{ end }}
