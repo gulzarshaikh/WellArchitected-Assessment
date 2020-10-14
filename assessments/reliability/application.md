@@ -1,50 +1,60 @@
 # Application Reliability
 
+
 # Navigation Menu
-- [Application Design](#Application-Design)
-  - [Design](#Design)
-  - [Failure Mode Analysis](#Failure-Mode-Analysis)
-  - [Targets &amp; Non Functional Requirements](#Targets--Non-Functional-Requirements)
-  - [Dependencies](#Dependencies)
-- [Health Modelling](#Health-Modelling)
-  - [Resource/Infrastructure Level Monitoring](#ResourceInfrastructure-Level-Monitoring)
-  - [Data Interpretation &amp; Health Modelling](#Data-Interpretation--Health-Modelling)
-  - [Alerting](#Alerting)
-  - [Monitoring and Measurement](#Monitoring-and-Measurement)
-- [Capacity &amp; Service Availability](#Capacity--Service-Availability)
-  - [Service Availability](#Service-Availability)
-  - [Capacity](#Capacity)
-- [Application Platform Availability](#Application-Platform-Availability)
-  - [Service SKU](#Service-SKU)
-  - [Compute Availability](#Compute-Availability)
-- [Data Platform Availability](#Data-Platform-Availability)
-  - [Service SKU](#Service-SKU)
-  - [Consistency](#Consistency)
-  - [Replication and Redundancy](#Replication-and-Redundancy)
-- [Networking &amp; Connectivity](#Networking--Connectivity)
-  - [Connectivity](#Connectivity)
-  - [Zone-Aware Services](#ZoneAware-Services)
-- [Scalability &amp; Performance](#Scalability--Performance)
-  - [App Performance](#App-Performance)
-  - [Data Size/Growth](#Data-SizeGrowth)
-  - [Data Latency and Throughput](#Data-Latency-and-Throughput)
-  - [Network Throughput and Latency](#Network-Throughput-and-Latency)
-  - [Elasticity](#Elasticity)
-- [Security &amp; Compliance](#Security--Compliance)
-  - [Identity and Access](#Identity-and-Access)
-  - [Security Center](#Security-Center)
-  - [Network Security](#Network-Security)
-- [Operational Procedures](#Operational-Procedures)
-  - [Recovery &amp; Failover](#Recovery--Failover)
-  - [Scalability &amp; Capacity Model](#Scalability--Capacity-Model)
-  - [Configuration &amp; Secrets Management](#Configuration--Secrets-Management)
-- [Deployment &amp; Testing](#Deployment--Testing)
-  - [Application Deployments](#Application-Deployments)
-  - [Build Environments](#Build-Environments)
-  - [Testing &amp; Validation](#Testing--Validation)
-# Application Design
+
+
+
+
+- [Application Assessment Checklist](#Application-Assessment-Checklist)
+  - [Application Design](#Application-Design)
+    - [Design](#Design)
+    - [Failure Mode Analysis](#Failure-Mode-Analysis)
+    - [Targets &amp; Non Functional Requirements](#Targets--Non-Functional-Requirements)
+    - [Dependencies](#Dependencies)
+  - [Health Modelling](#Health-Modelling)
+    - [Resource/Infrastructure Level Monitoring](#ResourceInfrastructure-Level-Monitoring)
+    - [Data Interpretation &amp; Health Modelling](#Data-Interpretation--Health-Modelling)
+    - [Alerting](#Alerting)
+    - [Monitoring and Measurement](#Monitoring-and-Measurement)
+  - [Capacity &amp; Service Availability](#Capacity--Service-Availability)
+    - [Service Availability](#Service-Availability)
+    - [Capacity](#Capacity)
+  - [Application Platform Availability](#Application-Platform-Availability)
+    - [Service SKU](#Service-SKU)
+    - [Compute Availability](#Compute-Availability)
+  - [Data Platform Availability](#Data-Platform-Availability)
+    - [Service SKU](#Service-SKU)
+    - [Consistency](#Consistency)
+    - [Replication and Redundancy](#Replication-and-Redundancy)
+  - [Networking &amp; Connectivity](#Networking--Connectivity)
+    - [Connectivity](#Connectivity)
+    - [Zone-Aware Services](#ZoneAware-Services)
+  - [Scalability &amp; Performance](#Scalability--Performance)
+    - [App Performance](#App-Performance)
+    - [Data Size/Growth](#Data-SizeGrowth)
+    - [Data Latency and Throughput](#Data-Latency-and-Throughput)
+    - [Network Throughput and Latency](#Network-Throughput-and-Latency)
+    - [Elasticity](#Elasticity)
+  - [Security &amp; Compliance](#Security--Compliance)
+    - [Identity and Access](#Identity-and-Access)
+    - [Security Center](#Security-Center)
+    - [Network Security](#Network-Security)
+  - [Operational Procedures](#Operational-Procedures)
+    - [Recovery &amp; Failover](#Recovery--Failover)
+    - [Scalability &amp; Capacity Model](#Scalability--Capacity-Model)
+    - [Configuration &amp; Secrets Management](#Configuration--Secrets-Management)
+  - [Deployment &amp; Testing](#Deployment--Testing)
+    - [Application Deployments](#Application-Deployments)
+    - [Build Environments](#Build-Environments)
+    - [Testing &amp; Validation](#Testing--Validation)
+
+
+
+# Application Assessment Checklist
+## Application Design
     
-## Design
+### Design
             
 * Does the application support multi-region deployments?
 
@@ -110,7 +120,7 @@
 
             
         
-## Failure Mode Analysis
+### Failure Mode Analysis
             
 * Has pathwise analysis been conducted to identify key flows within the application?
 
@@ -141,7 +151,7 @@
 
             
         
-## Targets &amp; Non Functional Requirements
+### Targets &amp; Non Functional Requirements
             
 * Are availability targets such as Service Level Agreements (SLAs), Service Level Indicators (SLIs), and Service Level Objectives (SLOs) defined for the application and/or key scenarios?
 
@@ -187,7 +197,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
             
         
-## Dependencies
+### Dependencies
             
 * Are all internal and external dependencies identified and categorized as either weak or strong?
 
@@ -235,9 +245,9 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
             
         
-# Health Modelling
+## Health Modelling
     
-## Resource/Infrastructure Level Monitoring
+### Resource/Infrastructure Level Monitoring
             
 * Is resource-level monitoring enforced throughout the application?
 
@@ -247,7 +257,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
             
         
-## Data Interpretation &amp; Health Modelling
+### Data Interpretation &amp; Health Modelling
             
 * Are application level events automatically correlated with resource level metrics to quantify the current application state?
 
@@ -274,7 +284,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
             
         
-## Alerting
+### Alerting
             
 * Have Azure Service Health alerts been created to respond to Service-level events?
 
@@ -298,7 +308,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
             
         
-## Monitoring and Measurement
+### Monitoring and Measurement
             
 * Is white-box monitoring used to instrument the application with semantic logs and metrics?
 
@@ -350,9 +360,9 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
             
         
-# Capacity &amp; Service Availability
+## Capacity &amp; Service Availability
     
-## Service Availability
+### Service Availability
             
 * Are Azure services available in the required regions?
 
@@ -386,7 +396,7 @@ Public Preview : SLAs do not apply and formal support may be provided on a best-
 
             
         
-## Capacity
+### Capacity
             
 * Is there a capacity model for the application?
 
@@ -410,9 +420,9 @@ Public Preview : SLAs do not apply and formal support may be provided on a best-
 
             
         
-# Application Platform Availability
+## Application Platform Availability
     
-## Service SKU
+### Service SKU
             
 * Are all application platform services running in a HA configuration/SKU?
 
@@ -421,15 +431,8 @@ Public Preview : SLAs do not apply and formal support may be provided on a best-
 
 
             
-* Are all data and storage services running in a HA configuration/SKU?
-
-  _Azure data platform services offer resiliency features to support application reliability, though they may only be applicable at a certain SKU. For instance, Azure SQL Database Business Critical SKUs, or Azure Storage Zone Redundant Storage (ZRS) with three synchronous replicas spread across AZs_
-
-
-
-            
         
-## Compute Availability
+### Compute Availability
             
 * Is the application platform deployed across multiple regions?
 
@@ -470,16 +473,9 @@ Public Preview : SLAs do not apply and formal support may be provided on a best-
 
             
         
-# Data Platform Availability
+## Data Platform Availability
     
-## Service SKU
-            
-* Are all application platform services running in a HA configuration/SKU?
-
-  _Azure application platform services offer resiliency features to support application reliability, though they may only be applicable at a certain SKU. For instance, Service Bus Premium SKU provides predictable latency and throughput to mitigate noisy neighbor scenarios, as well as the ability to automatically scale and replicate metadata to another Service Bus instance for failover purposes([Azure Service Bus Premium SKU](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging)_
-
-
-
+### Service SKU
             
 * Are all data and storage services running in a HA configuration/SKU?
 
@@ -489,7 +485,7 @@ Public Preview : SLAs do not apply and formal support may be provided on a best-
 
             
         
-## Consistency
+### Consistency
             
 * How does CAP theorem apply to the data platform and key application scenarios?
 
@@ -506,7 +502,7 @@ Public Preview : SLAs do not apply and formal support may be provided on a best-
 
             
         
-## Replication and Redundancy
+### Replication and Redundancy
             
 * Is data replicated across paired regions and/or Availability Zones
 
@@ -537,9 +533,9 @@ Public Preview : SLAs do not apply and formal support may be provided on a best-
 
             
         
-# Networking &amp; Connectivity
+## Networking &amp; Connectivity
     
-## Connectivity
+### Connectivity
             
 * Is a global load balancer used to distribute traffic and/or failover across regions?
 
@@ -570,7 +566,7 @@ Public Preview : SLAs do not apply and formal support may be provided on a best-
 
             
         
-## Zone-Aware Services
+### Zone-Aware Services
             
 * Are ExpressRoute/VPN zone-redundant Virtual Network Gateways used?
 
@@ -608,9 +604,9 @@ Public Preview : SLAs do not apply and formal support may be provided on a best-
 
             
         
-# Scalability &amp; Performance
+## Scalability &amp; Performance
     
-## App Performance
+### App Performance
             
 * Does the application logic handle exceptions and errors using resiliency patterns?
 
@@ -627,7 +623,7 @@ Public Preview : SLAs do not apply and formal support may be provided on a best-
 
             
         
-## Data Size/Growth
+### Data Size/Growth
             
 * Are target data sizes and associated growth rates calculated per scenario or service?
 
@@ -644,7 +640,7 @@ Public Preview : SLAs do not apply and formal support may be provided on a best-
 
             
         
-## Data Latency and Throughput
+### Data Latency and Throughput
             
 * Are latency targets defined, tested, and validated for key scenarios?
 
@@ -661,7 +657,7 @@ Public Preview : SLAs do not apply and formal support may be provided on a best-
 
             
         
-## Network Throughput and Latency
+### Network Throughput and Latency
             
 * Are there any components/scenarios that are very sensitive to network latency?
 
@@ -697,7 +693,7 @@ Public Preview : SLAs do not apply and formal support may be provided on a best-
 
             
         
-## Elasticity
+### Elasticity
             
 * Can the application scale horizontally in response to changing load?
 
@@ -726,9 +722,9 @@ Public Preview : SLAs do not apply and formal support may be provided on a best-
 
             
         
-# Security &amp; Compliance
+## Security &amp; Compliance
     
-## Identity and Access
+### Identity and Access
             
 * Is the identity provider and associated dependencies highly available?
 
@@ -762,7 +758,7 @@ Public Preview : SLAs do not apply and formal support may be provided on a best-
 
             
         
-## Security Center
+### Security Center
             
 * Is Azure Security Center Standard tier enabled for all subscriptions and reporting to centralized workspaces? Also, is automatic provisioning enabled for all subscriptions? ([Security Center Data Collection](https://docs.microsoft.com/en-us/azure/security-center/security-center-enable-data-collection))
 
@@ -786,7 +782,7 @@ Public Preview : SLAs do not apply and formal support may be provided on a best-
 
             
         
-## Network Security
+### Network Security
             
 * Are all external application endpoints secured?
 
@@ -822,9 +818,9 @@ Public Preview : SLAs do not apply and formal support may be provided on a best-
 
             
         
-# Operational Procedures
+## Operational Procedures
     
-## Recovery &amp; Failover
+### Recovery &amp; Failover
             
 * Are recovery steps defined for failover and failback?
 
@@ -878,7 +874,7 @@ Public Preview : SLAs do not apply and formal support may be provided on a best-
 
             
         
-## Scalability &amp; Capacity Model
+### Scalability &amp; Capacity Model
             
 * Is the process to provision and deprovision capacity codified?
 
@@ -895,7 +891,7 @@ Public Preview : SLAs do not apply and formal support may be provided on a best-
 
             
         
-## Configuration &amp; Secrets Management
+### Configuration &amp; Secrets Management
             
 * Where is application configuration information stored and how does the application access it?
 
@@ -945,9 +941,9 @@ Public Preview : SLAs do not apply and formal support may be provided on a best-
 
             
         
-# Deployment &amp; Testing
+## Deployment &amp; Testing
     
-## Application Deployments
+### Application Deployments
             
 * Can the application be deployed automatically from scratch without any manual operations?
 
@@ -983,7 +979,7 @@ Public Preview : SLAs do not apply and formal support may be provided on a best-
 
             
         
-## Build Environments
+### Build Environments
             
 * Do critical test environments have 1:1 parity with the production environment?
 
@@ -993,7 +989,7 @@ Public Preview : SLAs do not apply and formal support may be provided on a best-
 
             
         
-## Testing &amp; Validation
+### Testing &amp; Validation
             
 * Is the application tested for performance, scalability, and resiliency?
 

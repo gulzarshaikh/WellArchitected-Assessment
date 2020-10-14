@@ -3,31 +3,24 @@
 {{- $pillars := slice "operationalexcellence" -}}
 {{- $lens := "application" -}}
 
-{{- $filtered := where $.Site.Data.input "pillars" "intersect" $pillars -}}
-{{- $filtered = where $filtered "lens" $lens }}
+{{- $filtered := where (where (where $.Site.Data.input "pillars" "intersect" $pillars) "lens" $lens) "type" "Questions" }}
+{{ $designPrinciples := where (where $.Site.Data.input "pillars" "intersect" $pillars) "type" "Design Principles" }}
 
 # Navigation Menu
-{{- range $category := $.Site.Data.categories -}}
-    {{- $questionsInCategory := where $filtered "category" $category.title -}}
-    {{- if $questionsInCategory }}
-- [{{ $category.title}}](#{{ replace (replaceRE "[^\\s\\d\\w]" "" $category.title) " " "-" }})
-        {{- range $subCategory := $category.subCategories }}
-            {{- $questionsInSubCategory := (and (where $filtered "category" $category.title) (where $filtered "subCategory" $subCategory.title)) -}}
-            {{- if $questionsInSubCategory }}
-  - [{{ $subCategory.title}}](#{{ replace (replaceRE "[^\\s\\d\\w]" "" $subCategory.title) " " "-" }})
-            {{- end -}}
-        {{- end -}}
-    {{- end -}}
-{{- end -}}
+{{ partial "application-navigation.partial" (dict "input" $.Site.Data.input "pillars" $pillars "lens" $lens "categories" $.Site.Data.categories) }}
+
+{{ partial "application-designprinciples.partial" $designPrinciples }}
+
+# Application Assessment Checklist
 
 {{- range $category := $.Site.Data.categories -}}
     {{- $questionsInCategory := where $filtered "category" $category.title -}}
     {{- if $questionsInCategory }}
-# {{ $category.title}}
+## {{ $category.title}}
     {{ range $subCategory := $category.subCategories -}}
-        {{- $questionsInSubCategory := (and (where $filtered "category" $category.title) (where $filtered "subCategory" $subCategory.title)) -}}
+        {{- $questionsInSubCategory := where (where $filtered "category" $category.title) "subCategory" $subCategory.title -}}
         {{- if $questionsInSubCategory }}
-## {{ $subCategory.title }}
+### {{ $subCategory.title }}
             {{ range $question := $questionsInSubCategory }}
 {{ partial "application-question.partial" $question }}
             {{ end }}

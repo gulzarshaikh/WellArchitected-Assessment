@@ -1,41 +1,51 @@
 # Application Security
 
+
 # Navigation Menu
-- [General](#General)
-  - [Unassigned](#Unassigned)
-- [Application Design](#Application-Design)
-  - [Design](#Design)
-  - [Application Composition](#Application-Composition)
-  - [Threat Analysis](#Threat-Analysis)
-  - [Security Criteria &amp; Data Classification](#Security-Criteria--Data-Classification)
-  - [Dependencies, frameworks and libraries](#Dependencies-frameworks-and-libraries)
-- [Health Modelling](#Health-Modelling)
-  - [Application Level Monitoring](#Application-Level-Monitoring)
-  - [Auditing](#Auditing)
-- [Networking &amp; Connectivity](#Networking--Connectivity)
-  - [Connectivity](#Connectivity)
-  - [Endpoints](#Endpoints)
-  - [Data flow](#Data-flow)
-- [Security &amp; Compliance](#Security--Compliance)
-  - [Encryption](#Encryption)
-- [Operational Procedures](#Operational-Procedures)
-  - [Configuration &amp; Secrets Management](#Configuration--Secrets-Management)
-  - [Patch &amp; Update Process (PNU)](#Patch--Update-Process-PNU)
-  - [Incident Response](#Incident-Response)
-- [Deployment &amp; Testing](#Deployment--Testing)
-  - [Application Deployments](#Application-Deployments)
-  - [Build Environments](#Build-Environments)
-  - [Testing &amp; Validation](#Testing--Validation)
-- [Operational Model &amp; DevOps](#Operational-Model--DevOps)
+
+
+
+
+- [Application Assessment Checklist](#Application-Assessment-Checklist)
   - [General](#General)
-  - [Roles &amp; Responsibilities](#Roles--Responsibilities)
-- [Identity &amp; Access Control](#Identity--Access-Control)
-  - [Separation of duties](#Separation-of-duties)
-  - [Control-plane RBAC](#Controlplane-RBAC)
-  - [Authentication and authorization](#Authentication-and-authorization)
-# General
+    - [Unassigned](#Unassigned)
+  - [Application Design](#Application-Design)
+    - [Design](#Design)
+    - [Application Composition](#Application-Composition)
+    - [Threat Analysis](#Threat-Analysis)
+    - [Security Criteria &amp; Data Classification](#Security-Criteria--Data-Classification)
+    - [Dependencies, frameworks and libraries](#Dependencies-frameworks-and-libraries)
+  - [Health Modelling](#Health-Modelling)
+    - [Application Level Monitoring](#Application-Level-Monitoring)
+    - [Auditing](#Auditing)
+  - [Networking &amp; Connectivity](#Networking--Connectivity)
+    - [Connectivity](#Connectivity)
+    - [Endpoints](#Endpoints)
+    - [Data flow](#Data-flow)
+  - [Security &amp; Compliance](#Security--Compliance)
+    - [Encryption](#Encryption)
+  - [Operational Procedures](#Operational-Procedures)
+    - [Configuration &amp; Secrets Management](#Configuration--Secrets-Management)
+    - [Patch &amp; Update Process (PNU)](#Patch--Update-Process-PNU)
+    - [Incident Response](#Incident-Response)
+  - [Deployment &amp; Testing](#Deployment--Testing)
+    - [Application Deployments](#Application-Deployments)
+    - [Build Environments](#Build-Environments)
+    - [Testing &amp; Validation](#Testing--Validation)
+  - [Operational Model &amp; DevOps](#Operational-Model--DevOps)
+    - [General](#General)
+    - [Roles &amp; Responsibilities](#Roles--Responsibilities)
+  - [Identity &amp; Access Control](#Identity--Access-Control)
+    - [Separation of duties](#Separation-of-duties)
+    - [Control-plane RBAC](#Controlplane-RBAC)
+    - [Authentication and authorization](#Authentication-and-authorization)
+
+
+
+# Application Assessment Checklist
+## General
     
-## Unassigned
+### Unassigned
             
 * Is the organization using a Landing Zone concept and how was it implemented?
 
@@ -52,9 +62,9 @@
 
             
         
-# Application Design
+## Application Design
     
-## Design
+### Design
             
 * Are there any regulatory or governance requirements?
 
@@ -78,7 +88,7 @@
 
             
         
-## Application Composition
+### Application Composition
             
 * What Azure services are used by the application?
 
@@ -98,7 +108,7 @@
 
             
         
-## Threat Analysis
+### Threat Analysis
             
 * Does the organization identify the highest severity threats to this workload via threat modeling?
 
@@ -122,7 +132,7 @@
 
             
         
-## Security Criteria &amp; Data Classification
+### Security Criteria &amp; Data Classification
             
 * How do you monitor and maintain your compliance?
 
@@ -139,7 +149,7 @@
 
             
         
-## Dependencies, frameworks and libraries
+### Dependencies, frameworks and libraries
             
 * Does the application team maintain a list frameworks and libraries?
 
@@ -156,9 +166,9 @@
 
             
         
-# Health Modelling
+## Health Modelling
     
-## Application Level Monitoring
+### Application Level Monitoring
             
 * How is security monitored in the application context?
 
@@ -182,7 +192,7 @@
 
             
         
-## Auditing
+### Auditing
             
 * Is access to the control plane and data plane of the application periodically reviewed?
 
@@ -192,9 +202,9 @@
 
             
         
-# Networking &amp; Connectivity
+## Networking &amp; Connectivity
     
-## Connectivity
+### Connectivity
             
 * Are network restrictions used for non-public services?
 
@@ -230,7 +240,7 @@
 
             
         
-## Endpoints
+### Endpoints
             
 * Is there a clear distinction between endpoints exposed to public internet and internal ones?
 
@@ -261,7 +271,7 @@
 
             
         
-## Data flow
+### Data flow
             
 * Are there controls in place to detect and protect from data exfiltration?
 
@@ -278,9 +288,9 @@
 
             
         
-# Security &amp; Compliance
+## Security &amp; Compliance
     
-## Encryption
+### Encryption
             
 * Does the organization use industry standard encryption algorithms instead of creating their own?
 
@@ -337,9 +347,9 @@
 
             
         
-# Operational Procedures
+## Operational Procedures
     
-## Configuration &amp; Secrets Management
+### Configuration &amp; Secrets Management
             
 * Where is application configuration information stored and how does the application access it?
 
@@ -398,7 +408,7 @@
 
             
         
-## Patch &amp; Update Process (PNU)
+### Patch &amp; Update Process (PNU)
             
 * Does the organization reduce the count and potential severity of security vulnerabilities for this workload by implementing security practices and tools during the development lifecycle? [Develop Secure Applications on Azure whitepaper](https://azure.microsoft.com/resources/develop-secure-applications-on-azure/)
 
@@ -408,7 +418,7 @@
 
             
         
-## Incident Response
+### Incident Response
             
 * Are operational processes for incident response defined and tested?
 
@@ -425,9 +435,9 @@
 
             
         
-# Deployment &amp; Testing
+## Deployment &amp; Testing
     
-## Application Deployments
+### Application Deployments
             
 * Can N-1 or N+1 versions be deployed via automated pipelines where N is current deployment version in production?
 
@@ -465,7 +475,7 @@
 
             
         
-## Build Environments
+### Build Environments
             
 * Are self-hosted build agents used in the Azure DevOps CI/CD pipelines?
 
@@ -475,7 +485,7 @@
 
             
         
-## Testing &amp; Validation
+### Testing &amp; Validation
             
 * Are you using Azure Security Center (ASC) to scan containers for vulnerabilities? Or any third-party solution?
 
@@ -492,9 +502,9 @@
 
             
         
-# Operational Model &amp; DevOps
+## Operational Model &amp; DevOps
     
-## General
+### General
             
 * Has the organization adopted a formal DevOps approach to building and maintaining software to ensure security and feature enhancements can be deployed in rapid fashion?
 
@@ -511,7 +521,7 @@
 
             
         
-## Roles &amp; Responsibilities
+### Roles &amp; Responsibilities
             
 * Do you have release gate approvals so that security teams can evaluate new features/code updates?
 
@@ -528,9 +538,9 @@
 
             
         
-# Identity &amp; Access Control
+## Identity &amp; Access Control
     
-## Separation of duties
+### Separation of duties
             
 * Does the application team have a clear view on responsibilities and individual/group access levels?
 
@@ -561,7 +571,7 @@
 
             
         
-## Control-plane RBAC
+### Control-plane RBAC
             
 * Is the application infrastructure protected with RBAC (role-based access control)?
 
@@ -592,7 +602,7 @@
 
             
         
-## Authentication and authorization
+### Authentication and authorization
             
 * How is the application authenticated when communicating with Azure platform services?
 

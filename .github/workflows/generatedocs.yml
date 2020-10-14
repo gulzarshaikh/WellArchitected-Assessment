@@ -132,7 +132,7 @@ jobs:
           # Read all partials and copy them to the right folder.
           # Extension MUST be .html.
           Get-ChildItem -Recurse -File $templateDir -Filter "*.partial" | % {
-              Copy-Item -Path $_.FullName -Destination "$env:GENERATOR_ROOT/templates/partials/$($_.Name).html"
+              Copy-Item -Path $_.FullName -Destination "$env:GENERATOR_ROOT/templates/partials/$($_.Name)"
           }
 
       - uses: srt32/hugo-action@master
