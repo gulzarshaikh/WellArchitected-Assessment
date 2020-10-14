@@ -59,6 +59,21 @@ The following Design Principles provide context for questions, why a certain asp
   Run DR drills on regular cadence and use chaos engineering practices to identify and remediate weak points in application reliability. Regular rehearsal of failure will validate the effectiveness of recovery processes and ensure teams are familiar with their responsibilities. 
 
 
+## Modularize your environment
+
+  Systematically componentize your environment and workloads to enable frequent and manageable change that can be progressively rolled-out and safely rolled-back. 
+
+
+## Use policy-driven governance
+
+  Use Azure Policy to provide guardrails and ensure continued compliance of application environment. This approach to centralized governance enables an organization to provide application teams with sufficient autonomy to accelerate development efforts, while ensuring the enterprise estate remains compliant with organizational standards. 
+
+
+## Embrace operational improvement
+
+  Continuously evaluate and refine operational procedures and tasks, while striving to reduce complexity and ambiguity. This approach enables an organization to evolve processes over time, optimizing inefficiencies and learning from failures. 
+
+
 
 ---
 
