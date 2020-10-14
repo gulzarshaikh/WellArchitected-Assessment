@@ -28,6 +28,15 @@
       },
       {
         "title": "Application Composition"
+      },
+      {
+        "title": "Threat Analysis"
+      },
+      {
+        "title": "Security Criteria & Data Classification"
+      },
+      {
+        "title": "Dependencies, frameworks and libraries"
       }
     ]
   },
@@ -51,6 +60,9 @@
       },
       {
         "title": "Monitoring and Measurement"
+      },
+      {
+        "title": "Auditing"
       }
     ]
   },
@@ -98,6 +110,12 @@
       },
       {
         "title": "Zone-Aware Services"
+      },
+      {
+        "title": "Endpoints"
+      },
+      {
+        "title": "Data flow"
       }
     ]
   },
@@ -132,6 +150,9 @@
       },
       {
         "title": "Network Security"
+      },
+      {
+        "title": "Encryption"
       }
     ]
   },
@@ -152,6 +173,9 @@
       },
       {
         "title": "Patch & Update Process (PNU)"
+      },
+      {
+        "title": "Incident Response"
       }
     ]
   },
@@ -248,6 +272,20 @@
       },
       {
         "title": "IoT Hub Device Provisioning Service"
+      }
+    ]
+  },
+  {
+    "title": "Identity & Access Control",
+    "subCategories": [
+      {
+        "title": "Separation of duties"
+      },
+      {
+        "title": "Control-plane RBAC"
+      },
+      {
+        "title": "Authentication and authorization"
       }
     ]
   }
