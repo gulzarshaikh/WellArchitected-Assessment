@@ -23,6 +23,8 @@ This list contains design considerations and recommended configuration options, 
     - [Storage Queues](#Storage-Queues)
     - [IoT Hub](#IoT-Hub)
     - [IoT Hub Device Provisioning Service](#IoT-Hub-Device-Provisioning-Service)
+
+
 # Compute
         
 ## Azure App Service
@@ -96,6 +98,13 @@ This list contains design considerations and recommended configuration options, 
                             
 ### Supporting Source Artifacts
 * Query to identify App Service Plans with **only 1 instance**:
+```
+Resources
+| where type == "microsoft.web/serverfarms" and properties.computeMode == 'Dedicated'
+| where sku.capacity == 1
+```
+ 
+                            
 * [The Ultimate Guide to Running Healthy Apps in the Cloud](https://azure.github.io/AppService/2020/05/15/Robust-Apps-for-the-cloud.html)
 ## Azure Kubernetes Service (AKS)
 ### Design Considerations
@@ -111,6 +120,14 @@ This list contains design considerations and recommended configuration options, 
 * Store container images within Azure Container Registry and enable [geo-replication](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region#enable-geo-replication-for-container-images) to replicate container images across leveraged AKS regions. 
 ### Supporting Source Artifacts
 * Query to identify AKS clusters that are not deployed using a **Managed Identity**:
+```
+Resources
+| where
+    type =~ 'Microsoft.ContainerService/managedClusters'
+	and isnull(identity)
+```
+ 
+                            
 ## Service Fabric
 ## Virtual Machines
 ### Design Considerations
@@ -152,8 +169,40 @@ This list contains design considerations and recommended configuration options, 
 * To identify resiliency risks to existing compute resources and support continuous compliance for new resources within a customer tenant, it is recommended that Azure Policy and Azure Resource Graph be used to Audit the use of non-resilient deployment configurations.
 * Query to **identify standalone single instance VMs that are not protected by a minimum SLA of at least 99.5%**. It will return all VM instances that are not deployed within an Availability Set or across Availability Zones and are not using either Standard SSD or Premium SSD for both OS and Data disks.
   - This query can easily be altered to identify all single instance VMs including those using Premium Storage which are protected by a minimum SLA of at least 99.5%; simply remove the trailing where condition.
+```
+Resources
+| where
+    type =~ 'Microsoft.Compute/virtualMachines'
+        and isnull(properties.availabilitySet.id)
+    or type =~ 'Microsoft.Compute/virtualMachineScaleSets'
+        and sku.capacity <= 1
+        or properties.platformFaultDomainCount <= 1
+| where 
+    tags != '{"Skip":""}'
+| where 
+    isnull(zones)
+| where
+	properties.storageProfile.osDisk.managedDisk.storageAccountType !in ('Premium_LRS'
+	or properties.storageProfile.dataDisks.managedDisk.storageAccountType != 'Premium_LRS'
+	    and array_length(properties.storageProfile.dataDisks) != 0
+```
+ 
+                                
                             
 * The following query expands on the identification of standalone instances by **identifying any Availability Sets containing single instance VMs**, which are exposed to the same risks as standalone single instances outside of an Availability Set.
+```
+Resources
+| where 
+    type =~ 'Microsoft.Compute/availabilitySets'
+| where 
+    tags != '{"Skip":""}'
+| where 
+	array_length(properties.virtualMachines) <= 1
+| where
+	properties.platformFaultDomainCount <= 1
+```
+ 
+                            
 * Azure policy definition to **audit standalone single instance VMs that are not protected by a SLA**. It will flag an audit event for all Virtual Machine instances that are not deployed within an Availability Set or across Availability Zones and are not using Premium Storage for both OS and Data disks. It also encompasses both Virtual Machine and Virtual Machine Scale Set resources.
   > [Audit VM/VMSS Standalone Instances](../src/compute/policydefinition_Audit-VMStandaloneInstances.json)
                             
@@ -234,9 +283,38 @@ This list contains design considerations and recommended configuration options, 
 * Implement [retry logic](https://docs.microsoft.com/en-us/azure/architecture/best-practices/retry-service-specific#cosmos-db) in your client.
 ### Supporting Source Artifacts
 * In order to check if multi location is not selected you can use the following query: 
+```
+Resources
+|where  type =~ 'Microsoft.DocumentDb/databaseAccounts'
+|where array_length( properties.locations) <=1
+```
+ 
+                            
 * To check for cosmosdb instances where automatic failover is not enabled:
+```
+Resources
+|where  type =~ 'Microsoft.DocumentDb/databaseAccounts'
+|where properties.enableAutomaticFailover!=True
+```
+ 
+                            
 * Query to see the list of multi-region writes:
+```
+resources
+| where type == "microsoft.documentdb/databaseaccounts"
+ and properties.enableMultipleWriteLocations == "true"
+```
+ 
+                            
 * To see the consistency levels for your cosmos db accounts you can use the query below: 
+```
+Resources
+| project name, type, location, consistencyLevel = properties.consistencyPolicy.defaultConsistencyLevel 
+| where type == "microsoft.documentdb/databaseaccounts" 
+| order by name asc
+```
+ 
+                            
 * [Auto-Scale FAQ](https://docs.microsoft.com/en-us/azure/cosmos-db/autoscale-faq)
 * [Performance Tips for Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/performance-tips)
 ## Azure Cache for Redis
@@ -274,6 +352,13 @@ This list contains design considerations and recommended configuration options, 
 * Review the [How to administer Azure Cache for Redis](https://docs.microsoft.com/en-us/azure/azure-cache-for-redis/cache-administration#reboot) to understand how data loss can occur with cache reboots and how to test the application for resiliency.
 ### Supporting Source Artifacts
 * Query to identify Redis Instances that are not on the premium tier:
+```
+Resources 
+| where type == 'microsoft.cache/redis'
+| where properties.sku.name != 'Premium'
+```
+ 
+                            
 # Hybrid
         
 ## Azure Stack Hub
@@ -319,6 +404,14 @@ This list contains design considerations and recommended configuration options, 
 * When using the SDK to send events to Event Hubs, ensure the exceptions thrown by the [retry policy](https://docs.microsoft.com/en-us/azure/architecture/best-practices/retry-service-specific#event-hubs) (EventHubsException or OperationCancelledException) are properly caught. When using HTTPS, ensure a proper retry pattern is implemented.
 ### Supporting Source Artifacts
 * Find Event Hub namespaces with &#39;Basic&#39; SKU:
+```
+Resources 
+| where type == 'microsoft.eventhub/namespaces'
+| where sku.name == 'Basic'
+| project resourceGroup, name, sku.name
+```
+ 
+                            
 ## Service Bus
 ### Design Considerations
 * For Service Bus Queues and Topics, Microsoft guarantees that at least 99.9% of the time, properly configured applications will be able to send or receive messages or perform other operations on a deployed Queue or Topic. [SLA Documentation](https://azure.microsoft.com/en-us/support/legal/sla/service-bus)
@@ -352,7 +445,26 @@ This list contains design considerations and recommended configuration options, 
                             
 ### Supporting Source Artifacts
 * Query to identify Service Bus Instances that are not on the premium tier:
+```
+Resources
+| where
+	type == 'microsoft.servicebus/namespaces'
+| where
+	sku.tier != 'Premium'
+```
+ 
+                            
 * Query to identify premium Service Bus Instances that are not using private endpoints:
+```
+Resources
+| where
+	type == 'microsoft.servicebus/namespaces'
+| where
+	sku.tier == 'Premium'
+	and isempty(properties.privateEndpointConnections)
+```
+ 
+                            
 ## Storage Queues
 ### Design Considerations
 * Azure Storage Queues follow the SLA statements of the general [Storage Account service](https://azure.microsoft.com/en-us/support/legal/sla/storage/v1_5/). Currently (v1.5) this specifies a 99.9% guarantee for LRS, ZRS and GRS accounts and a 99.99% guarantee for RA-GRS (provided that requests to RA-GRS switch to secondary endpoints if there is no success on the primary endpoint)
@@ -362,6 +474,14 @@ This list contains design considerations and recommended configuration options, 
 * Ensure that for all clients accessing the storage account, a proper [retry policy](https://docs.microsoft.com/en-us/azure/architecture/best-practices/retry-service-specific#azure-storage) is implemented.
 ### Supporting Source Artifacts
 * Query to identify storage accounts using V1 storage accounts:
+```
+Resources
+| where
+	type == 'microsoft.storage/storageaccounts'
+	and kind == 'Storage'
+```
+ 
+                            
 ## IoT Hub
 ### Design Considerations
 * Azure IoT Hub has a [published SLA](https://azure.microsoft.com/en-us/support/legal/sla/iot-hub) of 99.9% for the Basic and Standard tiers, there is no SLA for the Free tier.
