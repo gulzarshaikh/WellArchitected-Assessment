@@ -13,6 +13,6 @@ This reliability assessment has been produced to help the global CE&S community 
 ## Navigation Menu
 
 - [Application Operational Excellence]({{ $baseUrlApplication }}) 
-{{ partial "navigation.partial" (dict "input" $.Site.Data.input "pillars" $pillars "lens" "application" "categories" $.Site.Data.categories "baseUrl" $baseUrlApplication) }}
+{{ partial "navigation.partial" (dict "input" $.Site.Data.input "pillars" $pillars "lens" "application" "categories" $.Site.Data.categories "baseUrl" $baseUrlApplication "printChecklistHeader" true) }}
 - [Service Operational Excellence]({{ $baseUrlService }})
 {{ partial "navigation.partial" (dict "input" $.Site.Data.input "pillars" $pillars "lens" "service" "categories" $.Site.Data.categories "baseUrl" $baseUrlService) }}

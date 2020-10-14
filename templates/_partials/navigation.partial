@@ -10,7 +10,7 @@
 {{- end -}}
 
 {{ if $showDesignPrinciples }}
-- [Design Principles](#design-principles)
+- [Design Principles]({{ $baseUrl }}#design-principles)
 {{ end }}
 {{- if .printChecklistHeader -}}
 - [Application Assessment Checklist]({{ $baseUrl }}#Application-Assessment-Checklist)

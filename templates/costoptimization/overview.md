@@ -14,6 +14,6 @@ This assessment has been produced to help the global CE&S community to optimize 
 ## Navigation Menu
 
 - [Application Operational Excellence]({{ $baseUrlApplication }}) 
-{{ partial "navigation.partial" (dict "input" $.Site.Data.input "pillars" $pillars "lens" "application" "categories" $.Site.Data.categories  "type" "Questions" "baseUrl" $baseUrlApplication) }}
+{{ partial "navigation.partial" (dict "input" $.Site.Data.input "pillars" $pillars "lens" "application" "categories" $.Site.Data.categories  "type" "Questions" "baseUrl" $baseUrlApplication "printChecklistHeader" true) }}
 - [Service Operational Excellence]({{ $baseUrlService }})
 {{ partial "navigation.partial" (dict "input" $.Site.Data.input "pillars" $pillars "lens" "service" "categories" $.Site.Data.categories  "type" "Questions" "baseUrl" $baseUrlService) }}
