@@ -11,7 +11,9 @@ This security assessment has been produced to help the global CE&S community to 
 
 ## Navigation Menu
 
-- [Application Operational Excellence]({{ $baseUrlApplication }}) 
+[Application Security]({{ $baseUrlApplication }}) 
 {{ partial "navigation.partial" (dict "input" $.Site.Data.input "pillars" $pillars "lens" "application" "categories" $.Site.Data.categories  "type" "Questions" "baseUrl" $baseUrlApplication "printChecklistHeader" true) }}
-- [Service Operational Excellence]({{ $baseUrlService }})
+
+
+[Service Security]({{ $baseUrlService }})
 {{ partial "navigation.partial" (dict "input" $.Site.Data.input "pillars" $pillars "lens" "service" "categories" $.Site.Data.categories  "type" "Questions" "baseUrl" $baseUrlService) }}
