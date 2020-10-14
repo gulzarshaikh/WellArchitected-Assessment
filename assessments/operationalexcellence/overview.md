@@ -4,10 +4,9 @@ This operational excellence assessment has been produced to help the global CE&S
 
 > Please note it is assumed users of this guidance have familiarity with the application architecture in question, as well as key scenarios and non-functional requirements.
 
-
 ## Navigation Menu
 
-[Application Operational Excellence](./application.md) 
+### [Application Operational Excellence](./application.md) 
 
 - [Design Principles](./application.md#design-principles)
 - [Application Assessment Checklist](./application.md#Application-Assessment-Checklist)
@@ -43,7 +42,7 @@ This operational excellence assessment has been produced to help the global CE&S
     - [Common Engineering Criteria](./application.md#Common-Engineering-Criteria)
 
 
-[Service Operational Excellence](./service.md)
+### [Service Operational Excellence](./service.md)
 
   - [Compute](./service.md#Compute)
     - [Azure App Service](./service.md#Azure-App-Service)

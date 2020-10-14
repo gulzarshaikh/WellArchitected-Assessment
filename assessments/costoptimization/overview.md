@@ -4,11 +4,10 @@ This assessment has been produced to help the global CE&S community to optimize 
 
 > Please note it is assumed users of this guidance have familiarity with the application architecture in question, as well as key scenarios and non-functional requirements.
 
-
 ## Navigation Menu
 
-[Application Cost Optimization](./application.md) 
+### [Application Cost Optimization](./application.md) 
 - [Application Assessment Checklist](./application.md#Application-Assessment-Checklist)
 
 
-[Service Cost Optimization](./service.md)
+### [Service Cost Optimization](./service.md)

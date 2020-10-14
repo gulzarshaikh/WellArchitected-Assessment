@@ -6,7 +6,7 @@ This security assessment has been produced to help the global CE&S community to 
 
 ## Navigation Menu
 
-[Application Security](./application.md) 
+### [Application Security](./application.md) 
 - [Application Assessment Checklist](./application.md#Application-Assessment-Checklist)
   - [General](./application.md#General)
     - [Unassigned](./application.md#Unassigned)
@@ -42,4 +42,4 @@ This security assessment has been produced to help the global CE&S community to 
     - [Authentication and authorization](./application.md#Authentication-and-authorization)
 
 
-[Service Security](./service.md)
+### [Service Security](./service.md)
