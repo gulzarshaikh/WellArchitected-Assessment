@@ -2,26 +2,29 @@
 
 This list contains design considerations and recommended configuration options, specific to individual Azure services.
 
+
+
 # Navigation Menu
-- [Compute](#Compute)
-  - [Azure App Service](#Azure-App-Service)
-  - [Azure Kubernetes Service (AKS)](#Azure-Kubernetes-Service-AKS)
-  - [Service Fabric](#Service-Fabric)
-  - [Virtual Machines](#Virtual-Machines)
-- [Data](#Data)
-  - [Azure SQL Database](#Azure-SQL-Database)
-  - [Azure SQL Managed Instance](#Azure-SQL-Managed-Instance)
-  - [Cosmos DB](#Cosmos-DB)
-  - [Azure Cache for Redis](#Azure-Cache-for-Redis)
-- [Hybrid](#Hybrid)
-  - [Azure Stack Hub](#Azure-Stack-Hub)
-- [Messaging](#Messaging)
-  - [Event Grid](#Event-Grid)
-  - [Event Hub](#Event-Hub)
-  - [Service Bus](#Service-Bus)
-  - [Storage Queues](#Storage-Queues)
-  - [IoT Hub](#IoT-Hub)
-  - [IoT Hub Device Provisioning Service](#IoT-Hub-Device-Provisioning-Service)
+
+  - [Compute](#Compute)
+    - [Azure App Service](#Azure-App-Service)
+    - [Azure Kubernetes Service (AKS)](#Azure-Kubernetes-Service-AKS)
+    - [Service Fabric](#Service-Fabric)
+    - [Virtual Machines](#Virtual-Machines)
+  - [Data](#Data)
+    - [Azure SQL Database](#Azure-SQL-Database)
+    - [Azure SQL Managed Instance](#Azure-SQL-Managed-Instance)
+    - [Cosmos DB](#Cosmos-DB)
+    - [Azure Cache for Redis](#Azure-Cache-for-Redis)
+  - [Hybrid](#Hybrid)
+    - [Azure Stack Hub](#Azure-Stack-Hub)
+  - [Messaging](#Messaging)
+    - [Event Grid](#Event-Grid)
+    - [Event Hub](#Event-Hub)
+    - [Service Bus](#Service-Bus)
+    - [Storage Queues](#Storage-Queues)
+    - [IoT Hub](#IoT-Hub)
+    - [IoT Hub Device Provisioning Service](#IoT-Hub-Device-Provisioning-Service)
 # Compute
         
 ## Azure App Service

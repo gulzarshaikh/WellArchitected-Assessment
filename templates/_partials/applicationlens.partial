@@ -1,0 +1,63 @@
+{{- $lens := "application" -}}
+
+{{- $filtered := where (where (where .input "pillars" "intersect" .pillars) "lens" $lens) "type" "Questions" }}
+{{- $designPrinciples := where (where .input "pillars" "intersect" .pillars) "type" "Design Principles" -}}
+
+# Navigation Menu
+{{ partial "navigation.partial" (dict "input" .input "pillars" .pillars "lens" $lens "categories" .categories "printChecklistHeader" true) }}
+
+{{ if $designPrinciples }}
+# Design Principles
+
+The following Design Principles provide context for questions, why a certain aspect is important and how is it applicable to {{ .pillarDisplayName }}.
+
+{{ range $designPrinciple := $designPrinciples }}
+## {{ safeHTML $designPrinciple.title }}
+
+{{ if $designPrinciple.context }}
+  {{ safeHTML (trim $designPrinciple.context " ") }}
+{{ end }}
+
+{{ end }}
+
+---
+
+These critical design principals are used as lenses to assess the {{ .pillarDisplayName }} of an application deployed on Azure, providing a framework for the following application assessment questions.
+
+{{ end }}
+
+# Application Assessment Checklist
+
+{{- range $category := .categories -}}
+    {{- $questionsInCategory := where $filtered "category" $category.title -}}
+    {{- if $questionsInCategory }}
+## {{ $category.title}}
+    {{ range $subCategory := $category.subCategories -}}
+        {{- $questionsInSubCategory := where (where $filtered "category" $category.title) "subCategory" $subCategory.title -}}
+        {{- if $questionsInSubCategory }}
+### {{ $subCategory.title }}
+            {{ range $question := $questionsInSubCategory }}
+* {{ safeHTML $question.title }}
+
+{{ if $question.context }}
+  _{{ safeHTML (trim $question.context " ") }}_
+{{- end -}}
+
+{{ if $question.recommendation }}
+  > {{ safeHTML (trim $question.recommendation " ") }}
+{{- end -}}
+{{ range $question.children }}
+    - {{ $question.title }}
+
+{{ if $question.context }}
+      _{{ safeHTML (trim $question.context " ") }}_
+{{- end }}
+{{ if $question.recommendation }}
+      > {{ safeHTML (trim $question.recommendation " ") }}
+{{- end -}}
+{{- end -}}
+            {{- end -}}
+        {{- end -}}
+    {{- end }}
+    {{- end }}
+{{- end -}}
