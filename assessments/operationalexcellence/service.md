@@ -2,6 +2,8 @@
 
 This list contains design considerations and recommended configuration options, specific to individual Azure services.
 
+
+
 # Navigation Menu
 
   - [Compute](#Compute)
@@ -23,8 +25,6 @@ This list contains design considerations and recommended configuration options, 
     - [Storage Queues](#Storage-Queues)
     - [IoT Hub](#IoT-Hub)
     - [IoT Hub Device Provisioning Service](#IoT-Hub-Device-Provisioning-Service)
-
-
 # Compute
         
 ## Azure App Service
