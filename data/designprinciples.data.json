@@ -38,13 +38,37 @@
     {
         "type": "Design Principles",
         "pillars": [
-            "reliability"
+            "operationalexcellence"
         ],
         "lens": "application",
         "category": "General",
         "subCategory": "Unassigned",
-        "title": "Expect failures",
-        "context": "When operating on cloud-scale, expect and prepare for failures, rather than trying to prevent them.",
-        "id": "dp_reliability_1"
+        "title": "Modularize your environment",
+        "context": "Systematically componentize your environment and workloads to enable frequent and manageable change that can be progressively rolled-out and safely rolled-back.",
+        "id": "dp_opex_4"
+    },
+    {
+        "type": "Design Principles",
+        "pillars": [
+            "operationalexcellence"
+        ],
+        "lens": "application",
+        "category": "General",
+        "subCategory": "Unassigned",
+        "title": "Use policy-driven governance",
+        "context": "Use Azure Policy to provide guardrails and ensure continued compliance of application environment. This approach to centralized governance enables an organization to provide application teams with sufficient autonomy to accelerate development efforts, while ensuring the enterprise estate remains compliant with organizational standards.",
+        "id": "dp_opex_5"
+    },
+    {
+        "type": "Design Principles",
+        "pillars": [
+            "operationalexcellence"
+        ],
+        "lens": "application",
+        "category": "General",
+        "subCategory": "Unassigned",
+        "title": "Embrace operational improvement",
+        "context": "Continuously evaluate and refine operational procedures and tasks, while striving to reduce complexity and ambiguity. This approach enables an organization to evolve processes over time, optimizing inefficiencies and learning from failures.",
+        "id": "dp_opex_6"
     }
 ]
