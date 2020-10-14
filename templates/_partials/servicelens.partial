@@ -3,6 +3,9 @@
 
 {{- $types := slice "Design Considerations" "Configuration Recommendations" "Supporting Source Artifacts" }}
 
+# Navigation Menu
+{{ partial "navigation.partial" (dict "input" .input "pillars" .pillars "lens" $lens "categories" .categories) }}
+
 {{- range $category := .categories -}}
     {{- $contentInCategory := where $filtered "category" $category.title -}}
     {{- if $contentInCategory }}
