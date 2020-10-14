@@ -7,7 +7,8 @@ This reliability assessment has been produced to help the global CE&S community 
 
 ## Navigation Menu
 
-- [Application Reliability](./application.md)
+- [Application Operational Excellence](./application.md) 
+
   - [Application Design](./application.md#Application-Design)
     - [Design](./application.md#Design)
     - [Failure Mode Analysis](./application.md#Failure-Mode-Analysis)
@@ -49,7 +50,8 @@ This reliability assessment has been produced to help the global CE&S community 
     - [Application Deployments](./application.md#Application-Deployments)
     - [Build Environments](./application.md#Build-Environments)
     - [Testing &amp; Validation](./application.md#Testing--Validation)
-- [Service Reliability](./service.md)
+- [Service Operational Excellence](./service.md)
+
   - [Compute](./service.md#Compute)
     - [Azure App Service](./service.md#Azure-App-Service)
     - [Azure Kubernetes Service (AKS)](./service.md#Azure-Kubernetes-Service-AKS)

@@ -6,7 +6,8 @@ This security assessment has been produced to help the global CE&S community to 
 
 ## Navigation Menu
 
-- [Application Security](./application.md)
+- [Application Operational Excellence](./application.md) 
+
   - [General](./application.md#General)
     - [Unassigned](./application.md#Unassigned)
   - [Application Design](./application.md#Application-Design)
@@ -39,4 +40,4 @@ This security assessment has been produced to help the global CE&S community to 
     - [Separation of duties](./application.md#Separation-of-duties)
     - [Control-plane RBAC](./application.md#Controlplane-RBAC)
     - [Authentication and authorization](./application.md#Authentication-and-authorization)
-- [Service Security](./service.md)
+- [Service Operational Excellence](./service.md)

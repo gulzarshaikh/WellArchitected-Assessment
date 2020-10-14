@@ -7,5 +7,6 @@ This assessment has been produced to help the global CE&S community to optimize 
 
 ## Navigation Menu
 
-- [Application Reliability](./application.md)
-- [Service Reliability](./service.md)
+- [Application Operational Excellence](./application.md) 
+
+- [Service Operational Excellence](./service.md)

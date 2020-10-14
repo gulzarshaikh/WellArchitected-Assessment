@@ -7,9 +7,10 @@ This operational excellence assessment has been produced to help the global CE&S
 
 ## Navigation Menu
 
-- [Application Operational Excellence](./application.md)
-  - [General](./application.md#General)
-    - [Unassigned](./application.md#Unassigned)
+- [Application Operational Excellence](./application.md) 
+
+- [Design Principles](#design-principles)
+
   - [Application Design](./application.md#Application-Design)
     - [Design](./application.md#Design)
     - [Targets &amp; Non Functional Requirements](./application.md#Targets--Non-Functional-Requirements)
@@ -41,6 +42,7 @@ This operational excellence assessment has been produced to help the global CE&S
     - [Roles &amp; Responsibilities](./application.md#Roles--Responsibilities)
     - [Common Engineering Criteria](./application.md#Common-Engineering-Criteria)
 - [Service Operational Excellence](./service.md)
+
   - [Compute](./service.md#Compute)
     - [Azure App Service](./service.md#Azure-App-Service)
     - [Azure Kubernetes Service (AKS)](./service.md#Azure-Kubernetes-Service-AKS)
