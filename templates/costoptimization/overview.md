@@ -13,35 +13,7 @@ This assessment has been produced to help the global CE&S community to optimize 
 
 ## Navigation Menu
 
-- [Application Reliability]({{ $baseUrlApplication }}) 
-{{- $lens := "application" -}}
-{{- $filteredApp := where $filtered "lens" $lens -}}
-
-{{- range $category := $.Site.Data.categories -}}
-    {{- $questionsInCategory := where $filteredApp "category" $category.title -}}
-    {{- if $questionsInCategory }}
-  - [{{ $category.title}}]({{ $baseUrlApplication }}#{{ replace (replaceRE "[^\\s\\d\\w]" "" $category.title) " " "-" }})
-        {{- range $subCategory := $category.subCategories }}
-            {{- $questionsInSubCategory := (and (where $filteredApp "category" $category.title) (where $filtered "subCategory" $subCategory.title)) -}}
-            {{- if $questionsInSubCategory }}
-    - [{{ $subCategory.title}}]({{ $baseUrlApplication }}#{{ replace (replaceRE "[^\\s\\d\\w]" "" $subCategory.title) " " "-" }})
-            {{- end -}}
-        {{- end -}}
-    {{- end -}}
-{{- end }}
-- [Service Reliability]({{ $baseUrlService }})
-{{- $lens = "service" -}}
-{{- $filteredService := where $filtered "lens" $lens -}}
-
-{{- range $category := $.Site.Data.categories -}}
-    {{- $questionsInCategory := where $filteredService "category" $category.title -}}
-    {{- if $questionsInCategory }}
-  - [{{ $category.title}}]({{ $baseUrlService }}#{{ replace (replaceRE "[^\\s\\d\\w]" "" $category.title) " " "-" }})
-        {{- range $subCategory := $category.subCategories }}
-            {{- $questionsInSubCategory := (and (where $filteredService "category" $category.title) (where $filtered "subCategory" $subCategory.title)) -}}
-            {{- if $questionsInSubCategory }}
-    - [{{ $subCategory.title}}]({{ $baseUrlService }}#{{ replace (replaceRE "[^\\s\\d\\w]" "" $subCategory.title) " " "-" }})
-            {{- end -}}
-        {{- end -}}
-    {{- end -}}
-{{- end -}}
+- [Application Operational Excellence]({{ $baseUrlApplication }}) 
+{{ partial "navigation.partial" (dict "input" $.Site.Data.input "pillars" $pillars "lens" "application" "categories" $.Site.Data.categories  "type" "Questions" "baseUrl" $baseUrlApplication) }}
+- [Service Operational Excellence]({{ $baseUrlService }})
+{{ partial "navigation.partial" (dict "input" $.Site.Data.input "pillars" $pillars "lens" "service" "categories" $.Site.Data.categories  "type" "Questions" "baseUrl" $baseUrlService) }}

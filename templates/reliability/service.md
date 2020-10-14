@@ -11,18 +11,7 @@ This list contains design considerations and recommended configuration options, 
 {{- $types := slice "Design Considerations" "Configuration Recommendations" "Supporting Source Artifacts" }}
 
 # Navigation Menu
-{{- range $category := $.Site.Data.categories -}}
-    {{- $questionsInCategory := where $filtered "category" $category.title -}}
-    {{- if $questionsInCategory }}
-- [{{ $category.title}}](#{{ replace (replaceRE "[^\\s\\d\\w]" "" $category.title) " " "-" }})
-        {{- range $subCategory := $category.subCategories }}
-            {{- $questionsInSubCategory := (and (where $filtered "category" $category.title) (where $filtered "subCategory" $subCategory.title)) -}}
-            {{- if $questionsInSubCategory }}
-  - [{{ $subCategory.title}}](#{{ replace (replaceRE "[^\\s\\d\\w]" "" $subCategory.title) " " "-" }})
-            {{- end -}}
-        {{- end -}}
-    {{- end -}}
-{{- end -}}
+{{ partial "navigation.partial" (dict "input" $.Site.Data.input "pillars" $pillars "lens" $lens "categories" $.Site.Data.categories) }}
 
 {{- range $category := $.Site.Data.categories -}}
     {{- $contentInCategory := where $filtered "category" $category.title -}}
