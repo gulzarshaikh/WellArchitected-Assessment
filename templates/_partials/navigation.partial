@@ -1,7 +1,5 @@
 {{- $filtered := where (where .input "pillars" "intersect" .pillars) "lens" .lens }}
 
-{{- $baseUrl := .baseUrl -}}
-
 {{- $showDesignPrinciples := false -}}
 
 {{- if eq .lens "application" -}}
@@ -10,19 +8,19 @@
 {{- end -}}
 
 {{ if $showDesignPrinciples }}
-- [Design Principles]({{ $baseUrl }}#design-principles)
+- [Design Principles]({{ $.baseUrl }}#design-principles)
 {{ end }}
 {{- if .printChecklistHeader -}}
-- [Application Assessment Checklist]({{ $baseUrl }}#Application-Assessment-Checklist)
+- [Application Assessment Checklist]({{ $.baseUrl }}#Application-Assessment-Checklist)
 {{- end -}}
 {{- range $category := .categories -}}
     {{- $questionsInCategory := where $filtered "category" $category.title -}}
     {{- if $questionsInCategory }}
-  - [{{ $category.title}}]({{ $baseUrl }}#{{ replace (replaceRE "[^\\s\\d\\w]" "" $category.title) " " "-" }})
+  - [{{ $category.title}}]({{ $.baseUrl }}#{{ replace (replaceRE "[^\\s\\d\\w]" "" $category.title) " " "-" }})
         {{- range $subCategory := $category.subCategories }}
             {{- $questionsInSubCategory := (where (where $filtered "category" $category.title) "subCategory" $subCategory.title) -}}
             {{- if $questionsInSubCategory }}
-    - [{{ $subCategory.title}}]({{ $baseUrl }}#{{ replace (replaceRE "[^\\s\\d\\w]" "" $subCategory.title) " " "-" }})
+    - [{{ $subCategory.title}}]({{ $.baseUrl }}#{{ replace (replaceRE "[^\\s\\d\\w]" "" $subCategory.title) " " "-" }})
             {{- end -}}
         {{- end -}}
     {{- end -}}
