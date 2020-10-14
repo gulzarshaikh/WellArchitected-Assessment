@@ -9,8 +9,8 @@ This operational excellence assessment has been produced to help the global CE&S
 
 - [Application Operational Excellence](./application.md) 
 
-- [Design Principles](#design-principles)
-
+- [Design Principles](./application.md#design-principles)
+- [Application Assessment Checklist](./application.md#Application-Assessment-Checklist)
   - [Application Design](./application.md#Application-Design)
     - [Design](./application.md#Design)
     - [Targets &amp; Non Functional Requirements](./application.md#Targets--Non-Functional-Requirements)

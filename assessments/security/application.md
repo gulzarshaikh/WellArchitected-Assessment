@@ -1,4 +1,6 @@
-# Application Security# Navigation Menu
+# Application Security
+
+# Navigation Menu
 - [Application Assessment Checklist](#Application-Assessment-Checklist)
   - [General](#General)
     - [Unassigned](#Unassigned)

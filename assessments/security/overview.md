@@ -7,7 +7,7 @@ This security assessment has been produced to help the global CE&S community to 
 ## Navigation Menu
 
 - [Application Operational Excellence](./application.md) 
-
+- [Application Assessment Checklist](./application.md#Application-Assessment-Checklist)
   - [General](./application.md#General)
     - [Unassigned](./application.md#Unassigned)
   - [Application Design](./application.md#Application-Design)

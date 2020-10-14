@@ -1,4 +1,6 @@
-# Application Operational Excellence# Navigation Menu
+# Application Operational Excellence
+
+# Navigation Menu
 
 - [Design Principles](#design-principles)
 - [Application Assessment Checklist](#Application-Assessment-Checklist)

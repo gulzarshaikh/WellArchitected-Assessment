@@ -8,7 +8,7 @@ This reliability assessment has been produced to help the global CE&S community 
 ## Navigation Menu
 
 - [Application Operational Excellence](./application.md) 
-
+- [Application Assessment Checklist](./application.md#Application-Assessment-Checklist)
   - [Application Design](./application.md#Application-Design)
     - [Design](./application.md#Design)
     - [Failure Mode Analysis](./application.md#Failure-Mode-Analysis)
