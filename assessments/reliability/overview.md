@@ -7,7 +7,7 @@ This reliability assessment has been produced to help the global CE&S community 
 
 ## Navigation Menu
 
-- [Application Operational Excellence](./application.md) 
+[Application Reliability](./application.md) 
 - [Application Assessment Checklist](./application.md#Application-Assessment-Checklist)
   - [Application Design](./application.md#Application-Design)
     - [Design](./application.md#Design)
@@ -50,7 +50,9 @@ This reliability assessment has been produced to help the global CE&S community 
     - [Application Deployments](./application.md#Application-Deployments)
     - [Build Environments](./application.md#Build-Environments)
     - [Testing &amp; Validation](./application.md#Testing--Validation)
-- [Service Operational Excellence](./service.md)
+
+
+[Service Reliability](./service.md)
 
   - [Compute](./service.md#Compute)
     - [Azure App Service](./service.md#Azure-App-Service)
