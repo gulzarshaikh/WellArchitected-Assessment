@@ -4,10 +4,12 @@ This operational excellence assessment has been produced to help the global CE&S
 
 > Please note it is assumed users of this guidance have familiarity with the application architecture in question, as well as key scenarios and non-functional requirements.
 
-
 ## Navigation Menu
 
-- [Application Operational Excellence](./application.md)
+### [Application Operational Excellence](./application.md) 
+
+- [Design Principles](./application.md#design-principles)
+- [Application Assessment Checklist](./application.md#Application-Assessment-Checklist)
   - [Application Design](./application.md#Application-Design)
     - [Design](./application.md#Design)
     - [Targets &amp; Non Functional Requirements](./application.md#Targets--Non-Functional-Requirements)
@@ -38,7 +40,10 @@ This operational excellence assessment has been produced to help the global CE&S
     - [General](./application.md#General)
     - [Roles &amp; Responsibilities](./application.md#Roles--Responsibilities)
     - [Common Engineering Criteria](./application.md#Common-Engineering-Criteria)
-- [Service Operational Excellence](./service.md)
+
+
+### [Service Operational Excellence](./service.md)
+
   - [Compute](./service.md#Compute)
     - [Azure App Service](./service.md#Azure-App-Service)
     - [Azure Kubernetes Service (AKS)](./service.md#Azure-Kubernetes-Service-AKS)
