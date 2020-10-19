@@ -100,7 +100,7 @@
         "lens": "service",
         "category": "Storage",
         "subCategory": "Storage Accounts",
-        "title": "Store business-critical data in immutable blobs",
+        "title": "Use blob versioning or immutable blobs to store business-critical data",
         "context" : "Consider using [Blob versioning](https://docs.microsoft.com/en-us/azure/storage/blobs/versioning-overview) to automatically maintain previous versions of an object or the use of legal holds and time-based retention policies to store blob data in a WORM (Write Once, Read Many) state. Blobs stored immutably can be read, but cannot be modified or deleted for the duration of the retention interval. For more information, see [Store business-critical blob data with immutable storage](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-immutable-storage)."
     },
     {
