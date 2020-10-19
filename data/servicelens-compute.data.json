@@ -168,7 +168,7 @@
         "context": "[Audit Availability Sets With Single Instances](../src/compute/policydefinition_Audit-AvailabilitySetSingleInstances.json)"
     },
     {
-        "type": "Design Considerations",
+        "type": "Configuration Recommendations",
         "pillars": [
             "reliability",
             "operationalexcellence"
@@ -176,19 +176,16 @@
         "lens": "service",
         "category": "Compute",
         "subCategory": "Azure Kubernetes Service (AKS)",
-        "title": "For customers subscribing to the Azure Kubernetes Service (AKS) Uptime SLA, Microsoft guarantees 1) 99.95% availability of the Kubernetes API server endpoint for AKS Clusters that use Azure Availability Zones, and 2) 99.9% availability for AKS Clusters that not use Azure Availability Zones. For customers that do not wish to subscribe to the AKS uptime SLA, Microsoft provides a service level objective (SLO) of 99.5%."
-    },
-    {
-        "type": "Design Considerations",
-        "pillars": [
-            "reliability"
-        ],
-        "lens": "service",
-        "category": "Compute",
-        "subCategory": "Azure Kubernetes Service (AKS)",
-        "title": "The SLA for agent (worker) nodes within an AKS cluster is covered by the standard [Virtual Machine SLA](#virtual-machines) which is dependent on the chosen deployment configuration and whether an Availability Set or Availability Zones are used.",
-        "context": "[AKS Service Level Agreements](https://azure.microsoft.com/support/legal/sla/kubernetes-service/v1_1/)[AKS Uptime SLA Offering](https://docs.microsoft.com/en-us/azure/aks/uptime-sla)"
-    },
+        "title": "Utilize the [AKS Uptime SLA](https://docs.microsoft.com/en-us/azure/aks/uptime-sla) for production grade clusters. The AKS Uptime SLA guarantees:",
+        "children": [
+            {
+                "title": "1) 99.95% availability of the Kubernetes API server endpoint for AKS Clusters that use Azure Availability Zones, and"
+            },
+            {
+                "title": "2) 99.9% availability for AKS Clusters that not use Azure Availability Zones."
+            }
+        ]        
+    },       
     {
         "type": "Configuration Recommendations",
         "pillars": [
@@ -197,11 +194,8 @@
         "lens": "service",
         "category": "Compute",
         "subCategory": "Azure Kubernetes Service (AKS)",
-        "title": "For all AKS clusters requiring resiliency, it is highly recommended that:",
+        "title": "Use [Availability Zones](https://docs.microsoft.com/azure/aks/availability-zones) to maximize resilience within a region by distributing AKS agent nodes across physically separate data centers.",
         "children": [
-            {
-                "title": "Use [Availability Zones](https://docs.microsoft.com/azure/aks/availability-zones) to maximize resilience within a region by distributing AKS agent nodes across physically separate data centers."
-            },
             {
                 "title": "Where co-locality requirements exist, an Availability Set deployment can be used to minimize inter-node latency."
             }
@@ -216,13 +210,36 @@
         "lens": "service",
         "category": "Compute",
         "subCategory": "Azure Kubernetes Service (AKS)",
-        "title": "Virtual Machine Scale Set deployment configurations should be used to unlock cluster autoscaling and the use of multiple node pools.",
+        "title": "Node Pool Design", 
         "children": [
             {
-                "title": "Enable cluster [autoscaling](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler) to adjust the number of agent nodes in response to resource constraints."
-            }
+                "title": "Utilize the Virtual Machine Scale Set VM set type for AKS node pools."
+            },
+            {
+                "title": "Keep the System node pool isolated from application workloads. System node pools require a VM SKU of at least 2 vCPUs and 4GB memory. [Detailed requirements here](https://docs.microsoft.com/en-us/azure/aks/use-system-pools#system-and-user-node-pools)"
+            },
+            {
+                "title": "Create special node pools for Infrastructure tools that require high resource utilization (eg - Istio)."
+            },
+            {
+                "title": "Only separate applications to special node pools based on specific requirements (eg - GPU, high memory VM's, etc.). In other words, large numbers of node pools lead to additional management overhead."
+            },
+            {
+                "title": "Use [taints and tolerations](https://docs.microsoft.com/en-us/azure/aks/operator-best-practices-advanced-scheduler#provide-dedicated-nodes-using-taints-and-tolerations) to provide dedicated nodes and limit resource intensive applications."
+            }                                  
         ]
     },
+    {
+        "type": "Configuration Recommendations",
+        "pillars": [
+            "reliability",
+            "operationalexcellence"
+        ],
+        "lens": "service",
+        "category": "Compute",
+        "subCategory": "Azure Kubernetes Service (AKS)",
+        "title": "Enable [cluster autoscaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler) to adjust the number of agent nodes in response to resource constraints."
+    },    
     {
         "type": "Configuration Recommendations",
         "pillars": [
