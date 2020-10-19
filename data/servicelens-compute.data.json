@@ -321,8 +321,49 @@
         "lens": "service",
         "category": "Compute",
         "subCategory": "Azure Kubernetes Service (AKS)",
-        "title": "Use [Azure Network Policies](https://docs.microsoft.com/en-us/azure/aks/use-network-policies) or Calico to control traffic between pods"
-    },             
+        "title": "Ensure proper selection of Network Plug-in [Kubenet vs. Azure CNI](https://docs.microsoft.com/en-us/azure/aks/concepts-network#compare-network-models) based on network requirements and cluster sizing."
+    },     
+    {
+        "type": "Configuration Recommendations",
+        "pillars": [
+            "reliability",
+            "operationalexcellence",
+            "security"
+        ],
+        "lens": "service",
+        "category": "Compute",
+        "subCategory": "Azure Kubernetes Service (AKS)",
+        "title": "Use [Azure Network Policies](https://docs.microsoft.com/en-us/azure/aks/use-network-policies) or Calico to control traffic between pods."
+    },
+    {
+        "type": "Configuration Recommendations",
+        "pillars": [
+            "reliability",
+            "operationalexcellence",
+            "security"
+        ],
+        "lens": "service",
+        "category": "Compute",
+        "subCategory": "Azure Kubernetes Service (AKS)",
+        "title": "Utlize a central monitoring tool (eg. - [Azure Monitor and App Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/container-insights-overview)) to centrally collect metrics, logs, and diagnostics for troubleshooting purposes.",
+        "children": [
+            {
+                "title": "Enable and review Kubernetes master node logs. https://docs.microsoft.com/en-us/azure/aks/view-master-logs"
+            }
+        ]
+    },
+    {
+        "type": "Configuration Recommendations",
+        "pillars": [
+            "reliability",
+            "operationalexcellence",
+            "security"
+        ],
+        "lens": "service",
+        "category": "Compute",
+        "subCategory": "Azure Kubernetes Service (AKS)",
+        "title": "Define [Pod resource requests and limits](https://docs.microsoft.com/en-us/azure/aks/developer-best-practices-resource-management#define-pod-resource-requests-and-limits) in application deployment manifests."
+    },                      
     {
         "type": "Configuration Recommendations",
         "pillars": [
