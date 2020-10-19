@@ -429,7 +429,7 @@ Resources
 * Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
 * Storage account names must be unique within Azure. No two storage accounts can have the same name.
 * The current [SLA for Storage Accounts](https://azure.microsoft.com/en-us/support/legal/sla/storage/v1_5/) (v1.5, June 2019) specifies a 99.9% guarantee for LRS, ZRS and GRS accounts and a 99.99% guarantee for RA-GRS (provided that requests to RA-GRS switch to secondary endpoints if there is no success on the primary endpoint). Go to [Azure Storage redundancy](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy) to see which redundancy option is best for a specific scenario.
-* General-purpose v1 storage accounts provide access to all Azure Storage services, but may not have the latest features or the lowest per gigabyte pricing. Microsoft recommends to use general-purpose v2 storage accounts in most cases. Reasons to still use v1 are:
+* General-purpose v1 storage accounts provide access to all Azure Storage services, but may not have the latest features or the lowest per gigabyte pricing. It is recommended to use general-purpose v2 storage accounts in most cases. Reasons to still use v1 are:
    * Applications require the classic deployment model.
    * Applications are transaction-intensive or use significant geo-replication bandwidth, but don&#39;t require large capacity.
    * The use of a Storage Service REST API that is earlier than 2014-02-14 or a client library with a version lower than 4.x is required and an application upgrade is not possible.
@@ -440,13 +440,13 @@ Resources
   > Soft delete enables you to recover blob data after it has been deleted. For more information on soft delete, see [Soft delete for Azure Storage blobs](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-soft-delete).
                             
 * Use Azure AD to authorize access to blob data
-  > Azure AD provides superior security and ease of use over Shared Key for authorizing requests to Blob storage. For more information, see Authorize access to [Azure blobs and queues using Azure Active Directory](https://docs.microsoft.com/en-us/azure/storage/common/storage-auth-aad).
+  > Azure AD provides superior security and ease of use over Shared Key for authorizing requests to Blob storage. For more information, see [Authorize access to Azure blobs and queues using Azure Active Directory](https://docs.microsoft.com/en-us/azure/storage/common/storage-auth-aad).
                             
   - Keep in mind the principal of least privilege when assigning permissions to an Azure AD security principal via Azure RBAC
     > When assigning a role to a user, group, or application, grant that security principal only those permissions that are necessary for them to perform their tasks. Limiting access to resources helps prevent both unintentional and malicious misuse of your data.
                                 
                             
-* Store business-critical data in immutable blobs
+* Use blob versioning or immutable blobs to store business-critical data
   > Consider using [Blob versioning](https://docs.microsoft.com/en-us/azure/storage/blobs/versioning-overview) to automatically maintain previous versions of an object or the use of legal holds and time-based retention policies to store blob data in a WORM (Write Once, Read Many) state. Blobs stored immutably can be read, but cannot be modified or deleted for the duration of the retention interval. For more information, see [Store business-critical blob data with immutable storage](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-immutable-storage).
                             
 * Limit shared access signature (SAS) tokens to HTTPS connections only
