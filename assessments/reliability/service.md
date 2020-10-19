@@ -110,20 +110,27 @@ Resources
                             
 * [The Ultimate Guide to Running Healthy Apps in the Cloud](https://azure.github.io/AppService/2020/05/15/Robust-Apps-for-the-cloud.html)
 ## Azure Kubernetes Service (AKS)
-### Design Considerations
-* For customers subscribing to the Azure Kubernetes Service (AKS) Uptime SLA, Microsoft guarantees 1) 99.95% availability of the Kubernetes API server endpoint for AKS Clusters that use Azure Availability Zones, and 2) 99.9% availability for AKS Clusters that not use Azure Availability Zones. For customers that do not wish to subscribe to the AKS uptime SLA, Microsoft provides a service level objective (SLO) of 99.5%.
-* The SLA for agent (worker) nodes within an AKS cluster is covered by the standard [Virtual Machine SLA](#virtual-machines) which is dependent on the chosen deployment configuration and whether an Availability Set or Availability Zones are used.
-  > [AKS Service Level Agreements](https://azure.microsoft.com/support/legal/sla/kubernetes-service/v1_1/)[AKS Uptime SLA Offering](https://docs.microsoft.com/en-us/azure/aks/uptime-sla)
-                            
 ### Configuration Recommendations
-* For all AKS clusters requiring resiliency, it is highly recommended that:
-  - Use [Availability Zones](https://docs.microsoft.com/azure/aks/availability-zones) to maximize resilience within a region by distributing AKS agent nodes across physically separate data centers.
+* Utilize the [AKS Uptime SLA](https://docs.microsoft.com/en-us/azure/aks/uptime-sla) for production grade clusters. The AKS Uptime SLA guarantees:
+  - 1) 99.95% availability of the Kubernetes API server endpoint for AKS Clusters that use Azure Availability Zones, and
                             
+  - 2) 99.9% availability for AKS Clusters that not use Azure Availability Zones.
+                            
+* Use [Availability Zones](https://docs.microsoft.com/azure/aks/availability-zones) to maximize resilience within a region by distributing AKS agent nodes across physically separate data centers.
   - Where co-locality requirements exist, an Availability Set deployment can be used to minimize inter-node latency.
                             
-* Virtual Machine Scale Set deployment configurations should be used to unlock cluster autoscaling and the use of multiple node pools.
-  - Enable cluster [autoscaling](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler) to adjust the number of agent nodes in response to resource constraints.
+* Node Pool Design
+  - Utilize the Virtual Machine Scale Set VM set type for AKS node pools.
                             
+  - Keep the System node pool isolated from application workloads. System node pools require a VM SKU of at least 2 vCPUs and 4GB memory. [Detailed requirements here](https://docs.microsoft.com/en-us/azure/aks/use-system-pools#system-and-user-node-pools)
+                            
+  - Create special node pools for Infrastructure tools that require high resource utilization (eg - Istio).
+                            
+  - Only separate applications to special node pools based on specific requirements (eg - GPU, high memory VM&#39;s, etc.). In other words, large numbers of node pools lead to additional management overhead.
+                            
+  - Use [taints and tolerations](https://docs.microsoft.com/en-us/azure/aks/operator-best-practices-advanced-scheduler#provide-dedicated-nodes-using-taints-and-tolerations) to provide dedicated nodes and limit resource intensive applications.
+                            
+* Enable [cluster autoscaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler) to adjust the number of agent nodes in response to resource constraints.
 * Use [Managed Identities](https://docs.microsoft.com/azure/aks/use-managed-identity) to avoid having to manage and rotate service principles.
 * Keep the System node pool isolated from application workloads.
 * Modifying resources in the node resource group (ie - &#39;MC_&#39;) is not recommended and should only be done with assistance from Azure Support.
