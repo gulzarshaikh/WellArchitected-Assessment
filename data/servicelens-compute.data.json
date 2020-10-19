@@ -179,10 +179,10 @@
         "title": "Utilize the [AKS Uptime SLA](https://docs.microsoft.com/en-us/azure/aks/uptime-sla) for production grade clusters. The AKS Uptime SLA guarantees:",
         "children": [
             {
-                "title": "1) 99.95% availability of the Kubernetes API server endpoint for AKS Clusters that use Azure Availability Zones, and"
+                "title": "99.95% availability of the Kubernetes API server endpoint for AKS Clusters that use Azure Availability Zones, or"
             },
             {
-                "title": "2) 99.9% availability for AKS Clusters that not use Azure Availability Zones."
+                "title": "99.9% availability for AKS Clusters that not use Azure Availability Zones."
             }
         ]        
     },       
@@ -238,30 +238,8 @@
         "lens": "service",
         "category": "Compute",
         "subCategory": "Azure Kubernetes Service (AKS)",
-        "title": "Enable [cluster autoscaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler) to adjust the number of agent nodes in response to resource constraints."
-    },    
-    {
-        "type": "Configuration Recommendations",
-        "pillars": [
-            "reliability",
-            "operationalexcellence"
-        ],
-        "lens": "service",
-        "category": "Compute",
-        "subCategory": "Azure Kubernetes Service (AKS)",
-        "title": "Use [Managed Identities](https://docs.microsoft.com/azure/aks/use-managed-identity) to avoid having to manage and rotate service principles."
-    },
-    {
-        "type": "Configuration Recommendations",
-        "pillars": [
-            "reliability",
-            "operationalexcellence"
-        ],
-        "lens": "service",
-        "category": "Compute",
-        "subCategory": "Azure Kubernetes Service (AKS)",
-        "title": "Keep the System node pool isolated from application workloads."
-    },     
+        "title": "Use a template based deployment (ARM, Terraform, Ansible, etc.). Repeatable and traceable with git source repo. Can be combined with GitOps."
+    },   
     {
         "type": "Configuration Recommendations",
         "pillars": [
@@ -272,7 +250,79 @@
         "category": "Compute",
         "subCategory": "Azure Kubernetes Service (AKS)",
         "title": "Modifying resources in the node resource group (ie - 'MC_') is not recommended and should only be done with assistance from Azure Support."
-    },    
+    },         
+    {
+        "type": "Configuration Recommendations",
+        "pillars": [
+            "reliability",
+            "operationalexcellence"
+        ],
+        "lens": "service",
+        "category": "Compute",
+        "subCategory": "Azure Kubernetes Service (AKS)",
+        "title": "Enable [cluster autoscaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler) to adjust the number of agent nodes in response to resource constraints."
+    },
+    {
+        "type": "Configuration Recommendations",
+        "pillars": [
+            "reliability",
+            "operationalexcellence"
+        ],
+        "lens": "service",
+        "category": "Compute",
+        "subCategory": "Azure Kubernetes Service (AKS)",
+        "title": "Utilize the [Horizontal pod autoscaler](https://docs.microsoft.com/en-us/azure/aks/concepts-scale#horizontal-pod-autoscaler) to adjust the number of pods in a deployment depending on CPU utilization or other select metrics."
+    },     
+    {
+        "type": "Configuration Recommendations",
+        "pillars": [
+            "reliability",
+            "operationalexcellence",
+            "security"
+        ],
+        "lens": "service",
+        "category": "Compute",
+        "subCategory": "Azure Kubernetes Service (AKS)",
+        "title": "Security Guidelines", 
+        "children": [
+            {
+                "title": "Use [Managed Identities](https://docs.microsoft.com/azure/aks/use-managed-identity) to avoid having to manage and rotate service principles."
+            },
+            {
+                "title": "Utilize [AAD integration](https://docs.microsoft.com/en-us/azure/aks/managed-aad) to take advantage of centralized account management and passwords, application access management, and identity protection."
+            },
+            {
+                "title": "Use Kubernetes RBAC with AAD for [least privilege](https://docs.microsoft.com/en-us/azure/aks/azure-ad-rbac) and minimize granting administrator privileges to protect configuration and secrets access."
+            },
+            {
+                "title": "Limit access to Kubernetes cluster configuration file with Azure role-based access control. https://docs.microsoft.com/en-us/azure/aks/control-kubeconfig-access"
+            },            
+            {
+                "title": "Use [Pod Identities](https://docs.microsoft.com/en-us/azure/aks/operator-best-practices-identity#use-pod-identities) and [Secrets Store CSI Driver](https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage) with Azure Key Vault to protect secrets, certificates, and connection strings."
+            },
+            {
+                "title": "Ensure certificates are rotated often [Rotate certificates](https://docs.microsoft.com/en-us/azure/aks/certificate-rotation)."
+            },
+            {
+                "title": "Regularly process Linux node security and kernel updates and reboots using [kured.](https://docs.microsoft.com/en-us/azure/aks/node-updates-kured)"
+            },
+            {
+                "title": "Use Azure Security Center to provide AKS recommendations."
+            }                      
+        ]
+    },   
+    {
+        "type": "Configuration Recommendations",
+        "pillars": [
+            "reliability",
+            "operationalexcellence",
+            "security"
+        ],
+        "lens": "service",
+        "category": "Compute",
+        "subCategory": "Azure Kubernetes Service (AKS)",
+        "title": "Use [Azure Network Policies](https://docs.microsoft.com/en-us/azure/aks/use-network-policies) or Calico to control traffic between pods"
+    },             
     {
         "type": "Configuration Recommendations",
         "pillars": [
