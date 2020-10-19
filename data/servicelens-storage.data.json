@@ -82,7 +82,7 @@
         "category": "Storage",
         "subCategory": "Storage Accounts",
         "title": "Use Azure AD to authorize access to blob data",
-        "context" : "Azure AD provides superior security and ease of use over Shared Key for authorizing requests to Blob storage. For more information, see Authorize access to [Azure blobs and queues using Azure Active Directory](https://docs.microsoft.com/en-us/azure/storage/common/storage-auth-aad).",
+        "context" : "Azure AD provides superior security and ease of use over Shared Key for authorizing requests to Blob storage. For more information, see [Authorize access to Azure blobs and queues using Azure Active Directory](https://docs.microsoft.com/en-us/azure/storage/common/storage-auth-aad).",
         "children": [
             {
                 "title": "Keep in mind the principal of least privilege when assigning permissions to an Azure AD security principal via Azure RBAC",
