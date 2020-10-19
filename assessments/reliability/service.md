@@ -427,8 +427,13 @@ Resources
 ## Storage Accounts
 ### Design Considerations
 * Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
-* Your storage account name must be unique within Azure. No two storage accounts can have the same name.
+* Storage account names must be unique within Azure. No two storage accounts can have the same name.
 * The current [SLA for Storage Accounts](https://azure.microsoft.com/en-us/support/legal/sla/storage/v1_5/) (v1.5, June 2019) specifies a 99.9% guarantee for LRS, ZRS and GRS accounts and a 99.99% guarantee for RA-GRS (provided that requests to RA-GRS switch to secondary endpoints if there is no success on the primary endpoint).
+* General-purpose v1 storage accounts provide access to all Azure Storage services, but may not have the latest features or the lowest per gigabyte pricing. Microsoft recommends to use general-purpose v2 storage accounts in most cases. Reasons to still use v1 are:
+ * Applications require the classic deployment model.
+ * Applications are transaction-intensive or use significant geo-replication bandwidth, but don&#39;t require large capacity.
+ * The use of a Storage Service REST API that is earlier than 2014-02-14 or a client library with a version lower than 4.x is required and an application upgrade is not possible.
+ See [Storage account overview](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview) for more.
 ### Configuration Recommendations
 * Turn on soft delete for blob data
   > Soft delete enables you to recover blob data after it has been deleted. For more information on soft delete, see [Soft delete for Azure Storage blobs](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-soft-delete).
