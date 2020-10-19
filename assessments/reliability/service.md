@@ -125,7 +125,8 @@ Resources
   - Enable cluster [autoscaling](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler) to adjust the number of agent nodes in response to resource constraints.
                             
 * Use [Managed Identities](https://docs.microsoft.com/azure/aks/use-managed-identity) to avoid having to manage and rotate service principles.
-* Modifying resources in the node resource group (ie - &#39;MC_&#39;) is not recommended and should only be done with assistance from support.
+* Keep the System node pool isolated from application workloads.
+* Modifying resources in the node resource group (ie - &#39;MC_&#39;) is not recommended and should only be done with assistance from Azure Support.
 * Adopt a [multi-region strategy](https://docs.microsoft.com/en-gb/azure/aks/operator-best-practices-multi-region#plan-for-multiregion-deployment) by deploying AKS clusters deployed across different Azure regions to maximize availability and provide business continuity.
   - Internet facing workloads should leverage Azure Front Door, [Azure Traffic Manager](https://docs.microsoft.com/en-gb/azure/aks/operator-best-practices-multi-region#use-azure-traffic-manager-to-route-traffic), or a third-party CDN to route traffic globally across AKS clusters.
                             
