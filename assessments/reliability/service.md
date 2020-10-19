@@ -18,6 +18,8 @@ This list contains design considerations and recommended configuration options, 
     - [Azure Cache for Redis](#Azure-Cache-for-Redis)
   - [Hybrid](#Hybrid)
     - [Azure Stack Hub](#Azure-Stack-Hub)
+  - [Storage](#Storage)
+    - [Storage Accounts](#Storage-Accounts)
   - [Messaging](#Messaging)
     - [Event Grid](#Event-Grid)
     - [Event Hub](#Event-Hub)
@@ -419,6 +421,23 @@ Resources
 ### Configuration Recommendations
 * Treat Azure Stack Hub as a scale unit and deploy multiple instances to remove Azure Stack Hub as a single point of failure for encompassed workloads. 
   - Deploy workloads in either an active-active or active-passive configuration across Azure Stack Hub stamps and/or Azure.
+                            
+# Storage
+        
+## Storage Accounts
+### Design Considerations
+* Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
+* Your storage account name must be unique within Azure. No two storage accounts can have the same name.
+* The current [SLA for Storage Accounts](https://azure.microsoft.com/en-us/support/legal/sla/storage/v1_5/) (v1.5, June 2019) specifies a 99.9% guarantee for LRS, ZRS and GRS accounts and a 99.99% guarantee for RA-GRS (provided that requests to RA-GRS switch to secondary endpoints if there is no success on the primary endpoint).
+### Configuration Recommendations
+* Turn on soft delete for blob data
+  > Soft delete enables you to recover blob data after it has been deleted. For more information on soft delete, see [Soft delete for Azure Storage blobs](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-soft-delete).
+                            
+* Store business-critical data in immutable blobs
+  > Configure legal holds and time-based retention policies to store blob data in a WORM (Write Once, Read Many) state. Blobs stored immutably can be read, but cannot be modified or deleted for the duration of the retention interval. For more information, see [Store business-critical blob data with immutable storage](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-immutable-storage).
+                            
+* Limit shared access signature (SAS) tokens to HTTPS connections only
+  > Requiring HTTPS when a client uses a SAS token to access blob data helps to minimize the risk of eavesdropping. For more information, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](https://docs.microsoft.com/en-us/azure/storage/common/storage-sas-overview).
                             
 # Messaging
         
