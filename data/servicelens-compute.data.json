@@ -254,7 +254,7 @@
         "lens": "service",
         "category": "Compute",
         "subCategory": "Azure Kubernetes Service (AKS)",
-        "title": "Modifying resources in the node resource group (ie - 'MC_') is not recommended and should only be done with assistance from support."
+        "title": "Modifying resources in the node resource group (ie - 'MC_') is not recommended and should only be done with assistance from Azure Support."
     },    
     {
         "type": "Configuration Recommendations",
