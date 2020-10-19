@@ -56,7 +56,7 @@
         "lens": "service",
         "category": "Storage",
         "subCategory": "Storage Accounts",
-        "title": "General-purpose v1 storage accounts provide access to all Azure Storage services, but may not have the latest features or the lowest per gigabyte pricing. Microsoft recommends to use general-purpose v2 storage accounts in most cases. Reasons to still use v1 are:\n   * Applications require the classic deployment model.\n   * Applications are transaction-intensive or use significant geo-replication bandwidth, but don't require large capacity.\n   * The use of a Storage Service REST API that is earlier than 2014-02-14 or a client library with a version lower than 4.x is required and an application upgrade is not possible.\n\n    See [Storage account overview](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview) for more."
+        "title": "General-purpose v1 storage accounts provide access to all Azure Storage services, but may not have the latest features or the lowest per gigabyte pricing. It is recommended to use general-purpose v2 storage accounts in most cases. Reasons to still use v1 are:\n   * Applications require the classic deployment model.\n   * Applications are transaction-intensive or use significant geo-replication bandwidth, but don't require large capacity.\n   * The use of a Storage Service REST API that is earlier than 2014-02-14 or a client library with a version lower than 4.x is required and an application upgrade is not possible.\n\n    See [Storage account overview](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview) for more."
     },
     {
         "type": "Configuration Recommendations",
