@@ -1,0 +1,89 @@
+[
+    {
+        "type": "Design Considerations",
+        "pillars": [
+            "reliability",
+            "operationalexcellence",
+            "security"
+        ],
+        "lens": "service",
+        "category": "Storage",
+        "subCategory": "Storage Accounts",
+        "title": "Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only."
+    },
+    {
+        "type": "Design Considerations",
+        "pillars": [
+            "reliability",
+            "operationalexcellence",
+            "security"
+        ],
+        "lens": "service",
+        "category": "Storage",
+        "subCategory": "Storage Accounts",
+        "title": "Your storage account name must be unique within Azure. No two storage accounts can have the same name."
+    },
+    {
+        "type": "Design Considerations",
+        "pillars": [
+            "reliability",
+            "operationalexcellence",
+            "security"
+        ],
+        "lens": "service",
+        "category": "Storage",
+        "subCategory": "Storage Accounts",
+        "title": "The current [SLA for Storage Accounts](https://azure.microsoft.com/en-us/support/legal/sla/storage/v1_5/) (v1.5, June 2019) specifies a 99.9% guarantee for LRS, ZRS and GRS accounts and a 99.99% guarantee for RA-GRS (provided that requests to RA-GRS switch to secondary endpoints if there is no success on the primary endpoint)."
+    },
+    {
+        "type": "Configuration Recommendations",
+        "pillars": [
+            "operationalexcellence",
+            "security"
+        ],
+        "lens": "service",
+        "category": "Storage",
+        "subCategory": "Storage Accounts",
+        "title": "Enable Azure Defender for all of your storage accounts",
+        "context" : "Azure Defender for Azure Storage provides an additional layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit storage accounts. Security alerts are triggered in Azure Security Center when anomalies in activity occur and are also sent via email to subscription administrators, with details of suspicious activity and recommendations on how to investigate and remediate threats. For more information, see [Configure Azure Defender for Azure Storage](https://docs.microsoft.com/en-us/azure/storage/common/azure-defender-storage-configure)."
+    },
+    {
+        "type": "Configuration Recommendations",
+        "pillars": [
+            "reliability",
+            "operationalexcellence",
+            "security"
+        ],
+        "lens": "service",
+        "category": "Storage",
+        "subCategory": "Storage Accounts",
+        "title": "Turn on soft delete for blob data",
+        "context" : "Soft delete enables you to recover blob data after it has been deleted. For more information on soft delete, see [Soft delete for Azure Storage blobs](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-soft-delete)."
+    },
+    {
+        "type": "Configuration Recommendations",
+        "pillars": [
+            "reliability",
+            "operationalexcellence",
+            "security"
+        ],
+        "lens": "service",
+        "category": "Storage",
+        "subCategory": "Storage Accounts",
+        "title": "Store business-critical data in immutable blobs",
+        "context" : "Configure legal holds and time-based retention policies to store blob data in a WORM (Write Once, Read Many) state. Blobs stored immutably can be read, but cannot be modified or deleted for the duration of the retention interval. For more information, see [Store business-critical blob data with immutable storage](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-immutable-storage)."
+    },
+    {
+        "type": "Configuration Recommendations",
+        "pillars": [
+            "reliability",
+            "operationalexcellence",
+            "security"
+        ],
+        "lens": "service",
+        "category": "Storage",
+        "subCategory": "Storage Accounts",
+        "title": "Limit shared access signature (SAS) tokens to HTTPS connections only",
+        "context" : "Requiring HTTPS when a client uses a SAS token to access blob data helps to minimize the risk of eavesdropping. For more information, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](https://docs.microsoft.com/en-us/azure/storage/common/storage-sas-overview)."
+    }
+]
