@@ -386,7 +386,7 @@ Resources
    * Applications are transaction-intensive or use significant geo-replication bandwidth, but don&#39;t require large capacity.
    * The use of a Storage Service REST API that is earlier than 2014-02-14 or a client library with a version lower than 4.x is required and an application upgrade is not possible.
 
- See [Storage account overview](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview) for more.
+    See [Storage account overview](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview) for more.
 ### Configuration Recommendations
 * Enable Azure Defender for all of your storage accounts
   > Azure Defender for Azure Storage provides an additional layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit storage accounts. Security alerts are triggered in Azure Security Center when anomalies in activity occur and are also sent via email to subscription administrators, with details of suspicious activity and recommendations on how to investigate and remediate threats. For more information, see [Configure Azure Defender for Azure Storage](https://docs.microsoft.com/en-us/azure/storage/common/azure-defender-storage-configure).
@@ -399,6 +399,9 @@ Resources
                             
 * Limit shared access signature (SAS) tokens to HTTPS connections only
   > Requiring HTTPS when a client uses a SAS token to access blob data helps to minimize the risk of eavesdropping. For more information, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](https://docs.microsoft.com/en-us/azure/storage/common/storage-sas-overview).
+                            
+* Restrict Default Network Access for Storage Accounts
+  > Access to storage accounts should be granted to specific Azure Virtual Networks only whenever possible or use [private](https://docs.microsoft.com/en-us/azure/private-link/private-endpoint-overview) endpoints to allow clients on a virtual network (VNet) to securely access data over a [Private Link](https://docs.microsoft.com/en-us/azure/private-link/private-link-overview). See [Use private endpoints for Azure Storage](https://docs.microsoft.com/en-us/azure/storage/common/storage-private-endpoints) for more. Expections are Storage Accounts that need to be accessible via the Internet.
                             
 # Messaging
         

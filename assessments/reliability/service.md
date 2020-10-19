@@ -434,7 +434,7 @@ Resources
    * Applications are transaction-intensive or use significant geo-replication bandwidth, but don&#39;t require large capacity.
    * The use of a Storage Service REST API that is earlier than 2014-02-14 or a client library with a version lower than 4.x is required and an application upgrade is not possible.
 
- See [Storage account overview](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview) for more.
+    See [Storage account overview](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview) for more.
 ### Configuration Recommendations
 * Turn on soft delete for blob data
   > Soft delete enables you to recover blob data after it has been deleted. For more information on soft delete, see [Soft delete for Azure Storage blobs](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-soft-delete).
@@ -444,6 +444,9 @@ Resources
                             
 * Limit shared access signature (SAS) tokens to HTTPS connections only
   > Requiring HTTPS when a client uses a SAS token to access blob data helps to minimize the risk of eavesdropping. For more information, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](https://docs.microsoft.com/en-us/azure/storage/common/storage-sas-overview).
+                            
+* Restrict Default Network Access for Storage Accounts
+  > Access to storage accounts should be granted to specific Azure Virtual Networks only whenever possible or use [private](https://docs.microsoft.com/en-us/azure/private-link/private-endpoint-overview) endpoints to allow clients on a virtual network (VNet) to securely access data over a [Private Link](https://docs.microsoft.com/en-us/azure/private-link/private-link-overview). See [Use private endpoints for Azure Storage](https://docs.microsoft.com/en-us/azure/storage/common/storage-private-endpoints) for more. Expections are Storage Accounts that need to be accessible via the Internet.
                             
 # Messaging
         
