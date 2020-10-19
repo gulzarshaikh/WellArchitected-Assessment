@@ -43,3 +43,6 @@ This security assessment has been produced to help the global CE&S community to 
 
 
 ### [Service Security](./service.md)
+
+  - [Compute](./service.md#Compute)
+    - [Azure Kubernetes Service (AKS)](./service.md#Azure-Kubernetes-Service-AKS)
