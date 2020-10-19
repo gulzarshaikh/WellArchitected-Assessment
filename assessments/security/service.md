@@ -15,11 +15,6 @@ This list contains design considerations and recommended configuration options, 
 * Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
 * Storage account names must be unique within Azure. No two storage accounts can have the same name.
 * The current [SLA for Storage Accounts](https://azure.microsoft.com/en-us/support/legal/sla/storage/v1_5/) (v1.5, June 2019) specifies a 99.9% guarantee for LRS, ZRS and GRS accounts and a 99.99% guarantee for RA-GRS (provided that requests to RA-GRS switch to secondary endpoints if there is no success on the primary endpoint).
-* General-purpose v1 storage accounts provide access to all Azure Storage services, but may not have the latest features or the lowest per gigabyte pricing. Microsoft recommends to use general-purpose v2 storage accounts in most cases. Reasons to still use v1 are:
- * Applications require the classic deployment model.
- * Applications are transaction-intensive or use significant geo-replication bandwidth, but don&#39;t require large capacity.
- * The use of a Storage Service REST API that is earlier than 2014-02-14 or a client library with a version lower than 4.x is required and an application upgrade is not possible.
- See [Storage account overview](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview) for more.
 ### Configuration Recommendations
 * Enable Azure Defender for all of your storage accounts
   > Azure Defender for Azure Storage provides an additional layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit storage accounts. Security alerts are triggered in Azure Security Center when anomalies in activity occur and are also sent via email to subscription administrators, with details of suspicious activity and recommendations on how to investigate and remediate threats. For more information, see [Configure Azure Defender for Azure Storage](https://docs.microsoft.com/en-us/azure/storage/common/azure-defender-storage-configure).
