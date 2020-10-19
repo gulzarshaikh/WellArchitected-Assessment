@@ -422,6 +422,18 @@ Resources
 * Restrict Default Network Access for Storage Accounts
   > Access to storage accounts should be granted to specific Azure Virtual Networks only whenever possible or use [private](https://docs.microsoft.com/en-us/azure/private-link/private-endpoint-overview) endpoints to allow clients on a virtual network (VNet) to securely access data over a [Private Link](https://docs.microsoft.com/en-us/azure/private-link/private-link-overview). See [Use private endpoints for Azure Storage](https://docs.microsoft.com/en-us/azure/storage/common/storage-private-endpoints) for more. Expections are Storage Accounts that need to be accessible via the Internet.
                             
+  - Enable firewall rules
+    > Configure firewall rules to limit access to your storage account to requests that originate from specified IP addresses or ranges, or from a list of subnets in an Azure Virtual Network (VNet). For more information about configuring firewall rules, see [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/en-us/azure/storage/common/storage-network-security).
+                                
+                            
+  - Limit network access to specific networks
+    > Limiting network access to networks hosting clients requiring access reduces the exposure of your resources to network attacks.
+                                
+                            
+  - Allow trusted Microsoft services to access the storage account
+    > Turning on firewall rules for storage accounts blocks incoming requests for data by default, unless the requests originate from a service operating within an Azure Virtual Network (VNet) or from allowed public IP addresses. Requests that are blocked include those from other Azure services, from the Azure portal, from logging and metrics services, and so on. You can permit requests from other Azure services by adding an exception to allow trusted Microsoft services to access the storage account. For more information about adding an exception for trusted Microsoft services, see [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/en-us/azure/storage/common/storage-network-security?toc=/azure/storage/blobs/toc.json).
+                                
+                            
 # Messaging
         
 ## Event Grid
