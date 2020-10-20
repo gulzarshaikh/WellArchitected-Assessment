@@ -194,10 +194,10 @@
         "lens": "service",
         "category": "Compute",
         "subCategory": "Azure Kubernetes Service (AKS)",
-        "title": "Use [Availability Zones](https://docs.microsoft.com/azure/aks/availability-zones) to maximize resilience within a region by distributing AKS agent nodes across physically separate data centers.",
+        "title": "Use [Availability Zones](https://docs.microsoft.com/azure/aks/availability-zones) to maximize resilience within an Azure region by distributing AKS agent nodes across physically separate data centers.",
         "children": [
             {
-                "title": "Where co-locality requirements exist, an Availability Set deployment can be used to minimize inter-node latency."
+                "title": "Where co-locality requirements exist, a either a regular VMSS-based AKS deployment into a single zone or [proximity placement groups](https://docs.microsoft.com/en-us/azure/aks/reduce-latency-ppg) can be used to minimize inter-node latency."
             }
         ]
     },
@@ -249,13 +249,14 @@
         "lens": "service",
         "category": "Compute",
         "subCategory": "Azure Kubernetes Service (AKS)",
-        "title": "Modifying resources in the node resource group (ie - 'MC_') is not recommended and should only be done with assistance from Azure Support."
+        "title": "Modifying resources in the node resource group (ie - 'MC_') is not recommended and should only be done at [cluster creation time](https://docs.microsoft.com/en-us/azure/aks/faq#can-i-provide-my-own-name-for-the-aks-node-resource-group), or with assistance from Azure Support."
     },         
     {
         "type": "Configuration Recommendations",
         "pillars": [
             "reliability",
-            "operationalexcellence"
+            "operationalexcellence",
+            "performance"
         ],
         "lens": "service",
         "category": "Compute",
@@ -266,7 +267,8 @@
         "type": "Configuration Recommendations",
         "pillars": [
             "reliability",
-            "operationalexcellence"
+            "operationalexcellence",
+            "performance"
         ],
         "lens": "service",
         "category": "Compute",
@@ -333,7 +335,7 @@
         "lens": "service",
         "category": "Compute",
         "subCategory": "Azure Kubernetes Service (AKS)",
-        "title": "Use [Azure Network Policies](https://docs.microsoft.com/en-us/azure/aks/use-network-policies) or Calico to control traffic between pods."
+        "title": "Use [Azure Network Policies](https://docs.microsoft.com/en-us/azure/aks/use-network-policies) or Calico to control traffic between pods. **Requires CNI Network Plug-in.**"
     },
     {
         "type": "Configuration Recommendations",
@@ -376,7 +378,7 @@
         "title": "Adopt a [multi-region strategy](https://docs.microsoft.com/en-gb/azure/aks/operator-best-practices-multi-region#plan-for-multiregion-deployment) by deploying AKS clusters deployed across different Azure regions to maximize availability and provide business continuity.",
         "children": [
             {
-                "title": "Internet facing workloads should leverage Azure Front Door, [Azure Traffic Manager](https://docs.microsoft.com/en-gb/azure/aks/operator-best-practices-multi-region#use-azure-traffic-manager-to-route-traffic), or a third-party CDN to route traffic globally across AKS clusters."
+                "title": "Internet facing workloads should leverage [Azure Front Door](https://docs.microsoft.com/en-us/azure/frontdoor/front-door-overview), [Azure Traffic Manager](https://docs.microsoft.com/en-gb/azure/aks/operator-best-practices-multi-region#use-azure-traffic-manager-to-route-traffic), or a third-party CDN to route traffic globally across AKS clusters."
             }
         ]
     },
@@ -389,7 +391,12 @@
         "lens": "service",
         "category": "Compute",
         "subCategory": "Azure Kubernetes Service (AKS)",
-        "title": "Store container images within Azure Container Registry and enable [geo-replication](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region#enable-geo-replication-for-container-images) to replicate container images across leveraged AKS regions. "
+        "title": "Store container images within Azure Container Registry and enable [geo-replication](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region#enable-geo-replication-for-container-images) to replicate container images across leveraged AKS regions. ",
+        "children": [
+            {
+                "title": "Enable [Azure Defender for container registries](https://docs.microsoft.com/en-us/azure/security-center/defender-for-container-registries-introduction) to enable vulnerability scanning for container images."
+            }
+         ]
     },
     {
         "type": "Supporting Source Artifacts",
