@@ -33,7 +33,7 @@
         "lens": "service",
         "category": "Storage",
         "subCategory": "Storage Accounts",
-        "title": "The current [SLA for Storage Accounts](https://azure.microsoft.com/en-us/support/legal/sla/storage/v1_5/) (v1.5, June 2019) specifies a 99.9% guarantee for LRS, ZRS and GRS accounts and a 99.99% guarantee for RA-GRS (provided that requests to RA-GRS switch to secondary endpoints if there is no success on the primary endpoint). Go to [Azure Storage redundancy](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy) to see which redundancy option is best for a specific scenario."
+        "title": "The current [SLA for Storage Accounts](https://azure.microsoft.com/en-us/support/legal/sla/storage/v1_5/) (v1.5, June 2019) specifies a 99.9% guarantee for LRS, ZRS and GRS accounts and a 99.99% guarantee for RA-GRS (provided that requests to RA-GRS switch to secondary endpoints if there is no success on the primary endpoint) to successfully process requests to **read data**. And at least 99.9% to successfully process requests to **write data**. SLAs for other storage tiers might differ. Go to [Azure Storage redundancy](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy) to see which redundancy option is best for a specific scenario."
     },
     {
         "type": "Configuration Recommendations",
