@@ -59,10 +59,10 @@ This list contains design considerations and recommended configuration options, 
                                 
                             
   - Limit network access to specific networks
-    > Limiting network access to networks hosting clients requiring access reduces the exposure of your resources to network attacks.
+    > [Limiting network access](https://docs.microsoft.com/en-us/azure/storage/common/storage-network-security) to networks hosting clients requiring access reduces the exposure of your resources to network attacks either by using the built-in [Firewall and virtual networks](https://docs.microsoft.com/en-us/azure/storage/common/storage-network-security) functionality or by using [private endpoints](https://docs.microsoft.com/en-us/azure/storage/common/storage-private-endpoints).
                                 
                             
   - Allow trusted Microsoft services to access the storage account
-    > Turning on firewall rules for storage accounts blocks incoming requests for data by default, unless the requests originate from a service operating within an Azure Virtual Network (VNet) or from allowed public IP addresses. Requests that are blocked include those from other Azure services, from the Azure portal, from logging and metrics services, and so on. You can permit requests from other Azure services by adding an exception to allow trusted Microsoft services to access the storage account. For more information about adding an exception for trusted Microsoft services, see [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/en-us/azure/storage/common/storage-network-security?toc=/azure/storage/blobs/toc.json).
+    > Turning on firewall rules for storage accounts blocks incoming requests for data by default, unless the requests originate from a service operating within an Azure Virtual Network (VNet) or from allowed public IP addresses. Requests that are blocked include those from other Azure services, from the Azure portal, from logging and metrics services, and so on. You can permit requests from other Azure services by adding an exception to allow trusted Microsoft services to access the storage account. For more information about adding an exception for trusted Microsoft services, see [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/en-us/azure/storage/common/storage-network-security).
                                 
                             
