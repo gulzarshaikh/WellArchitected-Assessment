@@ -43,3 +43,6 @@ This security assessment has been produced to help the global CE&S community to 
 
 
 ### [Service Security](./service.md)
+
+  - [Storage](./service.md#Storage)
+    - [Storage Accounts](./service.md#Storage-Accounts)
