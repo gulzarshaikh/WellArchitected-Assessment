@@ -117,7 +117,7 @@ Resources
   - 99.9% availability for AKS Clusters that not use Azure Availability Zones.
                             
 * Use [Availability Zones](https://docs.microsoft.com/azure/aks/availability-zones) to maximize resilience within an Azure region by distributing AKS agent nodes across physically separate data centers.
-  - Where co-locality requirements exist, a either a regular VMSS-based AKS deployment into a single zone or [proximity placement groups](https://docs.microsoft.com/en-us/azure/aks/reduce-latency-ppg) can be used to minimize inter-node latency.
+  - Where co-locality requirements exist, either a regular VMSS-based AKS deployment into a single zone or [proximity placement groups](https://docs.microsoft.com/en-us/azure/aks/reduce-latency-ppg) can be used to minimize inter-node latency.
                             
 * Node Pool Design
   - Utilize the Virtual Machine Scale Set VM set type for AKS node pools.
