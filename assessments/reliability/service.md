@@ -437,7 +437,7 @@ Resources
     See [Storage account overview](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview) for more.
 ### Configuration Recommendations
 * Turn on soft delete for blob data
-  > Soft delete enables you to recover blob data after it has been deleted. For more information on soft delete, see [Soft delete for Azure Storage blobs](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-soft-delete).
+  > [Soft delete for Azure Storage blobs](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-soft-delete) enables you to recover blob data after it has been deleted.
                             
 * Use Azure AD to authorize access to blob data
   > Azure AD provides superior security and ease of use over Shared Key for authorizing requests to Blob storage. It is recommended to use Azure AD authorization with your blob and queue applications when possible to minimize potential security vulnerabilities inherent in Shared Key. For more information, see [Authorize access to Azure blobs and queues using Azure Active Directory](https://docs.microsoft.com/en-us/azure/storage/common/storage-auth-aad).
