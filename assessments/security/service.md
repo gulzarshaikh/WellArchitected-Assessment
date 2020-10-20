@@ -30,7 +30,7 @@ This list contains design considerations and recommended configuration options, 
   - Use Azure Security Center to provide AKS recommendations.
                             
 * Ensure proper selection of Network Plug-in [Kubenet vs. Azure CNI](https://docs.microsoft.com/en-us/azure/aks/concepts-network#compare-network-models) based on network requirements and cluster sizing.
-* Use [Azure Network Policies](https://docs.microsoft.com/en-us/azure/aks/use-network-policies) or Calico to control traffic between pods.
+* Use [Azure Network Policies](https://docs.microsoft.com/en-us/azure/aks/use-network-policies) or Calico to control traffic between pods. **Requires CNI Network Plug-in.**
 * Utlize a central monitoring tool (eg. - [Azure Monitor and App Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/container-insights-overview)) to centrally collect metrics, logs, and diagnostics for troubleshooting purposes.
   - Enable and review Kubernetes master node logs. https://docs.microsoft.com/en-us/azure/aks/view-master-logs
                             

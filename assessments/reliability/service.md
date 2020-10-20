@@ -116,8 +116,8 @@ Resources
                             
   - 99.9% availability for AKS Clusters that not use Azure Availability Zones.
                             
-* Use [Availability Zones](https://docs.microsoft.com/azure/aks/availability-zones) to maximize resilience within a region by distributing AKS agent nodes across physically separate data centers.
-  - Where co-locality requirements exist, an Availability Set deployment can be used to minimize inter-node latency.
+* Use [Availability Zones](https://docs.microsoft.com/azure/aks/availability-zones) to maximize resilience within an Azure region by distributing AKS agent nodes across physically separate data centers.
+  - Where co-locality requirements exist, a either a regular VMSS-based AKS deployment into a single zone or [proximity placement groups](https://docs.microsoft.com/en-us/azure/aks/reduce-latency-ppg) can be used to minimize inter-node latency.
                             
 * Node Pool Design
   - Utilize the Virtual Machine Scale Set VM set type for AKS node pools.
@@ -131,7 +131,7 @@ Resources
   - Use [taints and tolerations](https://docs.microsoft.com/en-us/azure/aks/operator-best-practices-advanced-scheduler#provide-dedicated-nodes-using-taints-and-tolerations) to provide dedicated nodes and limit resource intensive applications.
                             
 * Use a template based deployment (ARM, Terraform, Ansible, etc.). Repeatable and traceable with git source repo. Can be combined with GitOps.
-* Modifying resources in the node resource group (ie - &#39;MC_&#39;) is not recommended and should only be done with assistance from Azure Support.
+* Modifying resources in the node resource group (ie - &#39;MC_&#39;) is not recommended and should only be done at [cluster creation time](https://docs.microsoft.com/en-us/azure/aks/faq#can-i-provide-my-own-name-for-the-aks-node-resource-group), or with assistance from Azure Support.
 * Enable [cluster autoscaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler) to adjust the number of agent nodes in response to resource constraints.
 * Utilize the [Horizontal pod autoscaler](https://docs.microsoft.com/en-us/azure/aks/concepts-scale#horizontal-pod-autoscaler) to adjust the number of pods in a deployment depending on CPU utilization or other select metrics.
 * Security Guidelines
@@ -152,15 +152,17 @@ Resources
   - Use Azure Security Center to provide AKS recommendations.
                             
 * Ensure proper selection of Network Plug-in [Kubenet vs. Azure CNI](https://docs.microsoft.com/en-us/azure/aks/concepts-network#compare-network-models) based on network requirements and cluster sizing.
-* Use [Azure Network Policies](https://docs.microsoft.com/en-us/azure/aks/use-network-policies) or Calico to control traffic between pods.
+* Use [Azure Network Policies](https://docs.microsoft.com/en-us/azure/aks/use-network-policies) or Calico to control traffic between pods. **Requires CNI Network Plug-in.**
 * Utlize a central monitoring tool (eg. - [Azure Monitor and App Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/container-insights-overview)) to centrally collect metrics, logs, and diagnostics for troubleshooting purposes.
   - Enable and review Kubernetes master node logs. https://docs.microsoft.com/en-us/azure/aks/view-master-logs
                             
 * Define [Pod resource requests and limits](https://docs.microsoft.com/en-us/azure/aks/developer-best-practices-resource-management#define-pod-resource-requests-and-limits) in application deployment manifests.
 * Adopt a [multi-region strategy](https://docs.microsoft.com/en-gb/azure/aks/operator-best-practices-multi-region#plan-for-multiregion-deployment) by deploying AKS clusters deployed across different Azure regions to maximize availability and provide business continuity.
-  - Internet facing workloads should leverage Azure Front Door, [Azure Traffic Manager](https://docs.microsoft.com/en-gb/azure/aks/operator-best-practices-multi-region#use-azure-traffic-manager-to-route-traffic), or a third-party CDN to route traffic globally across AKS clusters.
+  - Internet facing workloads should leverage [Azure Front Door](https://docs.microsoft.com/en-us/azure/frontdoor/front-door-overview), [Azure Traffic Manager](https://docs.microsoft.com/en-gb/azure/aks/operator-best-practices-multi-region#use-azure-traffic-manager-to-route-traffic), or a third-party CDN to route traffic globally across AKS clusters.
                             
 * Store container images within Azure Container Registry and enable [geo-replication](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region#enable-geo-replication-for-container-images) to replicate container images across leveraged AKS regions. 
+  - Enable [Azure Defender for container registries](https://docs.microsoft.com/en-us/azure/security-center/defender-for-container-registries-introduction) to enable vulnerability scanning for container images.
+                            
 ### Supporting Source Artifacts
 * Query to identify AKS clusters that are not deployed across **Availability Zones**:
 ```
