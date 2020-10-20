@@ -144,8 +144,8 @@
         "lens": "service",
         "category": "Storage",
         "subCategory": "Storage Accounts",
-        "title": "Restrict Default Network Access for Storage Accounts",
-        "context" : "Access to storage accounts should be granted to specific Azure Virtual Networks only whenever possible or use [private](https://docs.microsoft.com/en-us/azure/private-link/private-endpoint-overview) endpoints to allow clients on a virtual network (VNet) to securely access data over a [Private Link](https://docs.microsoft.com/en-us/azure/private-link/private-link-overview). See [Use private endpoints for Azure Storage](https://docs.microsoft.com/en-us/azure/storage/common/storage-private-endpoints) for more. Expections are Storage Accounts that need to be accessible via the Internet.",
+        "title": "Restrict default Internet access for Storage Accounts",
+        "context" : "By default network access to Storage Accounts is not restricted and open to all traffic coming from the Internet. Access to storage accounts should be granted to specific [Azure Virtual Networks only](https://docs.microsoft.com/en-us/azure/storage/common/storage-network-security) whenever possible or use [private endpoints](https://docs.microsoft.com/en-us/azure/private-link/private-endpoint-overview) to allow clients on a virtual network (VNet) to securely access data over a [Private Link](https://docs.microsoft.com/en-us/azure/private-link/private-link-overview). See [Use private endpoints for Azure Storage](https://docs.microsoft.com/en-us/azure/storage/common/storage-private-endpoints) for more. Exception can be made for Storage Accounts that need to be accessible via the Internet.",
         "children": [
             {
                 "title": "Enable firewall rules",
