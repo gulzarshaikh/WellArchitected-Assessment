@@ -69,7 +69,7 @@
         "category": "Storage",
         "subCategory": "Storage Accounts",
         "title": "Turn on soft delete for blob data",
-        "context" : "Soft delete enables you to recover blob data after it has been deleted. For more information on soft delete, see [Soft delete for Azure Storage blobs](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-soft-delete)."
+        "context" : "[Soft delete for Azure Storage blobs](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-soft-delete) enables you to recover blob data after it has been deleted."
     },
     {
         "type": "Configuration Recommendations",
