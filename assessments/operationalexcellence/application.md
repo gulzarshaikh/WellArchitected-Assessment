@@ -152,36 +152,38 @@ These critical design principals are used as lenses to assess the Operational Ex
 
   _Understanding customer availability expectations is vital to reviewing overall operations for the application. For instance, if a customer is striving to achieve an application SLO of 99.999%, the level of inherent operational actionality required by the application is going to far greater than if an SLO of 99.9% was the aspiration_
   > Having clearly defined availability targets is crucial in order to have a goal to work and measure against. This will also determine which services an application can leverage vs. those which do not qualify in terms of the SLA they offer.
-    - Are availability targets such as Service Level Agreements (SLAs), Service Level Indicators (SLIs), and Service Level Objectives (SLOs) defined for the application and/or key scenarios?
+    - Are SLAs/SLOs/SLIs for all leveraged dependencies understood?
 
 
-      _Understanding customer availability expectations is vital to reviewing overall operations for the application. For instance, if a customer is striving to achieve an application SLO of 99.999%, the level of inherent operational actionality required by the application is going to far greater than if an SLO of 99.9% was the aspiration_
+      _Availability targets for any dependencies leveraged by the application should be understood and ideally align with application targets_
 
-      > Having clearly defined availability targets is crucial in order to have a goal to work and measure against. This will also determine which services an application can leverage vs. those which do not qualify in terms of the SLA they offer.
-    - Are availability targets such as Service Level Agreements (SLAs), Service Level Indicators (SLIs), and Service Level Objectives (SLOs) defined for the application and/or key scenarios?
-
-
-      _Understanding customer availability expectations is vital to reviewing overall operations for the application. For instance, if a customer is striving to achieve an application SLO of 99.999%, the level of inherent operational actionality required by the application is going to far greater than if an SLO of 99.9% was the aspiration_
-
-      > Having clearly defined availability targets is crucial in order to have a goal to work and measure against. This will also determine which services an application can leverage vs. those which do not qualify in terms of the SLA they offer.
-    - Are availability targets such as Service Level Agreements (SLAs), Service Level Indicators (SLIs), and Service Level Objectives (SLOs) defined for the application and/or key scenarios?
+      > Make sure SLAs/SLOs/SLIs for all leveraged dependencies are understood
+    - Has a composite SLA been calculated for the application and/or key scenarios using Azure SLAs?
 
 
-      _Understanding customer availability expectations is vital to reviewing overall operations for the application. For instance, if a customer is striving to achieve an application SLO of 99.999%, the level of inherent operational actionality required by the application is going to far greater than if an SLO of 99.9% was the aspiration_
+      _A composite SLA captures the end-to-end SLA across all application components and dependencies. It is calculated using the individual SLAs of Azure services housing application components and provides an important indicator of designed availability in relation to customer expectations and targets([Composite SLAs](https://docs.microsoft.com/en-us/azure/architecture/framework/resiliency/business-metrics#understand-service-level-agreements))_
 
-      > Having clearly defined availability targets is crucial in order to have a goal to work and measure against. This will also determine which services an application can leverage vs. those which do not qualify in terms of the SLA they offer.
-    - Are availability targets such as Service Level Agreements (SLAs), Service Level Indicators (SLIs), and Service Level Objectives (SLOs) defined for the application and/or key scenarios?
-
-
-      _Understanding customer availability expectations is vital to reviewing overall operations for the application. For instance, if a customer is striving to achieve an application SLO of 99.999%, the level of inherent operational actionality required by the application is going to far greater than if an SLO of 99.9% was the aspiration_
-
-      > Having clearly defined availability targets is crucial in order to have a goal to work and measure against. This will also determine which services an application can leverage vs. those which do not qualify in terms of the SLA they offer.
-    - Are availability targets such as Service Level Agreements (SLAs), Service Level Indicators (SLIs), and Service Level Objectives (SLOs) defined for the application and/or key scenarios?
+      > Make sure the composite SLA of all components and dependencies on the critical paths are understood.
+    - Are availability targets considered while the system is running in disaster recovery mode?
 
 
-      _Understanding customer availability expectations is vital to reviewing overall operations for the application. For instance, if a customer is striving to achieve an application SLO of 99.999%, the level of inherent operational actionality required by the application is going to far greater than if an SLO of 99.9% was the aspiration_
+      _The above defined targets might or might not be applied when running in DR mode. This depends from application to application._
 
-      > Having clearly defined availability targets is crucial in order to have a goal to work and measure against. This will also determine which services an application can leverage vs. those which do not qualify in terms of the SLA they offer.
+      > If targets must also apply in a failure state then an n+1 model should be used to achieve greater availability and resiliency, where n is the capacity needed to deliver required availability
+    - Are these availability targets monitored and measured?
+
+
+      _Monitoring and measuring application availability is vital to qualifying overall application health and progress towards defined targets._
+
+      > Make sure you measure and monitor key targets such as
+- **Mean Time Between Failures (MTBF)**: The average time between failures of a particular component
+- **Mean Time Between Failures (MTBF)**: The average time between failures of a particular component
+    - What are the consequences if availability targets are not satisfied?
+
+
+      _Are there any penalties, such as financial charges, associated with failing to meet SLA commitments_
+
+      > It should be fully understood what are the consequences if availability targets are not satisfied. This will also inform when to initiate a failover case.
 * Are recovery targets such as Recovery Time Objective (RTO) and Recovery Point Objective (RPO) defined for the application and/or key scenarios?
 
 
@@ -194,30 +196,30 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
   _Non-functional performance requirements, such as those relating to end-user experiences (e.g. average and maximum response times) are vital to assessing the overall health of an application, and is a critical lens required for assessing operations_
   > Work with stakeholders to identify sensible non-functional requirements based on business requirements, research and user testing.
-    - Are there well defined performance requirements for the application and/or key scenarios?
+    - Does the application have predictable traffic patterns? Or is load highly volatile?
 
 
-      _Non-functional performance requirements, such as those relating to end-user experiences (e.g. average and maximum response times) are vital to assessing the overall health of an application, and is a critical lens required for assessing operations_
+      _Understanding the expected application load and known spikes, such as Black Friday for retail applications, is important when assessing operational effectiveness_
 
-      > Work with stakeholders to identify sensible non-functional requirements based on business requirements, research and user testing.
-    - Are there well defined performance requirements for the application and/or key scenarios?
-
-
-      _Non-functional performance requirements, such as those relating to end-user experiences (e.g. average and maximum response times) are vital to assessing the overall health of an application, and is a critical lens required for assessing operations_
-
-      > Work with stakeholders to identify sensible non-functional requirements based on business requirements, research and user testing.
-    - Are there well defined performance requirements for the application and/or key scenarios?
+      > Traffic patterns should be identified by analyzing historical traffic data and the effect of significant external events on the application.
+    - Are there any targets defined for the time it takes to perform scale operations?
 
 
-      _Non-functional performance requirements, such as those relating to end-user experiences (e.g. average and maximum response times) are vital to assessing the overall health of an application, and is a critical lens required for assessing operations_
+      _Scale operations (horizontal - changing the number of identical instances, vertical - switching to more/less powerful instances) can be fast, but usually take time to complete. It's important to understand how this delay affects the application under load and if degraded performance is acceptable._
 
-      > Work with stakeholders to identify sensible non-functional requirements based on business requirements, research and user testing.
-    - Are there well defined performance requirements for the application and/or key scenarios?
+      > The application should be designed to scale to cope with spikes in load in-line with what is an acceptable duration for degraded performance.
+    - What is the maximum traffic volume the application is expected to serve without performance degradation?
 
 
-      _Non-functional performance requirements, such as those relating to end-user experiences (e.g. average and maximum response times) are vital to assessing the overall health of an application, and is a critical lens required for assessing operations_
+      _Scale requirements the application must be able to effectively satisfy, such as the number of concurrent users or requests per second, is a critical lens for assessing operations._
 
-      > Work with stakeholders to identify sensible non-functional requirements based on business requirements, research and user testing.
+      > Traffic limits for the application should be defined in quantified and measurable manner.
+    - Are these performance targets monitored and measured across the application and/or key scenarios?
+
+
+      _Monitoring and measuring end-to-end application performance is vital to qualifying overall application health and progress towards defined targets._
+
+      > Automation and specialized tooling (such as Application Insights) should be used to orchestrate and measure application performance.
 ### Key Scenarios
             
 * Have critical system flows through the application been defined for all key business scenarios?
@@ -225,12 +227,12 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
   _Understanding critical system flows is vital to assessing overall operational effectiveness, and should be used to inform a health model for the application._
   > Path-wise analysis should be used to define critical system flows for key business scenarios, such as the checkout process for an eCommerce application.
-    - Have critical system flows through the application been defined for all key business scenarios?
+    - Do these critical system flows have distinct availability, performance, or recovery targets?
 
 
-      _Understanding critical system flows is vital to assessing overall operational effectiveness, and should be used to inform a health model for the application._
+      _Critical sub-systems or paths through the application may have higher expectations around availability, recovery, and performance due to the criticality of associated business scenarios and functionality._
 
-      > Path-wise analysis should be used to define critical system flows for key business scenarios, such as the checkout process for an eCommerce application.
+      > Targets should be specific and measurable.
 * Are there any application components which are less critical and have lower availability or performance requirements?
 
 
@@ -243,18 +245,18 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
   _Internal dependencies describe components within the application scope which are required for the application to fully operate, while external dependencies captures required components outside the scope of the application, such as another application or third-party service._
   > Dependencies may be categorized as either strong or weak based on whether or not the application is able to continue operating in a degraded fashion in their absence. ([Twelve-Factor App: Dependencies](https://12factor.net/dependencies))
-    - Are all internal and external dependencies identified and categorized as either weak or strong?
+    - Do you maintain a complete list of application dependencies?
 
 
-      _Internal dependencies describe components within the application scope which are required for the application to fully operate, while external dependencies captures required components outside the scope of the application, such as another application or third-party service._
+      _Examples of typical dependencies include platform dependencies outside the remit of the application, such as Azure Active Directory, Express Route, or a central NVA (Network Virtual Appliance), as well as application dependencies such as APIs which may be in-house or externally owned by a third-party._
 
-      > Dependencies may be categorized as either strong or weak based on whether or not the application is able to continue operating in a degraded fashion in their absence. ([Twelve-Factor App: Dependencies](https://12factor.net/dependencies))
-    - Are all internal and external dependencies identified and categorized as either weak or strong?
+      > Map application dependencies either as a simple list or a document (usually this is part of a design document or reference architecture).
+    - Is the impact of an outage with each dependency well understood?
 
 
-      _Internal dependencies describe components within the application scope which are required for the application to fully operate, while external dependencies captures required components outside the scope of the application, such as another application or third-party service._
+      _Strong dependencies play a critical role in application function and availability meaning their absence will have a significant impact, while the absence of weak dependencies may only impact specific features and not affect overall availability._
 
-      > Dependencies may be categorized as either strong or weak based on whether or not the application is able to continue operating in a degraded fashion in their absence. ([Twelve-Factor App: Dependencies](https://12factor.net/dependencies))
+      > Classify dependencies either as strong or weak. This will help identify which components are essential to the application.
 * Are SLAs and support agreements in place for all critical dependencies?
 
 
@@ -271,18 +273,18 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
   _It is important to understand what Azure services, such as App Services and Event Hub, are used by the application platform to host both application code and data._
   > All Azure services in use should be identified.
-    - What Azure services are used by the application?
+    - What operational features/capabilities are used for leveraged services?
 
 
-      _It is important to understand what Azure services, such as App Services and Event Hub, are used by the application platform to host both application code and data._
+      _Operational capabilities, such as auto-scale and auto-heal for AppServices, can reduce management overheads and support operational effectiveness._
 
-      > All Azure services in use should be identified.
-    - What Azure services are used by the application?
+      > Make sure you understand the operational features/capabilities available and how they can be used in the solution.
+    - What technologies and frameworks are used by the application?
 
 
-      _It is important to understand what Azure services, such as App Services and Event Hub, are used by the application platform to host both application code and data._
+      _It is important to understand what technologies are used by the application and must be managed, such as .NET Core , Spring, or Node.js._
 
-      > All Azure services in use should be identified.
+      > All technologies and frameworks should be identified. Vulnerabilities of these dependencies must be understood (there are automated solutions on the market that can help: [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/) or [NPM audit](https://docs.npmjs.com/cli/audit)).
 * Are components hosted on shared application or data platforms which are used by other applications?
 
 
@@ -293,12 +295,12 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
   _Azure is continuously evolving, with new features and services becoming available which may be beneficial for the application._
   > Keep up to date on newest developments and feature updates, at least for services most relevant to your application.
-    - Do you monitor and regularly review new features and capabilities?
+    - Do you subscribe to Azure service announcements for new features and capabilities?
 
 
-      _Azure is continuously evolving, with new features and services becoming available which may be beneficial for the application._
+      _Service announcements provide insights into new features and services, as well as features or services which become deprecated._
 
-      > Keep up to date on newest developments and feature updates, at least for services most relevant to your application.
+      > Use announcement subscriptions to stay up to date.
 ## Health Modelling
     
 ### Application Level Monitoring
@@ -332,11 +334,12 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
 
   > Application level metrics should include end-to-end transaction times of key technical functions, such as database queries, response times for external API calls, failure rates of processing steps, etc.
-    - Is it possible to evaluate critical application performance targets and non-functional requirements (NFRs)?
+    - Is the end-to-end performance of critical system flows monitored?
 
 
+      _To fully assess the health of key scenarios in the context of targets and NFRs, application log events across critical system flows should be correlated._
 
-      > Application level metrics should include end-to-end transaction times of key technical functions, such as database queries, response times for external API calls, failure rates of processing steps, etc.
+      > Correlate application log events across critical system flows, such as user login.
 ### Resource/Infrastructure Level Monitoring
             
 * Which log aggregation technology is used to collect logs and metrics from Azure resources?
@@ -383,16 +386,17 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
 
   > A holistic application health model should be used to quantify what 'healthy' and 'unhealthy' states represent across all application components. It is highly recommended that a 'traffic light' model be used to indicate a green/healthy state when key non-functional requirements and targets are fully satisfied and resources are optimally utilized, e.g. 95% of requests are processed in <= 500ms with AKS node utilization at x% etc. Once established, this health model should inform critical monitoring metrics across system components and operational sub-system composition. It is important to note that the health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state.
-    - Is a health model used to qualify what &#39;healthy&#39; and &#39;unhealthy&#39; states represent for the application?
+    - Are critical system flows used to inform the health model?
 
 
 
-      > A holistic application health model should be used to quantify what 'healthy' and 'unhealthy' states represent across all application components. It is highly recommended that a 'traffic light' model be used to indicate a green/healthy state when key non-functional requirements and targets are fully satisfied and resources are optimally utilized, e.g. 95% of requests are processed in <= 500ms with AKS node utilization at x% etc. Once established, this health model should inform critical monitoring metrics across system components and operational sub-system composition. It is important to note that the health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state.
-    - Is a health model used to qualify what &#39;healthy&#39; and &#39;unhealthy&#39; states represent for the application?
+      > The health model should be able to surface the respective health of critical system flows or key subsystems to ensure appropriate operational prioritization is applied. For example, the health model should be able to represent the current state of the user login transaction flow
+    - Can the health model distinguish between transient and non-transient faults?
 
 
+      _Is the health model treating all failures the same?_
 
-      > A holistic application health model should be used to quantify what 'healthy' and 'unhealthy' states represent across all application components. It is highly recommended that a 'traffic light' model be used to indicate a green/healthy state when key non-functional requirements and targets are fully satisfied and resources are optimally utilized, e.g. 95% of requests are processed in <= 500ms with AKS node utilization at x% etc. Once established, this health model should inform critical monitoring metrics across system components and operational sub-system composition. It is important to note that the health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state.
+      > The health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state
 * Are long-term trends analysed to predict operational issues before they occur?
 
 
@@ -488,52 +492,48 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
   _Is there a clearly defined playbook for failover and failback procedures?_
   > The steps required to fail over the application to a secondary Azure region in failure situations should be codified, preferably in an automated manner, to ensure capabilities exist to effectively respond to an outage in a way that limits impact. Similar codified steps should also exist to capture the process required to failback the application to the primary region once a failover triggering issue has been addressed
-    - Are recovery steps defined for failover and failback?
+    - Has the failover and failback approach been tested/validated at least once?
 
 
-      _Is there a clearly defined playbook for failover and failback procedures?_
 
-      > The steps required to fail over the application to a secondary Azure region in failure situations should be codified, preferably in an automated manner, to ensure capabilities exist to effectively respond to an outage in a way that limits impact. Similar codified steps should also exist to capture the process required to failback the application to the primary region once a failover triggering issue has been addressed
-    - Are recovery steps defined for failover and failback?
-
-
-      _Is there a clearly defined playbook for failover and failback procedures?_
-
-      > The steps required to fail over the application to a secondary Azure region in failure situations should be codified, preferably in an automated manner, to ensure capabilities exist to effectively respond to an outage in a way that limits impact. Similar codified steps should also exist to capture the process required to failback the application to the primary region once a failover triggering issue has been addressed
-    - Are recovery steps defined for failover and failback?
+      > The precise steps required to failover and failback the application must be tested to validate the effectiveness of the defined disaster recovery approach. Testing of the disaster recovery strategy should occur according to a reasonably regular cadence, such as annually, to ensure that operational application changes do not impact the applicability of the selected approach
+    - How is a failover decided and initiated?
 
 
-      _Is there a clearly defined playbook for failover and failback procedures?_
+      _Is this fully automated or, if not, is the decision process clearly documented?_
 
-      > The steps required to fail over the application to a secondary Azure region in failure situations should be codified, preferably in an automated manner, to ensure capabilities exist to effectively respond to an outage in a way that limits impact. Similar codified steps should also exist to capture the process required to failback the application to the primary region once a failover triggering issue has been addressed
-    - Are recovery steps defined for failover and failback?
+      > Regional failovers are significant operational activity and may incur some downtime, degraded functionality, or data loss depending on the recovery strategy used. Hence, the decision process as to what constitutes a failover should be clearly understood
+    - Is the health model being used to classify failover situations?
 
 
-      _Is there a clearly defined playbook for failover and failback procedures?_
 
-      > The steps required to fail over the application to a secondary Azure region in failure situations should be codified, preferably in an automated manner, to ensure capabilities exist to effectively respond to an outage in a way that limits impact. Similar codified steps should also exist to capture the process required to failback the application to the primary region once a failover triggering issue has been addressed
+      > A platform service outage in a specific region will likely require a failover to another region, whereas the accidental change of an firewall rule can be mitigated by a recovery process. The health model and all underlying data should be used to interpret which operational procedures should be triggered
+    - Can individual components of the application failover independently?
+
+
+      _For example, is it possible to failover the compute cluster to a secondary region while keeping the database running in the primary region?_
+
+      > Ideally failover can happen on a component-level instead of needing to failover the entire system together, when, for instance, only one service experiences an outage.
 * Are automated recovery procedures in place for common failure event?
 
 
   _Is there at least some automation for certain failure scenarios or are all those depending on manual intervention?_
   > Automated responses to specific events help to reduce response times and limit errors associated with manual processes. Thus, wherever possible, it is recommended to have automation in place instead of relying on manual intervention.
-    - Are automated recovery procedures in place for common failure event?
+    - Are these automated recovery procedures tested and validated on a regular basis?
 
 
-      _Is there at least some automation for certain failure scenarios or are all those depending on manual intervention?_
 
-      > Automated responses to specific events help to reduce response times and limit errors associated with manual processes. Thus, wherever possible, it is recommended to have automation in place instead of relying on manual intervention.
+      > Automated operational responses should be tested frequently as part of the normal application lifecycle to ensure operational effectiveness
 * Are critical manual processes defined and documented for manual failure responses?
 
 
   _While full automation is attainable, there might be cases where manual steps cannot be avoided._
   > Operational runbooks should be defined to codify the procedures and relevant information needed for operations staff to respond to failures and maintain operational health
-    - Are critical manual processes defined and documented for manual failure responses?
+    - Are these manual operational runbooks tested and validated on a regular basis?
 
 
-      _While full automation is attainable, there might be cases where manual steps cannot be avoided._
 
-      > Operational runbooks should be defined to codify the procedures and relevant information needed for operations staff to respond to failures and maintain operational health
+      > Manual operational runbooks should be tested frequently as part of the normal application lifecycle to ensure appropriateness and efficiency
 ### Scalability &amp; Capacity Model
             
 * Is there a capacity model for the application?
@@ -560,12 +560,12 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
   _Due to physical and logical resource constraints within the platform, Azure must apply limits and quotas to service scalability, which may be either hard or soft._
   > Due to physical and logical resource constraints within the platform, Azure must apply limits and quotas to service scalability, which may be either hard or soft. The application should therefore take a scale-unit approach to navigate within service limits, and where necessary consider multiple subscriptions which are often the boundary for such limits. It is highly recommended that a structured approach to scale be designed up-front rather than resorting to a 'spill and fill' model([Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits))
-    - Is the required capacity (initial and future growth) within Azure service scale limits and quotas?
+    - Is the required capacity (initial and future growth) available within targeted regions?
 
 
-      _Due to physical and logical resource constraints within the platform, Azure must apply limits and quotas to service scalability, which may be either hard or soft._
+      _While the promise of the cloud is infinite scale, the reality is that there are finite resources available and as a result situations can occur where capacity can be constrained due to overall demand._
 
-      > Due to physical and logical resource constraints within the platform, Azure must apply limits and quotas to service scalability, which may be either hard or soft. The application should therefore take a scale-unit approach to navigate within service limits, and where necessary consider multiple subscriptions which are often the boundary for such limits. It is highly recommended that a structured approach to scale be designed up-front rather than resorting to a 'spill and fill' model([Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits))
+      > If the application requires a large amount of capacity or expects a significant increase in capacity then effort should be invested to ensure that desired capacity is attainable within selected region(s). For applications leveraging a recovery or active-passive based disaster recovery strategy, consideration should also be given to ensure suitable capacity exists in the secondary region(s) since a regional outage can lead to a significant increase in demand within a paired region due to other customer workloads also failing over. To help mitigate this, consideration should be given to pre-provisioning resources within the secondary region([Azure Capacity](https://aka.ms/AzureCapacity))
 * Is capacity utilization monitored and used to forecast future growth?
 
 
@@ -602,12 +602,11 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
   _Keys and secrets must still be available in a failover case._
   > Keys and secrets should be backed up to geo-redundant storage so that they can be accessed in the event of a regional failure and support recovery objectives. In the event of a regional outage, the Key Vault service will automatically be failed over to the secondary region in a read-only state([Azure Key Vault availability and reliability](https://docs.microsoft.com/en-us/azure/key-vault/general/disaster-recovery-guidance))
-    - Are keys and secrets backed-up to geo-redundant storage?
+    - Are certificate/key backups and data backups stored in different geo-redundant storage accounts?
 
 
-      _Keys and secrets must still be available in a failover case._
 
-      > Keys and secrets should be backed up to geo-redundant storage so that they can be accessed in the event of a regional failure and support recovery objectives. In the event of a regional outage, the Key Vault service will automatically be failed over to the secondary region in a read-only state([Azure Key Vault availability and reliability](https://docs.microsoft.com/en-us/azure/key-vault/general/disaster-recovery-guidance))
+      > Encryption keys and data should be backed up separately to optimise the security of underlying data
 * Is Soft-Delete enabled for Key Vaults and Key Vault objects?
 
 
@@ -635,18 +634,16 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
   _The PNU process will vary based on the type of Azure service used (i.e. VM, VMSS, Containers on AKS). Applications using IaaS will typically require more investment to define a PNU process_
   > The PNU process should be fully defined and understood for all relevant application components
-    - Is the Patch &amp; Update Process (PNU) process defined and for all relevant application components?
+    - Is the Patch &amp; Update Process (PNU) process automated?
 
 
-      _The PNU process will vary based on the type of Azure service used (i.e. VM, VMSS, Containers on AKS). Applications using IaaS will typically require more investment to define a PNU process_
 
-      > The PNU process should be fully defined and understood for all relevant application components
-    - Is the Patch &amp; Update Process (PNU) process defined and for all relevant application components?
+      > Ideally the PNU process should be fully or partially automated to optimize response times for new updates and also to reduce the risks associated with manual intervention
+    - Are Patch &amp; Update Process (PNU) operations performed &#39;as-code&#39;?
 
 
-      _The PNU process will vary based on the type of Azure service used (i.e. VM, VMSS, Containers on AKS). Applications using IaaS will typically require more investment to define a PNU process_
 
-      > The PNU process should be fully defined and understood for all relevant application components
+      > Performing operations should be defined 'as-code' since it helps to minimize human error and increase consistency
 * How are patches rolled back?
 
 
@@ -667,11 +664,12 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
 
   > The entire end-to-end CI/CD deployment process should be understood
-    - What is the process to deploy application releases to production?
+    - How long does it take to deploy an entire production environment?
 
 
+      _The time it takes to perform a complete environment deployment should align with recovery targets_
 
-      > The entire end-to-end CI/CD deployment process should be understood
+      > The time it takes to perform a complete environment deployment should be fully understood as it needs to align with the recovery targets
 * How often are changes deployed to production?
 
 
@@ -681,12 +679,12 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
   _Manual deployment steps introduce significant risks where human error is concerned and also increases overall deployment times._
   > Manual deployment steps introduce significant risks where human error is concerned and also increases overall deployment times. Automated end-to-end deployments, with manual approval gates where necessary, should be used to ensure a consistent and efficient deployment process([Deployment considerations for DevOps](https://docs.microsoft.com/en-us/azure/architecture/framework/devops/deployment))
-    - Can the application be deployed automatically from scratch without any manual operations?
+    - Is there a documented process for any portions of the deployment that require manual intervention?
 
 
-      _Manual deployment steps introduce significant risks where human error is concerned and also increases overall deployment times._
+      _Without detailed release process documentation, there is a much higher risk of an operator improperly configuring settings for the application_
 
-      > Manual deployment steps introduce significant risks where human error is concerned and also increases overall deployment times. Automated end-to-end deployments, with manual approval gates where necessary, should be used to ensure a consistent and efficient deployment process([Deployment considerations for DevOps](https://docs.microsoft.com/en-us/azure/architecture/framework/devops/deployment))
+      > Any manual steps that are required in the deployment pipeline must be clearly documented with roles and responsibilties well defined.
 * Can N-1 or N+1 versions be deployed via automated pipelines where N is current deployment version in production?
 
 
@@ -706,28 +704,30 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
   _It is important to understand whether there is a systematic approach to the development and release process._
   > The use of source code control systems, such as Azure Repos or GitHub, and build and release systems, such as Azure Pipelines or GitHub Actions, should be understood, including the corresponding processes to access, review and approve changes
-    - How does the development team manage application source code, builds, and releases?
+    - If Git is used for source control, what branching strategy is used?
 
 
-      _It is important to understand whether there is a systematic approach to the development and release process._
+      _While there are various valid ways, a clearly defined strategy should be in place and understood_
 
-      > The use of source code control systems, such as Azure Repos or GitHub, and build and release systems, such as Azure Pipelines or GitHub Actions, should be understood, including the corresponding processes to access, review and approve changes
+      > To optimize for collaboration and ensure developers spend less time managing version control and more time developing code, a clear and simple branching strategy should be used, such as Trunk-Based Development which is employed internally within Microsoft Engineering([Microsoft Git Strategy](https://docs.microsoft.com/en-us/azure/devops/learn/devops-at-microsoft/use-git-microsoft))
 ### Application Infrastructure Deployments &amp; Infrastructure as Code (IaC)
             
 * Is application infrastructure defined as code?
 
 
   > It is highly recommended do describe the entire infrastructure as code, using either ARM Templates, Terraform, or other tools. This allows for proper versioning and configuration management, encouraging consistency and reproducibility across environments
-    - Is application infrastructure defined as code?
+    - Are any operational changes performed outside of IaC?
 
 
+      _Are any resources provisioned or operationally configured manually through the Azure Portal or via Azure CLI?_
 
-      > It is highly recommended do describe the entire infrastructure as code, using either ARM Templates, Terraform, or other tools. This allows for proper versioning and configuration management, encouraging consistency and reproducibility across environments
-    - Is application infrastructure defined as code?
+      > It is recommended that even small operational changes and modifications be implemented as-code to track changes and ensure they are fully reproduceable and revertible. No infrastructure changes should be done manually outside of IaC.
+    - How does the application track and address configuration drift?
 
 
+      _Configuration drift occurs when changes are applied outside of IaC processes such as manual changes._
 
-      > It is highly recommended do describe the entire infrastructure as code, using either ARM Templates, Terraform, or other tools. This allows for proper versioning and configuration management, encouraging consistency and reproducibility across environments
+      > Tools like terraform support a plan command that helps to identify change and monitor configuration drift, with Azure as the ultimate source of truth
 * Is the process to deploy infrastructure automated?
 
 
@@ -759,26 +759,20 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
   _Performance Testing: Performance testing is the superset of both load and stress testing. The primary goal of performance testing is to validate benchmark behaviour for the application([Performance Testing](https://docs.microsoft.com/en-us/azure/architecture/checklist/dev-ops#testing))
 Load Testing : Load testing validates application scalability by rapidly and/or gradually increasing the load on the application until it reaches a threshold/limit 
 Stress Testing : *Stress testing is a type of negative testing which involves various activities to overload existing resources and remove components to understand overall resiliency and how the application responds to issues_
-    - Is the application tested for performance, scalability, and resiliency?
+    - When do you do test for performance, scalability, and resiliency?
 
 
-      _Performance Testing: Performance testing is the superset of both load and stress testing. The primary goal of performance testing is to validate benchmark behaviour for the application([Performance Testing](https://docs.microsoft.com/en-us/azure/architecture/checklist/dev-ops#testing))
-Load Testing : Load testing validates application scalability by rapidly and/or gradually increasing the load on the application until it reaches a threshold/limit 
-Stress Testing : *Stress testing is a type of negative testing which involves various activities to overload existing resources and remove components to understand overall resiliency and how the application responds to issues_
+      _Regular testing should be performed as part of each major change and if possible on a regular basis to validate existing thresholds, targets and assumptions, as well as ensuring the validity of the health model, capacity model and operational procedures_
 
-    - Is the application tested for performance, scalability, and resiliency?
+    - Are any tests performed in production?
 
 
-      _Performance Testing: Performance testing is the superset of both load and stress testing. The primary goal of performance testing is to validate benchmark behaviour for the application([Performance Testing](https://docs.microsoft.com/en-us/azure/architecture/checklist/dev-ops#testing))
-Load Testing : Load testing validates application scalability by rapidly and/or gradually increasing the load on the application until it reaches a threshold/limit 
-Stress Testing : *Stress testing is a type of negative testing which involves various activities to overload existing resources and remove components to understand overall resiliency and how the application responds to issues_
+      _While the majority of testing should be performed within the testing and staging environments, it is often beneficial to also run a subset of tests against the production system_
 
-    - Is the application tested for performance, scalability, and resiliency?
+    - Is the application tested with injected faults?
 
 
-      _Performance Testing: Performance testing is the superset of both load and stress testing. The primary goal of performance testing is to validate benchmark behaviour for the application([Performance Testing](https://docs.microsoft.com/en-us/azure/architecture/checklist/dev-ops#testing))
-Load Testing : Load testing validates application scalability by rapidly and/or gradually increasing the load on the application until it reaches a threshold/limit 
-Stress Testing : *Stress testing is a type of negative testing which involves various activities to overload existing resources and remove components to understand overall resiliency and how the application responds to issues_
+      _It is a common "chaos monkey" practice to verify the effectiveness of operational procedures using artificial faults. For example, taking dependencies offline (stopping API apps, shutting down VMs, etc.), restricting access (enabling firewall rules, changing connection strings, etc.) or forcing failover (database level, Front Door, etc.) is a good way to validate that the application is able to handle faults gracefully_
 
 * Are smoke tests performed during application deployments?
 
@@ -834,20 +828,20 @@ Stress Testing : *Stress testing is a type of negative testing which involves va
 
 
   _A true DevOps model positions the responsibility of operations with developers, but many customers do not fully embrace DevOps and maintain some degree of team separation between operations and development, either to enforce clear segregation of duties for regulated environments, or to share operations as a business function_
-    - Is there a separation between development and operations?
+    - Does the development team own production deployments?
 
 
-      _A true DevOps model positions the responsibility of operations with developers, but many customers do not fully embrace DevOps and maintain some degree of team separation between operations and development, either to enforce clear segregation of duties for regulated environments, or to share operations as a business function_
+      _It is important to understand if developers are responsible for production deployments end-to-end, or if a handover point exists where responsibility is passed to an alternative operations team, potentially to ensure a strict segregation of duties such as Sarbanes-Oxley Act where developers cannot touch financial reporting systems_
 
-    - Is there a separation between development and operations?
-
-
-      _A true DevOps model positions the responsibility of operations with developers, but many customers do not fully embrace DevOps and maintain some degree of team separation between operations and development, either to enforce clear segregation of duties for regulated environments, or to share operations as a business function_
-
-    - Is there a separation between development and operations?
+    - How do development and operations teams collaborate to resolve production issues?
 
 
-      _A true DevOps model positions the responsibility of operations with developers, but many customers do not fully embrace DevOps and maintain some degree of team separation between operations and development, either to enforce clear segregation of duties for regulated environments, or to share operations as a business function_
+      _It is important to understand how operations and development teams collaborate to address operational issues, and what processes exist to support and structure this collaboration. Moreover, mitigating issues might require the involvement of different teams outside of development or operations, such as networking, and in some cases external parties as well. The processes to support this collaboration should also be understood_
+
+    - Is the workload isolated to a single operations team?
+
+
+      _The goal of workload isolation is to associate an application's specific resources to a team, so that the team can independently manage all aspects of those resources([Workload isolation](https://docs.microsoft.com/en-us/azure/architecture/framework/devops/app-design#workload-isolation))_
 
 * Are any broader teams responsible for operational aspects of the application?
 
@@ -865,10 +859,10 @@ Stress Testing : *Stress testing is a type of negative testing which involves va
 
 
   _For example, Azure AD [Privileged Identity Management](https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-configure) provides time-based and approval-based role activation to mitigate the risks of excessive, unnecessary, or misused access permissions on resources that you care about_
-    - Are tools or processes in place to grant access on a just in-time basis?
+    - Does anyone have long-standing write-access to production environments?
 
 
-      _For example, Azure AD [Privileged Identity Management](https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-configure) provides time-based and approval-based role activation to mitigate the risks of excessive, unnecessary, or misused access permissions on resources that you care about_
+      _Write-access to production systems should be limited to service principals and no user accounts have regular write-access_
 
 ### Common Engineering Criteria
             
