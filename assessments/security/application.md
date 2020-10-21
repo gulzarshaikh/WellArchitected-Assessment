@@ -74,18 +74,18 @@
 
   _It is important to understand what Azure services, such as App Services and Event Hub, are used by the application platform to host both application code and data._
   > All Azure services in use should be identified.
-    - What Azure services are used by the application?
+    - What operational features/capabilities are used for leveraged services?
 
 
-      _It is important to understand what Azure services, such as App Services and Event Hub, are used by the application platform to host both application code and data._
+      _Operational capabilities, such as auto-scale and auto-heal for AppServices, can reduce management overheads and support operational effectiveness._
 
-      > All Azure services in use should be identified.
-    - What Azure services are used by the application?
+      > Make sure you understand the operational features/capabilities available and how they can be used in the solution.
+    - What technologies and frameworks are used by the application?
 
 
-      _It is important to understand what Azure services, such as App Services and Event Hub, are used by the application platform to host both application code and data._
+      _It is important to understand what technologies are used by the application and must be managed, such as .NET Core , Spring, or Node.js._
 
-      > All Azure services in use should be identified.
+      > All technologies and frameworks should be identified. Vulnerabilities of these dependencies must be understood (there are automated solutions on the market that can help: [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/) or [NPM audit](https://docs.npmjs.com/cli/audit)).
 ### Threat Analysis
             
 * Does the organization identify the highest severity threats to this workload via threat modeling?
@@ -162,10 +162,10 @@
 
 
   _If NSGs are being used to isolate and protect the application, the rule set should be reviewed to confirm that required services are not unintentionally blocked._
-    - Are Network Security Groups (NSGs) being used?
+    - Are NSG flow logs being collected?
 
 
-      _If NSGs are being used to isolate and protect the application, the rule set should be reviewed to confirm that required services are not unintentionally blocked._
+      _NSG flow logs should be captured and analyzed to monitor performance and security. The NSG flow logs enables Traffic Analytics to gain insights into internal and external traffic flows of the application._
 
 ### Endpoints
             
@@ -227,10 +227,10 @@
 
 
   _When data is being transferred between components, locations, or programs, it’s in transit. Data in transit should be encrypted at all points to ensure data integrity. For example: web applications and APIs should use HTTPS/SSL for all communication with clients and also between each other (in micro-services architecture)._
-    - How is data in transit secured?
+    - Is there any portion of the application that does not secure data in transit?
 
 
-      _When data is being transferred between components, locations, or programs, it’s in transit. Data in transit should be encrypted at all points to ensure data integrity. For example: web applications and APIs should use HTTPS/SSL for all communication with clients and also between each other (in micro-services architecture)._
+      _All data should be encrypted in transit using a common encryption standard. Determine if all components in the solution are using a consistent standard. There are times when encryption is not possible due to technical limitations, but the reason needs to be clear and valid._
 
 ## Operational Procedures
     
