@@ -490,11 +490,12 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 * Are recovery steps defined for failover and failback?
 
 
-  _Is there a clearly defined playbook for failover and failback procedures?_
-  > The steps required to fail over the application to a secondary Azure region in failure situations should be codified, preferably in an automated manner, to ensure capabilities exist to effectively respond to an outage in a way that limits impact. Similar codified steps should also exist to capture the process required to failback the application to the primary region once a failover triggering issue has been addressed
+  _Is there a clearly defined playbook or disaster recovery plan for failover and failback procedures?_
+  > The steps required to recover or fail over the application to a secondary Azure region in failure situations should be codified, preferably in an automated manner, to ensure capabilities exist to effectively respond to an outage in a way that limits impact. Similar codified steps should also exist to capture the process required to failback the application to the primary region once a failover triggering issue has been addressed
     - Has the failover and failback approach been tested/validated at least once?
 
 
+      _Only plans and playbooks that have been executed sucessfully at least once can be considered working._
 
       > The precise steps required to failover and failback the application must be tested to validate the effectiveness of the defined disaster recovery approach. Testing of the disaster recovery strategy should occur according to a reasonably regular cadence, such as annually, to ensure that operational application changes do not impact the applicability of the selected approach
     - How is a failover decided and initiated?
@@ -506,9 +507,16 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
     - Is the health model being used to classify failover situations?
 
 
+      _It is important to know if a formal procedure used to classify failover situations._
 
       > A platform service outage in a specific region will likely require a failover to another region, whereas the accidental change of an firewall rule can be mitigated by a recovery process. The health model and all underlying data should be used to interpret which operational procedures should be triggered
-    - Can individual components of the application failover independently?
+    - Does the playbook or disaster recovery plan consider every process, component and every category of data that can&#39;t afford unlimited loss or downtime?
+
+
+      _Different components of an application might have different priorities and impact and therefore different priorities in case of a disaster._
+
+      > When a disaster that affects multiple application components occurs, it's critical that the recovery plan can be used to take a complete inventory of what needs attention and how to prioritize each item. Each major process or workload that's implemented by an app should have separate RPO and RTO values. Each one should be generated through a separate analysis that examines disaster scenario risks and potential recovery strategies for each respective process.
+    - Can individual processes and components of the application failover independently?
 
 
       _For example, is it possible to failover the compute cluster to a secondary region while keeping the database running in the primary region?_
