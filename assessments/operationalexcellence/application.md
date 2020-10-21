@@ -507,7 +507,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
     - Is the health model being used to classify failover situations?
 
 
-      _It is important to know if a formal procedure used to classify failover situations._
+      _It is important to know if a formal procedure is used to classify failover situations._
 
       > A platform service outage in a specific region will likely require a failover to another region, whereas the accidental change of an firewall rule can be mitigated by a recovery process. The health model and all underlying data should be used to interpret which operational procedures should be triggered
     - Does the playbook or disaster recovery plan consider every process, component and every category of data that can&#39;t afford unlimited loss or downtime?
