@@ -176,7 +176,7 @@
         "lens": "service",
         "category": "Compute",
         "subCategory": "Azure Kubernetes Service (AKS)",
-        "title": "Utilize the [AKS Uptime SLA](https://docs.microsoft.com/en-us/azure/aks/uptime-sla) for production grade clusters. The AKS Uptime SLA guarantees:",
+        "title": "Utilize the [AKS Uptime SLA](https://docs.microsoft.com/azure/aks/uptime-sla) for production grade clusters. The AKS Uptime SLA guarantees:",
         "children": [
             {
                 "title": "99.95% availability of the Kubernetes API server endpoint for AKS Clusters that use Azure Availability Zones, or"
@@ -189,7 +189,8 @@
     {
         "type": "Configuration Recommendations",
         "pillars": [
-            "reliability"
+            "reliability",
+            "operationalexcellence"
         ],
         "lens": "service",
         "category": "Compute",
@@ -263,7 +264,7 @@
         "lens": "service",
         "category": "Compute",
         "subCategory": "Azure Kubernetes Service (AKS)",
-        "title": "Modifying resources in the [node resource group (ie - 'MC_')](https://docs.microsoft.com/azure/aks/faq#why-are-two-resource-groups-created-with-aks) is not recommended and should only be done at [cluster creation time](https://docs.microsoft.com/en-us/azure/aks/faq#can-i-provide-my-own-name-for-the-aks-node-resource-group), or with assistance from Azure Support."
+        "title": "Modifying resources in the [node resource group (ie - 'MC_')](https://docs.microsoft.com/azure/aks/faq#why-are-two-resource-groups-created-with-aks) is not recommended and should only be done at [cluster creation time](https://docs.microsoft.com/azure/aks/faq#can-i-provide-my-own-name-for-the-aks-node-resource-group), or with assistance from Azure Support."
     },         
     {
         "type": "Configuration Recommendations",
@@ -312,7 +313,16 @@
             },
             {
                 "title": "Limit access to [Kubernetes cluster configuration](https://docs.microsoft.com/azure/aks/control-kubeconfig-access) file with Azure role-based access control."
-            },            
+            },
+            {
+                "title": "Limit access to [actions that containers can perform](https://docs.microsoft.com/azure/aks/developer-best-practices-pod-security#secure-pod-access-to-resources). Provide the least number of permissions, and avoid the use of root / privileged escalation."
+            },
+            {
+                "title": "Evaluate the use of the built-in [AppArmor security module](https://docs.microsoft.com/azure/aks/operator-best-practices-cluster-security#app-armor) to limit actions that containers can perform such as read, write, or execute, or system functions such as mounting filesystems."
+            },
+            {
+                "title": "Evaluate the use of the [seccomp (secure computing)](https://docs.microsoft.com/azure/aks/operator-best-practices-cluster-security#secure-computing). seccomp works at the process level and allows you to limit the process calls that containers can perform."
+            },
             {
                 "title": "Use [Pod Identities](https://docs.microsoft.com/azure/aks/operator-best-practices-identity#use-pod-identities) and [Secrets Store CSI Driver](https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage) with Azure Key Vault to protect secrets, certificates, and connection strings."
             },
@@ -323,7 +333,7 @@
                 "title": "Regularly process Linux node security and kernel updates and reboots using [kured](https://docs.microsoft.com/azure/aks/node-updates-kured)."
             },
             {
-                "title": "Use Azure Security Center to provide AKS recommendations."
+                "title": "Use [Azure Security Center](https://docs.microsoft.com/azure/security-center/defender-for-kubernetes-introduction) to provide AKS recommendations."
             }                      
         ]
     },   
@@ -331,7 +341,6 @@
         "type": "Configuration Recommendations",
         "pillars": [
             "reliability",
-            "operationalexcellence",
             "security"
         ],
         "lens": "service",
@@ -343,7 +352,6 @@
         "type": "Configuration Recommendations",
         "pillars": [
             "reliability",
-            "operationalexcellence",
             "security"
         ],
         "lens": "service",
@@ -372,7 +380,6 @@
         "type": "Configuration Recommendations",
         "pillars": [
             "reliability",
-            "operationalexcellence",
             "security"
         ],
         "lens": "service",
@@ -409,6 +416,10 @@
         "children": [
             {
                 "title": "Enable [Azure Defender for container registries](https://docs.microsoft.com/azure/security-center/defender-for-container-registries-introduction) to enable vulnerability scanning for container images."
+            },
+            {
+                "title": "Authenticate with Azure Container Registry from Azure Kubernetes Service",
+                "context": "AKS and Azure AD enables authentication with Azure Container Registry without the use of K8s/imagePullSecrets secrets. See [Authenticate with Azure Container Registry from Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/cluster-container-registry-integration) for more."
             }
          ]
     },
@@ -456,7 +467,7 @@
         "category": "Compute",
         "subCategory": "Azure App Service",
         "title": "Microsoft guarantees that Apps will be available 99.95% of the time. However, no SLA is provided for Apps using either the Free or Shared tiers.",
-        "context": "[SLA for App Service](https://azure.microsoft.com/en-us/support/legal/sla/app-service/v1_4/)"
+        "context": "[SLA for App Service](https://azure.microsoft.com/support/legal/sla/app-service/v1_4/)"
     },
     {
         "type": "Configuration Recommendations",
