@@ -18,6 +18,8 @@ This list contains design considerations and recommended configuration options, 
     - [Azure Cache for Redis](#Azure-Cache-for-Redis)
   - [Hybrid](#Hybrid)
     - [Azure Stack Hub](#Azure-Stack-Hub)
+  - [Storage](#Storage)
+    - [Storage Accounts](#Storage-Accounts)
   - [Messaging](#Messaging)
     - [Event Grid](#Event-Grid)
     - [Event Hub](#Event-Hub)
@@ -307,30 +309,35 @@ Resources
 * Azure SQL Database Hyperscale tier with one replica has an availability guarantee of at least 99.95% and 99.9% for zero replicas.
 * Azure SQL Database Business Critical tier configured with geo-replication has a guarantee of Recovery point objective (RPO) of 5 sec for 100% of deployed hours.
 * Azure SQL Database Business Critical tier configured with geo-replication has a guarantee of Recovery time objective (RTO) of 30 sec for 100% of deployed hours.
-* Use point-in-time restore to recover from human error. Point-in-time restore returns your database to an earlier point in time to recover data from changes done inadvertently. For more information, read the PITR documentation for https://docs.microsoft.com/en-us/azure/azure-sql/database/recovery-using-backups#point-in-time-restore 
+* Use point-in-time restore to recover from human error. Point-in-time restore returns your database to an earlier point in time to recover data from changes done inadvertently. For more information, read the [PITR documentation](https://docs.microsoft.com/en-us/azure/azure-sql/database/recovery-using-backups#point-in-time-restore).
 * Use geo-restore to recover from a service outage. You can restore a database on any SQL Database server or an instance database on any managed instance in any Azure region from the most recent geo-replicated backups. Geo-restore uses a geo-replicated backup as its source. You can request geo-restore even if the database or datacenter is inaccessible due to an outage. Geo-restore restores a database from a geo-redundant backup. For more information, see [Recover an Azure SQL database using automated database backups](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups)
-* Use sharding Sharding is a technique of distributing data and processing across many identically structured databases, provides an alternative to traditional scale-up approaches both in terms of cost and elasticity. Consider using sharding to partition the database horizontally. Sharding can provide fault isolation. For more information, see [Scaling out with Azure SQL Database.](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-scale-introduction)
-* Define an application performance SLA and monitor it with alerts. Detecting quickly when your application performance inadvertently degrades below an acceptable level is important to maintain high resiliency. Use the monitoring solution defined above to set alerts on key query performance metrics to you can take action when the performance breaks the SLA. [Monitor Your Database](https://docs.microsoft.com/en-us/azure/azure-sql/database/monitor-tune-overview)
+* Use sharding Sharding is a technique of distributing data and processing across many identically structured databases, provides an alternative to traditional scale-up approaches both in terms of cost and elasticity. Consider using sharding to partition the database horizontally. Sharding can provide fault isolation. For more information, see [Scaling out with Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-scale-introduction).
+* Define an application performance SLA and monitor it with alerts. Detecting quickly when your application performance inadvertently degrades below an acceptable level is important to maintain high resiliency. Use the monitoring solution defined above to set alerts on key query performance metrics to you can take action when the performance breaks the SLA. Go to [Monitor Your Database](https://docs.microsoft.com/en-us/azure/azure-sql/database/monitor-tune-overview) for more information.
 ### Configuration Recommendations
-* Configure HA/DR that best feed your needs from following options: Azure Sql DB  offers the following capabilities for recovering from an outage, It is advised to implement one or combination of one or more depending on Business RTO/RPO requirements : 
-  - Use Active Geo-Replication:  Use Active Geo-Replication to create a readable secondary in a different region. If your primary database fails, perform a manual failover to the secondary database. Until you fail over, the secondary database remains read-only. [Active geo-replication](https://docs.microsoft.com/en-us/azure/azure-sql/database/active-geo-replication-overview) enables you to create readable replicas and manually failover to any replica in case of a datacenter outage or application upgrade. Up to 4 secondaries are supported in the same or different regions, and the secondaries can also be used for read-only access queries. The failover must be initiated manually by the application or the user. After failover, the new primary has a different connection end point. 
+* Configure HA/DR that best feed your needs from following options: Azure SQL DB  offers the following capabilities for recovering from an outage, it is advised to implement one or combination of one or more depending on Business RTO/RPO requirements:
+  - Use Active Geo-Replication:  Use Active Geo-Replication to create a readable secondary in a different region. If your primary database fails, perform a manual failover to the secondary database. Until you fail over, the secondary database remains read-only. [Active geo-replication](https://docs.microsoft.com/en-us/azure/azure-sql/database/active-geo-replication-overview) enables you to create readable replicas and manually failover to any replica in case of a datacenter outage or application upgrade. Up to 4 secondaries are supported in the same or different regions, and the secondaries can also be used for read-only access queries. The failover must be initiated manually by the application or the user. After failover, the new primary has a different connection end point.
                             
-  - Use Auto Failover Groups: A failover group can include one or multiple databases, typically used by the same application. Additionally, you can use the readable secondary databases to offload read-only query workloads. Because auto-failover groups involve multiple databases, these databases must be configured on the primary server. Auto-failover groups support replication of all databases in the group to only one secondary server or instance in a different region. Learn more about [AutoFailover Groups](https://docs.microsoft.com/en-us/azure/azure-sql/database/auto-failover-group-overview?tabs=azure-powershell)  and  [DR design](https://docs.microsoft.com/en-us/azure/azure-sql/database/designing-cloud-solutions-for-disaster-recovery).	
+  - Use Auto Failover Groups: A failover group can include one or multiple databases, typically used by the same application. Additionally, you can use the readable secondary databases to offload read-only query workloads. Because auto-failover groups involve multiple databases, these databases must be configured on the primary server. Auto-failover groups support replication of all databases in the group to only one secondary server or instance in a different region. Learn more about [AutoFailover Groups](https://docs.microsoft.com/en-us/azure/azure-sql/database/auto-failover-group-overview?tabs=azure-powershell) and [DR design](https://docs.microsoft.com/en-us/azure/azure-sql/database/designing-cloud-solutions-for-disaster-recovery).	
                             
-  - Use Zone-Redundant database: By default, the cluster of nodes for the premium availability model is created in the same datacenter. With the introduction of Azure Availability Zones, SQL Database can place different replicas of the Business Critical database to different availability zones in the same region. To eliminate a single point of failure, the control ring is also duplicated across multiple zones as three gateway rings (GW). The routing to a specific gateway ring is controlled by [Azure Traffic Manager](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-overview) (ATM). Because the zone redundant configuration in the Premium or Business Critical service tiers does not create additional database redundancy, you can enable it at no extra cost. Learn More on Zone-redundant databases [here](https://docs.microsoft.com/en-us/azure/azure-sql/database/high-availability-sla) 
+  - Use Zone-Redundant database: By default, the cluster of nodes for the premium availability model is created in the same datacenter. With the introduction of Azure Availability Zones, SQL Database can place different replicas of the Business Critical database to different availability zones in the same region. To eliminate a single point of failure, the control ring is also duplicated across multiple zones as three gateway rings (GW). The routing to a specific gateway ring is controlled by [Azure Traffic Manager](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-overview) (ATM). Because the zone redundant configuration in the Premium or Business Critical service tiers does not create additional database redundancy, you can enable it at no extra cost. Learn more on Zone-redundant databases [here](https://docs.microsoft.com/en-us/azure/azure-sql/database/high-availability-sla)
                             
-* Monitor your Azure SQL DB in near-real time to detect reliability incidents. Use one of the available solutions to monitor SQL DB to detect potential reliability incidents early and make your databases more reliable. Choosing a near real-time monitoring solution is key to quickly react to incidents. Learn more details about Azure SQL Analytics [Here](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/azure-sql#analyze-data-and-create-alerts)  
-* Backup your keys: If you are not [using encryption keys in Azure key vault to protect your data](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-always-encrypted-azure-key-vault) , backup your keys!
-* Implement Retry Logic: Although Azure SQL Database is resilient on the transitive infrastructure failures, these failures might affect your connectivity. When a transient error occurs while working with SQL Database, make sure your code must be able to retry the call. Follow the link for detailed instruction on how to [Implement retry logic](https://docs.microsoft.com/en-us/azure/azure-sql/database/troubleshoot-common-connectivity-issues). 
+* Monitor your Azure SQL DB in near-real time to detect reliability incidents. Use one of the available solutions to monitor SQL DB to detect potential reliability incidents early and make your databases more reliable. Choosing a near real-time monitoring solution is key to quickly react to incidents. Learn more details about Azure SQL Analytics [Here](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/azure-sql#analyze-data-and-create-alerts)
+* Backup your keys: If you are not [using encryption keys in Azure key vault to protect your data](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-always-encrypted-azure-key-vault), backup your keys!
+* Implement Retry Logic: Although Azure SQL Database is resilient on the transitive infrastructure failures, these failures might affect your connectivity. When a transient error occurs while working with SQL Database, make sure your code must be able to retry the call. Follow the link for detailed instruction on how to [Implement retry logic](https://docs.microsoft.com/en-us/azure/azure-sql/database/troubleshoot-common-connectivity-issues).
 ## Azure SQL Managed Instance
+### Design Considerations
+* Use point-in-time restore to recover from human error. Point-in-time restore returns your database to an earlier point in time to recover data from changes done inadvertently. For more information, read the [PITR documentation for managed instance](https://docs.microsoft.com/en-us/azure/azure-sql/database/recovery-using-backups#point-in-time-restore)
+* Use geo-restore to recover from a service outage. Geo-restore restores a database from a geo-redundant backup into a managed instance in a different region. For more information, see [Recover a database using Geo-restore documentation](https://docs.microsoft.com/en-us/azure/azure-sql/database/auto-failover-group-overview).
+* Define an application performance SLA and monitor it with alerts. Detecting quickly when your application performance inadvertently degrades below an acceptable level is important to maintain high resiliency. Use the monitoring solution defined above to set alerts on key query performance metrics to you can take action when the performance breaks the SLA.
+* Consider the time required for certain operations. Make sure you separate time to thoroughly test the amount of time required to scale up and down (change the size) your existing managed instance, and to create a new managed instance. This will ensure that you understand completely how these time consuming operations will affect your RTO and RPO.
 ### Configuration Recommendations
-* Use Business Critical tier. This tier provides higher resiliency to failures and faster failover times due to the underlying HA architecture, among other benefits. For more information, see [SQL Managed Instance High availability](https://docs.microsoft.com/en-us/azure/azure-sql/database/high-availability-sla)
+* Use Business Critical tier. This tier provides higher resiliency to failures and faster failover times due to the underlying HA architecture, among other benefits. For more information, see [SQL Managed Instance High availability](https://docs.microsoft.com/en-us/azure/azure-sql/database/high-availability-sla).
 * Configure a secondary instance and an Auto-failover group to enable failover to another region. If an outage impacts one or more of the databases in the managed instance, you can manually or automatically failover all the databases inside the instance to a secondary region. For more information, read the [Auto-failover groups documentation for managed instance](https://docs.microsoft.com/en-us/azure/azure-sql/database/auto-failover-group-overview)
-* Monitor your SQL MI instance in near-real time to detect reliability incidents. Use one of the available solutions to monitor your SQL MI to detect potential reliability incidents early and make your databases more reliable. Choosing a near real-time monitoring solution is key to quickly react to incidents. For more information, read the [Azure SQL Managed Instance monitoring options](http://aka.ms/mi-monitoring)
-* Implement Retry Logic: Although Azure SQL MI is resilient on the transitive infrastructure failures, these failures might affect your connectivity. When a transient error occurs while working with SQL MI, make sure your code must be able to retry the call. Follow the link for detailed instruction on how to [Implement retry logic](https://docs.microsoft.com/en-us/azure/azure-sql/database/troubleshoot-common-connectivity-issues). 
+* Monitor your SQL MI instance in near-real time to detect reliability incidents. Use one of the available solutions to monitor your SQL MI to detect potential reliability incidents early and make your databases more reliable. Choosing a near real-time monitoring solution is key to quickly react to incidents. For more information, check out the [Azure SQL Managed Instance monitoring options](http://aka.ms/mi-monitoring).
+* Implement Retry Logic: Although Azure SQL MI is resilient on the transitive infrastructure failures, these failures might affect your connectivity. When a transient error occurs while working with SQL MI, make sure your code must be able to retry the call. Follow the link for detailed instruction on how to [Implement retry logic](https://docs.microsoft.com/en-us/azure/azure-sql/database/troubleshoot-common-connectivity-issues).
 ## Cosmos DB
 ### Design Considerations
-* 99.99% SLAs for throughput, consistency, availability and latency for Database Accounts scoped to a single Azure region configured with any of the five Consistency Levels or Database Accounts spanning to multiple Azure regions, configured with any of the four relaxed Consistency Levels. 
+* 99.99% SLAs for throughput, consistency, availability and latency for Database Accounts scoped to a single Azure region configured with any of the five Consistency Levels or Database Accounts spanning to multiple Azure regions, configured with any of the four relaxed Consistency Levels.
 * 99.999% SLA for read availability for Database Accounts spanning two or more Azure region.
 * 99.999% SLA for both read and write availability with the configuration of multiple Azure regions as writable endpoints.
   > [Cosmos DB Service Level Agreements](https://azure.microsoft.com/en-us/support/legal/sla/cosmos-db/v1_3/)
@@ -342,11 +349,11 @@ Resources
 * Understand your traffic pattern in order to pick the right option for [provisioned throughput types](https://docs.microsoft.com/en-us/azure/cosmos-db/how-to-choose-offer).
 * For new applications, if you don’t know your traffic pattern yet, start at the entry point RU/s to avoid over-provisioning in the beginning.
 * For existing applications:
-  - Use Azure Monitor metrics to determine if your traffic pattern is suitable for autoscale. 
+  - Use Azure Monitor metrics to determine if your traffic pattern is suitable for autoscale.
                             
-  - Find the normalized request unit consumption metric of your database or container. Normalized utilization is a measure of how much you are currently using your standard (manual) provisioned throughput. 
+  - Find the normalized request unit consumption metric of your database or container. Normalized utilization is a measure of how much you are currently using your standard (manual) provisioned throughput.
                             
-  - The closer the number is to 100%, the more you are fully using your provisioned RU/s. 
+  - The closer the number is to 100%, the more you are fully using your provisioned RU/s.
                             
 * Of all hours in a month, if you set provisioned RU/s T and use the full amount for 66% of the hours or more, it&#39;s estimated you&#39;ll save with standard (manual) provisioned RU/s. If you set autoscale max RU/s Tmax and use the full amount Tmax for 66% of the hours or less, it&#39;s estimated you&#39;ll save with autoscale.
 * If multi-master option is enabled on Cosmos DB, it is important to understand [Conflict Types and Resolution Policies](https://docs.microsoft.com/en-us/azure/cosmos-db/conflict-resolution-policies).
@@ -366,7 +373,7 @@ Resources
 * Call [OpenAsync](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.documents.client.documentclient.openasync?view=azure-dotnet) to avoid startup latency on first request.
 * In order to avoid network latency, collocate client in same region as Cosmos DB.
 * Increase the number of threads /tasks.
-* To reduce latency and CPU jitter, it is recommended to enable accelerated networking on client virtual machines both [Windows](https://docs.microsoft.com/en-us/azure/virtual-network/create-vm-accelerated-networking-powershell) and [Linux](https://docs.microsoft.com/en-us/azure/virtual-network/create-vm-accelerated-networking-cli).    
+* To reduce latency and CPU jitter, it is recommended to enable accelerated networking on client virtual machines both [Windows](https://docs.microsoft.com/en-us/azure/virtual-network/create-vm-accelerated-networking-powershell) and [Linux](https://docs.microsoft.com/en-us/azure/virtual-network/create-vm-accelerated-networking-cli).
 * Implement [retry logic](https://docs.microsoft.com/en-us/azure/architecture/best-practices/retry-service-specific#cosmos-db) in your client.
 ### Supporting Source Artifacts
 * In order to check if multi location is not selected you can use the following query: 
@@ -433,7 +440,7 @@ Resources
                             
   - Import/Export
                             
-* Schedule Updates - Schedule the days and times that Redis Server updates will be applied to the cache. This does not include Azure updates or updates to the VM operating System. 
+* Schedule Updates - Schedule the days and times that Redis Server updates will be applied to the cache. This does not include Azure updates or updates to the VM operating System.
 * Monitor the cache and/or set alerts for exceptions, high CPU, high memory usage, server load and evicted keys for insights when to scale the cache. If the cache needs to be scaled, understanding when to scale is important because it will increase CPU during the scaling event to migrate data.
 * Deploying the cache inside of a VNET gives the customer more control over the traffic that is able to connect to the cache. Make sure that the subnet has sufficient address space available to deploy the cache nodes and shards (cluster).
 * Configure Data Persistence to save a copy of the cache to Azure Storage or use Geo-Replication depending on the business requirement.
@@ -471,6 +478,75 @@ Resources
 ### Configuration Recommendations
 * Treat Azure Stack Hub as a scale unit and deploy multiple instances to remove Azure Stack Hub as a single point of failure for encompassed workloads. 
   - Deploy workloads in either an active-active or active-passive configuration across Azure Stack Hub stamps and/or Azure.
+                            
+# Storage
+        
+## Storage Accounts
+### Design Considerations
+* Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
+* Storage account names must be unique within Azure. No two storage accounts can have the same name.
+* The current [SLA for Storage Accounts](https://azure.microsoft.com/support/legal/sla/storage/v1_5/) (v1.5, June 2019) specifies a 99.9% guarantee for LRS, ZRS and GRS accounts and a 99.99% guarantee for RA-GRS (provided that requests to RA-GRS switch to secondary endpoints if there is no success on the primary endpoint) to successfully process requests to **read data**. And at least 99.9% to successfully process requests to **write data**. SLAs for other storage tiers might differ. Go to [Azure Storage redundancy](https://docs.microsoft.com/azure/storage/common/storage-redundancy) to see which redundancy option is best for a specific scenario.
+* General-purpose v1 storage accounts provide access to all Azure Storage services, but may not have the latest features or the lowest per gigabyte pricing. It is recommended to use general-purpose v2 storage accounts in most cases. Reasons to still use v1 are:
+   * Applications require the classic deployment model.
+   * Applications are transaction-intensive or use significant geo-replication bandwidth, but don&#39;t require large capacity.
+   * The use of a Storage Service REST API that is earlier than 2014-02-14 or a client library with a version lower than 4.x is required and an application upgrade is not possible.
+
+    See [Storage account overview](https://docs.microsoft.com/azure/storage/common/storage-account-overview) for more.
+### Configuration Recommendations
+* Turn on soft delete for blob data
+  > [Soft delete for Azure Storage blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) enables you to recover blob data after it has been deleted.
+                            
+* Use Azure AD to authorize access to blob data
+  > Azure AD provides superior security and ease of use over Shared Key for authorizing requests to Blob storage. It is recommended to use Azure AD authorization with your blob and queue applications when possible to minimize potential security vulnerabilities inherent in Shared Key. For more information, see [Authorize access to Azure blobs and queues using Azure Active Directory](https://docs.microsoft.com/azure/storage/common/storage-auth-aad).
+                            
+  - Keep in mind the principal of least privilege when assigning permissions to an Azure AD security principal via Azure RBAC
+    > When assigning a role to a user, group, or application, grant that security principal only those permissions that are necessary for them to perform their tasks. Limiting access to resources helps prevent both unintentional and malicious misuse of your data.
+                                
+                            
+  - Use Managed Identities to access blob and queue data
+    > Azure Blob and Queue storage support Azure AD authentication with [managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Managed identities for Azure resources can authorize access to blob and queue data using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identities for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud as well as issues with expiring service principals. See [Authorize access to blob and queue data with managed identities for Azure resources](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-msi) for more information.
+                                
+                            
+* Use blob versioning or immutable blobs to store business-critical data
+  > Consider using [Blob versioning](https://docs.microsoft.com/azure/storage/blobs/versioning-overview) to automatically maintain previous versions of an object or the use of legal holds and time-based retention policies to store blob data in a WORM (Write Once, Read Many) state. Blobs stored immutably can be read, but cannot be modified or deleted for the duration of the retention interval. For more information, see [Store business-critical blob data with immutable storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage).
+                            
+* Enable the Secure transfer required option on all of your storage accounts
+  > When you enable the Secure transfer required option, all requests made against the storage account must take place over secure connections. Any requests made over HTTP will fail. For more information, see [Require secure transfer in Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer).
+                            
+  - Limit shared access signature (SAS) tokens to HTTPS connections only
+    > Requiring HTTPS when a client uses a SAS token to access blob data helps to minimize the risk of eavesdropping. For more information, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](https://docs.microsoft.com/azure/storage/common/storage-sas-overview).
+                                
+                            
+  - Avoid/prevent using Shared Key authorization to access Storage Accounts
+    > It is recommended to use Azure AD to authorize requests to Azure Storage and possible to [prevent Shared Key Authorization](https://docs.microsoft.com/azure/storage/common/shared-key-authorization-prevent). For scenarios that require Shared Key authorization, always prefer SAS tokens over distributing the Shared Key.
+                                
+                            
+  - Regenerate your account keys periodically
+    > Rotating the account keys periodically reduces the risk of exposing your data to malicious actors.
+                                
+                            
+  - Have a revocation plan in place for any SAS that you issue to clients
+    > If a SAS is compromised, you will want to revoke that SAS as soon as possible. To revoke a user delegation SAS, revoke the user delegation key to quickly invalidate all signatures associated with that key. To revoke a service SAS that is associated with a stored access policy, you can delete the stored access policy, rename the policy, or change its expiry time to a time that is in the past.
+                                
+                            
+  - Use near-term expiration times on an ad hoc SAS, service SAS or account SAS
+    > If a SAS is compromised, it's valid only for a short time. This practice is especially important if you cannot reference a stored access policy. Near-term expiration times also limit the amount of data that can be written to a blob by limiting the time available to upload to it. Clients should renew the SAS well before the expiration, in order to allow time for retries if the service providing the SAS is unavailable.
+                                
+                            
+* Restrict default Internet access for Storage Accounts
+  > By default network access to Storage Accounts is not restricted and open to all traffic coming from the Internet. Access to storage accounts should be granted to specific [Azure Virtual Networks only](https://docs.microsoft.com/azure/storage/common/storage-network-security) whenever possible or use [private endpoints](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) to allow clients on a virtual network (VNet) to securely access data over a [Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview). See [Use private endpoints for Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-private-endpoints) for more. Exception can be made for Storage Accounts that need to be accessible via the Internet.
+                            
+  - Enable firewall rules
+    > Configure firewall rules to limit access to your storage account to requests that originate from specified IP addresses or ranges, or from a list of subnets in an Azure Virtual Network (VNet). For more information about configuring firewall rules, see [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+                                
+                            
+  - Limit network access to specific networks
+    > [Limiting network access](https://docs.microsoft.com/azure/storage/common/storage-network-security) to networks hosting clients requiring access reduces the exposure of your resources to network attacks either by using the built-in [Firewall and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security) functionality or by using [private endpoints](https://docs.microsoft.com/azure/storage/common/storage-private-endpoints).
+                                
+                            
+  - Allow trusted Microsoft services to access the storage account
+    > Turning on firewall rules for storage accounts blocks incoming requests for data by default, unless the requests originate from a service operating within an Azure Virtual Network (VNet) or from allowed public IP addresses. Requests that are blocked include those from other Azure services, from the Azure portal, from logging and metrics services, and so on. You can permit requests from other Azure services by adding an exception to allow trusted Microsoft services to access the storage account. For more information about adding an exception for trusted Microsoft services, see [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+                                
                             
 # Messaging
         
