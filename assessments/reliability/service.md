@@ -32,7 +32,7 @@ This list contains design considerations and recommended configuration options, 
 ## Azure App Service
 ### Design Considerations
 * Microsoft guarantees that Apps will be available 99.95% of the time. However, no SLA is provided for Apps using either the Free or Shared tiers.
-  > [SLA for App Service](https://azure.microsoft.com/en-us/support/legal/sla/app-service/v1_4/)
+  > [SLA for App Service](https://azure.microsoft.com/support/legal/sla/app-service/v1_4/)
                             
 ### Configuration Recommendations
 * Azure App Service provides a number of configuration options that are not enabled by default. For all App Services requiring resiliency, it is highly recommended that:
@@ -112,25 +112,77 @@ Resources
                             
 * [The Ultimate Guide to Running Healthy Apps in the Cloud](https://azure.github.io/AppService/2020/05/15/Robust-Apps-for-the-cloud.html)
 ## Azure Kubernetes Service (AKS)
-### Design Considerations
-* For customers subscribing to the Azure Kubernetes Service (AKS) Uptime SLA, Microsoft guarantees 1) 99.95% availability of the Kubernetes API server endpoint for AKS Clusters that use Azure Availability Zones, and 2) 99.9% availability for AKS Clusters that not use Azure Availability Zones. For customers that do not wish to subscribe to the AKS uptime SLA, Microsoft provides a service level objective (SLO) of 99.5%.
-* The SLA for agent (worker) nodes within an AKS cluster is covered by the standard [Virtual Machine SLA](#virtual-machines) which is dependent on the chosen deployment configuration and whether an Availability Set or Availability Zones are used.
-  > [AKS Service Level Agreements](https://azure.microsoft.com/support/legal/sla/kubernetes-service/v1_1/)[AKS Uptime SLA Offering](https://docs.microsoft.com/en-us/azure/aks/uptime-sla)
-                            
 ### Configuration Recommendations
-* For all AKS clusters requiring resiliency, it is highly recommended that:
-  - Use [Availability Zones](https://docs.microsoft.com/azure/aks/availability-zones) to maximize resilience within a region by distributing AKS agent nodes across physically separate data centers.
+* Utilize the [AKS Uptime SLA](https://docs.microsoft.com/azure/aks/uptime-sla) for production grade clusters. The AKS Uptime SLA guarantees:
+  - 99.95% availability of the Kubernetes API server endpoint for AKS Clusters that use Azure Availability Zones, or
                             
-  - Where co-locality requirements exist, an Availability Set deployment can be used to minimize inter-node latency.
+  - 99.9% availability for AKS Clusters that not use Azure Availability Zones.
                             
-* Virtual Machine Scale Set deployment configurations should be used to unlock cluster autoscaling and the use of multiple node pools.
-  - Enable cluster [autoscaling](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler) to adjust the number of agent nodes in response to resource constraints.
+* Subscribe to the AKS Roadmap and Release Notes on GitHub
+  > Make sure that you're subscribed to the [public AKS Roadmap Release Notes](https://github.com/azure/aks) on GitHub to stay up-to-date on upcoming changes, improvements and most importantly Kubernetes version releases and the deprecation of old releases.
                             
-* Use [Managed Identities](https://docs.microsoft.com/azure/aks/use-managed-identity) to avoid having to manage and rotate service principles.
-* Adopt a [multi-region strategy](https://docs.microsoft.com/en-gb/azure/aks/operator-best-practices-multi-region#plan-for-multiregion-deployment) by deploying AKS clusters deployed across different Azure regions to maximize availability and provide business continuity.
-  - Internet facing workloads should leverage Azure Front Door, [Azure Traffic Manager](https://docs.microsoft.com/en-gb/azure/aks/operator-best-practices-multi-region#use-azure-traffic-manager-to-route-traffic), or a third-party CDN to route traffic globally across AKS clusters.
+* Use [Availability Zones](https://docs.microsoft.com/azure/aks/availability-zones) to maximize resilience within an Azure region by distributing AKS agent nodes across physically separate data centers.
+  - Where co-locality requirements exist, either a regular VMSS-based AKS deployment into a single zone or [proximity placement groups](https://docs.microsoft.com/en-us/azure/aks/reduce-latency-ppg) can be used to minimize inter-node latency.
                             
-* Store container images within Azure Container Registry and enable [geo-replication](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region#enable-geo-replication-for-container-images) to replicate container images across leveraged AKS regions. 
+* Node Pool Design
+  - Utilize Virtual Machine Scale Set (VMSS) VM set type for AKS node pools.
+                            
+  - Keep the System node pool isolated from application workloads. System node pools require a VM SKU of at least 2 vCPUs and 4GB memory. See [System and user node pools](https://docs.microsoft.com/azure/aks/use-system-pools#system-and-user-node-pools) for detailed requirements.
+                            
+  - Use dedicated node pools for Infrastructure tools that require high resource utilization (eg - Istio) or have a special scale or load behavior.
+                            
+  - Separate applications to dedicated node pools based on specific requirements (eg - GPU, high memory VMs, [scale-to-zero](https://docs.microsoft.com/azure/aks/scale-cluster#scale-user-node-pools-to-0), Spot VMs etc.). Avoid large numbers of node pools to reduce additional management overhead.
+                            
+  - Use [taints and tolerations](https://docs.microsoft.com/azure/aks/operator-best-practices-advanced-scheduler#provide-dedicated-nodes-using-taints-and-tolerations) to provide dedicated nodes and limit resource intensive applications.
+                            
+  - Consider the use of [Virtual Nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-cli) ([vKubelet](https://github.com/virtual-kubelet/virtual-kubelet)) with ACI for rapid, massive and infinite scale.
+                            
+* Use a template based deployment using ARM, Terraform, Ansible and others only. Make sure that all deployments are repeatable and traceable and stored in a sourcecode repo. Can be combined with GitOps.
+* Modifying resources in the [node resource group (ie - &#39;MC_&#39;)](https://docs.microsoft.com/azure/aks/faq#why-are-two-resource-groups-created-with-aks) is not recommended and should only be done at [cluster creation time](https://docs.microsoft.com/azure/aks/faq#can-i-provide-my-own-name-for-the-aks-node-resource-group), or with assistance from Azure Support.
+* Enable [cluster autoscaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) to automatically adjust the number of agent nodes in response to resource constraints.
+* Utilize the [Horizontal pod autoscaler](https://docs.microsoft.com/azure/aks/concepts-scale#horizontal-pod-autoscaler) to adjust the number of pods in a deployment depending on CPU utilization or other select metrics.
+* Security Guidelines
+  - Use [Managed Identities](https://docs.microsoft.com/azure/aks/use-managed-identity) to avoid having to manage and rotate service principles.
+                            
+  - Utilize [AAD integration](https://docs.microsoft.com/azure/aks/managed-aad) to take advantage of centralized account management and passwords, application access management, and identity protection.
+                            
+  - Use Kubernetes RBAC with AAD for [least privilege](https://docs.microsoft.com/azure/aks/azure-ad-rbac) and minimize granting administrator privileges to protect configuration and secrets access.
+                            
+  - Limit access to [Kubernetes cluster configuration](https://docs.microsoft.com/azure/aks/control-kubeconfig-access) file with Azure role-based access control.
+                            
+  - Limit access to [actions that containers can perform](https://docs.microsoft.com/azure/aks/developer-best-practices-pod-security#secure-pod-access-to-resources). Provide the least number of permissions, and avoid the use of root / privileged escalation.
+                            
+  - Evaluate the use of the built-in [AppArmor security module](https://docs.microsoft.com/azure/aks/operator-best-practices-cluster-security#app-armor) to limit actions that containers can perform such as read, write, or execute, or system functions such as mounting filesystems.
+                            
+  - Evaluate the use of the [seccomp (secure computing)](https://docs.microsoft.com/azure/aks/operator-best-practices-cluster-security#secure-computing). seccomp works at the process level and allows you to limit the process calls that containers can perform.
+                            
+  - Use [Pod Identities](https://docs.microsoft.com/azure/aks/operator-best-practices-identity#use-pod-identities) and [Secrets Store CSI Driver](https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage) with Azure Key Vault to protect secrets, certificates, and connection strings.
+                            
+  - Ensure certificates are [rotated](https://docs.microsoft.com/azure/aks/certificate-rotation) on a regular basis (e.g. every 90 days).
+                            
+  - Regularly process Linux node security and kernel updates and reboots using [kured](https://docs.microsoft.com/azure/aks/node-updates-kured).
+                            
+  - Use [Azure Security Center](https://docs.microsoft.com/azure/security-center/defender-for-kubernetes-introduction) to provide AKS recommendations.
+                            
+* Ensure proper selection of Network Plug-in [Kubenet vs. Azure CNI](https://docs.microsoft.com/azure/aks/concepts-network#compare-network-models) based on network requirements and cluster sizing.
+* Use [Azure Network Policies](https://docs.microsoft.com/azure/aks/use-network-policies) or Calico to control traffic between pods. **Requires CNI Network Plug-in.**
+* Secure clusters and pods with Azure Policy
+  > [Azure Policy](https://docs.microsoft.com/azure/aks/use-pod-security-on-azure-policy) can help to apply at-scale enforcements and safeguards on your clusters in a centralized, consistent manner. It can also control what functions pods are granted and if anything is running against company policy. This access is defined through built-in policies provided by the [Azure Policy Add-on for AKS](https://docs.microsoft.com/azure/governance/policy/concepts/policy-for-kubernetes). By providing additional control over the security aspects of your pod's specification, like root privileges, enables stricter security adherence and visibility into what is deployed in your cluster. If a pod does not meet conditions specified in the policy, Azure Policy can disallow the pod to start or flag a violation.
+                            
+* Utlize a central monitoring tool (eg. - [Azure Monitor and App Insights](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview)) to centrally collect metrics, logs, and diagnostics for troubleshooting purposes.
+  - Enable and review [Kubernetes master node logs](https://docs.microsoft.com/azure/aks/view-master-logs).
+                            
+* Define [Pod resource requests and limits](https://docs.microsoft.com/azure/aks/developer-best-practices-resource-management#define-pod-resource-requests-and-limits) in application deployment manifests.
+* Adopt a [multi-region strategy](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region#plan-for-multiregion-deployment) by deploying AKS clusters deployed across different Azure regions to maximize availability and provide business continuity.
+  - Internet facing workloads should leverage [Azure Front Door](https://docs.microsoft.com/azure/frontdoor/front-door-overview), [Azure Traffic Manager](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region#use-azure-traffic-manager-to-route-traffic), or a third-party CDN to route traffic globally across AKS clusters.
+                            
+* Store container images within Azure Container Registry and enable [geo-replication](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region#enable-geo-replication-for-container-images) to replicate container images across leveraged AKS regions.
+  - Enable [Azure Defender for container registries](https://docs.microsoft.com/azure/security-center/defender-for-container-registries-introduction) to enable vulnerability scanning for container images.
+                            
+  - Authenticate with Azure AD to Azure Container Registry
+    > AKS and Azure AD enables authentication with Azure Container Registry without the use of K8s/imagePullSecrets secrets. See [Authenticate with Azure Container Registry from Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/cluster-container-registry-integration) for more.
+                                
+                            
 ### Supporting Source Artifacts
 * Query to identify AKS clusters that are not deployed across **Availability Zones**:
 ```
