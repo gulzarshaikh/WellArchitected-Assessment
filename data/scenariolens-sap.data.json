@@ -2,7 +2,7 @@
     {
         "type": "Questions",
         "pillars": [
-            "reliability"
+            "scenario/sap"
         ],
         "lens": "scenario",
         "category": "SAP",
@@ -34,8 +34,7 @@
     {
         "type": "Questions",
         "pillars": [
-            "reliability",
-            "operationalexcellence"
+            "scenario/sap"
         ],
         "lens": "scenario",
         "category": "SAP",
