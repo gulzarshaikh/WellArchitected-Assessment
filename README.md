@@ -28,13 +28,9 @@ For each scoped assessment, the content is structured through three technical le
 | **Performance Efficiency** | Application | Service |
 ||||
 
-## Scenario
-
-||
-| --- |
-| [**SAP**](./assessments/scenarios/sap.md) |
-| **IoT** |
-||
+## Scenarios
+- [**SAP**](./assessments/scenarios/sap.md) |
+- **IoT**
 
 # Repository Structure
 
