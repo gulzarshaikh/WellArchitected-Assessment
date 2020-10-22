@@ -620,16 +620,6 @@ Public Preview : SLAs do not apply and formal support may be provided on a best-
   > Especially when demand is fluctuating, it is useful to monitor historical capacity utilization to derive predictions about future growth. Azure Monitor provides the ability to collect utilization metrics for Azure services so that they can be operationalized in the context of a defined capacity model. The Azure Portal can also be used to inspect current subscription usage and quota status([Supported metrics with Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/metrics-supported))
 ### Configuration &amp; Secrets Management
             
-* Where is application configuration information stored and how does the application access it?
-
-
-  _Application configuration information can be stored together with the application itself or preferably using a dedicated configuration management system like Azure App Configuration or Azure Key Vault_
-  > Preferably configuration information is stored using a dedicated configuration management system like Azure App Configuration or Azure Key Vault so that it can be updated independently of the application code.
-* Do you have procedures in place for key/secret rotation?
-
-
-  _In the situation where a key or secret becomes compromised, it is important to be able to quickly act and generate new versions. Key rotation reduces the attack vectors and should be automated and executed without any human interactions._
-  > Secrets (keys, certificates etc.) should be replaced once they have reached the end of their active lifetime or once they have been compromised. Renewed certificates should also use a new key. A process needs to be in place for situations where keys get compromised (leaked) and need to be regenerated on-demand. Tools, such as Azure Key Vault should ideally be used to store and manage application secrets to help with rotation processes([Key Vault Key Rotation](https://docs.microsoft.com/azure/key-vault/secrets/tutorial-rotation-dual))
 * Are keys and secrets backed-up to geo-redundant storage?
 
 
@@ -673,11 +663,6 @@ Public Preview : SLAs do not apply and formal support may be provided on a best-
 
   _The time it takes for a full deployment needs to algin with recovery targets_
   > The entire end-to-end deployment process should be understood and align with recovery targets
-* Can N-1 or N+1 versions be deployed via automated pipelines where N is current deployment version in production?
-
-
-  _N-1 and N+1 refer to roll-back and roll-forward._
-  > Automated deployment pipelines should allow for quick roll-forward and roll-back deployments to address critical bugs and code updates outside of the normal deployment lifecycle
 * Does the application deployment process leverage blue-green deployments and/or canary releases?
 
 
