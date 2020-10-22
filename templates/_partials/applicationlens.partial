@@ -46,14 +46,14 @@ These critical design principals are used as lenses to assess the {{ .pillarDisp
 {{ if $question.recommendation }}
   > {{ safeHTML (trim $question.recommendation " ") }}
 {{- end -}}
-{{ range $question.children }}
-    - {{ $question.title }}
+{{ range $child := $question.children }}
+    - {{ $child.title }}
 
-{{ if $question.context }}
-      _{{ safeHTML (trim $question.context " ") }}_
+{{ if $child.context }}
+      _{{ safeHTML (trim $child.context " ") }}_
 {{- end }}
-{{ if $question.recommendation }}
-      > {{ safeHTML (trim $question.recommendation " ") }}
+{{ if $child.recommendation }}
+      > {{ safeHTML (trim $child.recommendation " ") }}
 {{- end -}}
 {{- end -}}
             {{- end -}}

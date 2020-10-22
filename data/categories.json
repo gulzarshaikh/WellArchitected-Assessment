@@ -253,6 +253,14 @@
     ]
   },
   {
+    "title": "Storage",
+    "subCategories": [
+      {
+        "title": "Storage Accounts"
+      }
+    ]
+  },
+  {
     "title": "Messaging",
     "subCategories": [
       {
