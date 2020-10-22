@@ -24,7 +24,7 @@
         "children": [
             {
                 "title": "Managed Disks should be used for all virtual machine OS and Data disks to ensure resilience across underlying storage stamps within a datacenter.",
-                "context": "[Managed Disk Benefits](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/managed-disks-overview#benefits-of-managed-disks)"
+                "context": "[Managed Disk Benefits](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#benefits-of-managed-disks)"
             },
             {
                 "title": "Singleton workloads should use Premium Managed Disks to enhance resiliency and obtain a 99.9% SLA as well as dedicated performance characteristics."
@@ -34,7 +34,7 @@
             },
             {
                 "title": "Where appropriate virtual machines should be deployed across Availability Zones to maximize resilience within a region.",
-                "context": "[Datacenter Fault Tolerance](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability#use-availability-zones-to-protect-from-datacenter-level-failures)"
+                "context": "[Datacenter Fault Tolerance](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#use-availability-zones-to-protect-from-datacenter-level-failures)"
             }
         ]
     },
@@ -48,7 +48,7 @@
         "category": "Compute",
         "subCategory": "Virtual Machines",
         "title": "Azure Metadata Service Scheduled Events should be used to proactively respond to maintenance events (i.e. reboots) and limit disruption to virtual machines.",
-        "context": "[Azure Metadata Service Scheduled Events](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/scheduled-events)"
+        "context": "[Azure Metadata Service Scheduled Events](https://docs.microsoft.com/azure/virtual-machines/windows/scheduled-events)"
     },
     {
         "type": "Configuration Recommendations",
@@ -60,11 +60,11 @@
         "category": "Compute",
         "subCategory": "Virtual Machines",
         "title": "Azure Backup should be used to back-up virtual machines within a Recovery Services Vault, to protect against accidental data loss.",
-        "context": "[Azure Backup](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-introduction)",
+        "context": "[Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction)",
         "children": [
             {
                 "title": "Enable Soft Delete for the Recovery Services vault to protect against accidental or malicious deletion of backup data, ensuring the ability to recover.",
-                "context": "[Azure Backup Soft Delete](https://docs.microsoft.com/en-us/azure/backup/backup-azure-security-feature-cloud)"
+                "context": "[Azure Backup Soft Delete](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud)"
             }
         ]
     },
@@ -78,7 +78,7 @@
         "category": "Compute",
         "subCategory": "Virtual Machines",
         "title": "Enable diagnostic logging for all virtual machines to ensure health metrics, boot diagnostics and infrastructure logs are routed to Log Analytics or an alternative log aggregation technology.",
-        "context": "[Diagnostic Logs](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/platform-logs-overview)"
+        "context": "[Diagnostic Logs](https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview)"
     },
     {
         "type": "Configuration Recommendations",
@@ -209,7 +209,7 @@
         "title": "Use [Availability Zones](https://docs.microsoft.com/azure/aks/availability-zones) to maximize resilience within an Azure region by distributing AKS agent nodes across physically separate data centers.",
         "children": [
             {
-                "title": "Where co-locality requirements exist, either a regular VMSS-based AKS deployment into a single zone or [proximity placement groups](https://docs.microsoft.com/en-us/azure/aks/reduce-latency-ppg) can be used to minimize inter-node latency."
+                "title": "Where co-locality requirements exist, either a regular VMSS-based AKS deployment into a single zone or [proximity placement groups](https://docs.microsoft.com/azure/aks/reduce-latency-ppg) can be used to minimize inter-node latency."
             }
         ]
     },
@@ -334,7 +334,7 @@
             },
             {
                 "title": "Use [Azure Security Center](https://docs.microsoft.com/azure/security-center/defender-for-kubernetes-introduction) to provide AKS recommendations."
-            }                      
+            }
         ]
     },   
     {
@@ -399,7 +399,7 @@
         "category": "Compute",
         "subCategory": "Azure Kubernetes Service (AKS)",
         "title": "Define [Pod resource requests and limits](https://docs.microsoft.com/azure/aks/developer-best-practices-resource-management#define-pod-resource-requests-and-limits) in application deployment manifests."
-    },                      
+    },
     {
         "type": "Configuration Recommendations",
         "pillars": [
@@ -497,7 +497,7 @@
                 "title": "Use Basic or higher plans with 2 or more worker instances for high availability."
             },
             {
-                "title": "Evaluate the use of [TCP and SNAT ports](https://docs.microsoft.com/en-us/azure/app-service/troubleshoot-intermittent-outbound-connection-errors#cause) to avoid outbound connection errors",
+                "title": "Evaluate the use of [TCP and SNAT ports](https://docs.microsoft.com/azure/app-service/troubleshoot-intermittent-outbound-connection-errors#cause) to avoid outbound connection errors",
                 "context": "TCP connections are used for all outbound connections whereas SNAT ports are used when making outbound connections to public IP addresses.SNAT port exhaustion is a common failure scenario that can be predicted by load testing while monitoring ports using Azure Diagnostics. If a load test results in SNAT errors, it is necessary to either scale across more/larger workers, or implement coding practices to help preserve and re-use SNAT ports, such as connection pooling and the lazy loading of resources.It is recommended not to exceed 100 simultaneous outbound connections to a public IP Address per worker, and to avoid communicating with downstream services via public IP addresses when a private address (Private Endpoint) or Service Endpoint through vNet Integration could be used.TCP port exhaustion happens when the sum of connection from a given worker exceeds the capacity. The number of available TCP ports depend on the size of the worker. The following table lists the current limits:\n\n    > |  |Small (B1, S1, P1, I1)|Medium (B2, S2, P2, I2)|Large (B3, S3, P3, I3)|\n    > |---------|---------|---------|---------|\n    > |TCP ports|1920|3968|8064|\n\n    > Applications with lots of longstanding connections require ports to be left open for long periods of time, which can lead to TCP Connection exhaustion. TCP Connection limits are fixed based on instance size, so it is necessary to scale up to a larger worker size to increase the allotment of TCP connections, or implement code level mitigations to govern connection usage. Similar to SNAT port exhaustion, Azure Diagnostics can be used to identify if a problem exists with TCP port limits."
             },
             {
@@ -506,26 +506,26 @@
             },
             {
                 "title": "Enable [Health Check](https://aka.ms/appservicehealthcheck) to identify non-responsive workers.",
-                "context": "Any health check is better than none at all, however, the logic behind endpoint tests should assess all critical downstream dependencies to ensure overall health. It is also recommended practice to track application health and cache status in real time as this removes unnecessary delays before  action can be taken."
+                "context": "Any health check is better than none at all, however, the logic behind endpoint tests should assess all critical downstream dependencies to ensure overall health. It is also recommended practice to track application health and cache status in real time as this removes unnecessary delays before action can be taken."
             },
             {
-                "title": "Enable [AutoScale](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/autoscale-get-started?toc=/azure/app-service/toc.json) to ensure adequate resources are available to service requests.",
-                "context": "The default limit of App Service workers is 30.  If the App Service routinely uses 15 or more instances, consider opening a support ticket to increase the maximum number of workers to 2x the instance count required to serve normal peak load."
+                "title": "Enable [AutoScale](https://docs.microsoft.com/azure/azure-monitor/platform/autoscale-get-started?toc=/azure/app-service/toc.json) to ensure adequate resources are available to service requests.",
+                "context": "The default limit of App Service workers is 30. If the App Service routinely uses 15 or more instances, consider opening a support ticket to increase the maximum number of workers to 2x the instance count required to serve normal peak load."
             },
             {
-                "title": "Enable [Local Cache](https://docs.microsoft.com/en-us/azure/app-service/overview-local-cache) to reduce dependencies on cluster file servers.",
+                "title": "Enable [Local Cache](https://docs.microsoft.com/azure/app-service/overview-local-cache) to reduce dependencies on cluster file servers.",
                 "context": "Enabling local cache is not always appropriate because it can lead to slower worker startup times. However, when coupled with Deployment Slots, it can improve resiliency by removing dependencies on file servers and also reduces storage-related recycle events. However, Local cache should not be used with a single worker instance or when shared storage is required."
             },
             {
-                "title": "Enable [Diagnostic Logging](https://docs.microsoft.com/en-us/Azure/app-service/troubleshoot-diagnostic-logs) to provide insight into application behavior.",
+                "title": "Enable [Diagnostic Logging](https://docs.microsoft.com/Azure/app-service/troubleshoot-diagnostic-logs) to provide insight into application behavior.",
                 "context": "Diagnostic logging provides the ability to ingest rich application and platform level logs into either Log Analytics, Azure Storage, or a third party tool via Event Hub."
             },
             {
-                "title": "Enable [Application Insights Alerts](https://docs.microsoft.com/en-us/Azure/azure-monitor/app/azure-web-apps) to be made aware of fault conditions.",
+                "title": "Enable [Application Insights Alerts](https://docs.microsoft.com/Azure/azure-monitor/app/azure-web-apps) to be made aware of fault conditions.",
                 "context": "Application performance monitoring with Application Insights provides deep insights into application performance. For Windows Plans a 'codeless deployment' approach is possible to quickly get insights without changing any code."
             },
             {
-                "title": "Review [Azure App Service diagnostics](https://docs.microsoft.com/en-us/azure/app-service/overview-diagnostics) to ensure common problems are addressed.",
+                "title": "Review [Azure App Service diagnostics](https://docs.microsoft.com/azure/app-service/overview-diagnostics) to ensure common problems are addressed.",
                 "context": "It is a good practice to regularly review service-related diagnostics and recommendations and take action as appropriate."
             }
         ]
@@ -538,7 +538,7 @@
         "lens": "service",
         "category": "Compute",
         "subCategory": "Azure App Service",
-        "title": "For App Service Environments, ensure ASE is deployed within in [highly available configuration](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/enterprise-integration/ase-high-availability-deployment) across Availability Zones.",
+        "title": "For App Service Environments, ensure ASE is deployed within in [highly available configuration](https://docs.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/ase-high-availability-deployment) across Availability Zones.",
         "context": "Configuring ASE to use Availability Zones by deploying ASE across specific zones ensures applications can continue to operate even in the event of a data center level failure. This provides excellent redundancy without requiring multiple deployments in different Azure regions."
     },
     {
@@ -550,7 +550,7 @@
         "lens": "service",
         "category": "Compute",
         "subCategory": "Azure App Service",
-        "title": "For App Service Environments, ensure the [ASE Network](https://docs.microsoft.com/en-us/azure/app-service/environment/network-info) is configured correctly.",
+        "title": "For App Service Environments, ensure the [ASE Network](https://docs.microsoft.com/azure/app-service/environment/network-info) is configured correctly.",
         "context": "One common ASE pitfall occurs when ASE is deployed into a subnet with an IP Address space that is too small to support future expansion. In such cases, ASE can be left unable to scale without redeploying the entire environment into a larger subnet. It is highly recommended that adequate IP addresses be used to support either the maximum number of workers or the largest number considered workloads will need. A single ASE cluster can scale to 201 instance, which would require a /24 subnet."
     },
     {
@@ -562,7 +562,7 @@
         "lens": "service",
         "category": "Compute",
         "subCategory": "Azure App Service",
-        "title": "For App Service Environments, consider configuring [Upgrade Preference](https://docs.microsoft.com/en-us/azure/app-service/environment/using-an-ase#upgrade-preference) if multiple environments are used.",
+        "title": "For App Service Environments, consider configuring [Upgrade Preference](https://docs.microsoft.com/azure/app-service/environment/using-an-ase#upgrade-preference) if multiple environments are used.",
         "context": "If lower environments are used for staging or testing, consideration should be given to configuring these environments to receive updates sooner than the production environment. This will help to identify any conflicts or problems with an update and provides a window to mitigate issues before they reach the production environment.If multiple load balanced (zonal) production deployments are used, upgrade preference can also be used to protect the broader environment against issues from platform upgrades."
     },
     {
@@ -589,7 +589,7 @@
         "title": "When deploying application code or configuration, it is highly recommended that:",
         "children": [
             {
-                "title": "Use [Deployment Slots](https://docs.microsoft.com/en-us/azure/app-service/deploy-staging-slots) for resilient code deployments.",
+                "title": "Use [Deployment Slots](https://docs.microsoft.com/azure/app-service/deploy-staging-slots) for resilient code deployments.",
                 "context": "Deployment Slots allow for code to be deployed to instances that are warmed-up before serving production traffic.[Azure Friday](https://www.youtube.com/watch?v=MP8fXgxq6xo)[blog post](https://ruslany.net/2019/06/azure-app-service-deployment-slots-tips-and-tricks/)"
             },
             {
@@ -597,7 +597,7 @@
                 "context": "There are a number of events that can lead App Service workers to restart, such as content deployment, App Settings changes, and VNet integration configuration changes. It is best practice to make changes in a deployment slot other than the slot currently configured to accept production traffic. After workers are recycled and warmed up, a \"swap\" can be performed without unnecessary down time."
             },
             {
-                "title": "Use [\"Run From Package\"](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) to avoid deployment conflicts",
+                "title": "Use [\"Run From Package\"](https://docs.microsoft.com/azure/app-service/deploy-run-package) to avoid deployment conflicts",
                 "context": "Run from Package provides several advantages:Eliminates file lock conflicts between deployment and runtime.Ensures only full-deployed apps are running at any time.May reduce cold-start times, particularly for JavaScript functions with large npm package trees."
             }
         ]
@@ -644,7 +644,7 @@
         "category": "Compute",
         "subCategory": "Service Fabric",
         "title": "Virtual Machine Scale Sets also do not have an SLA, since the SLA for Virtual Machines applies here. If the Virtual Machine Scale Set includes Virtual Machines in at least 2 Fault Domains, the availability of the underlying Virtual Machines SLA for two or more instances applies. If the scale set contains a single Virtual Machine, the availability for a Single Instance Virtual Machine applies.",
-        "context": "[Service Fabric](https://azure.microsoft.com/en-us/support/legal/sla/service-fabric/v1_0/)[Virtual Machine Scale Set](https://azure.microsoft.com/en-us/support/legal/sla/virtual-machine-scale-sets/v1_1/)"
+        "context": "[Service Fabric](https://azure.microsoft.com/support/legal/sla/service-fabric/v1_0/)[Virtual Machine Scale Set](https://azure.microsoft.com/support/legal/sla/virtual-machine-scale-sets/v1_1/)"
     },
     {
         "type": "Design Recommendations",
@@ -655,7 +655,7 @@
         "lens": "service",
         "category": "Compute",
         "subCategory": "Service Fabric",
-        "title": "Review the [Service Fabric production readiness checklist](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-production-readiness-checklist)"
+        "title": "Review the [Service Fabric production readiness checklist](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist)"
     },
     {
         "type": "Design Recommendations",
@@ -690,7 +690,7 @@
         "category": "Compute",
         "subCategory": "Service Fabric",
         "title": "To expose services on the Service Fabric cluster, use a reverse proxy such as the Service Fabric reverse proxy or Traefik. When exposing APIs hosted on the cluster, consider using Azure API Management.",
-        "context": "API Management can [integrate](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-api-management-overview) with Service Fabric directly."
+        "context": "API Management can [integrate](https://docs.microsoft.com/azure/service-fabric/service-fabric-api-management-overview) with Service Fabric directly."
     },
     {
         "type": "Design Recommendations",
@@ -723,7 +723,7 @@
         "lens": "service",
         "category": "Compute",
         "subCategory": "Service Fabric",
-        "title": "Apply Network Security Groups (NSG) to restrict traffic flow between subnets/node types. Ensure that the [correct ports](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-best-practices-networking#cluster-networking) are opened for managing the cluster. ",
+        "title": "Apply Network Security Groups (NSG) to restrict traffic flow between subnets/node types. Ensure that the [correct ports](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-networking#cluster-networking) are opened for managing the cluster. ",
         "context": "For example, you may have an API Management instance (one subnet), a frontend subnet (exposing a website directly) and a backend subnet (accessible only to frontend), each implemented on a different VM Scale Set."
     },
     {
@@ -735,7 +735,7 @@
         "lens": "service",
         "category": "Compute",
         "subCategory": "Service Fabric",
-        "title": "When using secrets (connection strings, passwords) in SF services, either retrieve them directly from Key Vault at runtime or use the [Service Fabric Secrets Store](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-secret-store)"
+        "title": "When using secrets (connection strings, passwords) in SF services, either retrieve them directly from Key Vault at runtime or use the [Service Fabric Secrets Store](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-store)"
     },
     {
         "type": "Design Recommendations",
@@ -804,6 +804,6 @@
         "category": "Compute",
         "subCategory": "Service Fabric",
         "title": "Exclude the Service Fabric processes from Windows Defender to improve performance",
-        "context": "By default, Windows Defender antivirus is installed on Windows Server 2016 and 2019. To reduce any performance impact and resource consumption overhead incurred by Windows Defender, and if your security policies allow you to exclude processes and paths for open-source software, you can [exclude](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-best-practices-security#windows-defender) the Service Fabric executables from Defender scans."
+        "context": "By default, Windows Defender antivirus is installed on Windows Server 2016 and 2019. To reduce any performance impact and resource consumption overhead incurred by Windows Defender, and if your security policies allow you to exclude processes and paths for open-source software, you can [exclude](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-security#windows-defender) the Service Fabric executables from Defender scans."
     }
 ]
