@@ -8,7 +8,7 @@
     "category": "Application Design",
     "subCategory": "Design",
     "title": "Does the application have components on-premises or in another cloud platform?",
-    "context": "Hybrid and cross-cloud workloads with components on-premises or on different cloud platforms, such as AWS or GCP, introduce additional operational considerations around achieving a \u0027single pane of glass\u0027 for operations",
+    "context": "Hybrid and cross-cloud workloads with components on-premises or on different cloud platforms, such as AWS or GCP, introduce additional operational considerations around achieving a 'single pane of glass' for operations",
     "recommendation": "Make sure that any hybrid or cross cloud relationships and dependencies are well understood.",
     "id": "app_design_hybrid"
   },
@@ -144,7 +144,7 @@
       },
       {
         "title": "Are there any targets defined for the time it takes to perform scale operations?",
-        "context": "Scale operations (horizontal - changing the number of identical instances, vertical - switching to more/less powerful instances) can be fast, but usually take time to complete. It\u0027s important to understand how this delay affects the application under load and if degraded performance is acceptable.",
+        "context": "Scale operations (horizontal - changing the number of identical instances, vertical - switching to more/less powerful instances) can be fast, but usually take time to complete. It's important to understand how this delay affects the application under load and if degraded performance is acceptable.",
         "recommendation": "The application should be designed to scale to cope with spikes in load in-line with what is an acceptable duration for degraded performance.",
         "id": "app_design_performance_scale_targets"
       },
@@ -282,7 +282,7 @@
     "category": "Health Modelling",
     "subCategory": "Application Level Monitoring",
     "title": "Is an Application Performance Management (APM) tool used collect application level logs?",
-    "context": "In order to successfully maintain the application it\u0027s important to \u0027turn the lights on\u0027 and have clear visibility of important metrics both in real-time and historically.",
+    "context": "In order to successfully maintain the application it's important to 'turn the lights on' and have clear visibility of important metrics both in real-time and historically.",
     "recommendation": "An APM technology, such as Application Insights, should be used to manage the performance and availability of the application, aggregating application level logs and events for subsequent interpretation.",
     "id": "health_apm"
   },
@@ -421,7 +421,7 @@
     "category": "Health Modelling",
     "subCategory": "Resource/Infrastructure Level Monitoring",
     "title": "Are critical external dependencies monitored?",
-    "context": "It\u0027s common for applications to depend on other services or libraries. Despite these are external, it is still possible to monitor their health and availability using probes.",
+    "context": "It's common for applications to depend on other services or libraries. Despite these are external, it is still possible to monitor their health and availability using probes.",
     "recommendation": "Critical external dependencies, such as an API service, should be monitored to ensure operational visibility of dependency health. For instance, a probe could be used to measure the availability and latency of an external API.",
     "id": "health_critical_dependencies_monitored"
   },
@@ -474,9 +474,9 @@
     "lens": "application",
     "category": "Health Modelling",
     "subCategory": "Data Interpretation & Health Modelling",
-    "title": "Is a health model used to qualify what \u0027healthy\u0027 and \u0027unhealthy\u0027 states represent for the application?",
+    "title": "Is a health model used to qualify what 'healthy' and 'unhealthy' states represent for the application?",
     "context": "",
-    "recommendation": "A holistic application health model should be used to quantify what \u0027healthy\u0027 and \u0027unhealthy\u0027 states represent across all application components. It is highly recommended that a \u0027traffic light\u0027 model be used to indicate a green/healthy state when key non-functional requirements and targets are fully satisfied and resources are optimally utilized, e.g. 95% of requests are processed in \u003c= 500ms with AKS node utilization at x% etc. Once established, this health model should inform critical monitoring metrics across system components and operational sub-system composition. It is important to note that the health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state.",
+    "recommendation": "A holistic application health model should be used to quantify what 'healthy' and 'unhealthy' states represent across all application components. It is highly recommended that a 'traffic light' model be used to indicate a green/healthy state when key non-functional requirements and targets are fully satisfied and resources are optimally utilized, e.g. 95% of requests are processed in \u003c= 500ms with AKS node utilization at x% etc. Once established, this health model should inform critical monitoring metrics across system components and operational sub-system composition. It is important to note that the health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state.",
     "children": [
       {
         "title": "Are critical system flows used to inform the health model?",
@@ -555,7 +555,7 @@
     "subCategory": "Dashboarding",
     "title": "Is Role Based Access Control (RBAC) used to control access to dashboards and underlying data?",
     "context": "Are the dashboards openly available in your organization or do you limit access based on roles etc.?",
-    "recommendation": "Access to operational data may be tightly controlled to align with segregation of duties, and careful attention should be made to ensure it doesn\u0027t hinder operational effectiveness; i.e. scenarios where developers have to raise an ITSM ticket to access logs should be avoided",
+    "recommendation": "Access to operational data may be tightly controlled to align with segregation of duties, and careful attention should be made to ensure it doesn't hinder operational effectiveness; i.e. scenarios where developers have to raise an ITSM ticket to access logs should be avoided",
     "id": "app_health_dashboard_rbac"
   },
   {
@@ -696,9 +696,9 @@
         "id": "app_ops_failoverhealthmodel"
       },
       {
-        "title": "Does the playbook or disaster recovery plan consider every process, component and every category of data that can\u0027t afford unlimited loss or downtime?",
+        "title": "Does the playbook or disaster recovery plan consider every process, component and every category of data that can't afford unlimited loss or downtime?",
         "context": "Different components of an application might have different priorities and impact and therefore different priorities in case of a disaster.",
-        "recommendation": "When a disaster that affects multiple application components occurs, it\u0027s critical that the recovery plan can be used to take a complete inventory of what needs attention and how to prioritize each item. Each major process or workload that\u0027s implemented by an app should have separate RPO and RTO values. Each one should be generated through a separate analysis that examines disaster scenario risks and potential recovery strategies for each respective process."
+        "recommendation": "When a disaster that affects multiple application components occurs, it's critical that the recovery plan can be used to take a complete inventory of what needs attention and how to prioritize each item. Each major process or workload that's implemented by an app should have separate RPO and RTO values. Each one should be generated through a separate analysis that examines disaster scenario risks and potential recovery strategies for each respective process."
       },
       {
         "title": "Can individual processes and components of the application failover independently?",
@@ -816,7 +816,7 @@
     "subCategory": "Scalability & Capacity Model",
     "title": "Is the required capacity (initial and future growth) within Azure service scale limits and quotas?",
     "context": "Due to physical and logical resource constraints within the platform, Azure must apply limits and quotas to service scalability, which may be either hard or soft.",
-    "recommendation": "Due to physical and logical resource constraints within the platform, Azure must apply limits and quotas to service scalability, which may be either hard or soft. The application should therefore take a scale-unit approach to navigate within service limits, and where necessary consider multiple subscriptions which are often the boundary for such limits. It is highly recommended that a structured approach to scale be designed up-front rather than resorting to a \u0027spill and fill\u0027 model([Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits))",
+    "recommendation": "Due to physical and logical resource constraints within the platform, Azure must apply limits and quotas to service scalability, which may be either hard or soft. The application should therefore take a scale-unit approach to navigate within service limits, and where necessary consider multiple subscriptions which are often the boundary for such limits. It is highly recommended that a structured approach to scale be designed up-front rather than resorting to a 'spill and fill' model([Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits))",
     "children": [
       {
         "title": "Is the required capacity (initial and future growth) available within targeted regions?",
@@ -922,9 +922,9 @@
         "id": "app_ops_pnu_automated"
       },
       {
-        "title": "Are Patch & Update Process (PNU) operations performed \u0027as-code\u0027?",
+        "title": "Are Patch & Update Process (PNU) operations performed 'as-code'?",
         "context": "",
-        "recommendation": "Performing operations should be defined \u0027as-code\u0027 since it helps to minimize human error and increase consistency",
+        "recommendation": "Performing operations should be defined 'as-code' since it helps to minimize human error and increase consistency",
         "id": "app_ops_pnu_ascode"
       }
     ],
@@ -1074,7 +1074,7 @@
     "subCategory": "Application Deployments",
     "title": "Is there a defined hotfix process which bypasses normal deployment procedures?",
     "context": "",
-    "recommendation": "In some scenarios there is an operational need to rapidly deploy changes, such as critical security updates. Having a defined process for how such changes can be safely and effectively performed helps greatly to prevent \u0027heat of the moment\u0027 issues",
+    "recommendation": "In some scenarios there is an operational need to rapidly deploy changes, such as critical security updates. Having a defined process for how such changes can be safely and effectively performed helps greatly to prevent 'heat of the moment' issues",
     "id": "app_deploy_hotfix"
   },
   {
@@ -1326,8 +1326,8 @@
     "lens": "application",
     "category": "Deployment & Testing",
     "subCategory": "Testing & Validation",
-    "title": "Do you perform Business Continuity \u0027fire drills\u0027 to test regional failover scenarios?",
-    "context": "Business Continuity \u0027fire drills\u0027 help to ensure operational readiness and validate the accuracy of recovery procedures ready for critical incidents",
+    "title": "Do you perform Business Continuity 'fire drills' to test regional failover scenarios?",
+    "context": "Business Continuity 'fire drills' help to ensure operational readiness and validate the accuracy of recovery procedures ready for critical incidents",
     "recommendation": "",
     "id": ""
   },
@@ -1409,7 +1409,7 @@
       },
       {
         "title": "Is the workload isolated to a single operations team?",
-        "context": "The goal of workload isolation is to associate an application\u0027s specific resources to a team, so that the team can independently manage all aspects of those resources([Workload isolation](https://docs.microsoft.com/en-us/azure/architecture/framework/devops/app-design#workload-isolation))",
+        "context": "The goal of workload isolation is to associate an application's specific resources to a team, so that the team can independently manage all aspects of those resources([Workload isolation](https://docs.microsoft.com/en-us/azure/architecture/framework/devops/app-design#workload-isolation))",
         "recommendation": "",
         "id": ""
       }
@@ -1539,7 +1539,7 @@
     "category": "Application Design",
     "subCategory": "Design",
     "title": "Within a region is the application architecture designed to use Availability Zones?",
-    "context": "Availability Zones can be used to optimise application availability within a region by providing datacenter level fault tolerance. However, the application architecture must not share dependencies between zones to use them effectively. It is also important to note that Availability Zones may introduce performance and cost considerations for applications which are extremely \u0027chatty\u0027 across zones given the implied physical separation between each zone and inter-zone bandwidth charges([Availability Zones](https://docs.microsoft.com/en-us/azure/availability-zones/az-overview#availability-zones))",
+    "context": "Availability Zones can be used to optimise application availability within a region by providing datacenter level fault tolerance. However, the application architecture must not share dependencies between zones to use them effectively. It is also important to note that Availability Zones may introduce performance and cost considerations for applications which are extremely 'chatty' across zones given the implied physical separation between each zone and inter-zone bandwidth charges([Availability Zones](https://docs.microsoft.com/en-us/azure/availability-zones/az-overview#availability-zones))",
     "recommendation": "",
     "id": ""
   },
@@ -1658,8 +1658,8 @@
     "lens": "application",
     "category": "Application Design",
     "subCategory": "Failure Mode Analysis",
-    "title": "Have all \u0027singletons\u0027 been eliminated?",
-    "context": "A \u0027singleton\u0027 describes a logical component within an application for which there can only ever be a single instance. It can apply to stateful architectural components or application code constructs. Ultimately, singletons introduce a significant risk by creating single points of failure within the application design",
+    "title": "Have all 'singletons' been eliminated?",
+    "context": "A 'singleton' describes a logical component within an application for which there can only ever be a single instance. It can apply to stateful architectural components or application code constructs. Ultimately, singletons introduce a significant risk by creating single points of failure within the application design",
     "recommendation": "",
     "id": ""
   },
@@ -1803,7 +1803,7 @@
     "category": "Capacity & Service Availability",
     "subCategory": "Capacity",
     "title": "Is the required capacity (initial and future growth) within Azure service scale limits and quotas?",
-    "context": "Due to physical and logical resource constraints within the platform, Azure must apply limits and quotas to service scalability, which may be either hard or soft. The application should therefore take a scale-unit approach to navigate within service limits, and where necessary consider multiple subscriptions which are often the boundary for such limits. It is highly recommended that a structured approach to scale be designed up-front rather than resorting to a \u0027spill and fill\u0027 model([Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits))",
+    "context": "Due to physical and logical resource constraints within the platform, Azure must apply limits and quotas to service scalability, which may be either hard or soft. The application should therefore take a scale-unit approach to navigate within service limits, and where necessary consider multiple subscriptions which are often the boundary for such limits. It is highly recommended that a structured approach to scale be designed up-front rather than resorting to a 'spill and fill' model([Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits))",
     "recommendation": "",
     "id": ""
   },
@@ -1907,7 +1907,7 @@
     "children": [
       {
         "title": "Does the application platform use Availability Zones or Availability Sets?",
-        "context": "An Availability Set (AS) is a logical construct to inform Azure that it should distribute contained virtual machine instances across multiple fault and update domains within an Azure region. Availability Zones (AZ) elevate the fault level for virtual machines to a physical datacenter by allowing replica instances to be deployed across multiple datacenters within an Azure region. While zones provide greater resiliency than sets, there are performance and cost considerations where applications are extremely \u0027chatty\u0027 across zones given the implied physical separation and inter-zone bandwidth charges. Ultimately, Azure Virtual Machines and Azure PaaS services, such as Service Fabric and Azure Kubernetes Service (AKS) which use virtual machines underneath, can leverage either AZs or an AS to provide application resiliency within a region([Business continuity with data resiliency](https://azurecomcdn.azureedge.net/cvt-27012b3bd03d67c9fa81a9e2f53f7d081c94f3a68c13cdeb7958edf43b7771e8/mediahandler/files/resourcefiles/azure-resiliency-infographic/Azure_resiliency_infographic.pdf))",
+        "context": "An Availability Set (AS) is a logical construct to inform Azure that it should distribute contained virtual machine instances across multiple fault and update domains within an Azure region. Availability Zones (AZ) elevate the fault level for virtual machines to a physical datacenter by allowing replica instances to be deployed across multiple datacenters within an Azure region. While zones provide greater resiliency than sets, there are performance and cost considerations where applications are extremely 'chatty' across zones given the implied physical separation and inter-zone bandwidth charges. Ultimately, Azure Virtual Machines and Azure PaaS services, such as Service Fabric and Azure Kubernetes Service (AKS) which use virtual machines underneath, can leverage either AZs or an AS to provide application resiliency within a region([Business continuity with data resiliency](https://azurecomcdn.azureedge.net/cvt-27012b3bd03d67c9fa81a9e2f53f7d081c94f3a68c13cdeb7958edf43b7771e8/mediahandler/files/resourcefiles/azure-resiliency-infographic/Azure_resiliency_infographic.pdf))",
         "recommendation": "",
         "id": ""
       }
@@ -2395,7 +2395,7 @@
     "lens": "application",
     "category": "Security & Compliance",
     "subCategory": "Security Center",
-    "title": "Is Azure Security Center\u0027s Secure Score being formally reviewed and improved on a regular basis? ([Security Center Secure Score](https://docs.microsoft.com/en-us/azure/security-center/secure-score-security-controls))",
+    "title": "Is Azure Security Center's Secure Score being formally reviewed and improved on a regular basis? ([Security Center Secure Score](https://docs.microsoft.com/en-us/azure/security-center/secure-score-security-controls))",
     "id": ""
   },
   {
@@ -2856,7 +2856,7 @@
     "category": "Application Design",
     "subCategory": "Security Criteria & Data Classification",
     "title": "Does the organization have a process for regulatory or governance compliance attestation?",
-    "context": "Knowing whether your cloud resources are in compliance with standards mandated by governments or industry organizations is essential in today\u0027s globalized world (e.g. GDPR)",
+    "context": "Knowing whether your cloud resources are in compliance with standards mandated by governments or industry organizations is essential in today's globalized world (e.g. GDPR)",
     "recommendation": "Perform regulatory compliance attestation",
     "id": ""
   },
@@ -3090,7 +3090,7 @@
     "category": "Networking & Connectivity",
     "subCategory": "Connectivity",
     "title": "Does the organization restrict access to the backend infrastructure (APIs, databases, etc.)  by only a minimal set of public IP addresses, only those who really need it?",
-    "context": "Web applications typically have one public entrypoint and don\u0027t expose subsequent APIs and database servers over the internet. When using gateway services like Azure Front Door it\u0027s possible to restrict access only to a set of Front Door IP addresses and lock down the infrastructure completely.",
+    "context": "Web applications typically have one public entrypoint and don't expose subsequent APIs and database servers over the internet. When using gateway services like Azure Front Door it's possible to restrict access only to a set of Front Door IP addresses and lock down the infrastructure completely.",
     "recommendation": "Restrict access to backend services to a minimal set of public IP addresses, only those who really need it",
     "id": ""
   },
@@ -3220,7 +3220,7 @@
     "category": "Networking & Connectivity",
     "subCategory": "Endpoints",
     "title": "Does the organization have an CI/CD process for publishing code?",
-    "context": "Developers shouldn\u0027t publish their code directly to app servers - automated and gated CI/CD process should manage this.",
+    "context": "Developers shouldn't publish their code directly to app servers - automated and gated CI/CD process should manage this.",
     "recommendation": "Implement an automated and gated CD/CD deployment process",
     "id": ""
   },
@@ -3870,7 +3870,7 @@
     "category": "Deployment & Testing",
     "subCategory": "Testing & Validation",
     "title": "Does the organization use Azure Defender (Azure Security Center) or any third-party solution to scan containers for vulnerabilities?",
-    "context": "To build secure containerized workloads, ensure the images that they\u0027re based on are free of known vulnerabilities.",
+    "context": "To build secure containerized workloads, ensure the images that they're based on are free of known vulnerabilities.",
     "recommendation": "Scan container workloads for vulnerabilities",
     "id": ""
   },
@@ -4117,7 +4117,7 @@
     "category": "Identity & Access Control",
     "subCategory": "Control-plane RBAC",
     "title": "Does the organization leverage resource locks to protect critical infrastructure?",
-    "context": "Critical infrastructure typically doesn\u0027t change often and can benefit from resource locks to prevent accidential/undesired modification resulting in an outage.",
+    "context": "Critical infrastructure typically doesn't change often and can benefit from resource locks to prevent accidential/undesired modification resulting in an outage.",
     "recommendation": "Implement resource locks to protect critical infrastructure",
     "id": ""
   },
@@ -4260,7 +4260,7 @@
     "category": "Identity & Access Control",
     "subCategory": "Authentication and authorization",
     "title": "Does the organization enforce conditional access for this workload?",
-    "context": "Modern cloud-based applications are often accessible over the internet and location-based networking restrictions don\u0027t make much sense, but it needs to be mapped and understood what kind of restrictions are required. Multi-factor Authentication (MFA) is a necessity for remote access, IP-based filtering can be used to enable ad-hoc debugging, but VPNs are preferred.",
+    "context": "Modern cloud-based applications are often accessible over the internet and location-based networking restrictions don't make much sense, but it needs to be mapped and understood what kind of restrictions are required. Multi-factor Authentication (MFA) is a necessity for remote access, IP-based filtering can be used to enable ad-hoc debugging, but VPNs are preferred.",
     "recommendation": "Implement Conditional Access Policies",
     "id": ""
   },
@@ -4338,7 +4338,7 @@
     "category": "Identity & Access Control",
     "subCategory": "Authentication and authorization",
     "title": "Is this workload configured to use cached authentication tokens via AAD authentication libraries (ADAL / MSAL)?",
-    "context": "MSAL caches a token after it\u0027s been acquired. and application code should first try to get a token silently from the cache before attempting to acquire a token by other means to improve performance.",
+    "context": "MSAL caches a token after it's been acquired. and application code should first try to get a token silently from the cache before attempting to acquire a token by other means to improve performance.",
     "recommendation": "Configure web apps to reuse authentication tokens",
     "id": ""
   },
