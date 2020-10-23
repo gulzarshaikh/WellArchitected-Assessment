@@ -2697,10 +2697,36 @@
     "lens": "application",
     "category": "Application Design",
     "subCategory": "Threat Analysis",
-    "title": "Does the organization identify the highest severity threats to this workload via threat modeling?",
-    "recommendation": "",
+    "title": "Has the application been threat modeled?",
+    "recommendation": "Adopt threat modeling processes",
     "id": "application_design_1988",
-    "context": "Threat modeling is an engineering technique which can be used to help identify threats, attacks, vulnerabilities and countermeasures that could affect an application. Threat modeling consists of: defining security requirements, identifying threats, mitigating threats, validating threat mitigation. Microsoft uses [STRIDE](https://docs.microsoft.com/en-us/azure/security/develop/threat-modeling-tool-threats) for threat modeling.  This might be the right time to talk through the STRIDE methodology and then the tools available to help them with Threat Modeling.  There are tools like [Microsoft Threat Modeling Tool](https://docs.microsoft.com/azure/security/develop/threat-modeling-tool-getting-started) which can help.Determine if they understand the attack vectors of their solution with this question. Get them to discuss the defense in depth that they have around the identified threats and how they are detecting, protecting, and responding to a potential attack. Try to uncover how they identified the threats and communicated those to all interested parties or if rather are hoping no one finds out. This question should set the stage for the audience that needs to be involved and the topics that will be discussed throughout the assessment."
+    "context": "Threat modeling is an engineering technique which can be used to help identify threats, attacks, vulnerabilities and countermeasures that could affect an application. Threat modeling consists of: defining security requirements, identifying threats, mitigating threats, validating threat mitigation. Microsoft uses [STRIDE](https://docs.microsoft.com/en-us/azure/security/develop/threat-modeling-tool-threats) for threat modeling.  This might be the right time to talk through the STRIDE methodology and then the tools available to help them with Threat Modeling.  There are tools like [Microsoft Threat Modeling Tool](https://docs.microsoft.com/azure/security/develop/threat-modeling-tool-getting-started) which can help.",
+    "children":[
+        {
+            "title": "Are identified threats ranked based on organizational impact?",
+            "context": "Ranked threats improves the understanding of risks associated with security issues.",
+            "recommendation": "Rank identified threats based on organizational impact",
+            "id": "application_design_threat_ranking"
+        },
+        {
+            "title": "Does the organization track threat modeling or vulnerability scan results with a management system?",
+            "context": "Effectively tracking and prioritizing discovered application threats is a vital component of vulnerability management.",
+            "recommendation": "Centralize threat modeling results",
+            "id": "application_design_threat_modeling_tracking"
+        },
+        {
+            "title": "Are identified threats mapped to mitigations?",
+            "context": "Mitigations are controls to help protect, detect and respond to a certain type of threat.",
+            "recommendation": "Map threats to mitigations",
+            "id": "application_design_threat_modeling_mitigations"
+        },
+        {
+            "title": "Are identified threats communicated to stakeholders? E.g., business, IT, application users",
+            "context": "After defining and analyzing the risks, identify risk owners which are the roles that are responsible for mitigating the risk. They need to be aware of the risks so that they can start the mitigation process by allocating resources (e.g. financial or people)",
+            "recommendation": "Establish communication processes for identified threats",
+            "id": "application_design_threat_modeling_communication"
+        }
+    ]
   },
   {
     "type": "Questions",
@@ -2711,9 +2737,9 @@
     "category": "Application Design",
     "subCategory": "Threat Analysis",
     "title": "How are threats addressed once found?",
-    "recommendation": "",
+    "recommendation": "Develop and implement a process to track, triage, and address threats into the application development lifecycle",
     "id": "application_design_9104",
-    "context": "The threat modeling tool will produce a report of all the threats identified. This report is typically uploaded into a tracking tool or work items that can be validated and addressed by the developers. Cyber security teams can also use the report to determine attack vectors during a penetration test.  As new features are added to the solution, the threat model should be updated and integrated into the code management process.  If a security issue is found, there should be a process to triage the issue into the next release cycle or a faster release, depending on the severity.  Try to understand what process they use, if any, to prioritize security fixes."
+    "context": "The threat modeling tool will produce a report of all the threats identified. This report is typically uploaded into a tracking tool or work items that can be validated and addressed by the developers. Cyber security teams can also use the report to determine attack vectors during a penetration test.  As new features are added to the solution, the threat model should be updated and integrated into the code management process.  If a security issue is found, there should be a process to triage the issue into the next release cycle or a faster release, depending on the severity."
   },
   {
     "type": "Questions",
@@ -2723,10 +2749,18 @@
     "lens": "application",
     "category": "Application Design",
     "subCategory": "Threat Analysis",
-    "title": "How long does it typically take to deploy a security fix into production?",
-    "recommendation": "",
-    "id": "application_design_7087",
-    "context": "Get an understanding of how the customer is updating when a security vulnerability is discovered in their software. Get them to talk through the process and tools, approvals, who they make aware and if they have executive sponsorship to bypass lengthy processes when it comes to security. How serious are they about security updates?"
+    "title": "Does the organization have established processes and timelines to deploy security fixes for this workload?",
+    "context": "Fixing identified vulnerabilities in a timely manner helps staying secure and preventing additional attack vectors.",
+    "recommendation": "Develop or implement established processes and timelines to deploy mitigations for identified threats",
+    "id": "",
+    "children": [
+        {
+            "title": "How long does it typically take to deploy a security fix into production?",
+            "recommendation": "",
+            "id": "application_design_7087",
+            "context": "It's important to understand how the customer is updating when a security vulnerability is discovered in their workload: the process and tools, approvals, who is made aware and if there's executive sponsorship to bypass lengthy processes when it comes to security."
+        }
+    ]
   },
   {
     "type": "Questions",
@@ -2749,10 +2783,18 @@
     "lens": "application",
     "category": "Application Design",
     "subCategory": "Security Criteria & Data Classification",
-    "title": "How often do you have internal and external audits?",
-    "recommendation": "",
-    "id": "application_design_2263",
-    "context": "Determine the process the customer uses for auditing the solution. Is it done internally, external, or both. How are findings reflected back to the application? Is everyone aware of the audit and involved or is it done in a silo. This will help reduce the firefighting mentality when there is a finding and stress of performing updates."
+    "title": "Does the organization periodically perform external and/or internal workload audits?",
+    "context": "Compliance is important for several reasons. Aside from signifying levels of standards, like ISO 27001 and others, noncompliance with regulatory guidelines may bring sanctions and penalties.",
+    "recommendation": "Periodically perform external and/or internal workload security audits",
+    "id": "application_design_workload_audits",
+    "children":[
+        {
+            "title": "How often do you have internal and external audits?",
+            "recommendation": "Perform regular internal and external compliance audits",
+            "id": "application_design_2263",
+            "context": "Determine the process the customer uses for auditing the solution. Is it done internally, external, or both. How are findings reflected back to the application? Is everyone aware of the audit and involved or is it done in a silo. This will help reduce the firefighting mentality when there is a finding and stress of performing updates."
+        }    
+    ]
   },
   {
     "type": "Questions",
@@ -2788,10 +2830,18 @@
     "lens": "application",
     "category": "Application Design",
     "subCategory": "Design",
-    "title": "Are errors and exceptions handled properly without exposing information to users?",
-    "recommendation": "",
+    "title": "Does the workload hide detailed error messages / verbose information from the end user / client?",
+    "recommendation": "Do not expose security details in error messages.",
     "id": "application_design_2397",
-    "context": "Providing unnecessary information to end users in case of application failure should be avoided. Revealing detailed error information (call stack, SQL queries, out of range errors...) can provide attackers with valuable information about the internals of the application. Error handlers should make the application fail gracefully and log the error."
+    "context": "Providing unnecessary information to end users in case of application failure should be avoided. Revealing detailed error information (call stack, SQL queries, out of range errors...) can provide attackers with valuable information about the internals of the application. Error handlers should make the application fail gracefully and log the error.",
+    "children":[
+        {
+            "title": "Does the workload handle failures and exceptions gracefully and log them with detailed information?",
+            "context": "Error handlers should make the application fail gracefully and log the error.",
+            "recommendation": "Handle application exceptions / failures gracefully (with retry logic) and log them.",
+            "id": "application_design_graceful_exception_handling"
+        }
+    ]
   },
   {
     "type": "Questions",
@@ -2801,10 +2851,18 @@
     "lens": "application",
     "category": "Application Design",
     "subCategory": "Design",
-    "title": "Is platform-specific information removed from server-client communication?",
-    "recommendation": "",
+    "title": "Is platform-specific information (e.g. web server version) removed from server-client communication channels?",
+    "recommendation": "Remove platform-specific information from HTTP headers, error messages, web site content (e.g. footers)",
     "id": "application_design_2599",
-    "context": "Information revealing the application platform, such as HTTP banners containing framework information (\"`X-Powered-By`\", \"`X-ASPNET-VERSION`\"), are commonly used by malicious actors when mapping attack vectors of the application. HTTP headers, error messages, website footers etc. should not contain information about the application platform. Azure CDN or Cloudflare can be used to separate the hosting platform from end users, Azure API Management offers [transformation policies](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies) that allow to modify HTTP headers and remove sensitive information."
+    "context": "Information revealing the application platform, such as HTTP banners containing framework information (\"`X-Powered-By`\", \"`X-ASPNET-VERSION`\"), are commonly used by malicious actors when mapping attack vectors of the application. HTTP headers, error messages, website footers etc. should not contain information about the application platform. Azure CDN or Cloudflare can be used to separate the hosting platform from end users, Azure API Management offers [transformation policies](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies) that allow to modify HTTP headers and remove sensitive information.",
+    "children": [
+        {
+            "title": "Does the workload use API Management or Azure Front Door to modify HTTP headers and remove sensitive information?",
+            "context": "Azure API Management and Azure Front Door offers transformation policies that allow to modify HTTP headers and remove sensitive information.",
+            "recommendation": "Remove sensitive information from HTTP headers with Azure API Management or Azure Front Door",
+            "id": "application_design_http_headers_frontdoor"
+        }
+    ]
   },
   {
     "type": "Questions",
@@ -2812,12 +2870,12 @@
       "security"
     ],
     "lens": "application",
-    "category": "Operational Procedures",
-    "subCategory": "Configuration & Secrets Management",
-    "title": "Are Azure policies used to control the configuration of the solution resources?",
-    "recommendation": "",
-    "id": "operational_procedures_8927",
-    "context": "Azure Policy should be used to deploy desired settings where applicable. Azure resources should be blocked that do not meet the proper security requirements defined during service enablement."
+    "category": "Application Design",
+    "subCategory": "Design",
+    "title": "Does the workload use CDN (content delivery network) solutions to separate the hosting platform from the end users / clients?",
+    "context": "Azure CDN or Cloudflare can be used to separate the hosting platform from end users.",
+    "recommendation": "Use CDN to separate the hosting platform from the end users / clients",
+    "id": "application_design_cdn_separation"
   },
   {
     "type": "Questions",
@@ -3505,12 +3563,12 @@
       "security"
     ],
     "lens": "application",
-    "category": "General",
-    "subCategory": "Unassigned",
+    "category": "Application Design",
+    "subCategory": "Dependencies",
     "title": "Is the organization using a Landing Zone concept and how was it implemented?",
-    "recommendation": "",
+    "recommendation": "Implement a landing zone concept with Azure Blueprints and Azure Policies",
     "id": "governance_2724",
-    "context": "The purpose of the “Landing Zone” is to ensure that when a workload lands on Azure, the required “plumbing” is already in place, providing greater agility and compliance with enterprise security and governance requirements. This is crucial, that a Landing Zone will be handed over to the workload owner with the security guardrails deployed."
+    "context": "Landing Zone refers to components that are already defined and in place before the workloads are getting deployed by the workload owners, e.g. network topology with Hub/Spoke concept. The purpose of the “Landing Zone” is to ensure that when a workload lands on Azure, the required “plumbing” is already in place, providing greater agility and compliance with enterprise security and governance requirements. This is crucial, that a Landing Zone will be handed over to the workload owner with the security guardrails deployed."
   },
   {
     "type": "Questions",
@@ -3532,24 +3590,11 @@
     ],
     "lens": "application",
     "category": "Application Design",
-    "subCategory": "Dependencies",
-    "title": "Does the organization have a landing zone concept? I.e., several components are already defined and in place before the workloads are getting deployed by the workload owners, e.g. network topology with Hub/Spoke concept.",
-    "context": "The purpose of the “Landing Zone” is to ensure that when a workload lands on Azure, the required “plumbing” is already in place, providing greater agility and compliance with enterprise security and governance requirements. This is crucial, that a Landing Zone will be handed over to the workload owner with the security guardrails deployed.",
-    "recommendation": "Implement a landing zone concept with Azure Blueprints and Azure Policies",
-    "id": ""
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Application Design",
     "subCategory": "Design",
     "title": "Does the organization use cloud native security controls for this workload?",
     "context": "Native security controls are maintained and supported by the service provider, eliminating, or reducing effort required to integrate external security tooling and update those integrations over time.",
     "recommendation": "Use native security capabilities in application services",
-    "id": ""
+    "id": "application_design_native_controls"
   },
   {
     "type": "Questions",
@@ -3562,98 +3607,7 @@
     "title": "Does the organization use cloud services for well-established functions instead of building custom service implementations for this workload?",
     "context": "Developers should use services available from a cloud provider for well-established functions like databases, encryption, identity directory, and authentication instead of writing custom versions or third-party solutions that must be integrated into the cloud provider.",
     "recommendation": "Use services available from a cloud provider for well-established functions like databases, encryption, identity directory, and authentication",
-    "id": ""
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Application Design",
-    "subCategory": "Design",
-    "title": "Does the workload hide detailed error messages / verbose information from the end user / client?",
-    "context": "Providing unnecessary information to end users in case of application failure should be avoided. Revealing detailed error information (call stack, SQL queries, out of range errors...) can provide attackers with valuable information about the internals of the application. ",
-    "recommendation": "Do not expose security details in error messages",
-    "id": ""
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Application Design",
-    "subCategory": "Design",
-    "title": "Does the workload handle failures and exceptions gracefully and log them with detailed information?",
-    "context": "Error handlers should make the application fail gracefully and log the error.",
-    "recommendation": "Handle application exceptions / failures gracefully (with retry logic) and log them",
-    "id": ""
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Application Design",
-    "subCategory": "Design",
-    "title": "Is platform-specific information (e.g. web server version) removed from client/server communication channels for the workload?",
-    "context": "Information revealing the application platform, such as HTTP banners containing framework information (\"X-Powered-By\", \"X-ASPNET-VERSION\"), are commonly used by malicious actors when mapping attack vectors of the application. HTTP headers, error messages, website footers etc. should not contain information about the application platform. ",
-    "recommendation": "Remove platform-specific information from HTTP headers, error messages, web site content (e.g. footers)",
-    "id": ""
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Application Design",
-    "subCategory": "Design",
-    "title": "Does the workload use CDN (content delivery network) solutions to separate the hosting platform from the end users / clients?",
-    "context": "Azure CDN or Cloudflare can be used to separate the hosting platform from end users.",
-    "recommendation": "Use CDN to separate the hosting platform from the end users / clients",
-    "id": ""
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Application Design",
-    "subCategory": "Design",
-    "title": "Does the workload use API Management or Azure Front Door to modify HTTP headers and remove sensitive information?",
-    "context": "Azure API Management and Azure Front Door offers transformation policies that allow to modify HTTP headers and remove sensitive information.",
-    "recommendation": "Remove sensitive information from HTTP headers with Azure API Management or Azure Front Door",
-    "id": ""
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Application Design",
-    "subCategory": "Threat Analysis",
-    "title": "Has the application been threat modeled?",
-    "context": "Threat modeling is an engineering technique which can be used to help identify threats, attacks, vulnerabilities and countermeasures that could affect an application. Threat modeling consists of: defining security requirements, identifying threats, mitigating threats, validating threat mitigation. There are tools like Microsoft Threat Modeling Tool which can help.",
-    "recommendation": "Adopt threat modelling processes",
-    "id": ""
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Application Design",
-    "subCategory": "Threat Analysis",
-    "title": "Are identified threats ranked based on organizational impact?",
-    "context": "Ranked threats improves the understanding of risks associated with security issues.",
-    "recommendation": "Rank identified threats based on organizational impact",
-    "id": ""
+    "id": "application_design_cloud_established"
   },
   {
     "type": "Questions",
@@ -3666,73 +3620,9 @@
     "title": "Does the organization have a defined set of security requirements for this workload?",
     "context": "Azure resources should be blocked that do not meet the proper security requirements defined during service enablement.",
     "recommendation": "Define security requirements for the workload",
-    "id": ""
+    "id": "application_design_security_requirements"
   },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Application Design",
-    "subCategory": "Threat Analysis",
-    "title": "Does the organization track threat modeling or vulnerability scan results with a management system?",
-    "context": "Effectively tracking and prioritizing discovered application threats is a vital component of vulnerability management.",
-    "recommendation": "Centralize threat modeling results",
-    "id": ""
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Application Design",
-    "subCategory": "Threat Analysis",
-    "title": "Are identified threats mapped to mitigations?",
-    "context": "Mitigations are controls to help protect, detect and respond to a certain type of threat.",
-    "recommendation": "Map threats to mitigations",
-    "id": ""
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Application Design",
-    "subCategory": "Threat Analysis",
-    "title": "Are identified threats communicated to stakeholders? E.g., business, IT, application users",
-    "context": "After defining and analyzing the risks, identify risk owners which are the roles that are responsible for mitigating the risk. They need to be aware of the risks so that they can start the mitigation process by allocating resources (e.g. financial or people)",
-    "recommendation": "Establish communication processes for identified threats",
-    "id": ""
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Application Design",
-    "subCategory": "Threat Analysis",
-    "title": "How are threats addressed once found?",
-    "context": "The threat modeling tool will produce a report of all the threats identified. This report is typically uploaded into a tracking tool or work items that can be validated and addressed by the developers. As new features are added to the solution, the threat model should be updated and integrated into the code management process. If a security issue is found, there should be a process to triage the issue into the next release cycle or a faster release, depending on the severity.",
-    "recommendation": "Develop and implement a process to track, triage, and address threats into the application development lifecycle",
-    "id": ""
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Application Design",
-    "subCategory": "Threat Analysis",
-    "title": "Does the organization have established processes and timelines to deploy security fixes for this workload?",
-    "context": "Fixing identified vulnerabilities in a timely manner helps staying secure and preventing additional attack vectors.",
-    "recommendation": "Develop or implement established processes and timelines to deploy mitigations for identified threats",
-    "id": ""
-  },
+
   {
     "type": "Questions",
     "pillars": [
@@ -3744,7 +3634,7 @@
     "title": "Has the organization addressed threat protection for the workload?",
     "context": "Enterprise workloads are subjected to many threats that can jeopardize confidentiality, availability, or integrity and should be protected with advanced security solutions.",
     "recommendation": "Implement threat protection for the Azure workload",
-    "id": ""
+    "id": "application_design_threat_protection"
   },
   {
     "type": "Questions",
@@ -3757,7 +3647,7 @@
     "title": "Does the organization have a defined set of Azure Policies to enforce and control security and organizational standards for the workload?",
     "context": "Azure Policy should be used to enforce and report a compliant configuration of Azure services. Azure policies can be use on multiple levels. It is recommended to apply organizational wide security controls on Azure platform level. These policies build the guardrails of a landing zone.",
     "recommendation": "Define a set of Azure Policies which enforce organizational standards and are aligned with the governance team",
-    "id": ""
+    "id": "application_design_azure_policies_security"
   },
   {
     "type": "Questions",
@@ -3770,7 +3660,7 @@
     "title": "Has the organization identified and classified business critical applications which may adversely affect operations if they are compromised or become unavailable?",
     "context": "Enterprise organizations typically have a large application portfolio. Have key business applications been identified and classified? This should include applications that have a high business impact if affected. Examples would be business critical data, regulated data, or business critical availability. These applications also might include applications which have a high exposure to attach such as public facing websites key to organizational success. ",
     "recommendation": "Identify and classify business critical applications",
-    "id": ""
+    "id": "application_design_critical_applications"
   },
   {
     "type": "Questions",
@@ -3806,23 +3696,10 @@
     "lens": "application",
     "category": "Application Design",
     "subCategory": "Security Criteria & Data Classification",
-    "title": "Does the organization periodically perform external and/or internal workload audits?",
-    "context": "Compliance is important for several reasons. Aside from signifying levels of standards, like ISO 27001 and others, noncompliance with regulatory guidelines may bring sanctions and penalties.",
-    "recommendation": "Periodically perform external and/or internal workload security audits",
-    "id": ""
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Application Design",
-    "subCategory": "Security Criteria & Data Classification",
     "title": "Has the organization developed and maintained a security plan in support of the workload?",
     "context": "A security plan should be part of the main planning documentation for the cloud. It should include several core elements including organizational functions, security skilling, technical security architecture and capabilities roadmap.",
     "recommendation": "Develop a security plan",
-    "id": ""
+    "id": "application_design_security_plan"
   },
   {
     "type": "Questions",
@@ -3835,7 +3712,7 @@
     "title": "Does the organization prioritize security best practices by reviewing guidance based on industry recommendations and apply those settings proactively and completely to all systems as a cloud program is implemented?",
     "context": "Security best practices are ideally applied proactively and completely to all systems as a cloud program is implemented.",
     "recommendation": "Review, prioritize, and proactively apply security best practices to cloud resources",
-    "id": ""
+    "id": "application_design_security_best_practices"
   },
   {
     "type": "Questions",
