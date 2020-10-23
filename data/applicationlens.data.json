@@ -2,8 +2,8 @@
   {
     "type": "Questions",
     "pillars": [
-        "operationalexcellence",
-        "security"
+      "operationalexcellence",
+      "security"
     ],
     "lens": "application",
     "category": "Application Design",
