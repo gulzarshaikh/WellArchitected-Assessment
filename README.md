@@ -24,7 +24,7 @@ For each scoped assessment, the content is structured through three technical le
 | [**Operational Excellence**](./assessments/operationalexcellence/overview.md) | [Application](./assessments/operationalexcellence/application.md) | [Service](./assessments/operationalexcellence/service.md) | Scenario |
 | [**Security**](./assessments/security/overview.md) | [Application](./assessments/security/application.md) | [Service](./assessments/security/service.md) | Scenario |
 | [**Cost Optimization**](./assessments/costoptimization/overview.md) | [Application](./assessments/costoptimization/application.md) | [Service](./assessments/costoptimization/service.md) | Scenario |
-| **Performance Efficiency** | Application | Service | Scenario |
+| [**Performance Efficiency**](./assessments/performance/overview.md) | [Application](./assessments/performance/application.md) | [Service](./assessments/performance/service.md) | Scenario |
 |||||
 
 # Repository Structure
