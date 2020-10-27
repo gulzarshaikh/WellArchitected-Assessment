@@ -2,7 +2,7 @@
 
 # Overview
 
-This Well-Architected Assessment has been produced to help the global CE&S community to identify key optimizations for applications built on Azure, providing key recommendations to better serve our customers. 
+This Well-Architected Assessment has been produced to help the global CE&S community to identify key optimizations for applications built on Azure, providing key recommendations to better serve our customers.
 
 More specifically, it has been developed to help structure and frame Microsoft-driven Well-Architected Assessments by providing review questions and consolidated best-practice technical guidance aligned to the [Microsoft Azure Well-Architected Framework](https://docs.microsoft.com/azure/architecture/framework/).
 
