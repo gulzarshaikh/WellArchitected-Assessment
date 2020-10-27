@@ -1176,7 +1176,7 @@
     "category": "Deployment & Testing",
     "subCategory": "Application Deployments",
     "title": "Can N-1 or N+1 versions be deployed via automated pipelines where N is current deployment version in production?",
-    "context": "N-1 and N+1 refer to roll-back and roll-forward.",
+    "context": "N-1 and N+1 refer to roll-back and roll-forward. Automated deployment pipelines should allow for quick roll-forward and roll-back deployments to address critical bugs and code updates outside of the normal deployment lifecycle.",
     "recommendation": "Automated deployment pipelines should allow for quick roll-forward and roll-back deployments to address critical bugs and code updates outside of the normal deployment lifecycle",
     "id": "app_deploy_n1"
   },
@@ -2944,10 +2944,10 @@
     "lens": "application",
     "category": "Operational Procedures",
     "subCategory": "Patch & Update Process (PNU)",
-    "title": "Does the organization reduce the count and potential severity of security vulnerabilities for this workload by implementing security practices and tools during the development lifecycle? [Develop Secure Applications on Azure whitepaper](https://azure.microsoft.com/resources/develop-secure-applications-on-azure/)",
-    "recommendation": "",
+    "title": "Does the organization reduce the count and potential severity of security vulnerabilities for this workload by implementing security practices and tools during the development lifecycle?",
+    "recommendation": "Implement security practices and tools during development lifecycle",
     "id": "operational_procedures_9083",
-    "context": "Security vulnerabilities can result in an application disclosing confidential data, allowing criminals to alter data/records, or the data/application becoming unavailable for use by customers and employees. Applications will almost always contain logic errors, so it is important to discover, evaluate, and correct them to avoid damage to the organization’s reputation, revenue, or margins. This is made easier by discovering these vulnerabilities in the early stages of the development cycle."
+    "context": "Security vulnerabilities can result in an application disclosing confidential data, allowing criminals to alter data/records, or the data/application becoming unavailable for use by customers and employees. Applications will almost always contain logic errors, so it is important to discover, evaluate, and correct them to avoid damage to the organization’s reputation, revenue, or margins. This is made easier by discovering these vulnerabilities in the early stages of the development cycle. [Develop Secure Applications on Azure whitepaper](https://azure.microsoft.com/resources/develop-secure-applications-on-azure/)"
   },
   {
     "type": "Questions",
@@ -2958,7 +2958,7 @@
     "category": "Operational Procedures",
     "subCategory": "Incident Response",
     "title": "Are operational processes for incident response defined and tested?",
-    "recommendation": "",
+    "recommendation": "Establish an incident response plan and perform periodically a simulated execution.",
     "id": "operational_procedures_663",
     "context": "Actions executed during an incident and response investigation could impact application availability or performance. It is recommended to define these processes and align them with the responsible (and in most cases central) SecOps team. The impact of such an investigation on the application has to be analyzed."
   },
@@ -2971,7 +2971,7 @@
     "category": "Operational Procedures",
     "subCategory": "Incident Response",
     "title": "Are there playbooks built to help incident responders quickly understand the application and components to do an investigation?",
-    "recommendation": "",
+    "recommendation": "Define security playbooks which helps to understand, investigte and respond to security incidents. It is recommended to automate as many steps of those procedures as you can. Automation reduces overhead. It can also improve your security by ensuring the process steps are done quickly, consistently, and according to your predefined requirements.",
     "id": "operational_procedures_9578",
     "context": "Incident responders are part of a central SecOps team and need to understand security insights of an application. Playbooks can help to understand the security concepts and cover the typical investigation activities."
   },
@@ -3178,8 +3178,8 @@
     "lens": "application",
     "category": "Operational Procedures",
     "subCategory": "Configuration & Secrets Management",
-    "title": "What types of keys and secrets are used and how are those generated?",
-    "recommendation": "",
+    "title": "Does the organization have a clear guidance or requirement on what kind of keys should be used for this workload? PMK - Platform Managed Keys vs CMK - Customer Managed Keys",
+    "recommendation": "Provide guidance for either platform managed keys (PMK) or customer managed keys (CMK), based on security or compliance requirements of this workload",
     "id": "operational_procedures_6813",
     "context": "Different approaches can be used by the workload team. Decisions are often driven by security, compliance and specific data classification requirements. Understanding these requirements is important to determine which key types are best suitable (MMK - Microsoft-managed Keys, CMK - Customer-managed Keys or BYOK - Bring Your Own Key)."
   },
@@ -3432,7 +3432,7 @@
     "category": "Operational Model & DevOps",
     "subCategory": "General",
     "title": "Has the organization adopted a formal DevOps approach to building and maintaining software to ensure security and feature enhancements can be deployed in rapid fashion?",
-    "recommendation": "",
+    "recommendation": "Adopt a formal DevSecOps approach to building and maintaining software",
     "id": "operational_model__devops_7507",
     "context": "The DevOps approach increases the organization’s ability to rapidly address security concerns without waiting for a longer planning and testing cycle of traditional waterfall model. Key attributes are: automation, close integration of infra and dev teams, testability and reliability and repeatability of deployments.* [Adopt the DevOps approach](https://docs.microsoft.com/azure/architecture/framework/Security/applications-services#adopt-the-devops-approach)"
   },
@@ -3446,7 +3446,7 @@
     "subCategory": "General",
     "title": "Does the organization leverage DevOps security guidance based on industry lessons-learned, and available automation tools (OWASP guidance, Microsoft toolkit for Secure DevOps etc.)?",
 
-    "recommendation": "",
+    "recommendation": "Follow DevOps security guidance and automation for securing applications",
     "id": "operational_model__devops_9689",
     "context": "Organizations should leverage a control framework such as NIST, CIS or ASB [(Azure Security Benchmarks)](https://docs.microsoft.com/azure/security/benchmarks/) for securing applications on the cloud rather than starting from zero."
   },
@@ -3458,8 +3458,8 @@
     "lens": "application",
     "category": "Operational Model & DevOps",
     "subCategory": "Roles & Responsibilities",
-    "title": "Do you have release gate approvals so that security teams can evaluate new features/code updates?",
-    "recommendation": "",
+    "title": "Does the organization have release gate approvals configured in their DevOps release process?",
+    "recommendation": "Configure quality gate approvals in DevOps release process.",
     "id": "operational_model__devops_3654",
     "context": "Pull Requests and code reviews serve as the first line of approvals during development cycle. Before releasing new code to production (new features, bugfixes etc.), security review and approval should be required."
   },
@@ -3471,8 +3471,8 @@
     "lens": "application",
     "category": "Operational Model & DevOps",
     "subCategory": "Roles & Responsibilities",
-    "title": "Is the security team involved in the planning and design so that they can implement security controls, auditing, response processes into the solutions?",
-    "recommendation": "",
+    "title": "Is the security team involved in the planning, design and overall DevOps process, so that they can implement security controls, auditing, response processes into the solutions?",
+    "recommendation": "Involve security team into development process",
     "id": "operational_model__devops_9812",
     "context": "There should be a process for onboarding service securely to Azure.  The onboarding process should include reviewing the configuration options to determine what logging/monitoring needs to be established, how to properly harden a resource before it goes into production.  For a list of common criteria for onboarding resoruces, see the [Service Enablement Framework](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/enterprise-scale/security-governance-and-compliance#service-enablement-framework)"
   },
@@ -3498,7 +3498,7 @@
     "category": "Deployment & Testing",
     "subCategory": "Application Deployments",
     "title": "How are credentials, certificates and other secrets managed in CI/CD pipelines?",
-    "recommendation": "",
+    "recommendation": "Store keys and secrets outside of deployment pipeline in Azure Key Vault or in secure store for the pipeline.",
     "id": "operational_model__devops_7121",
     "context": "Secrets need to be managed in a secure manner inside of the CI/CD pipeline. The secrets needs to be stored either in a secure store inside the pipeline or externally in Azure Key Vault. When deploying application infrastructure (e.g. with Azure Resource Manager or Terraform), credentials and keys should be generated during the process, stored directly in Key Vault and referenced by deployed resources. Hardcoded credentials should be avoided."
   },
@@ -3511,7 +3511,7 @@
     "category": "Deployment & Testing",
     "subCategory": "Application Deployments",
     "title": "Is code scan included in continuos integration (CI) process and are dependencies and framework components covered by this process?",
-    "recommendation": "",
+    "recommendation": "Include code scans into CI/CD process that also covers 3rd party dependencies and framework components",
     "id": "operational_model__devops_4898",
     "context": "As part of the continuous integration process it is crucial that every release includes a scan of all components in use. Vulnerable dependencies should be flagged and investigated. This can done in combination with other code scanning tasks (e.g. code churn, test results/coverage)."
   },
@@ -3523,8 +3523,8 @@
     "lens": "application",
     "category": "Deployment & Testing",
     "subCategory": "Testing & Validation",
-    "title": "Are you using Azure Security Center (ASC) to scan containers for vulnerabilities? Or any third-party solution?",
-    "recommendation": "",
+    "title": "Does the organization use Azrue Defender (Azure Security Center) or any third-party solution to scan containers for vulnerabilities?",
+    "recommendation": "Scan container workloads for vulnerabilities.",
     "id": "operational_model__devops_792",
     "context": "Azure Security Center is the Azure-native solution for securing containers. Security Center can protect virtual machines that are running Docker, Azure Kubernetes Service clusters, Azure Container Registry registries. ASC is able to scan container images and identify security issues, or provide real-time threat detection for containerized environments. [Container Security in Security Center](https://docs.microsoft.com/azure/security-center/container-security)"
   },
@@ -3537,7 +3537,7 @@
     "category": "Deployment & Testing",
     "subCategory": "Application Deployments",
     "title": "Are branch policies used in source control management? How are they configured?",
-    "recommendation": "",
+    "recommendation": "Implement branch policy strategy to enhance branch security",
     "id": "operational_model__devops_5927",
     "context": "Branch policies provide additional level of control over the code which is commited to the product. It is a common practice to not allow pushing against the main branch and require pull-request (PR) with code review before merging the changes by at least one reviewer, other than the change author. Different branches can have different purposes and access levels, for example: feature branches are created by developers and are open to push, integration branch requires PR and code-review and production branch requires additional approval from a senior developer before merging."
   },
@@ -3549,8 +3549,8 @@
     "lens": "application",
     "category": "Deployment & Testing",
     "subCategory": "Build Environments",
-    "title": "Are self-hosted build agents used in the Azure DevOps CI/CD pipelines?",
-    "recommendation": "",
+    "title": "Does the organization apply security controls (e.g. IP firewall restrictions, update management, etc.) to their self-hosted build agents?",
+    "recommendation": "Apply security controls to your self-hosted build agents in the same manner as with other Azure IaaS VMs",
     "id": "deployment_testing_4387",
     "context": "When the organization uses their own build agents it adds management complexity and can become an attack vector. Build machine credentials must be stored securely and file system needs to be cleaned of any temporary build artifacts regularly. Network isolation can be achieved by only allowing outgoing traffic from the build agent, because it's using pull model of communication with Azure DevOps."
   },
@@ -3562,8 +3562,8 @@
     "lens": "application",
     "category": "Deployment & Testing",
     "subCategory": "Testing & Validation",
-    "title": "Does the organization perform penetration testing or have a third-party entity perform penetration testing to validate the current security defenses put in place?",
-    "recommendation": "",
+    "title": "Does the organization perform penetration testing or have a third-party entity perform penetration testing to validate the current security defenses?",
+    "recommendation": "Use penetration testing and red team exercises to validate security defenses for this workload",
     "id": "deployment_testing_4013",
     "context": "Real world validation of security defenses is critical to validate a defense strategy and implementation. Penetration tests or red team programs can be used to simulate either one time, or persistent threats against an organization to validate defenses that have been put in place to protect organizational resources."
   },
@@ -3578,7 +3578,15 @@
     "title": "Is the organization using a Landing Zone concept and how was it implemented?",
     "recommendation": "Implement a landing zone concept with Azure Blueprints and Azure Policies",
     "id": "governance_2724",
-    "context": "Landing Zone refers to components that are already defined and in place before the workloads are getting deployed by the workload owners, e.g. network topology with Hub/Spoke concept. The purpose of the “Landing Zone” is to ensure that when a workload lands on Azure, the required “plumbing” is already in place, providing greater agility and compliance with enterprise security and governance requirements. This is crucial, that a Landing Zone will be handed over to the workload owner with the security guardrails deployed."
+    "context": "Landing Zone refers to components that are already defined and in place before the workloads are getting deployed by the workload owners, e.g. network topology with Hub/Spoke concept. The purpose of the “Landing Zone” is to ensure that when a workload lands on Azure, the required “plumbing” is already in place, providing greater agility and compliance with enterprise security and governance requirements. This is crucial, that a Landing Zone will be handed over to the workload owner with the security guardrails deployed.",
+    "children": [
+        {
+            "title": "Does the organization use Azure Blueprints to consistently deploy environments that comply with organizational policies?",
+            "context": "Automation of deployment and maintenance tasks reduces security and compliance risk by limiting opportunity to introduce human errors during manual tasks.",
+            "recommendation": "Use Azure Blueprints to consistently deploy environments that comply with organizational policies",
+            "id": "application_design_blueprints"
+        }
+    ]
   },
   {
     "type": "Questions",
@@ -4073,59 +4081,7 @@
     "title": "Does the organization have a clear responsibility / role concept (separation of concern) for managing keys and secrets for this workload?",
     "context": "Central SecOps team should provide guidance on how keys and secrets are managed (governance), application DevOps team is responsible to manage the application related keys and secrets.",
     "recommendation": "Define a role & responsibility concept for managing keys and secrets.",
-    "id": ""
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Operational Procedures",
-    "subCategory": "Configuration & Secrets Management",
-    "title": "Does the organization have a clear guidance or requirement on what kind of keys should be used for this workload? PMK - Platform Managed Keys vs CMK - Customer Managed Keys",
-    "context": "Different approaches can be used by the workload team. Decisions are often driven by security, compliance and specific data classification requirements. Understanding these requirements is important to determine which key types are best suitable (PMK - Platform-managed Keys, CMK - Customer-managed Keys or BYOK - Bring Your Own Key).",
-    "recommendation": "Provide guidance for either platform managed keys (PMK) or customer managed keys (CMK), based on security or compliance requirements of this workload",
-    "id": ""
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Operational Procedures",
-    "subCategory": "Configuration & Secrets Management",
-    "title": "Does the organization have a process in place for replacing secrets and rotating keys for this workload?",
-    "context": "Secrets (keys, certificates etc.) should be replaced once they have reached the end of their active lifetime or once they have been compromised. Renewed certificates should also use a new key. A process needs to be in place for situations where keys get compromised (leaked) and need to be regenerated on-demand.",
-    "recommendation": "Establish a process for key management and automatic key rotation",
-    "id": ""
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Operational Procedures",
-    "subCategory": "Configuration & Secrets Management",
-    "title": "Does the organization use Azure Blueprints to consistently deploy environments that comply with organizational policies?",
-    "context": "Automation of deployment and maintenance tasks reduces security and compliance risk by limiting opportunity to introduce human errors during manual tasks.",
-    "recommendation": "Use Azure Blueprints to consistently deploy environments that comply with organizational policies",
-    "id": ""
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Operational Procedures",
-    "subCategory": "Patch & Update Process (PNU)",
-    "title": "Does the organization reduce the count and potential severity of security vulnerabilities for this workload by implementing security practices and tools during the development lifecycle?",
-    "context": "Reduce the count and potential severity of security bugs in your application by implementing security practices and tools during the development lifecycle.",
-    "recommendation": "Implement security practices and tools during development lifecycle",
-    "id": ""
+    "id": "operational_procedures_roles_key_management"
   },
   {
     "type": "Questions",
@@ -4138,33 +4094,7 @@
     "title": "Does the organization have a formal policy in place to apply security updates to VMs in a timely manner, and do strong passwords exist on those VMs for any local administrative accounts that may be in use?",
     "context": "Attackers constantly scan public cloud IP ranges for open management ports and attempt “easy” attacks like common passwords and unpatched vulnerabilities.",
     "recommendation": "Put in place a solution to ensure all VMs are patched in a timely manner and to ensure strong local administrative password management",
-    "id": ""
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Operational Procedures",
-    "subCategory": "Incident Response",
-    "title": "Does the organization have security playbooks in place to help incident responders to quickly respond and investigate to a security incident?",
-    "context": "Incident responders are part of a central SecOps team and need to understand security insights of an application. Playbooks can help to understand the security concepts and cover the typical investigation activities.\r\nIt is recommended to automate as many steps of those procedures as you can. Automation reduces overhead. It can also improve your security by ensuring the process steps are done quickly, consistently, and according to your predefined requirements",
-    "recommendation": "Define security playbooks which helps to understand, investigte and respond to security incidents.",
-    "id": ""
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Operational Procedures",
-    "subCategory": "Incident Response",
-    "title": "Has the organization established an incident response plan and simulated execution for the workload?",
-    "context": "Actions executed during an incident and response investigation could impact application availability or performance. It is recommended to define these processes and align them with the responsible (and in most cases central) SecOps team. The impact of such an investigation on the application has to be analyzed.",
-    "recommendation": "Establish an incident response plan and perform periodically a simulated execution",
-    "id": ""
+    "id": "operational_procedures_security_update_policy"
   },
   {
     "type": "Questions",
@@ -4177,85 +4107,7 @@
     "title": "Does the organization have a security operations center (SOC) that leverages a modern security approach?",
     "context": "A SOC has a critical role in limiting the time and access an attacker can get to valuable systems and data.  In addition, it provides the vital role of detecting the presence of adversaries, reacting to an alert of suspicious activity, or proactively hunting for anomalous events in the enterprise activity logs.",
     "recommendation": "Establish a security operations center (SOC)",
-    "id": ""
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Deployment & Testing",
-    "subCategory": "Application Deployments",
-    "title": "Does the organization have an automated deployment process via automated pipelines in place with support for roll-back scenarios to address critical bugs?",
-    "context": "Automated deployment pipelines should allow for quick roll-forward and roll-back deployments to address critical bugs and code updates outside of the normal deployment lifecycle.",
-    "recommendation": "Implement an automated deployment process with support for roll-back scenarios",
-    "id": ""
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Deployment & Testing",
-    "subCategory": "Application Deployments",
-    "title": "Does the organization perform credential scans as part of the build process for this workload?",
-    "context": "Credentials should not be stored in source code or configuration files, because that increases the risk of exposure.",
-    "recommendation": "Configure credential scanning within the build process",
-    "id": ""
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Deployment & Testing",
-    "subCategory": "Application Deployments",
-    "title": "Does the organization store sensitive information (keys, secrets, etc.) outside of the DevOps deployment pipeline in Azure Key Vault?",
-    "context": "Secrets need to be managed in a secure manner inside of the CI/CD pipeline.",
-    "recommendation": "Store keys and secrets outside of deployment pipeline in Azure Key Vault",
-    "id": ""
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Deployment & Testing",
-    "subCategory": "Application Deployments",
-    "title": "Does the organization perform code scans during the CI/CD process which also covers 3rd party dependencies and framework components?",
-    "context": "As part of the continuous integration process it is crucial that every release includes a scan of all components in use. Vulnerable dependencies should be flagged and investigated. This can done in combination with other code scanning tasks (e.g. code churn, test results/coverage).",
-    "recommendation": "Include code scans into CI/CD process that also covers 3rd party dependencies and framework components",
-    "id": ""
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Deployment & Testing",
-    "subCategory": "Application Deployments",
-    "title": "Does the organization have a branch strategy in place with branch policies to control pull/push requests in their DevOps environment?",
-    "context": "Branch policies provide additional level of control over the code which is commited to the product.",
-    "recommendation": "Implement branch policy strategy to enhance branch security",
-    "id": ""
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Deployment & Testing",
-    "subCategory": "Build Environments",
-    "title": "Does the organization apply security controls (e.g. IP firewall restrictions, update management, etc.) to their self-hosted build agents?",
-    "context": "When the organization uses their own build agents it adds management complexity and can become an attack vector.",
-    "recommendation": "Apply security controls to your self-hosted build agents in the same manner as with other Azure IaaS VMs",
-    "id": ""
+    "id": "operational_procedure_establish_soc"
   },
   {
     "type": "Questions",
@@ -4266,74 +4118,9 @@
     "category": "Deployment & Testing",
     "subCategory": "Testing & Validation",
     "title": "Does the organization have a method and carry out simulated attacks on users?",
-    "context": "People are a critical part of your defense, so ensuring they have the knowledge and skills to avoid and resist attacks will reduce your overall organizational risk.",
-    "recommendation": "Simulate attack against users",
-    "id": ""
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Deployment & Testing",
-    "subCategory": "Testing & Validation",
-    "title": "Does the organization regularly simulate attacks against critical accounts to educate and build awareness?",
-    "context": "People are a critical part of your defense, especially those with elevated permissions.  Ensuring they have the knowledge and skills to avoid and resist attacks will reduce your overall organizational risk.\r\n",
-    "recommendation": "Regularly simulate attacks against critical accounts",
-    "id": ""
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Deployment & Testing",
-    "subCategory": "Testing & Validation",
-    "title": "Does the organization use Azure Defender (Azure Security Center) or any third-party solution to scan containers for vulnerabilities?",
-    "context": "To build secure containerized workloads, ensure the images that they're based on are free of known vulnerabilities.",
-    "recommendation": "Scan container workloads for vulnerabilities",
-    "id": ""
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Deployment & Testing",
-    "subCategory": "Testing & Validation",
-    "title": "Does the organization or a third-party entity perform penetration testing to validate current security defenses?",
-    "context": "Real world validation of security defenses is critical to validate a defense strategy and implementation.",
-    "recommendation": "Use penetration testing and red team exercises to validate security defenses for this workload",
-    "id": ""
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Operational Model & DevOps",
-    "subCategory": "General",
-    "title": "Has the organization adopted a formal DevOps approach to building and maintaining software to ensure security and feature enhancements can be deployed in rapid fashion?",
-    "context": "The combination of the Secure Development Lifecycle and Operations Lifecycle as it relates to application creation, maintenance, and updating increases and organization’s ability to rapidly address security or operational concerns.",
-    "recommendation": "Adopt a formal DevSecOps approach to building and maintaining software",
-    "id": ""
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Operational Model & DevOps",
-    "subCategory": "General",
-    "title": "Does the organization leverage DevOps security guidance based on industry lessons-learned, and available automation tools?",
-    "context": "Organizations should leverage guidance and automation for securing applications on the cloud rather than starting from zero.",
-    "recommendation": "Follow DevOps security guidance and automation for securing applications",
-    "id": ""
+    "context": "People are a critical part of your defense, especially those with elevated permissions, so ensuring they have the knowledge and skills to avoid and resist attacks will reduce your overall organizational risk.",
+    "recommendation": "Simulate attack against users and critical accounts",
+    "id": "deployment_testing_simulated_user_attacks"
   },
   {
     "type": "Questions",
@@ -4346,7 +4133,7 @@
     "title": "Does the organization consider and follow best practices related to container security for this workload?",
     "context": "Containerized applications face the same risks as any application and also adds new requirements to securely the hosting and management of the containerized applications.",
     "recommendation": "Follow best practices for container security",
-    "id": ""
+    "id": "operational_model_devops_container_security"
   },
   {
     "type": "Questions",
@@ -4372,7 +4159,7 @@
     "title": "Has the organization developed and maintained a security training program to ensure technical staff are well-informed and equipped with the appropriate skills?",
     "context": "Cybersecurity threats are always evolving and therefore those responsible for organizational information security require specialized, continual, and relevant training to ensure staff maintains the level of competency required to protect, detect, and respond.  ",
     "recommendation": "Develop security training program",
-    "id": ""
+    "id": "operational_model_devops_security_training_program"
   },
   {
     "type": "Questions",
@@ -4383,35 +4170,9 @@
     "category": "Operational Model & DevOps",
     "subCategory": "Roles & Responsibilities",
     "title": "Does the organization have the appropriate emergency access accounts configured in case of an emergency?",
-    "context": "While rare, sometimes extreme circumstances arise where all normal means of administrative access are unavailable and for this reason emergency access accounts should be available.  ",
+    "context": "While rare, sometimes extreme circumstances arise where all normal means of administrative access are unavailable and for this reason emergency access accounts should be available. [Emergency Access Acounts](https://docs.microsoft.com/azure/active-directory/roles/security-emergency-access)",
     "recommendation": "Configure emergency access accounts",
-    "id": ""
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Operational Model & DevOps",
-    "subCategory": "Roles & Responsibilities",
-    "title": "Does the organization have quality gate approvals configured in their DevOps release process?",
-    "context": "Pull Requests and code reviews serve as the first line of approvals during development cycle. Before releasing new code to production (new features, bugfixes etc.), security review and approval should be required.",
-    "recommendation": "Configure quality gate approvals in DevOps release process",
-    "id": ""
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Operational Model & DevOps",
-    "subCategory": "Roles & Responsibilities",
-    "title": "Is the security team involved in the overall DevOps process (SecDevOps) so that  they can implement security controls, auditing, response processes into the workload?",
-    "context": "There should be a process for onboarding service securely to Azure.",
-    "recommendation": "Involve security team into development process",
-    "id": ""
+    "id": "operational_model_devops_emergency_access_accounts"
   },
   {
     "type": "Questions",
