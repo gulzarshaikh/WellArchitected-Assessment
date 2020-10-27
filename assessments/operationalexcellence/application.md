@@ -696,7 +696,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 * Can N-1 or N+1 versions be deployed via automated pipelines where N is current deployment version in production?
 
 
-  _N-1 and N+1 refer to roll-back and roll-forward._
+  _N-1 and N+1 refer to roll-back and roll-forward. Automated deployment pipelines should allow for quick roll-forward and roll-back deployments to address critical bugs and code updates outside of the normal deployment lifecycle._
   > Automated deployment pipelines should allow for quick roll-forward and roll-back deployments to address critical bugs and code updates outside of the normal deployment lifecycle
 * Is there a defined hotfix process which bypasses normal deployment procedures?
 
