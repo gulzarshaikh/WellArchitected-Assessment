@@ -1,4 +1,4 @@
-[![Cost Optimization Assessment](/templates/media/costoptimization-icon.png "Cost Optimization Assessment")](#)
+[![Cost Optimization Assessment](/templates/media/costoptimization-icon.png "Performance Efficiency Assessment")](#)
 
 This assessment has been produced to help the global CE&S community to optimize the cost of applications built on Azure, providing key recommendations to better serve our customers.
 
@@ -6,11 +6,11 @@ This assessment has been produced to help the global CE&S community to optimize 
 
 ## Navigation Menu
 
-### [Application Cost Optimization](./application.md) 
+### [Application Performance Efficiency](./application.md) 
 - [Application Assessment Checklist](./application.md#Application-Assessment-Checklist)
 
 
-### [Service Cost Optimization](./service.md)
+### [Service Performance Efficiency](./service.md)
 
   - [Compute](./service.md#Compute)
     - [Azure Kubernetes Service (AKS)](./service.md#Azure-Kubernetes-Service-AKS)

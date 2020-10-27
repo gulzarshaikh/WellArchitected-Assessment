@@ -1,4 +1,4 @@
-# Service Cost Optimization
+# Service Performance Efficiency
 
 This list contains design considerations and recommended configuration options, specific to individual Azure services.
 
@@ -23,3 +23,4 @@ This list contains design considerations and recommended configuration options, 
     > Unlike System node pools that always require running nodes, User node pools allow you to scale to 0.
                                 
                             
+* Utilize the [Horizontal pod autoscaler](https://docs.microsoft.com/azure/aks/concepts-scale#horizontal-pod-autoscaler) to adjust the number of pods in a deployment depending on CPU utilization or other select metrics.
