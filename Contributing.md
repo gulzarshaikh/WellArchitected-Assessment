@@ -32,7 +32,7 @@ While each content type might have some distinct attributes, mostly they share a
     "category": "Application Design",
     "subCategory": "Design",
     "title": "Is the application deployed across multiple Azure regions and/or utilizing Availability Zones?",
-    "context": "Understanding the global operational footprint, for failover or performance purposes, is critical to evaluating overall operations. Generally speaking, multiple Azure regions should be used for disaster recovery procedures, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active recovery strategies([Failover strategies](https://docs.microsoft.com/en-us/azure/architecture/framework/resiliency/backup-and-recovery)) ...,
+    "context": "Understanding the global operational footprint, for failover or performance purposes, is critical to evaluating overall operations. Generally speaking, multiple Azure regions should be used for disaster recovery procedures, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active recovery strategies([Failover strategies](https://docs.microsoft.com/azure/architecture/framework/resiliency/backup-and-recovery)) ...,
     "children": [
       {
         "title": "Is the application deployed in either active-active, active-passive, or isolated configurations across leveraged regions?",
