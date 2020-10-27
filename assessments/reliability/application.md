@@ -87,6 +87,10 @@
 
 
   _A disaster recovery strategy should capture how the application responds to a disaster situation such as a regional outage or the loss of a critical platform service, using either a re-deployment, warm-spare active-passive, or hot-spare active-active approach_
+* What reliability targets and metrics have you defined for your application?
+
+
+  _Availability targets, such as Service Level Agreements (SLA) and Service Level Objectives (SLO), and Recovery targets, such as Recovery Time Objectives (RTO) and Recovery Point Objectives (RPO), should be defined and tested to ensure application reliability aligns with business requirements._
 ### Failure Mode Analysis
             
 * Has pathwise analysis been conducted to identify key flows within the application?
