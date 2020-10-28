@@ -44,14 +44,14 @@ The following Design Principles provide context for questions, why a certain asp
 ## Optimize build and release processes
 
 
-  From provisioning with Infrastructure as Code, to build and releases with CI/CD pipelines, to automated testing, embrace software engineering discipline across your entire environment. This approach ensures the creation and management of environments throughout the software development lifecycle is consistent and enables early detection of issues.
+  From provisioning with Infrastructure as Code, to build and releases with CI/CD pipelines, to automated testing, embrace software engineering disciplines across your entire environment. This approach ensures the creation and management of environments throughout the software development lifecycle is consistent, repeatable, and enables early detection of issues.
 
 
 
-## Monitor system and operational health
+## Monitor entire system and understand operational health
 
 
-  Identify and monitor metrics for build and release processes, infrastructure health, and application health. Telemetry is critical to understanding the health of a workload and whether the service is meeting the business goals.
+  Implement systems and processes to monitor build and release processes, infrastructure health, and application health. Telemetry is critical to understanding the health of a workload and whether the service is meeting the business goals.
 
 
 
@@ -62,24 +62,17 @@ The following Design Principles provide context for questions, why a certain asp
 
 
 
-## Modularize your environment
-
-
-  Systematically componentize your environment and workloads to enable frequent and manageable change that can be progressively rolled-out and safely rolled-back.
-
-
-
-## Use policy-driven governance
-
-
-  Use Azure Policy to provide guardrails and ensure continued compliance of application environment. This approach to centralized governance enables an organization to provide application teams with sufficient autonomy to accelerate development efforts, while ensuring the enterprise estate remains compliant with organizational standards.
-
-
-
 ## Embrace operational improvement
 
 
   Continuously evaluate and refine operational procedures and tasks, while striving to reduce complexity and ambiguity. This approach enables an organization to evolve processes over time, optimizing inefficiencies and learning from failures.
+
+
+
+## Use loosely coupled architecture
+
+
+  Enable teams to independently test, deploy, and update their systems on demand without depending on other teams for support, services, resources, or approvals.
 
 
 
