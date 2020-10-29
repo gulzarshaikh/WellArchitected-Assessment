@@ -1,0 +1,45 @@
+{
+  "type": "PnP Questions",
+  "pillars": [
+    "reliability"
+  ],
+  "title": "What reliability targets and metrics have you defined for your application?",
+  "context": "Availability targets, such as Service Level Agreements (SLA) and Service Level Objectives (SLO), and Recovery targets, such as Recovery Time Objectives (RTO) and Recovery Point Objectives (RPO), should be defined and tested to ensure application reliability aligns with business requirements.",
+  "id": "pnp_question_reliability1",
+  "answers": [
+    {
+      "score": 20,
+      "statement": "Recovery targets to identify how long the workload can be unavailable (Recovery Time Objective) and how much data is acceptable to lose during a disaster (Recovery Point Objective).",
+      "context": "Understanding customer reliability expectations is vital to reviewing the overall reliability of the application. For instance, if a customer is striving to achieve an application RTO of less than a minute then back-up based and active-passive disaster recovery strategies are unlikely to be appropriate \nRecovery time objective (RTO): The maximum acceptable time the application is unavailable after a disaster incident \nRecovery point objective (RPO): The maximum duration of data loss that is acceptable during a disaster event",
+      "recommendation": "Recovery targets should be defined in accordance to the required RTO and RPO targets for the workloads."
+    },
+    {
+      "score": 20,
+      "statement": "Availability targets such as Service Level Agreements (SLAs) and Service Level Objectives (SLOs).",
+      "context": "Understanding customer availability expectations is vital to reviewing overall operations for the application. For instance, if a customer is striving to achieve an application SLO of 99.999%, the level of inherent operational actionality required by the application is going to far greater than if an SLO of 99.9% was the aspiration",
+      "recommendation": "Having clearly defined availability targets is crucial in order to have a goal to work and measure against. This will also determine which services an application can leverage vs. those which do not qualify in terms of the SLA they offer."
+    },
+    {
+      "score": 20,
+      "statement": "Availability metrics to measure and monitor availability such as Mean Time To Recover (MTTR) and Mean Time Between Failure (MTBF).",
+      "context": "Monitoring and measuring application availability is vital to qualifying overall application health and progress towards defined targets.",
+      "recommendation": "Make sure you measure and monitor key targets such as\n- **Mean Time Between Failures (MTBF)**: The average time between failures of a particular component\n- **Mean Time Between Failures (MTBF)**: The average time between failures of a particular component"
+    },
+    {
+      "score": 20,
+      "statement": "Composite SLA for the workload derived using the Azure SLAs for all relevant resources.",
+      "context": "A composite SLA captures the end-to-end SLA across all application components and dependencies. It is calculated using the individual SLAs of Azure services housing application components and provides an important indicator of designed availability in relation to customer expectations and targets([Composite SLAs](https://docs.microsoft.com/azure/architecture/framework/resiliency/business-metrics#understand-service-level-agreements))",
+      "recommendation": "Make sure the composite SLA of all components and dependencies on the critical paths are understood."
+    },
+    {
+      "score": 20,
+      "statement": "SLAs for all internal and external dependencies are understood.",
+      "context": "Availability targets for any dependencies leveraged by the application should be understood and ideally align with application targets",
+      "recommendation": "Make sure SLAs/SLOs/SLIs for all leveraged dependencies are understood"
+    },
+    {
+      "statement": "None of the above",
+      "score": 0
+    }
+  ]
+}
