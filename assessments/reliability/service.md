@@ -230,8 +230,16 @@ Resources
                             
 ## Virtual Machines
 ### Design Considerations
-* Microsoft provides a 1) 95% SLA for single instance virtual machines using Standard HDD storage for all OS and Data disks, 2) 99.5% SLA for single instance virtual machines using Standard SSD storage for all OS and Data disks, 3) 99.9% SLA for single instance virtual machines using Premium storage for all OS and Data disks, 4) 99.95% SLA for all virtual machines that have two or more instances in the same Availability Set or Dedicated Host Group, and a 5) 99.99% SLA for all virtual machines that have two or more instances deployed across two or more Availability Zones in the same region.
-  > [Virtual Machine Service Level Agreements](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/)
+* Microsoft provides the following [SLAs for virtual machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/):
+  - 95% SLA for single instance virtual machines using Standard HDD storage for all OS and Data disks
+                            
+  - 99.5% SLA for single instance virtual machines using Standard SSD storage for all OS and Data disks
+                            
+  - 99.9% SLA for single instance virtual machines using Premium storage for all OS and Data disks
+                            
+  - 99.95% SLA for all virtual machines that have two or more instances in the same Availability Set or Dedicated Host Group
+                            
+  - 99.99% SLA for all virtual machines that have two or more instances deployed across two or more Availability Zones in the same region
                             
 ### Configuration Recommendations
 * For all virtual machines requiring resiliency, it is highly recommended that:
@@ -250,20 +258,18 @@ Resources
   - Consider using [proximity placement groups](https://azure.microsoft.com/blog/introducing-proximity-placement-groups/) (PPGs) with Availability Zones.
                             
 * Azure Metadata Service Scheduled Events should be used to proactively respond to maintenance events (i.e. reboots) and limit disruption to virtual machines.
-  > [Azure Metadata Service Scheduled Events](https://docs.microsoft.com/azure/virtual-machines/windows/scheduled-events)
+  > Scheduled Events is an [Azure Metadata Service](https://docs.microsoft.com/azure/virtual-machines/windows/scheduled-events) that gives your application time to prepare for virtual machine (VM) maintenance. It provides information about upcoming maintenance events (for example, reboot) so that your application can prepare for them and limit disruption.
                             
-* Azure Backup should be used to back-up virtual machines within a Recovery Services Vault, to protect against accidental data loss.
-  > [Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction)
-                            
+* [Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction) should be used to back-up virtual machines in a Recovery Services Vault, to protect against accidental data loss.
   - Enable Soft Delete for the Recovery Services vault to protect against accidental or malicious deletion of backup data, ensuring the ability to recover.
-    > [Azure Backup Soft Delete](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud)
+    > With [Azure Backup Soft Delete](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud), even if a malicious actor deletes a backup (or backup data is accidentally deleted), the backup data is retained for 14 additional days, allowing the recovery of that backup item with no data loss. The additional 14 days of retention for backup data in the soft delete state don't incur any cost to you.
                                 
                             
 * Enable diagnostic logging for all virtual machines to ensure health metrics, boot diagnostics and infrastructure logs are routed to Log Analytics or an alternative log aggregation technology.
-  > [Diagnostic Logs](https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview)
+  > Platform logs provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on. See [Overview of Azure platform logs](https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview) for more.
                             
 * Establish virtual machine Resource Health alerts to notify key stakeholders when resource health events occur.
-  > An appropriate threshold for resource unavailability must be set to minimize signal to noise ratios so that transient faults do not generate an alert. For example, configuring a virtual machine alert with an unavailability threshold of 1 minute before an alert is triggered.[Resource Health Alerts](https://docs.microsoft.com/en-gb/azure/service-health/resource-health-alert-arm-template-guide)
+  > An appropriate threshold for resource unavailability must be set to minimize signal to noise ratios so that transient faults do not generate an alert. For example, configuring a virtual machine alert with an unavailability threshold of 1 minute before an alert is triggered. See [Resource Health Alerts](https://docs.microsoft.com/azure/service-health/resource-health-alert-arm-template-guide) for more.
                             
 * To ensure application scalability while navigating within disk sizing thresholds, it is highly recommended that applications be installed on data disks rather than the OS disk.
 ### Supporting Source Artifacts
