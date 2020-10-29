@@ -2775,7 +2775,15 @@
     "title": "How do you monitor and maintain your compliance?",
     "recommendation": "",
     "id": "application_design_6814",
-    "context": "Find out how they make sure they maintain compliance as the Azure Platform evolves and they update their application. Are there things preventing them from adopting new features in the platform because it will knock them out of compliance?"
+    "context": "Find out how they make sure they maintain compliance as the Azure Platform evolves and they update their application. Are there things preventing them from adopting new features in the platform because it will knock them out of compliance?",
+    "children": [
+        {
+            "title": "Does the organization have a process for regulatory or governance compliance attestation?",
+            "context": "Knowing whether your cloud resources are in compliance with standards mandated by governments or industry organizations is essential in today's globalized world (e.g. GDPR).",
+            "recommendation": "Perform regulatory compliance attestation.",
+            "id": "application_design_process_compliance"
+        }
+    ]
   },
   {
     "type": "Questions",
@@ -3024,7 +3032,7 @@
     "category": "Identity & Access Control",
     "subCategory": "Separation of duties",
     "title": "Are there any processes and tools leveraged to manage privileged activities?",
-    "recommendation": "",
+    "recommendation": "Establish processes and use tools to manage priviliged access.",
     "id": "identity__access_control_8652",
     "context": "Zero-trust principle comes with the requirement of no standing access to an environment. Native and 3rd party solution can be used to elevate access permissions for at least highly privileged if not all activities. [Azure AD Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) (Azure AD PIM) is the recommended and Azure native solution."
   },
@@ -3705,19 +3713,6 @@
     "lens": "application",
     "category": "Application Design",
     "subCategory": "Security Criteria & Data Classification",
-    "title": "Does the organization have a process for regulatory or governance compliance attestation?",
-    "context": "Knowing whether your cloud resources are in compliance with standards mandated by governments or industry organizations is essential in today's globalized world (e.g. GDPR)",
-    "recommendation": "Perform regulatory compliance attestation",
-    "id": ""
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Application Design",
-    "subCategory": "Security Criteria & Data Classification",
     "title": "Does the organization have established a monitoring and assessing solution for compliance?",
     "context": "Continuous monitoring and assessing workload increases the overall security and compliance of your workload in Azure",
     "recommendation": "Continuously assess and monitor compliance",
@@ -3885,19 +3880,6 @@
       "security"
     ],
     "lens": "application",
-    "category": "Networking & Connectivity",
-    "subCategory": "Data flow",
-    "title": "Does the organization have controls in place to detect data exfiltration attempts for this workload, like Azure Defender (Azure Security Center), Azure Sentinel or a 3rd party SIEM (Security Information and Event Management System)?",
-    "context": "Data exfiltration occurs when an internal/external malicious actor performs and unauthorized data transfer.",
-    "recommendation": "Apply a layered defense in depth / zero trust approach, e.g. use Azure Defender (Azure Security Center) or Azure Sentinel to detect data exfiltration attempts",
-    "id": ""
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
     "category": "Security & Compliance",
     "subCategory": "Security Center",
     "title": "Does the organization use tools to discover and remediate common risks within Azure tenants?",
@@ -3916,7 +3898,7 @@
     "title": "Does the organization have a designated group responsible for centralized network management and security?",
     "context": "Centralizing network management and security can reduce the potential for inconsistent strategies that create potential attacker exploitable security risks. Because all divisions of the IT and development organizations do not have the same level of network management and security knowledge and sophistication, organizations benefit from leveraging a centralized network team’s expertise and tooling.",
     "recommendation": "Establish designated group responsible for central network management",
-    "id": ""
+    "id": "security_compliance_central_network_management"
   },
   {
     "type": "Questions",
@@ -3980,7 +3962,7 @@
     "subCategory": "Endpoints",
     "title": "Does the organization have the capability and plans in place to mitigate DDoS attacks for this workload?",
     "context": "DDoS attacks can be very debilitating and completely block access to your services or even take down the services, depending on the type of DDoS attack.",
-    "recommendation": "Mitigate DDoS attacks",
+    "recommendation": "Mitigate DDoS attacks.",
     "id": "networking_connectivity_ddos_mitigation"
   },
   {
@@ -3993,8 +3975,8 @@
     "subCategory": "Network Security",
     "title": "Does the organization have cloud virtual networks that are designed for growth based on an intentional subnet security strategy?",
     "context": "Most organizations end up adding more resources to networks than initially planned. When this happens, IP addressing and subnetting schemes need to be refactored to accommodate the extra resources. This is a labor-intensive process. There is limited security value in creating a very large number of small subnets and then trying to map network access controls (such as security groups) to each of them.",
-    "recommendation": "Design virtual networks for growth",
-    "id": ""
+    "recommendation": "Design virtual networks for growth.",
+    "id": "security_compliance_network_growth"
   },
   {
     "type": "Questions",
@@ -4006,7 +3988,7 @@
     "subCategory": "Network Security",
     "title": "Does the organization have a security containment strategy that blends existing on-premises security controls and practices with native security controls available in Azure, and uses a zero-trust approach?",
     "context": "Assume breach is the recommended cybersecurity mindset and the ability to contain an attacker is vital to protect information systems.",
-    "recommendation": "Build a security containment strategy",
+    "recommendation": "Build a security containment strategy.",
     "id": "security_compliance_security_containment_strategy"
   },
   {
