@@ -21,10 +21,7 @@ foreach ($question in $PnpQuestions) {
             $content = $AllItems | Where-Object { $_.id -eq $answer.question_id }       
             if (-not $content) {
                 # If the ID was not matched on a parent question, we look now inside the children
-                $parentContent = $AllItems | Where-Object { $_.children.id -eq $answer.question_id }
-                if ($parentContent) {
-                    $content = $parentContent.children | Where-Object { $_.id -eq $answer.question_id }
-                }     
+                $content = $AllItems | Where-Object { $_.children.id -eq $answer.question_id } | Select-Object -ExpandProperty children | Where-Object { $_.id -eq $answer.question_id }   
             }
             if ($content -and $content.statement) {
                 Write-Host "Found statement: " $content.statement
