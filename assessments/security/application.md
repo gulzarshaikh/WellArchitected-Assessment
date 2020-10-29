@@ -90,8 +90,8 @@
 * Does the workload use CDN (content delivery network) solutions to separate the hosting platform from the end users / clients?
 
 
-  _Azure CDN or Cloudflare can be used to separate the hosting platform from end users._
-  > Use CDN to separate the hosting platform from the end users / clients
+  _Azure CDN can be used to separate the hosting platform from end users. Azure CDN contains a rule engine to remove platform-specific information and headers._
+  > Use CDN to separate the hosting platform from the end users / clients.
 * Does the organization use cloud native security controls for this workload?
 
 
@@ -114,7 +114,7 @@
 
       _Automation of deployment and maintenance tasks reduces security and compliance risk by limiting opportunity to introduce human errors during manual tasks._
 
-      > Use Azure Blueprints to consistently deploy environments that comply with organizational policies
+      > Use Azure Blueprints to consistently deploy environments that comply with organizational policies.
 ### Application Composition
             
 * What Azure services are used by the application?
@@ -136,11 +136,11 @@
       > All technologies and frameworks should be identified. Vulnerabilities of these dependencies must be understood (there are automated solutions on the market that can help: [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/) or [NPM audit](https://docs.npmjs.com/cli/audit)).
 ### Threat Analysis
             
-* Has the application been threat modeled?
+* Has the workload been threat modeled?
 
 
   _Threat modeling is an engineering technique which can be used to help identify threats, attacks, vulnerabilities and countermeasures that could affect an application. Threat modeling consists of: defining security requirements, identifying threats, mitigating threats, validating threat mitigation. Microsoft uses [STRIDE](https://docs.microsoft.com/en-us/azure/security/develop/threat-modeling-tool-threats) for threat modeling.  This might be the right time to talk through the STRIDE methodology and then the tools available to help them with Threat Modeling.  There are tools like [Microsoft Threat Modeling Tool](https://docs.microsoft.com/azure/security/develop/threat-modeling-tool-getting-started) which can help._
-  > Adopt threat modeling processes
+  > Adopt threat modeling processes.
     - Are identified threats ranked based on organizational impact?
 
 
@@ -218,7 +218,7 @@
 
       _Azure Policy helps to enforce organizational standards and to assess compliance at-scale._
 
-      > Use Azure Policy to create and manage policies that enforce compliance
+      > Use Azure Policy to create and manage policies that enforce compliance.
 * Does the organization have a defined set of Azure Policies to enforce and control security and organizational standards for the workload?
 
 
@@ -229,7 +229,7 @@
 
   _Enterprise organizations typically have a large application portfolio. Have key business applications been identified and classified? This should include applications that have a high business impact if affected. Examples would be business critical data, regulated data, or business critical availability. These applications also might include applications which have a high exposure to attach such as public facing websites key to organizational success._
   > Identify and classify business critical applications
-* Does the organization have established a monitoring and assessing solution for compliance?
+* Has the organization established a monitoring and assessing solution for compliance?
 
 
   _Continuous monitoring and assessing workload increases the overall security and compliance of your workload in Azure_
@@ -244,16 +244,16 @@
 
   _Security best practices are ideally applied proactively and completely to all systems as a cloud program is implemented._
   > Review, prioritize, and proactively apply security best practices to cloud resources
-* Does the organization build the appropriate level of resilience into your security infrastructure?
+* Does the organization build the appropriate level of resilience into the security infrastructure of this workload?
 
 
-  _Building cybersecurity resilience into your organization requires balancing investments across the security lifecycle, diligently applying maintenance, vigilantly responding to anomalies and alerts to prevent security assurance decay, and designing to defense in depth and least privilege._
-  > Implement holistic security resilience strategy
-* Does the organization consider balancing attacker cost versus your own?
+  _Building cybersecurity resilience into an organization requires balancing investments across the security lifecycle, diligently applying maintenance, vigilantly responding to anomalies and alerts to prevent security assurance decay, and designing to defense in depth and least privilege._
+  > Implement holistic security resilience strategy.
+* Does the organization consider balancing attacker vs. defender cost?
 
 
   _Cybersecurity attacks are planned and conducted by human attackers that must manage their return on investment into attacks (return could include profit or achieving an assigned objective)._
-  > Implement defenses that detect and prevent easy and cheap attack methods
+  > Implement defenses that detect and prevent easy and cheap attack methods.
 * Does the organization consider containing attacker access to Azure workloads when making investments in security solutions?
 
 
@@ -261,16 +261,16 @@
   > Implement security strategy to contain attacker access
 ### Dependencies, frameworks and libraries
             
-* Does the application team maintain a list frameworks and libraries?
+* Does the application team maintain a list frameworks and libraries used by this workload?
 
 
-  _As part of the application inventory the application team should maintain a framework and library list, along with versions in use. Understanding of the frameworks and libraries (custom, OSS, 3rd party, etc.) used by the application and the resulting vulnerabilities is important. There are automated solutions on the market that can help with this assessment: OWASP Dependency-Check, NPM audit or Whitesource Bolt._
-  > Conduct inventory of used frameworks and libraries
-* Are frameworks and library updates included into the application lifecycle process?
+  _As part of the workload inventory the application team should maintain a framework and library list, along with versions in use. Understanding of the frameworks and libraries (custom, OSS, 3rd party, etc.) used by the application and the resulting vulnerabilities is important. There are automated solutions on the market that can help with this assessment: OWASP Dependency-Check, NPM audit or Whitesource Bolt._
+  > Conduct inventory of used frameworks and libraries.
+* Are frameworks and library updates included into the workload lifecycle process?
 
 
   _Application frameworks are frequently provided with updates (e.g. security), released by the vendor or communities. Critical and important security patches need to be prioritized._
-  > Include framework & library updates into application lifecycle process
+  > Include framework & library updates into workload lifecycle process.
 ## Health Modelling
     
 ### Application Level Monitoring
@@ -308,11 +308,11 @@
   > Ensure all Azure environments that connect to your production environment/network apply your organization’s policy and IT governance controls for security
 ### Auditing
             
-* Does the organization conduct periodic & automated access reviews for the workload to make sure only authorized people have access to the workload?
+* Does the organization conduct periodic & automated access reviews for the workload to make sure only authorized people have access?
 
 
   _As people in the organization and on the project change, it is crucial to make sure that only the right people have access to the application infrastructure. Auditing and reviewing the access control reduces the attack vector to the application. Azure control plane depends on Azure AD and access reviews are often centrally performed often as part of internal or external audit activities. For the application specific access it is recommended to do the same at least twice a year._
-  > Conduct periodic access reviews for the workload
+  > Conduct periodic access reviews for the workload.
 ## Networking &amp; Connectivity
     
 ### Connectivity
@@ -343,7 +343,7 @@
       _NSG flow logs should be captured and analyzed to monitor performance and security. The NSG flow logs enables Traffic Analytics to gain insights into internal and external traffic flows of the application._
 
       > Configure and collect network traffic logs
-* Does the organization restrict access to the backend infrastructure (APIs, databases, etc.)  by only a minimal set of public IP addresses, only those who really need it?
+* Does the organization restrict access to the backend infrastructure (APIs, databases, etc.)  by only a minimal set of public IP addresses based on need, only those who really need it?
 
 
   _Web applications typically have one public entrypoint and don't expose subsequent APIs and database servers over the internet. When using gateway services like [Azure Front Door](https://docs.microsoft.com/azure/frontdoor/) it's possible to restrict access only to a set of Front Door IP addresses and lock down the infrastructure completely._
@@ -365,22 +365,22 @@
 
   _[Azure Firewall](https://docs.microsoft.com/azure/firewall/features) is a managed, cloud-based network security service that protects Azure Virtual Network resources. [Web Application Firewall](https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview) (WAF) mitigates the risk of an attacker being able to exploit commonly known security application vulnerabilities like cross-site scripting or SQL injection._
   > Use web application firewall
-* Does the organization protect application publishing methods (e.g FTP, Web Deploy)?
+* Does the organization protect publishing methods for the workload (e.g FTP, Web Deploy)?
 
 
   _Application resources allowing multiple methods to publish app content (e.g FTP, Web Deploy) should have the unused endpoints disabled. For Azure Web Apps SCM is the recommended endpoint and it can be protected separately with network restrictions for sensitive scenarios._
-  > Protect application publishing methods and restrict those not in use
+  > Protect workload publishing methods and restrict those not in use.
     - Does the organization have an CI/CD process for publishing code?
 
 
       _Developers shouldn't publish their code directly to app servers - automated and gated CI/CD process should manage this._
 
       > Implement an automated and gated CD/CD deployment process
-* Do virtual machines running on premises or in the cloud have direct internet connectivity for users that may perform interactive logins, or by applications running on virtual machines?
+* Do workload virtual machines running on premises or in the cloud have direct internet connectivity for users that may perform interactive logins, or by applications running on virtual machines?
 
 
   _Attackers constantly scan public cloud IP ranges for open management ports and attempt “easy” attacks like common passwords and known unpatched vulnerabilities._
-  > Develop process and procedures to prevent direct Internet access of virtual machines with logging and monitoring to enforce policies
+  > Develop process and procedures to prevent direct Internet access of virtual machines with logging and monitoring to enforce policies.
 * Does the organization have the capability and plans in place to mitigate DDoS attacks for this workload?
 
 
@@ -392,8 +392,8 @@
 
 
   _Data exfiltration occurs when an internal/external malicious actor performs and unauthorized data transfer. The solution should leverage a layered approach such as, hub/spoke for network communications with deep packet inspection to detect/protect from a data exfiltration attack. Azure Firewall, UDR (User-defined Routes), NSG (Network Security Groups), Key Protection, Data Encryption, PrivateLink, and Private Endpoints are layered defenses for a data exfiltration attack. Azure Sentinel and Azure Security Center can be used to detect data exfiltration attempts and alert incident responders._
-  > Apply a layered defense in depth / zero trust approach, e.g. use Azure Defender (Azure Security Center) or Azure Sentinel to detect data exfiltration attempts
-* Has the organization deployed controls to control traffic between subnets, Azure components and tiers of the workload?
+  > Apply a layered defense in depth / zero trust approach, e.g. use Azure Security Center to detect data exfiltration attempts
+* Has the organization deployed controls to manage traffic between subnets, Azure components and tiers of the workload?
 
 
   _Data filtering between subnets and other Azure resources should be protected. Network Security Groups, PrivateLink, and Private Endpoints can be used for traffic filtering._
@@ -419,16 +419,16 @@
 
   _Centralizing network management and security can reduce the potential for inconsistent strategies that create potential attacker exploitable security risks. Because all divisions of the IT and development organizations do not have the same level of network management and security knowledge and sophistication, organizations benefit from leveraging a centralized network team’s expertise and tooling._
   > Establish designated group responsible for central network management
-* Does the organization have an aligned cloud network segmentation strategy with the enterprise segmentation model?
+* Does the organization align the cloud network segmentation strategy with the enterprise segmentation model?
 
 
   _Aligning cloud network segmentation strategy with the enterprise segmentation model reduces confusion and resulting challenges with different technical teams (networking, identity, applications, etc.) each developing their own segmentation and delegation models that don’t align with each other._
   > Align cloud network segmentation strategy with the enterprise segmentation model
-* Does the organization have controls in place to ensure that security extends past the network boundaries in order to effectively prevent, detect, and respond to threats?
+* Does the organization have controls in place to ensure that security extends past the network boundaries of the workload in order to effectively prevent, detect, and respond to threats?
 
 
   _Traditional network controls based on a “trusted intranet” approach will not be able to effectively provide security assurances for these applications._
-  > Evolve security beyond network controls
+  > Evolve security beyond network controls.
 * Which of the following best describes the workload network security for data protection?
 
 
@@ -461,11 +461,11 @@
   > Implement an internet edge strategy
 ### Encryption
             
-* Does the organization use industry standard encryption algorithms instead of creating their own?
+* Does the workload use industry standard encryption algorithms instead of creating own?
 
 
   _Organizations should rarely develop and maintain their own encryption algorithms. Secure standards already exist on the market and should be preferred. AES should be used as symmetric block cipher, AES-128, AES-192 and AES-256 are acceptable. Crypto APIs built into operating systems should be used where possible, instead of non-platform crypto libraries. For .NET make sure you follow the [.NET Cryptography Model](https://docs.microsoft.com/dotnet/standard/security/cryptography-model)._
-  > Use standard and recommended encryption algorithms
+  > Use standard and recommended encryption algorithms.
 * Does the workload communicate over encrypted (TLS / HTTPS) network traffic only?
 
 
@@ -507,7 +507,7 @@
       _All data should be encrypted in transit using a common encryption standard. Determine if all components in the solution are using a consistent standard. There are times when encryption is not possible due to technical limitations, but the reason needs to be clear and valid._
 
       > Ensure that all data in Azure is encrypted while in transit
-* Is the organization using its own (customer managed) encryption keys?
+* Is the workload using customer managed encryption keys?
 
 
 * Does the organization use identity-based storage access controls for this workload?
@@ -515,11 +515,11 @@
 
   _Protecting data at rest is required to maintain confidentiality, integrity, and availability assurances across all workloads._
   > Implement identity-based storage access controls
-* Does the organization encrypt your virtual disk files for virtual machines which are associated with Azure workloads?
+* Does the organization encrypt virtual disk files for virtual machines which are associated with Azure workloads?
 
 
   _Encrypting the virtual disk files helps prevent attackers from gaining access to the contents of the disk files in the event an attacker is able to download the files and mount the disk files offline on a separate system._
-  > Encrypt virtual disks
+  > Encrypt virtual disks.
 ## Operational Procedures
     
 ### Configuration &amp; Secrets Management
@@ -539,11 +539,11 @@
 
   _In the situation where a key or secret becomes compromised, it is important to be able to quickly act and generate new versions. Key rotation reduces the attack vectors and should be automated and executed without any human interactions._
   > Secrets (keys, certificates etc.) should be replaced once they have reached the end of their active lifetime or once they have been compromised. Renewed certificates should also use a new key. A process needs to be in place for situations where keys get compromised (leaked) and need to be regenerated on-demand. Tools, such as Azure Key Vault should ideally be used to store and manage application secrets to help with rotation processes([Key Vault Key Rotation](https://docs.microsoft.com/azure/key-vault/secrets/tutorial-rotation-dual))
-* Are the expiry dates of SSL certificates monitored and are processes in place to renew them?
+* Are the expiry dates of SSL/TSL certificates monitored and are processes in place to renew them?
 
 
-  _Expired SSL certificates are one of the most common yet avoidable causes of application outages; even Azure and more recently Microsoft Teams have experienced outages due to expired certificates._
-  > Tracking expiry dates of SSL certificates and renewing them in due time is therefore highly critical. Ideally the process should be automated, although this often depends on leveraged CA. If not automated, sufficient alerting should be applied to ensure expiry dates do not go unnoticed
+  _Expired SSL/TSL certificates are one of the most common yet avoidable causes of application outages; even Azure and more recently Microsoft Teams have experienced outages due to expired certificates._
+  > Tracking expiry dates of SSL/TSL certificates and renewing them in due time is therefore highly critical. Ideally the process should be automated, although this often depends on leveraged CA. If not automated, sufficient alerting should be applied to ensure expiry dates do not go unnoticed
 * Is there a defined access model for keys and secrets for this workload?
 
 
@@ -553,17 +553,17 @@
 
 
   _Central SecOps team provides guidance on how keys and secrets are managed (governance), application DevOps team is responsible to manage the application related keys and secrets._
-* Does the organization have a clear guidance or requirement on what kind of keys should be used for this workload? PMK - Platform Managed Keys vs CMK - Customer Managed Keys
+* Does the organization have a clear guidance or requirement on what type of keys should be used for this workload? PMK - Platform Managed Keys vs CMK - Customer Managed Keys
 
 
   _Different approaches can be used by the workload team. Decisions are often driven by security, compliance and specific data classification requirements. Understanding these requirements is important to determine which key types are best suitable (MMK - Microsoft-managed Keys, CMK - Customer-managed Keys or BYOK - Bring Your Own Key)._
-  > Provide guidance for either platform managed keys (PMK) or customer managed keys (CMK), based on security or compliance requirements of this workload
-* Does the organization store sensitive information (keys, secrets) outside of the application code in Azure Key Vault?
+  > Provide guidance for either platform managed keys (PMK) or customer managed keys (CMK), based on security or compliance requirements of this workload.
+* Does the organization store sensitive information (keys, secrets) outside of the application code in Azure Key Vault or equivalent service?
 
 
   _API keys, database connection string and passwords need to be stored in a secure store and not within the application code or configuration._
-  > Store keys and secrets outside of application code in Azure Key Vault
-* Does the organization have a clear responsibility / role concept (separation of concern) for managing keys and secrets for this workload?
+  > Store keys and secrets outside of application code in Azure Key Vault.
+* Does the organization define clear responsibility / role concept for managing keys and secrets for this workload?
 
 
   _Central SecOps team should provide guidance on how keys and secrets are managed (governance), application DevOps team is responsible to manage the application related keys and secrets._
@@ -575,11 +575,11 @@
 
   _Security vulnerabilities can result in an application disclosing confidential data, allowing criminals to alter data/records, or the data/application becoming unavailable for use by customers and employees. Applications will almost always contain logic errors, so it is important to discover, evaluate, and correct them to avoid damage to the organization’s reputation, revenue, or margins. This is made easier by discovering these vulnerabilities in the early stages of the development cycle. [Develop Secure Applications on Azure whitepaper](https://azure.microsoft.com/resources/develop-secure-applications-on-azure/)_
   > Implement security practices and tools during development lifecycle
-* Does the organization have a formal policy in place to apply security updates to VMs in a timely manner, and do strong passwords exist on those VMs for any local administrative accounts that may be in use?
+* Does the organization have a formal policy for this workload to apply security updates to VMs in a timely manner, and do strong passwords exist on those VMs for any local administrative accounts that may be in use?
 
 
   _Attackers constantly scan public cloud IP ranges for open management ports and attempt “easy” attacks like common passwords and unpatched vulnerabilities._
-  > Put in place a solution to ensure all VMs are patched in a timely manner and to ensure strong local administrative password management
+  > Put in place a solution to ensure all VMs are patched in a timely manner and to ensure strong local administrative password management.
 ### Incident Response
             
 * Are operational processes for incident response defined and tested?
@@ -616,7 +616,7 @@
 
   _Secrets need to be managed in a secure manner inside of the CI/CD pipeline. The secrets needs to be stored either in a secure store inside the pipeline or externally in Azure Key Vault. When deploying application infrastructure (e.g. with Azure Resource Manager or Terraform), credentials and keys should be generated during the process, stored directly in Key Vault and referenced by deployed resources. Hardcoded credentials should be avoided._
   > Store keys and secrets outside of deployment pipeline in Azure Key Vault or in secure store for the pipeline.
-* Is code scan included in continuos integration (CI) process and are dependencies and framework components covered by this process?
+* Is code scan included in continuos integration (CI) process and are dependencies and framework components included in this process?
 
 
   _As part of the continuous integration process it is crucial that every release includes a scan of all components in use. Vulnerable dependencies should be flagged and investigated. This can done in combination with other code scanning tasks (e.g. code churn, test results/coverage)._
@@ -628,11 +628,11 @@
   > Implement branch policy strategy to enhance branch security
 ### Build Environments
             
-* Does the organization apply security controls (e.g. IP firewall restrictions, update management, etc.) to their self-hosted build agents?
+* Does the organization apply security controls (e.g. IP firewall restrictions, update management, etc.) to self-hosted build agents?
 
 
   _When the organization uses their own build agents it adds management complexity and can become an attack vector. Build machine credentials must be stored securely and file system needs to be cleaned of any temporary build artifacts regularly. Network isolation can be achieved by only allowing outgoing traffic from the build agent, because it's using pull model of communication with Azure DevOps._
-  > Apply security controls to your self-hosted build agents in the same manner as with other Azure IaaS VMs
+  > Apply security controls to self-hosted build agents in the same manner as with other Azure IaaS VMs.
 ### Testing &amp; Validation
             
 * Does the organization use Azrue Defender (Azure Security Center) or any third-party solution to scan containers for vulnerabilities?
@@ -640,11 +640,11 @@
 
   _Azure Security Center is the Azure-native solution for securing containers. Security Center can protect virtual machines that are running Docker, Azure Kubernetes Service clusters, Azure Container Registry registries. ASC is able to scan container images and identify security issues, or provide real-time threat detection for containerized environments. [Container Security in Security Center](https://docs.microsoft.com/azure/security-center/container-security)_
   > Scan container workloads for vulnerabilities.
-* Does the organization perform penetration testing or have a third-party entity perform penetration testing to validate the current security defenses?
+* Does the organization perform penetration testing or have a third-party entity perform penetration testing of this workload to validate the current security defenses?
 
 
   _Real world validation of security defenses is critical to validate a defense strategy and implementation. Penetration tests or red team programs can be used to simulate either one time, or persistent threats against an organization to validate defenses that have been put in place to protect organizational resources._
-  > Use penetration testing and red team exercises to validate security defenses for this workload
+  > Use penetration testing and red team exercises to validate security defenses for this workload.
 * Does the organization have a method and carry out simulated attacks on users?
 
 
@@ -654,7 +654,7 @@
     
 ### General
             
-* Has the organization adopted a formal DevOps approach to building and maintaining software to ensure security and feature enhancements can be deployed in rapid fashion?
+* Has the organization adopted a formal DevOps approach to building and maintaining software in this workload to ensure security and feature enhancements can be deployed in rapid fashion?
 
 
   _The DevOps approach increases the organization’s ability to rapidly address security concerns without waiting for a longer planning and testing cycle of traditional waterfall model. Key attributes are: automation, close integration of infra and dev teams, testability and reliability and repeatability of deployments.* [Adopt the DevOps approach](https://docs.microsoft.com/azure/architecture/framework/Security/applications-services#adopt-the-devops-approach)_
@@ -745,7 +745,7 @@
 
   _A compromise of an account in a role that is assigned privileges with a business-critical impact can be detrimental to organizational information systems and should therefore be closely monitored including a lifecycle process._
   > Establish lifecycle management policy for critical accounts.
-    - Does the organization regularly review access from accounts that have privileges to business-critical workloads?
+    - Does the organization regularly review access from accounts that have privileges to this workload?
 
 
       _It is important to set up a recurring review pattern to ensure that accounts are removed from permissions as roles change._
@@ -783,7 +783,7 @@
 
   _Defining CI/CD permissions properly ensures that only users responsible for production releases are able to initiate the process and that only developers can access the source code. Azure DevOps offers pre-defined roles which can be assigned to individual users of groups. Using them properly can make sure that for example only users responsible for production releases are able to initiate the process and that only developers can access the source code. Variable groups often contain sensitive configuration information and can be protected as well._
   > Clearly define CI/CD roles and permissions.
-* Does your organization synchronize your Azure AD with your current on-premises, or other cloud identity systems?
+* Does the organization synchronize current on-premises Active Directory with Azure AD, or other cloud identity systems?
 
 
   _Consistency of identities across cloud and on-premises will reduce human errors and resulting security risk. Teams managing resources in both environments need a consistent authoritative source to achieve security assurances._
@@ -875,7 +875,7 @@ Because security will have broad access to the environment (and visibility into 
 
   _Managed identities enable Azure Services to authenticate to each other without presenting explicit credentials via code and increase security._
   > Standarize managed identity authentication
-* Has the organization restricted legacy authentication protocols from internet facing workloads?
+* Has the organization restricted legacy authentication protocols for this workload?
 
 
   _Legacy authentication methods are among the top attack vectors for cloud-hosted services. Created before multi-factor authentication existed, legacy protocols don’t support additional factors beyond passwords and are therefore prime targets for password spraying, dictionary, or brute force attacks._
