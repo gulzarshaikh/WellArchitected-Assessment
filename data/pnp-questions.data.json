@@ -1,12 +1,9 @@
 [
     {
-        "type": "Questions",
+        "type": "PnP Questions",
         "pillars": [
             "reliability"
         ],
-        "lens": "application",
-        "category": "Application Design",
-        "subCategory": "Design",
         "title": "What reliability targets and metrics have you defined for your application?",
         "context": "Availability targets, such as Service Level Agreements (SLA) and Service Level Objectives (SLO), and Recovery targets, such as Recovery Time Objectives (RTO) and Recovery Point Objectives (RPO), should be defined and tested to ensure application reliability aligns with business requirements.",
         "id": "pnp_question_reliability1",
@@ -32,7 +29,7 @@
                 "score": 20
             },
             {
-                "question_id": "none_of_the_above",
+                "title": "None of the above",
                 "score": 0
             }
         ]
