@@ -202,17 +202,19 @@ Resources
                             
 ### Configuration Recommendations
 * For all virtual machines requiring resiliency, it is highly recommended that:
-  - Managed Disks should be used for all virtual machine OS and Data disks to ensure resilience across underlying storage stamps within a datacenter.
+  - [Managed Disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#benefits-of-managed-disks) should be used for all virtual machine OS and Data disks to ensure resilience across underlying storage stamps within a datacenter.
     > [Managed Disk Benefits](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#benefits-of-managed-disks)
                                 
                             
   - Singleton workloads should use Premium Managed Disks to enhance resiliency and obtain a 99.9% SLA as well as dedicated performance characteristics.
                             
-  - Non-Singleton workloads should consider two or more replica instances with Managed disks (Standard or Premium) that are deployed within an Availability Set to obtain a 99.95% SLA or across Availability Zones to obtain a 99.95% SLA.
+  - Non-Singleton workloads should consider two or more replica instances with Managed disks (Standard or Premium) that are deployed within an [Availability Set](https://docs.microsoft.com/azure/virtual-machines/manage-availability) to obtain a 99.95% SLA or across [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones) to obtain a 99.99% SLA.
                             
-  - Where appropriate virtual machines should be deployed across Availability Zones to maximize resilience within a region.
-    > [Datacenter Fault Tolerance](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#use-availability-zones-to-protect-from-datacenter-level-failures)
+  - Where appropriate virtual machines should be deployed across [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones) to maximize resilience within a specific Azure region.
+    > Availability Zones offer unique physical locations within an Azure region, where each zone is made up of one or more datacenters equipped with independent power, cooling, and networking. See [Datacenter Fault Tolerance](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#use-availability-zones-to-protect-from-datacenter-level-failures) and [High availability and disaster recovery for IaaS apps](https://docs.microsoft.com/azure/architecture/example-scenario/infrastructure/iaas-high-availability-disaster-recovery) for more.
                                 
+                            
+  - Consider using [proximity placement groups](https://azure.microsoft.com/blog/introducing-proximity-placement-groups/) (PPGs) with Availability Zones.
                             
 * Azure Metadata Service Scheduled Events should be used to proactively respond to maintenance events (i.e. reboots) and limit disruption to virtual machines.
   > [Azure Metadata Service Scheduled Events](https://docs.microsoft.com/azure/virtual-machines/windows/scheduled-events)
