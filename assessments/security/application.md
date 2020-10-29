@@ -196,6 +196,12 @@
 
 
   _Find out how they make sure they maintain compliance as the Azure Platform evolves and they update their application. Are there things preventing them from adopting new features in the platform because it will knock them out of compliance?_
+    - Does the organization have a process for regulatory or governance compliance attestation?
+
+
+      _Knowing whether your cloud resources are in compliance with standards mandated by governments or industry organizations is essential in today's globalized world (e.g. GDPR)._
+
+      > Perform regulatory compliance attestation.
 * Does the organization periodically perform external and/or internal workload audits?
 
 
@@ -223,11 +229,6 @@
 
   _Enterprise organizations typically have a large application portfolio. Have key business applications been identified and classified? This should include applications that have a high business impact if affected. Examples would be business critical data, regulated data, or business critical availability. These applications also might include applications which have a high exposure to attach such as public facing websites key to organizational success._
   > Identify and classify business critical applications
-* Does the organization have a process for regulatory or governance compliance attestation?
-
-
-  _Knowing whether your cloud resources are in compliance with standards mandated by governments or industry organizations is essential in today's globalized world (e.g. GDPR)_
-  > Perform regulatory compliance attestation
 * Does the organization have established a monitoring and assessing solution for compliance?
 
 
@@ -384,7 +385,7 @@
 
 
   _DDoS attacks can be very debilitating and completely block access to your services or even take down the services, depending on the type of DDoS attack._
-  > Mitigate DDoS attacks
+  > Mitigate DDoS attacks.
 ### Data flow
             
 * Are there controls in place to detect and protect from data exfiltration?
@@ -402,11 +403,6 @@
 
   _CASBs provide rich visibility, control over data travel, and sophisticated analytics to identify and combat cyberthreats across all Microsoft and third-party cloud services._
   > Leverage a cloud application security broker (CASB)
-* Does the organization have controls in place to detect data exfiltration attempts for this workload, like Azure Defender (Azure Security Center), Azure Sentinel or a 3rd party SIEM (Security Information and Event Management System)?
-
-
-  _Data exfiltration occurs when an internal/external malicious actor performs and unauthorized data transfer._
-  > Apply a layered defense in depth / zero trust approach, e.g. use Azure Defender (Azure Security Center) or Azure Sentinel to detect data exfiltration attempts
 ## Security &amp; Compliance
     
 ### Security Center
@@ -447,12 +443,12 @@
 
 
   _Most organizations end up adding more resources to networks than initially planned. When this happens, IP addressing and subnetting schemes need to be refactored to accommodate the extra resources. This is a labor-intensive process. There is limited security value in creating a very large number of small subnets and then trying to map network access controls (such as security groups) to each of them._
-  > Design virtual networks for growth
+  > Design virtual networks for growth.
 * Does the organization have a security containment strategy that blends existing on-premises security controls and practices with native security controls available in Azure, and uses a zero-trust approach?
 
 
   _Assume breach is the recommended cybersecurity mindset and the ability to contain an attacker is vital to protect information systems._
-  > Build a security containment strategy
+  > Build a security containment strategy.
 * Does the organization have an internet ingress/egress policy defined?
 
 
@@ -680,6 +676,16 @@
   > Establish security benchmarking aligned to industry standards
 ### Roles &amp; Responsibilities
             
+* Are tools or processes in place to grant access on a just-in-time basis?
+
+
+  _Minimizing the number of people who have access to secure information or resources reduces the chance of a malicious actor gaining access or an authorized user inadvertently impacting a sensitive resource. For example, Azure AD [Privileged Identity Management](https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-configure) provides time-based and approval-based role activation to mitigate the risks of excessive, unnecessary, or misused access permissions on resources that you care about_
+  > Implement just-in-time privileged access management
+    - Does anyone have long-standing write-access to production environments?
+
+
+      _Write-access to production systems should be limited to service principals and no user accounts have regular write-access_
+
 * Does the organization have release gate approvals configured in their DevOps release process?
 
 
@@ -688,7 +694,7 @@
 * Is the security team involved in the planning, design and overall DevOps process, so that they can implement security controls, auditing, response processes into the solutions?
 
 
-  _There should be a process for onboarding service securely to Azure.  The onboarding process should include reviewing the configuration options to determine what logging/monitoring needs to be established, how to properly harden a resource before it goes into production.  For a list of common criteria for onboarding resoruces, see the [Service Enablement Framework](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/enterprise-scale/security-governance-and-compliance#service-enablement-framework)_
+  _There should be a process for onboarding service securely to Azure. The onboarding process should include reviewing the configuration options to determine what logging/monitoring needs to be established, how to properly harden a resource before it goes into production.  For a list of common criteria for onboarding resoruces, see the [Service Enablement Framework](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/enterprise-scale/security-governance-and-compliance#service-enablement-framework)_
   > Involve security team into development process
 * Has the organization developed and maintained a security training program to ensure technical staff are well-informed and equipped with the appropriate skills?
 
@@ -707,11 +713,11 @@
   > Designate the parties responsible for specific functions in Azure
 ### Common Engineering Criteria
             
-* Has the organization implemented or considered implementing elevated security capabilities such as dedicated Hardware Security Modules (HSMs) or the use of Confidential Computing?
+* Has the organization implemented or considered implementing elevated security capabilities such as dedicated Hardware Security Modules (HSMs) or the use of [Confidential Computing](https://azure.microsoft.com/solutions/confidential-compute/)?
 
 
   _Careful consideration is necessary on whether to utilize specialized security capabilities in an organization’s enterprise architecture._
-  > Review and consider elevated security capabilities for Azure workloads
+  > Review and consider elevated security capabilities for Azure workloads.
 ## Identity &amp; Access Control
     
 ### Separation of duties
@@ -727,91 +733,73 @@
 * Are authentication tokens cached securely and encrypted when sharing across web servers?
 
 
-  _Application code should first try to get tokens silently from a cache before attempting to acquire a token from the identity provider, to optimise performance and maximize availability. Tokens should be stored securely and handled as any other credentials. When there's a need to share tokens across application servers (instead of each server acquiring and caching their own) encryption should be used. [Acquire and cache tokens](https://docs.microsoft.com/azure/active-directory/develop/msal-acquire-cache-tokens)_
+  _OAuth tokens are usually cached after they've been acquired. Application code should first try to get tokens silently from a cache before attempting to acquire a token from the identity provider, to optimise performance and maximize availability. Tokens should be stored securely and handled as any other credentials. When there's a need to share tokens across application servers (instead of each server acquiring and caching their own) encryption should be used. [Acquire and cache tokens](https://docs.microsoft.com/azure/active-directory/develop/msal-acquire-cache-tokens)_
+  > Configure web apps to reuse authentication tokens securely.
 * Are there any processes and tools leveraged to manage privileged activities?
 
 
   _Zero-trust principle comes with the requirement of no standing access to an environment. Native and 3rd party solution can be used to elevate access permissions for at least highly privileged if not all activities. [Azure AD Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) (Azure AD PIM) is the recommended and Azure native solution._
-* Does the organization synchronize on-premises admin accounts to Azure Active Directory, or to another cloud identity provider?
-
-
-  _Synching on-premise admin accounts to Azure Active Directory creates a pivot point that allows an on-premsise compromise to impact Azure workloads._
-  > Avoid synching on-premise admin accounts to AAD
+  > Establish processes and use tools to manage priviliged access.
 * Has the organization established a lifecycle management policy for critical accounts?
 
 
   _A compromise of an account in a role that is assigned privileges with a business-critical impact can be detrimental to organizational information systems and should therefore be closely monitored including a lifecycle process._
-  > Establish lifecycle management policy for critical accounts
-* Does the organization leverage processes or tools to manage privileged access to a just-in-time basis?
+  > Establish lifecycle management policy for critical accounts.
+    - Does the organization regularly review access from accounts that have privileges to business-critical workloads?
 
 
-  _Minimizing the number of people who have access to secure information or resources reduces the chance of a malicious actor gaining access or an authorized user inadvertently impacting a sensitive resource._
-  > Implement just-in-time privileged access management
+      _It is important to set up a recurring review pattern to ensure that accounts are removed from permissions as roles change._
+
+      > Regularly review critical access roles.
 * Has a designated point of contact been assigned to receive Azure incident notifications from Microsoft?
 
 
-  _Security alerts need to reach the right people in your organization. It is important to ensure a security contact receives Azure incident notifications, or alerts from Microsoft / Azure Security Center, such as a notification that your resource is compromised and/or attacking another customer.
-
-_
-  > Establish a designated point of contact to receive Azure incident notifications from Microsoft
-* Does the organization regularly review access from accounts that have privileges to business-critical workloads?
-
-
-  _It is important to set up a recurring review pattern to ensure that accounts are removed from permissions as roles change._
-  > Regularly review critical access roles
+  _Security alerts need to reach the right people in your organization. It is important to ensure a security contact receives Azure incident notifications, or alerts from Microsoft / Azure Security Center, such as a notification that your resource is compromised and/or attacking another customer._
+  > Establish a designated point of contact to receive Azure incident notifications from Microsoft.
 * Does the organization assign the appropriate level of privileges for managing the Azure environment based on a clearly documented strategy built with the principle of least privilege and based on operational needs?
 
 
   _Microsoft recommends starting from the Core Services Reference Permissions model and Segment Reference Permissions model to provide clear guidance for technical teams implementing these permissions._
-  > Document and implement a privileged access strategy sourced from Microsoft core services reference models
+  > Document and implement a privileged access strategy sourced from Microsoft core services reference models.
 ### Control-plane RBAC
             
-* Is the application infrastructure protected with RBAC (role-based access control)?
+* Does the organization protect the workload infrastructure with role-based access control (RBAC)?
 
 
-  _RBAC provides the necessary tools to maintain separation of concerns when it comes to accessing the application infrastructure. Aligned with the [separation of duties](#separation-of-duties) section, users should have only the minimal set of permissions. Examples: "Developers can't access production infrastructure.", "Only the SecOps team can read and manage Key Vault secrets.", "Project A team can access and manage Resource Group A and all resources within."_
-* Are there resource locks applied on critical parts of the infrastructure?
-
-
-  _To prevent deleting or modifying resources, Azure offers the locking functionality where only specific roles and users with permissions are able to delete/modify resources. Locks can be used on critical parts of the infrastructure, but special care needs to be taken in the DevOps process - modification locks can sometimes block automation._
-* Is there a direct access to the application infrastructure through Azure Portal, Command-line Interface (CLI) or REST API?
-
-
-  _While it is recommended to deploy application infrastructure via automation and CI/CD. To maximize application autonomy and agility, restrictive access control need be balanced on less critical development and test environments._
-* Are CI/CD pipeline roles clearly defined and permissions set?
-
-
-  _Azure DevOps offers pre-defined roles which can be assigned to individual users of groups. Using them properly can make sure that for example only users responsible for production releases are able to initiate the process and that only developers can access the source code. Variable groups often contain sensitive configuration information and can be protected as well._
-* Does the organization protect the application infrastructure with role-based access control (RBAC)?
-
-
-  _RBAC provides the necessary tools to maintain separation of concerns when it comes to accessing the application infrastructure._
+  _Performing role-based or/or resource-based authorization with Azure Active Directory allows centralized management that supports principal of least privilege when accessing organizational resources. RBAC provides the necessary tools to maintain separation of concerns when it comes to accessing the application infrastructure. Aligned with the [separation of duties](#separation-of-duties) section, users should have only the minimal set of permissions. Examples: "Developers can't access production infrastructure.", "Only the SecOps team can read and manage Key Vault secrets.", "Project A team can access and manage Resource Group A and all resources within."_
   > Implement role-based access control for application infrastructure
 * Does the organization leverage resource locks to protect critical infrastructure?
 
 
-  _Critical infrastructure typically doesn't change often and can benefit from resource locks to prevent accidential/undesired modification resulting in an outage._
-  > Implement resource locks to protect critical infrastructure
-* Does the organization block access directly to the application infrastructure through Azure Portal, command-line interface (CLI), or REST API?
+  _Critical infrastructure typically doesn't change often. To prevent accidental/undesired modification of resources, Azure offers the locking functionality where only specific roles and users with permissions are able to delete/modify resources. Locks can be used on critical parts of the infrastructure, but special care needs to be taken in the DevOps process - modification locks can sometimes block automation._
+  > Implement resource locks to protect critical infrastructure.
+* Is there a direct access to the application infrastructure through Azure Portal, Command-line Interface (CLI) or REST API?
 
 
   _While it is recommended to deploy application infrastructure via automation and CI/CD. To maximize application autonomy and agility, restrictive access control need be balanced on less critical development and test environments._
-  > Restrict application infrastructure access to CI/CD only
+  > Restrict application infrastructure access to CI/CD only for critical workloads.
 * Does the organization clearly define CI/CD roles and permissions?
 
 
-  _Defining CI/CD permissions properly ensures that only users responsible for production releases are able to initiate the process and that only developers can access the source code._
-  > Clearly define CI/CD roles and permissions
+  _Defining CI/CD permissions properly ensures that only users responsible for production releases are able to initiate the process and that only developers can access the source code. Azure DevOps offers pre-defined roles which can be assigned to individual users of groups. Using them properly can make sure that for example only users responsible for production releases are able to initiate the process and that only developers can access the source code. Variable groups often contain sensitive configuration information and can be protected as well._
+  > Clearly define CI/CD roles and permissions.
 * Does your organization synchronize your Azure AD with your current on-premises, or other cloud identity systems?
 
 
   _Consistency of identities across cloud and on-premises will reduce human errors and resulting security risk. Teams managing resources in both environments need a consistent authoritative source to achieve security assurances._
   > Synchronize on-premise directory with Azure AD
-* Does the organization use cloud provider identity services designed to host non-employee rather than including vendors, partners, and customers into a corporate directory?
+    - Does the organization synchronize on-premises admin accounts to Azure Active Directory, or to another cloud identity provider?
 
 
-  _Using a cloud identity provider reduces risk by granting the appropriate level of access to external entities instead of the full default permissions given to full-time employees. This least privilege approach and clear differentiation of external accounts from company staff makes it easier to prevent and detect attacks coming in from these vectors._
-  > Use cloud provider identity services for non-employees
+      _Synchronizing on-premises admin accounts to Azure Active Directory creates a pivot point that allows an on-premsise compromise to impact Azure workloads._
+
+      > Avoid synching on-premises admin accounts to AAD.
+    - Does the organization use cloud provider identity services designed to host non-employee rather than including vendors, partners, and customers into a corporate directory?
+
+
+      _Using a cloud identity provider reduces risk by granting the appropriate level of access to external entities instead of the full default permissions given to full-time employees. This least privilege approach and clear differentiation of external accounts from company staff makes it easier to prevent and detect attacks coming in from these vectors._
+
+      > Use cloud provider identity services for non-employees
 * Does the organization use a single identity provider for cross-platform identity management?
 
 
@@ -825,21 +813,16 @@ _
 * Does the organization assign permissions to Azure workloads based on individual users/resources or use custom permissions?
 
 
-  _Custom resource-based permissions are often unneeded that can result in increased complexity and confusion as they do not carry the intention to new similar resources. This then accumulates into a complex legacy configuration that is difficult to maintain or change without fear of "breaking something" – negatively impacting both security and solution agility._
-  > Assign permissions based on management or resource groups
+  _Custom resource-based permissions are often not needed and can result in increased complexity and confusion as they do not carry the intention to new similar resources. This then accumulates into a complex legacy configuration that is difficult to maintain or change without fear of "breaking something" – negatively impacting both security and solution agility._
+  > Assign permissions based on management or resource groups.
 * Does the organizational security team have read-only access into all cloud environment resources?
 
 
-  _Provide security teams read-only access to the security aspects of all technical resources in their purview
-
-Security organizations require visibility into the technical environment to perform their duties of assessing and reporting on organizational risk. Without this visibility, security will have to rely on information provided from groups, operating the environment, who have a potential conflict of interest (and other priorities).
-
+  _Provide security teams read-only access to the security aspects of all technical resources in their purview. Security organizations require visibility into the technical environment to perform their duties of assessing and reporting on organizational risk. Without this visibility, security will have to rely on information provided from groups, operating the environment, who have a potential conflict of interest (and other priorities).
 Note that security teams may separately be granted additional privileges if they have operational responsibilities or a requirement to enforce compliance on Azure resources.
-
-For example in Azure, assign security teams to the Security Readers permission that provides access to measure security risk (without providing access to the data itself)
-
+For example in Azure, assign security teams to the Security Readers permission that provides access to measure security risk (without providing access to the data itself).
 Because security will have broad access to the environment (and visibility into potentially exploitable vulnerabilities), you should consider them critical impact accounts and apply the same protections as administrators._
-  > Ensure security team has "Security Readers" or equivalent on cloud resources in their purview
+  > Ensure security team has "Security Readers" or equivalent on cloud resources in their purview.
 * Does the organization use the root management group and carefully consider any changes that are applied using this group?
 
 
@@ -851,62 +834,47 @@ Because security will have broad access to the environment (and visibility into 
 
 
   _Try to avoid authentication with keys (connection strings, API keys etc.) and always prefer Managed Identities (formerly also known as Managed Service Identity, MSI). Managed identities enable Azure Services to authenticate to each other without presenting explicit credentials via code. Typical use case is a Web App accessing Key Vault credentials or a Virtual Machine accessing SQL Database. [Managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/)_
-* What kind of authentication is required by application APIs?
+  > Use managed identites for authentication to other Azure platform services.
+* Do all APIs for this workload require authentication?
 
 
   _API URLs used by client applications are exposed to attackers (JavaScript code on a website can be viewed, mobile application can be decompiled and inspected) and should be protected. For internal APIs, requiring authentication can increase the difficulty of lateral movement if an attacker obtains network access. Typical mechanisms include API keys, authorization tokens, IP restrictions or Azure Managed identities._
+  > Require API authentication for all workloads.
+    - Does this workload leverage modern (OAuth 2.0, OpenID) authentication protocols?
+
+
+      _Modern authentication protocols support strong controls such as MFA and should be used instead of legacy._
+
+      > Standarize on modern authentication protocols.
 * How is user authentication handled in the application?
 
 
   _If possible, applications should utilize Azure Active Directory or other managed identity providers (such as Microsoft Account, Azure B2C...) to avoid managing user credentials with custom implementation. Modern protocols like OAuth 2.0 use token-based authentication with limited timespan, identity providers offer additional functionality like multi-factor authentication, password reset etc._
-* Are there any conditional access requirements for the application?
-
-
-  _Modern cloud-based applications are often accessible over the internet and location-based networking restrictions don't make much sense, but it needs to be mapped and understood what kind of restrictions are required. Multi-factor Authentication (MFA) is a necessity for remote access, IP-based filtering can be used to enable ad-hoc debugging, but VPNs are preferred._
-* Does the organization prioritize authentication via identity services for this workload vs. cryptographic keys?
-
-
-  _Consideration should always be given to authenticating with identity services rather than cryptographic keys when available. Managing keys securely with application code is difficult and regularly leads to mistakes like accidentally publishing sensitive access keys to code repositories like GitHub. Identity systems (such as Azure Active Directory) offer secure and usable experience for access control with built-in sophisticated mechanisms for key rotation, monitoring for anomalies, and more._
-* Does the workload use managed identities when authenticating with other Azure platform services?
-
-
-  _Try to avoid authentication with keys (connection strings, API keys etc.) and always prefer Managed Identities (formerly also known as Managed Service Identity, MSI). Managed identities enable Azure Services to authenticate to each other without presenting explicit credentials via code. Typical use case is a Web App accessing Key Vault credentials or a Virtual Machine accessing SQL Database. Managed identities_
-  > Use managed identites for authentication to other Azure platform services
 * Does the organization enforce conditional access for this workload?
 
 
   _Modern cloud-based applications are often accessible over the internet and location-based networking restrictions don't make much sense, but it needs to be mapped and understood what kind of restrictions are required. Multi-factor Authentication (MFA) is a necessity for remote access, IP-based filtering can be used to enable ad-hoc debugging, but VPNs are preferred._
-  > Implement Conditional Access Policies
+  > Implement Conditional Access Policies.
+    - Does the organization enforce password less or multi-factor authentication for users?
+
+
+      _Attack methods have evolved to the point where passwords alone cannot reliably protect an account.  Modern authentication solutions including password-less and multi-factor authentication increase security posture through strong authentication._
+
+      > Enforce password-less or MFA
+* Does the organization prioritize authentication via identity services for this workload vs. cryptographic keys?
+
+
+  _Consideration should always be given to authenticating with identity services rather than cryptographic keys when available. Managing keys securely with application code is difficult and regularly leads to mistakes like accidentally publishing sensitive access keys to code repositories like GitHub. Identity systems (such as Azure Active Directory) offer secure and usable experience for access control with built-in sophisticated mechanisms for key rotation, monitoring for anomalies, and more._
 * Does the organization use a single enterprise directory for managing identities of full-time employees and enterprise resources?
 
 
   _A single authoritative source for identities increases clarity and consistency for all roles in IT and Security. This reduces security risk from human errors and automation failures resulting from complexity. By having a single authoritative source, teams that need to make changes to the directory can do so in one place and have confidence that their change will take effect everywhere._
   > Use a single enterprise directory for managing identities
-* Does the organization configure role-based and/or resource-based authorization via Azure Active Directory for this workload?
-
-
-  _Performing role-based or/or resource-based authorization with Azure Active Directory allows centralized management that supports principal of least privilege when accessing organizational resources._
-  > Implement role-based and/or resource-based authorization
 * How does this workload authenticate when communicating with the Azure Platform?
 
 
   _Managed identities enable Azure Services to authenticate to each other without presenting explicit credentials via code and increase security._
   > Standarize managed identity authentication
-* Do all APIs for this workload require authentication?
-
-
-  _Requiring API authentication can increase the difficulty of lateral movement if an attacker obtains access to the endpoint._
-  > Require API authentication for all workloads
-* Does this workload leverage modern (OAuth 2.0, OpenID) authentication protocols?
-
-
-  _Modern authentication protocols support strong controls such as MFA and should be used instead of legacy._
-  > Standarize on modern authentication protocols
-* Is this workload configured to use cached authentication tokens via AAD authentication libraries (ADAL / MSAL)?
-
-
-  _MSAL caches a token after it's been acquired. and application code should first try to get a token silently from the cache before attempting to acquire a token by other means to improve performance._
-  > Configure web apps to reuse authentication tokens
 * Has the organization restricted legacy authentication protocols from internet facing workloads?
 
 
@@ -917,11 +885,6 @@ Because security will have broad access to the environment (and visibility into 
 
   _Credential attacks are a common method for breaching an organization and enabling modern password protections limits the use of bad practices while allowing cloud native threat intelligence to alert on suspicious activity._
   > Use modern password protection for accounts that cannot switch to password-less
-* Does the organization enforce password less or multi-factor authentication?
-
-
-  _Attack methods have evolved to the point where passwords alone cannot reliably protect an account.  Modern authentication solutions including password-less and multi-factor authentication increase security posture through strong authentication._
-  > Enforce password-less or MFA
 * Does the organization prioritize authentication via identity services for this workload vs. cryptographic keys?
 
 

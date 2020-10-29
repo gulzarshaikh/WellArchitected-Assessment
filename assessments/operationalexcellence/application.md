@@ -863,10 +863,11 @@ Stress Testing : *Stress testing is a type of negative testing which involves va
 
 
   _Even with an automated deployment process there might be a requirement for manual approvals to fulfil regulatory compliance, and it is important to understand who owns any gates that do exist_
-* Are tools or processes in place to grant access on a just in-time basis?
+* Are tools or processes in place to grant access on a just-in-time basis?
 
 
-  _For example, Azure AD [Privileged Identity Management](https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-configure) provides time-based and approval-based role activation to mitigate the risks of excessive, unnecessary, or misused access permissions on resources that you care about_
+  _Minimizing the number of people who have access to secure information or resources reduces the chance of a malicious actor gaining access or an authorized user inadvertently impacting a sensitive resource. For example, Azure AD [Privileged Identity Management](https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-configure) provides time-based and approval-based role activation to mitigate the risks of excessive, unnecessary, or misused access permissions on resources that you care about_
+  > Implement just-in-time privileged access management
     - Does anyone have long-standing write-access to production environments?
 
 
