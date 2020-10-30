@@ -24,11 +24,14 @@ foreach ($question in $PnpQuestions) {
                 $content = $AllItems | Where-Object { $_.children.id -eq $answer.question_id } | Select-Object -ExpandProperty children | Where-Object { $_.id -eq $answer.question_id }   
             }
             if ($content -and $content.statement) {
-                Write-Host "Found statement: " $content.statement
+                Write-Host "Found statement for question $($answer.question_id): " $content.statement
                 $answer | Add-Member -MemberType NoteProperty -Name "statement" -Value $content.statement
                 $answer | Add-Member -MemberType NoteProperty -Name "context" -Value $content.context
                 $answer | Add-Member -MemberType NoteProperty -Name "recommendation" -Value $content.recommendation
                 $answer.PSObject.Properties.Remove('question_id')
+            }
+            else {
+                Write-Warning "Either mapped question $($answer.question_id) was not found or it does not have a 'statement' field"
             }
         }
     }
