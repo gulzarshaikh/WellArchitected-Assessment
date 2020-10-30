@@ -39,8 +39,7 @@
         "title": "For all virtual machines requiring resiliency, it is highly recommended that:",
         "children": [
             {
-                "title": "[Managed Disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#benefits-of-managed-disks) should be used for all virtual machine OS and Data disks to ensure resilience across underlying storage stamps within a datacenter.",
-                "context": "[Managed Disk Benefits](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#benefits-of-managed-disks)"
+                "title": "[Managed Disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#benefits-of-managed-disks) should be used for all virtual machine OS and Data disks to ensure resilience across underlying storage stamps within a datacenter."
             },
             {
                 "title": "Singleton workloads should use Premium Managed Disks to enhance resiliency and obtain a 99.9% SLA as well as dedicated performance characteristics."
@@ -54,7 +53,7 @@
             },
             {
                 "title": "Consider using [proximity placement groups](https://azure.microsoft.com/blog/introducing-proximity-placement-groups/) (PPGs) with Availability Zones.",
-                "recommendation": "If you want to have redundant in-zone VMs as well as cross-zone VMs, you should place the in-zone VMs in ASs in PPGs to ensure they won't all be rebooted at once."
+                "context": "If you want to have redundant in-zone VMs as well as cross-zone VMs, you should place the in-zone VMs in ASs in PPGs to ensure they won't all be rebooted at once."
             }
         ]
     },
