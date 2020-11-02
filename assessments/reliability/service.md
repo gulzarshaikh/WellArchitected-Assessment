@@ -230,38 +230,46 @@ Resources
                             
 ## Virtual Machines
 ### Design Considerations
-* Microsoft provides a 1) 95% SLA for single instance virtual machines using Standard HDD storage for all OS and Data disks, 2) 99.5% SLA for single instance virtual machines using Standard SSD storage for all OS and Data disks, 3) 99.9% SLA for single instance virtual machines using Premium storage for all OS and Data disks, 4) 99.95% SLA for all virtual machines that have two or more instances in the same Availability Set or Dedicated Host Group, and a 5) 99.99% SLA for all virtual machines that have two or more instances deployed across two or more Availability Zones in the same region.
-  > [Virtual Machine Service Level Agreements](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/)
+* Microsoft provides the following [SLAs for virtual machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/):
+  - 95% SLA for single instance virtual machines using Standard HDD storage for all OS and Data disks
+                            
+  - 99.5% SLA for single instance virtual machines using Standard SSD storage for all OS and Data disks
+                            
+  - 99.9% SLA for single instance virtual machines using Premium storage for all OS and Data disks
+                            
+  - 99.95% SLA for all virtual machines that have two or more instances in the same Availability Set or Dedicated Host Group
+                            
+  - 99.99% SLA for all virtual machines that have two or more instances deployed across two or more Availability Zones in the same region
                             
 ### Configuration Recommendations
 * For all virtual machines requiring resiliency, it is highly recommended that:
-  - Managed Disks should be used for all virtual machine OS and Data disks to ensure resilience across underlying storage stamps within a datacenter.
-    > [Managed Disk Benefits](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#benefits-of-managed-disks)
-                                
+  - [Managed Disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#benefits-of-managed-disks) should be used for all virtual machine OS and Data disks to ensure resilience across underlying storage stamps within a datacenter.
                             
   - Singleton workloads should use Premium Managed Disks to enhance resiliency and obtain a 99.9% SLA as well as dedicated performance characteristics.
                             
-  - Non-Singleton workloads should consider two or more replica instances with Managed disks (Standard or Premium) that are deployed within an Availability Set to obtain a 99.95% SLA or across Availability Zones to obtain a 99.95% SLA.
+  - Non-Singleton workloads should consider two or more replica instances with Managed disks (Standard or Premium) that are deployed within an [Availability Set](https://docs.microsoft.com/azure/virtual-machines/manage-availability) to obtain a 99.95% SLA or across [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones) to obtain a 99.99% SLA.
                             
-  - Where appropriate virtual machines should be deployed across Availability Zones to maximize resilience within a region.
-    > [Datacenter Fault Tolerance](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#use-availability-zones-to-protect-from-datacenter-level-failures)
+  - Where appropriate virtual machines should be deployed across [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones) to maximize resilience within a specific Azure region.
+    > Availability Zones offer unique physical locations within an Azure region, where each zone is made up of one or more datacenters equipped with independent power, cooling, and networking. See [Datacenter Fault Tolerance](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#use-availability-zones-to-protect-from-datacenter-level-failures) and [High availability and disaster recovery for IaaS apps](https://docs.microsoft.com/azure/architecture/example-scenario/infrastructure/iaas-high-availability-disaster-recovery) for more.
+                                
+                            
+  - Consider using [proximity placement groups](https://azure.microsoft.com/blog/introducing-proximity-placement-groups/) (PPGs) with Availability Zones (AZ) to have redundant in-zone VMs.
+    > It is not possible to create an Availability Set (AS) inside an Availability Zone (AZ) and it is also not possible to control the distribution of VMs within a single availability zone across different fault domains (FD) and update domains (UD). This means that all VMs within a single availability zone might share a common power source and network switch, and can all be rebooted or affected by an outage or maintenance task at the same time. If you create VMs across different AZs, your VMs are effectively distributed across different FDs and UDs. If you want to achieve redundant in-zone VMs and cross-zone VMs, you should place the in-zone VMs in proximity placement groups within availability sets to ensure they won't all be rebooted at once. Go to [Combine ASs and AZs with PPGs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios#combine-availability-sets-and-availability-zones-with-proximity-placement-groups) for detailed instructions.
                                 
                             
 * Azure Metadata Service Scheduled Events should be used to proactively respond to maintenance events (i.e. reboots) and limit disruption to virtual machines.
-  > [Azure Metadata Service Scheduled Events](https://docs.microsoft.com/azure/virtual-machines/windows/scheduled-events)
+  > Scheduled Events is an [Azure Metadata Service](https://docs.microsoft.com/azure/virtual-machines/windows/scheduled-events) that gives your application time to prepare for virtual machine (VM) maintenance. It provides information about upcoming maintenance events (for example, reboot) so that your application can prepare for them and limit disruption.
                             
-* Azure Backup should be used to back-up virtual machines within a Recovery Services Vault, to protect against accidental data loss.
-  > [Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction)
-                            
+* [Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction) should be used to back-up virtual machines in a Recovery Services Vault, to protect against accidental data loss.
   - Enable Soft Delete for the Recovery Services vault to protect against accidental or malicious deletion of backup data, ensuring the ability to recover.
-    > [Azure Backup Soft Delete](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud)
+    > With [Azure Backup Soft Delete](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud), even if a malicious actor deletes a backup (or backup data is accidentally deleted), the backup data is retained for 14 additional days, allowing the recovery of that backup item with no data loss. The additional 14 days of retention for backup data in the soft delete state don't incur any cost to you.
                                 
                             
 * Enable diagnostic logging for all virtual machines to ensure health metrics, boot diagnostics and infrastructure logs are routed to Log Analytics or an alternative log aggregation technology.
-  > [Diagnostic Logs](https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview)
+  > Platform logs provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on. See [Overview of Azure platform logs](https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview) for more.
                             
 * Establish virtual machine Resource Health alerts to notify key stakeholders when resource health events occur.
-  > An appropriate threshold for resource unavailability must be set to minimize signal to noise ratios so that transient faults do not generate an alert. For example, configuring a virtual machine alert with an unavailability threshold of 1 minute before an alert is triggered.[Resource Health Alerts](https://docs.microsoft.com/en-gb/azure/service-health/resource-health-alert-arm-template-guide)
+  > An appropriate threshold for resource unavailability must be set to minimize signal to noise ratios so that transient faults do not generate an alert. For example, configuring a virtual machine alert with an unavailability threshold of 1 minute before an alert is triggered. See [Resource Health Alerts](https://docs.microsoft.com/azure/service-health/resource-health-alert-arm-template-guide) for more.
                             
 * To ensure application scalability while navigating within disk sizing thresholds, it is highly recommended that applications be installed on data disks rather than the OS disk.
 ### Supporting Source Artifacts
