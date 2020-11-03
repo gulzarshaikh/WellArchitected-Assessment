@@ -30,7 +30,7 @@ This reliability assessment has been produced to help the global CE&S community 
     - [Replication and Redundancy](./application.md#Replication-and-Redundancy)
   - [Networking &amp; Connectivity](./application.md#Networking--Connectivity)
     - [Connectivity](./application.md#Connectivity)
-    - [Zone-Aware Services](./application.md#ZoneAware-Services)
+    - [Zone-Aware Services](./application.md#Zone-Aware-Services)
   - [Scalability &amp; Performance](./application.md#Scalability--Performance)
     - [App Performance](./application.md#App-Performance)
     - [Data Size/Growth](./application.md#Data-SizeGrowth)

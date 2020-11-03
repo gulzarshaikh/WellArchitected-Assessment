@@ -32,7 +32,7 @@
     - [Roles &amp; Responsibilities](#Roles--Responsibilities)
   - [Identity &amp; Access Control](#Identity--Access-Control)
     - [Separation of duties](#Separation-of-duties)
-    - [Control-plane RBAC](#Controlplane-RBAC)
+    - [Control-plane RBAC](#Control-plane-RBAC)
     - [Authentication and authorization](#Authentication-and-authorization)
 
 
