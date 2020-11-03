@@ -38,7 +38,7 @@ This security assessment has been produced to help the global CE&S community to 
     - [Roles &amp; Responsibilities](./application.md#Roles--Responsibilities)
   - [Identity &amp; Access Control](./application.md#Identity--Access-Control)
     - [Separation of duties](./application.md#Separation-of-duties)
-    - [Control-plane RBAC](./application.md#Controlplane-RBAC)
+    - [Control-plane RBAC](./application.md#Control-plane-RBAC)
     - [Authentication and authorization](./application.md#Authentication-and-authorization)
 
 

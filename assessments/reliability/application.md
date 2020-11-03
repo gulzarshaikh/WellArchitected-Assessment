@@ -24,7 +24,7 @@
     - [Replication and Redundancy](#Replication-and-Redundancy)
   - [Networking &amp; Connectivity](#Networking--Connectivity)
     - [Connectivity](#Connectivity)
-    - [Zone-Aware Services](#ZoneAware-Services)
+    - [Zone-Aware Services](#Zone-Aware-Services)
   - [Scalability &amp; Performance](#Scalability--Performance)
     - [App Performance](#App-Performance)
     - [Data Size/Growth](#Data-SizeGrowth)
