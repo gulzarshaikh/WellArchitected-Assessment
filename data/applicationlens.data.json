@@ -3620,8 +3620,8 @@
       "security"
     ],
     "lens": "application",
-    "category": "General",
-    "subCategory": "Unassigned",
+    "category": "Application Design",
+    "subCategory": "Security Criteria & Data Classification",
     "title": "Are Azure policies used to enforce security and compliance configuration?",
     "recommendation": "",
     "id": "governance_1113",
