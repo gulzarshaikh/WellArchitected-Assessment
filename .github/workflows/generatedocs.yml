@@ -16,10 +16,15 @@ jobs:
       - name: Set working directories
         run: |
           # Define the names of content directories, for use in the rest of the workflow
-          echo '::set-env name=DATADIR::data'
-          echo '::set-env name=TEMPLATEDIR::templates'
-          echo '::set-env name=OUTPUTDIR::assessments'
-          echo '::set-env name=GENERATOR_ROOT::generator'
+          #echo '::set-env name=DATADIR::data'
+          #echo '::set-env name=TEMPLATEDIR::templates'
+          #echo '::set-env name=OUTPUTDIR::assessments'
+          #echo '::set-env name=GENERATOR_ROOT::generator'
+          
+          echo 'DATADIR=data' >> $GITHUB_ENV
+          echo 'TEMPLATEDIR=templates' >> $GITHUB_ENV
+          echo 'OUTPUTDIR=assessments' >> $GITHUB_ENV
+          echo 'GENERATOR_ROOT=generator' >> $GITHUB_ENV
 
       - name: Create directories
         shell: pwsh
