@@ -2,8 +2,6 @@
 
 # Navigation Menu
 - [Application Assessment Checklist](#Application-Assessment-Checklist)
-  - [General](#General)
-    - [Unassigned](#Unassigned)
   - [Application Design](#Application-Design)
     - [Design](#Design)
     - [Dependencies](#Dependencies)
@@ -43,14 +41,6 @@
 
 
 # Application Assessment Checklist
-## General
-    
-### Unassigned
-            
-* Are Azure policies used to enforce security and compliance configuration?
-
-
-  _Azure Policy should be used to enforce and report a compliant configuration of Azure services. Azure policies can be use on multiple levels. It is recommended to apply organizational wide security controls on Azure platform level. These policies build the guardrails of a landing zone._
 ## Application Design
     
 ### Design
@@ -80,13 +70,13 @@
 
 
   _Information revealing the application platform, such as HTTP banners containing framework information ("`X-Powered-By`", "`X-ASPNET-VERSION`"), are commonly used by malicious actors when mapping attack vectors of the application. HTTP headers, error messages, website footers etc. should not contain information about the application platform. Azure CDN or Cloudflare can be used to separate the hosting platform from end users, Azure API Management offers [transformation policies](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies) that allow to modify HTTP headers and remove sensitive information._
-  > Remove platform-specific information from HTTP headers, error messages, web site content (e.g. footers)
+  > Remove platform-specific information from HTTP headers, error messages, web site content (e.g. page footer).
     - Does the workload use API Management or Azure Front Door to modify HTTP headers and remove sensitive information?
 
 
       _Azure API Management and Azure Front Door offers transformation policies that allow to modify HTTP headers and remove sensitive information._
 
-      > Remove sensitive information from HTTP headers with Azure API Management or Azure Front Door
+      > Remove sensitive information from HTTP headers with Azure API Management or Azure Front Door.
 * Does the workload use CDN (content delivery network) solutions to separate the hosting platform from the end users / clients?
 
 
@@ -96,19 +86,19 @@
 
 
   _Native security controls are maintained and supported by the service provider, eliminating, or reducing effort required to integrate external security tooling and update those integrations over time._
-  > Use native security capabilities in application services
+  > Use native security capabilities in application services.
 * Does the organization use cloud services for well-established functions instead of building custom service implementations for this workload?
 
 
   _Developers should use services available from a cloud provider for well-established functions like databases, encryption, identity directory, and authentication instead of writing custom versions or third-party solutions that must be integrated into the cloud provider._
-  > Use services available from a cloud provider for well-established functions like databases, encryption, identity directory, and authentication
+  > Use services available from a cloud provider for well-established functions like databases, encryption, identity directory, and authentication.
 ### Dependencies
             
 * Is the organization using a Landing Zone concept and how was it implemented?
 
 
   _Landing Zone refers to components that are already defined and in place before the workloads are getting deployed by the workload owners, e.g. network topology with Hub/Spoke concept. The purpose of the “Landing Zone” is to ensure that when a workload lands on Azure, the required “plumbing” is already in place, providing greater agility and compliance with enterprise security and governance requirements. This is crucial, that a Landing Zone will be handed over to the workload owner with the security guardrails deployed._
-  > Implement a landing zone concept with Azure Blueprints and Azure Policies
+  > Implement a landing zone concept with Azure Blueprints and Azure Policies.
     - Does the organization use Azure Blueprints to consistently deploy environments that comply with organizational policies?
 
 
@@ -139,42 +129,42 @@
 * Has the workload been threat modeled?
 
 
-  _Threat modeling is an engineering technique which can be used to help identify threats, attacks, vulnerabilities and countermeasures that could affect an application. Threat modeling consists of: defining security requirements, identifying threats, mitigating threats, validating threat mitigation. Microsoft uses [STRIDE](https://docs.microsoft.com/en-us/azure/security/develop/threat-modeling-tool-threats) for threat modeling.  This might be the right time to talk through the STRIDE methodology and then the tools available to help them with Threat Modeling.  There are tools like [Microsoft Threat Modeling Tool](https://docs.microsoft.com/azure/security/develop/threat-modeling-tool-getting-started) which can help._
+  _Threat modeling is an engineering technique which can be used to help identify threats, attacks, vulnerabilities and countermeasures that could affect an application. Threat modeling consists of: defining security requirements, identifying threats, mitigating threats, validating threat mitigation. Microsoft uses [STRIDE](https://docs.microsoft.com/azure/security/develop/threat-modeling-tool-threats) for threat modeling.  This might be the right time to talk through the STRIDE methodology and then the tools available to help them with Threat Modeling.  There are tools like [Microsoft Threat Modeling Tool](https://docs.microsoft.com/azure/security/develop/threat-modeling-tool-getting-started) which can help._
   > Adopt threat modeling processes.
     - Are identified threats ranked based on organizational impact?
 
 
       _Ranked threats improves the understanding of risks associated with security issues._
 
-      > Rank identified threats based on organizational impact
+      > Rank identified threats based on organizational impact.
     - Does the organization track threat modeling or vulnerability scan results with a management system?
 
 
       _Effectively tracking and prioritizing discovered application threats is a vital component of vulnerability management._
 
-      > Centralize threat modeling results
+      > Centralize threat modeling results.
     - Are identified threats mapped to mitigations?
 
 
       _Mitigations are controls to help protect, detect and respond to a certain type of threat._
 
-      > Map threats to mitigations
+      > Map threats to mitigations.
     - Are identified threats communicated to stakeholders? E.g., business, IT, application users
 
 
       _After defining and analyzing the risks, identify risk owners which are the roles that are responsible for mitigating the risk. They need to be aware of the risks so that they can start the mitigation process by allocating resources (e.g. financial or people)_
 
-      > Establish communication processes for identified threats
+      > Establish communication processes for identified threats.
 * How are threats addressed once found?
 
 
   _The threat modeling tool will produce a report of all the threats identified. This report is typically uploaded into a tracking tool or work items that can be validated and addressed by the developers. Cyber security teams can also use the report to determine attack vectors during a penetration test.  As new features are added to the solution, the threat model should be updated and integrated into the code management process.  If a security issue is found, there should be a process to triage the issue into the next release cycle or a faster release, depending on the severity._
-  > Develop and implement a process to track, triage, and address threats into the application development lifecycle
+  > Develop and implement a process to track, triage, and address threats into the application development lifecycle.
 * Does the organization have established processes and timelines to deploy security fixes for this workload?
 
 
   _Fixing identified vulnerabilities in a timely manner helps staying secure and preventing additional attack vectors._
-  > Develop or implement established processes and timelines to deploy mitigations for identified threats
+  > Develop or implement established processes and timelines to deploy mitigations for identified threats.
     - How long does it typically take to deploy a security fix into production?
 
 
@@ -184,12 +174,12 @@
 
 
   _Azure resources should be blocked that do not meet the proper security requirements defined during service enablement._
-  > Define security requirements for the workload
+  > Define security requirements for the workload.
 * Has the organization addressed threat protection for the workload?
 
 
   _Enterprise workloads are subjected to many threats that can jeopardize confidentiality, availability, or integrity and should be protected with advanced security solutions._
-  > Implement threat protection for the Azure workload
+  > Implement threat protection for the workload.
 ### Security Criteria &amp; Data Classification
             
 * How do you monitor and maintain your compliance?
@@ -206,29 +196,33 @@
 
 
   _Compliance is important for several reasons. Aside from signifying levels of standards, like ISO 27001 and others, noncompliance with regulatory guidelines may bring sanctions and penalties._
-  > Periodically perform external and/or internal workload security audits
+  > Periodically perform external and/or internal workload security audits.
     - How often do you have internal and external audits?
 
 
       _Determine the process the customer uses for auditing the solution. Is it done internally, external, or both. How are findings reflected back to the application? Is everyone aware of the audit and involved or is it done in a silo. This will help reduce the firefighting mentality when there is a finding and stress of performing updates._
 
-      > Perform regular internal and external compliance audits
+      > Perform regular internal and external compliance audits.
     - Does the organizational security team audit the environment to report on compliance with the security policy of the organization?
 
 
       _Azure Policy helps to enforce organizational standards and to assess compliance at-scale._
 
       > Use Azure Policy to create and manage policies that enforce compliance.
+* Are Azure policies used to enforce security and compliance configuration?
+
+
+  _Azure Policy should be used to enforce and report a compliant configuration of Azure services. Azure policies can be use on multiple levels. It is recommended to apply organizational wide security controls on Azure platform level. These policies build the guardrails of a landing zone._
 * Does the organization have a defined set of Azure Policies to enforce and control security and organizational standards for the workload?
 
 
   _Azure Policy should be used to enforce and report a compliant configuration of Azure services. Azure policies can be use on multiple levels. It is recommended to apply organizational wide security controls on Azure platform level. These policies build the guardrails of a landing zone._
-  > Define a set of Azure Policies which enforce organizational standards and are aligned with the governance team
+  > Define a set of Azure Policies which enforce organizational standards and are aligned with the governance team.
 * Has the organization identified and classified business critical applications which may adversely affect operations if they are compromised or become unavailable?
 
 
   _Enterprise organizations typically have a large application portfolio. Have key business applications been identified and classified? This should include applications that have a high business impact if affected. Examples would be business critical data, regulated data, or business critical availability. These applications also might include applications which have a high exposure to attach such as public facing websites key to organizational success._
-  > Identify and classify business critical applications
+  > Identify and classify business critical applications.
 * Has the organization established a monitoring and assessing solution for compliance?
 
 
@@ -238,12 +232,12 @@
 
 
   _A security plan should be part of the main planning documentation for the cloud. It should include several core elements including organizational functions, security skilling, technical security architecture and capabilities roadmap._
-  > Develop a security plan
+  > Develop a security plan.
 * Does the organization prioritize security best practices by reviewing guidance based on industry recommendations and apply those settings proactively and completely to all systems as a cloud program is implemented?
 
 
   _Security best practices are ideally applied proactively and completely to all systems as a cloud program is implemented._
-  > Review, prioritize, and proactively apply security best practices to cloud resources
+  > Review, prioritize, and proactively apply security best practices to cloud resources.
 * Does the organization build the appropriate level of resilience into the security infrastructure of this workload?
 
 
@@ -258,7 +252,7 @@
 
 
   _The actual security risk for an organization is heavily influenced by how much access an adversary can or does obtain to valuable systems and data._
-  > Implement security strategy to contain attacker access
+  > Implement security strategy to contain attacker access.
 ### Dependencies, frameworks and libraries
             
 * Does the application team maintain a list frameworks and libraries used by this workload?
@@ -283,12 +277,12 @@
 
 
   _Most security incidents take place after an attacker initially gains access using a stolen identity. These identities can often start with low privileges, but attackers then use that identity to traverse laterally and gain access to more privileged identities. This repeats as needed until the attacker controls access to the ultimate target data or systems. Reported risk events for Azure AD can be viewed in Azure AD reporting, or Azure AD Identity Protection. Additionally, the Identity Protection risk events API can be used to programmatically access identity related security detections using Microsoft Graph._
-  > Establish detection and response strategy for identity risks
+  > Establish detection and response strategy for identity risks.
 * Is Personally identifiable information (PII) detected and removed/obfuscated automatically?
 
 
   _Extra care should be take around logging of sensitive application areas. PII (contact information, payment information etc.) should not be stored in any application logs and protective measures should be applied (such as obfuscation). Machine learning tools like [Cognitive Search PII detection](https://docs.microsoft.com/azure/search/cognitive-search-skill-pii-detection) can help with this._
-  > Automatically remove/obfuscate personally identifiable information (PII) for this workload
+  > Automatically remove/obfuscate personally identifiable information (PII) for this workload.
 * Does the organization have a central SecOps teams which monitors security related telemetry data?
 
 
@@ -306,7 +300,7 @@
 
 
   _Ensure the security organization is aware of all enrollments and associated subscriptions connected to the existing environment and is able to monitor those resources as part of the overall enterprise security posture._
-  > Ensure all Azure environments that connect to your production environment/network apply your organization’s policy and IT governance controls for security
+  > Ensure all Azure environments that connect to your production environment/network apply your organization’s policy and IT governance controls for security.
 ### Auditing
             
 * Does the organization conduct periodic & automated access reviews for the workload to make sure only authorized people have access?
@@ -322,17 +316,17 @@
 
 
   _Azure provides networking solutions to restrict access to individual application services. Multiple levels (such as IP filtering or firewall rules) should be explored to prevent application services from being accessed by unauthorized actors._
-  > Protect non-public accessible services with network restrictions / IP firewall
+  > Protect non-public accessible services with network restrictions / IP firewall.
 * Does the workload use Service Endpoints or Private Link for accessing Azure PaaS services?
 
 
   _[Service Endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) and [Private Link](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) can be leveraged to restrict access to PaaS endpoints only from authorized virtual networks, effectively mitigating data intrusion risks and associated impact to application availability. Service Endpoints provide service level access to a PaaS service, while Private Link provides direct access to a specific PaaS resource to mitigate data exfiltration risks (e.g. malicious admin scenarios)._
-  > Use service endpoints and private links where appropriate
+  > Use service endpoints and private links where appropriate.
 * Does the organization use Azure Firewall or any 3rd party next generation Firewall for this workload to control outgoing traffic of Azure PaaS services (data exfiltration protection) where Private Link is not available?
 
 
   _NVA solutions and Azure Firewall (for supported protocols) can be leveraged as a reverse proxy to restrict access to only authorized PaaS services for services where Private Link is not yet supported (Azure Firewall)._
-  > Use Azure Firewall or a 3rd party next generation firewall to protect against data exfiltration concerns
+  > Use Azure Firewall or a 3rd party next generation firewall to protect against data exfiltration concerns.
 * Does the workload use network security groups (NSG) to isolate and protect traffic within the workloads VNet?
 
 
@@ -343,12 +337,12 @@
 
       _NSG flow logs should be captured and analyzed to monitor performance and security. The NSG flow logs enables Traffic Analytics to gain insights into internal and external traffic flows of the application._
 
-      > Configure and collect network traffic logs
+      > Configure and collect network traffic logs.
 * Does the organization restrict access to the backend infrastructure (APIs, databases, etc.)  by only a minimal set of public IP addresses based on need, only those who really need it?
 
 
   _Web applications typically have one public entrypoint and don't expose subsequent APIs and database servers over the internet. When using gateway services like [Azure Front Door](https://docs.microsoft.com/azure/frontdoor/) it's possible to restrict access only to a set of Front Door IP addresses and lock down the infrastructure completely._
-  > Restrict access to backend services to a minimal set of public IP addresses, only those who really need it
+  > Restrict access to backend services to a minimal set of public IP addresses, only those who really need it.
 * Does the organization identify and isolate groups of resources from other parts of the organization to aid in detecting and containing adversary movement within the enterprise?
 
 
@@ -366,12 +360,12 @@
 
 
   _External application endpoints should be protected against common attack vectors, such as Denial of Service (DoS) attacks like Slowloris, to prevent potential application downtime due to malicious intent. Azure-native technologies such as Azure Firewall, Application Gateway/Azure Front Door WAF, and DDoS Protection Standard Plan can be used to achieve requisite protection (Azure DDoS Protection)._
-  > Protect all public endpoints with appropriate solutions, e.g. Azure Front Door, Application Gateway, Azure Firewall, Azure DDOS Protection or any 3rd party solution
+  > Protect all public endpoints with appropriate solutions, e.g. Azure Front Door, Application Gateway, Azure Firewall, Azure DDOS Protection or any 3rd party solution.
 * Are public endpoints protected with firewall or WAF (Web Application Firewall)?
 
 
   _[Azure Firewall](https://docs.microsoft.com/azure/firewall/features) is a managed, cloud-based network security service that protects Azure Virtual Network resources. [Web Application Firewall](https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview) (WAF) mitigates the risk of an attacker being able to exploit commonly known security application vulnerabilities like cross-site scripting or SQL injection._
-  > Use web application firewall
+  > Use web application firewall.
 * Does the organization protect publishing methods for the workload (e.g FTP, Web Deploy)?
 
 
@@ -382,7 +376,7 @@
 
       _Developers shouldn't publish their code directly to app servers - automated and gated CI/CD process should manage this._
 
-      > Implement an automated and gated CD/CD deployment process
+      > Implement an automated and gated CD/CD deployment process.
 * Do workload virtual machines running on premises or in the cloud have direct internet connectivity for users that may perform interactive logins, or by applications running on virtual machines?
 
 
@@ -399,17 +393,17 @@
 
 
   _Data exfiltration occurs when an internal/external malicious actor performs and unauthorized data transfer. The solution should leverage a layered approach such as, hub/spoke for network communications with deep packet inspection to detect/protect from a data exfiltration attack. Azure Firewall, UDR (User-defined Routes), NSG (Network Security Groups), Key Protection, Data Encryption, PrivateLink, and Private Endpoints are layered defenses for a data exfiltration attack. Azure Sentinel and Azure Security Center can be used to detect data exfiltration attempts and alert incident responders._
-  > Apply a layered defense in depth / zero trust approach, e.g. use Azure Security Center to detect data exfiltration attempts
+  > Apply a layered defense in depth / zero trust approach, e.g. use Azure Security Center to detect data exfiltration attempts.
 * Has the organization deployed controls to manage traffic between subnets, Azure components and tiers of the workload?
 
 
   _Data filtering between subnets and other Azure resources should be protected. Network Security Groups, PrivateLink, and Private Endpoints can be used for traffic filtering._
-  > Control network traffic between subnets (east/west) and application tiers (north/south)
+  > Control network traffic between subnets (east/west) and application tiers (north/south).
 * Does the organization leverage a cloud application security broker (CASB)?
 
 
   _CASBs provide rich visibility, control over data travel, and sophisticated analytics to identify and combat cyberthreats across all Microsoft and third-party cloud services._
-  > Leverage a cloud application security broker (CASB)
+  > Leverage a cloud application security broker (CASB).
 ## Security &amp; Compliance
     
 ### Security Center
@@ -425,7 +419,7 @@
 
 
   _Centralizing network management and security can reduce the potential for inconsistent strategies that create potential attacker exploitable security risks. Because all divisions of the IT and development organizations do not have the same level of network management and security knowledge and sophistication, organizations benefit from leveraging a centralized network team’s expertise and tooling._
-  > Establish designated group responsible for central network management
+  > Establish designated group responsible for central network management.
 * Does the organization have controls in place to ensure that security extends past the network boundaries of the workload in order to effectively prevent, detect, and respond to threats?
 
 
@@ -435,12 +429,12 @@
 
 
   _Network-based DLP is decreasingly effective at identifying both inadvertent and deliberate data loss. The reason for this is that most modern protocols and attackers use network-level encryption for inbound and outbound communications. While the organization can use “SSL-bridging” to provide an “authorized man-in-the-middle” that terminates and then reestablishes encrypted network connections, this can also introduce privacy, security and reliability challenges._
-  > Deprecate legacy network security controls
+  > Deprecate legacy network security controls.
 * Has the organization enabled enhanced network visibility by integrating network logs into a Security information and event management (SIEM) solution or similar technology?
 
 
   _Integrating logs from the network devices, and even raw network traffic itself, will provide greater visibility into potential security threats flowing over the wire._
-  > Integrate network logs into a SIEM
+  > Integrate network logs into a SIEM.
 * Does the organization have cloud virtual networks that are designed for growth based on an intentional subnet security strategy?
 
 
@@ -462,17 +456,17 @@
 
 
   _Any network communication between client and server where man-in-the-middle attack can occur, needs to be encrypted. All website communication should use HTTPS, no matter the perceived sensitivity of transferred data (man-in-the-middle attacks can occur anywhere on the site, not just on login forms)._
-  > Use encrypted network channels (TLS / HTTPS) for all client/server communication
+  > Use encrypted network channels (TLS / HTTPS) for all client/server communication.
 * What TLS version is used across workloads?
 
 
   _All Microsoft Azure services fully support TLS 1.2. It is recommended to migrate solutions to support **TLS 1.2** and use this version by default. TLS 1.3 is not available on Azure yet, but should be the preferred option once implemented on the platform._
-  > Use TLS 1.2 on Azure
+  > Use TLS 1.2 on Azure.
 * Does the workload use secure modern hash algorithms?
 
 
   _Applications should use the **SHA-2** family of hash algorithms (SHA-256, SHA-384, SHA-512)._
-  > Use only secure hash algorithms (SHA-2 family)
+  > Use only secure hash algorithms (SHA-2 family).
 * Does the organization store customer managed keys in Azure Key Vault and protect them with identity-based access control?
 
 
@@ -483,12 +477,12 @@
 
       _More than one encryption key should be used in an encryption at rest implementation. Storing an encryption key in Azure Key Vault ensures secure key access and central management of keys._
 
-      > Use an additional key encryption key (KEK) to protect your data encryption key (DEK)
+      > Use an additional key encryption key (KEK) to protect your data encryption key (DEK).
 * How is data at rest protected?
 
 
   _This includes all information storage objects, containers, and types that exist statically on physical media, whether magnetic or optical disk.  All data should be classified and encrypted with an encryption standard. How is the data classified and tagged as such so that it can be audited._
-  > Classify your data at rest and use encryption
+  > Classify your data at rest and use encryption.
 * Does the organization ensure that data in transit is encrypted for this workload?
 
 
@@ -498,7 +492,7 @@
 
       _All data should be encrypted in transit using a common encryption standard. Determine if all components in the solution are using a consistent standard. There are times when encryption is not possible due to technical limitations, but the reason needs to be clear and valid._
 
-      > Ensure that all data in Azure is encrypted while in transit
+      > Ensure that all data in Azure is encrypted while in transit.
 * Does the organization use identity-based storage access controls for this workload?
 
 
@@ -568,7 +562,7 @@
 
 
   _Security vulnerabilities can result in an application disclosing confidential data, allowing criminals to alter data/records, or the data/application becoming unavailable for use by customers and employees. Applications will almost always contain logic errors, so it is important to discover, evaluate, and correct them to avoid damage to the organization’s reputation, revenue, or margins. This is made easier by discovering these vulnerabilities in the early stages of the development cycle. [Develop Secure Applications on Azure whitepaper](https://azure.microsoft.com/resources/develop-secure-applications-on-azure/)_
-  > Implement security practices and tools during development lifecycle
+  > Implement security practices and tools during development lifecycle.
 * Does the organization have a formal policy for this workload to apply security updates to VMs in a timely manner, and do strong passwords exist on those VMs for any local administrative accounts that may be in use?
 
 
@@ -590,7 +584,7 @@
 
 
   _A SOC has a critical role in limiting the time and access an attacker can get to valuable systems and data.  In addition, it provides the vital role of detecting the presence of adversaries, reacting to an alert of suspicious activity, or proactively hunting for anomalous events in the enterprise activity logs._
-  > Establish a security operations center (SOC)
+  > Establish a security operations center (SOC).
 ## Deployment &amp; Testing
     
 ### Application Deployments
@@ -604,7 +598,7 @@
 
 
   _Credentials should not be stored in source code or configuration files, because that increases the risk of exposure. Code analyzers (such as Roslyn analyzers for Visual Studio) can prevent from pushing credentials to source code repository and pipeline addons such as CredScan (part of Microsoft Security Code Analysis) help to catch credentials during the build process._
-  > Integrate the scanning tools within a CI / CD pipeline
+  > Integrate the scanning tools within a CI / CD pipeline.
 * How are credentials, certificates and other secrets managed in CI/CD pipelines?
 
 
@@ -614,12 +608,12 @@
 
 
   _As part of the continuous integration process it is crucial that every release includes a scan of all components in use. Vulnerable dependencies should be flagged and investigated. This can done in combination with other code scanning tasks (e.g. code churn, test results/coverage)._
-  > Include code scans into CI/CD process that also covers 3rd party dependencies and framework components
+  > Include code scans into CI/CD process that also covers 3rd party dependencies and framework components.
 * Are branch policies used in source control management? How are they configured?
 
 
   _Branch policies provide additional level of control over the code which is commited to the product. It is a common practice to not allow pushing against the main branch and require pull-request (PR) with code review before merging the changes by at least one reviewer, other than the change author. Different branches can have different purposes and access levels, for example: feature branches are created by developers and are open to push, integration branch requires PR and code-review and production branch requires additional approval from a senior developer before merging._
-  > Implement branch policy strategy to enhance branch security
+  > Implement branch policy strategy to enhance branch security.
 ### Build Environments
             
 * Does the organization apply security controls (e.g. IP firewall restrictions, update management, etc.) to self-hosted build agents?
@@ -643,7 +637,7 @@
 
 
   _People are a critical part of your defense, especially those with elevated permissions, so ensuring they have the knowledge and skills to avoid and resist attacks will reduce your overall organizational risk._
-  > Simulate attack against users and critical accounts
+  > Simulate attack against users and critical accounts.
 ## Operational Model &amp; DevOps
     
 ### General
@@ -652,17 +646,17 @@
 
 
   _The DevOps approach increases the organization’s ability to rapidly address security concerns without waiting for a longer planning and testing cycle of traditional waterfall model. Key attributes are: automation, close integration of infra and dev teams, testability and reliability and repeatability of deployments.* [Adopt the DevOps approach](https://docs.microsoft.com/azure/architecture/framework/Security/applications-services#adopt-the-devops-approach)_
-  > Adopt a formal DevSecOps approach to building and maintaining software
+  > Adopt a formal DevSecOps approach to building and maintaining software.
 * Does the organization leverage DevOps security guidance based on industry lessons-learned, and available automation tools (OWASP guidance, Microsoft toolkit for Secure DevOps etc.)?
 
 
   _Organizations should leverage a control framework such as NIST, CIS or ASB [(Azure Security Benchmarks)](https://docs.microsoft.com/azure/security/benchmarks/) for securing applications on the cloud rather than starting from zero._
-  > Follow DevOps security guidance and automation for securing applications
+  > Follow DevOps security guidance and automation for securing applications.
 * Does the organization consider and follow best practices related to container security for this workload?
 
 
   _Containerized applications face the same risks as any application and also adds new requirements to securely the hosting and management of the containerized applications._
-  > Follow best practices for container security
+  > Follow best practices for container security.
 * Does the organization evaluate the security posture using standard benchmarks?
 
 
@@ -689,22 +683,22 @@
 
 
   _There should be a process for onboarding service securely to Azure. The onboarding process should include reviewing the configuration options to determine what logging/monitoring needs to be established, how to properly harden a resource before it goes into production.  For a list of common criteria for onboarding resoruces, see the [Service Enablement Framework](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/enterprise-scale/security-governance-and-compliance#service-enablement-framework)_
-  > Involve security team into development process
+  > Involve security team into development process.
 * Has the organization developed and maintained a security training program to ensure technical staff are well-informed and equipped with the appropriate skills?
 
 
   _Cybersecurity threats are always evolving and therefore those responsible for organizational information security require specialized, continual, and relevant training to ensure staff maintains the level of competency required to protect, detect, and respond._
-  > Develop security training program
+  > Develop security training program.
 * Does the organization have the appropriate emergency access accounts configured in case of an emergency?
 
 
   _While rare, sometimes extreme circumstances arise where all normal means of administrative access are unavailable and for this reason emergency access accounts should be available. [Emergency Access Acounts](https://docs.microsoft.com/azure/active-directory/roles/security-emergency-access)_
-  > Configure emergency access accounts
+  > Configure emergency access accounts.
 * Has the organization clearly defined lines of responsibility and designated responsible parties for specific functions in Azure?
 
 
   _Clearly documenting and sharing the contacts responsible for each of these functions will create consistency and facilitate communication. Examples of such contact groups include network security, network management, server endpoint security, incident response, policy management, identity..._
-  > Designate the parties responsible for specific functions in Azure
+  > Designate the parties responsible for specific functions in Azure.
 ### Common Engineering Criteria
             
 * Has the organization implemented or considered implementing elevated security capabilities such as dedicated Hardware Security Modules (HSMs) or the use of [Confidential Computing](https://azure.microsoft.com/solutions/confidential-compute/)?
@@ -761,7 +755,7 @@
 
 
   _Performing role-based or/or resource-based authorization with Azure Active Directory allows centralized management that supports principal of least privilege when accessing organizational resources. RBAC provides the necessary tools to maintain separation of concerns when it comes to accessing the application infrastructure. Aligned with the [separation of duties](#separation-of-duties) section, users should have only the minimal set of permissions. Examples: "Developers can't access production infrastructure.", "Only the SecOps team can read and manage Key Vault secrets.", "Project A team can access and manage Resource Group A and all resources within."_
-  > Implement role-based access control for application infrastructure
+  > Implement role-based access control for application infrastructure.
 * Does the organization leverage resource locks to protect critical infrastructure?
 
 
@@ -793,7 +787,7 @@
 
       _Using a cloud identity provider reduces risk by granting the appropriate level of access to external entities instead of the full default permissions given to full-time employees. This least privilege approach and clear differentiation of external accounts from company staff makes it easier to prevent and detect attacks coming in from these vectors._
 
-      > Use cloud provider identity services for non-employees
+      > Use cloud provider identity services for non-employees.
 * Does the organization use a single identity provider for cross-platform identity management?
 
 
@@ -803,7 +797,7 @@
 
 
   _Identity provides the basis of a large percentage of security assurances and a well-defined identity strategy is effective in protecting the organization from cybersecurity threats._
-  > Implement a well-defined identity strategy
+  > Implement a well-defined identity strategy.
 * Does the organization assign permissions to Azure workloads based on individual users/resources or use custom permissions?
 
 
@@ -854,7 +848,7 @@ Because security will have broad access to the environment (and visibility into 
 
       _Attack methods have evolved to the point where passwords alone cannot reliably protect an account.  Modern authentication solutions including password-less and multi-factor authentication increase security posture through strong authentication._
 
-      > Enforce password-less or MFA
+      > Enforce password-less or MFA.
 * Does the organization prioritize authentication via identity services for this workload vs. cryptographic keys?
 
 

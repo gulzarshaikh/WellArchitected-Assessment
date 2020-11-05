@@ -8,8 +8,6 @@ This security assessment has been produced to help the global CE&S community to 
 
 ### [Application Security](./application.md) 
 - [Application Assessment Checklist](./application.md#Application-Assessment-Checklist)
-  - [General](./application.md#General)
-    - [Unassigned](./application.md#Unassigned)
   - [Application Design](./application.md#Application-Design)
     - [Design](./application.md#Design)
     - [Dependencies](./application.md#Dependencies)
