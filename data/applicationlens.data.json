@@ -2703,30 +2703,30 @@
     "title": "Has the workload been threat modeled?",
     "recommendation": "Adopt threat modeling processes.",
     "id": "application_design_1988",
-    "context": "Threat modeling is an engineering technique which can be used to help identify threats, attacks, vulnerabilities and countermeasures that could affect an application. Threat modeling consists of: defining security requirements, identifying threats, mitigating threats, validating threat mitigation. Microsoft uses [STRIDE](https://docs.microsoft.com/en-us/azure/security/develop/threat-modeling-tool-threats) for threat modeling.  This might be the right time to talk through the STRIDE methodology and then the tools available to help them with Threat Modeling.  There are tools like [Microsoft Threat Modeling Tool](https://docs.microsoft.com/azure/security/develop/threat-modeling-tool-getting-started) which can help.",
+    "context": "Threat modeling is an engineering technique which can be used to help identify threats, attacks, vulnerabilities and countermeasures that could affect an application. Threat modeling consists of: defining security requirements, identifying threats, mitigating threats, validating threat mitigation. Microsoft uses [STRIDE](https://docs.microsoft.com/azure/security/develop/threat-modeling-tool-threats) for threat modeling.  This might be the right time to talk through the STRIDE methodology and then the tools available to help them with Threat Modeling.  There are tools like [Microsoft Threat Modeling Tool](https://docs.microsoft.com/azure/security/develop/threat-modeling-tool-getting-started) which can help.",
     "children":[
         {
             "title": "Are identified threats ranked based on organizational impact?",
             "context": "Ranked threats improves the understanding of risks associated with security issues.",
-            "recommendation": "Rank identified threats based on organizational impact",
+            "recommendation": "Rank identified threats based on organizational impact.",
             "id": "application_design_threat_ranking"
         },
         {
             "title": "Does the organization track threat modeling or vulnerability scan results with a management system?",
             "context": "Effectively tracking and prioritizing discovered application threats is a vital component of vulnerability management.",
-            "recommendation": "Centralize threat modeling results",
+            "recommendation": "Centralize threat modeling results.",
             "id": "application_design_threat_modeling_tracking"
         },
         {
             "title": "Are identified threats mapped to mitigations?",
             "context": "Mitigations are controls to help protect, detect and respond to a certain type of threat.",
-            "recommendation": "Map threats to mitigations",
+            "recommendation": "Map threats to mitigations.",
             "id": "application_design_threat_modeling_mitigations"
         },
         {
             "title": "Are identified threats communicated to stakeholders? E.g., business, IT, application users",
             "context": "After defining and analyzing the risks, identify risk owners which are the roles that are responsible for mitigating the risk. They need to be aware of the risks so that they can start the mitigation process by allocating resources (e.g. financial or people)",
-            "recommendation": "Establish communication processes for identified threats",
+            "recommendation": "Establish communication processes for identified threats.",
             "id": "application_design_threat_modeling_communication"
         }
     ]
@@ -2740,7 +2740,7 @@
     "category": "Application Design",
     "subCategory": "Threat Analysis",
     "title": "How are threats addressed once found?",
-    "recommendation": "Develop and implement a process to track, triage, and address threats into the application development lifecycle",
+    "recommendation": "Develop and implement a process to track, triage, and address threats into the application development lifecycle.",
     "id": "application_design_9104",
     "context": "The threat modeling tool will produce a report of all the threats identified. This report is typically uploaded into a tracking tool or work items that can be validated and addressed by the developers. Cyber security teams can also use the report to determine attack vectors during a penetration test.  As new features are added to the solution, the threat model should be updated and integrated into the code management process.  If a security issue is found, there should be a process to triage the issue into the next release cycle or a faster release, depending on the severity."
   },
@@ -2754,7 +2754,7 @@
     "subCategory": "Threat Analysis",
     "title": "Does the organization have established processes and timelines to deploy security fixes for this workload?",
     "context": "Fixing identified vulnerabilities in a timely manner helps staying secure and preventing additional attack vectors.",
-    "recommendation": "Develop or implement established processes and timelines to deploy mitigations for identified threats",
+    "recommendation": "Develop or implement established processes and timelines to deploy mitigations for identified threats.",
     "id": "",
     "children": [
         {
@@ -2796,14 +2796,14 @@
     "subCategory": "Security Criteria & Data Classification",
     "title": "Does the organization periodically perform external and/or internal workload audits?",
     "context": "Compliance is important for several reasons. Aside from signifying levels of standards, like ISO 27001 and others, noncompliance with regulatory guidelines may bring sanctions and penalties.",
-    "recommendation": "Periodically perform external and/or internal workload security audits",
+    "recommendation": "Periodically perform external and/or internal workload security audits.",
     "id": "application_design_workload_audits",
     "children":[
         {
             "title": "How often do you have internal and external audits?",
             "id": "application_design_2263",
             "context": "Determine the process the customer uses for auditing the solution. Is it done internally, external, or both. How are findings reflected back to the application? Is everyone aware of the audit and involved or is it done in a silo. This will help reduce the firefighting mentality when there is a finding and stress of performing updates.",
-            "recommendation": "Perform regular internal and external compliance audits"
+            "recommendation": "Perform regular internal and external compliance audits."
         },
         {
             "title": "Does the organizational security team audit the environment to report on compliance with the security policy of the organization?",
@@ -2869,14 +2869,14 @@
     "category": "Application Design",
     "subCategory": "Design",
     "title": "Is platform-specific information (e.g. web server version) removed from server-client communication channels?",
-    "recommendation": "Remove platform-specific information from HTTP headers, error messages, web site content (e.g. footers)",
+    "recommendation": "Remove platform-specific information from HTTP headers, error messages, web site content (e.g. page footer).",
     "id": "application_design_2599",
     "context": "Information revealing the application platform, such as HTTP banners containing framework information (\"`X-Powered-By`\", \"`X-ASPNET-VERSION`\"), are commonly used by malicious actors when mapping attack vectors of the application. HTTP headers, error messages, website footers etc. should not contain information about the application platform. Azure CDN or Cloudflare can be used to separate the hosting platform from end users, Azure API Management offers [transformation policies](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies) that allow to modify HTTP headers and remove sensitive information.",
     "children": [
         {
             "title": "Does the workload use API Management or Azure Front Door to modify HTTP headers and remove sensitive information?",
             "context": "Azure API Management and Azure Front Door offers transformation policies that allow to modify HTTP headers and remove sensitive information.",
-            "recommendation": "Remove sensitive information from HTTP headers with Azure API Management or Azure Front Door",
+            "recommendation": "Remove sensitive information from HTTP headers with Azure API Management or Azure Front Door.",
             "id": "application_design_http_headers_frontdoor"
         }
     ]
@@ -2916,7 +2916,7 @@
     "category": "Health Modelling",
     "subCategory": "Application Level Monitoring",
     "title": "Does the organization actively monitor identity related risk events related to potentially compromised identities?",
-    "recommendation": "Establish detection and response strategy for identity risks",
+    "recommendation": "Establish detection and response strategy for identity risks.",
     "id": "health_modelling_8539",
     "context": "Most security incidents take place after an attacker initially gains access using a stolen identity. These identities can often start with low privileges, but attackers then use that identity to traverse laterally and gain access to more privileged identities. This repeats as needed until the attacker controls access to the ultimate target data or systems. Reported risk events for Azure AD can be viewed in Azure AD reporting, or Azure AD Identity Protection. Additionally, the Identity Protection risk events API can be used to programmatically access identity related security detections using Microsoft Graph."
   },
@@ -2929,7 +2929,7 @@
     "category": "Health Modelling",
     "subCategory": "Application Level Monitoring",
     "title": "Is Personally identifiable information (PII) detected and removed/obfuscated automatically?",
-    "recommendation": "Automatically remove/obfuscate personally identifiable information (PII) for this workload",
+    "recommendation": "Automatically remove/obfuscate personally identifiable information (PII) for this workload.",
     "id": "health_modelling_905",
     "context": "Extra care should be take around logging of sensitive application areas. PII (contact information, payment information etc.) should not be stored in any application logs and protective measures should be applied (such as obfuscation). Machine learning tools like [Cognitive Search PII detection](https://docs.microsoft.com/azure/search/cognitive-search-skill-pii-detection) can help with this."
   },
@@ -2955,7 +2955,7 @@
     "category": "Operational Procedures",
     "subCategory": "Patch & Update Process (PNU)",
     "title": "Does the organization reduce the count and potential severity of security vulnerabilities for this workload by implementing security practices and tools during the development lifecycle?",
-    "recommendation": "Implement security practices and tools during development lifecycle",
+    "recommendation": "Implement security practices and tools during development lifecycle.",
     "id": "operational_procedures_9083",
     "context": "Security vulnerabilities can result in an application disclosing confidential data, allowing criminals to alter data/records, or the data/application becoming unavailable for use by customers and employees. Applications will almost always contain logic errors, so it is important to discover, evaluate, and correct them to avoid damage to the organization’s reputation, revenue, or margins. This is made easier by discovering these vulnerabilities in the early stages of the development cycle. [Develop Secure Applications on Azure whitepaper](https://azure.microsoft.com/resources/develop-secure-applications-on-azure/)"
   },
@@ -3046,7 +3046,7 @@
     "category": "Identity & Access Control",
     "subCategory": "Control-plane RBAC",
     "title": "Does the organization protect the workload infrastructure with role-based access control (RBAC)?",
-    "recommendation": "Implement role-based access control for application infrastructure",
+    "recommendation": "Implement role-based access control for application infrastructure.",
     "id": "identity__access_control_5609",
     "context": "Performing role-based or/or resource-based authorization with Azure Active Directory allows centralized management that supports principal of least privilege when accessing organizational resources. RBAC provides the necessary tools to maintain separation of concerns when it comes to accessing the application infrastructure. Aligned with the [separation of duties](#separation-of-duties) section, users should have only the minimal set of permissions. Examples: \"Developers can't access production infrastructure.\", \"Only the SecOps team can read and manage Key Vault secrets.\", \"Project A team can access and manage Resource Group A and all resources within.\""
   },
@@ -3152,7 +3152,7 @@
         {
             "title": "Does the organization enforce password less or multi-factor authentication for users?",
             "context": "Attack methods have evolved to the point where passwords alone cannot reliably protect an account.  Modern authentication solutions including password-less and multi-factor authentication increase security posture through strong authentication.  ",
-            "recommendation": "Enforce password-less or MFA",
+            "recommendation": "Enforce password-less or MFA.",
             "id": "identity_access_control_paswordless"
         }
     ]
@@ -3218,7 +3218,7 @@
     "category": "Networking & Connectivity",
     "subCategory": "Endpoints",
     "title": "Are all public endpoints of this workload protected / secured?",
-    "recommendation": "Protect all public endpoints with appropriate solutions, e.g. Azure Front Door, Application Gateway, Azure Firewall, Azure DDOS Protection or any 3rd party solution",
+    "recommendation": "Protect all public endpoints with appropriate solutions, e.g. Azure Front Door, Application Gateway, Azure Firewall, Azure DDOS Protection or any 3rd party solution.",
     "id": "networking__connectivity_6145",
     "context": "External application endpoints should be protected against common attack vectors, such as Denial of Service (DoS) attacks like Slowloris, to prevent potential application downtime due to malicious intent. Azure-native technologies such as Azure Firewall, Application Gateway/Azure Front Door WAF, and DDoS Protection Standard Plan can be used to achieve requisite protection (Azure DDoS Protection)."
   },
@@ -3231,7 +3231,7 @@
     "category": "Networking & Connectivity",
     "subCategory": "Endpoints",
     "title": "Are public endpoints protected with firewall or WAF (Web Application Firewall)?",
-    "recommendation": "Use web application firewall",
+    "recommendation": "Use web application firewall.",
     "id": "networking__connectivity_6733",
     "context": "[Azure Firewall](https://docs.microsoft.com/azure/firewall/features) is a managed, cloud-based network security service that protects Azure Virtual Network resources. [Web Application Firewall](https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview) (WAF) mitigates the risk of an attacker being able to exploit commonly known security application vulnerabilities like cross-site scripting or SQL injection."
   },
@@ -3244,7 +3244,7 @@
     "category": "Networking & Connectivity",
     "subCategory": "Connectivity",
     "title": "Does the organization protect services which should not be accessible from public ip addresses with network restrictions / IP firewall rules?",
-    "recommendation": "Protect non-public accessible services with network restrictions / IP firewall",
+    "recommendation": "Protect non-public accessible services with network restrictions / IP firewall.",
     "id": "networking__connectivity_5025",
     "context": "Azure provides networking solutions to restrict access to individual application services. Multiple levels (such as IP filtering or firewall rules) should be explored to prevent application services from being accessed by unauthorized actors."
   },
@@ -3264,7 +3264,7 @@
         {
             "title": "Does the organization have an CI/CD process for publishing code?",
             "context": "Developers shouldn't publish their code directly to app servers - automated and gated CI/CD process should manage this.",
-            "recommendation": "Implement an automated and gated CD/CD deployment process",
+            "recommendation": "Implement an automated and gated CD/CD deployment process.",
             "id": "networking_connectivity_cicd_publishing"
         }
     ]
@@ -3278,7 +3278,7 @@
     "category": "Networking & Connectivity",
     "subCategory": "Connectivity",
     "title": "Does the workload use Service Endpoints or Private Link for accessing Azure PaaS services?",
-    "recommendation": "Use service endpoints and private links where appropriate",
+    "recommendation": "Use service endpoints and private links where appropriate.",
     "id": "networking__connectivity_6109",
     "context": "[Service Endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) and [Private Link](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) can be leveraged to restrict access to PaaS endpoints only from authorized virtual networks, effectively mitigating data intrusion risks and associated impact to application availability. Service Endpoints provide service level access to a PaaS service, while Private Link provides direct access to a specific PaaS resource to mitigate data exfiltration risks (e.g. malicious admin scenarios)."
   },
@@ -3291,7 +3291,7 @@
     "category": "Networking & Connectivity",
     "subCategory": "Connectivity",
     "title": "Does the organization use Azure Firewall or any 3rd party next generation Firewall for this workload to control outgoing traffic of Azure PaaS services (data exfiltration protection) where Private Link is not available?",
-    "recommendation": "Use Azure Firewall or a 3rd party next generation firewall to protect against data exfiltration concerns",
+    "recommendation": "Use Azure Firewall or a 3rd party next generation firewall to protect against data exfiltration concerns.",
     "id": "networking__connectivity_2970",
     "context": "NVA solutions and Azure Firewall (for supported protocols) can be leveraged as a reverse proxy to restrict access to only authorized PaaS services for services where Private Link is not yet supported (Azure Firewall)."
   },
@@ -3311,7 +3311,7 @@
       {
         "title": "Does the organization have configured NSG flow logs to get insights about ingoing and outgoing traffic of this workload?",
         "context": "NSG flow logs should be captured and analyzed to monitor performance and security. The NSG flow logs enables Traffic Analytics to gain insights into internal and external traffic flows of the application.",
-        "recommendation": "Configure and collect network traffic logs",
+        "recommendation": "Configure and collect network traffic logs.",
         "id": "networking__connectivity_3405"
       }
     ]
@@ -3325,7 +3325,7 @@
     "category": "Networking & Connectivity",
     "subCategory": "Data flow",
     "title": "Are there controls in place to detect and protect from data exfiltration?",
-    "recommendation": "Apply a layered defense in depth / zero trust approach, e.g. use Azure Security Center to detect data exfiltration attempts",
+    "recommendation": "Apply a layered defense in depth / zero trust approach, e.g. use Azure Security Center to detect data exfiltration attempts.",
     "id": "networking__connectivity_3094",
     "context": "Data exfiltration occurs when an internal/external malicious actor performs and unauthorized data transfer. The solution should leverage a layered approach such as, hub/spoke for network communications with deep packet inspection to detect/protect from a data exfiltration attack. Azure Firewall, UDR (User-defined Routes), NSG (Network Security Groups), Key Protection, Data Encryption, PrivateLink, and Private Endpoints are layered defenses for a data exfiltration attack. Azure Sentinel and Azure Security Center can be used to detect data exfiltration attempts and alert incident responders."
   },
@@ -3338,7 +3338,7 @@
     "category": "Networking & Connectivity",
     "subCategory": "Data flow",
     "title": "Has the organization deployed controls to manage traffic between subnets, Azure components and tiers of the workload?",
-    "recommendation": "Control network traffic between subnets (east/west) and application tiers (north/south)",
+    "recommendation": "Control network traffic between subnets (east/west) and application tiers (north/south).",
     "id": "networking__connectivity_8447",
     "context": "Data filtering between subnets and other Azure resources should be protected. Network Security Groups, PrivateLink, and Private Endpoints can be used for traffic filtering."
   },
@@ -3364,7 +3364,7 @@
     "category": "Security & Compliance",
     "subCategory": "Encryption",
     "title": "Does the workload communicate over encrypted (TLS / HTTPS) network traffic only?",
-    "recommendation": "Use encrypted network channels (TLS / HTTPS) for all client/server communication",
+    "recommendation": "Use encrypted network channels (TLS / HTTPS) for all client/server communication.",
     "id": "encryption_3568",
     "context": "Any network communication between client and server where man-in-the-middle attack can occur, needs to be encrypted. All website communication should use HTTPS, no matter the perceived sensitivity of transferred data (man-in-the-middle attacks can occur anywhere on the site, not just on login forms)."
   },
@@ -3377,7 +3377,7 @@
     "category": "Security & Compliance",
     "subCategory": "Encryption",
     "title": "What TLS version is used across workloads?",
-    "recommendation": "Use TLS 1.2 on Azure",
+    "recommendation": "Use TLS 1.2 on Azure.",
     "id": "encryption_1750",
     "context": "All Microsoft Azure services fully support TLS 1.2. It is recommended to migrate solutions to support **TLS 1.2** and use this version by default. TLS 1.3 is not available on Azure yet, but should be the preferred option once implemented on the platform."
   },
@@ -3390,7 +3390,7 @@
     "category": "Security & Compliance",
     "subCategory": "Encryption",
     "title": "Does the workload use secure modern hash algorithms?",
-    "recommendation": "Use only secure hash algorithms (SHA-2 family)",
+    "recommendation": "Use only secure hash algorithms (SHA-2 family).",
     "id": "encryption_2236",
     "context": "Applications should use the **SHA-2** family of hash algorithms (SHA-256, SHA-384, SHA-512)."
   },
@@ -3410,7 +3410,7 @@
         {
             "title": "Does the organization protect the customer managed keys with an additional key encryption key (KEK)?",
             "context": "More than one encryption key should be used in an encryption at rest implementation. Storing an encryption key in Azure Key Vault ensures secure key access and central management of keys.",
-            "recommendation": "Use an additional key encryption key (KEK) to protect your data encryption key (DEK)",
+            "recommendation": "Use an additional key encryption key (KEK) to protect your data encryption key (DEK).",
             "id": "encryption_customer_keys_kek"
         }
     ]
@@ -3424,7 +3424,7 @@
     "category": "Security & Compliance",
     "subCategory": "Encryption",
     "title": "How is data at rest protected?",
-    "recommendation": "Classify your data at rest and use encryption",
+    "recommendation": "Classify your data at rest and use encryption.",
     "id": "encryption_704",
     "context": "This includes all information storage objects, containers, and types that exist statically on physical media, whether magnetic or optical disk.  All data should be classified and encrypted with an encryption standard. How is the data classified and tagged as such so that it can be audited."
   },
@@ -3443,7 +3443,7 @@
     "children": [
       {
         "title": "Is there any portion of the application that does not secure data in transit?",
-        "recommendation": "Ensure that all data in Azure is encrypted while in transit",
+        "recommendation": "Ensure that all data in Azure is encrypted while in transit.",
         "id": "encryption_5554",
         "context": "All data should be encrypted in transit using a common encryption standard. Determine if all components in the solution are using a consistent standard. There are times when encryption is not possible due to technical limitations, but the reason needs to be clear and valid."
       }
@@ -3458,7 +3458,7 @@
     "category": "Operational Model & DevOps",
     "subCategory": "General",
     "title": "Has the organization adopted a formal DevOps approach to building and maintaining software in this workload to ensure security and feature enhancements can be deployed in rapid fashion?",
-    "recommendation": "Adopt a formal DevSecOps approach to building and maintaining software",
+    "recommendation": "Adopt a formal DevSecOps approach to building and maintaining software.",
     "id": "operational_model__devops_7507",
     "context": "The DevOps approach increases the organization’s ability to rapidly address security concerns without waiting for a longer planning and testing cycle of traditional waterfall model. Key attributes are: automation, close integration of infra and dev teams, testability and reliability and repeatability of deployments.* [Adopt the DevOps approach](https://docs.microsoft.com/azure/architecture/framework/Security/applications-services#adopt-the-devops-approach)"
   },
@@ -3472,7 +3472,7 @@
     "subCategory": "General",
     "title": "Does the organization leverage DevOps security guidance based on industry lessons-learned, and available automation tools (OWASP guidance, Microsoft toolkit for Secure DevOps etc.)?",
 
-    "recommendation": "Follow DevOps security guidance and automation for securing applications",
+    "recommendation": "Follow DevOps security guidance and automation for securing applications.",
     "id": "operational_model__devops_9689",
     "context": "Organizations should leverage a control framework such as NIST, CIS or ASB [(Azure Security Benchmarks)](https://docs.microsoft.com/azure/security/benchmarks/) for securing applications on the cloud rather than starting from zero."
   },
@@ -3498,7 +3498,7 @@
     "category": "Operational Model & DevOps",
     "subCategory": "Roles & Responsibilities",
     "title": "Is the security team involved in the planning, design and overall DevOps process, so that they can implement security controls, auditing, response processes into the solutions?",
-    "recommendation": "Involve security team into development process",
+    "recommendation": "Involve security team into development process.",
     "id": "operational_model__devops_9812",
     "context": "There should be a process for onboarding service securely to Azure. The onboarding process should include reviewing the configuration options to determine what logging/monitoring needs to be established, how to properly harden a resource before it goes into production.  For a list of common criteria for onboarding resoruces, see the [Service Enablement Framework](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/enterprise-scale/security-governance-and-compliance#service-enablement-framework)"
   },
@@ -3511,7 +3511,7 @@
     "category": "Deployment & Testing",
     "subCategory": "Application Deployments",
     "title": "Are the code scanning tools an integrated part of the continuous integration (CI) process?",
-    "recommendation": "Integrate the scanning tools within a CI / CD pipeline",
+    "recommendation": "Integrate the scanning tools within a CI / CD pipeline.",
     "id": "operational_model__devops_6801",
     "context": "Credentials should not be stored in source code or configuration files, because that increases the risk of exposure. Code analyzers (such as Roslyn analyzers for Visual Studio) can prevent from pushing credentials to source code repository and pipeline addons such as CredScan (part of Microsoft Security Code Analysis) help to catch credentials during the build process."
   },
@@ -3537,7 +3537,7 @@
     "category": "Deployment & Testing",
     "subCategory": "Application Deployments",
     "title": "Is code scan included in continuos integration (CI) process and are dependencies and framework components included in this process?",
-    "recommendation": "Include code scans into CI/CD process that also covers 3rd party dependencies and framework components",
+    "recommendation": "Include code scans into CI/CD process that also covers 3rd party dependencies and framework components.",
     "id": "operational_model__devops_4898",
     "context": "As part of the continuous integration process it is crucial that every release includes a scan of all components in use. Vulnerable dependencies should be flagged and investigated. This can done in combination with other code scanning tasks (e.g. code churn, test results/coverage)."
   },
@@ -3563,7 +3563,7 @@
     "category": "Deployment & Testing",
     "subCategory": "Application Deployments",
     "title": "Are branch policies used in source control management? How are they configured?",
-    "recommendation": "Implement branch policy strategy to enhance branch security",
+    "recommendation": "Implement branch policy strategy to enhance branch security.",
     "id": "operational_model__devops_5927",
     "context": "Branch policies provide additional level of control over the code which is commited to the product. It is a common practice to not allow pushing against the main branch and require pull-request (PR) with code review before merging the changes by at least one reviewer, other than the change author. Different branches can have different purposes and access levels, for example: feature branches are created by developers and are open to push, integration branch requires PR and code-review and production branch requires additional approval from a senior developer before merging."
   },
@@ -3602,7 +3602,7 @@
     "category": "Application Design",
     "subCategory": "Dependencies",
     "title": "Is the organization using a Landing Zone concept and how was it implemented?",
-    "recommendation": "Implement a landing zone concept with Azure Blueprints and Azure Policies",
+    "recommendation": "Implement a landing zone concept with Azure Blueprints and Azure Policies.",
     "id": "governance_2724",
     "context": "Landing Zone refers to components that are already defined and in place before the workloads are getting deployed by the workload owners, e.g. network topology with Hub/Spoke concept. The purpose of the “Landing Zone” is to ensure that when a workload lands on Azure, the required “plumbing” is already in place, providing greater agility and compliance with enterprise security and governance requirements. This is crucial, that a Landing Zone will be handed over to the workload owner with the security guardrails deployed.",
     "children": [
@@ -3637,7 +3637,7 @@
     "subCategory": "Design",
     "title": "Does the organization use cloud native security controls for this workload?",
     "context": "Native security controls are maintained and supported by the service provider, eliminating, or reducing effort required to integrate external security tooling and update those integrations over time.",
-    "recommendation": "Use native security capabilities in application services",
+    "recommendation": "Use native security capabilities in application services.",
     "id": "application_design_native_controls"
   },
   {
@@ -3650,7 +3650,7 @@
     "subCategory": "Design",
     "title": "Does the organization use cloud services for well-established functions instead of building custom service implementations for this workload?",
     "context": "Developers should use services available from a cloud provider for well-established functions like databases, encryption, identity directory, and authentication instead of writing custom versions or third-party solutions that must be integrated into the cloud provider.",
-    "recommendation": "Use services available from a cloud provider for well-established functions like databases, encryption, identity directory, and authentication",
+    "recommendation": "Use services available from a cloud provider for well-established functions like databases, encryption, identity directory, and authentication.",
     "id": "application_design_cloud_established"
   },
   {
@@ -3663,7 +3663,7 @@
     "subCategory": "Threat Analysis",
     "title": "Does the organization have a defined set of security requirements for this workload?",
     "context": "Azure resources should be blocked that do not meet the proper security requirements defined during service enablement.",
-    "recommendation": "Define security requirements for the workload",
+    "recommendation": "Define security requirements for the workload.",
     "id": "application_design_security_requirements"
   },
 
@@ -3677,7 +3677,7 @@
     "subCategory": "Threat Analysis",
     "title": "Has the organization addressed threat protection for the workload?",
     "context": "Enterprise workloads are subjected to many threats that can jeopardize confidentiality, availability, or integrity and should be protected with advanced security solutions.",
-    "recommendation": "Implement threat protection for the Azure workload",
+    "recommendation": "Implement threat protection for the workload.",
     "id": "application_design_threat_protection"
   },
   {
@@ -3690,7 +3690,7 @@
     "subCategory": "Security Criteria & Data Classification",
     "title": "Does the organization have a defined set of Azure Policies to enforce and control security and organizational standards for the workload?",
     "context": "Azure Policy should be used to enforce and report a compliant configuration of Azure services. Azure policies can be use on multiple levels. It is recommended to apply organizational wide security controls on Azure platform level. These policies build the guardrails of a landing zone.",
-    "recommendation": "Define a set of Azure Policies which enforce organizational standards and are aligned with the governance team",
+    "recommendation": "Define a set of Azure Policies which enforce organizational standards and are aligned with the governance team.",
     "id": "application_design_azure_policies_security"
   },
   {
@@ -3703,7 +3703,7 @@
     "subCategory": "Security Criteria & Data Classification",
     "title": "Has the organization identified and classified business critical applications which may adversely affect operations if they are compromised or become unavailable?",
     "context": "Enterprise organizations typically have a large application portfolio. Have key business applications been identified and classified? This should include applications that have a high business impact if affected. Examples would be business critical data, regulated data, or business critical availability. These applications also might include applications which have a high exposure to attach such as public facing websites key to organizational success. ",
-    "recommendation": "Identify and classify business critical applications",
+    "recommendation": "Identify and classify business critical applications.",
     "id": "application_design_critical_applications"
   },
   {
@@ -3729,7 +3729,7 @@
     "subCategory": "Security Criteria & Data Classification",
     "title": "Has the organization developed and maintained a security plan in support of the workload?",
     "context": "A security plan should be part of the main planning documentation for the cloud. It should include several core elements including organizational functions, security skilling, technical security architecture and capabilities roadmap.",
-    "recommendation": "Develop a security plan",
+    "recommendation": "Develop a security plan.",
     "id": "application_design_security_plan"
   },
   {
@@ -3742,7 +3742,7 @@
     "subCategory": "Security Criteria & Data Classification",
     "title": "Does the organization prioritize security best practices by reviewing guidance based on industry recommendations and apply those settings proactively and completely to all systems as a cloud program is implemented?",
     "context": "Security best practices are ideally applied proactively and completely to all systems as a cloud program is implemented.",
-    "recommendation": "Review, prioritize, and proactively apply security best practices to cloud resources",
+    "recommendation": "Review, prioritize, and proactively apply security best practices to cloud resources.",
     "id": "application_design_security_best_practices"
   },
   {
@@ -3781,7 +3781,7 @@
     "subCategory": "Security Criteria & Data Classification",
     "title": "Does the organization consider containing attacker access to Azure workloads when making investments in security solutions?",
     "context": "The actual security risk for an organization is heavily influenced by how much access an adversary can or does obtain to valuable systems and data.",
-    "recommendation": "Implement security strategy to contain attacker access",
+    "recommendation": "Implement security strategy to contain attacker access.",
     "id": "application_design_security_attacker_access_containment"
   },
   {
@@ -3815,7 +3815,7 @@
     "subCategory": "Resource/Infrastructure Level Monitoring",
     "title": "Does the security team have access to and monitor all connected subscriptions and tenants that are connected to the existing cloud environment?",
     "context": "Ensure the security organization is aware of all enrollments and associated subscriptions connected to the existing environment and is able to monitor those resources as part of the overall enterprise security posture.",
-    "recommendation": "Ensure all Azure environments that connect to your production environment/network apply your organization’s policy and IT governance controls for security",
+    "recommendation": "Ensure all Azure environments that connect to your production environment/network apply your organization’s policy and IT governance controls for security.",
     "id": "health_modelling_monitor_connected_subscriptions"
   },
   {
@@ -3828,7 +3828,7 @@
     "subCategory": "Connectivity",
     "title": "Does the organization restrict access to the backend infrastructure (APIs, databases, etc.)  by only a minimal set of public IP addresses based on need, only those who really need it?",
     "context": "Web applications typically have one public entrypoint and don't expose subsequent APIs and database servers over the internet. When using gateway services like [Azure Front Door](https://docs.microsoft.com/azure/frontdoor/) it's possible to restrict access only to a set of Front Door IP addresses and lock down the infrastructure completely.",
-    "recommendation": "Restrict access to backend services to a minimal set of public IP addresses, only those who really need it",
+    "recommendation": "Restrict access to backend services to a minimal set of public IP addresses, only those who really need it.",
     "id": "networking__connectivity_1665"
   },
   {
@@ -3875,7 +3875,7 @@
     "subCategory": "Data flow",
     "title": "Does the organization leverage a cloud application security broker (CASB)?",
     "context": "CASBs provide rich visibility, control over data travel, and sophisticated analytics to identify and combat cyberthreats across all Microsoft and third-party cloud services.",
-    "recommendation": "Leverage a cloud application security broker (CASB)",
+    "recommendation": "Leverage a cloud application security broker (CASB).",
     "id": "networking_connectivity_cloud_app_security_broker"
   },
   {
@@ -3901,7 +3901,7 @@
     "subCategory": "Network Security",
     "title": "Does the organization have a designated group responsible for centralized network management and security?",
     "context": "Centralizing network management and security can reduce the potential for inconsistent strategies that create potential attacker exploitable security risks. Because all divisions of the IT and development organizations do not have the same level of network management and security knowledge and sophistication, organizations benefit from leveraging a centralized network team’s expertise and tooling.",
-    "recommendation": "Establish designated group responsible for central network management",
+    "recommendation": "Establish designated group responsible for central network management.",
     "id": "security_compliance_central_network_management"
   },
   {
@@ -3927,7 +3927,7 @@
     "subCategory": "Network Security",
     "title": "Which of the following best describes the workload network security for data protection?",
     "context": "Network-based DLP is decreasingly effective at identifying both inadvertent and deliberate data loss. The reason for this is that most modern protocols and attackers use network-level encryption for inbound and outbound communications. While the organization can use “SSL-bridging” to provide an “authorized man-in-the-middle” that terminates and then reestablishes encrypted network connections, this can also introduce privacy, security and reliability challenges.",
-    "recommendation": "Deprecate legacy network security controls",
+    "recommendation": "Deprecate legacy network security controls.",
     "id": ""
   },
   {
@@ -3940,7 +3940,7 @@
     "subCategory": "Network Security",
     "title": "Has the organization enabled enhanced network visibility by integrating network logs into a Security information and event management (SIEM) solution or similar technology?",
     "context": "Integrating logs from the network devices, and even raw network traffic itself, will provide greater visibility into potential security threats flowing over the wire. ",
-    "recommendation": "Integrate network logs into a SIEM",
+    "recommendation": "Integrate network logs into a SIEM.",
     "id": "security_compliance_network_logs_siem"
   },
   {
@@ -4057,7 +4057,7 @@
     "subCategory": "Incident Response",
     "title": "Does the organization have a security operations center (SOC) that leverages a modern security approach?",
     "context": "A SOC has a critical role in limiting the time and access an attacker can get to valuable systems and data.  In addition, it provides the vital role of detecting the presence of adversaries, reacting to an alert of suspicious activity, or proactively hunting for anomalous events in the enterprise activity logs.",
-    "recommendation": "Establish a security operations center (SOC)",
+    "recommendation": "Establish a security operations center (SOC).",
     "id": "operational_procedure_establish_soc"
   },
   {
@@ -4070,7 +4070,7 @@
     "subCategory": "Testing & Validation",
     "title": "Does the organization have a method and carry out simulated attacks on users?",
     "context": "People are a critical part of your defense, especially those with elevated permissions, so ensuring they have the knowledge and skills to avoid and resist attacks will reduce your overall organizational risk.",
-    "recommendation": "Simulate attack against users and critical accounts",
+    "recommendation": "Simulate attack against users and critical accounts.",
     "id": "deployment_testing_simulated_user_attacks"
   },
   {
@@ -4083,7 +4083,7 @@
     "subCategory": "General",
     "title": "Does the organization consider and follow best practices related to container security for this workload?",
     "context": "Containerized applications face the same risks as any application and also adds new requirements to securely the hosting and management of the containerized applications.",
-    "recommendation": "Follow best practices for container security",
+    "recommendation": "Follow best practices for container security.",
     "id": "operational_model_devops_container_security"
   },
   {
@@ -4109,7 +4109,7 @@
     "subCategory": "Roles & Responsibilities",
     "title": "Has the organization developed and maintained a security training program to ensure technical staff are well-informed and equipped with the appropriate skills?",
     "context": "Cybersecurity threats are always evolving and therefore those responsible for organizational information security require specialized, continual, and relevant training to ensure staff maintains the level of competency required to protect, detect, and respond.  ",
-    "recommendation": "Develop security training program",
+    "recommendation": "Develop security training program.",
     "id": "operational_model_devops_security_training_program"
   },
   {
@@ -4122,7 +4122,7 @@
     "subCategory": "Roles & Responsibilities",
     "title": "Does the organization have the appropriate emergency access accounts configured in case of an emergency?",
     "context": "While rare, sometimes extreme circumstances arise where all normal means of administrative access are unavailable and for this reason emergency access accounts should be available. [Emergency Access Acounts](https://docs.microsoft.com/azure/active-directory/roles/security-emergency-access)",
-    "recommendation": "Configure emergency access accounts",
+    "recommendation": "Configure emergency access accounts.",
     "id": "operational_model_devops_emergency_access_accounts"
   },
   {
@@ -4135,7 +4135,7 @@
     "subCategory": "Roles & Responsibilities",
     "title": "Has the organization clearly defined lines of responsibility and designated responsible parties for specific functions in Azure?",
     "context": "Clearly documenting and sharing the contacts responsible for each of these functions will create consistency and facilitate communication. Examples of such contact groups include network security, network management, server endpoint security, incident response, policy management, identity...",
-    "recommendation": "Designate the parties responsible for specific functions in Azure",
+    "recommendation": "Designate the parties responsible for specific functions in Azure.",
     "id": "operational_model_lines_of_responsibility"
   },
   {
@@ -4220,7 +4220,7 @@
         {
             "title": "Does the organization use cloud provider identity services designed to host non-employee rather than including vendors, partners, and customers into a corporate directory?",
             "context": "Using a cloud identity provider reduces risk by granting the appropriate level of access to external entities instead of the full default permissions given to full-time employees. This least privilege approach and clear differentiation of external accounts from company staff makes it easier to prevent and detect attacks coming in from these vectors.",
-            "recommendation": "Use cloud provider identity services for non-employees",
+            "recommendation": "Use cloud provider identity services for non-employees.",
             "id": "identity_access_controle_cloud_identity_nonemployees"
         }
     ]
@@ -4248,7 +4248,7 @@
     "subCategory": "Control-plane RBAC",
     "title": "Does the organization have a well-defined identity strategy for controlling access to cloud-based workloads?",
     "context": "Identity provides the basis of a large percentage of security assurances and a well-defined identity strategy is effective in protecting the organization from cybersecurity threats.",
-    "recommendation": "Implement a well-defined identity strategy",
+    "recommendation": "Implement a well-defined identity strategy.",
     "id": "identity_access_control_identity_strategy"
   },
   {
