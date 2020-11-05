@@ -944,7 +944,8 @@
   {
     "type": "Questions",
     "pillars": [
-      "operationalexcellence"
+      "operationalexcellence",
+      "security"
     ],
     "lens": "application",
     "category": "Operational Procedures",
@@ -3714,9 +3715,9 @@
     "category": "Application Design",
     "subCategory": "Security Criteria & Data Classification",
     "title": "Has the organization established a monitoring and assessing solution for compliance?",
-    "context": "Continuous monitoring and assessing workload increases the overall security and compliance of your workload in Azure",
-    "recommendation": "Continuously assess and monitor compliance",
-    "id": ""
+    "context": "Continuous monitoring and assessing workload increases the overall security and compliance of your workload in Azure. For example Azure Security Center provides a regulatory compliance dashboard.",
+    "recommendation": "Continuously assess and monitor compliance.",
+    "id": "application_design_compliance_monitoring"
   },
   {
     "type": "Questions",
@@ -3792,22 +3793,17 @@
     "category": "Health Modelling",
     "subCategory": "Application Level Monitoring",
     "title": "Does the organization have a central SecOps teams which monitors security related telemetry data?",
-    "context": "Organization is monitoring the security posture across workloads and central SecOps team is monitoring security-related telemetry data and investigating security breaches. Communication, investigation and hunting activities need to be aligned with the application team.",
-    "recommendation": "Establish a SecOps team and monitor security related events",
-    "id": "health_modelling_central_secops_team"
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Health Modelling",
-    "subCategory": "Application Level Monitoring",
-    "title": "Does the organization have an established process for communication, investigation & hunting activities that is aligned with the application team?",
-    "context": "Application team needs to be aware of those activities to align their security improvement  activities with the outcome of those activities.",
-    "recommendation": "Define a process for aligning communication, investigation & hunting activities with the application team.",
-    "id": ""
+    "context": "Organization is monitoring the security posture across workloads and central SecOps team is monitoring security-related telemetry data and investigating security breaches.",
+    "recommendation": "Establish a SecOps team and monitor security related events.",
+    "id": "health_modelling_central_secops_team",
+    "children": [
+        {
+            "title": "Does the organization have an established process for communication, investigation & hunting activities that is aligned with the application team?",
+            "context": "Application team needs to be aware of those activities to align their security improvement  activities with the outcome of those activities.",
+            "recommendation": "Define a process for aligning communication, investigation & hunting activities with the application team.",
+            "id": "health_modelling_secops_alignment"
+        }
+    ]
   },
   {
     "type": "Questions",
@@ -3844,9 +3840,17 @@
     "category": "Networking & Connectivity",
     "subCategory": "Connectivity",
     "title": "Does the organization identify and isolate groups of resources from other parts of the organization to aid in detecting and containing adversary movement within the enterprise?",
-    "context": "A unified enterprise segmentation strategy will guide all technical teams to consistently segment access using networking, applications, identity, and any other access controls.",
-    "recommendation": "Establish a unified enterprise segmentation strategy",
-    "id": ""
+    "context": "A unified [enterprise segmentation strategy](https://docs.microsoft.com/azure/architecture/framework/Security/governance#enterprise-segmentation-strategy) will guide all technical teams to consistently segment access using networking, applications, identity, and any other access controls. ",
+    "recommendation": "Establish a unified enterprise segmentation strategy.",
+    "id": "networking_connectivity_enterprise_segmentation_strategy",
+    "children": [
+        {
+            "title": "Does the organization align the cloud network segmentation strategy with the enterprise segmentation model?",
+            "context": "Aligning cloud network segmentation strategy with the enterprise segmentation model reduces confusion and resulting challenges with different technical teams (networking, identity, applications, etc.) each developing their own segmentation and delegation models that don’t align with each other.",
+            "recommendation": "Align cloud network segmentation strategy with the enterprise segmentation model.",
+            "id": "networking_connectivity_network_segmentation_enterprise_segmentation"
+        }
+    ]
   },
   {
     "type": "Questions",
@@ -3883,9 +3887,9 @@
     "category": "Security & Compliance",
     "subCategory": "Security Center",
     "title": "Does the organization use tools to discover and remediate common risks within Azure tenants?",
-    "context": "Identifying and remediating common security hygiene risks significantly reduces overall risk to the organization by increasing cost to attackers.",
-    "recommendation": "Discover and remediate common risks to improve Secure Score",
-    "id": ""
+    "context": "Identifying and remediating common security hygiene risks significantly reduces overall risk to the organization by increasing cost to attackers. [Azure Secure Score](https://docs.microsoft.com/azure/security-center/security-center-secure-score) in Azure Security Center monitors the security posture of machines, networks, storage and data services, and applications to discover potential security issues (internet connected VMs, or missing security updates, missing endpoint protection or encryption, deviations from baseline security configurations, missing Web Application Firewall (WAF), and more).",
+    "recommendation": "Discover and remediate common risks to improve Secure Score in Azure Security Center.",
+    "id": "security_compliance_secure_score"
   },
   {
     "type": "Questions",
@@ -3899,19 +3903,6 @@
     "context": "Centralizing network management and security can reduce the potential for inconsistent strategies that create potential attacker exploitable security risks. Because all divisions of the IT and development organizations do not have the same level of network management and security knowledge and sophistication, organizations benefit from leveraging a centralized network team’s expertise and tooling.",
     "recommendation": "Establish designated group responsible for central network management",
     "id": "security_compliance_central_network_management"
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Security & Compliance",
-    "subCategory": "Network Security",
-    "title": "Does the organization align the cloud network segmentation strategy with the enterprise segmentation model?",
-    "context": "Aligning cloud network segmentation strategy with the enterprise segmentation model reduces confusion and resulting challenges with different technical teams (networking, identity, applications, etc.) each developing their own segmentation and delegation models that don’t align with each other.",
-    "recommendation": "Align cloud network segmentation strategy with the enterprise segmentation model",
-    "id": ""
   },
   {
     "type": "Questions",
@@ -3998,50 +3989,11 @@
     ],
     "lens": "application",
     "category": "Security & Compliance",
-    "subCategory": "Network Security",
-    "title": "Does the organization have an internet ingress/egress policy defined?",
-    "context": "Defining an internet ingres/egress policy standarizes traffic flows for cloud workloads and allows for consistent network inspection points.  ",
-    "recommendation": "Define an internet ingress/egress policy",
-    "id": ""
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Security & Compliance",
-    "subCategory": "Network Security",
-    "title": "Has the organization implemented an internet edge strategy?",
-    "context": "An internet edge strategy is intended to mitigate as many attacks from the internet as is reasonable and to block undesired traffic.    ",
-    "recommendation": "Implement an internet edge strategy",
-    "id": ""
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Security & Compliance",
-    "subCategory": "Encryption",
-    "title": "Is the workload using customer managed encryption keys?",
-    "context": "",
-    "recommendation": "",
-    "id": ""
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Security & Compliance",
     "subCategory": "Encryption",
     "title": "Does the organization use identity-based storage access controls for this workload?",
-    "context": "Protecting data at rest is required to maintain confidentiality, integrity, and availability assurances across all workloads. ",
-    "recommendation": "Implement identity-based storage access controls",
-    "id": ""
+    "context": "Protecting data at rest is required to maintain confidentiality, integrity, and availability assurances across all workloads. Cloud service providers make multiple methods of access control available - shared keys, shared signatures, anonymous access, identity provider-based. Identity provider methods (such as AAD and RBAC) are the least liable to compromise and enable more fine-grained role-based access controls.",
+    "recommendation": "Implement identity-based storage access controls.",
+    "id": "security_compliance_storage_identity_based_ac"
   },
   {
     "type": "Questions",
@@ -4143,9 +4095,9 @@
     "category": "Operational Model & DevOps",
     "subCategory": "General",
     "title": "Does the organization evaluate the security posture using standard benchmarks?",
-    "context": "Benchmarking enables security program improvement by learning from external organizations. ",
-    "recommendation": "Establish security benchmarking aligned to industry standards",
-    "id": ""
+    "context": "[Benchmarking](https://docs.microsoft.com/azure/architecture/framework/Security/governance#evaluate-security-using-benchmarks) enables security program improvement by learning from external organizations. It lets the organization know how its current security state compares to that of other organizations. As an example, the Center for Internet Security (CIS) has created security benchmarks for Azure that map to the CIS Control Framework. Another reference example is the MITRE ATT&CK™ framework that defines the various adversary tactics and techniques based on real-world observations.",
+    "recommendation": "Establish security benchmarking aligned to industry standards.",
+    "id": "operational_model_security_benchmarks"
   },
   {
     "type": "Questions",
@@ -4182,9 +4134,9 @@
     "category": "Operational Model & DevOps",
     "subCategory": "Roles & Responsibilities",
     "title": "Has the organization clearly defined lines of responsibility and designated responsible parties for specific functions in Azure?",
-    "context": "Clearly documenting and sharing the contacts responsible for each of these functions will create consistency and facilitate communication.",
+    "context": "Clearly documenting and sharing the contacts responsible for each of these functions will create consistency and facilitate communication. Examples of such contact groups include network security, network management, server endpoint security, incident response, policy management, identity...",
     "recommendation": "Designate the parties responsible for specific functions in Azure",
-    "id": ""
+    "id": "operational_model_lines_of_responsibility"
   },
   {
     "type": "Questions",
@@ -4282,9 +4234,9 @@
     "category": "Identity & Access Control",
     "subCategory": "Control-plane RBAC",
     "title": "Does the organization use a single identity provider for cross-platform identity management?",
-    "context": "A single identity provider for all enterprise assets will simplify management and security, minimizing the risk of oversights or human mistakes.",
-    "recommendation": "Use single identity provider for cross-platform IDM",
-    "id": ""
+    "context": "A single identity provider such as Azure Active Directory (AAD) for all enterprise assets and cloud services will simplify management and security, minimizing the risk of oversights or human mistakes. Ideally this provider should span across platforms (Windows, Linux, Azure, AWS, Google...).",
+    "recommendation": "Use single identity provider for cross-platform IDM.",
+    "id": "identity_access_control_single_identity_provider"
   },
   {
     "type": "Questions",
@@ -4321,7 +4273,7 @@
     "category": "Identity & Access Control",
     "subCategory": "Control-plane RBAC",
     "title": "Does the organizational security team have read-only access into all cloud environment resources?",
-    "context": "Provide security teams read-only access to the security aspects of all technical resources in their purview. Security organizations require visibility into the technical environment to perform their duties of assessing and reporting on organizational risk. Without this visibility, security will have to rely on information provided from groups, operating the environment, who have a potential conflict of interest (and other priorities).\nNote that security teams may separately be granted additional privileges if they have operational responsibilities or a requirement to enforce compliance on Azure resources.\nFor example in Azure, assign security teams to the Security Readers permission that provides access to measure security risk (without providing access to the data itself).\nBecause security will have broad access to the environment (and visibility into potentially exploitable vulnerabilities), you should consider them critical impact accounts and apply the same protections as administrators. ",
+    "context": "Provide [security teams](https://docs.microsoft.com/azure/architecture/framework/Security/governance#security-team-visibility) read-only access to the security aspects of all technical resources in their purview. Security organizations require visibility into the technical environment to perform their duties of assessing and reporting on organizational risk. Without this visibility, security will have to rely on information provided from groups, operating the environment, who have a potential conflict of interest (and other priorities).\nNote that security teams may separately be granted additional privileges if they have operational responsibilities or a requirement to enforce compliance on Azure resources.\nFor example in Azure, assign security teams to the Security Readers permission that provides access to measure security risk (without providing access to the data itself).\nBecause security will have broad access to the environment (and visibility into potentially exploitable vulnerabilities), you should consider them critical impact accounts and apply the same protections as administrators. ",
     "recommendation": "Ensure security team has \"Security Readers\" or equivalent on cloud resources in their purview.",
     "id": "identity_access_control_security_team_read_role"
   },
@@ -4334,86 +4286,8 @@
     "category": "Identity & Access Control",
     "subCategory": "Control-plane RBAC",
     "title": "Does the organization use the root management group and carefully consider any changes that are applied using this group?",
-    "context": "The root management group ensures consistency across the enterprise by applying policies, permissions, and tags across all subscriptions.",
-    "recommendation": "Add planning, testing, and validation rigor to the use of the root management group",
-    "id": ""
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Identity & Access Control",
-    "subCategory": "Authentication and authorization",
-    "title": "Does the organization use a single enterprise directory for managing identities of full-time employees and enterprise resources?",
-    "context": "A single authoritative source for identities increases clarity and consistency for all roles in IT and Security. This reduces security risk from human errors and automation failures resulting from complexity. By having a single authoritative source, teams that need to make changes to the directory can do so in one place and have confidence that their change will take effect everywhere. ",
-    "recommendation": "Use a single enterprise directory for managing identities",
-    "id": ""
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Identity & Access Control",
-    "subCategory": "Authentication and authorization",
-    "title": "How does this workload authenticate when communicating with the Azure Platform?",
-    "context": "Managed identities enable Azure Services to authenticate to each other without presenting explicit credentials via code and increase security.",
-    "recommendation": "Standarize managed identity authentication",
-    "id": ""
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Identity & Access Control",
-    "subCategory": "Authentication and authorization",
-    "title": "Has the organization restricted legacy authentication protocols for this workload?",
-    "context": "Legacy authentication methods are among the top attack vectors for cloud-hosted services. Created before multi-factor authentication existed, legacy protocols don’t support additional factors beyond passwords and are therefore prime targets for password spraying, dictionary, or brute force attacks.",
-    "recommendation": "Restrict legacy authentication protocols",
-    "id": ""
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Identity & Access Control",
-    "subCategory": "Authentication and authorization",
-    "title": "Does the organization use modern and effective password protections for any accounts that cannot switch to password less?",
-    "context": "Credential attacks are a common method for breaching an organization and enabling modern password protections limits the use of bad practices while allowing cloud native threat intelligence to alert on suspicious activity.  ",
-    "recommendation": "Use modern password protection for accounts that cannot switch to password-less",
-    "id": ""
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Identity & Access Control",
-    "subCategory": "Authentication and authorization",
-    "title": "Does the organization prioritize authentication via identity services for this workload vs. cryptographic keys?",
-    "context": "Consideration should always be given to authenticating with identity services rather than cryptographic keys when available.",
-    "recommendation": "Use identity authentication for this workload",
-    "id": ""
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Identity & Access Control",
-    "subCategory": "Authentication and authorization",
-    "title": "Does the organization have a process to discover and replace insecure protocols such as SMBv1, LM/NTLMv1, wDigest, Unsigned LDAP Binds, and Weak ciphers in Kerberos?",
-    "context": "Insecure protocols are such as simple LDAP binds disclose clear-text passwords and greatly degrade overall network security.  Other legacy protocols lack modern security mechanisms to provide data confidentiality and integrity.  ",
-    "recommendation": "Discover and replace insecure protocols",
-    "id": ""
+    "context": "The [root management group](https://docs.microsoft.com/azure/architecture/framework/security/design-management-groups#use-root-management-group-with-caution) ensures consistency across the enterprise by applying policies, permissions, and tags across all subscriptions. This group can affect all resources in Azure and incorrect use can impact the security of all workloads in Azure.",
+    "recommendation": "Add planning, testing, and validation rigor to the use of the root management group.",
+    "id": "identity_access_control_root_management_groups"
   }
 ]
