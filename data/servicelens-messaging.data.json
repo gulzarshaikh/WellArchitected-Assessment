@@ -356,7 +356,7 @@
         "title": "[Paired Namespace (Active/Passive)](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-geo-dr)"
       },
       {
-        "title": "NOTE: the secondary region should be an Azure paired region. https://docs.microsoft.com/azure/best-practices-availability-paired-regions "
+        "title": "NOTE: the secondary region should preferably be an [Azure paired region](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)."
       }
     ]
   },
@@ -379,7 +379,7 @@
     "lens": "service",
     "category": "Messaging",
     "subCategory": "Service Bus",
-    "title": "Review the Service Bus performance improvements documentation https://docs.microsoft.com/azure/service-bus-messaging/service-bus-performance-improvements"
+    "title": "Review the [Best Practices for performance improvements using Service Bus Messaging](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-performance-improvements)."
   },
   {
     "type": "Configuration Recommendations",
@@ -469,7 +469,7 @@
     "lens": "service",
     "category": "Messaging",
     "subCategory": "Storage Queues",
-    "title": "Using geo-zone-redundant storage (GZRS) or read-access geo-zone-redundant storage (RA-GZRS) will provide 16 nines or durability and will protect against failover if an entire datacenter becomes unavailable. https://docs.microsoft.com/azure/storage/common/storage-redundancy "
+    "title": "Using geo-zone-redundant storage (GZRS) or read-access geo-zone-redundant storage (RA-GZRS) will provide 16 nines or durability and will protect against failover if an entire datacenter becomes unavailable. See [Azure Storage redundancy](https://docs.microsoft.com/azure/storage/common/storage-redundancy) for more information."
   },
   {
     "type": "Configuration Recommendations",
