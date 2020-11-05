@@ -613,7 +613,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
   _The Soft-Delete feature retains resources for a given retention period after a DELETE operation has been performed, while giving the appearance that the object is deleted. It helps to mitigate scenarios where resources are unintentionally, maliciously or incorrectly deleted([Azure Key Vault Soft-Delete](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete))_
   > Key Vault Soft Delete helps to mitigate scenarios where resources are unintentionally, maliciously or incorrectly deleted([Azure Key Vault Soft-Delete](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete)). It is therefore highly recommended to enable this.
-* Are the expiry dates of SSL certificates monitored and are processes in place to renew them?
+* Are the expiry dates of SSL/TSL certificates monitored and are processes in place to renew them?
 
 
   _Expired SSL/TSL certificates are one of the most common yet avoidable causes of application outages; even Azure and more recently Microsoft Teams have experienced outages due to expired certificates._
@@ -861,7 +861,6 @@ Stress Testing : *Stress testing is a type of negative testing which involves va
 
   _Minimizing the number of people who have access to secure information or resources reduces the chance of a malicious actor gaining access or an authorized user inadvertently impacting a sensitive resource. For example, Azure AD [Privileged Identity Management](https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-configure) provides time-based and approval-based role activation to mitigate the risks of excessive, unnecessary, or misused access permissions on resources that you care about_
   > Implement just-in-time privileged access management
-
     - Does anyone have long-standing write-access to production environments?
 
 
