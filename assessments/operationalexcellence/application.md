@@ -44,14 +44,14 @@ The following Design Principles provide context for questions, why a certain asp
 ## Optimize build and release processes
 
 
-  From provisioning with Infrastructure as Code, to build and releases with CI/CD pipelines, to automated testing, embrace software engineering discipline across your entire environment. This approach ensures the creation and management of environments throughout the software development lifecycle is consistent and enables early detection of issues.
+  From provisioning with Infrastructure as Code, to build and releases with CI/CD pipelines, to automated testing, embrace software engineering disciplines across your entire environment. This approach ensures the creation and management of environments throughout the software development lifecycle is consistent, repeatable, and enables early detection of issues.
 
 
 
-## Monitor system and operational health
+## Monitor entire system and understand operational health
 
 
-  Identify and monitor metrics for build and release processes, infrastructure health, and application health. Telemetry is critical to understanding the health of a workload and whether the service is meeting the business goals.
+  Implement systems and processes to monitor build and release processes, infrastructure health, and application health. Telemetry is critical to understanding the health of a workload and whether the service is meeting the business goals.
 
 
 
@@ -62,24 +62,17 @@ The following Design Principles provide context for questions, why a certain asp
 
 
 
-## Modularize your environment
-
-
-  Systematically componentize your environment and workloads to enable frequent and manageable change that can be progressively rolled-out and safely rolled-back.
-
-
-
-## Use policy-driven governance
-
-
-  Use Azure Policy to provide guardrails and ensure continued compliance of application environment. This approach to centralized governance enables an organization to provide application teams with sufficient autonomy to accelerate development efforts, while ensuring the enterprise estate remains compliant with organizational standards.
-
-
-
 ## Embrace operational improvement
 
 
   Continuously evaluate and refine operational procedures and tasks, while striving to reduce complexity and ambiguity. This approach enables an organization to evolve processes over time, optimizing inefficiencies and learning from failures.
+
+
+
+## Use loosely coupled architecture
+
+
+  Enable teams to independently test, deploy, and update their systems on demand without depending on other teams for support, services, resources, or approvals.
 
 
 
@@ -108,7 +101,7 @@ These critical design principals are used as lenses to assess the Operational Ex
 * Is the application implemented with strategies for resiliency and self-healing?
 
 
-  _Strategies for resiliency and self-healing include retrying transient failures and failing over to a secondary instance or even another region (see [Designing resilient Azure applications](https://docs.microsoft.com/en-us/azure/architecture/framework/resiliency/app-design))_
+  _Strategies for resiliency and self-healing include retrying transient failures and failing over to a secondary instance or even another region (see [Designing resilient Azure applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design))_
   > Consider implementing strategies and capabilities for resiliency and self-healing needed to achieve workload availability targets.
 * Was the application built natively for the cloud or was an existing on-premises system migrated?
 
@@ -119,28 +112,28 @@ These critical design principals are used as lenses to assess the Operational Ex
 
 
   _Using tags can help to manage resources and make it easier to find relevant items during operational procedures._
-  > Azure Tags provide the ability to associate critical meta-data as a name-value pair, such as billing information (e.g. cost center code), environment information (e.g. environment type), with Azure resources, resource groups, and subscriptions. See [Tagging Strategies](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/decision-guides/resource-tagging) for best practices.
+  > Azure Tags provide the ability to associate critical meta-data as a name-value pair, such as billing information (e.g. cost center code), environment information (e.g. environment type), with Azure resources, resource groups, and subscriptions. See [Tagging Strategies](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging) for best practices.
 * Does the application have a well-defined naming standard for Azure resources?
 
 
   _A well-defined naming convention is important for overall operations to be able to easily determine the usage of certain resources._
-  > Having a well-defined naming convention is important for overall operations, particularly for large application platforms where there are numerous resources([Naming Conventions](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging))
+  > Having a well-defined naming convention is important for overall operations, particularly for large application platforms where there are numerous resources([Naming Conventions](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging))
 * Does the application support multi-region deployments?
 
 
-  _Multiple regions should be used for failover purposes in a disaster state, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active strategies([Failover strategies](https://docs.microsoft.com/en-us/azure/availability-zones/az-overview#availability-zones))_
+  _Multiple regions should be used for failover purposes in a disaster state, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active strategies([Failover strategies](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones))_
 * Within a region is the application architecture designed to use Availability Zones?
 
 
-  _Availability Zones can be used to optimise application availability within a region by providing datacenter level fault tolerance. However, the application architecture must not share dependencies between zones to use them effectively. It is also important to note that Availability Zones may introduce performance and cost considerations for applications which are extremely 'chatty' across zones given the implied physical separation between each zone and inter-zone bandwidth charges([Availability Zones](https://docs.microsoft.com/en-us/azure/availability-zones/az-overview#availability-zones))_
+  _Availability Zones can be used to optimise application availability within a region by providing datacenter level fault tolerance. However, the application architecture must not share dependencies between zones to use them effectively. It is also important to note that Availability Zones may introduce performance and cost considerations for applications which are extremely 'chatty' across zones given the implied physical separation between each zone and inter-zone bandwidth charges([Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones))_
 * Is the application designed to use managed services?
 
 
-  _Azure managed services provide native resiliency capabilities to support overall application reliability, and where possible platform as a service offerings should be used to leverage these capabilities([Use managed services](https://docs.microsoft.com/en-us/azure/architecture/guide/design-principles/managed-services))_
+  _Azure managed services provide native resiliency capabilities to support overall application reliability, and where possible platform as a service offerings should be used to leverage these capabilities([Use managed services](https://docs.microsoft.com/azure/architecture/guide/design-principles/managed-services))_
 * Has the application been designed to scale-out?
 
 
-  _Azure provides elastic scalability, however, applications must leverage a scale-unit approach to navigate service and subscription limits to ensure that individual components and the application as a whole can scale horizontally([Design to scale out](https://docs.microsoft.com/en-us/azure/architecture/guide/design-principles/scale-out))_
+  _Azure provides elastic scalability, however, applications must leverage a scale-unit approach to navigate service and subscription limits to ensure that individual components and the application as a whole can scale horizontally([Design to scale out](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out))_
 * Is the application deployed across multiple Azure subscriptions?
 
 
@@ -161,7 +154,7 @@ These critical design principals are used as lenses to assess the Operational Ex
     - Has a composite SLA been calculated for the application and/or key scenarios using Azure SLAs?
 
 
-      _A composite SLA captures the end-to-end SLA across all application components and dependencies. It is calculated using the individual SLAs of Azure services housing application components and provides an important indicator of designed availability in relation to customer expectations and targets([Composite SLAs](https://docs.microsoft.com/en-us/azure/architecture/framework/resiliency/business-metrics#understand-service-level-agreements))_
+      _A composite SLA captures the end-to-end SLA across all application components and dependencies. It is calculated using the individual SLAs of Azure services housing application components and provides an important indicator of designed availability in relation to customer expectations and targets([Composite SLAs](https://docs.microsoft.com/azure/architecture/framework/resiliency/business-metrics#understand-service-level-agreements))_
 
       > Make sure the composite SLA of all components and dependencies on the critical paths are understood.
     - Are availability targets considered while the system is running in disaster recovery mode?
@@ -381,7 +374,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
 
   _Is there a correlation between events in different services and are those visualized?_
-  > An [Application Map](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-map?tabs=net) can to help spot performance bottlenecks or failure hotspots across components of a distributed application.
+  > An [Application Map](https://docs.microsoft.com/azure/azure-monitor/app/app-map?tabs=net) can to help spot performance bottlenecks or failure hotspots across components of a distributed application.
 * Is a health model used to qualify what 'healthy' and 'unhealthy' states represent for the application?
 
 
@@ -453,7 +446,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
 
   _Azure Service Health provides a view into the health of Azure services and regions, as well as issuing service impacting communications about outages, planned maintenance activities, and other health advisories._
-  > Azure Service Health Alerts should be configured to operationalize Service Health events, however, Service Health alerts should not be used to detect issues due to associated latencies; there is a 5 minute SLO for automated issues, but many issues require manual interpretation to define an RCA. Instead, they should be used to provide extremely useful information to help interpret issues that have already been detected and surfaced via the health model, to inform how best to operationally respond([Azure Service Health](https://docs.microsoft.com/en-us/azure/service-health/overview))
+  > Azure Service Health Alerts should be configured to operationalize Service Health events, however, Service Health alerts should not be used to detect issues due to associated latencies; there is a 5 minute SLO for automated issues, but many issues require manual interpretation to define an RCA. Instead, they should be used to provide extremely useful information to help interpret issues that have already been detected and surfaced via the health model, to inform how best to operationally respond([Azure Service Health](https://docs.microsoft.com/azure/service-health/overview))
 * Have Azure Resource Health alerts been created to respond to Resource-level events?
 
 
@@ -462,8 +455,8 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 * Are Azure notifications sent to subscriptions owners received and if necessary properly routed to relevant technical stakeholders?
 
 
-  _Subscription notification emails can contain important service notifications or security alerts([Azure account contact information](https://docs.microsoft.com/en-us/azure/cost-management-billing/manage/change-azure-account-profile#service-and-marketing-emails))._
-  > Subscription notification emails can contain important service notifications or security alerts([Azure account contact information](https://docs.microsoft.com/en-us/azure/cost-management-billing/manage/change-azure-account-profile#service-and-marketing-emails)). Thus, it is important that those notifications are received and routed to the relevant technical stakeholders.
+  _Subscription notification emails can contain important service notifications or security alerts([Azure account contact information](https://docs.microsoft.com/azure/cost-management-billing/manage/change-azure-account-profile#service-and-marketing-emails))._
+  > Subscription notification emails can contain important service notifications or security alerts([Azure account contact information](https://docs.microsoft.com/azure/cost-management-billing/manage/change-azure-account-profile#service-and-marketing-emails)). Thus, it is important that those notifications are received and routed to the relevant technical stakeholders.
 ## Security &amp; Compliance
     
 ### Identity and Access
@@ -471,16 +464,16 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 * Are Azure AD emergency access accounts and processes defined for recovering from identity failures?
 
 
-  _The impact of no administrative access can be mitigated by creating two or more emergency access accounts([Emergency Access accounts in Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-emergency-access))_
+  _The impact of no administrative access can be mitigated by creating two or more emergency access accounts([Emergency Access accounts in Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access))_
 ### Security Center
             
-* Is Azure Security Center Standard tier enabled for all subscriptions and reporting to centralized workspaces? Also, is automatic provisioning enabled for all subscriptions? ([Security Center Data Collection](https://docs.microsoft.com/en-us/azure/security-center/security-center-enable-data-collection))
+* Is Azure Security Center Standard tier enabled for all subscriptions and reporting to centralized workspaces? Also, is automatic provisioning enabled for all subscriptions? ([Security Center Data Collection](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection))
 
 
-* Is Azure Security Center's Secure Score being formally reviewed and improved on a regular basis? ([Security Center Secure Score](https://docs.microsoft.com/en-us/azure/security-center/secure-score-security-controls))
+* Is Azure Security Center's Secure Score being formally reviewed and improved on a regular basis? ([Security Center Secure Score](https://docs.microsoft.com/azure/security-center/secure-score-security-controls))
 
 
-* Are contact details set in security center to the appropriate email distribution list? ([Security Center Contact Details](https://docs.microsoft.com/en-us/azure/security-center/security-center-provide-security-contact-details))
+* Are contact details set in security center to the appropriate email distribution list? ([Security Center Contact Details](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details))
 
 
 ## Operational Procedures
@@ -548,7 +541,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
 
   _A capacity model should describe the relationships between the utilization of various components as a ratio, to capture when and how application components should scale-out._
-  > A capacity model should describe the relationships between the utilization of various components as a ratio, to capture when and how application components should scale-out. For instance, scaling the number of Application Gateway v2 instances may put excess pressure on downstream components unless also scaled to a degree. When modelling capacity for critical system components it is therefore recommended that an N+1 model be applied to ensure complete tolerance to transient faults, where n describes the capacity required to satisfy performance and availability requirements([Performance Efficiency - Capacity](https://docs.microsoft.com/en-us/azure/architecture/framework/scalability/capacity))
+  > A capacity model should describe the relationships between the utilization of various components as a ratio, to capture when and how application components should scale-out. For instance, scaling the number of Application Gateway v2 instances may put excess pressure on downstream components unless also scaled to a degree. When modelling capacity for critical system components it is therefore recommended that an N+1 model be applied to ensure complete tolerance to transient faults, where n describes the capacity required to satisfy performance and availability requirements([Performance Efficiency - Capacity](https://docs.microsoft.com/azure/architecture/framework/scalability/capacity))
 * Is auto-scaling enabled for supporting PaaS and IaaS services?
 
 
@@ -567,7 +560,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
 
   _Due to physical and logical resource constraints within the platform, Azure must apply limits and quotas to service scalability, which may be either hard or soft._
-  > Due to physical and logical resource constraints within the platform, Azure must apply limits and quotas to service scalability, which may be either hard or soft. The application should therefore take a scale-unit approach to navigate within service limits, and where necessary consider multiple subscriptions which are often the boundary for such limits. It is highly recommended that a structured approach to scale be designed up-front rather than resorting to a 'spill and fill' model([Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits))
+  > Due to physical and logical resource constraints within the platform, Azure must apply limits and quotas to service scalability, which may be either hard or soft. The application should therefore take a scale-unit approach to navigate within service limits, and where necessary consider multiple subscriptions which are often the boundary for such limits. It is highly recommended that a structured approach to scale be designed up-front rather than resorting to a 'spill and fill' model([Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits))
     - Is the required capacity (initial and future growth) available within targeted regions?
 
 
@@ -578,7 +571,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
 
   _Predicting future growth and capacity demands can prevent outages due to insufficient provisioned capacity over time._
-  > Especially when demand is fluctuating, it is useful to monitor historical capacity utilization to derive predictions about future growth. Azure Monitor provides the ability to collect utilization metrics for Azure services so that they can be operationalized in the context of a defined capacity model. The Azure Portal can also be used to inspect current subscription usage and quota status([Supported metrics with Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/metrics-supported))
+  > Especially when demand is fluctuating, it is useful to monitor historical capacity utilization to derive predictions about future growth. Azure Monitor provides the ability to collect utilization metrics for Azure services so that they can be operationalized in the context of a defined capacity model. The Azure Portal can also be used to inspect current subscription usage and quota status([Supported metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported))
 ### Configuration &amp; Secrets Management
             
 * Where is application configuration information stored and how does the application access it?
@@ -603,13 +596,13 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 * Does the application use Managed Identities?
 
 
-  _Managed Identities in Azure can be used to securely access Azure services while removing the need to store the secrets or certificates of Service Principals([Managed Identities Overview](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview))_
+  _Managed Identities in Azure can be used to securely access Azure services while removing the need to store the secrets or certificates of Service Principals([Managed Identities Overview](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview))_
   > Wherever possible Azure Managed Identities (either system-managed or user-managed) should be used since they remove the management burden of storing and rotating keys for service principles. Thus, they provide higher security as well as easier maintenance.
 * Are keys and secrets backed-up to geo-redundant storage?
 
 
   _Keys and secrets must still be available in a failover case._
-  > Keys and secrets should be backed up to geo-redundant storage so that they can be accessed in the event of a regional failure and support recovery objectives. In the event of a regional outage, the Key Vault service will automatically be failed over to the secondary region in a read-only state([Azure Key Vault availability and reliability](https://docs.microsoft.com/en-us/azure/key-vault/general/disaster-recovery-guidance))
+  > Keys and secrets should be backed up to geo-redundant storage so that they can be accessed in the event of a regional failure and support recovery objectives. In the event of a regional outage, the Key Vault service will automatically be failed over to the secondary region in a read-only state([Azure Key Vault availability and reliability](https://docs.microsoft.com/azure/key-vault/general/disaster-recovery-guidance))
     - Are certificate/key backups and data backups stored in different geo-redundant storage accounts?
 
 
@@ -618,9 +611,9 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 * Is Soft-Delete enabled for Key Vaults and Key Vault objects?
 
 
-  _The Soft-Delete feature retains resources for a given retention period after a DELETE operation has been performed, while giving the appearance that the object is deleted. It helps to mitigate scenarios where resources are unintentionally, maliciously or incorrectly deleted([Azure Key Vault Soft-Delete](https://docs.microsoft.com/en-us/azure/key-vault/general/overview-soft-delete))_
-  > Key Vault Soft Delete helps to mitigate scenarios where resources are unintentionally, maliciously or incorrectly deleted([Azure Key Vault Soft-Delete](https://docs.microsoft.com/en-us/azure/key-vault/general/overview-soft-delete)). It is therefore highly recommended to enable this.
-* Are the expiry dates of SSL/TSL certificates monitored and are processes in place to renew them?
+  _The Soft-Delete feature retains resources for a given retention period after a DELETE operation has been performed, while giving the appearance that the object is deleted. It helps to mitigate scenarios where resources are unintentionally, maliciously or incorrectly deleted([Azure Key Vault Soft-Delete](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete))_
+  > Key Vault Soft Delete helps to mitigate scenarios where resources are unintentionally, maliciously or incorrectly deleted([Azure Key Vault Soft-Delete](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete)). It is therefore highly recommended to enable this.
+* Are the expiry dates of SSL certificates monitored and are processes in place to renew them?
 
 
   _Expired SSL/TSL certificates are one of the most common yet avoidable causes of application outages; even Azure and more recently Microsoft Teams have experienced outages due to expired certificates._
@@ -686,7 +679,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
 
   _Manual deployment steps introduce significant risks where human error is concerned and also increases overall deployment times._
-  > Manual deployment steps introduce significant risks where human error is concerned and also increases overall deployment times. Automated end-to-end deployments, with manual approval gates where necessary, should be used to ensure a consistent and efficient deployment process([Deployment considerations for DevOps](https://docs.microsoft.com/en-us/azure/architecture/framework/devops/deployment))
+  > Manual deployment steps introduce significant risks where human error is concerned and also increases overall deployment times. Automated end-to-end deployments, with manual approval gates where necessary, should be used to ensure a consistent and efficient deployment process([Deployment considerations for DevOps](https://docs.microsoft.com/azure/architecture/framework/devops/deployment))
     - Is there a documented process for any portions of the deployment that require manual intervention?
 
 
@@ -706,7 +699,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
 
   _Blue/green or canary deployments are a way to gradually release new feature or changes without impacting all users at once._
-  > Blue-green deployments and/or canary releases can be used to deploy updates in a controlled manner that helps to minimize disruption from unanticipated deployment issues([Stage your workloads](https://docs.microsoft.com/en-us/azure/architecture/framework/devops/deployment#stage-your-workloads)) For example, Azure uses canary regions to test and validate new services and capabilities before they are more broadly rolled out to other Azure regions. Where appropriate the application can also use canary environments to validate changes before wider production rollout. Moreover, certain large application platforms may also derive benefit from leveraging Azure canary regions as a basis for validating the potential impact of Azure platform changes on the application.
+  > Blue-green deployments and/or canary releases can be used to deploy updates in a controlled manner that helps to minimize disruption from unanticipated deployment issues([Stage your workloads](https://docs.microsoft.com/azure/architecture/framework/devops/deployment#stage-your-workloads)) For example, Azure uses canary regions to test and validate new services and capabilities before they are more broadly rolled out to other Azure regions. Where appropriate the application can also use canary environments to validate changes before wider production rollout. Moreover, certain large application platforms may also derive benefit from leveraging Azure canary regions as a basis for validating the potential impact of Azure platform changes on the application.
 * How does the development team manage application source code, builds, and releases?
 
 
@@ -717,7 +710,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
       _While there are various valid ways, a clearly defined strategy should be in place and understood_
 
-      > To optimize for collaboration and ensure developers spend less time managing version control and more time developing code, a clear and simple branching strategy should be used, such as Trunk-Based Development which is employed internally within Microsoft Engineering([Microsoft Git Strategy](https://docs.microsoft.com/en-us/azure/devops/learn/devops-at-microsoft/use-git-microsoft))
+      > To optimize for collaboration and ensure developers spend less time managing version control and more time developing code, a clear and simple branching strategy should be used, such as Trunk-Based Development which is employed internally within Microsoft Engineering([Microsoft Git Strategy](https://docs.microsoft.com/azure/devops/learn/devops-at-microsoft/use-git-microsoft))
 ### Application Infrastructure Deployments &amp; Infrastructure as Code (IaC)
             
 * Is application infrastructure defined as code?
@@ -758,13 +751,13 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 * Are feature flags used to test features before rolling them out to everyone?
 
 
-  > To test new features quickly and without bigger risk, Feature flags are a technique to help frequently integrate code into a shared repository, even if incomplete. It allows for deployment decisions to be separated from release decisions([Feature Flags](https://docs.microsoft.com/en-us/azure/architecture/framework/devops/development#feature-flags))
+  > To test new features quickly and without bigger risk, Feature flags are a technique to help frequently integrate code into a shared repository, even if incomplete. It allows for deployment decisions to be separated from release decisions([Feature Flags](https://docs.microsoft.com/azure/architecture/framework/devops/development#feature-flags))
 ### Testing &amp; Validation
             
 * Is the application tested for performance, scalability, and resiliency?
 
 
-  _Performance Testing: Performance testing is the superset of both load and stress testing. The primary goal of performance testing is to validate benchmark behaviour for the application([Performance Testing](https://docs.microsoft.com/en-us/azure/architecture/checklist/dev-ops#testing))
+  _Performance Testing: Performance testing is the superset of both load and stress testing. The primary goal of performance testing is to validate benchmark behaviour for the application([Performance Testing](https://docs.microsoft.com/azure/architecture/checklist/dev-ops#testing))
 Load Testing : Load testing validates application scalability by rapidly and/or gradually increasing the load on the application until it reaches a threshold/limit 
 Stress Testing : *Stress testing is a type of negative testing which involves various activities to overload existing resources and remove components to understand overall resiliency and how the application responds to issues_
     - When do you do test for performance, scalability, and resiliency?
@@ -785,15 +778,15 @@ Stress Testing : *Stress testing is a type of negative testing which involves va
 * Are smoke tests performed during application deployments?
 
 
-  _Smoke tests are a lightweight way to perform high-level validation of changes. For instance, performing a ping test immediately after a deployment([Smoke Testing](https://docs.microsoft.com/en-us/azure/architecture/framework/devops/testing#smoke-testing))_
+  _Smoke tests are a lightweight way to perform high-level validation of changes. For instance, performing a ping test immediately after a deployment([Smoke Testing](https://docs.microsoft.com/azure/architecture/framework/devops/testing#smoke-testing))_
 * When is integration testing performed?
 
 
-  _Integration tests should be applied as part of the application deployment process, to ensure that different application components  interact with each other as they should. Integration tests typically take longer than smoke testing, and as a consequence occur at a latter stage of the deployment process so they are executed less frequently([Integration Testing](https://docs.microsoft.com/en-us/azure/architecture/framework/devops/testing#integration-testing)_
+  _Integration tests should be applied as part of the application deployment process, to ensure that different application components  interact with each other as they should. Integration tests typically take longer than smoke testing, and as a consequence occur at a latter stage of the deployment process so they are executed less frequently([Integration Testing](https://docs.microsoft.com/azure/architecture/framework/devops/testing#integration-testing)_
 * Is unit testing performed to validate application functionality?
 
 
-  _Unit tests are typically run by each new version of code committed into version control. Unit Tests should be extensive and quick to verify things like syntax correctness of application code, Resource Manager templates or Terraform configurations, that the code is following best practices, or that they produce the expected results when provided certain inputs([Unit Testing](https://docs.microsoft.com/en-us/azure/architecture/framework/devops/testing#unit-testing))_
+  _Unit tests are typically run by each new version of code committed into version control. Unit Tests should be extensive and quick to verify things like syntax correctness of application code, Resource Manager templates or Terraform configurations, that the code is following best practices, or that they produce the expected results when provided certain inputs([Unit Testing](https://docs.microsoft.com/azure/architecture/framework/devops/testing#unit-testing))_
 * Are these tests automated and carried out periodically or on-demand?
 
 
@@ -821,7 +814,7 @@ Stress Testing : *Stress testing is a type of negative testing which involves va
 * Are specific methodologies, like DevOps, used to structure the development and operations process?
 
 
-  _The contraction of “Dev” and “Ops” refers to replacing siloed Development and Operations to create multidisciplinary teams that now work together with shared and efficient practices and tools. Essential DevOps practices include agile planning, continuous integration, continuous delivery, and monitoring of applications (from [docs.microsoft.com](https://docs.microsoft.com/en-us/azure/devops/learn/what-is-devops))._
+  _The contraction of “Dev” and “Ops” refers to replacing siloed Development and Operations to create multidisciplinary teams that now work together with shared and efficient practices and tools. Essential DevOps practices include agile planning, continuous integration, continuous delivery, and monitoring of applications (from [docs.microsoft.com](https://docs.microsoft.com/azure/devops/learn/what-is-devops))._
 * Is the current development and operations process connected to a Service Management framework like ISO or ITIL?
 
 
@@ -849,7 +842,7 @@ Stress Testing : *Stress testing is a type of negative testing which involves va
     - Is the workload isolated to a single operations team?
 
 
-      _The goal of workload isolation is to associate an application's specific resources to a team, so that the team can independently manage all aspects of those resources([Workload isolation](https://docs.microsoft.com/en-us/azure/architecture/framework/devops/app-design#workload-isolation))_
+      _The goal of workload isolation is to associate an application's specific resources to a team, so that the team can independently manage all aspects of those resources([Workload isolation](https://docs.microsoft.com/azure/architecture/framework/devops/app-design#workload-isolation))_
 
 * Are any broader teams responsible for operational aspects of the application?
 
@@ -868,6 +861,7 @@ Stress Testing : *Stress testing is a type of negative testing which involves va
 
   _Minimizing the number of people who have access to secure information or resources reduces the chance of a malicious actor gaining access or an authorized user inadvertently impacting a sensitive resource. For example, Azure AD [Privileged Identity Management](https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-configure) provides time-based and approval-based role activation to mitigate the risks of excessive, unnecessary, or misused access permissions on resources that you care about_
   > Implement just-in-time privileged access management
+
     - Does anyone have long-standing write-access to production environments?
 
 
@@ -882,8 +876,8 @@ Stress Testing : *Stress testing is a type of negative testing which involves va
 * Are tools and processes in place to govern available services, enforce mandatory operational functionality and ensure compliance?
 
 
-  _Proper standards for naming, tagging, the deployment of specific configurations such as diagnostic logging, and the available set of services and regions is important to drive consistency and ensure compliance. Solutions like [Azure Policy](https://docs.microsoft.com/en-us/azure/governance/policy/overview) can help to enforce and assess compliance at-scale._
+  _Proper standards for naming, tagging, the deployment of specific configurations such as diagnostic logging, and the available set of services and regions is important to drive consistency and ensure compliance. Solutions like [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview) can help to enforce and assess compliance at-scale._
 * Are standards, policies, restrictions and best practices defined as code?
 
 
-  _Policy-as-Code provides the same benefits as Infrastructure-as-Code in regards to versioning, automation, documentation as well as encouraging consistency and reproducibility. Available solutions in the market are [Azure Policy](https://docs.microsoft.com/en-us/azure/governance/policy/overview) or [HashiCorp Sentinel](https://www.hashicorp.com/resources/introduction-sentinel-compliance-policy-as-code/)._
+  _Policy-as-Code provides the same benefits as Infrastructure-as-Code in regards to versioning, automation, documentation as well as encouraging consistency and reproducibility. Available solutions in the market are [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview) or [HashiCorp Sentinel](https://www.hashicorp.com/resources/introduction-sentinel-compliance-policy-as-code/)._

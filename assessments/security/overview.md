@@ -41,11 +41,13 @@ This security assessment has been produced to help the global CE&S community to 
     - [Common Engineering Criteria](./application.md#Common-Engineering-Criteria)
   - [Identity &amp; Access Control](./application.md#Identity--Access-Control)
     - [Separation of duties](./application.md#Separation-of-duties)
-    - [Control-plane RBAC](./application.md#Controlplane-RBAC)
+    - [Control-plane RBAC](./application.md#Control-plane-RBAC)
     - [Authentication and authorization](./application.md#Authentication-and-authorization)
 
 
 ### [Service Security](./service.md)
 
+  - [Compute](./service.md#Compute)
+    - [Azure Kubernetes Service (AKS)](./service.md#Azure-Kubernetes-Service-AKS)
   - [Storage](./service.md#Storage)
     - [Storage Accounts](./service.md#Storage-Accounts)

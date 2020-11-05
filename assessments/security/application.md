@@ -35,7 +35,7 @@
     - [Common Engineering Criteria](#Common-Engineering-Criteria)
   - [Identity &amp; Access Control](#Identity--Access-Control)
     - [Separation of duties](#Separation-of-duties)
-    - [Control-plane RBAC](#Controlplane-RBAC)
+    - [Control-plane RBAC](#Control-plane-RBAC)
     - [Authentication and authorization](#Authentication-and-authorization)
 
 
@@ -155,6 +155,7 @@
       _After defining and analyzing the risks, identify risk owners which are the roles that are responsible for mitigating the risk. They need to be aware of the risks so that they can start the mitigation process by allocating resources (e.g. financial or people)_
 
       > Establish communication processes for identified threats.
+
 * How are threats addressed once found?
 
 
