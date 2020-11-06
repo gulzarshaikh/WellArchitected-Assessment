@@ -1000,9 +1000,9 @@
     "lens": "application",
     "category": "Operational Procedures",
     "subCategory": "Configuration & Secrets Management",
-    "title": "Are the expiry dates of SSL/TSL certificates monitored and are processes in place to renew them?",
-    "context": "Expired SSL/TSL certificates are one of the most common yet avoidable causes of application outages; even Azure and more recently Microsoft Teams have experienced outages due to expired certificates.",
-    "recommendation": "Tracking expiry dates of SSL/TSL certificates and renewing them in due time is therefore highly critical. Ideally the process should be automated, although this often depends on leveraged CA. If not automated, sufficient alerting should be applied to ensure expiry dates do not go unnoticed",
+    "title": "Are the expiry dates of SSL/TLS certificates monitored and are processes in place to renew them?",
+    "context": "Expired SSL/TLS certificates are one of the most common yet avoidable causes of application outages; even Azure and more recently Microsoft Teams have experienced outages due to expired certificates.",
+    "recommendation": "Tracking expiry dates of SSL/TLS certificates and renewing them in due time is therefore highly critical. Ideally the process should be automated, although this often depends on leveraged CA. If not automated, sufficient alerting should be applied to ensure expiry dates do not go unnoticed",
     "id": "app_ops_sslcertrenewal"
   },
   {
