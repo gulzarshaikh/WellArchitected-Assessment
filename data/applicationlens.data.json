@@ -3925,10 +3925,10 @@
     "lens": "application",
     "category": "Security & Compliance",
     "subCategory": "Network Security",
-    "title": "Which of the following best describes the workload network security for data protection?",
-    "context": "Network-based DLP is decreasingly effective at identifying both inadvertent and deliberate data loss. The reason for this is that most modern protocols and attackers use network-level encryption for inbound and outbound communications. While the organization can use “SSL-bridging” to provide an “authorized man-in-the-middle” that terminates and then reestablishes encrypted network connections, this can also introduce privacy, security and reliability challenges.",
+    "title": "How is this workload protected from data loss?",
+    "context": "Network-based data loss prevention (DLP) is decreasingly effective at identifying both inadvertent and deliberate data loss. The reason for this is that most modern protocols and attackers use network-level encryption for inbound and outbound communications. While the organization can use “SSL-bridging” to provide an “authorized man-in-the-middle” that terminates and then reestablishes encrypted network connections, this can also introduce privacy, security and reliability challenges.",
     "recommendation": "Deprecate legacy network security controls.",
-    "id": ""
+    "id": "security_compliance_security_dlp"
   },
   {
     "type": "Questions",
