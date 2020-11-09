@@ -425,10 +425,10 @@
 
   _Traditional network controls based on a “trusted intranet” approach will not be able to effectively provide security assurances for these applications._
   > Evolve security beyond network controls.
-* Which of the following best describes the workload network security for data protection?
+* How is this workload protected from data loss?
 
 
-  _Network-based DLP is decreasingly effective at identifying both inadvertent and deliberate data loss. The reason for this is that most modern protocols and attackers use network-level encryption for inbound and outbound communications. While the organization can use “SSL-bridging” to provide an “authorized man-in-the-middle” that terminates and then reestablishes encrypted network connections, this can also introduce privacy, security and reliability challenges._
+  _Network-based data loss prevention (DLP) is decreasingly effective at identifying both inadvertent and deliberate data loss. The reason for this is that most modern protocols and attackers use network-level encryption for inbound and outbound communications. While the organization can use “SSL-bridging” to provide an “authorized man-in-the-middle” that terminates and then reestablishes encrypted network connections, this can also introduce privacy, security and reliability challenges._
   > Deprecate legacy network security controls.
 * Has the organization enabled enhanced network visibility by integrating network logs into a Security information and event management (SIEM) solution or similar technology?
 
