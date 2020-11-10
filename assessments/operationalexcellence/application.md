@@ -88,7 +88,7 @@ These critical design principals are used as lenses to assess the Operational Ex
     
 ### Design
             
-* Are there any regulatory or governance requirements?
+* Are there any regulatory or governance requirements for this workload?
 
 
   _Regulatory requirements may mandate that operational data, such as application logs and metrics, remain within a certain geo-political region. This has obvious implications for how the application should be operationalized._
