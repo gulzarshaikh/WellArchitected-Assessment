@@ -296,5 +296,16 @@
         "title": "Authentication and authorization"
       }
     ]
+  },
+  {
+    "title": "SAP",
+    "subCategories": [
+      {
+        "title": "Design"
+      },
+      {
+        "title": "Platform support"
+      }
+    ]
   }
 ]
