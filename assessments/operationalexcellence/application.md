@@ -118,10 +118,10 @@ These critical design principals are used as lenses to assess the Operational Ex
 
   _A well-defined naming convention is important for overall operations to be able to easily determine the usage of certain resources and help understand owners and cost centers responsible for the workload. Naming conventions allow the matching of resource costs to particular workloads._
   > Having a well-defined naming convention is important for overall operations, particularly for large application platforms where there are numerous resources([Naming Conventions](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging))
-* Does the application support multi-region deployments?
+* Does the workload support multi-region deployments?
 
 
-  _Multiple regions should be used for failover purposes in a disaster state, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active strategies([Failover strategies](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones))_
+  _Multiple regions should be used for failover purposes in a disaster state, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active strategies. Additional cost needs to be taken into consideration - mostly from compute, data and networking perspectivce, but also services like Azure Site Recovery (ASR). ([Failover strategies](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones))_
 * Within a region is the application architecture designed to use Availability Zones?
 
 
@@ -255,7 +255,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 * Are SLAs and support agreements in place for all critical dependencies?
 
 
-  _Service Level Agreement (SLA) represents a commitment around performance and availability of the application. Understanding the SLA of individual components within the system is essential in order to define reliability targets._
+  _Service Level Agreement (SLA) represents a commitment around performance and availability of the application. Understanding the SLA of individual components within the system is essential in order to define reliability targets. Knowing the SLA of dependencies will also provide a justifications for additional spend when making the dependencies highly available and with proper support contracts._
   > The operational commitments of all external and internal dependencies should be understood to inform the broader application operations and health model.
 * Is the lifecycle of the application decoupled from its dependencies?
 
@@ -266,12 +266,12 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 * What Azure services are used by the application?
 
 
-  _It is important to understand what Azure services, such as App Services and Event Hub, are used by the application platform to host both application code and data._
+  _It is important to understand what Azure services, such as App Services and Event Hubs, are used by the application platform to host both application code and data. In a discussion around cost, this can drive decisions towards the right replacements (e.g. moving from Virtual Machines to containers to increase efficiency, or migrating to .NET Core to use cheaper SKUs etc.)._
   > All Azure services in use should be identified.
     - What operational features/capabilities are used for leveraged services?
 
 
-      _Operational capabilities, such as auto-scale and auto-heal for AppServices, can reduce management overheads and support operational effectiveness._
+      _Operational capabilities, such as auto-scale and auto-heal for AppServices, can reduce management overheads, support operational effectiveness and reduce cost._
 
       > Make sure you understand the operational features/capabilities available and how they can be used in the solution.
     - What technologies and frameworks are used by the application?
@@ -283,7 +283,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 * Are components hosted on shared application or data platforms which are used by other applications?
 
 
-  _Do application components leverage shared data platforms, such as a central data lake, or application hosting platforms, such as a centrally managed AKS or ASE cluster?_
+  _Do application components leverage shared data platforms, such as a central data lake, or application hosting platforms, such as a centrally managed AKS or ASE cluster? Shared platforms drive down cost, but the workload needs to maintain the expected performance._
   > Make sure you understand the design decisions and implications of using shared hosting platforms.
 * Do you monitor and regularly review new features and capabilities?
 
@@ -304,7 +304,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
 
   _In order to successfully maintain the application it's important to 'turn the lights on' and have clear visibility of important metrics both in real-time and historically._
-  > An APM technology, such as Application Insights, should be used to manage the performance and availability of the application, aggregating application level logs and events for subsequent interpretation.
+  > An APM technology, such as Application Insights, should be used to manage the performance and availability of the application, aggregating application level logs and events for subsequent interpretation. It should be considered what is the appropriate level of logging, because too much can incur significant costs. ([Log Analytics pricing](https://azure.microsoft.com/pricing/details/monitor/)
 * Are application logs collected from different application environments?
 
 
@@ -340,7 +340,8 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 * Which log aggregation technology is used to collect logs and metrics from Azure resources?
 
 
-  _Log aggregation technologies, such as Azure Log Analytics or Splunk, should be used to collate logs and metrics across all application components for subsequent evaluation. Resources may include Azure IaaS and PaaS services as well as 3rd-party appliances such as firewalls or Anti-Malware solutions used in the application. For instance, if Azure Event Hub is used, the Diagnostic Settings should be configured to push logs and metrics to the data sink([Event Hub Diagnostic Logs](https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs))_
+  _Log aggregation technologies, such as Azure Log Analytics or Splunk, should be used to collate logs and metrics across all application components for subsequent evaluation. Resources may include Azure IaaS and PaaS services as well as 3rd-party appliances such as firewalls or anti-malware solutions used in the application. For instance, if Azure Event Hub is used, the [Diagnostic Settings](https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs) should be configured to push logs and metrics to the data sink. Understanding usage helps with right-sizing of the workload, but additional cost for logging needs to be accepted and included in the cost model._
+  > Use log aggregation technology, such as Azure Log Analytics or Splunk, to gather information across all application components.
 * Are you collecting Azure Activity Logs within the log aggregation tool?
 
 
@@ -413,17 +414,17 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
   _Is there just one big dashboard or do you build individualized solutions for different teams (e.g. networking teams might have a different interest focus than the security team)._
   > Dashboards should be customized to represent the precise lens of interest of the end-user. For example, the areas of interest when evaluating the current state will differ greatly between developers, security and networking. Tailored dashboards makes interpretation easier and accelerates time to detection and action
-* Is Role Based Access Control (RBAC) used to control access to dashboards and underlying data?
+* Is Role Based Access Control (RBAC) used to control access to operational and financial dashboards and underlying data?
 
 
-  _Are the dashboards openly available in your organization or do you limit access based on roles etc.?_
-  > Access to operational data may be tightly controlled to align with segregation of duties, and careful attention should be made to ensure it doesn't hinder operational effectiveness; i.e. scenarios where developers have to raise an ITSM ticket to access logs should be avoided
+  _Are the dashboards openly available in your organization or do you limit access based on roles etc.? For example: developers usually don't need to know the overall cost of Azure for the company, but it might be good for them to be able to watch a particular workload._
+  > Access to operational and financial data may be tightly controlled to align with segregation of duties, and careful attention should be made to ensure it doesn't hinder operational effectiveness; i.e. scenarios where developers have to raise an ITSM ticket to access logs should be avoided
 ### Alerting
             
 * What technology is used for alerting?
 
 
-  _Alerts from tools such as Splunk or Azure Monitor proactively notify or respond to operational states that deviate from norm_
+  _Alerts from tools such as Splunk or Azure Monitor proactively notify or respond to operational states that deviate from norm. Alerts can also enable cost-awareness by watching budgets and limits and helping workload teams to scale appropriately._
   > You should not rely on people to actively look for issues. Instead an alerting solution should be in place that can push notifications to relevant teams. For example by email, SMS or into an mobile app.
 * Are specific owners and processes defined for each alert type?
 

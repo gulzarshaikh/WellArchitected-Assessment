@@ -51,10 +51,10 @@
     
 ### Design
             
-* Does the application support multi-region deployments?
+* Does the workload support multi-region deployments?
 
 
-  _Multiple regions should be used for failover purposes in a disaster state, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active strategies([Failover strategies](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones))_
+  _Multiple regions should be used for failover purposes in a disaster state, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active strategies. Additional cost needs to be taken into consideration - mostly from compute, data and networking perspectivce, but also services like Azure Site Recovery (ASR). ([Failover strategies](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones))_
 * Within a region is the application architecture designed to use Availability Zones?
 
 
@@ -175,7 +175,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 * Are SLAs and support agreements in place for all critical dependencies?
 
 
-  _Service Level Agreement (SLA) represents a commitment around performance and availability of the application. Understanding the SLA of individual components within the system is essential in order to define reliability targets._
+  _Service Level Agreement (SLA) represents a commitment around performance and availability of the application. Understanding the SLA of individual components within the system is essential in order to define reliability targets. Knowing the SLA of dependencies will also provide a justifications for additional spend when making the dependencies highly available and with proper support contracts._
   > The operational commitments of all external and internal dependencies should be understood to inform the broader application operations and health model.
 * Are all platform-level dependencies identified and understood?
 

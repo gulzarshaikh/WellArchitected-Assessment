@@ -110,12 +110,12 @@
 * What Azure services are used by the application?
 
 
-  _It is important to understand what Azure services, such as App Services and Event Hub, are used by the application platform to host both application code and data._
+  _It is important to understand what Azure services, such as App Services and Event Hubs, are used by the application platform to host both application code and data. In a discussion around cost, this can drive decisions towards the right replacements (e.g. moving from Virtual Machines to containers to increase efficiency, or migrating to .NET Core to use cheaper SKUs etc.)._
   > All Azure services in use should be identified.
     - What operational features/capabilities are used for leveraged services?
 
 
-      _Operational capabilities, such as auto-scale and auto-heal for AppServices, can reduce management overheads and support operational effectiveness._
+      _Operational capabilities, such as auto-scale and auto-heal for AppServices, can reduce management overheads, support operational effectiveness and reduce cost._
 
       > Make sure you understand the operational features/capabilities available and how they can be used in the solution.
     - What technologies and frameworks are used by the application?
