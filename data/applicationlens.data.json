@@ -252,13 +252,14 @@
     "type": "Questions",
     "pillars": [
       "operationalexcellence",
-      "reliability"
+      "reliability",
+      "cost"
     ],
     "lens": "application",
     "category": "Application Design",
     "subCategory": "Dependencies",
     "title": "Are SLAs and support agreements in place for all critical dependencies?",
-    "context": "Service Level Agreement (SLA) represents a commitment around performance and availability of the application. Understanding the SLA of individual components within the system is essential in order to define reliability targets.",
+    "context": "Service Level Agreement (SLA) represents a commitment around performance and availability of the application. Understanding the SLA of individual components within the system is essential in order to define reliability targets. Knowing the SLA of dependencies will also provide a justifications for additional spend when making the dependencies highly available and with proper support contracts.",
     "recommendation": "The operational commitments of all external and internal dependencies should be understood to inform the broader application operations and health model.",
     "id": "app_design_sla"
   },
@@ -266,18 +267,19 @@
     "type": "Questions",
     "pillars": [
       "operationalexcellence",
-      "security"
+      "security",
+      "cost"
     ],
     "lens": "application",
     "category": "Application Design",
     "subCategory": "Application Composition",
     "title": "What Azure services are used by the application?",
-    "context": "It is important to understand what Azure services, such as App Services and Event Hub, are used by the application platform to host both application code and data.",
+    "context": "It is important to understand what Azure services, such as App Services and Event Hubs, are used by the application platform to host both application code and data. In a discussion around cost, this can drive decisions towards the right replacements (e.g. moving from Virtual Machines to containers to increase efficiency, or migrating to .NET Core to use cheaper SKUs etc.).",
     "recommendation": "All Azure services in use should be identified.",
     "children": [
       {
         "title": "What operational features/capabilities are used for leveraged services?",
-        "context": "Operational capabilities, such as auto-scale and auto-heal for AppServices, can reduce management overheads and support operational effectiveness.",
+        "context": "Operational capabilities, such as auto-scale and auto-heal for AppServices, can reduce management overheads, support operational effectiveness and reduce cost.",
         "recommendation": "Make sure you understand the operational features/capabilities available and how they can be used in the solution.",
         "id": "app_design_services_operational_features"
       },
@@ -293,13 +295,14 @@
   {
     "type": "Questions",
     "pillars": [
-      "operationalexcellence"
+      "operationalexcellence",
+      "cost"
     ],
     "lens": "application",
     "category": "Application Design",
     "subCategory": "Application Composition",
     "title": "Are components hosted on shared application or data platforms which are used by other applications?",
-    "context": "Do application components leverage shared data platforms, such as a central data lake, or application hosting platforms, such as a centrally managed AKS or ASE cluster?",
+    "context": "Do application components leverage shared data platforms, such as a central data lake, or application hosting platforms, such as a centrally managed AKS or ASE cluster? Shared platforms drive down cost, but the workload needs to maintain the expected performance.",
     "recommendation": "Make sure you understand the design decisions and implications of using shared hosting platforms.",
     "id": "app_design_shared_platforms"
   },
@@ -327,14 +330,15 @@
   {
     "type": "Questions",
     "pillars": [
-      "operationalexcellence"
+      "operationalexcellence",
+      "cost"
     ],
     "lens": "application",
     "category": "Health Modelling",
     "subCategory": "Application Level Monitoring",
     "title": "Is an Application Performance Management (APM) tool used collect application level logs?",
     "context": "In order to successfully maintain the application it's important to 'turn the lights on' and have clear visibility of important metrics both in real-time and historically.",
-    "recommendation": "An APM technology, such as Application Insights, should be used to manage the performance and availability of the application, aggregating application level logs and events for subsequent interpretation.",
+    "recommendation": "An APM technology, such as Application Insights, should be used to manage the performance and availability of the application, aggregating application level logs and events for subsequent interpretation. It should be considered what is the appropriate level of logging, because too much can incur significant costs. ([Log Analytics pricing](https://azure.microsoft.com/pricing/details/monitor/)",
     "id": "health_apm"
   },
   {
@@ -413,14 +417,15 @@
   {
     "type": "Questions",
     "pillars": [
-      "operationalexcellence"
+      "operationalexcellence",
+      "cost"
     ],
     "lens": "application",
     "category": "Health Modelling",
     "subCategory": "Resource/Infrastructure Level Monitoring",
     "title": "Which log aggregation technology is used to collect logs and metrics from Azure resources?",
-    "context": "Log aggregation technologies, such as Azure Log Analytics or Splunk, should be used to collate logs and metrics across all application components for subsequent evaluation. Resources may include Azure IaaS and PaaS services as well as 3rd-party appliances such as firewalls or Anti-Malware solutions used in the application. For instance, if Azure Event Hub is used, the Diagnostic Settings should be configured to push logs and metrics to the data sink([Event Hub Diagnostic Logs](https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs))",
-    "recommendation": "",
+    "context": "Log aggregation technologies, such as Azure Log Analytics or Splunk, should be used to collate logs and metrics across all application components for subsequent evaluation. Resources may include Azure IaaS and PaaS services as well as 3rd-party appliances such as firewalls or anti-malware solutions used in the application. For instance, if Azure Event Hub is used, the [Diagnostic Settings](https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs) should be configured to push logs and metrics to the data sink. Understanding usage helps with right-sizing of the workload, but additional cost for logging needs to be accepted and included in the cost model.",
+    "recommendation": "Use log aggregation technology, such as Azure Log Analytics or Splunk, to gather information across all application components.",
     "id": "health_log_aggregation_technology"
   },
   {
@@ -599,26 +604,28 @@
   {
     "type": "Questions",
     "pillars": [
-      "operationalexcellence"
+      "operationalexcellence",
+      "cost"
     ],
     "lens": "application",
     "category": "Health Modelling",
     "subCategory": "Dashboarding",
-    "title": "Is Role Based Access Control (RBAC) used to control access to dashboards and underlying data?",
-    "context": "Are the dashboards openly available in your organization or do you limit access based on roles etc.?",
-    "recommendation": "Access to operational data may be tightly controlled to align with segregation of duties, and careful attention should be made to ensure it doesn't hinder operational effectiveness; i.e. scenarios where developers have to raise an ITSM ticket to access logs should be avoided",
+    "title": "Is Role Based Access Control (RBAC) used to control access to operational and financial dashboards and underlying data?",
+    "context": "Are the dashboards openly available in your organization or do you limit access based on roles etc.? For example: developers usually don't need to know the overall cost of Azure for the company, but it might be good for them to be able to watch a particular workload.",
+    "recommendation": "Access to operational and financial data may be tightly controlled to align with segregation of duties, and careful attention should be made to ensure it doesn't hinder operational effectiveness; i.e. scenarios where developers have to raise an ITSM ticket to access logs should be avoided",
     "id": "app_health_dashboard_rbac"
   },
   {
     "type": "Questions",
     "pillars": [
-      "operationalexcellence"
+      "operationalexcellence",
+      "cost"
     ],
     "lens": "application",
     "category": "Health Modelling",
     "subCategory": "Alerting",
     "title": "What technology is used for alerting?",
-    "context": "Alerts from tools such as Splunk or Azure Monitor proactively notify or respond to operational states that deviate from norm",
+    "context": "Alerts from tools such as Splunk or Azure Monitor proactively notify or respond to operational states that deviate from norm. Alerts can also enable cost-awareness by watching budgets and limits and helping workload teams to scale appropriately.",
     "recommendation": "You should not rely on people to actively look for issues. Instead an alerting solution should be in place that can push notifications to relevant teams. For example by email, SMS or into an mobile app.",
     "id": "app_health_alertingtool"
   },
@@ -1646,15 +1653,16 @@
     "type": "Questions",
     "pillars": [
       "reliability",
-      "operationalexcellence"
+      "operationalexcellence",
+      "cost"
     ],
     "lens": "application",
     "category": "Application Design",
     "subCategory": "Design",
-    "title": "Does the application support multi-region deployments?",
-    "context": "Multiple regions should be used for failover purposes in a disaster state, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active strategies([Failover strategies](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones))",
+    "title": "Does the workload support multi-region deployments?",
+    "context": "Multiple regions should be used for failover purposes in a disaster state, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active strategies. Additional cost needs to be taken into consideration - mostly from compute, data and networking perspectivce, but also services like Azure Site Recovery (ASR). ([Failover strategies](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones))",
     "recommendation": "",
-    "id": ""
+    "id": "application_design_multiregion_deployments"
   },
   {
     "type": "Questions",
@@ -4430,5 +4438,18 @@
     "context": "In order to drive down cost it can be advised to incentivize the user of driving the use of a service that helps put less burden on the platform and via this drive down cost as it falls back on the user if a good behavior is followed in order to drive down the price.",
     "recommendation": "",
     "id": "efficiency_and_sizing_cost_distribution"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "cost"
+    ],
+    "lens": "application",
+    "category": "Application Design",
+    "subCategory": "Application Composition",
+    "title": "Is it possible to benefit from higher density in this workload?",
+    "context": "When running multiple applications (typically in multi-tenant or microservices scenarios) density can be increased by deploying them on shared infrastructure and utilizing it more. For example: Containerization and moving to Kubernetes (Azure Kubernetes Services) enables pod-based deployment which can utilize underlying nodes efficiently. Similar approach can be taken with App Service Plans. To prevent the \u201Cnoisy neighbour\u201D situation, proper monitoring must be in place and performance analysis must be done (if possible).",
+    "recommendation": "",
+    "id": "application_design_higher_density"
   }
 ]
