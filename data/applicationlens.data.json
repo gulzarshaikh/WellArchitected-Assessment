@@ -42,21 +42,23 @@
   {
     "type": "Questions",
     "pillars": [
-      "operationalexcellence"
+      "operationalexcellence",
+      "cost"
     ],
     "lens": "application",
     "category": "Application Design",
     "subCategory": "Design",
     "title": "Was the application built natively for the cloud or was an existing on-premises system migrated?",
-    "context": "Understanding if the application is cloud-native or not provides a very useful high level indication about potential technical debt for operability",
-    "recommendation": "While cloud-native workloads are preferred, migrated or modernized applications are reality and they might not be aware of the available functionality like auto-scaling, platform notifications and other the underlaying cloud platform can offer. Make sure to understand the limitations and implement workarounds if available.",
+    "context": "Understanding if the application is cloud-native or not provides a very useful high level indication about potential technical debt for operability and cost efficiency.",
+    "recommendation": "While cloud-native workloads are preferred, migrated or modernized applications are reality and they might not be aware of the available functionality like auto-scaling, platform notifications and other the underlying cloud platform can offer. Make sure to understand the limitations and implement workarounds if available.",
     "id": "app_design_cloudnative"
   },
   {
     "type": "Questions",
     "pillars": [
       "operationalexcellence",
-      "security"
+      "security",
+      "cost"
     ],
     "lens": "application",
     "category": "Application Design",
@@ -69,13 +71,14 @@
   {
     "type": "Questions",
     "pillars": [
-      "operationalexcellence"
+      "operationalexcellence",
+      "cost"
     ],
     "lens": "application",
     "category": "Application Design",
     "subCategory": "Design",
     "title": "Does the application have a well-defined naming standard for Azure resources?",
-    "context": "A well-defined naming convention is important for overall operations to be able to easily determine the usage of certain resources.",
+    "context": "A well-defined naming convention is important for overall operations to be able to easily determine the usage of certain resources and help understand owners and cost centers responsible for the workload. Naming conventions allow the matching of resource costs to particular workloads.",
     "recommendation": "Having a well-defined naming convention is important for overall operations, particularly for large application platforms where there are numerous resources([Naming Conventions](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging))",
     "id": "app_design_namingstandards"
   },
@@ -83,7 +86,8 @@
     "type": "Questions",
     "pillars": [
       "operationalexcellence",
-      "reliability"
+      "reliability",
+      "cost"
     ],
     "lens": "application",
     "category": "Application Design",
@@ -107,7 +111,7 @@
       {
         "title": "Are availability targets considered while the system is running in disaster recovery mode?",
         "context": "The above defined targets might or might not be applied when running in DR mode. This depends from application to application.",
-        "recommendation": "If targets must also apply in a failure state then an n+1 model should be used to achieve greater availability and resiliency, where n is the capacity needed to deliver required availability",
+        "recommendation": "If targets must also apply in a failure state then an N+1 model should be used to achieve greater availability and resiliency, where N is the capacity needed to deliver required availability. There's also a cost implication, because more resilient infrastructure usually means more expensive. This has to be accepted by business.",
         "id": "app_design_targets_drmode"
       },
       {
@@ -118,7 +122,7 @@
       },
       {
         "title": "What are the consequences if availability targets are not satisfied?",
-        "context": "Are there any penalties, such as financial charges, associated with failing to meet SLA commitments",
+        "context": "Are there any penalties, such as financial charges, associated with failing to meet SLA commitments? Additional measures can be used to prevent penalties, but that also brings additional cost to operate the infrastructure. This has to be factored in and evaluated.",
         "recommendation": "It should be fully understood what are the consequences if availability targets are not satisfied. This will also inform when to initiate a failover case.",
         "id": "app_design_targets_notsatisfied"
       }
@@ -129,7 +133,8 @@
     "type": "Questions",
     "pillars": [
       "operationalexcellence",
-      "reliability"
+      "reliability",
+      "cost"
     ],
     "lens": "application",
     "category": "Application Design",
@@ -142,7 +147,8 @@
   {
     "type": "Questions",
     "pillars": [
-      "operationalexcellence"
+      "operationalexcellence",
+      "cost"
     ],
     "lens": "application",
     "category": "Application Design",
@@ -153,7 +159,7 @@
     "children": [
       {
         "title": "Does the application have predictable traffic patterns? Or is load highly volatile?",
-        "context": "Understanding the expected application load and known spikes, such as Black Friday for retail applications, is important when assessing operational effectiveness",
+        "context": "Understanding the expected application load and known spikes, such as Black Friday for retail applications, is important when assessing operational effectiveness.",
         "recommendation": "Traffic patterns should be identified by analyzing historical traffic data and the effect of significant external events on the application.",
         "id": "app_design_performance_traffic_patterns"
       },
@@ -165,7 +171,7 @@
       },
       {
         "title": "What is the maximum traffic volume the application is expected to serve without performance degradation?",
-        "context": "Scale requirements the application must be able to effectively satisfy, such as the number of concurrent users or requests per second, is a critical lens for assessing operations.",
+        "context": "Scale requirements the application must be able to effectively satisfy, such as the number of concurrent users or requests per second, is a critical lens for assessing operations. From the cost perspective, it's recommended to se a budget for extreme circumstances and indicate upper limit for cost (when it's not worth serving more traffic due to overall costs).",
         "recommendation": "Traffic limits for the application should be defined in quantified and measurable manner.",
         "id": "app_design_performance_maximum_traffic"
       },
@@ -181,18 +187,19 @@
   {
     "type": "Questions",
     "pillars": [
-      "operationalexcellence"
+      "operationalexcellence",
+      "cost"
     ],
     "lens": "application",
     "category": "Application Design",
     "subCategory": "Key Scenarios",
     "title": "Have critical system flows through the application been defined for all key business scenarios?",
-    "context": "Understanding critical system flows is vital to assessing overall operational effectiveness, and should be used to inform a health model for the application.",
+    "context": "Understanding critical system flows is vital to assessing overall operational effectiveness, and should be used to inform a health model for the application. It can also tell if areas of the application are over or under utilized and should be adjusted to better meet business needs and cost goals.",
     "recommendation": "Path-wise analysis should be used to define critical system flows for key business scenarios, such as the checkout process for an eCommerce application.",
     "children": [
       {
         "title": "Do these critical system flows have distinct availability, performance, or recovery targets?",
-        "context": "Critical sub-systems or paths through the application may have higher expectations around availability, recovery, and performance due to the criticality of associated business scenarios and functionality.",
+        "context": "Critical sub-systems or paths through the application may have higher expectations around availability, recovery, and performance due to the criticality of associated business scenarios and functionality. This also helps to understand if cost will be affected due to these higher needs.",
         "recommendation": "Targets should be specific and measurable.",
         "id": "app_design_critical_flows_targets"
       }
@@ -202,13 +209,14 @@
   {
     "type": "Questions",
     "pillars": [
-      "operationalexcellence"
+      "operationalexcellence",
+      "cost"
     ],
     "lens": "application",
     "category": "Application Design",
     "subCategory": "Key Scenarios",
     "title": "Are there any application components which are less critical and have lower availability or performance requirements?",
-    "context": "Some less critical components or paths through the application may have lower expectations around availability, recovery, and performance.",
+    "context": "Some less critical components or paths through the application may have lower expectations around availability, recovery, and performance. This can result in cost reduction by choosing lower SKUs with less performance and availability.",
     "recommendation": "Identify if there are components with more relaxed performance requirements.",
     "id": "app_design_less_critical_components"
   },
@@ -1100,7 +1108,8 @@
   {
     "type": "Questions",
     "pillars": [
-      "operationalexcellence"
+      "operationalexcellence",
+      "cost"
     ],
     "lens": "application",
     "category": "Deployment & Testing",
@@ -1111,7 +1120,7 @@
     "children": [
       {
         "title": "How long does it take to deploy an entire production environment?",
-        "context": "The time it takes to perform a complete environment deployment should align with recovery targets",
+        "context": "The time it takes to perform a complete environment deployment should align with recovery targets. Automation and agility also lead to cost savings due to the reduction of manual labor and errors.",
         "recommendation": "The time it takes to perform a complete environment deployment should be fully understood as it needs to align with the recovery targets",
         "id": "app_deploy_cicd_duration"
       }
@@ -1651,15 +1660,16 @@
     "type": "Questions",
     "pillars": [
       "reliability",
-      "operationalexcellence"
+      "operationalexcellence",
+      "cost"
     ],
     "lens": "application",
     "category": "Application Design",
     "subCategory": "Design",
     "title": "Within a region is the application architecture designed to use Availability Zones?",
-    "context": "Availability Zones can be used to optimise application availability within a region by providing datacenter level fault tolerance. However, the application architecture must not share dependencies between zones to use them effectively. It is also important to note that Availability Zones may introduce performance and cost considerations for applications which are extremely 'chatty' across zones given the implied physical separation between each zone and inter-zone bandwidth charges([Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones))",
-    "recommendation": "",
-    "id": ""
+    "context": "[Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones) can be used to optimise application availability within a region by providing datacenter level fault tolerance. However, the application architecture must not share dependencies between zones to use them effectively. It is also important to note that Availability Zones may introduce performance and cost considerations for applications which are extremely 'chatty' across zones given the implied physical separation between each zone and inter-zone bandwidth charges. That also means that AZ can be considered to get higher SLA for lower cost. Be aware of [pricing changes](https://azure.microsoft.com/pricing/details/bandwidth/) coming to Availability Zone bandwidth starting February 2021.",
+    "recommendation": "Use Availability Zones where applicable to improve reliability and optimize costs.",
+    "id": "application_design_availability_zones"
   },
   {
     "type": "Questions",
@@ -1705,15 +1715,16 @@
     "type": "Questions",
     "pillars": [
       "reliability",
-      "operationalexcellence"
+      "operationalexcellence",
+      "cost"
     ],
     "lens": "application",
     "category": "Application Design",
     "subCategory": "Design",
     "title": "Has the application been designed to scale-out?",
-    "context": "Azure provides elastic scalability, however, applications must leverage a scale-unit approach to navigate service and subscription limits to ensure that individual components and the application as a whole can scale horizontally([Design to scale out](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out))",
-    "recommendation": "",
-    "id": ""
+    "context": "Azure provides elastic scalability, however, applications must leverage a scale-unit approach to navigate service and subscription limits to ensure that individual components and the application as a whole can scale horizontally. Don't forget about scale in as well, as this is important to drive cost down. For example, scale in and out for App Service is done via rules. Often customers write scale out rule and never write scale in rule, this leaves the App Service more expensive.",
+    "recommendation": "[Design to scale out](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out).",
+    "id": "application_design_scale_out"
   },
   {
     "type": "Questions",
@@ -1824,28 +1835,30 @@
   {
     "type": "Questions",
     "pillars": [
-      "reliability"
+      "reliability",
+      "cost"
     ],
     "lens": "application",
     "category": "Application Design",
     "subCategory": "Design",
     "title": "Is an availability strategy defined? i.e. multi-geo, full/partial",
-    "context": "An availability strategy should capture how the application remains available when in a failure state and should apply across all application components and the application deployment stamp as a whole such as via multi-geo scale-unit deployment approach",
+    "context": "An availability strategy should capture how the application remains available when in a failure state and should apply across all application components and the application deployment stamp as a whole such as via multi-geo scale-unit deployment approach. There are cost implications as well: More resources need to be provisioned in advance to provide high availability. Active-active setup, while more expensive than single deployment, can balance cost by lowering load on one stamp and reducing the total amount of resources needed.",
     "recommendation": "",
-    "id": ""
+    "id": "application_design_availability_strategy"
   },
   {
     "type": "Questions",
     "pillars": [
-      "reliability"
+      "reliability",
+      "cost"
     ],
     "lens": "application",
     "category": "Application Design",
     "subCategory": "Design",
     "title": "Has a Business Continuity Disaster Recovery (BCDR) strategy been defined for the application and/or its key scenarios?",
-    "context": "A disaster recovery strategy should capture how the application responds to a disaster situation such as a regional outage or the loss of a critical platform service, using either a re-deployment, warm-spare active-passive, or hot-spare active-active approach",
+    "context": "A disaster recovery strategy should capture how the application responds to a disaster situation such as a regional outage or the loss of a critical platform service, using either a re-deployment, warm-spare active-passive, or hot-spare active-active approach. To drive cost down consider splitting application components and data into groups. For example: 1) must protect, 2) nice to protect, 3) ephemeral/can be rebuilt/lost, instead of protecting all data with the same policy.",
     "recommendation": "",
-    "id": ""
+    "id": "application_design_bcdr_strategy"
   },
   {
     "type": "Questions",
@@ -4265,5 +4278,157 @@
     "context": "The [root management group](https://docs.microsoft.com/azure/architecture/framework/security/design-management-groups#use-root-management-group-with-caution) ensures consistency across the enterprise by applying policies, permissions, and tags across all subscriptions. This group can affect all resources in Azure and incorrect use can impact the security of all workloads in Azure.",
     "recommendation": "Add planning, testing, and validation rigor to the use of the root management group.",
     "id": "identity_access_control_root_management_groups"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "cost"
+    ],
+    "lens": "application",
+    "category": "Application Design",
+    "subCategory": "Design",
+    "title": "Is the workload designed to scale independently?",
+    "context": "If the workload contains multiple components and one component requires scale, this triggers scale-out/up of the entire infrastructure. It needs to be evaluated if the application scale is monolithic or each component is scaled independently and for example how the database scales with the rest of the workload.",
+    "recommendation": "",
+    "id": "application_design_independent_scale"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "cost"
+    ],
+    "lens": "application",
+    "category": "Application Design",
+    "subCategory": "Design",
+    "title": "Is there a plan to modernize the workload?",
+    "context": "Is there a plan to change the execution model to Serverless? To move as far as you can up the stack. When the workload is serverless, it’s charged only for actual use, whereas whith traditional infrastructure there are loads of underlying things that need to be factored into the price. By applying an end date to the application it encourage you to discuss the goal of re-designing the Application to make even better use of the cloud. It might be more expensive from and ACR point of view but factoring in other things like licenses, people, time to deploy it can drive down cost.",
+    "recommendation": "",
+    "id": "app_design_modernize"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "cost"
+    ],
+    "lens": "application",
+    "category": "Efficiency and Sizing",
+    "subCategory": "Tools",
+    "title": "Is Azure Advisor being used to optimize SKUs discovered in this workload?",
+    "context": "Azure Advisor helps to optimize and improve efficiency of the workload by identifying idle and underutilized resources.It analyzes your configurations and usage telemetry and consolodates it into personalized, actionable recommendations to help you optimise your resources.",
+    "recommendation": "Use Azure Advisor to identify SKUs for optimization.",
+    "id": "efficiency_and_sizing_azure_advisor",
+    "children": [
+        {
+            "title": "Are the Advisor recommendations being reviewed weekly or bi-weekly for optimization?",
+            "context": "Your underutilised resources need to be reviewed often in order to be identified and dealt with accordingly, in addition to ensuring that your actionable recommendations are up-to-date and fully optimised. For example, Azure Advisor monitors your virtual machine (VM) usage for 7 days and then identifies low-utilization VMs.",
+            "recommendation": "Review Azure Advisor recommendation periodically.",
+            "id": "efficiency_and_sizing_advisor_reviews"
+        }
+    ]
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "cost"
+    ],
+    "lens": "application",
+    "category": "Efficiency and Sizing",
+    "subCategory": "Tools",
+    "title": "Is there a dashboard showing cost related KPIs for this workload which gives a transparent view of the current situation?",
+    "context": "Single pane of glass which can be shown during weekly ops meetings and instills accountability within everyone whilst also allowing you to understand where you are in terms of budget through every stage.",
+    "recommendation": "",
+    "id": "efficiency_and_sizing_kpi_dashboard"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "cost"
+    ],
+    "lens": "application",
+    "category": "Efficiency and Sizing",
+    "subCategory": "Architecture",
+    "title": "Is the application deployed to multiple environments with different configurations?",
+    "context": "This is to understand the scope and distinguish between SKUs used in production and non-production environments or also with the goal to drive down cost by for example consolidating environments for some applications that are not as critical to the business and not needing the same testing.",
+    "recommendation": "",
+    "id": "efficiency_and_sizing_prod_environments",
+    "children": [
+        {
+            "title": "What is the ratio of cost of production and non-production environments for this workload?",
+            "context": "When the customer is spending more money on testing than production, it usually means they have too many non-production environments. Consider ratio of non-production to production environments and if ratio is substantially higher you should consider merging testing environments or re-visit why the cost is so much higher.",
+            "recommendation": "",
+            "id": "efficiency_and_sizing_prod_vs_nonprod"
+        },
+        {
+            "title": "How many production vs. non-production environments do you have?",
+            "context": "Provisioning non-production environments (like development, test, integration...) each on a separate infrastructure is not always necessary. E.g. using shared App Service Plans and consolidating Web Apps for development and testing environments can save costs.",
+            "recommendation": "",
+            "id": "efficiency_and_sizing_prod_vs_nonprod_count"
+        }
+    ]
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "cost"
+    ],
+    "lens": "application",
+    "category": "General",
+    "subCategory": "Unassigned",
+    "title": "Are there any initiatives that encourage a cost-aware culture - to share best practices for cost optimization?",
+    "context": "Having a weekly tracking of spending and budget forecast helps prevent surprises and track items / applications that has high spending vs. requirements.",
+    "recommendation": "Incorporating cost into your teams meetings ensures that everyone is well-educated on the topic and can integrate ideas and best practices into daily and weekly development decisions.",
+    "id": "efficiency_and_sizing_cost_aware_culture"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "cost"
+    ],
+    "lens": "application",
+    "category": "Efficiency and Sizing",
+    "subCategory": "Tools",
+    "title": "Are you using Azure Cost Management (ACM) to track spending in this workload?",
+    "context": "In order to track cost spending ACM tool can help you understand how much you are spending, where and when. This can help make a better understanding to how and if cost can be reduced.",
+    "recommendation": "",
+    "id": "efficiency_and_sizing_using_acm"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "cost"
+    ],
+    "lens": "application",
+    "category": "Efficiency and Sizing",
+    "subCategory": "Architecture",
+    "title": "Are cost-effective regions considered as part of the deployment selection?",
+    "context": "Is there a technical/legal reason for deploying in a particular region? If not, it might be worth looking at another region to decrease cost. Also depending on the workload and data processing model, choosing a cheaper region might make more financial sense.",
+    "recommendation": "Choose appropriate region for workload deployment to optimize cost.",
+    "id": "efficiency_and_sizing_cheapest_regions"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "cost"
+    ],
+    "lens": "application",
+    "category": "Efficiency and Sizing",
+    "subCategory": "Architecture",
+    "title": "Is the price model of this workload clear? Do the consumers understand why they are paying the price per month?",
+    "context": "As part of driving a good behavior it's important that the consumer has understood why they are paying the price for a service and also that the cost is transparent and fair to the user of the service or else it can drive wrong behavior.",
+    "recommendation": "",
+    "id": "efficiency_and_sizing_consumer_understanding"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "cost"
+    ],
+    "lens": "application",
+    "category": "Efficiency and Sizing",
+    "subCategory": "Architecture",
+    "title": "Is the distribution of the cost done in accordance with the usage of the service?",
+    "context": "In order to drive down cost it can be advised to incentivize the user of driving the use of a service that helps put less burden on the platform and via this drive down cost as it falls back on the user if a good behavior is followed in order to drive down the price.",
+    "recommendation": "",
+    "id": "efficiency_and_sizing_cost_distribution"
   }
 ]

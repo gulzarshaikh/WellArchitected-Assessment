@@ -307,5 +307,19 @@
         "title": "Platform support"
       }
     ]
+  },
+  {
+      "title": "Efficiency and Sizing",
+      "subCategories": [
+        {
+          "title": "Architecture"
+        },
+        {
+          "title": "SKUs"
+        },
+        {
+          "title": "Tools"
+        }
+      ]
   }
 ]
