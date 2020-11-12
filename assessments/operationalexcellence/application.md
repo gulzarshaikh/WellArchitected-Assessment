@@ -106,8 +106,8 @@ These critical design principals are used as lenses to assess the Operational Ex
 * Was the application built natively for the cloud or was an existing on-premises system migrated?
 
 
-  _Understanding if the application is cloud-native or not provides a very useful high level indication about potential technical debt for operability_
-  > While cloud-native workloads are preferred, migrated or modernized applications are reality and they might not be aware of the available functionality like auto-scaling, platform notifications and other the underlaying cloud platform can offer. Make sure to understand the limitations and implement workarounds if available.
+  _Understanding if the application is cloud-native or not provides a very useful high level indication about potential technical debt for operability and cost efficiency._
+  > While cloud-native workloads are preferred, migrated or modernized applications are reality and they might not be aware of the available functionality like auto-scaling, platform notifications and other the underlying cloud platform can offer. Make sure to understand the limitations and implement workarounds if available.
 * Are Azure Tags used to enrich Azure resources with operational meta-data?
 
 
@@ -116,7 +116,7 @@ These critical design principals are used as lenses to assess the Operational Ex
 * Does the application have a well-defined naming standard for Azure resources?
 
 
-  _A well-defined naming convention is important for overall operations to be able to easily determine the usage of certain resources._
+  _A well-defined naming convention is important for overall operations to be able to easily determine the usage of certain resources and help understand owners and cost centers responsible for the workload. Naming conventions allow the matching of resource costs to particular workloads._
   > Having a well-defined naming convention is important for overall operations, particularly for large application platforms where there are numerous resources([Naming Conventions](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging))
 * Does the application support multi-region deployments?
 
@@ -125,7 +125,8 @@ These critical design principals are used as lenses to assess the Operational Ex
 * Within a region is the application architecture designed to use Availability Zones?
 
 
-  _Availability Zones can be used to optimise application availability within a region by providing datacenter level fault tolerance. However, the application architecture must not share dependencies between zones to use them effectively. It is also important to note that Availability Zones may introduce performance and cost considerations for applications which are extremely 'chatty' across zones given the implied physical separation between each zone and inter-zone bandwidth charges([Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones))_
+  _[Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones) can be used to optimise application availability within a region by providing datacenter level fault tolerance. However, the application architecture must not share dependencies between zones to use them effectively. It is also important to note that Availability Zones may introduce performance and cost considerations for applications which are extremely 'chatty' across zones given the implied physical separation between each zone and inter-zone bandwidth charges. That also means that AZ can be considered to get higher SLA for lower cost. Be aware of [pricing changes](https://azure.microsoft.com/pricing/details/bandwidth/) coming to Availability Zone bandwidth starting February 2021._
+  > Use Availability Zones where applicable to improve reliability and optimize costs.
 * Is the application designed to use managed services?
 
 
@@ -133,7 +134,8 @@ These critical design principals are used as lenses to assess the Operational Ex
 * Has the application been designed to scale-out?
 
 
-  _Azure provides elastic scalability, however, applications must leverage a scale-unit approach to navigate service and subscription limits to ensure that individual components and the application as a whole can scale horizontally([Design to scale out](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out))_
+  _Azure provides elastic scalability, however, applications must leverage a scale-unit approach to navigate service and subscription limits to ensure that individual components and the application as a whole can scale horizontally. Don't forget about scale in as well, as this is important to drive cost down. For example, scale in and out for App Service is done via rules. Often customers write scale out rule and never write scale in rule, this leaves the App Service more expensive._
+  > [Design to scale out](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out).
 * Is the application deployed across multiple Azure subscriptions?
 
 
@@ -162,7 +164,7 @@ These critical design principals are used as lenses to assess the Operational Ex
 
       _The above defined targets might or might not be applied when running in DR mode. This depends from application to application._
 
-      > If targets must also apply in a failure state then an n+1 model should be used to achieve greater availability and resiliency, where n is the capacity needed to deliver required availability
+      > If targets must also apply in a failure state then an N+1 model should be used to achieve greater availability and resiliency, where N is the capacity needed to deliver required availability. There's also a cost implication, because more resilient infrastructure usually means more expensive. This has to be accepted by business.
     - Are these availability targets monitored and measured?
 
 
@@ -174,7 +176,7 @@ These critical design principals are used as lenses to assess the Operational Ex
     - What are the consequences if availability targets are not satisfied?
 
 
-      _Are there any penalties, such as financial charges, associated with failing to meet SLA commitments_
+      _Are there any penalties, such as financial charges, associated with failing to meet SLA commitments? Additional measures can be used to prevent penalties, but that also brings additional cost to operate the infrastructure. This has to be factored in and evaluated._
 
       > It should be fully understood what are the consequences if availability targets are not satisfied. This will also inform when to initiate a failover case.
 * Are recovery targets such as Recovery Time Objective (RTO) and Recovery Point Objective (RPO) defined for the application and/or key scenarios?
@@ -192,7 +194,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
     - Does the application have predictable traffic patterns? Or is load highly volatile?
 
 
-      _Understanding the expected application load and known spikes, such as Black Friday for retail applications, is important when assessing operational effectiveness_
+      _Understanding the expected application load and known spikes, such as Black Friday for retail applications, is important when assessing operational effectiveness._
 
       > Traffic patterns should be identified by analyzing historical traffic data and the effect of significant external events on the application.
     - Are there any targets defined for the time it takes to perform scale operations?
@@ -204,7 +206,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
     - What is the maximum traffic volume the application is expected to serve without performance degradation?
 
 
-      _Scale requirements the application must be able to effectively satisfy, such as the number of concurrent users or requests per second, is a critical lens for assessing operations._
+      _Scale requirements the application must be able to effectively satisfy, such as the number of concurrent users or requests per second, is a critical lens for assessing operations. From the cost perspective, it's recommended to se a budget for extreme circumstances and indicate upper limit for cost (when it's not worth serving more traffic due to overall costs)._
 
       > Traffic limits for the application should be defined in quantified and measurable manner.
     - Are these performance targets monitored and measured across the application and/or key scenarios?
@@ -218,18 +220,18 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 * Have critical system flows through the application been defined for all key business scenarios?
 
 
-  _Understanding critical system flows is vital to assessing overall operational effectiveness, and should be used to inform a health model for the application._
+  _Understanding critical system flows is vital to assessing overall operational effectiveness, and should be used to inform a health model for the application. It can also tell if areas of the application are over or under utilized and should be adjusted to better meet business needs and cost goals._
   > Path-wise analysis should be used to define critical system flows for key business scenarios, such as the checkout process for an eCommerce application.
     - Do these critical system flows have distinct availability, performance, or recovery targets?
 
 
-      _Critical sub-systems or paths through the application may have higher expectations around availability, recovery, and performance due to the criticality of associated business scenarios and functionality._
+      _Critical sub-systems or paths through the application may have higher expectations around availability, recovery, and performance due to the criticality of associated business scenarios and functionality. This also helps to understand if cost will be affected due to these higher needs._
 
       > Targets should be specific and measurable.
 * Are there any application components which are less critical and have lower availability or performance requirements?
 
 
-  _Some less critical components or paths through the application may have lower expectations around availability, recovery, and performance._
+  _Some less critical components or paths through the application may have lower expectations around availability, recovery, and performance. This can result in cost reduction by choosing lower SKUs with less performance and availability._
   > Identify if there are components with more relaxed performance requirements.
 ### Dependencies
             
@@ -668,7 +670,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
     - How long does it take to deploy an entire production environment?
 
 
-      _The time it takes to perform a complete environment deployment should align with recovery targets_
+      _The time it takes to perform a complete environment deployment should align with recovery targets. Automation and agility also lead to cost savings due to the reduction of manual labor and errors._
 
       > The time it takes to perform a complete environment deployment should be fully understood as it needs to align with the recovery targets
 * How often are changes deployed to production?

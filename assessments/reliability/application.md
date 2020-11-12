@@ -58,7 +58,8 @@
 * Within a region is the application architecture designed to use Availability Zones?
 
 
-  _Availability Zones can be used to optimise application availability within a region by providing datacenter level fault tolerance. However, the application architecture must not share dependencies between zones to use them effectively. It is also important to note that Availability Zones may introduce performance and cost considerations for applications which are extremely 'chatty' across zones given the implied physical separation between each zone and inter-zone bandwidth charges([Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones))_
+  _[Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones) can be used to optimise application availability within a region by providing datacenter level fault tolerance. However, the application architecture must not share dependencies between zones to use them effectively. It is also important to note that Availability Zones may introduce performance and cost considerations for applications which are extremely 'chatty' across zones given the implied physical separation between each zone and inter-zone bandwidth charges. That also means that AZ can be considered to get higher SLA for lower cost. Be aware of [pricing changes](https://azure.microsoft.com/pricing/details/bandwidth/) coming to Availability Zone bandwidth starting February 2021._
+  > Use Availability Zones where applicable to improve reliability and optimize costs.
 * Is component proximity required for application performance reasons?
 
 
@@ -74,7 +75,8 @@
 * Has the application been designed to scale-out?
 
 
-  _Azure provides elastic scalability, however, applications must leverage a scale-unit approach to navigate service and subscription limits to ensure that individual components and the application as a whole can scale horizontally([Design to scale out](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out))_
+  _Azure provides elastic scalability, however, applications must leverage a scale-unit approach to navigate service and subscription limits to ensure that individual components and the application as a whole can scale horizontally. Don't forget about scale in as well, as this is important to drive cost down. For example, scale in and out for App Service is done via rules. Often customers write scale out rule and never write scale in rule, this leaves the App Service more expensive._
+  > [Design to scale out](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out).
 * Is the application deployed across multiple Azure subscriptions?
 
 
@@ -82,11 +84,11 @@
 * Is an availability strategy defined? i.e. multi-geo, full/partial
 
 
-  _An availability strategy should capture how the application remains available when in a failure state and should apply across all application components and the application deployment stamp as a whole such as via multi-geo scale-unit deployment approach_
+  _An availability strategy should capture how the application remains available when in a failure state and should apply across all application components and the application deployment stamp as a whole such as via multi-geo scale-unit deployment approach. There are cost implications as well: More resources need to be provisioned in advance to provide high availability. Active-active setup, while more expensive than single deployment, can balance cost by lowering load on one stamp and reducing the total amount of resources needed._
 * Has a Business Continuity Disaster Recovery (BCDR) strategy been defined for the application and/or its key scenarios?
 
 
-  _A disaster recovery strategy should capture how the application responds to a disaster situation such as a regional outage or the loss of a critical platform service, using either a re-deployment, warm-spare active-passive, or hot-spare active-active approach_
+  _A disaster recovery strategy should capture how the application responds to a disaster situation such as a regional outage or the loss of a critical platform service, using either a re-deployment, warm-spare active-passive, or hot-spare active-active approach. To drive cost down consider splitting application components and data into groups. For example: 1) must protect, 2) nice to protect, 3) ephemeral/can be rebuilt/lost, instead of protecting all data with the same policy._
 ### Failure Mode Analysis
             
 * Has pathwise analysis been conducted to identify key flows within the application?
@@ -129,7 +131,7 @@
 
       _The above defined targets might or might not be applied when running in DR mode. This depends from application to application._
 
-      > If targets must also apply in a failure state then an n+1 model should be used to achieve greater availability and resiliency, where n is the capacity needed to deliver required availability
+      > If targets must also apply in a failure state then an N+1 model should be used to achieve greater availability and resiliency, where N is the capacity needed to deliver required availability. There's also a cost implication, because more resilient infrastructure usually means more expensive. This has to be accepted by business.
     - Are these availability targets monitored and measured?
 
 
@@ -141,7 +143,7 @@
     - What are the consequences if availability targets are not satisfied?
 
 
-      _Are there any penalties, such as financial charges, associated with failing to meet SLA commitments_
+      _Are there any penalties, such as financial charges, associated with failing to meet SLA commitments? Additional measures can be used to prevent penalties, but that also brings additional cost to operate the infrastructure. This has to be factored in and evaluated._
 
       > It should be fully understood what are the consequences if availability targets are not satisfied. This will also inform when to initiate a failover case.
 * Are recovery targets such as Recovery Time Objective (RTO) and Recovery Point Objective (RPO) defined for the application and/or key scenarios?
