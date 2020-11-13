@@ -43,7 +43,6 @@ This security assessment has been produced to help the global CE&S community to 
     - [Separation of duties](./application.md#Separation-of-duties)
     - [Control-plane RBAC](./application.md#Control-plane-RBAC)
     - [Authentication and authorization](./application.md#Authentication-and-authorization)
-  - [Application Design](./application.md#Application-Design)
 
 
 ### [Service Security](./service.md)
