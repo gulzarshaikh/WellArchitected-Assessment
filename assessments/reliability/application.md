@@ -66,10 +66,10 @@ The following Design Principles provide context for questions, why a certain asp
 
 
 
-## To mitigate issues that pose a threat to application reliability, they must first be detected. By monitoring the state of the application and having a deep understanding of the causes and effects of failures, swift (automated) action can be taken to prevent outages.
+## Observe Application Health
 
 
-  Observe Application Health
+  To mitigate issues that pose a threat to application reliability, they must first be detected. By monitoring the state of the application and having a deep understanding of the causes and effects of failures, swift (automated) action can be taken to prevent outages.
 
 
 
