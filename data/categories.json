@@ -253,6 +253,14 @@
     ]
   },
   {
+    "title": "Storage",
+    "subCategories": [
+      {
+        "title": "Storage Accounts"
+      }
+    ]
+  },
+  {
     "title": "Messaging",
     "subCategories": [
       {
@@ -380,6 +388,17 @@
       },
       {
         "title": "Network"
+      }
+    ]
+  },
+  {
+    "title": "SAP",
+    "subCategories": [
+      {
+        "title": "Design"
+      },
+      {
+        "title": "Platform support"
       }
     ]
   }

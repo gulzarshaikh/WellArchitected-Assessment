@@ -1,7 +1,7 @@
-{{- $lens := "service" -}}
+{{- $lens := "scenario" -}}
 {{- $filtered := where (where .input "pillars" "intersect" .pillars) "lens" $lens }}
 
-{{- $types := slice "Design Considerations" "Configuration Recommendations" "Supporting Source Artifacts" }}
+{{- $types := slice "Design Considerations" "Configuration Recommendations" "Questions" "Supporting Source Artifacts" }}
 
 # Navigation Menu
 {{ partial "navigation.partial" (dict "input" .input "pillars" .pillars "lens" $lens "categories" .categories) }}
@@ -22,7 +22,7 @@
 * {{ .title }}
                             {{- with .code}}
 {{ safeHTML (htmlUnescape (print "```\n" . "```\n")) }} 
-                            {{ end }}
+                            {{ end }}    
                             {{- with .context}}
   > {{ safeHTML . }}
                             {{ end }}
@@ -30,7 +30,7 @@
   - {{ .title }}
                                 {{- with .code}}
 {{ safeHTML (htmlUnescape (print "```\n" . "```\n")) }} 
-                                {{ end }}
+                                {{ end }}   
                                 {{- with .context}}
     > {{ safeHTML . }}
                                 {{ end }}

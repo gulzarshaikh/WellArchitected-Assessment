@@ -56,6 +56,8 @@ This operational excellence assessment has been produced to help the global CE&S
     - [Azure Cache for Redis](./service.md#Azure-Cache-for-Redis)
   - [Hybrid](./service.md#Hybrid)
     - [Azure Stack Hub](./service.md#Azure-Stack-Hub)
+  - [Storage](./service.md#Storage)
+    - [Storage Accounts](./service.md#Storage-Accounts)
   - [Messaging](./service.md#Messaging)
     - [Event Grid](./service.md#Event-Grid)
     - [Event Hub](./service.md#Event-Hub)

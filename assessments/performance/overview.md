@@ -27,4 +27,8 @@ This reliability assessment has been produced to help the global CE&S community 
   - [Troubleshooting](./application.md#Troubleshooting)
 
 
-### [Service Reliability](./service.md)
+### [Service Performance Efficiency](./service.md)
+
+  - [Compute](./service.md#Compute)
+    - [Azure Kubernetes Service (AKS)](./service.md#Azure-Kubernetes-Service-AKS)
+
