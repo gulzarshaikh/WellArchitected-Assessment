@@ -83,7 +83,7 @@ The following Design Principles provide context for questions, why a certain asp
 ## Design for Self-Healing
 
 
-  Self Healing describes a systems capability of dealing with failures in an automated way by having a protocol connected to pre-defined failure modes in the solution. This is a more advanced concept that can only work if a high level of maturity in monitoring and automation has been reached, but should be taken as a principal from the design phase onward.
+  Self Healing describes a system's capability of dealing with failures in an automated way by having a pre-defined remediation protocol connected to failure modes in the solution. This is a more advanced concept that can only work if a high level of maturity in monitoring and automation has been reached, but should be taken as a principal from the design phase onward.
 
 
 
