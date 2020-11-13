@@ -288,5 +288,99 @@
         "title": "Authentication and authorization"
       }
     ]
+  },
+  {
+    "title": "Application Design",
+    "subCategories": [
+      {
+        "title": "Design Patterns"
+      },
+      {
+        "title": "Transactional"
+      },
+      {
+        "title": "Disaster Planning"
+      }
+    ]
+  },
+  {
+    "title": "Capacity Planning",
+    "subCategories": [
+      {
+        "title": "Usage Prediction"
+      },
+      {
+        "title": "Service SKU"
+      },
+      {
+        "title": "Disaster Recovery"
+      },
+      {
+        "title": "Data"
+      }
+    ]
+  },
+  {
+    "title": "Performance Testing",
+    "subCategories": [
+      {
+        "title": "Resource Planning"
+      },
+      {
+        "title": "Tooling"
+      },
+      {
+        "title": "Test Coverage"
+      },
+      {
+        "title": "Benchmarking"
+      },
+      {
+        "title": "Performance Planning"
+      },
+      {
+        "title": "Service SKU"
+      },
+      {
+        "title": "Load Capacity"
+      },
+      {
+        "title": "Design Efficiency"
+      },
+      {
+        "title": "DevOps"
+      }
+    ]
+  },
+  {
+    "title": "Monitoring",
+    "subCategories": [
+      {
+        "title": "Logging"
+      },
+      {
+        "title": "Performance Targets"
+      },
+      {
+        "title": "Dependencies"
+      },
+      {
+        "title": "Modelling"
+      }
+    ]
+  },
+  {
+    "title": "Troubleshooting",
+    "subCategories": [
+      {
+        "title": "Data"
+      },
+      {
+        "title": "Process"
+      },
+      {
+        "title": "Network"
+      }
+    ]
   }
 ]
