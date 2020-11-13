@@ -37,6 +37,7 @@
     - [Separation of duties](#Separation-of-duties)
     - [Control-plane RBAC](#Control-plane-RBAC)
     - [Authentication and authorization](#Authentication-and-authorization)
+  - [Application Design](#Application-Design)
 
 
 
@@ -851,3 +852,5 @@ Because security will have broad access to the environment (and visibility into 
 
 
   _Consideration should always be given to authenticating with identity services rather than cryptographic keys when available. Managing keys securely with application code is difficult and regularly leads to mistakes like accidentally publishing sensitive access keys to code repositories like GitHub. Identity systems (such as Azure Active Directory) offer secure and usable experience for access control with built-in sophisticated mechanisms for key rotation, monitoring for anomalies, and more._
+## Application Design
+    

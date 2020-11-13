@@ -49,6 +49,7 @@ This reliability assessment has been produced to help the global CE&S community 
     - [Application Deployments](./application.md#Application-Deployments)
     - [Build Environments](./application.md#Build-Environments)
     - [Testing &amp; Validation](./application.md#Testing--Validation)
+  - [Application Design](./application.md#Application-Design)
 
 
 ### [Service Reliability](./service.md)

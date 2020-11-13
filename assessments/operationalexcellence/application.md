@@ -34,6 +34,7 @@
     - [General](#General)
     - [Roles &amp; Responsibilities](#Roles--Responsibilities)
     - [Common Engineering Criteria](#Common-Engineering-Criteria)
+  - [Application Design](#Application-Design)
 
 
 # Design Principles
@@ -880,3 +881,5 @@ Stress Testing : *Stress testing is a type of negative testing which involves va
 
 
   _Policy-as-Code provides the same benefits as Infrastructure-as-Code in regards to versioning, automation, documentation as well as encouraging consistency and reproducibility. Available solutions in the market are [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview) or [HashiCorp Sentinel](https://www.hashicorp.com/resources/introduction-sentinel-compliance-policy-as-code/)._
+## Application Design
+    

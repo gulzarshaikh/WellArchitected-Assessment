@@ -43,6 +43,7 @@
     - [Application Deployments](#Application-Deployments)
     - [Build Environments](#Build-Environments)
     - [Testing &amp; Validation](#Testing--Validation)
+  - [Application Design](#Application-Design)
 
 
 
@@ -717,3 +718,5 @@ Stress Testing : *Stress testing is a type of negative testing which involves va
 
 
   _Testing should be fully automated where possible and performed as part of the deployment lifecycle to validate the impact of all application changes. Additionally, manual explorative testing may also be conducted_
+## Application Design
+    
