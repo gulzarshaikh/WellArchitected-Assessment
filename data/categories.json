@@ -37,6 +37,15 @@
       },
       {
         "title": "Dependencies, frameworks and libraries"
+      },
+      {
+        "title": "Design Patterns"
+      },
+      {
+        "title": "Transactional"
+      },
+      {
+        "title": "Disaster Planning"
       }
     ]
   },
@@ -294,20 +303,6 @@
       },
       {
         "title": "Authentication and authorization"
-      }
-    ]
-  },
-  {
-    "title": "Application Design",
-    "subCategories": [
-      {
-        "title": "Design Patterns"
-      },
-      {
-        "title": "Transactional"
-      },
-      {
-        "title": "Disaster Planning"
       }
     ]
   },
