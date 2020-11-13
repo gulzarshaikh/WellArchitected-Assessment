@@ -1,6 +1,8 @@
 # Application Reliability
 
 # Navigation Menu
+
+- [Design Principles](#design-principles)
 - [Application Assessment Checklist](#Application-Assessment-Checklist)
   - [Application Design](#Application-Design)
     - [Design](#Design)
@@ -43,6 +45,59 @@
     - [Application Deployments](#Application-Deployments)
     - [Build Environments](#Build-Environments)
     - [Testing &amp; Validation](#Testing--Validation)
+
+
+# Design Principles
+
+The following Design Principles provide context for questions, why a certain aspect is important and how is it applicable to Reliability.
+
+
+## Design for Business Requirements
+
+
+  Reliablilty is a subjective concept. A reliable application performs in a way that is in line with the business requirements surrounding it. For one mission-critical application that may mean a 99.999% SLA, where for another 95% is perfectly acceptable. Considering the cost implications of extremely high availability, this is a tradeoff that should be carefully made.
+
+
+
+## Design for Failure
+
+
+  Failure is impossible to avoid in a highly distributed environment like the cloud. By anticipating failures from individual components to entire Azure regions, a solution can be developed in a resilient way to increase reliability.
+
+
+
+## To mitigate issues that pose a threat to application reliability, they must first be detected. By monitoring the state of the application and having a deep understanding of the causes and effects of failures, swift (automated) action can be taken to prevent outages.
+
+
+  Observe Application Health
+
+
+
+## Drive Automation
+
+
+  One of the leading causes of downtime is human error. This may be insufficiently tested software being deployed, operator errors during deployment or misconfigurations. To minimize the impact of human errors and improve reliability, we should strive for automation in all aspects of a cloud solution: Automated testing, automated deployment, automated management.
+
+
+
+## Design for Self-Healing
+
+
+  Self Healing describes a systems capability of dealing with failures in an automated way by having a protocol connected to pre-defined failure modes in the solution. This is a more advanced concept that can only work if a high level of maturity in monitoring and automation has been reached, but should be taken as a principal from the design phase onward.
+
+
+
+## Design for Scale-out
+
+
+  Scale-out is a concept that focuses on horizontal growth. This means that as traffic grows, _more_ resources are added in parallel instead of increasing the size of the existing resources. This method of scaling is generally cheaper but more importantly, it reduces the impact of a single resource failure making the solution more resilient.
+
+
+
+
+---
+
+These critical design principals are used as lenses to assess the Reliability of an application deployed on Azure, providing a framework for the following application assessment questions.
 
 
 
