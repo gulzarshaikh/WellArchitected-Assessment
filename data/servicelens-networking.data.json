@@ -133,6 +133,18 @@
     "lens": "service",
     "category": "Networking",
     "subCategory": "Network Connectivity",
+    "title": "Azure native network security services such as Azure Firewall, Application Gateway, and Azure Front Door are fully managed services, meaning that customers do not incur the operational and management costs associated with infrastructure deployments, which can become complex at scale.",
+    "recommendation": "",
+    "id": "networking_1814"
+  },
+  {
+    "type": "Design Considerations",
+    "pillars": [
+      "reliability"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Network Connectivity",
     "title": "Azure PaaS services are typically accessed over public endpoints, however, the Azure platform provides capabilities to secure such endpoints or even make them entirely private.",
     "recommendation": "",
     "id": "networking_9064"
@@ -193,18 +205,7 @@
       }
     ]
   },
-  {
-    "type": "Design Considerations",
-    "pillars": [
-      "reliability"
-    ],
-    "lens": "service",
-    "category": "Networking",
-    "subCategory": "Network Connectivity",
-    "title": "Azure native network security services such as Azure Firewall, Application Gateway, and Azure Front Door are fully managed services, meaning that customers do not incur the operational and management costs associated with infrastructure deployments, which can become complex at scale.",
-    "recommendation": "",
-    "id": "networking_1814"
-  },
+
   {
     "type": "Design Considerations",
     "pillars": [
@@ -276,7 +277,7 @@
     "title": "While Virtual Network address space can be added after creation, this process will require an outage if the Virtual Network is already connected to another Virtual Network via peering, since the Virtual Network peering will have to be deleted and re-created. ",
     "recommendation": "",
     "id": "networking_490",
-    "context": "(Note: Modification of address space on peered vnets was announced at Ignite, but no timelines provided)"
+    "context": "(Note: Modification of address space on peered vnets was announced at Ignite in sept 2020, but no timelines provided. Check the status before discussing with customer.)"
   },
   {
     "type": "Design Considerations",
@@ -724,7 +725,7 @@
     "lens": "service",
     "category": "Networking",
     "subCategory": "Application Delivery (General)",
-    "title": "Azure Load Balancer (internal and public) provides high availability for application delivery at a regional level.",
+    "title": "Azure Load Balancer (internal and public) provides high availability for application delivery at a regional level. (Standard tier only)",
     "recommendation": "",
     "id": "networking_9126"
   },
@@ -760,7 +761,7 @@
     "lens": "service",
     "category": "Networking",
     "subCategory": "Application Delivery (General)",
-    "title": "Azure Traffic manager allows the delivery of applications through DNS redirection, including traffic using protocols other than HTTP(s).",
+    "title": "Azure Traffic manager allows the delivery of applications through DNS redirection, including traffic using protocols other than HTTP/S).",
     "recommendation": "",
     "id": "networking_5332"
   },
@@ -772,7 +773,7 @@
     "lens": "service",
     "category": "Networking",
     "subCategory": "Application Delivery (General)",
-    "title": "Application delivery for both internal and external facing applications should be performed within the solution, not centrally.",
+    "title": "Application delivery for both internal and external facing applications should be part of the application. It should not be centrally managed within an organization.",
     "recommendation": "",
     "id": "networking_7817"
   },
@@ -784,7 +785,7 @@
     "lens": "service",
     "category": "Networking",
     "subCategory": "Application Delivery (General)",
-    "title": "For secure delivery of HTTP/S applications, ensure WAF protection/policies are enabled. This can be done in either Application Gateway or Front Door.",
+    "title": "For secure delivery of HTTP/S applications, ensure Web Application Firewall (WAF) protection/policies are enabled. This can be done in either Application Gateway or Front Door.",
     "recommendation": "",
     "id": "networking_8058"
   },
@@ -796,7 +797,7 @@
     "lens": "service",
     "category": "Networking",
     "subCategory": "Application Delivery (General)",
-    "title": "Use a 3rd party NVAs if Application Gateway v2 cannot be used for the security of HTTP/S applications.",
+    "title": "Use a 3rd party Network Virtual Appliance (NVA) if Application Gateway v2 cannot be used for the security of HTTP/S applications.",
     "recommendation": "",
     "id": "networking_569"
   },
@@ -808,7 +809,7 @@
     "lens": "service",
     "category": "Networking",
     "subCategory": "Application Delivery (General)",
-    "title": "Application Gateway v2 or 3rd party NVAs used for inbound HTTP/S connections, should be deployed within the solution Virtual Network, together with the applications that they are securing.",
+    "title": "Application Gateway v2 or 3rd party NVAs used for inbound HTTP/S connections, should be deployed  in the Virtual Network together with the applications that they are securing. It should not be managed centrally within the organization and shared with other workloads.",
     "recommendation": "",
     "id": "networking_2014"
   },
@@ -832,7 +833,7 @@
     "lens": "service",
     "category": "Networking",
     "subCategory": "Application Delivery (General)",
-    "title": "Global HTTP/S applications that span Azure regions should be delivered and protected using Azure Front Door with WAF policies.",
+    "title": "Global HTTP/S applications that span Azure regions should be delivered and protected using Azure Front Door with Web Application Firewall (WAF) policies.",
     "recommendation": "",
     "id": "networking_8158"
   },
@@ -847,7 +848,7 @@
     "title": "When using Azure Front Door and Application Gateway to protect HTTP/S applications, use WAF policies in Front Door and lock down Application Gateway to receive traffic only from Azure Front Door. ",
     "recommendation": "",
     "id": "networking_5364",
-    "context": "While this is the general recommendation, certain scenarios might force a customer to implement rules specifically on AppGateway: For example, if ModSec CRS 2.2.9, CRS 3.0 or CRS 3.1 rules are required, this can only be implemented on AppGatway. Conversely, rate-limiting and geo-filtering are available only on Azure Front Door, not on AppGateway."
+    "context": "While this is the general recommendation, certain scenarios might force a customer to implement rules specifically on AppGateway: For example, if ModSec CRS 2.2.9, CRS 3.0 or CRS 3.1 rules are required, this can only be implemented on AppGatway. Conversely, rate-limiting and geo-filtering are available only on Azure Front Door, not on AppGateway. Instructions on how to lock down traffic can be found [here](https://docs.microsoft.com/en-us/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door)"
   },
   {
     "type": "Configuration Recommendations",
@@ -869,7 +870,7 @@
     "lens": "service",
     "category": "Networking",
     "subCategory": "Application Delivery (General)",
-    "title": "When doing global loadbalancing for applications, Front Door is preferred over Traffic Manager. This is because, amongst others:  ",
+    "title": "When doing global loadbalancing for HTTP/S applications, Front Door is preferred over Traffic Manager. This is because, amongst others:  ",
     "recommendation": "",
     "id": "networking_3742",
     "children": [
@@ -965,7 +966,7 @@
     "lens": "service",
     "category": "Networking",
     "subCategory": "Azure Application Gateway v2",
-    "title": "Use Application Gateway WAF within an application Virtual Network for protecting inbound HTTP/S traffic from the internet.",
+    "title": "Use Application Gateway with Web Application Firewall (WAF) within an application Virtual Network for protecting inbound HTTP/S traffic from the internet.",
     "recommendation": "",
     "id": "networking_117"
   },
@@ -1005,7 +1006,7 @@
     "title": "When using Azure Front Door and Application Gateway to protect HTTP/S applications, use WAF policies in Front Door and lock down Application Gateway to receive traffic only from Azure Front Door. ",
     "recommendation": "",
     "id": "networking_9105",
-    "context": "While this is the general recommendation, certain scenarios might force a customer to implement rules specifically on AppGateway: For example, if ModSec CRS 2.2.9, CRS 3.0 or CRS 3.1 rules are required, this can only be implemented on AppGatway. Conversely, rate-limiting and geo-filtering are available only on Azure Front Door, not on AppGateway."
+    "context": "While this is the general recommendation, certain scenarios might force a customer to implement rules specifically on AppGateway: For example, if ModSec CRS 2.2.9, CRS 3.0 or CRS 3.1 rules are required, this can only be implemented on AppGatway. Conversely, rate-limiting and geo-filtering are available only on Azure Front Door, not on AppGateway. Instructions on how to lock down traffic can be found [here](https://docs.microsoft.com/en-us/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door)"
   },
   {
     "type": "Configuration Recommendations",
