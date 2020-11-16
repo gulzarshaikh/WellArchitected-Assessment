@@ -27,6 +27,18 @@ This list contains design considerations and recommended configuration options, 
     - [Storage Queues](#Storage-Queues)
     - [IoT Hub](#IoT-Hub)
     - [IoT Hub Device Provisioning Service](#IoT-Hub-Device-Provisioning-Service)
+  - [Networking](#Networking)
+    - [Azure Firewall](#Azure-Firewall)
+    - [Network Virtual Appliances (NVA)](#Network-Virtual-Appliances-NVA)
+    - [Network Connectivity](#Network-Connectivity)
+    - [Azure Virtual Networks](#Azure-Virtual-Networks)
+    - [ExpressRoute](#ExpressRoute)
+    - [Application Delivery (General)](#Application-Delivery-General)
+    - [Azure Application Gateway v2](#Azure-Application-Gateway-v2)
+    - [Azure Front Door](#Azure-Front-Door)
+    - [Azure Loadbalancer](#Azure-Loadbalancer)
+    - [Traffic Manager](#Traffic-Manager)
+    - [API Management](#API-Management)
 # Compute
         
 ## Azure App Service
@@ -730,3 +742,193 @@ Resources
 ## IoT Hub Device Provisioning Service
 ### Design Considerations
 * Azure IoT Hub Device Provisioning Service has a [published SLA](https://azure.microsoft.com/support/legal/sla/iot-hub) of 99.9%.
+# Networking
+        
+## Azure Firewall
+### Design Considerations
+* Use Azure Firewall to govern:
+  - Azure outbound traffic to the internet
+                            
+  - Non-HTTP/S inbound connections
+                            
+  - East-west traffic filtering (if required by customer)
+                            
+* Use Firewall Manager with Azure Virtual WAN to deploy and manage Azure Firewalls across Azure Virtual WAN Hubs, or in Hub VNets.
+### Configuration Recommendations
+* Create a global Azure Firewall policy to govern security posture across the global network environment and assign it to all Azure Firewalls. 
+  > Allow for granular policies to meet requirements of specific regions by delegating incremental Firewall Policies to local security teams via RBAC.
+                            
+* Configure supported 3rd party SaaS security providers within Firewall Manager if the customer wishes to use such solutions to protect outbound connections.
+## Network Virtual Appliances (NVA)
+### Configuration Recommendations
+* If 3rd party NVAs are required for east-west and/or south-north traffic protection/filtering: 
+  - For VWAN network topologies, deploy the NVAs to a separate VNet (i.e. NVA VNet) and connect it to the regional Virtual WAN Hub as well as to the &#34;Landing Zones&#34; that require access to NVAs as described in this [article](https://docs.microsoft.com/en-us/azure/virtual-wan/virtual-wan-route-table-portal).
+                            
+  - For non-Virtual WAN network topologies, deploy the 3rd party NVAs in the central Hub VNet.
+                            
+* If 3rd party NVAs are required for inbound HTTP/S connections, they should be deployed within a &#34;Landing Zone&#34; or &#34;solution-level&#34; Virtual Network, together with the applications that they are protecting and exposing to the internet.     
+## Network Connectivity
+### Design Considerations
+* Azure native network security services such as Azure Firewall, Application Gateway, and Azure Front Door are fully managed services, meaning that customers do not incur the operational and management costs associated with infrastructure deployments, which can become complex at scale.
+* Azure PaaS services are typically accessed over public endpoints, however, the Azure platform provides capabilities to secure such endpoints or even make them entirely private.
+* Azure provides three models for private network connectivity: VNet injection, VNet Service Endpoints and Private Link:
+  - VNet injection applies to services that are deployed specifically for you, such as AKS nodes, SQL Managed Instance, Virtual Machines. These resources connect directly to your virtual network. 
+                            
+  - [Virtual Network (VNet) service endpoints](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview) provide secure and direct connectivity to Azure services over an optimized route over the Azure backbone network. 
+    > Service Endpoints enable private IP addresses in the VNet to reach the endpoint of an Azure service without needing a public IP address on the VNet.
+                                
+                            
+  - [Private Link](https://docs.microsoft.com/en-us/azure/private-link/private-endpoint-overview#private-link-resource) provides dedicated access using private IP addresses to Azure PaaS instances, or custom services behind an Azure Load Balancer Standard.
+                            
+  - Use Private Link, where available, for shared Azure PaaS services. Private Link is generally available for several services and is in public preview for numerous ones.
+                            
+  - Access Azure PaaS services from on-premises via ExpressRoute private peering. 
+    > Use either virtual network injection for dedicated Azure services or Azure Private Link for available shared Azure services. To access Azure PaaS services from on-premises when virtual network injection or Private Link isn't available, use ExpressRoute with Microsoft peering. This method avoids transiting over the public internet.
+                                
+                            
+  - Use virtual network service endpoints to secure access to Azure PaaS services from within your virtual network, but only when Private Link isn&#39;t available and there are no data exfiltration concerns. 
+                            
+  - Service Endpoints do not allow a PaaS service to be accessed from on-premises networks. Private Endpoints do.
+                            
+  - To address data exfiltration concerns with service endpoints, use NVA filtering or use virtual network service endpoint policies for Azure Storage.
+                            
+* 3rd party NVAs may also be used, should the customer prefer to use NVAs or for situations where native services do not satisfy specific customer requirements.
+### Configuration Recommendations
+* Don&#39;t enable virtual network service endpoints by default on all subnets.
+* Don&#39;t use virtual network service endpoints when there are data exfiltration concerns, unless you use NVA filtering.
+* We don&#39;t recommend that you implement forced tunneling to enable communication from Azure to Azure resources.
+## Azure Virtual Networks
+### Design Considerations
+* Overlapping IP address spaces across on-premises and Azure regions will create major contention challenges.
+* While Virtual Network address space can be added after creation, this process will require an outage if the Virtual Network is already connected to another Virtual Network via peering, since the Virtual Network peering will have to be deleted and re-created. 
+  > (Note: Modification of address space on peered vnets was announced at Ignite in sept 2020, but no timelines provided. Check the status before discussing with customer.)
+                            
+* Azure reserves 5 IP addresses within each subnet which should be factored in when sizing Virtual Networks and encompassed subnets.
+* Some Azure services do require [dedicated subnets](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-for-azure-services#services-that-can-be-deployed-into-a-virtual-network), such as Azure Firewall, Azure Bastion or Virtual Network Gateway.
+* Subnets can be delegated to certain services to create instances of that service within the subnet.
+### Configuration Recommendations
+* Use Azure DDoS Standard Protection Plans to protect all public endpoints hosted within customer Virtual Networks.
+* Do not replicate on-premises DMZ concepts and architectures into Azure.
+  > Customers can get similar security capabilities in Azure as on-premises, but the implementation and architecture will need to be adapted to the cloud.
+                            
+* Azure PaaS services that have been injected into a Virtual Network still perform management plane operations using public IP addresses. Ensure that this communication is locked down within the Virtual Network using UDRs and NSGs.
+* Access Azure PaaS services from on-premises via ExpressRoute Private Peering, using either VNet injection for dedicated Azure services or Azure Private Link for available shared Azure services.
+  - To access Azure PaaS services from on-premises networks when VNet injection or Private Link are not available, use ExpressRoute with Microsoft Peering when there are no data exfiltration concerns. This would avoid transit over the public internet.
+                            
+* Use VNet Service Endpoints to secure access to Azure PaaS services from within a customer VNet, but only when Private Link is not available and when there are no data exfiltration concerns. To address data exfiltration concerns with Service Endpoints:
+  - Use NVA filtering.
+                            
+  - Use VNet Service Endpoint Policies for Azure Storage.
+                            
+* Do not enable VNet Service Endpoints by default on all subnets.
+* Do not use VNet Service Endpoints when there are data exfiltration concerns, unless NVA filtering is used.
+* It is strongly recommended to not implement forced tunneling to enable communication from Azure to Azure resources.
+* It is vital that enterprise customers plan for IP addressing in Azure to ensure there is no overlapping IP address space across considered on-premises locations and Azure regions.
+  - Plan for non-overlapping IP address spaces across Azure regions and on-premises locations well in advance.
+                            
+  - Use IP addresses from the address allocation for private internets (RFC 1918).
+                            
+  - For environments with limited private IP addresses (RFC 1918) availability, consider using IPv6.
+                            
+  - Do not create unnecessarily large Virtual Networks (for example: /16) to ensure there is no unnecessary wastage of IP address space.
+                            
+  - Do not create Virtual Networks without planning the required address space in advance, since adding address space will cause an outage once a Virtual Network is connected via Virtual Network Peering.
+                            
+  - Do not use public IP addresses for Virtual Networks, especially if the public IP addresses do not belong to the customer.
+                            
+## ExpressRoute
+### Design Considerations
+* Azure ExpressRoute provides dedicated private connectivity to Microsoft services such as Azure and Office 365 from on-premises locations.
+* Private Link can be used to establish connectivity to PaaS services over ExpressRoute with Private Peering.
+* When multiple virtual networks are connected to the same ExpressRoute circuit, they will become part of the same routing domain and all virtual networks will share the bandwidth.
+* ExpressRoute Global Reach (where available) allows customers to connect on-premises locations together using ExpressRoute circuits to transit traffic over the Microsoft backbone network.
+* ExpressRoute Global Reach is available in many ExpressRoute peering [locations](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-global-reach#availability).
+* ExpressRoute Direct allows to create multiple ExpressRoute circuits at no additional cost, up to the ExpressRoute Direct port capacity (10G or 100G and allows you to connect directly to Microsoft&#39;s ExpressRoute routers).
+  - For the 100 Gbps SKU, the minimum circuit bandwidth is 5 Gbps.
+                            
+  - For the 10 Gbps SKU, the minimum circuit bandwidth is 1 Gbps.
+                            
+### Configuration Recommendations
+* Use ExpressRoute as the primary connectivity channel for connecting on-premises network to Microsoft Azure.    
+  - VPNs can be used as a source of backup connectivity to enhance connectivity resiliency.
+                            
+* Use dual ExpressRoute circuits from different peering locations when connecting an on-premises location to Virtual Networks in Azure. This setup will ensure redundant paths to Azure, removing single points of failure between on-premises and Azure.
+* When multiple ExpressRoute circuits are used, [optimize routing](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-optimize-routing) by using BGP local preference and AS Path prepending.
+* Ensure the right SKU is used for the ExpressRoute/VPN Gateways based on bandwidth and performance requirements.
+* Deploy a Zone Redundant ExpressRoute Gateway in the supported Azure regions.
+* For scenarios that require bandwidth higher than 10Gbps or dedicated 10/100 Gbps ports, use ExpressRoute Direct.
+* When very low latency is required, or throughput from on-premises to Azure must be greater than 10 Gbps, enable FastPath to bypass the ExpressRoute Gateway from the data path.
+* Use VPN Gateways to connect branches or remote locations to Azure.
+  - For higher resiliency, deploy Zone-Redundant Gateways (where available).
+                            
+* Use ExpressRoute Global Reach to connect large offices /regional headquarters/datacenter that are connected to Azure via ExpressRoute.
+* When traffic isolation or dedicated bandwidth is required, such as for separating production and non-production environments, different ExpressRoute circuits should be used to ensure isolated routing domains and to mitigate noisy neighbour risks.
+* Proactively monitor ExpressRoute circuits using Network Performance Monitor.
+* Do not explicitly use ExpressRoute circuits from a single peering location as it creates a single point of failure, making the customer likely susceptible to peering location outages.
+## Application Delivery (General)
+### Design Considerations
+* Azure Load Balancer (internal and public) provides high availability for application delivery at a regional level. (Standard tier only)
+* Azure Application Gateway allows the secure delivery of HTTP/S applications at a regional level.
+* Azure Front Door allows the secure, delivery of highly available HTTP/S applications across Azure regions.
+* Azure Traffic manager allows the delivery of applications through DNS redirection, including traffic using protocols other than HTTP/S).
+### Configuration Recommendations
+* Application delivery for both internal and external facing applications should be part of the application. It should not be centrally managed within an organization.
+* For secure delivery of HTTP/S applications, ensure Web Application Firewall (WAF) protection/policies are enabled. This can be done in either Application Gateway or Front Door.
+* Use a 3rd party Network Virtual Appliance (NVA) if Application Gateway v2 cannot be used for the security of HTTP/S applications.
+* Application Gateway v2 or 3rd party NVAs used for inbound HTTP/S connections, should be deployed  in the Virtual Network together with the applications that they are securing. It should not be managed centrally within the organization and shared with other workloads.
+* All public IP addresses in a the solution should be protected with a DDoS Standard protection plan.
+* Global HTTP/S applications that span Azure regions should be delivered and protected using Azure Front Door with Web Application Firewall (WAF) policies.
+* When using Azure Front Door and Application Gateway to protect HTTP/S applications, use WAF policies in Front Door and lock down Application Gateway to receive traffic only from Azure Front Door. 
+  > While this is the general recommendation, certain scenarios might force a customer to implement rules specifically on AppGateway: For example, if ModSec CRS 2.2.9, CRS 3.0 or CRS 3.1 rules are required, this can only be implemented on AppGatway. Conversely, rate-limiting and geo-filtering are available only on Azure Front Door, not on AppGateway. Instructions on how to lock down traffic can be found [here](https://docs.microsoft.com/en-us/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door)
+                            
+* Global applications that span protocols other than HTTP/S should be delivered using Azure Traffic Manager. Traffic manager does not forward traffic, but only performs DNS redirection. This means that the connection from the client is established directly to the target using any protocol.
+* When doing global loadbalancing for HTTP/S applications, Front Door is preferred over Traffic Manager. This is because, amongst others:  
+  - Azure Front Door optimizes the number of TCP connections to the backend when forwarding traffic
+                            
+  - Changes to the routing configuration, e.g. based on backend health, are instantaneous. With Traffic Manager, traffic will point to the original backend until a new DNS lookup is performed, plus potential time for DNS propagation.
+                            
+  - Front Door supports caching on global edge nodes, negating the need for a separate CDN service
+                            
+  - Front Door supports Web Application Firewall rules, negating the need for a separate WAF service
+                            
+* Enable health probes for backends. 
+  > Health probes are http(s) endpoints that are queried by the load balancer (Azure Front Door, Traffic Manager, AppGateway) service to determine if the backend is healthy enough to handle requests.
+                            
+* Create a separate health endpoint on the backend to be used by the health probe, that can aggregate the state of the critical services and dependencies needed to serve requests. 
+  > More information on creating such an endpoint can be found [here](https://docs.microsoft.com/en-us/azure/architecture/patterns/health-endpoint-monitoring).
+                            
+## Azure Application Gateway v2
+### Configuration Recommendations
+* In new deployments, use Application Gateway v2 unless there is a compelling reason to use v1.
+* Deploy at least two AppGateway v2 instances to increase availability
+* Deploy the instances in a [zone-aware configuration](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-autoscaling-zone-redundant), where available.
+* Use Application Gateway with Web Application Firewall (WAF) within an application Virtual Network for protecting inbound HTTP/S traffic from the internet.
+* When using Azure Front Door and Application Gateway to protect HTTP/S applications, use WAF policies in Front Door and lock down Application Gateway to receive traffic only from Azure Front Door. 
+  > While this is the general recommendation, certain scenarios might force a customer to implement rules specifically on AppGateway: For example, if ModSec CRS 2.2.9, CRS 3.0 or CRS 3.1 rules are required, this can only be implemented on AppGatway. Conversely, rate-limiting and geo-filtering are available only on Azure Front Door, not on AppGateway.
+                            
+## Azure Front Door
+### Configuration Recommendations
+* Use Azure Front Door WAF policies to provide global protection across Azure regions for inbound HTTP/S connections to a &#34;Landing Zone&#34;.
+* When using Azure Front Door and Application Gateway to protect HTTP/S applications, use WAF policies in Front Door and lock down Application Gateway to receive traffic only from Azure Front Door. 
+  > While this is the general recommendation, certain scenarios might force a customer to implement rules specifically on AppGateway: For example, if ModSec CRS 2.2.9, CRS 3.0 or CRS 3.1 rules are required, this can only be implemented on AppGatway. Conversely, rate-limiting and geo-filtering are available only on Azure Front Door, not on AppGateway. Instructions on how to lock down traffic can be found [here](https://docs.microsoft.com/en-us/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door)
+                            
+* Create a rule to block access to the health endpoint from the Internet
+* Front Door currently does not support SSL passthrough, this means Front Door must hold the certificate to terminate the encrypted inbound connection. Ensure that the connection to the back-end is re-encrypted.
+## Azure Loadbalancer
+### Configuration Recommendations
+* For production workloads, use the Standard SKU. Basic loadbalancers do not have an SLA. Additionally, the Standard SKU [supports Availability Zones](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-standard-availability-zones).
+## Traffic Manager
+### Configuration Recommendations
+* When a backend becomes unavailable, Traffic Manager will not fail over to another region immediately. There will be a time interval where clients cannot be served. The length of this interval depends on
+  - The time settings of the health probe (probe interval and the number and the number of unhealthy responses allowed)
+                            
+  - The TTL of the DNS record. By default this is 5 minutes. If this time interval is too long, consider adjusting the health probe timing or DNS record TTL. If the resulting interval is still too large for the scenario at hand, consider switching to Azure Front Door for global loadbalancing.
+                            
+## API Management
+### Configuration Recommendations
+* [Secure the communication](https://docs.microsoft.com/en-us/azure/api-management/api-management-faq#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services) between API Management and your backend. 
+* When exposing APIs to third parties, ensure that
+  - Each party has its own credential
+                            
+  - Quotas and rate limits have been set
+                            
