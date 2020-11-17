@@ -289,7 +289,7 @@
         "pillars": [
             "reliability",
             "operationalexcellence",
-            "performance",
+            "performanceefficiency",
             "costoptimization"
         ],
         "lens": "service",
@@ -313,7 +313,7 @@
         "pillars": [
             "reliability",
             "operationalexcellence",
-            "performance"
+            "performanceefficiency"
         ],
         "lens": "service",
         "category": "Compute",
