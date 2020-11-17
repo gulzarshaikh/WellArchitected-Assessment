@@ -6,7 +6,7 @@
         ],
         "lens": "scenario",
         "category": "WVD",
-        "subcategory": "FSLogix",
+        "subCategory": "FSLogix",
         "title": "Has [FSLogix](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix) been included in your design?",
         "context": "If using a solution where your users can sign into different Windows Virtual Desktop Session Hosts (Multi-session for example), [FSLogix](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix) should be used to centralize users' profiles.",
         "recommendation": "Review your central profile store architecture and incorporate FSLogix if you are using multi-session",
@@ -33,7 +33,7 @@
         ],
         "lens":"scenario",
         "category":"WVD",
-        "subcategory": "Networking & Connectivity",
+        "subCategory": "Networking & Connectivity",
         "title": "Networking is a core component of Windows Virtual Desktop and should be included in your solution design",
         "recommendation": "WVD Session Hosts have to exist on a Virtual Network so Virtual Network/Subnet configuration will have to be considered. We have [example scenario architecture](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop#architecture) which can help visualize network connectivity.",
         "children":[
@@ -58,7 +58,7 @@
         ],
         "lens":"scenario",
         "category":"WVD",
-        "subcategory": "Identity & Access Control",
+        "subCategory": "Identity & Access Control",
         "title": "Windows Virtual Desktop requires that there is a hybrid identity solution implemented",
         "recommendation": "The hybrid identity solution in this instance would be Azure AD Connect",
         "children":[
