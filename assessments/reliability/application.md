@@ -76,7 +76,7 @@ The following Design Principles provide context for questions, why a certain asp
 ## Drive Automation
 
 
-  One of the leading causes of downtime is human error. This may be insufficiently tested software being deployed, operator errors during deployment, or misconfigurations. To minimize the impact of human errors and improve reliability, one should strive for automation in all aspects of a cloud solution: Automated testing, automated deployment, automated management.
+  One of the leading causes of downtime is human error. This may be insufficiently tested software being deployed, operator errors during deployment, or misconfigurations. To minimize the chance of human errors and the impact they have, one should strive for automation in all aspects of a cloud solution to improve reliability: Automated testing, automated deployment, automated management.
 
 
 
