@@ -104,7 +104,7 @@
         "category": "General",
         "subCategory": "Unassigned",
         "title": "Drive Automation",
-        "context": "One of the leading causes of downtime is human error. This may be insufficiently tested software being deployed, operator errors during deployment, or misconfigurations. To minimize the impact of human errors and improve reliability, one should strive for automation in all aspects of a cloud solution: Automated testing, automated deployment, automated management.",
+        "context": "One of the leading causes of downtime is human error. This may be insufficiently tested software being deployed, operator errors during deployment, or misconfigurations. To minimize the chance of human errors and the impact they have, one should strive for automation in all aspects of a cloud solution to improve reliability: Automated testing, automated deployment, automated management.",
         "id": "dp_reliability_4"
     },
     {
