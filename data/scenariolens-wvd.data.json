@@ -4,15 +4,6 @@
         "pillars": [
             "scenario/wvd"
         ],
-        "lens":"scenario",
-        "category":"WVD",
-        "subcategory": "FSLogix"
-    },
-    {
-        "type": "Questions",
-        "pillars": [
-            "scenario/wvd"
-        ],
         "lens": "scenario",
         "category": "WVD",
         "subcategory": "FSLogix",
