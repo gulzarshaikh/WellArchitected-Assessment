@@ -307,5 +307,19 @@
         "title": "Platform support"
       }
     ]
+  },
+  {
+    "title": "WVD",
+    "subCategories":[
+      {
+        "title": "FSLogix"
+      },
+      {
+        "title": "Networking & Connectivity"
+      },
+      {
+        "title": "Identity & Access Control"
+      }
+    ]
   }
 ]
