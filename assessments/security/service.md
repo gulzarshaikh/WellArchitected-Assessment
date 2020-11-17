@@ -31,9 +31,13 @@ This list contains design considerations and recommended configuration options, 
                             
   - Use [Pod Identities](https://docs.microsoft.com/azure/aks/operator-best-practices-identity#use-pod-identities) and [Secrets Store CSI Driver](https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage) with Azure Key Vault to protect secrets, certificates, and connection strings.
                             
-  - Ensure certificates are [rotated](https://docs.microsoft.com/azure/aks/certificate-rotation) on a regular basis (e.g. every 90 days).
+  - Regularly update to the latest version of Kubernetes.
+    > AKS supports three minor versions of Kubernetes. This means that when a new minor patch version is introduced, the oldest minor version and patch releases supported are retired. Minor updates to Kubernetes happen on a periodic basis. Make sure that you have a governance process to check and upgrade as needed so you don't fall out of support. For more information, see [Supported Kubernetes versions AKS](https://docs.microsoft.com/azure/aks/supported-kubernetes-versions).
+                                
                             
-  - Regularly process Linux node security and kernel updates and reboots using [kured](https://docs.microsoft.com/azure/aks/node-updates-kured).
+  - Regularly process node security and kernel updates and reboots
+    > AKS supports [upgrading the images](https://docs.microsoft.com/azure/aks/node-image-upgrade) on a node to be up to date with the newest OS and runtime updates without updating the version of Kubernetes. AKS provides one new image per week with the latest updates, including Linux or Windows patches. For Linux-only deployments you can also use [kured](https://docs.microsoft.com/azure/aks/node-updates-kured).
+                                
                             
   - Use [Azure Security Center](https://docs.microsoft.com/azure/security-center/defender-for-kubernetes-introduction) to provide AKS recommendations.
                             
