@@ -214,7 +214,17 @@
         "category": "Compute",
         "subCategory": "Azure Kubernetes Service (AKS)",
         "title": "Subscribe to the AKS Roadmap and Release Notes on GitHub",
-        "context": "Make sure that you're subscribed to the [public AKS Roadmap Release Notes](https://github.com/azure/aks) on GitHub to stay up-to-date on upcoming changes, improvements and most importantly Kubernetes version releases and the deprecation of old releases."
+        "context": "Make sure that you're subscribed to the [public AKS Roadmap Release Notes](https://github.com/azure/aks) on GitHub to stay up-to-date on upcoming changes, improvements and most importantly Kubernetes version releases and the deprecation of old releases.",
+        "children": [
+            {
+                "title": "Regularly update to the latest version of Kubernetes.",
+                "context": "AKS supports three minor versions of Kubernetes. This means that when a new minor patch version is introduced, the oldest minor version and patch releases supported are retired. Minor updates to Kubernetes happen on a periodic basis. It is important to have a governance process to check and upgrade as needed to not fall out of support. For more information, see [Supported Kubernetes versions AKS](https://docs.microsoft.com/azure/aks/supported-kubernetes-versions)."
+            },
+            {
+                "title": "Regularly process node security and kernel updates and reboots",
+                "context": "AKS supports [upgrading the images](https://docs.microsoft.com/azure/aks/node-image-upgrade) on a node to be up to date with the newest OS and runtime updates without updating the version of Kubernetes. AKS provides one new image per week with the latest updates, including Linux or Windows patches. For Linux-only deployments you can also use [kured](https://docs.microsoft.com/azure/aks/node-updates-kured)."
+            }
+        ]
     },    
     {
         "type": "Configuration Recommendations",
@@ -295,12 +305,18 @@
         "lens": "service",
         "category": "Compute",
         "subCategory": "Azure Kubernetes Service (AKS)",
-        "title": "Enable [cluster autoscaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) to automatically adjust the number of agent nodes in response to resource constraints.",
-        "context": "This ability to automatically scale up or down the number of nodes in your AKS cluster lets you run an efficient, cost-effective cluster.",
+        "title": "Scalability",
         "children": [
+            {
+                "title": "Enable [cluster autoscaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) to automatically adjust the number of agent nodes in response to resource constraints.",
+                "context": "This ability to automatically scale up or down the number of nodes in your AKS cluster lets you run an efficient, cost-effective cluster."
+            },
             {
                 "title": "Consider using [Azure Spot VMs](https://docs.microsoft.com/azure/aks/spot-node-pool) for workloads that can handle interruptions, early terminations, or evictions. For example, workloads such as batch processing jobs, development and testing environments, and large compute workloads may be good candidates to be scheduled on a spot node pool.",
                 "context": "Using spot VMs for nodes with your AKS cluster allows you to take advantage of unutilized capacity in Azure at a significant cost savings."
+            },
+            {
+                "title": "Utilize the [Horizontal pod autoscaler](https://docs.microsoft.com/azure/aks/concepts-scale#horizontal-pod-autoscaler) to adjust the number of pods in a deployment depending on CPU utilization or other select metrics."
             },
             {
                 "title": "Separate workloads into different node pools and consider scaling user node pools to zero.",
@@ -308,18 +324,6 @@
             }
         ]
     },
-    {
-        "type": "Configuration Recommendations",
-        "pillars": [
-            "reliability",
-            "operationalexcellence",
-            "performance"
-        ],
-        "lens": "service",
-        "category": "Compute",
-        "subCategory": "Azure Kubernetes Service (AKS)",
-        "title": "Utilize the [Horizontal pod autoscaler](https://docs.microsoft.com/azure/aks/concepts-scale#horizontal-pod-autoscaler) to adjust the number of pods in a deployment depending on CPU utilization or other select metrics."
-    },     
     {
         "type": "Configuration Recommendations",
         "pillars": [
@@ -357,15 +361,11 @@
                 "title": "Use [Pod Identities](https://docs.microsoft.com/azure/aks/operator-best-practices-identity#use-pod-identities) and [Secrets Store CSI Driver](https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage) with Azure Key Vault to protect secrets, certificates, and connection strings."
             },
             {
-                "title": "Regularly update to the latest version of Kubernetes.",
-                "context": "AKS supports three minor versions of Kubernetes. This means that when a new minor patch version is introduced, the oldest minor version and patch releases supported are retired. Minor updates to Kubernetes happen on a periodic basis. Make sure that you have a governance process to check and upgrade as needed so you don't fall out of support. For more information, see [Supported Kubernetes versions AKS](https://docs.microsoft.com/azure/aks/supported-kubernetes-versions)."
-            },
-            {
-                "title": "Regularly process node security and kernel updates and reboots",
-                "context": "AKS supports [upgrading the images](https://docs.microsoft.com/azure/aks/node-image-upgrade) on a node to be up to date with the newest OS and runtime updates without updating the version of Kubernetes. AKS provides one new image per week with the latest updates, including Linux or Windows patches. For Linux-only deployments you can also use [kured](https://docs.microsoft.com/azure/aks/node-updates-kured)."
-            },
-            {
                 "title": "Use [Azure Security Center](https://docs.microsoft.com/azure/security-center/defender-for-kubernetes-introduction) to provide AKS recommendations."
+            },
+            {
+                "title": "Secure clusters and pods with Azure Policy",
+                "context": "[Azure Policy](https://docs.microsoft.com/azure/aks/use-pod-security-on-azure-policy) can help to apply at-scale enforcements and safeguards on your clusters in a centralized, consistent manner. It can also control what functions pods are granted and if anything is running against company policy. This access is defined through built-in policies provided by the [Azure Policy Add-on for AKS](https://docs.microsoft.com/azure/governance/policy/concepts/policy-for-kubernetes). By providing additional control over the security aspects of your pod's specification, like root privileges, enables stricter security adherence and visibility into what is deployed in your cluster. If a pod does not meet conditions specified in the policy, Azure Policy can disallow the pod to start or flag a violation."
             }
         ]
     },   
@@ -378,7 +378,8 @@
         "lens": "service",
         "category": "Compute",
         "subCategory": "Azure Kubernetes Service (AKS)",
-        "title": "Ensure proper selection of Network Plug-in [Kubenet vs. Azure CNI](https://docs.microsoft.com/azure/aks/concepts-network#compare-network-models) based on network requirements and cluster sizing."
+        "title": "Ensure proper selection of Network Plug-in [Kubenet vs. Azure CNI](https://docs.microsoft.com/azure/aks/concepts-network#compare-network-models) based on network requirements and cluster sizing.",
+        "context": "CNI is required for specific scenarios like for example Windows-based node pools and the use of Azure Network Policies. See [Kubenet vs. Azure CNI](https://docs.microsoft.com/azure/aks/concepts-network#compare-network-models) for more information."
     },     
     {
         "type": "Configuration Recommendations",
@@ -395,29 +396,20 @@
         "type": "Configuration Recommendations",
         "pillars": [
             "reliability",
-            "security",
-            "operationalexcellence"
-        ],
-        "lens": "service",
-        "category": "Compute",
-        "subCategory": "Azure Kubernetes Service (AKS)",
-        "title": "Secure clusters and pods with Azure Policy",
-        "context": "[Azure Policy](https://docs.microsoft.com/azure/aks/use-pod-security-on-azure-policy) can help to apply at-scale enforcements and safeguards on your clusters in a centralized, consistent manner. It can also control what functions pods are granted and if anything is running against company policy. This access is defined through built-in policies provided by the [Azure Policy Add-on for AKS](https://docs.microsoft.com/azure/governance/policy/concepts/policy-for-kubernetes). By providing additional control over the security aspects of your pod's specification, like root privileges, enables stricter security adherence and visibility into what is deployed in your cluster. If a pod does not meet conditions specified in the policy, Azure Policy can disallow the pod to start or flag a violation."
-    },
-    {
-        "type": "Configuration Recommendations",
-        "pillars": [
-            "reliability",
             "operationalexcellence",
             "security"
         ],
         "lens": "service",
         "category": "Compute",
         "subCategory": "Azure Kubernetes Service (AKS)",
-        "title": "Utlize a central monitoring tool (eg. - [Azure Monitor and App Insights](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview)) to centrally collect metrics, logs, and diagnostics for troubleshooting purposes.",
+        "title": "Utilize a central monitoring tool (eg. - [Azure Monitor and App Insights](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview)) to centrally collect metrics, logs, and diagnostics for troubleshooting purposes.",
         "children": [
             {
                 "title": "Enable and review [Kubernetes master node logs](https://docs.microsoft.com/azure/aks/view-master-logs)."
+            },
+            {
+                "title": "Configure scraping of Prometheus metrics with Azure Monitor for containers",
+                "context": "Azure Monitor for containers provides a seamless onboarding experience to collect Prometheus metrics. See [Configure scraping of Prometheus metrics with Azure Monitor for containers](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-prometheus-integration) for more."
             }
         ]
     },
