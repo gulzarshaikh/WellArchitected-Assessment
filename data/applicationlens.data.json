@@ -2704,31 +2704,31 @@
     "recommendation": "Adopt threat modeling processes.",
     "id": "application_design_1988",
     "context": "Threat modeling is an engineering technique which can be used to help identify threats, attacks, vulnerabilities and countermeasures that could affect an application. Threat modeling consists of: defining security requirements, identifying threats, mitigating threats, validating threat mitigation. Microsoft uses [STRIDE](https://docs.microsoft.com/azure/security/develop/threat-modeling-tool-threats) for threat modeling.  This might be the right time to talk through the STRIDE methodology and then the tools available to help them with Threat Modeling.  There are tools like [Microsoft Threat Modeling Tool](https://docs.microsoft.com/azure/security/develop/threat-modeling-tool-getting-started) which can help.",
-    "children":[
-        {
-            "title": "Are identified threats ranked based on organizational impact?",
-            "context": "Ranked threats improves the understanding of risks associated with security issues.",
-            "recommendation": "Rank identified threats based on organizational impact.",
-            "id": "application_design_threat_ranking"
-        },
-        {
-            "title": "Does the organization track threat modeling or vulnerability scan results with a management system?",
-            "context": "Effectively tracking and prioritizing discovered application threats is a vital component of vulnerability management.",
-            "recommendation": "Centralize threat modeling results.",
-            "id": "application_design_threat_modeling_tracking"
-        },
-        {
-            "title": "Are identified threats mapped to mitigations?",
-            "context": "Mitigations are controls to help protect, detect and respond to a certain type of threat.",
-            "recommendation": "Map threats to mitigations.",
-            "id": "application_design_threat_modeling_mitigations"
-        },
-        {
-            "title": "Are identified threats communicated to stakeholders? E.g., business, IT, application users",
-            "context": "After defining and analyzing the risks, identify risk owners which are the roles that are responsible for mitigating the risk. They need to be aware of the risks so that they can start the mitigation process by allocating resources (e.g. financial or people)",
-            "recommendation": "Establish communication processes for identified threats.",
-            "id": "application_design_threat_modeling_communication"
-        }
+    "children": [
+      {
+        "title": "Are identified threats ranked based on organizational impact?",
+        "context": "Ranked threats improves the understanding of risks associated with security issues.",
+        "recommendation": "Rank identified threats based on organizational impact.",
+        "id": "application_design_threat_ranking"
+      },
+      {
+        "title": "Does the organization track threat modeling or vulnerability scan results with a management system?",
+        "context": "Effectively tracking and prioritizing discovered application threats is a vital component of vulnerability management.",
+        "recommendation": "Centralize threat modeling results.",
+        "id": "application_design_threat_modeling_tracking"
+      },
+      {
+        "title": "Are identified threats mapped to mitigations?",
+        "context": "Mitigations are controls to help protect, detect and respond to a certain type of threat.",
+        "recommendation": "Map threats to mitigations.",
+        "id": "application_design_threat_modeling_mitigations"
+      },
+      {
+        "title": "Are identified threats communicated to stakeholders? E.g., business, IT, application users",
+        "context": "After defining and analyzing the risks, identify risk owners which are the roles that are responsible for mitigating the risk. They need to be aware of the risks so that they can start the mitigation process by allocating resources (e.g. financial or people)",
+        "recommendation": "Establish communication processes for identified threats.",
+        "id": "application_design_threat_modeling_communication"
+      }
     ]
   },
   {
@@ -2757,12 +2757,12 @@
     "recommendation": "Develop or implement established processes and timelines to deploy mitigations for identified threats.",
     "id": "",
     "children": [
-        {
-            "title": "How long does it typically take to deploy a security fix into production?",
-            "recommendation": "",
-            "id": "application_design_7087",
-            "context": "It's important to understand how the customer is updating when a security vulnerability is discovered in their workload: the process and tools, approvals, who is made aware and if there's executive sponsorship to bypass lengthy processes when it comes to security."
-        }
+      {
+        "title": "How long does it typically take to deploy a security fix into production?",
+        "recommendation": "",
+        "id": "application_design_7087",
+        "context": "It's important to understand how the customer is updating when a security vulnerability is discovered in their workload: the process and tools, approvals, who is made aware and if there's executive sponsorship to bypass lengthy processes when it comes to security."
+      }
     ]
   },
   {
@@ -2778,12 +2778,12 @@
     "id": "application_design_6814",
     "context": "Find out how they make sure they maintain compliance as the Azure Platform evolves and they update their application. Are there things preventing them from adopting new features in the platform because it will knock them out of compliance?",
     "children": [
-        {
-            "title": "Does the organization have a process for regulatory or governance compliance attestation for this workload?",
-            "context": "Knowing whether your cloud resources are in compliance with standards mandated by governments or industry organizations is essential in today's globalized world (e.g. GDPR).",
-            "recommendation": "Perform regulatory compliance attestation.",
-            "id": "application_design_process_compliance"
-        }
+      {
+        "title": "Does the organization have a process for regulatory or governance compliance attestation for this workload?",
+        "context": "Knowing whether your cloud resources are in compliance with standards mandated by governments or industry organizations is essential in today's globalized world (e.g. GDPR).",
+        "recommendation": "Perform regulatory compliance attestation.",
+        "id": "application_design_process_compliance"
+      }
     ]
   },
   {
@@ -2798,19 +2798,19 @@
     "context": "Compliance is important for several reasons. Aside from signifying levels of standards, like ISO 27001 and others, noncompliance with regulatory guidelines may bring sanctions and penalties.",
     "recommendation": "Periodically perform external and/or internal workload security audits.",
     "id": "application_design_workload_audits",
-    "children":[
-        {
-            "title": "How often do you have internal and external audits of this workload?",
-            "id": "application_design_2263",
-            "context": "Determine the process the customer uses for auditing the solution. Is it done internally, external, or both. How are findings reflected back to the application? Is everyone aware of the audit and involved or is it done in a silo. This will help reduce the firefighting mentality when there is a finding and stress of performing updates.",
-            "recommendation": "Perform regular internal and external compliance audits."
-        },
-        {
-            "title": "Does the organizational security team audit the environment to report on compliance with the security policy of the organization?",
-            "context": "Azure Policy helps to enforce organizational standards and to assess compliance at-scale.",
-            "recommendation": "Use Azure Policy to create and manage policies that enforce compliance.",
-            "id": "application_design_compliance_security_audit"
-        }
+    "children": [
+      {
+        "title": "How often do you have internal and external audits of this workload?",
+        "id": "application_design_2263",
+        "context": "Determine the process the customer uses for auditing the solution. Is it done internally, external, or both. How are findings reflected back to the application? Is everyone aware of the audit and involved or is it done in a silo. This will help reduce the firefighting mentality when there is a finding and stress of performing updates.",
+        "recommendation": "Perform regular internal and external compliance audits."
+      },
+      {
+        "title": "Does the organizational security team audit the environment to report on compliance with the security policy of the organization?",
+        "context": "Azure Policy helps to enforce organizational standards and to assess compliance at-scale.",
+        "recommendation": "Use Azure Policy to create and manage policies that enforce compliance.",
+        "id": "application_design_compliance_security_audit"
+      }
     ]
   },
   {
@@ -2851,13 +2851,13 @@
     "recommendation": "Do not expose security details in error messages.",
     "id": "application_design_2397",
     "context": "Providing unnecessary information to end users in case of application failure should be avoided. Revealing detailed error information (call stack, SQL queries, out of range errors...) can provide attackers with valuable information about the internals of the application. Error handlers should make the application fail gracefully and log the error.",
-    "children":[
-        {
-            "title": "Does the workload handle failures and exceptions gracefully and log them with detailed information?",
-            "context": "Error handlers should make the application fail gracefully and log the error.",
-            "recommendation": "Handle application exceptions / failures gracefully (with retry logic) and log them.",
-            "id": "application_design_graceful_exception_handling"
-        }
+    "children": [
+      {
+        "title": "Does the workload handle failures and exceptions gracefully and log them with detailed information?",
+        "context": "Error handlers should make the application fail gracefully and log the error.",
+        "recommendation": "Handle application exceptions / failures gracefully (with retry logic) and log them.",
+        "id": "application_design_graceful_exception_handling"
+      }
     ]
   },
   {
@@ -2873,12 +2873,12 @@
     "id": "application_design_2599",
     "context": "Information revealing the application platform, such as HTTP banners containing framework information (\"`X-Powered-By`\", \"`X-ASPNET-VERSION`\"), are commonly used by malicious actors when mapping attack vectors of the application. HTTP headers, error messages, website footers etc. should not contain information about the application platform. Azure CDN or Cloudflare can be used to separate the hosting platform from end users, Azure API Management offers [transformation policies](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies) that allow to modify HTTP headers and remove sensitive information.",
     "children": [
-        {
-            "title": "Does the workload use API Management or Azure Front Door to modify HTTP headers and remove sensitive information?",
-            "context": "Azure API Management and Azure Front Door offers transformation policies that allow to modify HTTP headers and remove sensitive information.",
-            "recommendation": "Remove sensitive information from HTTP headers with Azure API Management or Azure Front Door.",
-            "id": "application_design_http_headers_frontdoor"
-        }
+      {
+        "title": "Does the workload use API Management or Azure Front Door to modify HTTP headers and remove sensitive information?",
+        "context": "Azure API Management and Azure Front Door offers transformation policies that allow to modify HTTP headers and remove sensitive information.",
+        "recommendation": "Remove sensitive information from HTTP headers with Azure API Management or Azure Front Door.",
+        "id": "application_design_http_headers_frontdoor"
+      }
     ]
   },
   {
@@ -3115,12 +3115,12 @@
     "id": "identity__access_control_2493",
     "context": "API URLs used by client applications are exposed to attackers (JavaScript code on a website can be viewed, mobile application can be decompiled and inspected) and should be protected. For internal APIs, requiring authentication can increase the difficulty of lateral movement if an attacker obtains network access. Typical mechanisms include API keys, authorization tokens, IP restrictions or Azure Managed identities.",
     "children": [
-        {
-            "title": "Does this workload leverage modern (OAuth 2.0, OpenID) authentication protocols?",
-            "context": "Modern authentication protocols support strong controls such as MFA and should be used instead of legacy.",
-            "recommendation": "Standarize on modern authentication protocols.",
-            "id": "identity_access_control_modern_protocols"
-        }
+      {
+        "title": "Does this workload leverage modern (OAuth 2.0, OpenID) authentication protocols?",
+        "context": "Modern authentication protocols support strong controls such as MFA and should be used instead of legacy.",
+        "recommendation": "Standarize on modern authentication protocols.",
+        "id": "identity_access_control_modern_protocols"
+      }
     ]
   },
   {
@@ -3149,12 +3149,12 @@
     "id": "identity__access_control_9069",
     "context": "Modern cloud-based applications are often accessible over the internet and location-based networking restrictions don't make much sense, but it needs to be mapped and understood what kind of restrictions are required. Multi-factor Authentication (MFA) is a necessity for remote access, IP-based filtering can be used to enable ad-hoc debugging, but VPNs are preferred.",
     "children": [
-        {
-            "title": "Does the organization enforce password less or multi-factor authentication for users of this workload?",
-            "context": "Attack methods have evolved to the point where passwords alone cannot reliably protect an account.  Modern authentication solutions including password-less and multi-factor authentication increase security posture through strong authentication.  ",
-            "recommendation": "Enforce password-less or MFA.",
-            "id": "identity_access_control_paswordless"
-        }
+      {
+        "title": "Does the organization enforce password less or multi-factor authentication for users of this workload?",
+        "context": "Attack methods have evolved to the point where passwords alone cannot reliably protect an account.  Modern authentication solutions including password-less and multi-factor authentication increase security posture through strong authentication.  ",
+        "recommendation": "Enforce password-less or MFA.",
+        "id": "identity_access_control_paswordless"
+      }
     ]
   },
   {
@@ -3222,12 +3222,12 @@
     "id": "networking__connectivity_6145",
     "context": "External application endpoints should be protected against common attack vectors, such as Denial of Service (DoS) attacks like Slowloris, to prevent potential application downtime due to malicious intent. Azure-native technologies such as Azure Firewall, Application Gateway/Azure Front Door WAF, and DDoS Protection Standard Plan can be used to achieve requisite protection (Azure DDoS Protection).",
     "children": [
-        {
-            "title": "Are public endpoints of this workload protected with firewall or WAF (Web Application Firewall)?",
-            "recommendation": "Use web application firewall.",
-            "id": "networking__connectivity_6733",
-            "context": "[Azure Firewall](https://docs.microsoft.com/azure/firewall/features) is a managed, cloud-based network security service that protects Azure Virtual Network resources. [Web Application Firewall](https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview) (WAF) mitigates the risk of an attacker being able to exploit commonly known security application vulnerabilities like cross-site scripting or SQL injection."
-        }
+      {
+        "title": "Are public endpoints of this workload protected with firewall or WAF (Web Application Firewall)?",
+        "recommendation": "Use web application firewall.",
+        "id": "networking__connectivity_6733",
+        "context": "[Azure Firewall](https://docs.microsoft.com/azure/firewall/features) is a managed, cloud-based network security service that protects Azure Virtual Network resources. [Web Application Firewall](https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview) (WAF) mitigates the risk of an attacker being able to exploit commonly known security application vulnerabilities like cross-site scripting or SQL injection."
+      }
     ]
   },
   {
@@ -3256,12 +3256,12 @@
     "id": "networking__connectivity_4596",
     "context": "Application resources allowing multiple methods to publish app content (e.g FTP, Web Deploy) should have the unused endpoints disabled. For Azure Web Apps SCM is the recommended endpoint and it can be protected separately with network restrictions for sensitive scenarios.",
     "children": [
-        {
-            "title": "Does the organization have an CI/CD process for publishing code in this workload?",
-            "context": "Developers shouldn't publish their code directly to app servers - automated and gated CI/CD process should manage this.",
-            "recommendation": "Implement an automated and gated CD/CD deployment process.",
-            "id": "networking_connectivity_cicd_publishing"
-        }
+      {
+        "title": "Does the organization have an CI/CD process for publishing code in this workload?",
+        "context": "Developers shouldn't publish their code directly to app servers - automated and gated CI/CD process should manage this.",
+        "recommendation": "Implement an automated and gated CD/CD deployment process.",
+        "id": "networking_connectivity_cicd_publishing"
+      }
     ]
   },
   {
@@ -3402,12 +3402,12 @@
     "id": "encryption_4598",
     "context": "Keys must be stored in a secure location with identity-based access control and audit policies. Data encryption keys are often encrypted with a key encryption key in Azure Key Vault to further limit access.",
     "children": [
-        {
-            "title": "Does the organization protect customer managed keys in this workload with an additional key encryption key (KEK)?",
-            "context": "More than one encryption key should be used in an encryption at rest implementation. Storing an encryption key in Azure Key Vault ensures secure key access and central management of keys.",
-            "recommendation": "Use an additional key encryption key (KEK) to protect your data encryption key (DEK).",
-            "id": "encryption_customer_keys_kek"
-        }
+      {
+        "title": "Does the organization protect customer managed keys in this workload with an additional key encryption key (KEK)?",
+        "context": "More than one encryption key should be used in an encryption at rest implementation. Storing an encryption key in Azure Key Vault ensures secure key access and central management of keys.",
+        "recommendation": "Use an additional key encryption key (KEK) to protect your data encryption key (DEK).",
+        "id": "encryption_customer_keys_kek"
+      }
     ]
   },
   {
@@ -3509,12 +3509,12 @@
     "id": "operational_model__devops_6801",
     "context": "Credentials should not be stored in source code or configuration files, because that increases the risk of exposure. Code analyzers (such as Roslyn analyzers for Visual Studio) can prevent from pushing credentials to source code repository and pipeline addons such as CredScan (part of Microsoft Security Code Analysis) help to catch credentials during the build process.",
     "children": [
-        {
-            "title": "Are dependencies and framework components included in the code scanning process of this workload?",
-            "recommendation": "Include code scans into CI/CD process that also covers 3rd party dependencies and framework components.",
-            "id": "operational_model__devops_4898",
-            "context": "As part of the continuous integration process it is crucial that every release includes a scan of all components in use. Vulnerable dependencies should be flagged and investigated. This can done in combination with other code scanning tasks (e.g. code churn, test results/coverage)."
-        }
+      {
+        "title": "Are dependencies and framework components included in the code scanning process of this workload?",
+        "recommendation": "Include code scans into CI/CD process that also covers 3rd party dependencies and framework components.",
+        "id": "operational_model__devops_4898",
+        "context": "As part of the continuous integration process it is crucial that every release includes a scan of all components in use. Vulnerable dependencies should be flagged and investigated. This can done in combination with other code scanning tasks (e.g. code churn, test results/coverage)."
+      }
     ]
   },
   {
@@ -3529,7 +3529,7 @@
     "recommendation": "Store keys and secrets outside of deployment pipeline in Azure Key Vault or in secure store for the pipeline.",
     "id": "operational_model__devops_7121",
     "context": "Secrets need to be managed in a secure manner inside of the CI/CD pipeline. The secrets needs to be stored either in a secure store inside the pipeline or externally in Azure Key Vault. When deploying application infrastructure (e.g. with Azure Resource Manager or Terraform), credentials and keys should be generated during the process, stored directly in Key Vault and referenced by deployed resources. Hardcoded credentials should be avoided."
-  }, 
+  },
   {
     "type": "Questions",
     "pillars": [
@@ -3595,12 +3595,12 @@
     "id": "governance_2724",
     "context": "Landing Zone refers to components that are already defined and in place before the workloads are getting deployed by the workload owners, e.g. network topology with Hub/Spoke concept. The purpose of the “Landing Zone” is to ensure that when a workload lands on Azure, the required “plumbing” is already in place, providing greater agility and compliance with enterprise security and governance requirements. This is crucial, that a Landing Zone will be handed over to the workload owner with the security guardrails deployed.",
     "children": [
-        {
-            "title": "Does the organization use Azure Blueprints to consistently deploy environments of this workload that comply with organizational policies?",
-            "context": "Automation of deployment and maintenance tasks reduces security and compliance risk by limiting opportunity to introduce human errors during manual tasks.",
-            "recommendation": "Use Azure Blueprints to consistently deploy environments that comply with organizational policies.",
-            "id": "application_design_blueprints"
-        }
+      {
+        "title": "Does the organization use Azure Blueprints to consistently deploy environments of this workload that comply with organizational policies?",
+        "context": "Automation of deployment and maintenance tasks reduces security and compliance risk by limiting opportunity to introduce human errors during manual tasks.",
+        "recommendation": "Use Azure Blueprints to consistently deploy environments that comply with organizational policies.",
+        "id": "application_design_blueprints"
+      }
     ]
   },
   {
@@ -3655,7 +3655,6 @@
     "recommendation": "Define security requirements for the workload.",
     "id": "application_design_security_requirements"
   },
-
   {
     "type": "Questions",
     "pillars": [
@@ -3773,12 +3772,12 @@
     "recommendation": "Establish a SecOps team and monitor security related events.",
     "id": "health_modelling_central_secops_team",
     "children": [
-        {
-            "title": "Does the organization have an established process for communication, investigation & hunting activities that is aligned with the workload team?",
-            "context": "Development team needs to be aware of those activities to align their security improvement  activities with the outcome of those activities.",
-            "recommendation": "Define a process for aligning communication, investigation & hunting activities with the application team.",
-            "id": "health_modelling_secops_alignment"
-        }
+      {
+        "title": "Does the organization have an established process for communication, investigation & hunting activities that is aligned with the workload team?",
+        "context": "Development team needs to be aware of those activities to align their security improvement  activities with the outcome of those activities.",
+        "recommendation": "Define a process for aligning communication, investigation & hunting activities with the application team.",
+        "id": "health_modelling_secops_alignment"
+      }
     ]
   },
   {
@@ -3820,12 +3819,12 @@
     "recommendation": "Establish a unified enterprise segmentation strategy.",
     "id": "networking_connectivity_enterprise_segmentation_strategy",
     "children": [
-        {
-            "title": "Does the organization align the cloud network segmentation strategy with the enterprise segmentation model?",
-            "context": "Aligning cloud network segmentation strategy with the enterprise segmentation model reduces confusion and resulting challenges with different technical teams (networking, identity, applications, etc.) each developing their own segmentation and delegation models that don’t align with each other.",
-            "recommendation": "Align cloud network segmentation strategy with the enterprise segmentation model.",
-            "id": "networking_connectivity_network_segmentation_enterprise_segmentation"
-        }
+      {
+        "title": "Does the organization align the cloud network segmentation strategy with the enterprise segmentation model?",
+        "context": "Aligning cloud network segmentation strategy with the enterprise segmentation model reduces confusion and resulting challenges with different technical teams (networking, identity, applications, etc.) each developing their own segmentation and delegation models that don’t align with each other.",
+        "recommendation": "Align cloud network segmentation strategy with the enterprise segmentation model.",
+        "id": "networking_connectivity_network_segmentation_enterprise_segmentation"
+      }
     ]
   },
   {
@@ -4140,12 +4139,12 @@
     "recommendation": "Establish lifecycle management policy for critical accounts.",
     "id": "identity_access_control_cirtical_account_lifecycle_management",
     "children": [
-        {
-            "title": "Does the organization regularly review access from accounts that have privileges to this workload?",
-            "context": "It is important to set up a recurring review pattern to ensure that accounts are removed from permissions as roles change.",
-            "recommendation": "Regularly review critical access roles.",
-            "id": "identity_access_control_critical_role_reviews"
-        }
+      {
+        "title": "Does the organization regularly review access from accounts that have privileges to this workload?",
+        "context": "It is important to set up a recurring review pattern to ensure that accounts are removed from permissions as roles change.",
+        "recommendation": "Regularly review critical access roles.",
+        "id": "identity_access_control_critical_role_reviews"
+      }
     ]
   },
   {
@@ -4187,18 +4186,18 @@
     "recommendation": "Synchronize on-premise directory with Azure AD",
     "id": "identity_access_control_ad_sync",
     "children": [
-        {
-            "title": "Does the organization synchronize on-premises admin accounts to Azure Active Directory, or to another cloud identity provider?",
-            "context": "Synchronizing on-premises admin accounts to Azure Active Directory creates a pivot point that allows an on-premsise compromise to impact Azure workloads.",
-            "recommendation": "Avoid synching on-premises admin accounts to AAD.",
-            "id": "identity_access_control_admin_ad_sync"
-        },
-        {
-            "title": "Does the organization use cloud provider identity services designed to host non-employee rather than including vendors, partners, and customers into a corporate directory?",
-            "context": "Using a cloud identity provider reduces risk by granting the appropriate level of access to external entities instead of the full default permissions given to full-time employees. This least privilege approach and clear differentiation of external accounts from company staff makes it easier to prevent and detect attacks coming in from these vectors.",
-            "recommendation": "Use cloud provider identity services for non-employees.",
-            "id": "identity_access_controle_cloud_identity_nonemployees"
-        }
+      {
+        "title": "Does the organization synchronize on-premises admin accounts to Azure Active Directory, or to another cloud identity provider?",
+        "context": "Synchronizing on-premises admin accounts to Azure Active Directory creates a pivot point that allows an on-premsise compromise to impact Azure workloads.",
+        "recommendation": "Avoid synching on-premises admin accounts to AAD.",
+        "id": "identity_access_control_admin_ad_sync"
+      },
+      {
+        "title": "Does the organization use cloud provider identity services designed to host non-employee rather than including vendors, partners, and customers into a corporate directory?",
+        "context": "Using a cloud identity provider reduces risk by granting the appropriate level of access to external entities instead of the full default permissions given to full-time employees. This least privilege approach and clear differentiation of external accounts from company staff makes it easier to prevent and detect attacks coming in from these vectors.",
+        "recommendation": "Use cloud provider identity services for non-employees.",
+        "id": "identity_access_controle_cloud_identity_nonemployees"
+      }
     ]
   },
   {
@@ -4266,1096 +4265,1096 @@
     "recommendation": "Add planning, testing, and validation rigor to the use of the root management group.",
     "id": "identity_access_control_root_management_groups"
   },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Application Design",
-        "subCategory":  "Design Patterns",
-        "title":  "Was your application architected based on prescribed architecture from the Azure Architecture Center or a Cloud Design Pattern?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Application Design",
-        "subCategory":  "Design Patterns",
-        "title":  "When designing the application were latency, request time, and payload size primary design considerations?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Application Design",
-        "subCategory":  "Design Patterns",
-        "title":  "When designing the application, were you able to choose the data source during the design phase?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },    
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Application Design",
-        "subCategory":  "Design Patterns",
-        "title":  "Would you consider the application design to be a microservice architecture?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Application Design",
-        "subCategory":  "Transactional",
-        "title":  "Can you measure the efficiency of the connections that are created to external services and datastores?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Application Design",
-        "subCategory":  "Transactional",
-        "title":  "Is the application stateless?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Application Design",
-        "subCategory":  "Transactional",
-        "title":  "Is the application code written using asynchronous patterns?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Application Design",
-        "subCategory":  "Transactional",
-        "title":  "Does your application batch requests?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Application Design",
-        "subCategory":  "Transactional",
-        "title":  "Does your application have any long running tasks or workflow scenarios?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Application Design",
-        "subCategory":  "Transactional",
-        "title":  "Does your application have retry logic in response to a failure?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Application Design",
-        "subCategory":  "Disaster Planning",
-        "title":  "Is you application deployed to multiple regions?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Application Design",
-        "subCategory":  "Disaster Planning",
-        "title":  "Is your app deployed to multiple Availability Zones?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Capacity Planning",
-        "subCategory":  "Usage Prediction",
-        "title":  "Will your application be exposed to yearly or monthly major peak loads?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Capacity Planning",
-        "subCategory":  "Service SKU",
-        "title":  "Do you know your scale limits and what is most likely to be your bottleneck?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Capacity Planning",
-        "subCategory":  "Service SKU",
-        "title":  "Is the required peak capacity aligned with the subscription quotas and limits?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Capacity Planning",
-        "subCategory":  "Disaster Recovery",
-        "title":  "If you have a disaster recovery plan in another region, have you ensured you have the needed capacity quotas allocated?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Capacity Planning",
-        "subCategory":  "Data",
-        "title":  "Do you know the growth rate of your data?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Capacity Planning",
-        "subCategory":  "Data",
-        "title":  "Has caching and queuing been considered to handle varying load?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Performance Testing",
-        "subCategory":  "Resource Planning",
-        "title":  "Does your team recognize the importance of performance testing?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Performance Testing",
-        "subCategory":  "Resource Planning",
-        "title":  "Have you identified the required human and environment resources needed to created performance tests?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Performance Testing",
-        "subCategory":  "Tooling",
-        "title":  "When executing performance tests, are you conducting full, production scale end-to-end testing?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Performance Testing",
-        "subCategory":  "Tooling",
-        "title":  "Are you currently using tools for conducting performance testing?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Performance Testing",
-        "subCategory":  "Test Coverage",
-        "title":  "Is your application currently covered 80% or more with performance tests?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Performance Testing",
-        "subCategory":  "Test Coverage",
-        "title":  "Do your performance tests cover all layers (frontend, services, and database) of the application?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Performance Testing",
-        "subCategory":  "Benchmarking",
-        "title":  "Have you identified goals of baselines for application performance?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Performance Testing",
-        "subCategory":  "Benchmarking",
-        "title":  "If you have set goals, are they specific to device and/or connectivity type?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Performance Testing",
-        "subCategory":  "Benchmarking",
-        "title":  "Do you have goals defined for establishing an initial connection to a service?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Performance Testing",
-        "subCategory":  "Benchmarking",
-        "title":  "Do you have goals defined for a complete page load?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Performance Testing",
-        "subCategory":  "Benchmarking",
-        "title":  "Do you have goals defined for an API (service) endpoint complete response?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Performance Testing",
-        "subCategory":  "Benchmarking",
-        "title":  "Do you have goals defined for server response times?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Performance Testing",
-        "subCategory":  "Benchmarking",
-        "title":  "Do you have goals for latency between systems/microservices?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Performance Testing",
-        "subCategory":  "Benchmarking",
-        "title":  "Do you have goals for database queries?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Performance Testing",
-        "subCategory":  "Performance Planning",
-        "title":  "Are you able to predict application usage?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Performance Testing",
-        "subCategory":  "Performance Planning",
-        "title":  "If usage is predictable, is it based on a specific time of day, day of week, or season (e.g. holiday shopping season)?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Performance Testing",
-        "subCategory":  "Performance Planning",
-        "title":  "Do you understand the typical load for your application?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Performance Testing",
-        "subCategory":  "Test Coverage",
-        "title":  "Is more than 80% of the application responsible for responding to a single user request?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Performance Testing",
-        "subCategory":  "Service SKU",
-        "title":  "Have you identified all services being utilized in Azure (and on-premises) that need to be measured?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Performance Testing",
-        "subCategory":  "Service SKU",
-        "title":  "Are you confident that the correct SKUs and configurations have been applied to the services in order to support your anticipated loads?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Performance Testing",
-        "subCategory":  "Service SKU",
-        "title":  "Based on the current expected application and environment usage, do the purchased SKUs and the current configuration(s) support expected usage?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Performance Testing",
-        "subCategory":  "Service SKU",
-        "title":  "For disaster recovery and failover, should a region become inoperable, does the paired region support the same SKUs and configurations as the primary region?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Performance Testing",
-        "subCategory":  "Service SKU",
-        "title":  "Should a region fail, have you tested the amount of time it would take for users to fail over the the paired region?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Performance Testing",
-        "subCategory":  "Service SKU",
-        "title":  "Should a region fail, can the paired region handle the additional load?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Performance Testing",
-        "subCategory":  "Load Capacity",
-        "title":  "Are you familiar with the differences between performance testing, load testing, and stress testing?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Performance Testing",
-        "subCategory":  "Load Capacity",
-        "title":  "As compared to general performance testing, are you currently conducting load testing?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Performance Testing",
-        "subCategory":  "Load Capacity",
-        "title":  "As compared to general performance testing, are you currently conducting stress testing?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Performance Testing",
-        "subCategory":  "Load Capacity",
-        "title":  "Have you completed a stress test on the application?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Performance Testing",
-        "subCategory":  "Load Capacity",
-        "title":  "Have you determined an acceptable operational margin between your peak utilization and the application's maximum load?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Performance Testing",
-        "subCategory":  "Load Capacity",
-        "title":  "Do you have a record of metrics for performance tests under standard loads?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Performance Testing",
-        "subCategory":  "Load Capacity",
-        "title":  "Given your determination of acceptable operational margin and response under standard levels of load, has the environment been configured adequately?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Performance Testing",
-        "subCategory":  "Load Capacity",
-        "title":  "Does your application response well under sustained increases in levels of load?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Performance Testing",
-        "subCategory":  "Service SKU",
-        "title":  "Given your determination of acceptable operational margin and response under increased levels of load, have you configured the environments to scale out to sustain performance efficiency?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Performance Testing",
-        "subCategory":  "Service SKU",
-        "title":  "Have you correctly configured the environments to scale back in for the purpose of saving costs when load is under certain performance thresholds?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Performance Testing",
-        "subCategory":  "Design Efficiency",
-        "title":  "Are you using page caching?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Performance Testing",
-        "subCategory":  "Design Efficiency",
-        "title":  "Are you using data caching?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Performance Testing",
-        "subCategory":  "Design Efficiency",
-        "title":  "Are you using any CDNs?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Performance Testing",
-        "subCategory":  "Design Efficiency",
-        "title":  "Are you using SSL offloading?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Performance Testing",
-        "subCategory":  "Design Efficiency",
-        "title":  "Are you using authentication/token verification offloading?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Performance Testing",
-        "subCategory":  "Design Efficiency",
-        "title":  "Are you using database replicas and data partitioning?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Performance Testing",
-        "subCategory":  "Design Efficiency",
-        "title":  "Do you known when you have reached acceptable efficiency?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Performance Testing",
-        "subCategory":  "DevOps",
-        "title":  "Do you have performance validation stages in your deploy and build pipelines?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Monitoring",
-        "subCategory":  "Logging",
-        "title":  "Do you have detailed instrumentation throughout the application's code?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Monitoring",
-        "subCategory":  "Logging",
-        "title":  "Are application logs collected from all application environments?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Monitoring",
-        "subCategory":  "Logging",
-        "title":  "Are application events correlated across all application components?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Monitoring",
-        "subCategory":  "Logging",
-        "title":  "Are log messages captured in a structured format?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Monitoring",
-        "subCategory":  "Performance Targets",
-        "title":  "Is it possible to evaluate critical application performance targets and non-functional requirements (NFRs)?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Monitoring",
-        "subCategory":  "Performance Targets",
-        "title":  "Is the end-to-end performance of critical system flows monitored?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Monitoring",
-        "subCategory":  "Logging",
-        "title":  "Are you currently using a log aggregation technology to collect logs and metrics from Azure resources?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Monitoring",
-        "subCategory":  "Logging",
-        "title":  "Are you collection Azure Activity Logs within the log aggregation tool?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Monitoring",
-        "subCategory":  "Logging",
-        "title":  "Is resource-level monitoring available for critical internal dependencies?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Monitoring",
-        "subCategory":  "Logging",
-        "title":  "Are logs and metrics available for critical internal dependencies?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Monitoring",
-        "subCategory":  "Dependencies",
-        "title":  "Are critical external dependencies monitored?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Monitoring",
-        "subCategory":  "Logging",
-        "title":  "Are application and resource level logs aggregated in a single data sink, or is it possible to cross-query events at both levels?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Monitoring",
-        "subCategory":  "Logging",
-        "title":  "Are application-level events automatically correlated with performance metrics to quantify the current application state?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Monitoring",
-        "subCategory":  "Logging",
-        "title":  "Is the transaction flow data used to generate application/service maps?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Monitoring",
-        "subCategory":  "Modelling",
-        "title":  "Is a health model used to qualify what 'healthy' and 'unhealthy' states represent for the application?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Monitoring",
-        "subCategory":  "Modelling",
-        "title":  "Are critical system flows used to inform the health model?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Monitoring",
-        "subCategory":  "Modelling",
-        "title":  "Can the health model determine if the application is performing at expected performance targets?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Monitoring",
-        "subCategory":  "Modelling",
-        "title":  "Are long-term trends analyzed to predict performance issues before they occur?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Monitoring",
-        "subCategory":  "Logging",
-        "title":  "Have retention times for logs and metrics been defined and with housekeeping mechanisms configured?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Troubleshooting",
-        "subCategory":  "Data",
-        "title":  "Does the application require heavy database utilization?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Troubleshooting",
-        "subCategory":  "Process",
-        "title":  "Does the application currently exhibit high CPU and/or memory utilization?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Troubleshooting",
-        "subCategory":  "Process",
-        "title":  "Does the application response times increase while not using all the CPU or memory allocated to the system regardless of the load?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Troubleshooting",
-        "subCategory":  "Process",
-        "title":  "Do you profile the application code with any profiling tools?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    },
-    {
-        "type":  "Questions",
-        "pillars":  [
-                        "performanceefficiency"
-                    ],
-        "lens":  "Application",
-        "category":  "Troubleshooting",
-        "subCategory":  "Network",
-        "title":  "Do you profile the network with any traffic capturing tools?",
-        "context":  "",
-        "recommendation":  "",
-        "id":  "11aae656-d2b5-443f-9faa-c3471355cafd"
-    }
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Application Design",
+    "subCategory": "Design Patterns",
+    "title": "Was your application architected based on prescribed architecture from the Azure Architecture Center or a Cloud Design Pattern?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Application Design",
+    "subCategory": "Design Patterns",
+    "title": "When designing the application were latency, request time, and payload size primary design considerations?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Application Design",
+    "subCategory": "Design Patterns",
+    "title": "When designing the application, were you able to choose the data source during the design phase?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Application Design",
+    "subCategory": "Design Patterns",
+    "title": "Would you consider the application design to be a microservice architecture?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Application Design",
+    "subCategory": "Transactional",
+    "title": "Can you measure the efficiency of the connections that are created to external services and datastores?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Application Design",
+    "subCategory": "Transactional",
+    "title": "Is the application stateless?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Application Design",
+    "subCategory": "Transactional",
+    "title": "Is the application code written using asynchronous patterns?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Application Design",
+    "subCategory": "Transactional",
+    "title": "Does your application batch requests?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Application Design",
+    "subCategory": "Transactional",
+    "title": "Does your application have any long running tasks or workflow scenarios?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Application Design",
+    "subCategory": "Transactional",
+    "title": "Does your application have retry logic in response to a failure?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Application Design",
+    "subCategory": "Disaster Planning",
+    "title": "Is you application deployed to multiple regions?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Application Design",
+    "subCategory": "Disaster Planning",
+    "title": "Is your app deployed to multiple Availability Zones?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Capacity Planning",
+    "subCategory": "Usage Prediction",
+    "title": "Will your application be exposed to yearly or monthly major peak loads?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Capacity Planning",
+    "subCategory": "Service SKU",
+    "title": "Do you know your scale limits and what is most likely to be your bottleneck?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Capacity Planning",
+    "subCategory": "Service SKU",
+    "title": "Is the required peak capacity aligned with the subscription quotas and limits?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Capacity Planning",
+    "subCategory": "Disaster Recovery",
+    "title": "If you have a disaster recovery plan in another region, have you ensured you have the needed capacity quotas allocated?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Capacity Planning",
+    "subCategory": "Data",
+    "title": "Do you know the growth rate of your data?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Capacity Planning",
+    "subCategory": "Data",
+    "title": "Has caching and queuing been considered to handle varying load?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Performance Testing",
+    "subCategory": "Resource Planning",
+    "title": "Does your team recognize the importance of performance testing?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Performance Testing",
+    "subCategory": "Resource Planning",
+    "title": "Have you identified the required human and environment resources needed to created performance tests?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Performance Testing",
+    "subCategory": "Tooling",
+    "title": "When executing performance tests, are you conducting full, production scale end-to-end testing?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Performance Testing",
+    "subCategory": "Tooling",
+    "title": "Are you currently using tools for conducting performance testing?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Performance Testing",
+    "subCategory": "Test Coverage",
+    "title": "Is your application currently covered 80% or more with performance tests?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Performance Testing",
+    "subCategory": "Test Coverage",
+    "title": "Do your performance tests cover all layers (frontend, services, and database) of the application?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Performance Testing",
+    "subCategory": "Benchmarking",
+    "title": "Have you identified goals of baselines for application performance?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Performance Testing",
+    "subCategory": "Benchmarking",
+    "title": "If you have set goals, are they specific to device and/or connectivity type?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Performance Testing",
+    "subCategory": "Benchmarking",
+    "title": "Do you have goals defined for establishing an initial connection to a service?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Performance Testing",
+    "subCategory": "Benchmarking",
+    "title": "Do you have goals defined for a complete page load?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Performance Testing",
+    "subCategory": "Benchmarking",
+    "title": "Do you have goals defined for an API (service) endpoint complete response?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Performance Testing",
+    "subCategory": "Benchmarking",
+    "title": "Do you have goals defined for server response times?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Performance Testing",
+    "subCategory": "Benchmarking",
+    "title": "Do you have goals for latency between systems/microservices?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Performance Testing",
+    "subCategory": "Benchmarking",
+    "title": "Do you have goals for database queries?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Performance Testing",
+    "subCategory": "Performance Planning",
+    "title": "Are you able to predict application usage?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Performance Testing",
+    "subCategory": "Performance Planning",
+    "title": "If usage is predictable, is it based on a specific time of day, day of week, or season (e.g. holiday shopping season)?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Performance Testing",
+    "subCategory": "Performance Planning",
+    "title": "Do you understand the typical load for your application?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Performance Testing",
+    "subCategory": "Test Coverage",
+    "title": "Is more than 80% of the application responsible for responding to a single user request?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Performance Testing",
+    "subCategory": "Service SKU",
+    "title": "Have you identified all services being utilized in Azure (and on-premises) that need to be measured?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Performance Testing",
+    "subCategory": "Service SKU",
+    "title": "Are you confident that the correct SKUs and configurations have been applied to the services in order to support your anticipated loads?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Performance Testing",
+    "subCategory": "Service SKU",
+    "title": "Based on the current expected application and environment usage, do the purchased SKUs and the current configuration(s) support expected usage?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Performance Testing",
+    "subCategory": "Service SKU",
+    "title": "For disaster recovery and failover, should a region become inoperable, does the paired region support the same SKUs and configurations as the primary region?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Performance Testing",
+    "subCategory": "Service SKU",
+    "title": "Should a region fail, have you tested the amount of time it would take for users to fail over the the paired region?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Performance Testing",
+    "subCategory": "Service SKU",
+    "title": "Should a region fail, can the paired region handle the additional load?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Performance Testing",
+    "subCategory": "Load Capacity",
+    "title": "Are you familiar with the differences between performance testing, load testing, and stress testing?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Performance Testing",
+    "subCategory": "Load Capacity",
+    "title": "As compared to general performance testing, are you currently conducting load testing?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Performance Testing",
+    "subCategory": "Load Capacity",
+    "title": "As compared to general performance testing, are you currently conducting stress testing?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Performance Testing",
+    "subCategory": "Load Capacity",
+    "title": "Have you completed a stress test on the application?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Performance Testing",
+    "subCategory": "Load Capacity",
+    "title": "Have you determined an acceptable operational margin between your peak utilization and the application's maximum load?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Performance Testing",
+    "subCategory": "Load Capacity",
+    "title": "Do you have a record of metrics for performance tests under standard loads?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Performance Testing",
+    "subCategory": "Load Capacity",
+    "title": "Given your determination of acceptable operational margin and response under standard levels of load, has the environment been configured adequately?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Performance Testing",
+    "subCategory": "Load Capacity",
+    "title": "Does your application response well under sustained increases in levels of load?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Performance Testing",
+    "subCategory": "Service SKU",
+    "title": "Given your determination of acceptable operational margin and response under increased levels of load, have you configured the environments to scale out to sustain performance efficiency?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Performance Testing",
+    "subCategory": "Service SKU",
+    "title": "Have you correctly configured the environments to scale back in for the purpose of saving costs when load is under certain performance thresholds?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Performance Testing",
+    "subCategory": "Design Efficiency",
+    "title": "Are you using page caching?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Performance Testing",
+    "subCategory": "Design Efficiency",
+    "title": "Are you using data caching?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Performance Testing",
+    "subCategory": "Design Efficiency",
+    "title": "Are you using any CDNs?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Performance Testing",
+    "subCategory": "Design Efficiency",
+    "title": "Are you using SSL offloading?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Performance Testing",
+    "subCategory": "Design Efficiency",
+    "title": "Are you using authentication/token verification offloading?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Performance Testing",
+    "subCategory": "Design Efficiency",
+    "title": "Are you using database replicas and data partitioning?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Performance Testing",
+    "subCategory": "Design Efficiency",
+    "title": "Do you known when you have reached acceptable efficiency?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Performance Testing",
+    "subCategory": "DevOps",
+    "title": "Do you have performance validation stages in your deploy and build pipelines?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Monitoring",
+    "subCategory": "Logging",
+    "title": "Do you have detailed instrumentation throughout the application's code?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Monitoring",
+    "subCategory": "Logging",
+    "title": "Are application logs collected from all application environments?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Monitoring",
+    "subCategory": "Logging",
+    "title": "Are application events correlated across all application components?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Monitoring",
+    "subCategory": "Logging",
+    "title": "Are log messages captured in a structured format?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Monitoring",
+    "subCategory": "Performance Targets",
+    "title": "Is it possible to evaluate critical application performance targets and non-functional requirements (NFRs)?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Monitoring",
+    "subCategory": "Performance Targets",
+    "title": "Is the end-to-end performance of critical system flows monitored?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Monitoring",
+    "subCategory": "Logging",
+    "title": "Are you currently using a log aggregation technology to collect logs and metrics from Azure resources?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Monitoring",
+    "subCategory": "Logging",
+    "title": "Are you collection Azure Activity Logs within the log aggregation tool?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Monitoring",
+    "subCategory": "Logging",
+    "title": "Is resource-level monitoring available for critical internal dependencies?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Monitoring",
+    "subCategory": "Logging",
+    "title": "Are logs and metrics available for critical internal dependencies?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Monitoring",
+    "subCategory": "Dependencies",
+    "title": "Are critical external dependencies monitored?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Monitoring",
+    "subCategory": "Logging",
+    "title": "Are application and resource level logs aggregated in a single data sink, or is it possible to cross-query events at both levels?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Monitoring",
+    "subCategory": "Logging",
+    "title": "Are application-level events automatically correlated with performance metrics to quantify the current application state?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Monitoring",
+    "subCategory": "Logging",
+    "title": "Is the transaction flow data used to generate application/service maps?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Monitoring",
+    "subCategory": "Modelling",
+    "title": "Is a health model used to qualify what 'healthy' and 'unhealthy' states represent for the application?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Monitoring",
+    "subCategory": "Modelling",
+    "title": "Are critical system flows used to inform the health model?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Monitoring",
+    "subCategory": "Modelling",
+    "title": "Can the health model determine if the application is performing at expected performance targets?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Monitoring",
+    "subCategory": "Modelling",
+    "title": "Are long-term trends analyzed to predict performance issues before they occur?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Monitoring",
+    "subCategory": "Logging",
+    "title": "Have retention times for logs and metrics been defined and with housekeeping mechanisms configured?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Troubleshooting",
+    "subCategory": "Data",
+    "title": "Does the application require heavy database utilization?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Troubleshooting",
+    "subCategory": "Process",
+    "title": "Does the application currently exhibit high CPU and/or memory utilization?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Troubleshooting",
+    "subCategory": "Process",
+    "title": "Does the application response times increase while not using all the CPU or memory allocated to the system regardless of the load?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Troubleshooting",
+    "subCategory": "Process",
+    "title": "Do you profile the application code with any profiling tools?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Troubleshooting",
+    "subCategory": "Network",
+    "title": "Do you profile the network with any traffic capturing tools?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  }
 ]
