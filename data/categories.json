@@ -312,6 +312,9 @@
     "title": "WVD",
     "subCategories":[
       {
+        "title": "Management & Monitoring"
+      },
+      {
         "title": "FSLogix"
       },
       {
