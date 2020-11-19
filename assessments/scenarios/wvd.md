@@ -75,3 +75,23 @@
     > This is a prerequisite for Windows Virtual Desktop. This is required to translate the user signing into the WVD Management plane via Azure AD to the user in the Active Directory forest
                                 
                             
+  -  WVD Users must be sourced from the same Active Directory Domain Service (ADDS) that is synchronising to Azure AD. WVD Does not support B2B or Microsoft Accounts
+    > Synchronize all identities to a single Azure AD using Azure AD Connect
+                                
+                            
+  - The account used for domain join during the session host building cannot have multi-factor authentication or other interactive prompts
+    > During the session host building phase/automation the account used to work on those hosts cannot have multi-factor authentication
+                                
+                            
+  - Specifying the Organizational Unit (OU) that WVD Session Hosts will reside in
+    > Segregate the WVD Session Host Virtual Machines (VMs) into Active Directory OUs (Organizational Units) for each host pool to manage policies and orphaned objects
+                                
+                            
+  - Follow the principle of least privilege
+    > For WVD Users, the Desktop Virtualization User built-in RBAC Role to Security Groups to grant access to WVD App Groups
+                                
+                            
+  - Leverage Azure AD Conditional Access policies
+    > Create policies for WVD. For example, multi-factory authentication can be enforced on conditions such as risky sign-ins increasing an organizations security posture
+                                
+                            
