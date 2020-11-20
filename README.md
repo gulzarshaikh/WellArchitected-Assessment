@@ -29,7 +29,7 @@ For each scoped assessment, the content is structured through three technical le
 ||||
 
 ## Scenarios
-- [**WVD**](.assessments/scenarios/wvd.md)
+- [**WVD**](./assessments/scenarios/wvd.md)
 - [**SAP**](./assessments/scenarios/sap.md)
 - **IoT**
 
