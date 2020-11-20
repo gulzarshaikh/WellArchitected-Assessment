@@ -7,7 +7,7 @@
         "lens": "scenario",
         "category": "WVD",
         "subCategory": "FSLogix",
-        "title": "Has [FSLogix](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix) been included in your design?",
+        "title": "[FSLogix](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix) technology allows for users profiles to be stored in a central location and accessed by WVD Session Hosts",
         "context": "If using a solution where your users can sign into different Windows Virtual Desktop Session Hosts (Multi-session for example), [FSLogix](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix) should be used to centralize users' profiles.",
         "recommendation": "Review your central profile store architecture and incorporate FSLogix if you are using multi-session",
         "children": [
