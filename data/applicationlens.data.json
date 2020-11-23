@@ -224,7 +224,8 @@
     "type": "Questions",
     "pillars": [
       "operationalexcellence",
-      "reliability"
+      "reliability",
+      "cost"
     ],
     "lens": "application",
     "category": "Application Design",
@@ -235,13 +236,13 @@
     "children": [
       {
         "title": "Do you maintain a complete list of application dependencies?",
-        "context": "Examples of typical dependencies include platform dependencies outside the remit of the application, such as Azure Active Directory, Express Route, or a central NVA (Network Virtual Appliance), as well as application dependencies such as APIs which may be in-house or externally owned by a third-party.",
+        "context": "Examples of typical dependencies include platform dependencies outside the remit of the application, such as Azure Active Directory, Express Route, or a central NVA (Network Virtual Appliance), as well as application dependencies such as APIs which may be in-house or externally owned by a third-party. For cost it’s important to  understand the cost for these services and how they are being charged, this makes it easier to understanding an all up cost, for more details please see cost models.",
         "recommendation": "Map application dependencies either as a simple list or a document (usually this is part of a design document or reference architecture).",
         "id": "app_design_dependencies_list"
       },
       {
         "title": "Is the impact of an outage with each dependency well understood?",
-        "context": "Strong dependencies play a critical role in application function and availability meaning their absence will have a significant impact, while the absence of weak dependencies may only impact specific features and not affect overall availability.",
+        "context": "Strong dependencies play a critical role in application function and availability meaning their absence will have a significant impact, while the absence of weak dependencies may only impact specific features and not affect overall availability. For cost this reflects the cost that is needed to maintain the HA relationship between the service and it’s dependencies. It would explain why certain measures needs to be maintained in order to hold a given SLA.",
         "recommendation": "Classify dependencies either as strong or weak. This will help identify which components are essential to the application.",
         "id": "app_design_dependencies_outage_impact"
       }
@@ -632,13 +633,14 @@
   {
     "type": "Questions",
     "pillars": [
-      "operationalexcellence"
+      "operationalexcellence",
+      "cost"
     ],
     "lens": "application",
     "category": "Health Modelling",
     "subCategory": "Alerting",
     "title": "Are specific owners and processes defined for each alert type?",
-    "context": "Having well-defined owners and response playbooks per alert is vital to optimizing operational effectiveness",
+    "context": "Having well-defined owners and response playbooks per alert is vital to optimizing operational effectiveness. Alerts don't have to be only technical, for example the budget owner should be made aware of capacity issues so that budgets can be adjusted and discussed.",
     "recommendation": "Instead of treating all alerts the same, there should be a well-defined process which determines what teams are responsible to react to which alert type.",
     "id": "app_health_alertprocesses"
   },
@@ -658,13 +660,14 @@
   {
     "type": "Questions",
     "pillars": [
-      "operationalexcellence"
+      "operationalexcellence",
+      "cost"
     ],
     "lens": "application",
     "category": "Health Modelling",
     "subCategory": "Alerting",
     "title": "Are push notifications enabled to inform responsible parties of alerts in real time?",
-    "context": "Do teams have to actively monitor the systems and dashboard or are alerts sent to them by email etc.?",
+    "context": "Do teams have to actively monitor the systems and dashboard or are alerts sent to them by email etc.? This can help identify not just operational incidents but also budget overruns.",
     "recommendation": "It is important that alert owners get reliably notified of alerts, which could use many communication channels such as text messages, emails or push notifications to a mobile app",
     "id": "app_health_alertpush"
   },
@@ -814,14 +817,15 @@
   {
     "type": "Questions",
     "pillars": [
-      "operationalexcellence"
+      "operationalexcellence",
+      "cost"
     ],
     "lens": "application",
     "category": "Operational Procedures",
     "subCategory": "Scalability & Capacity Model",
     "title": "Is there a capacity model for the application?",
     "context": "A capacity model should describe the relationships between the utilization of various components as a ratio, to capture when and how application components should scale-out.",
-    "recommendation": "A capacity model should describe the relationships between the utilization of various components as a ratio, to capture when and how application components should scale-out. For instance, scaling the number of Application Gateway v2 instances may put excess pressure on downstream components unless also scaled to a degree. When modelling capacity for critical system components it is therefore recommended that an N+1 model be applied to ensure complete tolerance to transient faults, where n describes the capacity required to satisfy performance and availability requirements([Performance Efficiency - Capacity](https://docs.microsoft.com/azure/architecture/framework/scalability/capacity))",
+    "recommendation": "A capacity model should describe the relationships between the utilization of various components as a ratio, to capture when and how application components should scale-out. For instance, scaling the number of Application Gateway v2 instances may put excess pressure on downstream components unless also scaled to a degree. When modelling capacity for critical system components it is therefore recommended that an N+1 model be applied to ensure complete tolerance to transient faults, where N describes the capacity required to satisfy performance and availability requirements. This also prevents cost-related surprises when scaling out and realizing that multiple services need to be scaled at the same time. ([Performance Efficiency - Capacity](https://docs.microsoft.com/azure/architecture/framework/scalability/capacity))",
     "id": "app_ops_scale_capacitymodel"
   },
   {
@@ -889,14 +893,15 @@
     "type": "Questions",
     "pillars": [
       "operationalexcellence",
-      "reliability"
+      "reliability",
+      "cost"
     ],
     "lens": "application",
     "category": "Operational Procedures",
     "subCategory": "Scalability & Capacity Model",
     "title": "Is capacity utilization monitored and used to forecast future growth?",
     "context": "Predicting future growth and capacity demands can prevent outages due to insufficient provisioned capacity over time.",
-    "recommendation": "Especially when demand is fluctuating, it is useful to monitor historical capacity utilization to derive predictions about future growth. Azure Monitor provides the ability to collect utilization metrics for Azure services so that they can be operationalized in the context of a defined capacity model. The Azure Portal can also be used to inspect current subscription usage and quota status([Supported metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported))",
+    "recommendation": "Especially when demand is fluctuating, it is useful to monitor historical capacity utilization to derive predictions about future growth. Azure Monitor provides the ability to collect utilization metrics for Azure services so that they can be operationalized in the context of a defined capacity model. The Azure Portal can also be used to inspect current subscription usage and quota status. ([Supported metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported))",
     "id": "app_ops_scale_utilmonitoring"
   },
   {
@@ -1315,14 +1320,15 @@
   {
     "type": "Questions",
     "pillars": [
-      "operationalexcellence"
+      "operationalexcellence",
+      "cost"
     ],
     "lens": "application",
     "category": "Deployment & Testing",
     "subCategory": "Build Environments",
     "title": "Are releases to production gated by having it successfully deployed and tested in other environments?",
-    "context": "",
-    "recommendation": "It is recommended to have a staged deployment process which requires changes to have been validate in test environments first before they can hit production",
+    "context": "Deploying to other environments and verifying changes before going into production can prevent bugs getting in front of end users.",
+    "recommendation": "It is recommended to have a staged deployment process which requires changes to have been validated in test environments first before they can hit production.",
     "id": "app_deploy_gates"
   },
   {
@@ -1506,15 +1512,16 @@
   {
     "type": "Questions",
     "pillars": [
-      "operationalexcellence"
+      "operationalexcellence",
+      "cost"
     ],
     "lens": "application",
     "category": "Operational Model & DevOps",
     "subCategory": "Roles & Responsibilities",
     "title": "Has the application been built and maintained in-house or by an external partner?",
-    "context": "Exploring where technical delivery capabilities reside helps to qualify operational model boundaries",
-    "recommendation": "",
-    "id": ""
+    "context": "Exploring where technical delivery capabilities reside helps to qualify operational model boundaries and estimate the cost of operating the application as well as defining a budget and cost model.",
+    "recommendation": "Explore where technical delivery capabilites reside.",
+    "id": "operational_model_devops_inhouse_or_external"
   },
   {
     "type": "Questions",
@@ -2911,7 +2918,7 @@
     "category": "Application Design",
     "subCategory": "Design",
     "title": "Does this workload use CDN (content delivery network) solutions to separate the hosting platform from the end users / clients?",
-    "context": "Azure CDN can be used to separate the hosting platform from end users. Azure CDN contains a rule engine to remove platform-specific information and headers.",
+    "context": "Azure CDN can be used to separate the hosting platform from end users. Azure CDN contains a rule engine to remove platform-specific information and headers. The use of Azure CDN or 3rd party CDN will have different cost implications depending on what is chosen for the workload.",
     "recommendation": "Use CDN to separate the hosting platform from the end users / clients.",
     "id": "application_design_cdn_separation"
   },
@@ -3288,7 +3295,8 @@
   {
     "type": "Questions",
     "pillars": [
-      "security"
+      "security",
+      "cost"
     ],
     "lens": "application",
     "category": "Networking & Connectivity",
@@ -3296,7 +3304,7 @@
     "title": "Does the workload use Service Endpoints or Private Link for accessing Azure PaaS services?",
     "recommendation": "Use service endpoints and private links where appropriate.",
     "id": "networking__connectivity_6109",
-    "context": "[Service Endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) and [Private Link](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) can be leveraged to restrict access to PaaS endpoints only from authorized virtual networks, effectively mitigating data intrusion risks and associated impact to application availability. Service Endpoints provide service level access to a PaaS service, while Private Link provides direct access to a specific PaaS resource to mitigate data exfiltration risks (e.g. malicious admin scenarios)."
+    "context": "[Service Endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) and [Private Link](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) can be leveraged to restrict access to PaaS endpoints only from authorized virtual networks, effectively mitigating data intrusion risks and associated impact to application availability. Service Endpoints provide service level access to a PaaS service, while Private Link provides direct access to a specific PaaS resource to mitigate data exfiltration risks (e.g. malicious admin scenarios). Don’t forget that Private Link is a paid service and has meters for inbound and outbound data processed. Private Endpoints are charged as well."
   },
   {
     "type": "Questions",
@@ -3943,14 +3951,15 @@
   {
     "type": "Questions",
     "pillars": [
-      "security"
+      "security",
+      "cost"
     ],
     "lens": "application",
     "category": "Networking & Connectivity",
     "subCategory": "Endpoints",
     "title": "Does the organization have the capability and plans in place to mitigate DDoS attacks for this workload?",
     "context": "DDoS attacks can be very debilitating and completely block access to your services or even take down the services, depending on the type of DDoS attack.",
-    "recommendation": "Mitigate DDoS attacks.",
+    "recommendation": "Mitigate DDoS attacks. Use Standard protection for critical workloads where outage would have business impact. Also consider CDN as another layer of protection.",
     "id": "networking_connectivity_ddos_mitigation"
   },
   {
@@ -4380,19 +4389,6 @@
       "cost"
     ],
     "lens": "application",
-    "category": "General",
-    "subCategory": "Unassigned",
-    "title": "Are there any initiatives that encourage a cost-aware culture - to share best practices for cost optimization?",
-    "context": "Having a weekly tracking of spending and budget forecast helps prevent surprises and track items / applications that has high spending vs. requirements.",
-    "recommendation": "Incorporating cost into your teams meetings ensures that everyone is well-educated on the topic and can integrate ideas and best practices into daily and weekly development decisions.",
-    "id": "efficiency_and_sizing_cost_aware_culture"
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "cost"
-    ],
-    "lens": "application",
     "category": "Efficiency and Sizing",
     "subCategory": "Tools",
     "title": "Are you using Azure Cost Management (ACM) to track spending in this workload?",
@@ -4448,8 +4444,307 @@
     "category": "Application Design",
     "subCategory": "Application Composition",
     "title": "Is it possible to benefit from higher density in this workload?",
-    "context": "When running multiple applications (typically in multi-tenant or microservices scenarios) density can be increased by deploying them on shared infrastructure and utilizing it more. For example: Containerization and moving to Kubernetes (Azure Kubernetes Services) enables pod-based deployment which can utilize underlying nodes efficiently. Similar approach can be taken with App Service Plans. To prevent the \u201Cnoisy neighbour\u201D situation, proper monitoring must be in place and performance analysis must be done (if possible).",
+    "context": "When running multiple applications (typically in multi-tenant or microservices scenarios) density can be increased by deploying them on shared infrastructure and utilizing it more. For example: Containerization and moving to Kubernetes (Azure Kubernetes Services) enables pod-based deployment which can utilize underlying nodes efficiently. Similar approach can be taken with App Service Plans. To prevent the 'noisy neighbour' situation, proper monitoring must be in place and performance analysis must be done (if possible).",
     "recommendation": "",
     "id": "application_design_higher_density"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "cost"
+    ],
+    "lens": "application",
+    "category": "Efficiency and Sizing",
+    "subCategory": "SKUs",
+    "title": "Are the right sizes and SKUs used for workload services?",
+    "context": "The required performance and infrastructure utilization are key factors which define the 'size' of Azure resources to be used, but there can be hidden aspects that affect cost too. Watch for cost variations between different SKUs - for example App Service Plans S3 cost the same as P2v2, but have worse performance characteristics.",
+    "recommendation": "Make sure the optimal service SKUs are used for this workload.",
+    "id": "efficiency_and_sizing_right_skus"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "cost"
+    ],
+    "lens": "application",
+    "category": "Efficiency and Sizing",
+    "subCategory": "Architecture",
+    "title": "Is the workload using the right operating system for its servers?",
+    "context": "Analyze the technology stack and identify which workloads are capable of running on Linux and which require Windows. Linux-based VMs and App Services are significantly cheaper, but require the app to run on supported stack (.NET Core, Node.js etc.).",
+    "recommendation": "Make sure the optimal operating systems are used for this workload.",
+    "id": "efficiency_and_sizing_right_os"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "cost"
+    ],
+    "lens": "application",
+    "category": "Efficiency and Sizing",
+    "subCategory": "Architecture",
+    "title": "Have you deployed a Hub and Spoke Design or Virtual WAN?",
+    "context": "Virtual WAN has costs that are different in hub and spoke design. Have to pay for the peering network or other service routing. If you want to deploy Private Link, you don't pay for peering just for private link.",
+    "recommendation": "Consider whether to deploy Hub and Spoke or Virtual WAN for this workload.",
+    "id": "efficiency_and_sizing_hub_spoke_virtual"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "cost"
+    ],
+    "lens": "application",
+    "category": "Networking & Connectivity",
+    "subCategory": "Data flow",
+    "title": "Are you moving data between regions?",
+    "context": "Moving data between regions can add additional cost, it can be on the storage layer or networking layer, it's worth reviewing if this cost is justified or can be replace via re-architecture or accepting the cost due to e.g. disaster recovery (DR).",
+    "recommendation": "Consider if the cost of data transfer is acceptable.",
+    "id": "networking_connectivity_moving_between_regions"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "cost"
+    ],
+    "lens": "application",
+    "category": "Operational Model & DevOps",
+    "subCategory": "Roles & Responsibilities",
+    "title": "Are Billing account names and structure consistent with reference to or use of Departments or Services, or Organization?",
+    "context": "Transparency and traceability when it comes to cost in order to ensure that any discrepancies are able to be followed back to the source and be dealt with accordingly.",
+    "recommendation": "",
+    "id": "operational_model_devops_billing_account_names"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "cost"
+    ],
+    "lens": "application",
+    "category": "Health Modelling",
+    "subCategory": "Alerting",
+    "title": "Are there alerts defined for cost thresholds and limits?",
+    "context": "This is to ensure that if any budget is close to threshold, the cost owner gets notified to take appropriate actions on the change.",
+    "recommendation": "Set up alerts for cost limits and thresholds.",
+    "id": "health_modelling_cost_alerts"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "cost"
+    ],
+    "lens": "application",
+    "category": "Operational Procedures",
+    "subCategory": "Operational Lifecycles",
+    "title": "Does every environment have a target end date? ",
+    "context": "If your workload or environment isn't needed then you should be able to decommission it. The same should occur if you are introducing a new service or new feature.",
+    "recommendation": "",
+    "id": "operational_procedures_target_end_date"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "cost"
+    ],
+    "lens": "application",
+    "category": "Operational Procedures",
+    "subCategory": "Operational Lifecycles",
+    "title": "Does every environment have a target date for migrating to PaaS or serverless to bring all up cost and transfer risk?",
+    "context": "To bring down cost the goal should be to get as many applications to only consume resources when they are used, this goes as an evolution from IaaS to PaaS to serverless where you only pay when a service I triggered. The PaaS and serverless might appear more expensive, but risk and other operational work is transferred to the cloud provider which should also be factored in as part of the cost (e.g. patching, monitoring, licenses).",
+    "recommendation": "Utilize the PaaS pay-as-you-go consumption model where relevant.",
+    "id": "operational_procedures_paas_target_date"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "cost"
+    ],
+    "lens": "application",
+    "category": "Deployment & Testing",
+    "subCategory": "Testing & Validation",
+    "title": "Are Dev/Test offerings used correctly for the workload?",
+    "context": "Special SKUs and subscription offers for development and testing purposes can save costs, but have to be used properly. Dev SKUs are not meant for production deployments.",
+    "recommendation": "Use developer SKUs for dev/test purposes.",
+    "id": "deployment_testing_dev_test_sku"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "cost"
+    ],
+    "lens": "application",
+    "category": "Deployment & Testing",
+    "subCategory": "Application Infrastructure Deployments & Infrastructure as Code (IaC)",
+    "title": "Are test-environments deployed automatically and deleted after use? Use of tagging for end date?",
+    "context": "Automating test cases reduces time, cost and helps inefficient resource utilization. It also provides a structured approach to testing with test scripts. Test environments can quickly become overhead if not monitored properly, therefore stopping these resources when they are not in use enables cost saving. In order to drive down cost a good place to look is test environments that might not be used anymore. Implementing a process can help by tagging all test environments with an end date and an owner and after this date follow up with the owner if the environment is still needed and if so set a new end-of-life date.",
+    "recommendation": "Make sure to delete/deallocate resources used in test environments.",
+    "id": "deployment_testing_delete_test_environments"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "cost"
+    ],
+    "lens": "application",
+    "category": "Governance",
+    "subCategory": "Financial Management & Cost Models",
+    "title": "How is your organization modeling cloud costs for this workload?",
+    "context": "Estimate and track costs, educate the employees about the cloud and various pricing models, have appropriate governance about expenditure.",
+    "recommendation": "",
+    "id": "governance_cloud_costs_modeling"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "cost"
+    ],
+    "lens": "application",
+    "category": "Governance",
+    "subCategory": "Financial Management & Cost Models",
+    "title": "What actions are you taking to optimize cloud costs of this workload?",
+    "context": "Identify opportunities to reduce overall cost, use cost management tools to plan and track costs, tag resources and track that back to costs.",
+    "recommendation": "",
+    "id": "governance_cloud_costs_actions"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "cost"
+    ],
+    "lens": "application",
+    "category": "Governance",
+    "subCategory": "Financial Management & Cost Models",
+    "title": "Is there any weekly review process to follow up on budget overrun or signs of spend that should be dealt with?",
+    "context": "During a weekly review a key area to discuss is high spending on SKUs or workloads that has a high cost, which might cause a budget overrun. Discussing these spendings early and plan for next step enables the business to be pro-active about spending.",
+    "recommendation": "Perform regular reviews focused on cost and spending for this workload.",
+    "id": "governance_budget_reviews"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "cost"
+    ],
+    "lens": "application",
+    "category": "Governance",
+    "subCategory": "Financial Management & Cost Models",
+    "title": "Do all services used in this workload have a budget assigned to them?",
+    "context": "For cost management it is recommended to have a budget even for the smallest services operated as that allows to track and understand the flow of the spend and also understand the impact of a smaller service in a bigger picture.",
+    "recommendation": "Assign a budget and spend limit to the workload.",
+    "id": "governance_budget_assigned"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "cost"
+    ],
+    "lens": "application",
+    "category": "Governance",
+    "subCategory": "Financial Management & Cost Models",
+    "title": "Is there a cost owner for every service used by this workload?",
+    "context": "Every service should have a cost owner that is tracking and is responsible for cost. This drives responsibility and awareness on who the owner is an who owns the cost tracking.",
+    "recommendation": "Establish a cost owner for each service used by the workload.",
+    "id": "governance_cost_owner"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "cost"
+    ],
+    "lens": "application",
+    "category": "Governance",
+    "subCategory": "Financial Management & Cost Models",
+    "title": "Is spending forecast to ensure it aligns with budget?",
+    "context": "In order to predict costs and trends it’s recommended to use forecasting to be proactive for any spending that might be going up due to higher demand than anticipated.",
+    "recommendation": "Use cost forcasting as a tool to estimate if the workload is aligned with budget.",
+    "id": "governance_spending_forecast"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "cost"
+    ],
+    "lens": "application",
+    "category": "Governance",
+    "subCategory": "Financial Management & Cost Models",
+    "title": "Do shared services have an owner and is all up cost with the distribution model defined and communicated by the owner to the service subscribers? ",
+    "context": "",
+    "recommendation": "",
+    "id": "governance_shared_services_cost_owner"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "cost"
+    ],
+    "lens": "application",
+    "category": "Governance",
+    "subCategory": "Culture & Dynamics",
+    "title": "What happens to the money that you’ve saved? If you go over budget do you have to save somewhere else?",
+    "context": "",
+    "recommendation": "",
+    "id": "governance_saved_money"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "cost"
+    ],
+    "lens": "application",
+    "category": "Governance",
+    "subCategory": "Culture & Dynamics",
+    "title": "Are you allowed to exceed budget, if there is proven business justification for it?",
+    "context": "",
+    "recommendation": "",
+    "id": "governance_allowed_exceed_budget"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "cost"
+    ],
+    "lens": "application",
+    "category": "Governance",
+    "subCategory": "Culture & Dynamics",
+    "title": "Is there a yearly or monthly meeting where you are able to re-negotiate budget or is it given to you?",
+    "context": "As Azure changes and new services are introduced, it’s recommended that key services are revisited to see if any new services offered in Azure can help drive down cost or if new SKUs can help drive down cost. It’s recommended that this is done 1-4 times a year.",
+    "recommendation": "Revisit key Azure services to see if there were any updates which could reduce the spend.",
+    "id": "governance_budget_renegotiation"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "cost"
+    ],
+    "lens": "application",
+    "category": "Governance",
+    "subCategory": "Culture & Dynamics",
+    "title": "When new applications are introduced to the company, how is the budget negotiated?",
+    "context": "It can be a good idea to have a clear understanding how an IT budget is defined. This is especially true for applications that are not built in-house and delivered, where IT budget has to be factored in as part of the delivery.",
+    "recommendation": "Understand how is the budget negotiated.",
+    "id": "governance_budget_negotiation"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "cost"
+    ],
+    "lens": "application",
+    "category": "Governance",
+    "subCategory": "Culture & Dynamics",
+    "title": "When you build new workloads, are you factoring the budget into the building phase? (Is the cost associated to the criticality to the business?)",
+    "context": "When building new applications it’s a good practice to have a discussion with the business regarding expectations and build a budget as early as possible and document assumptions of how the IT budget for the service was calculated.",
+    "recommendation": "",
+    "id": "governance_budget_factoring_in_building"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "cost"
+    ],
+    "lens": "application",
+    "category": "Governance",
+    "subCategory": "Culture & Dynamics",
+    "title": "Is there an ongoing conversation between the app owner and the business?",
+    "context": "What’s being delivered from IT and what the business is expecting from IT mapped to the cost of the application and what can be delivered by IT?",
+    "recommendation": "",
+    "id": "governance_business_conversation"
   }
 ]

@@ -321,5 +321,19 @@
           "title": "Tools"
         }
       ]
+  },
+  {
+      "title": "Governance",
+      "subCategories": [
+          {
+              "title": "Financial Management & Cost Models"
+          },
+          {
+              "title": "Culture & Dynamics"
+          },
+          {
+              "title": "Licensing"
+          }
+      ]
   }
 ]
