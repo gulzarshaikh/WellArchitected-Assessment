@@ -163,13 +163,13 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
     - Do you maintain a complete list of application dependencies?
 
 
-      _Examples of typical dependencies include platform dependencies outside the remit of the application, such as Azure Active Directory, Express Route, or a central NVA (Network Virtual Appliance), as well as application dependencies such as APIs which may be in-house or externally owned by a third-party._
+      _Examples of typical dependencies include platform dependencies outside the remit of the application, such as Azure Active Directory, Express Route, or a central NVA (Network Virtual Appliance), as well as application dependencies such as APIs which may be in-house or externally owned by a third-party. For cost it’s important to  understand the cost for these services and how they are being charged, this makes it easier to understanding an all up cost, for more details please see cost models._
 
       > Map application dependencies either as a simple list or a document (usually this is part of a design document or reference architecture).
     - Is the impact of an outage with each dependency well understood?
 
 
-      _Strong dependencies play a critical role in application function and availability meaning their absence will have a significant impact, while the absence of weak dependencies may only impact specific features and not affect overall availability._
+      _Strong dependencies play a critical role in application function and availability meaning their absence will have a significant impact, while the absence of weak dependencies may only impact specific features and not affect overall availability. For cost this reflects the cost that is needed to maintain the HA relationship between the service and it’s dependencies. It would explain why certain measures needs to be maintained in order to hold a given SLA._
 
       > Classify dependencies either as strong or weak. This will help identify which components are essential to the application.
 * Are SLAs and support agreements in place for all critical dependencies?
@@ -619,7 +619,7 @@ Public Preview : SLAs do not apply and formal support may be provided on a best-
 
 
   _Predicting future growth and capacity demands can prevent outages due to insufficient provisioned capacity over time._
-  > Especially when demand is fluctuating, it is useful to monitor historical capacity utilization to derive predictions about future growth. Azure Monitor provides the ability to collect utilization metrics for Azure services so that they can be operationalized in the context of a defined capacity model. The Azure Portal can also be used to inspect current subscription usage and quota status([Supported metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported))
+  > Especially when demand is fluctuating, it is useful to monitor historical capacity utilization to derive predictions about future growth. Azure Monitor provides the ability to collect utilization metrics for Azure services so that they can be operationalized in the context of a defined capacity model. The Azure Portal can also be used to inspect current subscription usage and quota status. ([Supported metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported))
 ### Configuration &amp; Secrets Management
             
 * Where is application configuration information stored and how does the application access it?

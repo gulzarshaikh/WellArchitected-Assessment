@@ -243,13 +243,13 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
     - Do you maintain a complete list of application dependencies?
 
 
-      _Examples of typical dependencies include platform dependencies outside the remit of the application, such as Azure Active Directory, Express Route, or a central NVA (Network Virtual Appliance), as well as application dependencies such as APIs which may be in-house or externally owned by a third-party._
+      _Examples of typical dependencies include platform dependencies outside the remit of the application, such as Azure Active Directory, Express Route, or a central NVA (Network Virtual Appliance), as well as application dependencies such as APIs which may be in-house or externally owned by a third-party. For cost it’s important to  understand the cost for these services and how they are being charged, this makes it easier to understanding an all up cost, for more details please see cost models._
 
       > Map application dependencies either as a simple list or a document (usually this is part of a design document or reference architecture).
     - Is the impact of an outage with each dependency well understood?
 
 
-      _Strong dependencies play a critical role in application function and availability meaning their absence will have a significant impact, while the absence of weak dependencies may only impact specific features and not affect overall availability._
+      _Strong dependencies play a critical role in application function and availability meaning their absence will have a significant impact, while the absence of weak dependencies may only impact specific features and not affect overall availability. For cost this reflects the cost that is needed to maintain the HA relationship between the service and it’s dependencies. It would explain why certain measures needs to be maintained in order to hold a given SLA._
 
       > Classify dependencies either as strong or weak. This will help identify which components are essential to the application.
 * Are SLAs and support agreements in place for all critical dependencies?
@@ -429,7 +429,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 * Are specific owners and processes defined for each alert type?
 
 
-  _Having well-defined owners and response playbooks per alert is vital to optimizing operational effectiveness_
+  _Having well-defined owners and response playbooks per alert is vital to optimizing operational effectiveness. Alerts don't have to be only technical, for example the budget owner should be made aware of capacity issues so that budgets can be adjusted and discussed._
   > Instead of treating all alerts the same, there should be a well-defined process which determines what teams are responsible to react to which alert type.
 * Are operational events prioritized based on business impact?
 
@@ -439,7 +439,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 * Are push notifications enabled to inform responsible parties of alerts in real time?
 
 
-  _Do teams have to actively monitor the systems and dashboard or are alerts sent to them by email etc.?_
+  _Do teams have to actively monitor the systems and dashboard or are alerts sent to them by email etc.? This can help identify not just operational incidents but also budget overruns._
   > It is important that alert owners get reliably notified of alerts, which could use many communication channels such as text messages, emails or push notifications to a mobile app
 * Is alerting integrated with an IT Service Management (ITSM) system?
 
@@ -544,7 +544,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
 
   _A capacity model should describe the relationships between the utilization of various components as a ratio, to capture when and how application components should scale-out._
-  > A capacity model should describe the relationships between the utilization of various components as a ratio, to capture when and how application components should scale-out. For instance, scaling the number of Application Gateway v2 instances may put excess pressure on downstream components unless also scaled to a degree. When modelling capacity for critical system components it is therefore recommended that an N+1 model be applied to ensure complete tolerance to transient faults, where n describes the capacity required to satisfy performance and availability requirements([Performance Efficiency - Capacity](https://docs.microsoft.com/azure/architecture/framework/scalability/capacity))
+  > A capacity model should describe the relationships between the utilization of various components as a ratio, to capture when and how application components should scale-out. For instance, scaling the number of Application Gateway v2 instances may put excess pressure on downstream components unless also scaled to a degree. When modelling capacity for critical system components it is therefore recommended that an N+1 model be applied to ensure complete tolerance to transient faults, where N describes the capacity required to satisfy performance and availability requirements. This also prevents cost-related surprises when scaling out and realizing that multiple services need to be scaled at the same time. ([Performance Efficiency - Capacity](https://docs.microsoft.com/azure/architecture/framework/scalability/capacity))
 * Is auto-scaling enabled for supporting PaaS and IaaS services?
 
 
@@ -574,7 +574,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
 
   _Predicting future growth and capacity demands can prevent outages due to insufficient provisioned capacity over time._
-  > Especially when demand is fluctuating, it is useful to monitor historical capacity utilization to derive predictions about future growth. Azure Monitor provides the ability to collect utilization metrics for Azure services so that they can be operationalized in the context of a defined capacity model. The Azure Portal can also be used to inspect current subscription usage and quota status([Supported metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported))
+  > Especially when demand is fluctuating, it is useful to monitor historical capacity utilization to derive predictions about future growth. Azure Monitor provides the ability to collect utilization metrics for Azure services so that they can be operationalized in the context of a defined capacity model. The Azure Portal can also be used to inspect current subscription usage and quota status. ([Supported metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported))
 ### Configuration &amp; Secrets Management
             
 * Where is application configuration information stored and how does the application access it?
@@ -750,7 +750,8 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 * Are releases to production gated by having it successfully deployed and tested in other environments?
 
 
-  > It is recommended to have a staged deployment process which requires changes to have been validate in test environments first before they can hit production
+  _Deploying to other environments and verifying changes before going into production can prevent bugs getting in front of end users._
+  > It is recommended to have a staged deployment process which requires changes to have been validated in test environments first before they can hit production.
 * Are feature flags used to test features before rolling them out to everyone?
 
 
@@ -827,7 +828,8 @@ Stress Testing : *Stress testing is a type of negative testing which involves va
 * Has the application been built and maintained in-house or by an external partner?
 
 
-  _Exploring where technical delivery capabilities reside helps to qualify operational model boundaries_
+  _Exploring where technical delivery capabilities reside helps to qualify operational model boundaries and estimate the cost of operating the application as well as defining a budget and cost model._
+  > Explore where technical delivery capabilites reside.
 * Is there a separation between development and operations?
 
 
