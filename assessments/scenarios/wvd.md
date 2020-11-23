@@ -28,6 +28,10 @@
     > Light users - Standard File Shares, Medium users - Standard/Premium File Shares, Heavy users - Premium File Shares, Power users - Premium File Shares
                                 
                             
+  - Windows Virtual Desktop Session Hosts should be backed up if autoscale is configured
+    > [WVD Session Hosts backed up](https://github.com/Azure/RDS-Templates/tree/master/EnableBackupScript) can be used to back up WVD Session Hosts
+                                
+                            
 ## FSLogix
 ### Design Considerations
 * [FSLogix](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix) technology allows for users profiles to be stored in a central location and accessed by WVD Session Hosts, side loading the disks in a seamless manner
@@ -42,26 +46,26 @@
                                 
                             
   - Backup solution for the chosen storage service that FSLogix will be using
-    > It is just as vital to implement a backup solution next to your disaster recovery solution
+    > It is just as vital to implement a backup solution next to your disaster recovery solution. [Azure NetApps Files supports scheduled snapshots](https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-manage-snapshots) and Azure Backup should be considered for [File Shares(https://docs.microsoft.com/en-us/azure/backup/azure-file-share-backup-overview)]
                                 
                             
   - Design your storage to reside as close as possible to your session hosts
     > This increases performance and latency for a better end user experience
                                 
                             
-  - 
+  - Exclude user profile VHD(x) from AV and malware scans
     > All files inside the VHD would be scanned on demand
                                 
                             
 ## Networking &amp; Connectivity
 ### Design Considerations
-* Networking is a core component of Windows Virtual Desktop and should be included in your solution design
+* Placement of your Windows Virtual Desktop session hosts in your network is a key consideration and should be included in your design
   - Active Directory Domain Services line of site
     > For WVD Session Hosts to join onto your Active Directory domain, the Virtual Network they reside on should be able to resolve your Active Directory domain name
                                 
                             
-  - Application workload line of sight from your WVD Architecture
-    > Some application workloads may not be running in Azure which means that WVD will require access to third party datacenters (ExpressRoute, site-to-site VPN)
+  - Application workload line of sight from your WVD Session Host(s)
+    > Some application workloads may not be running in Azure which means that WVD will require access to third party datacenters (ExpressRoute, site-to-site VPN). Further planning of migrating workloads to Azure should be considered for scale
                                 
                             
   - Designing your solution architecture for scale
@@ -92,6 +96,6 @@
                                 
                             
   - Leverage Azure AD Conditional Access policies
-    > Create policies for WVD. For example, multi-factory authentication can be enforced on conditions such as risky sign-ins increasing an organizations security posture
+    > Create policies for WVD. For example, multi-factor authentication can be enforced on conditions such as risky sign-ins increasing an organizations security posture
                                 
                             
