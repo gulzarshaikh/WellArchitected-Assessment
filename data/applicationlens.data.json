@@ -2186,7 +2186,7 @@
     "category": "Networking & Connectivity",
     "subCategory": "Connectivity",
     "title": "For cross-premises connectivity (ExpressRoute or VPN) are there redundant connections from different locations?",
-    "context": "At least two redundant connections should be established across two or more Azure regions and peering locations to ensure there are no single points of failure. An active/active load-shared configuration provides path diversity and promotes availability of network connection paths([Cross-network connectivity](https://docs.microsoft.com/azure/expressroute/cross-network-connectivity))",
+    "context": "At least two redundant connections should be established across two or more Azure regions and peering locations to ensure there are no single points of failure. An active/active load-shared configuration provides path diversity and promotes availability of network connection paths. ([Cross-network connectivity](https://docs.microsoft.com/azure/expressroute/cross-network-connectivity))",
     "recommendation": "",
     "id": ""
   },
@@ -4746,5 +4746,96 @@
     "context": "What’s being delivered from IT and what the business is expecting from IT mapped to the cost of the application and what can be delivered by IT?",
     "recommendation": "",
     "id": "governance_business_conversation"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "cost"
+    ],
+    "lens": "application",
+    "category": "Governance",
+    "subCategory": "Licensing",
+    "title": "Is A-HUB (Azure Hybrid Use Benefit) used to drive cost down in order to re-use licenses to drive cost down in cloud?",
+    "context": "Understanding your current spending on licenses can help you drive down cost in the cloud. A-HUB allows you to reuse licenses that you purchased for on-premises in Azure and via this drive down the cost as the license is already paid.",
+    "recommendation": "See if you can use the hybrid use benefit to reuse licensing.",
+    "id": "governance_a_hub"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "cost"
+    ],
+    "lens": "application",
+    "category": "Governance",
+    "subCategory": "Licensing",
+    "title": "Are any special discounts given to services or licenses that should be factored in when calculating new cost models for services being moved to the cloud?",
+    "context": "When alternative cost options are considered it should be understood first if any special offers or deals are given for the existing SKUs to verify that the correct prices are being used to build a business case.",
+    "recommendation": "Learn if there are any discounts available for the services already in use.",
+    "id": "governance_discounts"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "cost"
+    ],
+    "lens": "application",
+    "category": "Governance",
+    "subCategory": "Licensing",
+    "title": "Is there an owner for licensing and is this owner aware of any benefits that can be driven for hybrid license models?",
+    "context": "Having a go to person in the company who understands the rules and knows what has been bought helps making sure that the right licenses are being used before building a business case for a new workload / application in Azure.",
+    "recommendation": "",
+    "id": "governance_licensing_owner"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "cost"
+    ],
+    "lens": "application",
+    "category": "Networking & Connectivity",
+    "subCategory": "Data flow",
+    "title": "How is the workload connected between regions? Is it using network peering or gateways?",
+    "context": "This would have an extra cost if applications or services are exchanging data between regions.",
+    "recommendation": "Make sure the workload works with cross-region peering efficiently.",
+    "id": "networking_connectivity_cross_region"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "cost"
+    ],
+    "lens": "application",
+    "category": "Networking & Connectivity",
+    "subCategory": "Data flow",
+    "title": "How are Azure resources connecting to the internet? Via NSG or via on-prem internet?",
+    "context": "This can have extra cost as data has to go back to on-prem to go to the internet, this cost should be acknowledged.",
+    "recommendation": "",
+    "id": "networking_connectivity_on_prem_internet"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "cost"
+    ],
+    "lens": "application",
+    "category": "Networking & Connectivity",
+    "subCategory": "Endpoints",
+    "title": "Are you using Azure Front Door, Azure App Gateway or Web Application Firewall?",
+    "context": "FD enabled WAF – cost and performance implications with this. Can save costs instead of using 3rd party app. Latency of FD is great – uses unicast. You only have to sync once. If you only want 1 or 2 regions you can use app gateway. Cost implications of having a WAF ($25 per region) – check hours and GB/s.",
+    "recommendation": "",
+    "id": "networking_connectivity_front_door_waf_cost"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "cost"
+    ],
+    "lens": "application",
+    "category": "Networking & Connectivity",
+    "subCategory": "Connectivity",
+    "title": "Are you using Microsoft backbone or MPLS network?",
+    "context": "Are you closer to your users or on-prem? If users are closer to the cloud you should use MSFT (i.e. egress traffic). MPLS – another service provider gives you the line.",
+    "recommendation": "",
+    "id": "networking_connectivity_msft_or_mpls"
   }
 ]
