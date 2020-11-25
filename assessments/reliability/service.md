@@ -760,6 +760,8 @@ Resources
         
 ## Azure Firewall
 ### Design Considerations
+* When deployed to a single Availability Zone, Azure Firewall provides a [99.95% SLA](https://azure.microsoft.com/en-us/support/legal/sla/azure-firewall/v1_1/).
+* When deployed to two or more Availability Zones, Azure Firewall provides a [99.99% SLA](https://azure.microsoft.com/en-us/support/legal/sla/azure-firewall/v1_1/)
 * Use Azure Firewall to govern:
   - Azure outbound traffic to the internet
                             
@@ -769,7 +771,7 @@ Resources
                             
 * Use Firewall Manager with Azure Virtual WAN to deploy and manage Azure Firewalls across Azure Virtual WAN Hubs, or in Hub VNets.
 ### Configuration Recommendations
-* Create a global Azure Firewall policy to govern security posture across the global network environment and assign it to all Azure Firewalls. 
+* Create a global Azure Firewall policy to govern security posture across the global network environment and assign it to all Azure Firewalls.
   > Allow for granular policies to meet requirements of specific regions by delegating incremental Firewall Policies to local security teams via RBAC.
                             
 * Configure supported 3rd party SaaS security providers within Firewall Manager if the customer wishes to use such solutions to protect outbound connections.
@@ -786,9 +788,9 @@ Resources
 * Azure native network security services such as Azure Firewall, Application Gateway, and Azure Front Door are fully managed services, meaning that customers do not incur the operational and management costs associated with infrastructure deployments, which can become complex at scale.
 * Azure PaaS services are typically accessed over public endpoints, however, the Azure platform provides capabilities to secure such endpoints or even make them entirely private.
 * Azure provides three models for private network connectivity: VNet injection, VNet Service Endpoints and Private Link:
-  - VNet injection applies to services that are deployed specifically for you, such as AKS nodes, SQL Managed Instance, Virtual Machines. These resources connect directly to your virtual network. 
+  - VNet injection applies to services that are deployed specifically for you, such as AKS nodes, SQL Managed Instance, Virtual Machines. These resources connect directly to your virtual network.
                             
-  - [Virtual Network (VNet) service endpoints](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview) provide secure and direct connectivity to Azure services over an optimized route over the Azure backbone network. 
+  - [Virtual Network (VNet) service endpoints](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview) provide secure and direct connectivity to Azure services over an optimized route over the Azure backbone network.
     > Service Endpoints enable private IP addresses in the VNet to reach the endpoint of an Azure service without needing a public IP address on the VNet.
                                 
                             
@@ -796,11 +798,11 @@ Resources
                             
   - Use Private Link, where available, for shared Azure PaaS services. Private Link is generally available for several services and is in public preview for numerous ones.
                             
-  - Access Azure PaaS services from on-premises via ExpressRoute private peering. 
+  - Access Azure PaaS services from on-premises via ExpressRoute private peering.
     > Use either virtual network injection for dedicated Azure services or Azure Private Link for available shared Azure services. To access Azure PaaS services from on-premises when virtual network injection or Private Link isn't available, use ExpressRoute with Microsoft peering. This method avoids transiting over the public internet.
                                 
                             
-  - Use virtual network service endpoints to secure access to Azure PaaS services from within your virtual network, but only when Private Link isn&#39;t available and there are no data exfiltration concerns. 
+  - Use virtual network service endpoints to secure access to Azure PaaS services from within your virtual network, but only when Private Link isn&#39;t available and there are no data exfiltration concerns.
                             
   - Service Endpoints do not allow a PaaS service to be accessed from on-premises networks. Private Endpoints do.
                             
@@ -814,7 +816,7 @@ Resources
 ## Azure Virtual Networks
 ### Design Considerations
 * Overlapping IP address spaces across on-premises and Azure regions will create major contention challenges.
-* While Virtual Network address space can be added after creation, this process will require an outage if the Virtual Network is already connected to another Virtual Network via peering, since the Virtual Network peering will have to be deleted and re-created. 
+* While Virtual Network address space can be added after creation, this process will require an outage if the Virtual Network is already connected to another Virtual Network via peering, since the Virtual Network peering will have to be deleted and re-created.
   > (Note: Modification of address space on peered vnets was announced at Ignite in sept 2020, but no timelines provided. Check the status before discussing with customer.)
                             
 * Azure reserves 5 IP addresses within each subnet which should be factored in when sizing Virtual Networks and encompassed subnets.
@@ -892,7 +894,7 @@ Resources
 * Application Gateway v2 or 3rd party NVAs used for inbound HTTP/S connections, should be deployed  in the Virtual Network together with the applications that they are securing. It should not be managed centrally within the organization and shared with other workloads.
 * All public IP addresses in a the solution should be protected with a DDoS Standard protection plan.
 * Global HTTP/S applications that span Azure regions should be delivered and protected using Azure Front Door with Web Application Firewall (WAF) policies.
-* When using Azure Front Door and Application Gateway to protect HTTP/S applications, use WAF policies in Front Door and lock down Application Gateway to receive traffic only from Azure Front Door. 
+* When using Azure Front Door and Application Gateway to protect HTTP/S applications, use WAF policies in Front Door and lock down Application Gateway to receive traffic only from Azure Front Door.
   > While this is the general recommendation, certain scenarios might force a customer to implement rules specifically on AppGateway: For example, if ModSec CRS 2.2.9, CRS 3.0 or CRS 3.1 rules are required, this can only be implemented on AppGatway. Conversely, rate-limiting and geo-filtering are available only on Azure Front Door, not on AppGateway. Instructions on how to lock down traffic can be found [here](https://docs.microsoft.com/en-us/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door)
                             
 * Global applications that span protocols other than HTTP/S should be delivered using Azure Traffic Manager. Traffic manager does not forward traffic, but only performs DNS redirection. This means that the connection from the client is established directly to the target using any protocol.
@@ -905,10 +907,10 @@ Resources
                             
   - Front Door supports Web Application Firewall rules, negating the need for a separate WAF service
                             
-* Enable health probes for backends. 
+* Enable health probes for backends.
   > Health probes are http(s) endpoints that are queried by the load balancer (Azure Front Door, Traffic Manager, AppGateway) service to determine if the backend is healthy enough to handle requests.
                             
-* Create a separate health endpoint on the backend to be used by the health probe, that can aggregate the state of the critical services and dependencies needed to serve requests. 
+* Create a separate health endpoint on the backend to be used by the health probe, that can aggregate the state of the critical services and dependencies needed to serve requests.
   > More information on creating such an endpoint can be found [here](https://docs.microsoft.com/en-us/azure/architecture/patterns/health-endpoint-monitoring).
                             
 ## Azure Application Gateway v2
@@ -917,13 +919,13 @@ Resources
 * Deploy at least two AppGateway v2 instances to increase availability
 * Deploy the instances in a [zone-aware configuration](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-autoscaling-zone-redundant), where available.
 * Use Application Gateway with Web Application Firewall (WAF) within an application Virtual Network for protecting inbound HTTP/S traffic from the internet.
-* When using Azure Front Door and Application Gateway to protect HTTP/S applications, use WAF policies in Front Door and lock down Application Gateway to receive traffic only from Azure Front Door. 
+* When using Azure Front Door and Application Gateway to protect HTTP/S applications, use WAF policies in Front Door and lock down Application Gateway to receive traffic only from Azure Front Door.
   > While this is the general recommendation, certain scenarios might force a customer to implement rules specifically on AppGateway: For example, if ModSec CRS 2.2.9, CRS 3.0 or CRS 3.1 rules are required, this can only be implemented on AppGatway. Conversely, rate-limiting and geo-filtering are available only on Azure Front Door, not on AppGateway.
                             
 ## Azure Front Door
 ### Configuration Recommendations
 * Use Azure Front Door WAF policies to provide global protection across Azure regions for inbound HTTP/S connections to a &#34;Landing Zone&#34;.
-* When using Azure Front Door and Application Gateway to protect HTTP/S applications, use WAF policies in Front Door and lock down Application Gateway to receive traffic only from Azure Front Door. 
+* When using Azure Front Door and Application Gateway to protect HTTP/S applications, use WAF policies in Front Door and lock down Application Gateway to receive traffic only from Azure Front Door.
   > While this is the general recommendation, certain scenarios might force a customer to implement rules specifically on AppGateway: For example, if ModSec CRS 2.2.9, CRS 3.0 or CRS 3.1 rules are required, this can only be implemented on AppGatway. Conversely, rate-limiting and geo-filtering are available only on Azure Front Door, not on AppGateway. Instructions on how to lock down traffic can be found [here](https://docs.microsoft.com/en-us/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door)
                             
 * Create a rule to block access to the health endpoint from the Internet
@@ -940,7 +942,7 @@ Resources
                             
 ## API Management
 ### Configuration Recommendations
-* [Secure the communication](https://docs.microsoft.com/en-us/azure/api-management/api-management-faq#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services) between API Management and your backend. 
+* [Secure the communication](https://docs.microsoft.com/en-us/azure/api-management/api-management-faq#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services) between API Management and your backend.
 * When exposing APIs to third parties, ensure that
   - Each party has its own credential
                             
