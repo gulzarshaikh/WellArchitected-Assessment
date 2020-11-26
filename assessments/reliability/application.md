@@ -385,7 +385,7 @@ Public Preview : SLAs do not apply and formal support may be provided on a best-
 * For cross-premises connectivity (ExpressRoute or VPN) are there redundant connections from different locations?
 
 
-  _At least two redundant connections should be established across two or more Azure regions and peering locations to ensure there are no single points of failure. An active/active load-shared configuration provides path diversity and promotes availability of network connection paths([Cross-network connectivity](https://docs.microsoft.com/azure/expressroute/cross-network-connectivity))_
+  _At least two redundant connections should be established across two or more Azure regions and peering locations to ensure there are no single points of failure. An active/active load-shared configuration provides path diversity and promotes availability of network connection paths. ([Cross-network connectivity](https://docs.microsoft.com/azure/expressroute/cross-network-connectivity))_
 * Has a failure path been simulated to ensure connectivity is available over alternative paths?
 
 
