@@ -1,6 +1,8 @@
 # Application Security
 
 # Navigation Menu
+
+- [Design Principles](#design-principles)
 - [Application Assessment Checklist](#Application-Assessment-Checklist)
   - [Application Design](#Application-Design)
     - [Design](#Design)
@@ -37,6 +39,59 @@
     - [Separation of duties](#Separation-of-duties)
     - [Control-plane RBAC](#Control-plane-RBAC)
     - [Authentication and authorization](#Authentication-and-authorization)
+
+
+# Design Principles
+
+The following Design Principles provide context for questions, why a certain aspect is important and how is it applicable to Security.
+
+
+## Minimize unnecessary access and manage privileges through automation
+
+
+  Implement least privilege throughout the application and control plane to protect against data exfiltration and malitious actor scenarios. Drive automation through DevSecOps to minimize the need for human interaction.
+
+
+
+## Classify and encrypt data to prevent data leakage
+
+
+  Classify data according to risk and apply industry standard encryption at rest and in transit holistically, ensuring keys and certificates are stored securely and managed properly.
+
+
+
+## Monitor security of entire system and plan for incident responses
+
+
+  Correlate security and audit events to model application health and identify active threats. Establish automated and manual procedures to respond to incidents leveraging SIEM tooling for tracking.
+
+
+
+## Identify and protect internal and external endpoints
+
+
+  Monitor and protect the network integrity of internal and external endpoints through security appliances, such as firewalls. Use industry standard approaches to protect against common attack vectors, such as DDoS (e.g. SlowLoris).
+
+
+
+## Protect against code level vulnerabilities
+
+
+  Identify and mitigate code-level vulnerabilities (e.g. cross-site scripting, SQL injection). Incorporate security fixes and patching of all parts of the codebase, including dependencies, into the operational lifecycle.
+
+
+
+## Model and test against potential threats
+
+
+  Establish procedures to identify and mitigate known threats. Use penetration testing to verify threat mitigation, as well as static code analysis and code scanning to detect and prevent future vulnerabilities.
+
+
+
+
+---
+
+These critical design principals are used as lenses to assess the Security of an application deployed on Azure, providing a framework for the following application assessment questions.
 
 
 
