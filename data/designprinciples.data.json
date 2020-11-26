@@ -58,5 +58,77 @@
         "title": "Use loosely coupled architecture",
         "context": "Enable teams to independently test, deploy, and update their systems on demand without depending on other teams for support, services, resources, or approvals.",
         "id": "dp_opex_5"
+    },
+    {
+        "type": "Design Principles",
+        "pillars": [
+            "security"
+        ],
+        "lens": "application",
+        "category": "General",
+        "subCategory": "Unassigned",
+        "title": "Minimize unnecessary access and manage privileges through automation",
+        "context": "Implement least privilege throughout the application and control plane to protect against data exfiltration and malitious actor scenarios. Drive automation through DevSecOps to minimize the need for human interaction.",
+        "id": "dp_security_1"
+    },
+    {
+        "type": "Design Principles",
+        "pillars": [
+            "security"
+        ],
+        "lens": "application",
+        "category": "General",
+        "subCategory": "Unassigned",
+        "title": "Classify and encrypt data to prevent data leakage",
+        "context": "Classify data according to risk and apply industry standard encryption at rest and in transit holistically, ensuring keys and certificates are stored securely and managed properly.",
+        "id": "dp_security_2"
+    },
+    {
+        "type": "Design Principles",
+        "pillars": [
+            "security"
+        ],
+        "lens": "application",
+        "category": "General",
+        "subCategory": "Unassigned",
+        "title": "Monitor security of entire system and plan for incident responses",
+        "context": "Correlate security and audit events to model application health and identify active threats. Establish automated and manual procedures to respond to incidents leveraging SIEM tooling for tracking.",
+        "id": "dp_security_3"
+    },
+    {
+        "type": "Design Principles",
+        "pillars": [
+            "security"
+        ],
+        "lens": "application",
+        "category": "General",
+        "subCategory": "Unassigned",
+        "title": "Identify and protect internal and external endpoints",
+        "context": "Monitor and protect the network integrity of internal and external endpoints through security appliances, such as firewalls. Use industry standard approaches to protect against common attack vectors, such as DDoS (e.g. SlowLoris).",
+        "id": "dp_security_4"
+    },
+    {
+        "type": "Design Principles",
+        "pillars": [
+            "security"
+        ],
+        "lens": "application",
+        "category": "General",
+        "subCategory": "Unassigned",
+        "title": "Protect against code level vulnerabilities",
+        "context": "Identify and mitigate code-level vulnerabilities (e.g. cross-site scripting, SQL injection). Incorporate security fixes and patching of all parts of the codebase, including dependencies, into the operational lifecycle.",
+        "id": "dp_security_5"
+    },
+    {
+        "type": "Design Principles",
+        "pillars": [
+            "security"
+        ],
+        "lens": "application",
+        "category": "General",
+        "subCategory": "Unassigned",
+        "title": "Model and test against potential threats",
+        "context": "Establish procedures to identify and mitigate known threats. Use penetration testing to verify threat mitigation, as well as static code analysis and code scanning to detect and prevent future vulnerabilities.",
+        "id": "dp_security_6"
     }
 ]
