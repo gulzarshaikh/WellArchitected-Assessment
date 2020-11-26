@@ -168,5 +168,27 @@
                 "context": "Turning on firewall rules for storage accounts blocks incoming requests for data by default, unless the requests originate from a service operating within an Azure Virtual Network (VNet) or from allowed public IP addresses. Requests that are blocked include those from other Azure services, from the Azure portal, from logging and metrics services, and so on. You can permit requests from other Azure services by adding an exception to allow trusted Microsoft services to access the storage account. For more information about adding an exception for trusted Microsoft services, see [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security)."
             }
         ]
+    },
+    {
+        "type": "Configuration Recommendations",
+        "pillars": [
+            "cost"
+        ],
+        "lens": "service",
+        "category": "Storage",
+        "subCategory": "Storage Accounts",
+        "title": "Are you saving by reserving capacity for data for block blob storage?",
+        "context" : "Money can be saved by reserving capacity for block bob and for Azure Data Lake Storage gen 2 data in standard storage account when customer commits to 1- or 3-years reservation."
+    },
+    {
+        "type": "Configuration Recommendations",
+        "pillars": [
+            "cost"
+        ],
+        "lens": "service",
+        "category": "Storage",
+        "subCategory": "Storage Accounts",
+        "title": "Are you using Premium disks (P30 & above)? ",
+        "context" : "Premium Disk (P30 & above) can be reserved (1 or 3 years) at discounted price."
     }
 ]
