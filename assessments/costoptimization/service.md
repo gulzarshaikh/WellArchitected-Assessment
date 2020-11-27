@@ -14,7 +14,10 @@ This list contains design considerations and recommended configuration options, 
     - [Storage Accounts](#Storage-Accounts)
     - [Disks](#Disks)
   - [Networking](#Networking)
-    - [Architecture](#Architecture)
+    - [Network Virtual Appliances (NVA)](#Network-Virtual-Appliances-NVA)
+    - [Network Connectivity](#Network-Connectivity)
+    - [Application Delivery (General)](#Application-Delivery-General)
+    - [IP Addresses](#IP-Addresses)
 # Compute
         
 ## Azure App Service
@@ -92,7 +95,7 @@ This list contains design considerations and recommended configuration options, 
                             
 # Networking
         
-## Architecture
+## Network Virtual Appliances (NVA)
 ### Design Considerations
 * Are you using a third party app (NVA) or Azure Native Service (Firewall or App Gateway)?
   - With Azure we manage the service. With NVAs have to pay for human doing the work behind the scenes. For devops, have to use vendor’s tools – integration becomes difficult.
@@ -101,6 +104,8 @@ This list contains design considerations and recommended configuration options, 
                             
   - Wherever possible use 1st party services rather than 3rd party services – get rid of hidden costs.
                             
+## Network Connectivity
+### Design Considerations
 * Running cost of services (services are metered – pay for service itself and consumption on service)
   - VNET Peering Cost – customers start putting everything in 1 VNET for example to save costs but that’s preventing them from growing because they will reach a point that they can’t fit everything in one VNET.
                             
@@ -108,9 +113,7 @@ This list contains design considerations and recommended configuration options, 
                             
   - Azure Firewall is also metered (pay for instance and for usage) – same for load balancers.
                             
-* Is there a process to look for orphan NIC, PIP that are not being used in production and non-production?
-  > PIP are free unless you don’t use them – if they aren’t assigned to anything you will pay for it.
-                            
+## Application Delivery (General)
 ### Configuration Recommendations
 * Select SKU for service so that it does the job required and that allows the customer to grow as the workload evolves.
   - **Load balancer**: 2 SKUs (basic – free and standard – fee based). We recommend standard because that’s where the investments are going (outbound rules, granular network security config, monitoring, etc). Capabilities in basic are limited.
@@ -120,4 +123,9 @@ This list contains design considerations and recommended configuration options, 
   - **Gateways**: limit throughput, performance, etc.
                             
   - **DDOS Standard**: gives protection for their workload types and how their patterns are. Otherwise you can use the basic (i.e. for small customers).
+                            
+## IP Addresses
+### Design Considerations
+* Is there a process to look for orphan NIC, PIP that are not being used in production and non-production?
+  > PIPs (Public IPs) are free unless you don’t use them – if they aren’t assigned to anything you will pay for it.
                             

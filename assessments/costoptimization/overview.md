@@ -53,4 +53,7 @@ This assessment has been produced to help the global CE&S community to optimize 
     - [Storage Accounts](./service.md#Storage-Accounts)
     - [Disks](./service.md#Disks)
   - [Networking](./service.md#Networking)
-    - [Architecture](./service.md#Architecture)
+    - [Network Virtual Appliances (NVA)](./service.md#Network-Virtual-Appliances-NVA)
+    - [Network Connectivity](./service.md#Network-Connectivity)
+    - [Application Delivery (General)](./service.md#Application-Delivery-General)
+    - [IP Addresses](./service.md#IP-Addresses)
