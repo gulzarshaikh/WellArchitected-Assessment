@@ -70,7 +70,7 @@ The following Design Principles provide context for questions, why a certain asp
 ## Identify and protect internal and external endpoints
 
 
-  Monitor and protect the network integrity of internal and external endpoints through security appliances, such as firewalls. Use industry standard approaches to protect against common attack vectors, such as DDoS (e.g. SlowLoris).
+  Monitor and protect the network integrity of internal and external endpoints through security appliances, such as firewalls or web application firewalls. Use industry standard approaches to protect against common attack vectors, such as DDoS (e.g. SlowLoris).
 
 
 
