@@ -1186,7 +1186,7 @@
     ],
     "lens": "service",
     "category": "Networking",
-    "subCategory": "",
+    "subCategory": "Application Delivery (General)",
     "title": "Select SKU for service so that it does the job required and that allows the customer to grow as the workload evolves.",
     "children": 
     [
@@ -1242,7 +1242,7 @@
     ],
     "lens": "service",
     "category": "Networking",
-    "subCategory": "",
+    "subCategory": "Network Connectivity",
     "title": "Running cost of services (services are metered – pay for service itself and consumption on service)",
     "children": 
     [
@@ -1268,9 +1268,9 @@
     ],
     "lens": "service",
     "category": "Networking",
-    "subCategory": "",
+    "subCategory": "IP Addresses",
     "title": "Is there a process to look for orphan NIC, PIP that are not being used in production and non-production?",
-    "context": "PIP are free unless you don’t use them – if they aren’t assigned to anything you will pay for it.",
+    "context": "PIPs (Public IPs) are free unless you don’t use them – if they aren’t assigned to anything you will pay for it.",
     "id": "networking_cost_orphan_nic"
   }
 ]
