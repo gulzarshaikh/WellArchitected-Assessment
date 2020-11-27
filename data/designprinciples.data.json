@@ -104,7 +104,7 @@
         "category": "General",
         "subCategory": "Unassigned",
         "title": "Identify and protect internal and external endpoints",
-        "context": "Monitor and protect the network integrity of internal and external endpoints through security appliances, such as firewalls. Use industry standard approaches to protect against common attack vectors, such as DDoS (e.g. SlowLoris).",
+        "context": "Monitor and protect the network integrity of internal and external endpoints through security appliances, such as firewalls or web application firewalls. Use industry standard approaches to protect against common attack vectors, such as DDoS (e.g. SlowLoris).",
         "id": "dp_security_4"
     },
     {
