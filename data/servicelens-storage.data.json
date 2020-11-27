@@ -172,7 +172,7 @@
     {
         "type": "Configuration Recommendations",
         "pillars": [
-            "cost"
+            "costoptimization"
         ],
         "lens": "service",
         "category": "Storage",
@@ -183,7 +183,7 @@
     {
         "type": "Configuration Recommendations",
         "pillars": [
-            "cost"
+            "costoptimization"
         ],
         "lens": "service",
         "category": "Storage",
@@ -194,7 +194,7 @@
     {
         "type": "Configuration Recommendations",
         "pillars": [
-            "cost"
+            "costoptimization"
         ],
         "lens": "service",
         "category": "Storage",
@@ -205,7 +205,7 @@
     {
         "type": "Configuration Recommendations",
         "pillars": [
-            "cost"
+            "costoptimization"
         ],
         "lens": "service",
         "category": "Storage",
@@ -216,7 +216,7 @@
     {
         "type": "Configuration Recommendations",
         "pillars": [
-            "cost"
+            "costoptimization"
         ],
         "lens": "service",
         "category": "Storage",
@@ -227,7 +227,7 @@
     {
         "type": "Design Considerations",
         "pillars": [
-            "cost"
+            "costoptimization"
         ],
         "lens": "service",
         "category": "Storage",
@@ -238,7 +238,7 @@
     {
         "type": "Configuration Recommendations",
         "pillars": [
-            "cost"
+            "costoptimization"
         ],
         "lens": "service",
         "category": "Storage",
@@ -249,7 +249,7 @@
     {
         "type": "Design Consideration",
         "pillars": [
-            "cost"
+            "costoptimization"
         ],
         "lens": "service",
         "category": "Storage",
@@ -260,7 +260,7 @@
     {
         "type": "Design Consideration",
         "pillars": [
-            "cost"
+            "costoptimization"
         ],
         "lens": "service",
         "category": "Storage",
@@ -271,7 +271,7 @@
     {
         "type": "Design Consideration",
         "pillars": [
-            "cost"
+            "costoptimization"
         ],
         "lens": "service",
         "category": "Storage",

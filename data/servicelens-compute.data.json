@@ -839,7 +839,7 @@
     {
         "type": "Configuration Recommendations",
         "pillars": [
-            "cost"
+            "costoptimization"
         ],
         "lens": "service",
         "category": "Compute",
@@ -850,7 +850,7 @@
     {
         "type": "Configuration Recommendations",
         "pillars": [
-            "cost"
+            "costoptimization"
         ],
         "lens": "service",
         "category": "Compute",
@@ -861,7 +861,7 @@
     {
         "type": "Configuration Recommendations",
         "pillars": [
-            "cost"
+            "costoptimization"
         ],
         "lens": "service",
         "category": "Compute",
@@ -872,7 +872,7 @@
     {
         "type": "Configuration Recommendations",
         "pillars": [
-            "cost"
+            "costoptimization"
         ],
         "lens": "service",
         "category": "Compute",
@@ -883,7 +883,7 @@
     {
         "type": "Configuration Recommendations",
         "pillars": [
-            "cost"
+            "costoptimization"
         ],
         "lens": "service",
         "category": "Compute",
@@ -894,7 +894,7 @@
     {
         "type": "Configuration Recommendations",
         "pillars": [
-            "cost"
+            "costoptimization"
         ],
         "lens": "service",
         "category": "Compute",
@@ -905,7 +905,7 @@
     {
         "type": "Configuration Recommendations",
         "pillars": [
-            "cost"
+            "costoptimization"
         ],
         "lens": "service",
         "category": "Compute",
@@ -916,7 +916,7 @@
     {
         "type": "Configuration Recommendations",
         "pillars": [
-            "cost"
+            "costoptimization"
         ],
         "lens": "service",
         "category": "Compute",

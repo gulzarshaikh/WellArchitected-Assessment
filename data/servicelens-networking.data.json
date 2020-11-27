@@ -2,7 +2,7 @@
     {
         "type": "Configuration Recommendations",
         "pillars": [
-            "cost"
+            "costoptimization"
         ],
         "lens": "service",
         "category": "Networking",
@@ -27,7 +27,7 @@
     {
         "type": "Design Considerations",
         "pillars": [
-            "cost"
+            "costoptimization"
         ],
         "lens": "service",
         "category": "Networking",
@@ -49,7 +49,7 @@
     {
         "type": "Design Considerations",
         "pillars": [
-            "cost"
+            "costoptimization"
         ],
         "lens": "service",
         "category": "Networking",
@@ -71,7 +71,7 @@
     {
         "type": "Design Considerations",
         "pillars": [
-            "cost"
+            "costoptimization"
         ],
         "lens": "service",
         "category": "Networking",
