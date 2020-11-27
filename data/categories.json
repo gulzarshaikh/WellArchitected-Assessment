@@ -289,9 +289,42 @@
   {
     "title": "Networking",
     "subCategories": [
-        {
-            "title": "Architecture"
-        }
+      {
+        "title": "Azure Firewall"
+      },
+      {
+        "title": "Network Virtual Appliances (NVA)"
+      },
+      {
+        "title": "Network Connectivity"
+      },
+      {
+        "title": "Azure Virtual Networks"
+      },
+      {
+        "title": "ExpressRoute"
+      },
+      {
+        "title": "Azure DNS"
+      },
+      {
+        "title": "Application Delivery (General)"
+      },
+      {
+        "title": "Azure Application Gateway v2"
+      },
+      {
+        "title": "Azure Front Door"
+      },
+      {
+        "title": "Azure Loadbalancer"
+      },
+      {
+        "title": "Traffic Manager"
+      },
+      {
+        "title": "API Management"
+      }
     ]
   },
   {
