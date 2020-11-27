@@ -233,6 +233,20 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
 
   _When running multiple applications (typically in multi-tenant or microservices scenarios) density can be increased by deploying them on shared infrastructure and utilizing it more. For example: Containerization and moving to Kubernetes (Azure Kubernetes Services) enables pod-based deployment which can utilize underlying nodes efficiently. Similar approach can be taken with App Service Plans. To prevent the 'noisy neighbour' situation, proper monitoring must be in place and performance analysis must be done (if possible)._
+* How do you ensure that cloud resources are appropriately provisioned?
+
+
+  _Deliberate selection of resources and sizing is important to maintain efficiency and optimal cost._
+  > Automate based on the application lifespan, use DevOps and deployment automation, configure auto-scale policies for the workload (both in and out), select the right resource offering size (VM, disk, database), choose appropriate services that match business requirements.
+* How are you monitoring your costs?
+
+
+  _The organizations needs to be aware of workload costs._
+  > Watch cloud costs, create and respond to cost alerts, perform cost reviews on a regular cadence.
+* What trade-offs have you made to optimize for cost?
+
+
+  > Analyze ROI regularly, use different Azure datacenter locations to optimize cost, use Azure Marketplace, track the resource tier and optimize appropriately, take advantage of appropriate subscription offer types.
 ## Health Modelling
     
 ### Application Level Monitoring
