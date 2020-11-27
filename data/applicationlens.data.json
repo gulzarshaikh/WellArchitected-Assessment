@@ -4837,5 +4837,44 @@
     "context": "Are you closer to your users or on-prem? If users are closer to the cloud you should use MSFT (i.e. egress traffic). MPLS – another service provider gives you the line.",
     "recommendation": "",
     "id": "networking_connectivity_msft_or_mpls"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "costoptimization"
+    ],
+    "lens": "application",
+    "category": "Application Design",
+    "subCategory": "Application Composition",
+    "title": "How do you ensure that cloud resources are appropriately provisioned?",
+    "context": "Deliberate selection of resources and sizing is important to maintain efficiency and optimal cost.",
+    "recommendation": "Automate based on the application lifespan, use DevOps and deployment automation, configure auto-scale policies for the workload (both in and out), select the right resource offering size (VM, disk, database), choose appropriate services that match business requirements.",
+    "id": "application_design_optimal_sizing"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "costoptimization"
+    ],
+    "lens": "application",
+    "category": "Application Design",
+    "subCategory": "Application Composition",
+    "title": "How are you monitoring your costs?",
+    "context": "The organizations needs to be aware of workload costs.",
+    "recommendation": "Watch cloud costs, create and respond to cost alerts, perform cost reviews on a regular cadence.",
+    "id": "application_design_monitor_costs"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "costoptimization"
+    ],
+    "lens": "application",
+    "category": "Application Design",
+    "subCategory": "Application Composition",
+    "title": "What trade-offs have you made to optimize for cost?",
+    "context": "",
+    "recommendation": "Analyze ROI regularly, use different Azure datacenter locations to optimize cost, use Azure Marketplace, track the resource tier and optimize appropriately, take advantage of appropriate subscription offer types.",
+    "id": "application_design_cost_tradeoffs"
   }
 ]
