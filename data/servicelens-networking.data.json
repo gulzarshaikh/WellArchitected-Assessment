@@ -1191,18 +1191,23 @@
     "children": 
     [
         {
-            "title": "**Load balancer**: 2 SKUs (basic – free and standard – fee based). We recommend standard because that’s where the investments are going (outbound rules, granular network security config, monitoring, etc). Capabilities in basic are limited."
+            "title": "**Load balancer**: 2 SKUs (basic – free and standard – fee based). We recommend standard because that’s where the investments are going (outbound rules, granular network security config, monitoring, etc). Capabilities in basic are limited.",
+            "id": "networking_efficient_skus_1"
         },
         {
-            "title": "**App Gateway**: Basic or V2."
+            "title": "**App Gateway**: Basic or V2.",
+            "id": "networking_efficient_skus_2"
         },
         {
-            "title": "**Gateways**: limit throughput, performance, etc."
+            "title": "**Gateways**: limit throughput, performance, etc.",
+            "id": "networking_efficient_skus_3"
         },
         {
-            "title": "**DDOS Standard**: gives protection for their workload types and how their patterns are. Otherwise you can use the basic (i.e. for small customers)."
+            "title": "**DDOS Standard**: gives protection for their workload types and how their patterns are. Otherwise you can use the basic (i.e. for small customers).",
+            "id": "networking_efficient_skus_4"
         }
-    ]
+    ],
+    "id": "networking_efficient_skus"
   },
   {
     "type": "Design Considerations",
@@ -1216,15 +1221,19 @@
     "children": 
     [
         {
-            "title": "With Azure we manage the service. With NVAs have to pay for human doing the work behind the scenes. For devops, have to use vendor’s tools – integration becomes difficult."
+            "title": "With Azure we manage the service. With NVAs have to pay for human doing the work behind the scenes. For devops, have to use vendor’s tools – integration becomes difficult.",
+            "id": "networking_cost_nva_1"
         },
         {
-            "title": "Running costs that are present that customers also don’t see."
+            "title": "Running costs that are present that customers also don’t see.",
+            "id": "networking_cost_nva_2"
         },
         {
-            "title": "Wherever possible use 1st party services rather than 3rd party services – get rid of hidden costs."
+            "title": "Wherever possible use 1st party services rather than 3rd party services – get rid of hidden costs.",
+            "id": "networking_cost_nva_3"
         }
-    ]
+    ],
+    "id": "networking_cost_nva"
   },
   {
     "type": "Design Considerations",
@@ -1238,15 +1247,19 @@
     "children": 
     [
         {
-            "title": "VNET Peering Cost – customers start putting everything in 1 VNET for example to save costs but that’s preventing them from growing because they will reach a point that they can’t fit everything in one VNET."
+            "title": "VNET Peering Cost – customers start putting everything in 1 VNET for example to save costs but that’s preventing them from growing because they will reach a point that they can’t fit everything in one VNET.",
+            "id": "networking_metered_cost_1"
         },
         {
-            "title": "If you have 2 VNETs that are peered and you want to access a private endpoint – you pay only for private endpoint access and not VNET peering cost."
+            "title": "If you have 2 VNETs that are peered and you want to access a private endpoint – you pay only for private endpoint access and not VNET peering cost.",
+            "id": "networking_metered_cost_2"
         },
         {
-            "title": "Azure Firewall is also metered (pay for instance and for usage) – same for load balancers."
+            "title": "Azure Firewall is also metered (pay for instance and for usage) – same for load balancers.",
+            "id": "networking_metered_cost_3"
         }
-    ]
+    ],
+    "id": "networking_metered_cost"
   },
   {
     "type": "Design Considerations",
@@ -1257,6 +1270,7 @@
     "category": "Networking",
     "subCategory": "",
     "title": "Is there a process to look for orphan NIC, PIP that are not being used in production and non-production?",
-    "context": "PIP are free unless you don’t use them – if they aren’t assigned to anything you will pay for it."
+    "context": "PIP are free unless you don’t use them – if they aren’t assigned to anything you will pay for it.",
+    "id": "networking_cost_orphan_nic"
   }
 ]
