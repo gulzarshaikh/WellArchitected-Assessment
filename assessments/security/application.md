@@ -77,7 +77,7 @@ The following Design Principles provide context for questions, why a certain asp
 ## Protect against code level vulnerabilities
 
 
-  Identify and mitigate code-level vulnerabilities (e.g. cross-site scripting, SQL injection). Incorporate security fixes and patching of all parts of the codebase, including dependencies, into the operational lifecycle.
+  Identify and mitigate code-level vulnerabilities (e.g. cross-site scripting, SQL injection). Regularly incorporate security fixes and patching of all parts of the codebase, including dependencies, into the operational lifecycle.
 
 
 
