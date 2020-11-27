@@ -1,0 +1,82 @@
+[
+    {
+        "type": "Configuration Recommendations",
+        "pillars": [
+            "cost"
+        ],
+        "lens": "service",
+        "category": "Networking",
+        "subCategory": "Architecture",
+        "title": "Select SKU for service so that it does the job required and that allows the customer to grow as the workload evolves.",
+        "children": 
+        [
+            {
+                "title": "**Load balancer**: 2 SKUs (basic – free and standard – fee based). We recommend standard because that’s where the investments are going (outbound rules, granular network security config, monitoring, etc). Capabilities in basic are limited."
+            },
+            {
+                "title": "**App Gateway**: Basic or V2."
+            },
+            {
+                "title": "**Gateways**: limit throughput, performance, etc."
+            },
+            {
+                "title": "**DDOS Standard**: gives protection for their workload types and how their patterns are. Otherwise you can use the basic (i.e. for small customers)."
+            }
+        ]
+    },
+    {
+        "type": "Design Considerations",
+        "pillars": [
+            "cost"
+        ],
+        "lens": "service",
+        "category": "Networking",
+        "subCategory": "Architecture",
+        "title": "Are you using a third party app (NVA) or Azure Native Service (Firewall or App Gateway)?",
+        "children": 
+        [
+            {
+                "title": "With Azure we manage the service. With NVAs have to pay for human doing the work behind the scenes. For devops, have to use vendor’s tools – integration becomes difficult."
+            },
+            {
+                "title": "Running costs that are present that customers also don’t see."
+            },
+            {
+                "title": "Wherever possible use 1st party services rather than 3rd party services – get rid of hidden costs."
+            }
+        ]
+    },
+    {
+        "type": "Design Considerations",
+        "pillars": [
+            "cost"
+        ],
+        "lens": "service",
+        "category": "Networking",
+        "subCategory": "Architecture",
+        "title": "Running cost of services (services are metered – pay for service itself and consumption on service)",
+        "children": 
+        [
+            {
+                "title": "VNET Peering Cost – customers start putting everything in 1 VNET for example to save costs but that’s preventing them from growing because they will reach a point that they can’t fit everything in one VNET."
+            },
+            {
+                "title": "If you have 2 VNETs that are peered and you want to access a private endpoint – you pay only for private endpoint access and not VNET peering cost."
+            },
+            {
+                "title": "Azure Firewall is also metered (pay for instance and for usage) – same for load balancers."
+            }
+        ]
+    },
+    {
+        "type": "Design Considerations",
+        "pillars": [
+            "cost"
+        ],
+        "lens": "service",
+        "category": "Networking",
+        "subCategory": "Architecture",
+        "title": "Is there a process to look for orphan NIC, PIP that are not being used in production and non-production?",
+        "context": "PIP are free unless you don’t use them – if they aren’t assigned to anything you will pay for it."
+    }
+]

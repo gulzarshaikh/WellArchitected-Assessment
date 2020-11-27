@@ -257,6 +257,9 @@
     "subCategories": [
       {
         "title": "Storage Accounts"
+      },
+      {
+          "title": "Disks"
       }
     ]
   },
@@ -281,6 +284,14 @@
       {
         "title": "IoT Hub Device Provisioning Service"
       }
+    ]
+  },
+  {
+    "title": "Networking",
+    "subCategories": [
+        {
+            "title": "Architecture"
+        }
     ]
   },
   {
