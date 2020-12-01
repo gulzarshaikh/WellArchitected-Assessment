@@ -50,19 +50,19 @@ This list contains design considerations and recommended configuration options, 
 * Are you using Burstable (B) series VM sizes for VMs that are idle most of the time and have high usage for a certain period of time?
   > The B-series VMs are ideal for workloads that do not need the full performance of the CPU continuously, like web servers, proof of concepts, small databases and development build environments and provide a cost savings.
                             
-* Do you shut down the underutilized VM instances?
+* Do you shut down the VM instances which are not in use?
   > Use the Start/Stop VMs during off-hours feature of virtual machines to minimize waste. There are many configuration options to schedule start the stop times. The feature is suitable as a low-cost automation option. Azure Advisor evaluates virtual machines based on CPU and network utilization over a time period. Then, the recommended actions are shut down or resize instances and cost saving with both actions.
                             
 * Are Spot VMs being used?
   > Spot VMs are ideal for workloads that can be interrupted, such as highly parallel batch processing jobs. These VMs take advantage of the surplus capacity in Azure at a lower cost. They're also well suited for experimental, development, and testing of large-scale solutions.
                             
-* Are you using PaaS as an alternative to buying VMs?
+* Are you using PaaS as an alternative to virtual machines?
   > When you use the PaaS model, operational and maintenance costs are included in the pricing and in some cases can be cheaper than managing VMs on your own.
                             
-* Zone to Zone disaster recovery for Virtual Machines
+* Use Zone to Zone disaster recovery for virtual machines.
   > (in preview as of 11/2020) Replicate, failover and failback your business-critical virtual machines within the same region with zones. Ideal for those that have complicated networking infrastructure and want to avoid the cost and complexity of recreating it in a secondary region.
                             
-* Start/Stop in Azure Kubernetes Services (AKS)
+* Use the Start/Stop feature in Azure Kubernetes Services (AKS).
   > (in preview as of 11/2020) The AKS Stop/Start cluster feature now in public preview allows AKS customers to completely pause an AKS cluster, saving time and cost. The stop/start feature keeps cluster configurations in place and customers can pick up where they left off without reconfiguring the clusters.
                             
 # Storage
@@ -90,7 +90,7 @@ This list contains design considerations and recommended configuration options, 
 * Are you utilizing bursting for P20 and below disks for workload such as batch jobs, workload which handle traffic spikes, and for improving OS boot time?
   > Azure Disks offer variety of SKUs and sizes to satisfy different workload requirements. Some of the more recent features could help further optimize cost-performance of existing Disk use cases. Firstly, you can leverage disk bursting for Premium (Disks P20 and below). Example scenarios that could benefit from this feature are improving OS boot time, handling batch jobs and handling traffic spikes. 
                             
-* For database workload, are you configuring data and log files on different disks?
+* For database workloads, are you configuring data and log files on different disks?
   > You can optimize IaaS DB workload performance by configuring their system, data and log files to be on different Disk SKUs (leveraging Premium Disks for data and Ultra Disks for logs satisfies most production scenarios). Further, you can optimize Ultra Disk cost/performance by taking advantage of the ability to configure capacity, IOPS and throughput independently; and ability to dynamically configure these attributes. Example workloads are SQL on IaaS, Cassandra DB, Maria DB, MySql and Mongo DB on IaaS. Learn more about Ultra Disks.
                             
 # Networking
@@ -98,9 +98,9 @@ This list contains design considerations and recommended configuration options, 
 ## Network Virtual Appliances (NVA)
 ### Design Considerations
 * Are you using a third party app (NVA) or Azure Native Service (Firewall or App Gateway)?
-  - With Azure we manage the service. With NVAs have to pay for human doing the work behind the scenes. For devops, have to use vendor’s tools – integration becomes difficult.
+  - With Azure Microsoft manages the service. With NVAs customers have to pay for human doing the work behind the scenes. For DevOps, you have to use vendor’s tools – integration becomes difficult.
                             
-  - Running costs that are present that customers also don’t see.
+  - Some of the costs for networking services are not obvious for customers.
                             
   - Wherever possible use 1st party services rather than 3rd party services – get rid of hidden costs.
                             
@@ -116,7 +116,7 @@ This list contains design considerations and recommended configuration options, 
 ## Application Delivery (General)
 ### Configuration Recommendations
 * Select SKU for service so that it does the job required and that allows the customer to grow as the workload evolves.
-  - **Load balancer**: 2 SKUs (basic – free and standard – fee based). We recommend standard because that’s where the investments are going (outbound rules, granular network security config, monitoring, etc). Capabilities in basic are limited.
+  - **Load balancer**: 2 SKUs (basic – free and standard – fee based). We recommend standard because it has richer capabilities (outbound rules, granular network security config, monitoring, etc), provides SLA and can be deployed in AZs. Capabilities in basic are limited.
                             
   - **App Gateway**: Basic or V2.
                             
