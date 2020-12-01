@@ -55,42 +55,42 @@ The following Design Principles provide context for questions, why a certain asp
 ## Design for Business Requirements
 
 
-  Reliablilty is a subjective concept. A reliable application performs in a way that is in line with the business requirements surrounding it. For one mission-critical application that may mean a 99.999% SLA, where for another 95% is perfectly acceptable. Considering the cost implications of extremely high availability, this is a tradeoff that should be carefully made.
+  Reliability is a subjective concept and for an application to be appropriately reliable it must reflect the business requirements surrounding it. For example, a mission-critical application with a 99.999% SLA requires a higher level of reliability that another application with an SLA of 95%. There are obvious financial and opportunity cost implications for introducing greater reliability and high availability, and this trade-off should be carefully considered.
 
 
 
 ## Design for Failure
 
 
-  Failure is impossible to avoid in a highly distributed environment like the cloud. By anticipating failures from individual components to entire Azure regions, a solution can be developed in a resilient way to increase reliability.
+  Failure is impossible to avoid in a highly distributed multi-tenant environment like Azure. By anticipating failures, from individual components to entire Azure regions, a solution can be developed in a resilient way to increase reliability.
 
 
 
 ## Observe Application Health
 
 
-  To mitigate issues that pose a threat to application reliability, they must first be detected. By monitoring the state of the application and having a deep understanding of the causes and effects of failures, swift (automated) action can be taken to prevent outages.
+  Before issues impacting application reliability can be mitigated, they must first be detected. By monitoring the operation of an application relative to a known healthy state it becomes possible to detect or even predict reliability issues, allowing for swift remedial action to be taken.
 
 
 
 ## Drive Automation
 
 
-  One of the leading causes of downtime is human error. This may be insufficiently tested software being deployed, operator errors during deployment, or misconfigurations. To minimize the chance of human errors and the impact they have, one should strive for automation in all aspects of a cloud solution to improve reliability: Automated testing, automated deployment, automated management.
+  One of the leading causes of application downtime is human error, whether that be due to the deployment of insufficiently tested software to misconfiguration. To minimize the possibility and impact of human errors, it is vital to strive for automation in all aspects of a cloud solution to improve reliability; automated testing, deployment, and management.
 
 
 
 ## Design for Self-Healing
 
 
-  Self Healing describes a system's capability of dealing with failures in an automated way by having a pre-defined remediation protocol connected to failure modes in the solution. This is a more advanced concept that can only work if a high level of maturity in monitoring and automation has been reached, but should be taken as a principal from the design phase onward.
+  Self Healing describes a system's ability to deal with failures automatically through pre-defined remediation protocols connected to failure modes within the solution. It is an advanced concept that requires a high level of system maturity with monitoring and automation, but should be an aspiration from inception to maximise reliability.
 
 
 
 ## Design for Scale-out
 
 
-  Scale-out is a concept that focuses on horizontal growth. This means that as traffic grows, _more_ resources are added in parallel instead of increasing the size of the existing resources. This method of scaling is generally cheaper but more importantly, it reduces the impact of a single resource failure making the solution more resilient.
+  Scale-out is a concept that focuses on a system's ability to respond to demand through horizontal growth. This means that as traffic grows, _more_ resource units are added in parallel instead of increasing the size of the existing resources. A systems ability to handle expected and unexpected traffic increases through scale-units is essential to overall reliability and further reduces the impact of a single resource failure.
 
 
 
