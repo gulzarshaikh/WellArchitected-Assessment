@@ -16,8 +16,17 @@
     > Azure Monitor allows for a single location around log and monitoring data in Azure
                                 
                             
+  - Windows Virtual Desktop Session Hosts should be backed up if autoscale is configured
+    > [WVD Session Hosts backed up](https://github.com/Azure/RDS-Templates/tree/master/EnableBackupScript) can be used to back up WVD Session Hosts
+                                
+                            
+## FSLogix
+### Design Considerations
+* [FSLogix](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix) technology allows for users profiles to be stored in a central location and accessed by WVD Session Hosts, side loading the disks in a seamless manner
+  > If using a solution where your users can sign into different Windows Virtual Desktop Session Hosts (Multi-session for example), [FSLogix](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix) should be used to centralize users' profiles.
+                            
   - (Storage) Storage requirements should be optimized for performance in the Windows Virtual Desktop service
-    > Storage sizing for Azure Files and Azure NetApp Files need to align with IOPS Requirements
+    > [Storage sizing for Azure Files and Azure NetApp Files](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix#performance-requirements) need to align with IOPS Requirements
                                 
                             
   - (Storage) Size of the volumes should reflect the performance needed
@@ -28,17 +37,8 @@
     > Light users - Standard File Shares, Medium users - Standard/Premium File Shares, Heavy users - Premium File Shares, Power users - Premium File Shares
                                 
                             
-  - Windows Virtual Desktop Session Hosts should be backed up if autoscale is configured
-    > [WVD Session Hosts backed up](https://github.com/Azure/RDS-Templates/tree/master/EnableBackupScript) can be used to back up WVD Session Hosts
-                                
-                            
-## FSLogix
-### Design Considerations
-* [FSLogix](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix) technology allows for users profiles to be stored in a central location and accessed by WVD Session Hosts, side loading the disks in a seamless manner
-  > If using a solution where your users can sign into different Windows Virtual Desktop Session Hosts (Multi-session for example), [FSLogix](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix) should be used to centralize users' profiles.
-                            
   - The chosen storage service for FSLogix
-    > Azure Files ([Azure AD Domain Services](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-profile-container-adds) or [Active Directory Domain Servces](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-file-share), [Azure NetApp Files](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-fslogix-profile-container), [VM-based file share](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-host-pools-user-profile)
+    > Azure Files ([Azure AD Domain Services](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-profile-container-adds) or [Active Directory Domain Services](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-file-share), [Azure NetApp Files](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-fslogix-profile-container), [VM-based file share](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-host-pools-user-profile)
                                 
                             
   - [FSLogix Cloud Cache](https://docs.microsoft.com/en-us/fslogix/cloud-cache-resiliency-availability-cncpt) for Business Continuity &amp; Disaster Recovery
@@ -61,15 +61,15 @@
 ### Design Considerations
 * Placement of your Windows Virtual Desktop session hosts in your network is a key consideration and should be included in your design
   - Active Directory Domain Services line of site
-    > For WVD Session Hosts to join onto your Active Directory domain, the Virtual Network they reside on should be able to resolve your Active Directory domain name
+    > For WVD Session Hosts to join onto your Active Directory domain, the Virtual Network they reside on should be able to resolve your Active Directory domain name. It is strongly recommended to extend and build [Domain Controllers in Azure](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/identity/adds-extend-domain).
                                 
                             
   - Application workload line of sight from your WVD Session Host(s)
-    > Some application workloads may not be running in Azure which means that WVD will require access to third party datacenters (ExpressRoute, site-to-site VPN). Further planning of migrating workloads to Azure should be considered for scale
+    > Some application workloads may not be running in Azure which means that WVD will require access to third party datacenters (ExpressRoute, site-to-site VPN). It is recommended to migrate applications and workloads accessed by WVD into Azure as close to the WVD environment as possible following [Enterprise Scale Landing Zone guidance](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/).
                                 
                             
   - Designing your solution architecture for scale
-    > By allowing your WVD Session Hosts to have a dedicated subnet inside a Virtual Network, the outcome is the solution has the ability to scale to meet demand should it need to
+    > By allowing your WVD Session Hosts to have a dedicated subnet inside a Virtual Network, the outcome is the solution has the ability to scale to meet demand should it need to. This is of the assumption that you have designed your address space(s) and subnet(s) to contain the decided amount of session hosts
                                 
                             
 ## Identity &amp; Access Control
