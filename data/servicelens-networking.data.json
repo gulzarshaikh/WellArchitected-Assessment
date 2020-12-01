@@ -1178,5 +1178,95 @@
         "id": "networking_5024"
       }
     ]
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+        "costoptimization"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Application Delivery (General)",
+    "title": "Select SKU for service so that it does the job required and that allows the customer to grow as the workload evolves.",
+    "children": 
+    [
+        {
+            "title": "**Load balancer**: 2 SKUs (basic – free and standard – fee based). We recommend standard because it has richer capabilities (outbound rules, granular network security config, monitoring, etc), provides SLA and can be deployed in AZs. Capabilities in basic are limited.",
+            "id": "networking_efficient_skus_1"
+        },
+        {
+            "title": "**App Gateway**: Basic or V2.",
+            "id": "networking_efficient_skus_2"
+        },
+        {
+            "title": "**Gateways**: limit throughput, performance, etc.",
+            "id": "networking_efficient_skus_3"
+        },
+        {
+            "title": "**DDOS Standard**: gives protection for their workload types and how their patterns are. Otherwise you can use the basic (i.e. for small customers).",
+            "id": "networking_efficient_skus_4"
+        }
+    ],
+    "id": "networking_efficient_skus"
+  },
+  {
+    "type": "Design Considerations",
+    "pillars": [
+        "costoptimization"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Network Virtual Appliances (NVA)",
+    "title": "There's a difference between using a third party app (NVA) an Azure native service (Firewall or Application Gateway).",
+    "children": 
+    [
+        {
+            "title": "With managed PaaS services such as Azure Firewall or Application Gateway, Microsoft handles the management of the service and the underlying infrastructure. Using NVAs, which usually have to be deployed on VMs (IaaS), the customer has to handle the management operations (such as patching and updating) of that VM and the appliance on top. Managing 3rd party services also usually mean using specific vendor tools - integration can become difficult.",
+            "id": "networking_cost_nva_1"
+        },
+        {
+            "title": "Some of the costs for networking services are not obvious for customers.",
+            "id": "networking_cost_nva_2"
+        }
+    ],
+    "id": "networking_cost_nva"
+  },
+  {
+    "type": "Design Considerations",
+    "pillars": [
+        "costoptimization"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Network Connectivity",
+    "title": "Running cost of services (services are metered – pay for service itself and consumption on service)",
+    "children": 
+    [
+        {
+            "title": "VNET Peering Cost – customers start putting everything in 1 VNET for example to save costs but that’s preventing them from growing because they will reach a point that they can’t fit everything in one VNET.",
+            "id": "networking_metered_cost_1"
+        },
+        {
+            "title": "If you have 2 VNETs that are peered and you want to access a private endpoint – you pay only for private endpoint access and not VNET peering cost.",
+            "id": "networking_metered_cost_2"
+        },
+        {
+            "title": "Azure Firewall is also metered (pay for instance and for usage) – same for load balancers.",
+            "id": "networking_metered_cost_3"
+        }
+    ],
+    "id": "networking_metered_cost"
+  },
+  {
+    "type": "Configuration Recommendation",
+    "pillars": [
+        "costoptimization"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "IP Addresses",
+    "title": "PIPs (Public IPs) are free unless you don’t use them – if they aren’t assigned to anything you will pay for it.",
+    "context": "There should be a process to look for orphan NICs and PIPs that are not being used in production and non-production.",
+    "id": "networking_cost_orphan_nic"
   }
 ]

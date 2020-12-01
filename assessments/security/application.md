@@ -80,7 +80,7 @@
 * Does this workload use CDN (content delivery network) solutions to separate the hosting platform from the end users / clients?
 
 
-  _Azure CDN can be used to separate the hosting platform from end users. Azure CDN contains a rule engine to remove platform-specific information and headers._
+  _Azure CDN can be used to separate the hosting platform from end users. Azure CDN contains a rule engine to remove platform-specific information and headers. The use of Azure CDN or 3rd party CDN will have different cost implications depending on what is chosen for the workload._
   > Use CDN to separate the hosting platform from the end users / clients.
 * Does the organization use cloud native security controls for this workload?
 
@@ -110,12 +110,12 @@
 * What Azure services are used by the application?
 
 
-  _It is important to understand what Azure services, such as App Services and Event Hub, are used by the application platform to host both application code and data._
+  _It is important to understand what Azure services, such as App Services and Event Hubs, are used by the application platform to host both application code and data. In a discussion around cost, this can drive decisions towards the right replacements (e.g. moving from Virtual Machines to containers to increase efficiency, or migrating to .NET Core to use cheaper SKUs etc.)._
   > All Azure services in use should be identified.
     - What operational features/capabilities are used for leveraged services?
 
 
-      _Operational capabilities, such as auto-scale and auto-heal for AppServices, can reduce management overheads and support operational effectiveness._
+      _Operational capabilities, such as auto-scale and auto-heal for AppServices, can reduce management overheads, support operational effectiveness and reduce cost._
 
       > Make sure you understand the operational features/capabilities available and how they can be used in the solution.
     - What technologies and frameworks are used by the application?
@@ -316,7 +316,7 @@
 * Does the workload use Service Endpoints or Private Link for accessing Azure PaaS services?
 
 
-  _[Service Endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) and [Private Link](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) can be leveraged to restrict access to PaaS endpoints only from authorized virtual networks, effectively mitigating data intrusion risks and associated impact to application availability. Service Endpoints provide service level access to a PaaS service, while Private Link provides direct access to a specific PaaS resource to mitigate data exfiltration risks (e.g. malicious admin scenarios)._
+  _[Service Endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) and [Private Link](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) can be leveraged to restrict access to PaaS endpoints only from authorized virtual networks, effectively mitigating data intrusion risks and associated impact to application availability. Service Endpoints provide service level access to a PaaS service, while Private Link provides direct access to a specific PaaS resource to mitigate data exfiltration risks (e.g. malicious admin scenarios). Don’t forget that Private Link is a paid service and has meters for inbound and outbound data processed. Private Endpoints are charged as well._
   > Use service endpoints and private links where appropriate.
 * Does the organization use Azure Firewall or any 3rd party next generation Firewall for this workload to control outgoing traffic of Azure PaaS services (data exfiltration protection) where Private Link is not available?
 
@@ -383,7 +383,7 @@
 
 
   _DDoS attacks can be very debilitating and completely block access to your services or even take down the services, depending on the type of DDoS attack._
-  > Mitigate DDoS attacks.
+  > Mitigate DDoS attacks. Use Standard protection for critical workloads where outage would have business impact. Also consider CDN as another layer of protection.
 ### Data flow
             
 * Are there controls in place for this workload to detect and protect from data exfiltration?
