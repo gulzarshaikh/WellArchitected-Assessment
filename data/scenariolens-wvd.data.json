@@ -12,8 +12,20 @@
         "recommendation": "Review your central profile store architecture and incorporate FSLogix if you are using multi-session",
         "children": [
             {
+                "title": "(Storage) Storage requirements should be optimized for performance in the Windows Virtual Desktop service",
+                "context": "[Storage sizing for Azure Files and Azure NetApp Files](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix#performance-requirements) need to align with IOPS Requirements"
+            },
+            {
+                "title": "(Storage) Size of the volumes should reflect the performance needed",
+                "context": "Consideration of the size of the volume where user profiles will be stored on a per user profile size basis"
+            },
+            {
+                "title": "(Storage - Azure Files) SKU of the Azure Files Storage Account",
+                "context": "Light users - Standard File Shares, Medium users - Standard/Premium File Shares, Heavy users - Premium File Shares, Power users - Premium File Shares"
+            },
+            {
                 "title": "The chosen storage service for FSLogix",
-                "context": "Azure Files ([Azure AD Domain Services](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-profile-container-adds) or [Active Directory Domain Servces](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-file-share), [Azure NetApp Files](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-fslogix-profile-container), [VM-based file share](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-host-pools-user-profile)"
+                "context": "Azure Files ([Azure AD Domain Services](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-profile-container-adds) or [Active Directory Domain Services](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-file-share), [Azure NetApp Files](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-fslogix-profile-container), [VM-based file share](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-host-pools-user-profile)"
             },
             {
                 "title": "[FSLogix Cloud Cache](https://docs.microsoft.com/en-us/fslogix/cloud-cache-resiliency-availability-cncpt) for Business Continuity & Disaster Recovery",
@@ -47,15 +59,15 @@
         "children":[
             {
                 "title": "Active Directory Domain Services line of site",
-                "context": "For WVD Session Hosts to join onto your Active Directory domain, the Virtual Network they reside on should be able to resolve your Active Directory domain name"
+                "context": "For WVD Session Hosts to join onto your Active Directory domain, the Virtual Network they reside on should be able to resolve your Active Directory domain name. It is strongly recommended to extend and build [Domain Controllers in Azure](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/identity/adds-extend-domain)."
             },
             {
                 "title": "Application workload line of sight from your WVD Session Host(s)",
-                "context": "Some application workloads may not be running in Azure which means that WVD will require access to third party datacenters (ExpressRoute, site-to-site VPN). Further planning of migrating workloads to Azure should be considered for scale"
+                "context": "Some application workloads may not be running in Azure which means that WVD will require access to third party datacenters (ExpressRoute, site-to-site VPN). It is recommended to migrate applications and workloads accessed by WVD into Azure as close to the WVD environment as possible following [Enterprise Scale Landing Zone guidance](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/)."
             },
             {
                 "title": "Designing your solution architecture for scale",
-                "context": "By allowing your WVD Session Hosts to have a dedicated subnet inside a Virtual Network, the outcome is the solution has the ability to scale to meet demand should it need to"
+                "context": "By allowing your WVD Session Hosts to have a dedicated subnet inside a Virtual Network, the outcome is the solution has the ability to scale to meet demand should it need to. This is of the assumption that you have designed your address space(s) and subnet(s) to contain the decided amount of session hosts"
             }
         ]
     },
@@ -110,18 +122,6 @@
             {
                 "title": "Windows Virtual Desktop service logs should be integrated into Azure Monitor",
                 "context": "Azure Monitor allows for a single location around log and monitoring data in Azure"
-            },
-            {
-                "title": "(Storage) Storage requirements should be optimized for performance in the Windows Virtual Desktop service",
-                "context": "Storage sizing for Azure Files and Azure NetApp Files need to align with IOPS Requirements"
-            },
-            {
-                "title": "(Storage) Size of the volumes should reflect the performance needed",
-                "context": "Consideration of the size of the volume where user profiles will be stored on a per user profile size basis"
-            },
-            {
-                "title": "(Storage - Azure Files) SKU of the Azure Files Storage Account",
-                "context": "Light users - Standard File Shares, Medium users - Standard/Premium File Shares, Heavy users - Premium File Shares, Power users - Premium File Shares"
             },
             {
                 "title": "Windows Virtual Desktop Session Hosts should be backed up if autoscale is configured",
