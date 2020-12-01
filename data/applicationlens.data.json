@@ -4743,7 +4743,7 @@
     "category": "Governance",
     "subCategory": "Culture & Dynamics",
     "title": "Is there an ongoing conversation between the app owner and the business?",
-    "context": "What’s being delivered from IT and what the business is expecting from IT mapped to the cost of the application and what can be delivered by IT?",
+    "context": "Is what’s delivered from IT and what the business is expecting from IT mapped to the cost of the application?",
     "recommendation": "",
     "id": "governance_business_conversation"
   },
@@ -4821,7 +4821,7 @@
     "category": "Networking & Connectivity",
     "subCategory": "Endpoints",
     "title": "Are you using Azure Front Door, Azure App Gateway or Web Application Firewall?",
-    "context": "FD enabled WAF – cost and performance implications with this. Can save costs instead of using 3rd party app. Latency of FD is great – uses unicast. You only have to sync once. If you only want 1 or 2 regions you can use app gateway. Cost implications of having a WAF ($25 per region) – check hours and GB/s.",
+    "context": "FD enabled WAF – cost and performance implications with this. Can save costs instead of using 3rd party app. Latency of FD is great – uses unicast. You only have to sync once. If you only want 1 or 2 regions you can use app gateway. There are cost implications of having a WAF ($25 per region) – check hours and GB/s.",
     "recommendation": "",
     "id": "networking_connectivity_front_door_waf_cost"
   },
@@ -4834,7 +4834,7 @@
     "category": "Networking & Connectivity",
     "subCategory": "Connectivity",
     "title": "Are you using Microsoft backbone or MPLS network?",
-    "context": "Are you closer to your users or on-prem? If users are closer to the cloud you should use MSFT (i.e. egress traffic). MPLS – another service provider gives you the line.",
+    "context": "Are you closer to your users or on-prem? If users are closer to the cloud you should use MSFT (i.e. egress traffic). MPLS is when another service provider gives you the line.",
     "recommendation": "",
     "id": "networking_connectivity_msft_or_mpls"
   },

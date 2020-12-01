@@ -1221,16 +1221,12 @@
     "children": 
     [
         {
-            "title": "With Azure Microsoft manages the service. With NVAs customers have to pay for human doing the work behind the scenes. For DevOps, you have to use vendor’s tools – integration becomes difficult.",
+            "title": "With managed PaaS services such as Azure Firewall or Application Gateway, Microsoft handles the management of the service and the underlying infrastructure. Using NVAs, which usually have to be deployed on VMs (IaaS), the customer has to handle the management operations (such as patching and updating) of that VM and the appliance on top. Managing 3rd party services also usually mean using specific vendor tools - integration can become difficult.",
             "id": "networking_cost_nva_1"
         },
         {
             "title": "Some of the costs for networking services are not obvious for customers.",
             "id": "networking_cost_nva_2"
-        },
-        {
-            "title": "Wherever possible use 1st party services rather than 3rd party services – get rid of hidden costs.",
-            "id": "networking_cost_nva_3"
         }
     ],
     "id": "networking_cost_nva"
@@ -1262,7 +1258,7 @@
     "id": "networking_metered_cost"
   },
   {
-    "type": "Design Considerations",
+    "type": "Configuration Recommendation",
     "pillars": [
         "costoptimization"
     ],
