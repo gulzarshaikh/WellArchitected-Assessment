@@ -1217,7 +1217,7 @@
     "lens": "service",
     "category": "Networking",
     "subCategory": "Network Virtual Appliances (NVA)",
-    "title": "Are you using a third party app (NVA) or Azure Native Service (Firewall or App Gateway)?",
+    "title": "There's a difference between using a third party app (NVA) an Azure native service (Firewall or Application Gateway).",
     "children": 
     [
         {
@@ -1269,8 +1269,8 @@
     "lens": "service",
     "category": "Networking",
     "subCategory": "IP Addresses",
-    "title": "Is there a process to look for orphan NIC, PIP that are not being used in production and non-production?",
-    "context": "PIPs (Public IPs) are free unless you don’t use them – if they aren’t assigned to anything you will pay for it.",
+    "title": "PIPs (Public IPs) are free unless you don’t use them – if they aren’t assigned to anything you will pay for it.",
+    "context": "There should be a process to look for orphan NICs and PIPs that are not being used in production and non-production.",
     "id": "networking_cost_orphan_nic"
   }
 ]
