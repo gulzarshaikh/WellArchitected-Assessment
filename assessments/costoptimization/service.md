@@ -98,11 +98,9 @@ This list contains design considerations and recommended configuration options, 
 ## Network Virtual Appliances (NVA)
 ### Design Considerations
 * There&#39;s a difference between using a third party app (NVA) an Azure native service (Firewall or Application Gateway).
-  - With Azure Microsoft manages the service. With NVAs customers have to pay for human doing the work behind the scenes. For DevOps, you have to use vendor’s tools – integration becomes difficult.
+  - With managed PaaS services such as Azure Firewall or Application Gateway, Microsoft handles the management of the service and the underlying infrastructure. Using NVAs, which usually have to be deployed on VMs (IaaS), the customer has to handle the management operations (such as patching and updating) of that VM and the appliance on top. Managing 3rd party services also usually mean using specific vendor tools - integration can become difficult.
                             
   - Some of the costs for networking services are not obvious for customers.
-                            
-  - Wherever possible use 1st party services rather than 3rd party services – get rid of hidden costs.
                             
 ## Network Connectivity
 ### Design Considerations
@@ -125,7 +123,3 @@ This list contains design considerations and recommended configuration options, 
   - **DDOS Standard**: gives protection for their workload types and how their patterns are. Otherwise you can use the basic (i.e. for small customers).
                             
 ## IP Addresses
-### Design Considerations
-* PIPs (Public IPs) are free unless you don’t use them – if they aren’t assigned to anything you will pay for it.
-  > There should be a process to look for orphan NICs and PIPs that are not being used in production and non-production.
-                            

@@ -304,7 +304,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 * Are you using Microsoft backbone or MPLS network?
 
 
-  _Are you closer to your users or on-prem? If users are closer to the cloud you should use MSFT (i.e. egress traffic). MPLS – another service provider gives you the line._
+  _Are you closer to your users or on-prem? If users are closer to the cloud you should use MSFT (i.e. egress traffic). MPLS is when another service provider gives you the line._
 ### Endpoints
             
 * Does the organization have the capability and plans in place to mitigate DDoS attacks for this workload?
@@ -315,7 +315,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 * Are you using Azure Front Door, Azure App Gateway or Web Application Firewall?
 
 
-  _FD enabled WAF – cost and performance implications with this. Can save costs instead of using 3rd party app. Latency of FD is great – uses unicast. You only have to sync once. If you only want 1 or 2 regions you can use app gateway. Cost implications of having a WAF ($25 per region) – check hours and GB/s._
+  _FD enabled WAF – cost and performance implications with this. Can save costs instead of using 3rd party app. Latency of FD is great – uses unicast. You only have to sync once. If you only want 1 or 2 regions you can use app gateway. There are cost implications of having a WAF ($25 per region) – check hours and GB/s._
 ### Data flow
             
 * Are you moving data between regions?
@@ -534,7 +534,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 * Is there an ongoing conversation between the app owner and the business?
 
 
-  _What’s being delivered from IT and what the business is expecting from IT mapped to the cost of the application and what can be delivered by IT?_
+  _Is what’s delivered from IT and what the business is expecting from IT mapped to the cost of the application?_
 ### Licensing
             
 * Is A-HUB (Azure Hybrid Use Benefit) used to drive cost down in order to re-use licenses to drive cost down in cloud?
