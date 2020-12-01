@@ -1191,7 +1191,7 @@
     "children": 
     [
         {
-            "title": "**Load balancer**: 2 SKUs (basic – free and standard – fee based). We recommend standard because that’s where the investments are going (outbound rules, granular network security config, monitoring, etc). Capabilities in basic are limited.",
+            "title": "**Load balancer**: 2 SKUs (basic – free and standard – fee based). We recommend standard because it has richer capabilities (outbound rules, granular network security config, monitoring, etc), provides SLA and can be deployed in AZs. Capabilities in basic are limited.",
             "id": "networking_efficient_skus_1"
         },
         {
@@ -1221,11 +1221,11 @@
     "children": 
     [
         {
-            "title": "With Azure we manage the service. With NVAs have to pay for human doing the work behind the scenes. For devops, have to use vendor’s tools – integration becomes difficult.",
+            "title": "With Azure Microsoft manages the service. With NVAs customers have to pay for human doing the work behind the scenes. For DevOps, you have to use vendor’s tools – integration becomes difficult.",
             "id": "networking_cost_nva_1"
         },
         {
-            "title": "Running costs that are present that customers also don’t see.",
+            "title": "Some of the costs for networking services are not obvious for customers.",
             "id": "networking_cost_nva_2"
         },
         {

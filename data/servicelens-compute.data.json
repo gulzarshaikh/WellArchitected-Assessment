@@ -871,7 +871,7 @@
         "lens": "service",
         "category": "Compute",
         "subCategory": "Virtual Machines",
-        "title": "Do you shut down the underutilized VM instances?",
+        "title": "Do you shut down the VM instances which are not in use?",
         "context": "Use the Start/Stop VMs during off-hours feature of virtual machines to minimize waste. There are many configuration options to schedule start the stop times. The feature is suitable as a low-cost automation option. Azure Advisor evaluates virtual machines based on CPU and network utilization over a time period. Then, the recommended actions are shut down or resize instances and cost saving with both actions."
     },
     {
@@ -893,7 +893,7 @@
         "lens": "service",
         "category": "Compute",
         "subCategory": "Virtual Machines",
-        "title": "Are you using PaaS as an alternative to buying VMs?",
+        "title": "Are you using PaaS as an alternative to virtual machines?",
         "context": "When you use the PaaS model, operational and maintenance costs are included in the pricing and in some cases can be cheaper than managing VMs on your own."
     },
     {
@@ -904,7 +904,7 @@
         "lens": "service",
         "category": "Compute",
         "subCategory": "Virtual Machines",
-        "title": "Zone to Zone disaster recovery for Virtual Machines",
+        "title": "Use Zone to Zone disaster recovery for virtual machines.",
         "context": "(in preview as of 11/2020) Replicate, failover and failback your business-critical virtual machines within the same region with zones. Ideal for those that have complicated networking infrastructure and want to avoid the cost and complexity of recreating it in a secondary region."
     },
     {
@@ -915,7 +915,7 @@
         "lens": "service",
         "category": "Compute",
         "subCategory": "Virtual Machines",
-        "title": "Start/Stop in Azure Kubernetes Services (AKS)",
+        "title": "Use the Start/Stop feature in Azure Kubernetes Services (AKS).",
         "context": "(in preview as of 11/2020) The AKS Stop/Start cluster feature now in public preview allows AKS customers to completely pause an AKS cluster, saving time and cost. The stop/start feature keeps cluster configurations in place and customers can pick up where they left off without reconfiguring the clusters."
     }
 ]

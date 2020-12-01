@@ -243,7 +243,7 @@
         "lens": "service",
         "category": "Storage",
         "subCategory": "Disks",
-        "title": "For database workload, are you configuring data and log files on different disks?",
+        "title": "For database workloads, are you configuring data and log files on different disks?",
         "context" : "You can optimize IaaS DB workload performance by configuring their system, data and log files to be on different Disk SKUs (leveraging Premium Disks for data and Ultra Disks for logs satisfies most production scenarios). Further, you can optimize Ultra Disk cost/performance by taking advantage of the ability to configure capacity, IOPS and throughput independently; and ability to dynamically configure these attributes. Example workloads are SQL on IaaS, Cassandra DB, Maria DB, MySql and Mongo DB on IaaS. Learn more about Ultra Disks."
     },
     {
