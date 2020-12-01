@@ -97,7 +97,7 @@ This list contains design considerations and recommended configuration options, 
         
 ## Network Virtual Appliances (NVA)
 ### Design Considerations
-* Are you using a third party app (NVA) or Azure Native Service (Firewall or App Gateway)?
+* There&#39;s a difference between using a third party app (NVA) an Azure native service (Firewall or Application Gateway).
   - With Azure Microsoft manages the service. With NVAs customers have to pay for human doing the work behind the scenes. For DevOps, you have to use vendor’s tools – integration becomes difficult.
                             
   - Some of the costs for networking services are not obvious for customers.
@@ -126,6 +126,6 @@ This list contains design considerations and recommended configuration options, 
                             
 ## IP Addresses
 ### Design Considerations
-* Is there a process to look for orphan NIC, PIP that are not being used in production and non-production?
-  > PIPs (Public IPs) are free unless you don’t use them – if they aren’t assigned to anything you will pay for it.
+* PIPs (Public IPs) are free unless you don’t use them – if they aren’t assigned to anything you will pay for it.
+  > There should be a process to look for orphan NICs and PIPs that are not being used in production and non-production.
                             
