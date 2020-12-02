@@ -115,7 +115,7 @@
         "lens": "application",
         "category": "General",
         "subCategory": "Unassigned",
-        "title": "Automation Penetration Test",
+        "title": "Automation Penetration Testing",
         "context": "Identify and mitigate code-level vulnerabilities (e.g. cross-site scripting, SQL injection). Regularly incorporate security fixes and patching of all parts of the codebase, including dependencies, into the operational lifecycle.",
         "id": "dp_security_5"
     },
