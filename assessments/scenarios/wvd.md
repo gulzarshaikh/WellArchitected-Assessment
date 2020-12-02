@@ -69,7 +69,7 @@
                                 
                             
   - Designing your solution architecture for scale
-    > By allowing your WVD Session Hosts to have a dedicated subnet inside a Virtual Network, the outcome is the solution has the ability to scale to meet demand should it need to. This is of the assumption that you have designed your address space(s) and subnet(s) to contain the decided amount of session hosts
+    > Ensure that your network architecture has enough internal addresses to support the number of WVD Session Hosts in your environment
                                 
                             
 ## Identity &amp; Access Control
