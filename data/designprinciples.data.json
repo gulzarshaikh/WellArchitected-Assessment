@@ -7,7 +7,7 @@
         "lens": "application",
         "category": "General",
         "subCategory": "Unassigned",
-        "title": "Optimize build and release processes",
+        "title": "Optimize Build and Release Processes",
         "context": "From provisioning with Infrastructure as Code, to build and releases with CI/CD pipelines, to automated testing, embrace software engineering disciplines across your entire environment. This approach ensures the creation and management of environments throughout the software development lifecycle is consistent, repeatable, and enables early detection of issues.",
         "id": "dp_opex_1"
     },
@@ -19,7 +19,7 @@
         "lens": "application",
         "category": "General",
         "subCategory": "Unassigned",
-        "title": "Monitor entire system and understand operational health",
+        "title": "End-to-end Health Monitoring",
         "context": "Implement systems and processes to monitor build and release processes, infrastructure health, and application health. Telemetry is critical to understanding the health of a workload and whether the service is meeting the business goals.",
         "id": "dp_opex_2"
     },
@@ -31,7 +31,7 @@
         "lens": "application",
         "category": "General",
         "subCategory": "Unassigned",
-        "title": "Rehearse recovery and practice failure",
+        "title": "Regularly Practice Failure/Recovery",
         "context": "Run DR drills on regular cadence and use chaos engineering practices to identify and remediate weak points in application reliability. Regular rehearsal of failure will validate the effectiveness of recovery processes and ensure teams are familiar with their responsibilities.",
         "id": "dp_opex_3"
     },
@@ -43,7 +43,7 @@
         "lens": "application",
         "category": "General",
         "subCategory": "Unassigned",
-        "title": "Embrace operational improvement",
+        "title": "Operational Improvement",
         "context": "Continuously evaluate and refine operational procedures and tasks, while striving to reduce complexity and ambiguity. This approach enables an organization to evolve processes over time, optimizing inefficiencies and learning from failures.",
         "id": "dp_opex_4"
     },
@@ -55,7 +55,7 @@
         "lens": "application",
         "category": "General",
         "subCategory": "Unassigned",
-        "title": "Use loosely coupled architecture",
+        "title": "Loosely Coupled Architecture",
         "context": "Enable teams to independently test, deploy, and update their systems on demand without depending on other teams for support, services, resources, or approvals.",
         "id": "dp_opex_5"
     },
@@ -67,7 +67,7 @@
         "lens": "application",
         "category": "General",
         "subCategory": "Unassigned",
-        "title": "Minimize unnecessary access and manage privileges through automation",
+        "title": "Use Least Privilege",
         "context": "Implement least privilege throughout the application and control plane to protect against data exfiltration and malitious actor scenarios. Drive automation through DevSecOps to minimize the need for human interaction.",
         "id": "dp_security_1"
     },
@@ -79,7 +79,7 @@
         "lens": "application",
         "category": "General",
         "subCategory": "Unassigned",
-        "title": "Classify and encrypt data to prevent data leakage",
+        "title": "Classify and Encrypt Data",
         "context": "Classify data according to risk and apply industry standard encryption at rest and in transit holistically, ensuring keys and certificates are stored securely and managed properly.",
         "id": "dp_security_2"
     },
@@ -91,7 +91,7 @@
         "lens": "application",
         "category": "General",
         "subCategory": "Unassigned",
-        "title": "Monitor security of entire system and plan for incident responses",
+        "title": "Security Monitoring",
         "context": "Correlate security and audit events to model application health and identify active threats. Establish automated and manual procedures to respond to incidents leveraging SIEM tooling for tracking.",
         "id": "dp_security_3"
     },
@@ -103,7 +103,7 @@
         "lens": "application",
         "category": "General",
         "subCategory": "Unassigned",
-        "title": "Identify and protect internal and external endpoints",
+        "title": "Protect Endpoints",
         "context": "Monitor and protect the network integrity of internal and external endpoints through security appliances, such as firewalls or web application firewalls. Use industry standard approaches to protect against common attack vectors, such as DDoS (e.g. SlowLoris).",
         "id": "dp_security_4"
     },
@@ -115,7 +115,7 @@
         "lens": "application",
         "category": "General",
         "subCategory": "Unassigned",
-        "title": "Protect against code level vulnerabilities",
+        "title": "Automation Penetration Test",
         "context": "Identify and mitigate code-level vulnerabilities (e.g. cross-site scripting, SQL injection). Regularly incorporate security fixes and patching of all parts of the codebase, including dependencies, into the operational lifecycle.",
         "id": "dp_security_5"
     },
@@ -127,7 +127,7 @@
         "lens": "application",
         "category": "General",
         "subCategory": "Unassigned",
-        "title": "Model and test against potential threats",
+        "title": "Threat Model the Application",
         "context": "Establish procedures to identify and mitigate known threats. Use penetration testing to verify threat mitigation, as well as static code analysis and code scanning to detect and prevent future vulnerabilities.",
         "id": "dp_security_6"
     }
