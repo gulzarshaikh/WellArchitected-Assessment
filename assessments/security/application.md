@@ -74,7 +74,7 @@ The following Design Principles provide context for questions, why a certain asp
 
 
 
-## Automation Penetration Test
+## Automation Penetration Testing
 
 
   Identify and mitigate code-level vulnerabilities (e.g. cross-site scripting, SQL injection). Regularly incorporate security fixes and patching of all parts of the codebase, including dependencies, into the operational lifecycle.
