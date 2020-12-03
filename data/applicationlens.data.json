@@ -3089,7 +3089,7 @@
     "title": "Does the organization leverage resource locks in this workload to protect critical infrastructure?",
     "recommendation": "Implement resource locks to protect critical infrastructure.",
     "id": "identity__access_control_270",
-    "context": "Critical infrastructure typically doesn't change often. To prevent accidental/undesired modification of resources, Azure offers the locking functionality where only specific roles and users with permissions are able to delete/modify resources. Locks can be used on critical parts of the infrastructure, but special care needs to be taken in the DevOps process - modification locks can sometimes block automation."
+    "context": "Critical infrastructure typically doesn't change often. To prevent accidental/undesired modification of resources, Azure offers the locking functionality where only specific roles and users with permissions are able to delete/modify resources. Locks can be used on critical parts of the infrastructure, but special care needs to be taken in the DevOps process - modification locks can sometimes block automation (see [Considerations before applying locks](https://review.docs.microsoft.com/azure/azure-resource-manager/management/lock-resources#considerations-before-applying-locks) for more information)."
   },
   {
     "type": "Questions",
