@@ -7,7 +7,7 @@
         "lens": "application",
         "category": "General",
         "subCategory": "Unassigned",
-        "title": "Optimize Build and Release Processes",
+        "title": "Optimize build and release processes",
         "context": "From provisioning with Infrastructure as Code, to build and releases with CI/CD pipelines, to automated testing, embrace software engineering disciplines across your entire environment. This approach ensures the creation and management of environments throughout the software development lifecycle is consistent, repeatable, and enables early detection of issues.",
         "id": "dp_opex_1"
     },
@@ -19,7 +19,7 @@
         "lens": "application",
         "category": "General",
         "subCategory": "Unassigned",
-        "title": "End-to-end Health Monitoring",
+        "title": "Monitor entire system and understand operational health",
         "context": "Implement systems and processes to monitor build and release processes, infrastructure health, and application health. Telemetry is critical to understanding the health of a workload and whether the service is meeting the business goals.",
         "id": "dp_opex_2"
     },
@@ -31,7 +31,7 @@
         "lens": "application",
         "category": "General",
         "subCategory": "Unassigned",
-        "title": "Regularly Practice Failure/Recovery",
+        "title": "Rehearse recovery and practice failure",
         "context": "Run DR drills on regular cadence and use chaos engineering practices to identify and remediate weak points in application reliability. Regular rehearsal of failure will validate the effectiveness of recovery processes and ensure teams are familiar with their responsibilities.",
         "id": "dp_opex_3"
     },
@@ -43,7 +43,7 @@
         "lens": "application",
         "category": "General",
         "subCategory": "Unassigned",
-        "title": "Operational Improvement",
+        "title": "Embrace operational improvement",
         "context": "Continuously evaluate and refine operational procedures and tasks, while striving to reduce complexity and ambiguity. This approach enables an organization to evolve processes over time, optimizing inefficiencies and learning from failures.",
         "id": "dp_opex_4"
     },
@@ -55,7 +55,7 @@
         "lens": "application",
         "category": "General",
         "subCategory": "Unassigned",
-        "title": "Loosely Coupled Architecture",
+        "title": "Use loosely coupled architecture",
         "context": "Enable teams to independently test, deploy, and update their systems on demand without depending on other teams for support, services, resources, or approvals.",
         "id": "dp_opex_5"
     },
