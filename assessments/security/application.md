@@ -46,7 +46,7 @@
 The following Design Principles provide context for questions, why a certain aspect is important and how is it applicable to Security.
 
 
-## Use Least Privilege
+## Automate and use least privilege
 
 
   Implement least privilege throughout the application and control plane to protect against data exfiltration and malitious actor scenarios. Drive automation through DevSecOps to minimize the need for human interaction.
@@ -60,28 +60,28 @@ The following Design Principles provide context for questions, why a certain asp
 
 
 
-## Security Monitoring
+## Monitor security of entire system and plan incident responses
 
 
   Correlate security and audit events to model application health and identify active threats. Establish automated and manual procedures to respond to incidents leveraging SIEM tooling for tracking.
 
 
 
-## Protect Endpoints
+## Identify and protect endpoints
 
 
   Monitor and protect the network integrity of internal and external endpoints through security appliances, such as firewalls or web application firewalls. Use industry standard approaches to protect against common attack vectors, such as DDoS (e.g. SlowLoris).
 
 
 
-## Automation Penetration Testing
+## Protect against code level vulnerabilities
 
 
   Identify and mitigate code-level vulnerabilities (e.g. cross-site scripting, SQL injection). Regularly incorporate security fixes and patching of all parts of the codebase, including dependencies, into the operational lifecycle.
 
 
 
-## Threat Model the Application
+## Model and test against potential threats
 
 
   Establish procedures to identify and mitigate known threats. Use penetration testing to verify threat mitigation, as well as static code analysis and code scanning to detect and prevent future vulnerabilities.
