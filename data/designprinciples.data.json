@@ -67,7 +67,7 @@
         "lens": "application",
         "category": "General",
         "subCategory": "Unassigned",
-        "title": "Use Least Privilege",
+        "title": "Automate and use least privilege",
         "context": "Implement least privilege throughout the application and control plane to protect against data exfiltration and malitious actor scenarios. Drive automation through DevSecOps to minimize the need for human interaction.",
         "id": "dp_security_1"
     },
@@ -91,7 +91,7 @@
         "lens": "application",
         "category": "General",
         "subCategory": "Unassigned",
-        "title": "Security Monitoring",
+        "title": "Monitor security of entire system and plan incident responses",
         "context": "Correlate security and audit events to model application health and identify active threats. Establish automated and manual procedures to respond to incidents leveraging SIEM tooling for tracking.",
         "id": "dp_security_3"
     },
@@ -103,7 +103,7 @@
         "lens": "application",
         "category": "General",
         "subCategory": "Unassigned",
-        "title": "Protect Endpoints",
+        "title": "Identify and protect endpoints",
         "context": "Monitor and protect the network integrity of internal and external endpoints through security appliances, such as firewalls or web application firewalls. Use industry standard approaches to protect against common attack vectors, such as DDoS (e.g. SlowLoris).",
         "id": "dp_security_4"
     },
@@ -115,7 +115,7 @@
         "lens": "application",
         "category": "General",
         "subCategory": "Unassigned",
-        "title": "Automation Penetration Testing",
+        "title": "Protect against code level vulnerabilities",
         "context": "Identify and mitigate code-level vulnerabilities (e.g. cross-site scripting, SQL injection). Regularly incorporate security fixes and patching of all parts of the codebase, including dependencies, into the operational lifecycle.",
         "id": "dp_security_5"
     },
@@ -127,7 +127,7 @@
         "lens": "application",
         "category": "General",
         "subCategory": "Unassigned",
-        "title": "Threat Model the Application",
+        "title": "Model and test against potential threats",
         "context": "Establish procedures to identify and mitigate known threats. Use penetration testing to verify threat mitigation, as well as static code analysis and code scanning to detect and prevent future vulnerabilities.",
         "id": "dp_security_6"
     }
