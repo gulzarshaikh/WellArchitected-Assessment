@@ -1610,7 +1610,7 @@
     "children": [
       {
         "title": "Does anyone have long-standing write-access to production environments?",
-        "context": "Write-access to production systems should be limited to service principals and no user accounts have regular write-access",
+        "context": "Write-access to production systems should be limited to service principals and no user accounts should have regular write-access",
         "recommendation": "",
         "id": ""
       }
