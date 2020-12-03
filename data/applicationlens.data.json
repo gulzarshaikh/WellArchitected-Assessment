@@ -3076,7 +3076,7 @@
     "title": "Does the organization protect the workload infrastructure with role-based access control (RBAC)?",
     "recommendation": "Implement role-based access control for application infrastructure.",
     "id": "identity__access_control_5609",
-    "context": "Performing role-based or/or resource-based authorization with Azure Active Directory allows centralized management that supports principal of least privilege when accessing organizational resources. RBAC provides the necessary tools to maintain separation of concerns when it comes to accessing the application infrastructure. Aligned with the [separation of duties](#separation-of-duties) section, users should have only the minimal set of permissions. Examples: \"Developers can't access production infrastructure.\", \"Only the SecOps team can read and manage Key Vault secrets.\", \"Project A team can access and manage Resource Group A and all resources within.\""
+    "context": "Performing role-based or/or resource-based authorization with Azure Active Directory allows centralized management that supports the principle of least privilege when accessing organizational resources. RBAC provides the necessary tools to maintain separation of concerns when it comes to accessing the application infrastructure. Aligned with the [separation of duties](#separation-of-duties) section, users should have only the minimal set of permissions. Examples: \"Developers can't access production infrastructure.\", \"Only the SecOps team can read and manage Key Vault secrets.\", \"Project A team can access and manage Resource Group A and all resources within.\""
   },
   {
     "type": "Questions",
