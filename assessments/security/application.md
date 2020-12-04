@@ -46,6 +46,13 @@
 The following Design Principles provide context for questions, why a certain aspect is important and how is it applicable to Security.
 
 
+## Plan resources and determine how to harden
+
+
+  Ensure that the resources used by this workload are selected with security in mind and that it's understood how individual services are protected. Use a service enablement framework to evaluate.
+
+
+
 ## Automate and use least privilege
 
 
@@ -53,7 +60,7 @@ The following Design Principles provide context for questions, why a certain asp
 
 
 
-## Classify and Encrypt Data
+## Classify and encrypt Data
 
 
   Classify data according to risk and apply industry standard encryption at rest and in transit holistically, ensuring keys and certificates are stored securely and managed properly.
