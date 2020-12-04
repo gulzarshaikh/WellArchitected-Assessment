@@ -46,10 +46,10 @@
 The following Design Principles provide context for questions, why a certain aspect is important and how is it applicable to Security.
 
 
-## Plan resources and determine how to harden
+## Plan resources and determine how to harden them
 
 
-  Ensure that the resources used by this workload are selected with security in mind and that it's understood how individual services are protected. Use a service enablement framework to evaluate.
+  Ensure that security is taken into account when resources used by this workload are planned, and that it's understood how individual cloud services are protected. Use a service enablement framework to evaluate.
 
 
 
