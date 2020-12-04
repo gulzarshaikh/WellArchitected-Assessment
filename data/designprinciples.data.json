@@ -130,5 +130,89 @@
         "title": "Design for Scale-out",
         "context": "Scale-out is a concept that focuses on a system's ability to respond to demand through horizontal growth. This means that as traffic grows, _more_ resource units are added in parallel instead of increasing the size of the existing resources. A systems ability to handle expected and unexpected traffic increases through scale-units is essential to overall reliability and further reduces the impact of a single resource failure.",
         "id": "dp_reliability_5"
+    },
+    {
+        "type": "Design Principles",
+        "pillars": [
+            "security"
+        ],
+        "lens": "application",
+        "category": "General",
+        "subCategory": "Unassigned",
+        "title": "Plan resources and determine how to harden them",
+        "context": "Ensure that security is taken into account when resources used by this workload are planned, and that it's understood how individual cloud services are protected. Use a service enablement framework to evaluate.",
+        "id": "dp_security_1"
+    },
+    {
+        "type": "Design Principles",
+        "pillars": [
+            "security"
+        ],
+        "lens": "application",
+        "category": "General",
+        "subCategory": "Unassigned",
+        "title": "Automate and use least privilege",
+        "context": "Implement least privilege throughout the application and control plane to protect against data exfiltration and malitious actor scenarios. Drive automation through DevSecOps to minimize the need for human interaction.",
+        "id": "dp_security_2"
+    },
+    {
+        "type": "Design Principles",
+        "pillars": [
+            "security"
+        ],
+        "lens": "application",
+        "category": "General",
+        "subCategory": "Unassigned",
+        "title": "Classify and encrypt Data",
+        "context": "Classify data according to risk and apply industry standard encryption at rest and in transit holistically, ensuring keys and certificates are stored securely and managed properly.",
+        "id": "dp_security_3"
+    },
+    {
+        "type": "Design Principles",
+        "pillars": [
+            "security"
+        ],
+        "lens": "application",
+        "category": "General",
+        "subCategory": "Unassigned",
+        "title": "Monitor security of entire system and plan incident responses",
+        "context": "Correlate security and audit events to model application health and identify active threats. Establish automated and manual procedures to respond to incidents leveraging SIEM tooling for tracking.",
+        "id": "dp_security_4"
+    },
+    {
+        "type": "Design Principles",
+        "pillars": [
+            "security"
+        ],
+        "lens": "application",
+        "category": "General",
+        "subCategory": "Unassigned",
+        "title": "Identify and protect endpoints",
+        "context": "Monitor and protect the network integrity of internal and external endpoints through security appliances, such as firewalls or web application firewalls. Use industry standard approaches to protect against common attack vectors, such as DDoS (e.g. SlowLoris).",
+        "id": "dp_security_5"
+    },
+    {
+        "type": "Design Principles",
+        "pillars": [
+            "security"
+        ],
+        "lens": "application",
+        "category": "General",
+        "subCategory": "Unassigned",
+        "title": "Protect against code level vulnerabilities",
+        "context": "Identify and mitigate code-level vulnerabilities (e.g. cross-site scripting, SQL injection). Regularly incorporate security fixes and patching of all parts of the codebase, including dependencies, into the operational lifecycle.",
+        "id": "dp_security_6"
+    },
+    {
+        "type": "Design Principles",
+        "pillars": [
+            "security"
+        ],
+        "lens": "application",
+        "category": "General",
+        "subCategory": "Unassigned",
+        "title": "Model and test against potential threats",
+        "context": "Establish procedures to identify and mitigate known threats. Use penetration testing to verify threat mitigation, as well as static code analysis and code scanning to detect and prevent future vulnerabilities.",
+        "id": "dp_security_7"
     }
 ]
