@@ -58,7 +58,7 @@ This list contains design considerations and recommended configuration options, 
 * All users&#39; notebooks and notebook results are encrypted at rest by default. If additional requirements are in place, consider using [customer-managed keys for notebooks](https://docs.microsoft.com/azure/databricks/security/keys/customer-managed-key-notebook).
 ### Configuration Recommendations
 * Isolate your workspaces, compute and data from public access. Make sure that only the right people have access and only via secure channels.
-  - Ensure that the cloud workspaces for your analytics are only accessible from your secured corporate perimeters. If employees need to work from remote locations they need to VPN into the corporate network to access anything that can touch data. This will allow enterprise IT to monitor, inspect and enforce policies on any access to workspaces in the cloud.
+  - Ensure that the cloud workspaces for your analytics are only accessible by properly [managed users](https://docs.microsoft.com/azure/databricks/administration-guide/users-groups/). Azure Active Directory can handle single sign-on for remote access. For additional security, see [Conditional Access](https://docs.microsoft.com/azure/databricks/administration-guide/access-control/conditional-access).
                             
   - Implement Azure Private Link and ensure that all traffic between users of your platform,the notebooks and the compute clusters that process queries is encrypted and transmitted over the cloud provider’s network backbone, inaccessible to the outside world.
                             
