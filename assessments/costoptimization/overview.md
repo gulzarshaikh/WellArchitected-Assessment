@@ -7,6 +7,8 @@ This assessment has been produced to help the global CE&S community to optimize 
 ## Navigation Menu
 
 ### [Application Cost Optimization](./application.md) 
+
+- [Design Principles](./application.md#design-principles)
 - [Application Assessment Checklist](./application.md#Application-Assessment-Checklist)
   - [Application Design](./application.md#Application-Design)
     - [Design](./application.md#Design)
