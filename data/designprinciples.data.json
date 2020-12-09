@@ -224,7 +224,7 @@
         "category": "General",
         "subCategory": "Unassigned",
         "title": "Choose the correct resources for your business goals",
-        "context": "Choose the right resources that are aligned with business goals and can handle the performance of the workload. When onboarding new workloads explore the possibility of modernization and cloud native offerings where possible. Using the PaaS or SaaS layer as opposed to IaaS is typically more cost effective.",
+        "context": "Choose the right resources that are aligned with business goals and can handle the performance needs of the workload. When onboarding new workloads explore the possibility of modernization and cloud native offerings where possible. Using the PaaS or SaaS layer as opposed to IaaS is typically more cost effective.",
         "id": "dp_costoptimization_1"
     },
     {
@@ -236,7 +236,7 @@
         "category": "General",
         "subCategory": "Unassigned",
         "title": "Set up budgets and keep within cost constraints",
-        "context": "Consider the budget constraints as part of the architectural design, identifying acceptable boundaries pertaining to scale, redundancy, and performance against cost. After initial estimations set budgets and alerts at different scopes to continuously measure the cost.",
+        "context": "Consider the budget constraints as part of the architectural design, identifying acceptable boundaries pertaining to scale, redundancy, and performance against cost. After initial estimations, set budgets and alerts at different scopes to continuously measure the cost.",
         "id": "dp_costoptimization_2"
     },
     {
@@ -248,7 +248,7 @@
         "category": "General",
         "subCategory": "Unassigned",
         "title": "Dynamically allocate and de-allocate resources to match performance needs",
-        "context": "Identify idle or underutilised resources (i.e. through Azure Advisor) and reconfigure, consolidate or shut down.",
+        "context": "Identify idle or underutilised resources (e.g. through Azure Advisor or other tools) and reconfigure, consolidate or shut down.",
         "id": "dp_costoptimization_3"
     },
     {
