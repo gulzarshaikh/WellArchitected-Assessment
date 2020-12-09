@@ -47,21 +47,21 @@ The following Design Principles provide context for questions, why a certain asp
 ## Choose the correct resources for your business goals
 
 
-  Choose the right resources that are aligned with business goals and can handle the performance of the workload. When onboarding new workloads explore the possibility of modernization and cloud native offerings where possible. Using the PaaS or SaaS layer as opposed to IaaS is typically more cost effective.
+  Choose the right resources that are aligned with business goals and can handle the performance needs of the workload. When onboarding new workloads explore the possibility of modernization and cloud native offerings where possible. Using the PaaS or SaaS layer as opposed to IaaS is typically more cost effective.
 
 
 
 ## Set up budgets and keep within cost constraints
 
 
-  Consider the budget constraints as part of the architectural design, identifying acceptable boundaries pertaining to scale, redundancy, and performance against cost. After initial estimations set budgets and alerts at different scopes to continuously measure the cost.
+  Consider the budget constraints as part of the architectural design, identifying acceptable boundaries pertaining to scale, redundancy, and performance against cost. After initial estimations, set budgets and alerts at different scopes to continuously measure the cost.
 
 
 
 ## Dynamically allocate and de-allocate resources to match performance needs
 
 
-  Identify idle or underutilised resources (i.e. through Azure Advisor) and reconfigure, consolidate or shut down.
+  Identify idle or underutilised resources (e.g. through Azure Advisor or other tools) and reconfigure, consolidate or shut down.
 
 
 
