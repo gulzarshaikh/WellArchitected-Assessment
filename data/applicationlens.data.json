@@ -3732,8 +3732,8 @@
     "lens": "application",
     "category": "Application Design",
     "subCategory": "Security Criteria & Data Classification",
-    "title": "Does the organization prioritize security best practices by reviewing guidance based on industry recommendations and apply those settings proactively and completely to all systems as a cloud program is implemented?",
-    "context": "Security best practices are ideally applied proactively and completely to all systems as a cloud program is implemented.",
+    "title": "Does the organization prioritize security best practices by reviewing guidance based on industry recommendations and apply those settings proactively and completely to all systems as the cloud workload is implemented?",
+    "context": "Security best practices are ideally applied proactively and completely to all systems as the cloud workload is implemented.",
     "recommendation": "Review, prioritize, and proactively apply security best practices to cloud resources.",
     "id": "application_design_security_best_practices"
   },
