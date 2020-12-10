@@ -2811,7 +2811,13 @@
             "context": "Knowing whether your cloud resources are in compliance with standards mandated by governments or industry organizations is essential in today's globalized world (e.g. GDPR).",
             "recommendation": "Perform regulatory compliance attestation.",
             "id": "application_design_process_compliance"
-        }
+        },
+        {
+            "title": "Has the organization established a monitoring and assessing solution for compliance?",
+            "context": "Continuous monitoring and assessing workload increases the overall security and compliance of your workload in Azure. For example Azure Security Center provides a regulatory compliance dashboard.",
+            "recommendation": "Continuously assess and monitor compliance.",
+            "id": "application_design_compliance_monitoring"
+          }
     ]
   },
   {
@@ -3704,19 +3710,6 @@
     "context": "Enterprise organizations typically have a large application portfolio. Have key business applications been identified and classified? This should include applications that have a high business impact if affected. Examples would be business critical data, regulated data, or business critical availability. These applications also might include applications which have a high exposure to attach such as public facing websites key to organizational success. ",
     "recommendation": "Identify and classify business critical applications.",
     "id": "application_design_critical_applications"
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Application Design",
-    "subCategory": "Security Criteria & Data Classification",
-    "title": "Has the organization established a monitoring and assessing solution for compliance?",
-    "context": "Continuous monitoring and assessing workload increases the overall security and compliance of your workload in Azure. For example Azure Security Center provides a regulatory compliance dashboard.",
-    "recommendation": "Continuously assess and monitor compliance.",
-    "id": "application_design_compliance_monitoring"
   },
   {
     "type": "Questions",
