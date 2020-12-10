@@ -254,6 +254,12 @@ These critical design principals are used as lenses to assess the Security of an
       _Knowing whether your cloud resources are in compliance with standards mandated by governments or industry organizations is essential in today's globalized world (e.g. GDPR)._
 
       > Perform regulatory compliance attestation.
+    - Has the organization established a monitoring and assessing solution for compliance?
+
+
+      _Continuous monitoring and assessing workload increases the overall security and compliance of your workload in Azure. For example Azure Security Center provides a regulatory compliance dashboard._
+
+      > Continuously assess and monitor compliance.
 * Does the organization periodically perform external and/or internal workload audits?
 
 
@@ -265,12 +271,6 @@ These critical design principals are used as lenses to assess the Security of an
       _Determine the process the customer uses for auditing the solution. Is it done internally, external, or both. How are findings reflected back to the application? Is everyone aware of the audit and involved or is it done in a silo. This will help reduce the firefighting mentality when there is a finding and stress of performing updates._
 
       > Perform regular internal and external compliance audits.
-    - Does the organizational security team audit the environment to report on compliance with the security policy of the organization?
-
-
-      _Azure Policy helps to enforce organizational standards and to assess compliance at-scale._
-
-      > Use Azure Policy to create and manage policies that enforce compliance.
 * Are Azure policies used to enforce security, compliance and organizational standards of this workload?
 
 
@@ -281,20 +281,15 @@ These critical design principals are used as lenses to assess the Security of an
 
   _Enterprise organizations typically have a large application portfolio. Have key business applications been identified and classified? This should include applications that have a high business impact if affected. Examples would be business critical data, regulated data, or business critical availability. These applications also might include applications which have a high exposure to attach such as public facing websites key to organizational success._
   > Identify and classify business critical applications.
-* Has the organization established a monitoring and assessing solution for compliance?
-
-
-  _Continuous monitoring and assessing workload increases the overall security and compliance of your workload in Azure. For example Azure Security Center provides a regulatory compliance dashboard._
-  > Continuously assess and monitor compliance.
 * Has the organization developed and maintained a security plan in support of the workload?
 
 
   _A security plan should be part of the main planning documentation for the cloud. It should include several core elements including organizational functions, security skilling, technical security architecture and capabilities roadmap._
   > Develop a security plan.
-* Does the organization prioritize security best practices by reviewing guidance based on industry recommendations and apply those settings proactively and completely to all systems as a cloud program is implemented?
+* Does the organization prioritize security best practices by reviewing guidance based on industry recommendations and apply those settings proactively and completely to all systems as the cloud workload is implemented?
 
 
-  _Security best practices are ideally applied proactively and completely to all systems as a cloud program is implemented._
+  _Security best practices are ideally applied proactively and completely to all systems as the cloud workload is implemented._
   > Review, prioritize, and proactively apply security best practices to cloud resources.
 * Does the organization build the appropriate level of resilience into the security infrastructure of this workload?
 
@@ -309,7 +304,7 @@ These critical design principals are used as lenses to assess the Security of an
 * Does the organization consider containing attacker access to Azure workloads when making investments in security solutions?
 
 
-  _The actual security risk for an organization is heavily influenced by how much access an adversary can or does obtain to valuable systems and data._
+  _The actual security risk for an organization is heavily influenced by how much access an adversary can or does obtain to valuable systems and data. For example, when each user only has a focused scope of permissions assigned to them, the impact of compromising an account will be limited._
   > Implement security strategy to contain attacker access.
 ### Dependencies, frameworks and libraries
             
