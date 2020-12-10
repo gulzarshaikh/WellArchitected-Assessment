@@ -2862,8 +2862,8 @@
     "lens": "application",
     "category": "Application Design",
     "subCategory": "Dependencies, frameworks and libraries",
-    "title": "Are frameworks and library updates included into the workload lifecycle process?",
-    "recommendation": "Include framework & library updates into workload lifecycle process.",
+    "title": "Are frameworks and library updates included into the workload lifecycle?",
+    "recommendation": "Include framework & library updates into workload lifecycle.",
     "id": "application_design_6294",
     "context": "Application frameworks are frequently provided with updates (e.g. security), released by the vendor or communities. Critical and important security patches need to be prioritized."
   },
