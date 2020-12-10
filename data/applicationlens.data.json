@@ -3772,7 +3772,7 @@
     "category": "Application Design",
     "subCategory": "Security Criteria & Data Classification",
     "title": "Does the organization consider containing attacker access to Azure workloads when making investments in security solutions?",
-    "context": "The actual security risk for an organization is heavily influenced by how much access an adversary can or does obtain to valuable systems and data.",
+    "context": "The actual security risk for an organization is heavily influenced by how much access an adversary can or does obtain to valuable systems and data. For example, when each user only has a focused scope of permissions assigned to them, the impact of compromising an account will be limited.",
     "recommendation": "Implement security strategy to contain attacker access.",
     "id": "application_design_security_attacker_access_containment"
   },
