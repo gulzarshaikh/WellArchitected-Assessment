@@ -2832,12 +2832,6 @@
             "id": "application_design_2263",
             "context": "Determine the process the customer uses for auditing the solution. Is it done internally, external, or both. How are findings reflected back to the application? Is everyone aware of the audit and involved or is it done in a silo. This will help reduce the firefighting mentality when there is a finding and stress of performing updates.",
             "recommendation": "Perform regular internal and external compliance audits."
-        },
-        {
-            "title": "Does the organizational security team audit the environment to report on compliance with the security policy of the organization?",
-            "context": "Azure Policy helps to enforce organizational standards and to assess compliance at-scale.",
-            "recommendation": "Use Azure Policy to create and manage policies that enforce compliance.",
-            "id": "application_design_compliance_security_audit"
         }
     ]
   },
