@@ -311,13 +311,13 @@ These critical design principals are used as lenses to assess the Security of an
 * Does the application team maintain a list frameworks and libraries used by this workload?
 
 
-  _As part of the workload inventory the application team should maintain a framework and library list, along with versions in use. Understanding of the frameworks and libraries (custom, OSS, 3rd party, etc.) used by the application and the resulting vulnerabilities is important. There are automated solutions on the market that can help with this assessment: OWASP Dependency-Check, NPM audit or Whitesource Bolt._
+  _As part of the workload inventory the application team should maintain a framework and library list, along with versions in use. Understanding of the frameworks and libraries (custom, OSS, 3rd party, etc.) used by the application and the resulting vulnerabilities is important. There are automated solutions on the market that can help with this assessment: [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/), [NPM audit](https://docs.npmjs.com/cli/v6/commands/npm-audit) or [WhiteSource Bolt](https://www.whitesourcesoftware.com/free-developer-tools/bolt/)._
   > Conduct inventory of used frameworks and libraries.
-* Are frameworks and library updates included into the workload lifecycle process?
+* Are frameworks and library updates included into the workload lifecycle?
 
 
   _Application frameworks are frequently provided with updates (e.g. security), released by the vendor or communities. Critical and important security patches need to be prioritized._
-  > Include framework & library updates into workload lifecycle process.
+  > Include framework & library updates into workload lifecycle.
 ## Health Modelling
     
 ### Application Level Monitoring
