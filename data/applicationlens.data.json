@@ -4037,7 +4037,7 @@
     "subCategory": "Patch & Update Process (PNU)",
     "title": "Does the organization have a formal policy for this workload to apply security updates to VMs in a timely manner, and do strong passwords exist on those VMs for any local administrative accounts that may be in use?",
     "context": "Attackers constantly scan public cloud IP ranges for open management ports and attempt “easy” attacks like common passwords and unpatched vulnerabilities.",
-    "recommendation": "Put in place a solution to ensure all VMs are patched in a timely manner and to ensure strong local administrative password management.",
+    "recommendation": "Put a solution in place that ensures all VMs are patched in a timely manner and that ensures strong local administrative password management.",
     "id": "operational_procedures_security_update_policy"
   },
   {
