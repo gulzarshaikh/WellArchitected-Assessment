@@ -121,13 +121,7 @@ These critical design principals are used as lenses to assess the Security of an
 
 
   _Providing unnecessary information to end users in case of application failure should be avoided. Revealing detailed error information (call stack, SQL queries, out of range errors...) can provide attackers with valuable information about the internals of the application. Error handlers should make the application fail gracefully and log the error._
-  > Do not expose security details in error messages.
-    - Does the workload handle failures and exceptions gracefully and log them with detailed information?
-
-
-      _Error handlers should make the application fail gracefully and log the error._
-
-      > Handle application exceptions / failures gracefully (with retry logic) and log them.
+  > Do not expose security details in error messages. Handle exceptions and failures gracefully (with retry logic) and log them for further inspection.
 * Is platform-specific information (e.g. web server version) removed from server-client communication channels in this workload?
 
 
@@ -242,6 +236,11 @@ These critical design principals are used as lenses to assess the Security of an
 
   _Enterprise workloads are subjected to many threats that can jeopardize confidentiality, availability, or integrity and should be protected with advanced security solutions._
   > Implement threat protection for the workload.
+* Does the organization evaluate the security posture of this workload using standard benchmarks?
+
+
+  _[Benchmarking](https://docs.microsoft.com/azure/architecture/framework/Security/governance#evaluate-security-using-benchmarks) enables security program improvement by learning from external organizations. It lets the organization know how its current security state compares to that of other organizations. As an example, the Center for Internet Security (CIS) has created security benchmarks for Azure that map to the CIS Control Framework. Another reference example is the MITRE ATT&CK™ framework that defines the various adversary tactics and techniques based on real-world observations._
+  > Establish security benchmarking aligned to industry standards.
 ### Security Criteria &amp; Data Classification
             
 * How do you monitor and maintain your compliance of this workload?
@@ -621,7 +620,7 @@ These critical design principals are used as lenses to assess the Security of an
 
 
   _Attackers constantly scan public cloud IP ranges for open management ports and attempt “easy” attacks like common passwords and unpatched vulnerabilities._
-  > Put in place a solution to ensure all VMs are patched in a timely manner and to ensure strong local administrative password management.
+  > Put a solution in place that ensures all VMs are patched in a timely manner and that ensures strong local administrative password management.
 ### Incident Response
             
 * Are operational processes for incident response defined and tested for this workload?
@@ -712,11 +711,6 @@ These critical design principals are used as lenses to assess the Security of an
 
   _Containerized applications face the same risks as any application and also adds new requirements to securely the hosting and management of the containerized applications._
   > Follow best practices for container security.
-* Does the organization evaluate the security posture of this workload using standard benchmarks?
-
-
-  _[Benchmarking](https://docs.microsoft.com/azure/architecture/framework/Security/governance#evaluate-security-using-benchmarks) enables security program improvement by learning from external organizations. It lets the organization know how its current security state compares to that of other organizations. As an example, the Center for Internet Security (CIS) has created security benchmarks for Azure that map to the CIS Control Framework. Another reference example is the MITRE ATT&CK™ framework that defines the various adversary tactics and techniques based on real-world observations._
-  > Establish security benchmarking aligned to industry standards.
 ### Roles &amp; Responsibilities
             
 * Are tools or processes in place to grant access on a just-in-time basis?
