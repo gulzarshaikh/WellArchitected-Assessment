@@ -2876,17 +2876,9 @@
     "category": "Application Design",
     "subCategory": "Design",
     "title": "Does the workload hide detailed error messages / verbose information from the end user / client?",
-    "recommendation": "Do not expose security details in error messages.",
+    "recommendation": "Do not expose security details in error messages. Handle exceptions and failures gracefully (with retry logic) and log them for further inspection.",
     "id": "application_design_2397",
-    "context": "Providing unnecessary information to end users in case of application failure should be avoided. Revealing detailed error information (call stack, SQL queries, out of range errors...) can provide attackers with valuable information about the internals of the application. Error handlers should make the application fail gracefully and log the error.",
-    "children":[
-        {
-            "title": "Does the workload handle failures and exceptions gracefully and log them with detailed information?",
-            "context": "Error handlers should make the application fail gracefully and log the error.",
-            "recommendation": "Handle application exceptions / failures gracefully (with retry logic) and log them.",
-            "id": "application_design_graceful_exception_handling"
-        }
-    ]
+    "context": "Providing unnecessary information to end users in case of application failure should be avoided. Revealing detailed error information (call stack, SQL queries, out of range errors...) can provide attackers with valuable information about the internals of the application. Error handlers should make the application fail gracefully and log the error."
   },
   {
     "type": "Questions",
