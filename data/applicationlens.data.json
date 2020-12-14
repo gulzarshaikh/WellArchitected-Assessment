@@ -2898,21 +2898,14 @@
             "context": "Azure API Management and Azure Front Door offers transformation policies that allow to modify HTTP headers and remove sensitive information.",
             "recommendation": "Remove sensitive information from HTTP headers with Azure API Management or Azure Front Door.",
             "id": "application_design_http_headers_frontdoor"
-        }
+        },
+        {
+            "title": "Does this workload use CDN (content delivery network) solutions to separate the hosting platform from the end users / clients?",
+            "context": "Azure CDN can be used to separate the hosting platform from end users. Azure CDN contains a rule engine to remove platform-specific information and headers. The use of Azure CDN or 3rd party CDN will have different cost implications depending on what is chosen for the workload.",
+            "recommendation": "Use CDN to separate the hosting platform from the end users / clients.",
+            "id": "application_design_cdn_separation"
+          }
     ]
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Application Design",
-    "subCategory": "Design",
-    "title": "Does this workload use CDN (content delivery network) solutions to separate the hosting platform from the end users / clients?",
-    "context": "Azure CDN can be used to separate the hosting platform from end users. Azure CDN contains a rule engine to remove platform-specific information and headers. The use of Azure CDN or 3rd party CDN will have different cost implications depending on what is chosen for the workload.",
-    "recommendation": "Use CDN to separate the hosting platform from the end users / clients.",
-    "id": "application_design_cdn_separation"
   },
   {
     "type": "Questions",
