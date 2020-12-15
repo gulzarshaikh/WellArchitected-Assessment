@@ -3095,11 +3095,11 @@
       "security"
     ],
     "lens": "application",
-    "category": "Identity & Access Control",
-    "subCategory": "Control-plane RBAC",
+    "category": "Operational Model & DevOps",
+    "subCategory": "Roles & Responsibilities",
     "title": "Does the organization clearly define CI/CD roles and permissions for this workload?",
     "recommendation": "Clearly define CI/CD roles and permissions.",
-    "id": "identity__access_control_855",
+    "id": "operational_model_devops_855",
     "context": "Defining CI/CD permissions properly ensures that only users responsible for production releases are able to initiate the process and that only developers can access the source code. Azure DevOps offers pre-defined roles which can be assigned to individual users of groups. Using them properly can make sure that for example only users responsible for production releases are able to initiate the process and that only developers can access the source code. Variable groups often contain sensitive configuration information and can be protected as well."
   },
   {
