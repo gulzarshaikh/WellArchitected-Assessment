@@ -3085,7 +3085,7 @@
     "category": "Identity & Access Control",
     "subCategory": "Control-plane RBAC",
     "title": "Is there a direct access to the workload infrastructure through Azure Portal, command-line Interface (CLI) or REST API?",
-    "recommendation": "Restrict application infrastructure access to CI/CD only for critical workloads.",
+    "recommendation": "Restrict application infrastructure access only to CI/CD for critical workloads.",
     "id": "identity__access_control_6070",
     "context": "While it is recommended to deploy application infrastructure via automation and CI/CD. To maximize application autonomy and agility, restrictive access control need be balanced on less critical development and test environments."
   },
