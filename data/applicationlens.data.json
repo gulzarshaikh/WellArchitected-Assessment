@@ -3251,7 +3251,7 @@
     "lens": "application",
     "category": "Networking & Connectivity",
     "subCategory": "Connectivity",
-    "title": "Are the services of this workload, which should not be accessible from public ip addresses, protected with network restrictions / IP firewall rules?",
+    "title": "Are the services of this workload, which should not be accessible from public IP addresses, protected with network restrictions / IP firewall rules?",
     "recommendation": "Protect non-public accessible services with network restrictions / IP firewall.",
     "id": "networking__connectivity_5025",
     "context": "Azure provides networking solutions to restrict access to individual application services. Multiple levels (such as IP filtering or firewall rules) should be explored to prevent application services from being accessed by unauthorized actors."
