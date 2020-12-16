@@ -4047,8 +4047,8 @@
     "category": "Deployment & Testing",
     "subCategory": "Testing & Validation",
     "title": "Does the organization have a method to carry out simulated attacks on users of this workload?",
-    "context": "People are a critical part of your defense, especially those with elevated permissions, so ensuring they have the knowledge and skills to avoid and resist attacks will reduce your overall organizational risk.",
-    "recommendation": "Simulate attack against users and critical accounts.",
+    "context": "People are a critical part of your defense, especially those with elevated permissions, so ensuring they have the knowledge and skills to avoid and resist attacks will reduce your overall organizational risk. Simulating attacks for educational purposes helps to enforce understanding of the various means that an attacker may use to compromise accounts. Tools such as Office 365 Attack Simulation or similar may be used.",
+    "recommendation": "Simulate attack against users and critical accounts. Ensure proper follow-up to educate users about the various means that an attacker may use.",
     "id": "deployment_testing_simulated_user_attacks"
   },
   {
