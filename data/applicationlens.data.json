@@ -3690,9 +3690,9 @@
     ],
     "lens": "application",
     "category": "Application Design",
-    "subCategory": "Security Criteria & Data Classification",
+    "subCategory": "Threat Analysis",
     "title": "Has the organization identified and classified business critical workloads which may adversely affect operations if they are compromised or become unavailable?",
-    "context": "Enterprise organizations typically have a large application portfolio. Have key business applications been identified and classified? This should include applications that have a high business impact if affected. Examples would be business critical data, regulated data, or business critical availability. These applications also might include applications which have a high exposure to attach such as public facing websites key to organizational success. ",
+    "context": "Enterprise organizations typically have a large application portfolio. Have key business applications been identified and classified? This should include applications that have a high business impact if affected. Examples would be business critical data, regulated data, or business critical availability. These applications also might include applications which have a high exposure to attach such as public facing websites key to organizational success.",
     "recommendation": "Identify and classify business critical applications.",
     "id": "application_design_critical_applications"
   },
