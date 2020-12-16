@@ -3031,7 +3031,7 @@
     ],
     "lens": "application",
     "category": "Identity & Access Control",
-    "subCategory": "Separation of duties",
+    "subCategory": "Authentication and authorization",
     "title": "Are authentication tokens cached securely and encrypted when sharing across web servers in this workload?",
     "recommendation": "Configure web apps to reuse authentication tokens securely.",
     "id": "identity__access_control_8946",
