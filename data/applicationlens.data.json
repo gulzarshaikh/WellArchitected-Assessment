@@ -3318,7 +3318,7 @@
     "context": "If NSGs are being used to isolate and protect the application, the rule set should be reviewed to confirm that required services are not unintentionally blocked.",
     "children": [
       {
-        "title": "Does the organization have configured NSG flow logs to get insights about ingoing and outgoing traffic of this workload?",
+        "title": "Does the organization have configured NSG flow logs to get insights about incoming and outgoing traffic of this workload?",
         "context": "NSG flow logs should be captured and analyzed to monitor performance and security. The NSG flow logs enables Traffic Analytics to gain insights into internal and external traffic flows of the application.",
         "recommendation": "Configure and collect network traffic logs.",
         "id": "networking__connectivity_3405"
