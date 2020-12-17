@@ -133,11 +133,12 @@ These critical design principals are used as lenses to assess the Security of an
       _Azure API Management and Azure Front Door offers transformation policies that allow to modify HTTP headers and remove sensitive information._
 
       > Remove sensitive information from HTTP headers with Azure API Management or Azure Front Door.
-* Does this workload use CDN (content delivery network) solutions to separate the hosting platform from the end users / clients?
+    - Does this workload use CDN (content delivery network) solutions to separate the hosting platform from the end users / clients?
 
 
-  _Azure CDN can be used to separate the hosting platform from end users. Azure CDN contains a rule engine to remove platform-specific information and headers. The use of Azure CDN or 3rd party CDN will have different cost implications depending on what is chosen for the workload._
-  > Use CDN to separate the hosting platform from the end users / clients.
+      _Azure CDN can be used to separate the hosting platform from end users. Azure CDN contains a rule engine to remove platform-specific information and headers. The use of Azure CDN or 3rd party CDN will have different cost implications depending on what is chosen for the workload._
+
+      > Use CDN to separate the hosting platform from the end users / clients.
 * Does the organization use cloud native security controls for this workload?
 
 
@@ -236,6 +237,11 @@ These critical design principals are used as lenses to assess the Security of an
 
   _Enterprise workloads are subjected to many threats that can jeopardize confidentiality, availability, or integrity and should be protected with advanced security solutions._
   > Implement threat protection for the workload.
+* Has the organization identified and classified business critical workloads which may adversely affect operations if they are compromised or become unavailable?
+
+
+  _Enterprise organizations typically have a large application portfolio. Have key business applications been identified and classified? This should include applications that have a high business impact if affected. Examples would be business critical data, regulated data, or business critical availability. These applications also might include applications which have a high exposure to attach such as public facing websites key to organizational success._
+  > Identify and classify business critical applications.
 * Does the organization evaluate the security posture of this workload using standard benchmarks?
 
 
@@ -275,11 +281,6 @@ These critical design principals are used as lenses to assess the Security of an
 
   _Azure Policy should be used to enforce and report a compliant configuration of Azure services. Azure policies can be used on multiple levels. It is recommended to apply organizational wide security controls on Azure platform level. These policies build the guardrails of a landing zone._
   > Define a set of Azure Policies which enforce organizational standards and are aligned with the governance team.
-* Has the organization identified and classified business critical workloads which may adversely affect operations if they are compromised or become unavailable?
-
-
-  _Enterprise organizations typically have a large application portfolio. Have key business applications been identified and classified? This should include applications that have a high business impact if affected. Examples would be business critical data, regulated data, or business critical availability. These applications also might include applications which have a high exposure to attach such as public facing websites key to organizational success._
-  > Identify and classify business critical applications.
 * Has the organization developed and maintained a security plan in support of the workload?
 
 
@@ -364,7 +365,7 @@ These critical design principals are used as lenses to assess the Security of an
     
 ### Connectivity
             
-* Are the services of this workload, which should not be accessible from public ip addresses, protected with network restrictions / IP firewall rules?
+* Are the services of this workload, which should not be accessible from public IP addresses, protected with network restrictions / IP firewall rules?
 
 
   _Azure provides networking solutions to restrict access to individual application services. Multiple levels (such as IP filtering or firewall rules) should be explored to prevent application services from being accessed by unauthorized actors._
@@ -628,11 +629,11 @@ These critical design principals are used as lenses to assess the Security of an
 
   _Actions executed during an incident and response investigation could impact application availability or performance. It is recommended to define these processes and align them with the responsible (and in most cases central) SecOps team. The impact of such an investigation on the application has to be analyzed._
   > Establish an incident response plan and perform periodically a simulated execution.
-* Are there playbooks built to help incident responders quickly understand the workload and components to do an investigation?
+* Are there playbooks built to help incident responders quickly understand the workload and components to mitigate an attack and investigate.
 
 
-  _Incident responders are part of a central SecOps team and need to understand security insights of an application. Playbooks can help to understand the security concepts and cover the typical investigation activities._
-  > Define security playbooks which helps to understand, investigte and respond to security incidents. It is recommended to automate as many steps of those procedures as you can. Automation reduces overhead. It can also improve your security by ensuring the process steps are done quickly, consistently, and according to your predefined requirements.
+  _Incident responders are part of a central SecOps team and need to understand security insights of an application. Playbooks can help to understand the security concepts and cover the typical investigation activities. These procedures can and should be automated as much as possible (while maintaining confidence and security)._
+  > Define security playbooks which help to understand, investigte and respond to security incidents. It is recommended to automate as many steps of those procedures as you can. Automation reduces overhead. It can also improve your security by ensuring the process steps are done quickly, consistently, and according to your predefined requirements.
 * Does the organization have a security operations center (SOC) that leverages a modern security approach?
 
 
@@ -690,8 +691,8 @@ These critical design principals are used as lenses to assess the Security of an
 * Does the organization have a method to carry out simulated attacks on users of this workload?
 
 
-  _People are a critical part of your defense, especially those with elevated permissions, so ensuring they have the knowledge and skills to avoid and resist attacks will reduce your overall organizational risk._
-  > Simulate attack against users and critical accounts.
+  _People are a critical part of your defense, especially those with elevated permissions, so ensuring they have the knowledge and skills to avoid and resist attacks will reduce your overall organizational risk. Simulating attacks for educational purposes helps to enforce understanding of the various means that an attacker may use to compromise accounts. Tools such as Office 365 Attack Simulation or similar may be used._
+  > Simulate attack against users and critical accounts. Ensure proper follow-up to educate users about the various means that an attacker may use.
 ## Operational Model &amp; DevOps
     
 ### General
@@ -723,6 +724,11 @@ These critical design principals are used as lenses to assess the Security of an
 
       _Write-access to production systems should be limited to service principals and no user accounts have regular write-access_
 
+* Does the organization clearly define CI/CD roles and permissions for this workload?
+
+
+  _Defining CI/CD permissions properly ensures that only users responsible for production releases are able to initiate the process and that only developers can access the source code. Azure DevOps offers pre-defined roles which can be assigned to individual users of groups. Using them properly can make sure that for example only users responsible for production releases are able to initiate the process and that only developers can access the source code. Variable groups often contain sensitive configuration information and can be protected as well._
+  > Clearly define CI/CD roles and permissions.
 * Does the organization have release gate approvals configured in their DevOps release process of this workload?
 
 
@@ -767,11 +773,6 @@ These critical design principals are used as lenses to assess the Security of an
 
 
   _Role-based and resource-based authorization are common approaches to authorize users based on required permission scopes. [Role-based and resource-based](https://docs.microsoft.com/azure/architecture/multitenant-identity/authorize)_
-* Are authentication tokens cached securely and encrypted when sharing across web servers in this workload?
-
-
-  _OAuth tokens are usually cached after they've been acquired. Application code should first try to get tokens silently from a cache before attempting to acquire a token from the identity provider, to optimise performance and maximize availability. Tokens should be stored securely and handled as any other credentials. When there's a need to share tokens across application servers (instead of each server acquiring and caching their own) encryption should be used. [Acquire and cache tokens](https://docs.microsoft.com/azure/active-directory/develop/msal-acquire-cache-tokens)_
-  > Configure web apps to reuse authentication tokens securely.
 * Are there any processes and tools leveraged in this workload to manage privileged activities?
 
 
@@ -814,12 +815,7 @@ These critical design principals are used as lenses to assess the Security of an
 
 
   _While it is recommended to deploy application infrastructure via automation and CI/CD. To maximize application autonomy and agility, restrictive access control need be balanced on less critical development and test environments._
-  > Restrict application infrastructure access to CI/CD only for critical workloads.
-* Does the organization clearly define CI/CD roles and permissions for this workload?
-
-
-  _Defining CI/CD permissions properly ensures that only users responsible for production releases are able to initiate the process and that only developers can access the source code. Azure DevOps offers pre-defined roles which can be assigned to individual users of groups. Using them properly can make sure that for example only users responsible for production releases are able to initiate the process and that only developers can access the source code. Variable groups often contain sensitive configuration information and can be protected as well._
-  > Clearly define CI/CD roles and permissions.
+  > Restrict application infrastructure access only to CI/CD for critical workloads.
 * Does the organization synchronize current on-premises Active Directory with Azure AD, or other cloud identity systems?
 
 
@@ -867,6 +863,11 @@ Because security will have broad access to the environment (and visibility into 
   > Add planning, testing, and validation rigor to the use of the root management group.
 ### Authentication and authorization
             
+* Are authentication tokens cached securely and encrypted when sharing across web servers in this workload?
+
+
+  _OAuth tokens are usually cached after they've been acquired. Application code should first try to get tokens silently from a cache before attempting to acquire a token from the identity provider, to optimise performance and maximize availability. Tokens should be stored securely and handled as any other credentials. When there's a need to share tokens across application servers (instead of each server acquiring and caching their own) encryption should be used. [Acquire and cache tokens](https://docs.microsoft.com/azure/active-directory/develop/msal-acquire-cache-tokens)_
+  > Configure web apps to reuse authentication tokens securely.
 * How is the workload authenticated when communicating with Azure platform services?
 
 
