@@ -3803,7 +3803,7 @@
     "lens": "application",
     "category": "Networking & Connectivity",
     "subCategory": "Connectivity",
-    "title": "Does the organization restrict access to the workload backend infrastructure (APIs, databases, etc.) by only a minimal set of public IP addresses based on need, only those who really need it?",
+    "title": "Does the organization restrict access to the workload backend infrastructure (APIs, databases, etc.) by only a minimal set of public IP addresses - only those who really need it?",
     "context": "Web applications typically have one public entrypoint and don't expose subsequent APIs and database servers over the internet. When using gateway services like [Azure Front Door](https://docs.microsoft.com/azure/frontdoor/) it's possible to restrict access only to a set of Front Door IP addresses and lock down the infrastructure completely.",
     "recommendation": "Restrict access to backend services to a minimal set of public IP addresses, only those who really need it.",
     "id": "networking__connectivity_1665"
