@@ -13,7 +13,11 @@
 ### Design Considerations
 * Managing and monitoring any Azure service is a core component from an operations standpoint which is why this is included in Design Considerations
   - Windows Virtual Desktop service logs should be integrated into Azure Monitor
-    > Azure Monitor allows for a single location around log and monitoring data in Azure
+    > Azure Monitor allows for a central location around log and monitoring data in Azure
+                                
+                            
+  - Configure the necessary performance counters for your monitoring services
+    > We recommend enabling [performance counters for WVD](https://docs.microsoft.com/en-gb/azure/virtual-desktop/azure-monitor#set-up-performance-counters). Azure Monitor for Windows Virtual Desktop is currently in public preview so should not be used for production workloads. However the 
                                 
                             
   - Windows Virtual Desktop Session Hosts should be backed up if autoscale is configured
