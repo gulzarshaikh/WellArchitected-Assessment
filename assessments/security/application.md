@@ -385,13 +385,13 @@ These critical design principals are used as lenses to assess the Security of an
 
   _If NSGs are being used to isolate and protect the application, the rule set should be reviewed to confirm that required services are not unintentionally blocked._
   > Use NSG or Azure Firewall to protect and control traffic within the VNet
-    - Does the organization have configured NSG flow logs to get insights about ingoing and outgoing traffic of this workload?
+    - Does the organization have configured NSG flow logs to get insights about incoming and outgoing traffic of this workload?
 
 
       _NSG flow logs should be captured and analyzed to monitor performance and security. The NSG flow logs enables Traffic Analytics to gain insights into internal and external traffic flows of the application._
 
       > Configure and collect network traffic logs.
-* Does the organization restrict access to the workload backend infrastructure (APIs, databases, etc.) by only a minimal set of public IP addresses based on need, only those who really need it?
+* Does the organization restrict access to the workload backend infrastructure (APIs, databases, etc.) by only a minimal set of public IP addresses - only those who really need it?
 
 
   _Web applications typically have one public entrypoint and don't expose subsequent APIs and database servers over the internet. When using gateway services like [Azure Front Door](https://docs.microsoft.com/azure/frontdoor/) it's possible to restrict access only to a set of Front Door IP addresses and lock down the infrastructure completely._
@@ -434,8 +434,8 @@ These critical design principals are used as lenses to assess the Security of an
 * Do workload virtual machines running on premises or in the cloud have direct internet connectivity for users that may perform interactive logins, or by applications running on virtual machines?
 
 
-  _Attackers constantly scan public cloud IP ranges for open management ports and attempt “easy” attacks like common passwords and known unpatched vulnerabilities._
-  > Develop process and procedures to prevent direct Internet access of virtual machines with logging and monitoring to enforce policies.
+  _Attackers constantly scan public cloud IP ranges for open management ports and attempt “easy” attacks like common passwords and known unpatched vulnerabilities. Limiting internet access from within an application server can prevent data exfiltration or stop the attacker from downloading additional tools._
+  > Develop process and procedures to prevent direct Internet access of virtual machines (such as proxy or firewall) with logging and monitoring to enforce policies.
 * Does the organization have the capability and plans in place to mitigate DDoS attacks for this workload?
 
 
@@ -448,7 +448,7 @@ These critical design principals are used as lenses to assess the Security of an
 
   _Data exfiltration occurs when an internal/external malicious actor performs and unauthorized data transfer. The solution should leverage a layered approach such as, hub/spoke for network communications with deep packet inspection to detect/protect from a data exfiltration attack. Azure Firewall, UDR (User-defined Routes), NSG (Network Security Groups), Key Protection, Data Encryption, PrivateLink, and Private Endpoints are layered defenses for a data exfiltration attack. Azure Sentinel and Azure Security Center can be used to detect data exfiltration attempts and alert incident responders._
   > Apply a layered defense in depth / zero trust approach, e.g. use Azure Security Center to detect data exfiltration attempts.
-* Has the organization deployed controls to manage traffic between subnets, Azure components and tiers of the workload?
+* Is the traffic between subnets, Azure components and tiers of the workload managed and secured?
 
 
   _Data filtering between subnets and other Azure resources should be protected. Network Security Groups, PrivateLink, and Private Endpoints can be used for traffic filtering._
@@ -477,9 +477,9 @@ These critical design principals are used as lenses to assess the Security of an
 * Does the organization have controls in place to ensure that security extends past the network boundaries of the workload in order to effectively prevent, detect, and respond to threats?
 
 
-  _Traditional network controls based on a “trusted intranet” approach will not be able to effectively provide security assurances for these applications._
+  _Traditional network controls based on a “trusted intranet” approach will not be able to effectively provide security assurances for cloud applications._
   > Evolve security beyond network controls.
-* How is this workload protected from data loss?
+* What kind of data loss prevention (DLP) is used for this workload?
 
 
   _Network-based data loss prevention (DLP) is decreasingly effective at identifying both inadvertent and deliberate data loss. The reason for this is that most modern protocols and attackers use network-level encryption for inbound and outbound communications. While the organization can use “SSL-bridging” to provide an “authorized man-in-the-middle” that terminates and then reestablishes encrypted network connections, this can also introduce privacy, security and reliability challenges._
@@ -506,7 +506,7 @@ These critical design principals are used as lenses to assess the Security of an
 
   _Organizations should rarely develop and maintain their own encryption algorithms. Secure standards already exist on the market and should be preferred. AES should be used as symmetric block cipher, AES-128, AES-192 and AES-256 are acceptable. Crypto APIs built into operating systems should be used where possible, instead of non-platform crypto libraries. For .NET make sure you follow the [.NET Cryptography Model](https://docs.microsoft.com/dotnet/standard/security/cryptography-model)._
   > Use standard and recommended encryption algorithms.
-* Does the workload communicate over encrypted (TLS / HTTPS) network traffic only?
+* Does the workload communicate over encrypted (TLS / HTTPS) network channels only?
 
 
   _Any network communication between client and server where man-in-the-middle attack can occur, needs to be encrypted. All website communication should use HTTPS, no matter the perceived sensitivity of transferred data (man-in-the-middle attacks can occur anywhere on the site, not just on login forms)._
@@ -515,7 +515,7 @@ These critical design principals are used as lenses to assess the Security of an
 
 
   _All Microsoft Azure services fully support TLS 1.2. It is recommended to migrate solutions to support **TLS 1.2** and use this version by default. TLS 1.3 is not available on Azure yet, but should be the preferred option once implemented on the platform._
-  > Use TLS 1.2 on Azure.
+  > Use TLS 1.2 by default on Azure. Prefer TLS 1.3 where possible.
 * Does the workload use secure modern hash algorithms?
 
 
@@ -537,16 +537,11 @@ These critical design principals are used as lenses to assess the Security of an
 
   _This includes all information storage objects, containers, and types that exist statically on physical media, whether magnetic or optical disk.  All data should be classified and encrypted with an encryption standard. How is the data classified and tagged as such so that it can be audited._
   > Classify your data at rest and use encryption.
-* Does the organization ensure that data in transit is encrypted for this workload?
+* Is there any portion of the workload that does not secure data in transit?
 
 
-  _When data is being transferred between components, locations, or programs, it’s in transit. Data in transit should be encrypted at all points to ensure data integrity. For example: web applications and APIs should use HTTPS/SSL for all communication with clients and also between each other (in micro-services architecture)._
-    - Is there any portion of the workload that does not secure data in transit?
-
-
-      _All data should be encrypted in transit using a common encryption standard. Determine if all components in the solution are using a consistent standard. There are times when encryption is not possible due to technical limitations, but the reason needs to be clear and valid._
-
-      > Ensure that all data in Azure is encrypted while in transit.
+  _When data is being transferred between components, locations, or programs, it’s in transit. Data in transit should be encrypted using a common encryption standard at all points to ensure data integrity. For example: web applications and APIs should use HTTPS/SSL for all communication with clients and also between each other (in micro-services architecture). Determine if all components in the solution are using a consistent standard. There are times when encryption is not possible due to technical limitations, but the reason needs to be clear and valid._
+  > Data in transit should be encrypted at all points to ensure data integrity.
 * Does the organization use identity-based storage access controls for this workload?
 
 
@@ -556,7 +551,7 @@ These critical design principals are used as lenses to assess the Security of an
 
 
   _Encrypting the virtual disk files helps prevent attackers from gaining access to the contents of the disk files in the event an attacker is able to download the files and mount the disk files offline on a separate system._
-  > Encrypt virtual disks.
+  > Use tools like Azure Disk Encryption, BitLocker or DM-Crypt to encrypt virtual disks.
 ## Operational Procedures
     
 ### Configuration &amp; Secrets Management
@@ -569,7 +564,7 @@ These critical design principals are used as lenses to assess the Security of an
 * How are passwords and other secrets managed?
 
 
-  _Are secrets stored in a specially protected way or in the same way as any other application configuration?_
+  _API keys, database connection string and passwords need to be stored in a secure store and not within the application code or configuration. This simplifies operational tasks like key rotation as well as improving overall security._
   > Tools like Azure Key Vault or HashiCorp Vault should be used to store and manage secrets securely rather than being baked into the application artefact during deployment, as this simplifies operational tasks like key rotation as well as improving overall security. Keys and secrets stored in source code should be identified with static code scanning tools. Ensure that these scans are an integrated part of the continuous integration (CI) process.
 * Do you have procedures in place for key/secret rotation?
 
@@ -591,20 +586,11 @@ These critical design principals are used as lenses to assess the Security of an
 
   _Permissions to keys and secrets have to be controlled with a [access model](https://docs.microsoft.com/azure/key-vault/general/secure-your-key-vault)._
   > Define an access model for keys and secrets. Use Azure Key Vault as the secure store and protect the keys/secrets with Azure RBAC.
-* Who is responsible to manage the keys and secrets for this workload?
-
-
-  _Central SecOps team provides guidance on how keys and secrets are managed (governance), application DevOps team is responsible to manage the application related keys and secrets._
-* Does the organization have a clear guidance or requirement on what type of keys should be used for this workload? PMK - Platform Managed Keys vs CMK - Customer Managed Keys
+* Does the organization have a clear guidance or requirement on what type of keys (PMK - Platform Managed Keys vs CMK - Customer Managed Keys) should be used for this workload?
 
 
   _Different approaches can be used by the workload team. Decisions are often driven by security, compliance and specific data classification requirements. Understanding these requirements is important to determine which key types are best suitable (MMK - Microsoft-managed Keys, CMK - Customer-managed Keys or BYOK - Bring Your Own Key)._
   > Provide guidance for either platform managed keys (PMK) or customer managed keys (CMK), based on security or compliance requirements of this workload.
-* Does the organization store workload sensitive information (keys, secrets) outside of the application code in Azure Key Vault or equivalent service?
-
-
-  _API keys, database connection string and passwords need to be stored in a secure store and not within the application code or configuration._
-  > Store keys and secrets outside of application code in Azure Key Vault.
 * Does the organization define clear responsibility / role concept for managing keys and secrets for this workload?
 
 
@@ -707,23 +693,19 @@ These critical design principals are used as lenses to assess the Security of an
 
   _Organizations should leverage a control framework such as NIST, CIS or ASB [(Azure Security Benchmarks)](https://docs.microsoft.com/azure/security/benchmarks/) for securing applications on the cloud rather than starting from zero._
   > Follow DevOps security guidance and automation for securing applications.
-* Does the organization consider and follow best practices related to container security for this workload?
-
-
-  _Containerized applications face the same risks as any application and also adds new requirements to securely the hosting and management of the containerized applications._
-  > Follow best practices for container security.
 ### Roles &amp; Responsibilities
             
 * Are tools or processes in place to grant access on a just-in-time basis?
 
 
-  _Minimizing the number of people who have access to secure information or resources reduces the chance of a malicious actor gaining access or an authorized user inadvertently impacting a sensitive resource. For example, Azure AD [Privileged Identity Management](https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-configure) provides time-based and approval-based role activation to mitigate the risks of excessive, unnecessary, or misused access permissions on resources that you care about_
-  > Implement just-in-time privileged access management
+  _Minimizing the number of people who have access to secure information or resources reduces the chance of a malicious actor gaining access or an authorized user inadvertently impacting a sensitive resource. For example, Azure AD [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) provides time-based and approval-based role activation to mitigate the risks of excessive, unnecessary, or misused access permissions on resources that you care about._
+  > Implement just-in-time privileged access management.
     - Does anyone have long-standing write-access to production environments?
 
 
-      _Write-access to production systems should be limited to service principals and no user accounts have regular write-access_
+      _Write-access to production systems should be limited to service principals and no user accounts have regular write-access._
 
+      > Limit long-standing write access to production environments only to service principals.
 * Does the organization clearly define CI/CD roles and permissions for this workload?
 
 
@@ -747,7 +729,7 @@ These critical design principals are used as lenses to assess the Security of an
 * Does the organization have the appropriate emergency access accounts configured for this workload in case of an emergency?
 
 
-  _While rare, sometimes extreme circumstances arise where all normal means of administrative access are unavailable and for this reason emergency access accounts should be available. [Emergency Access Acounts](https://docs.microsoft.com/azure/active-directory/roles/security-emergency-access)_
+  _While rare, sometimes extreme circumstances arise where all normal means of administrative access are unavailable and for this reason emergency access accounts (also refered to as 'break glass' accounts) should be available. These accounts are strictly controlled in accordance with best practice guidance, and they are closely monitored for unsanctioned use to ensure they are not compromised or used for nefarious purposes. [Emergency Access Acounts](https://docs.microsoft.com/azure/active-directory/roles/security-emergency-access)_
   > Configure emergency access accounts.
 * Has the organization clearly defined lines of responsibility and designated responsible parties for specific functions in Azure?
 
@@ -816,23 +798,6 @@ These critical design principals are used as lenses to assess the Security of an
 
   _While it is recommended to deploy application infrastructure via automation and CI/CD. To maximize application autonomy and agility, restrictive access control need be balanced on less critical development and test environments._
   > Restrict application infrastructure access only to CI/CD for critical workloads.
-* Does the organization synchronize current on-premises Active Directory with Azure AD, or other cloud identity systems?
-
-
-  _Consistency of identities across cloud and on-premises will reduce human errors and resulting security risk. Teams managing resources in both environments need a consistent authoritative source to achieve security assurances._
-  > Synchronize on-premise directory with Azure AD
-    - Does the organization synchronize on-premises admin accounts to Azure Active Directory, or to another cloud identity provider?
-
-
-      _Synchronizing on-premises admin accounts to Azure Active Directory creates a pivot point that allows an on-premsise compromise to impact Azure workloads._
-
-      > Avoid synching on-premises admin accounts to AAD.
-    - Does the organization use cloud provider identity services designed to host non-employee rather than including vendors, partners, and customers into a corporate directory?
-
-
-      _Using a cloud identity provider reduces risk by granting the appropriate level of access to external entities instead of the full default permissions given to full-time employees. This least privilege approach and clear differentiation of external accounts from company staff makes it easier to prevent and detect attacks coming in from these vectors._
-
-      > Use cloud provider identity services for non-employees.
 * Does the organization use a single identity provider for cross-platform identity management of this workload?
 
 
@@ -843,10 +808,10 @@ These critical design principals are used as lenses to assess the Security of an
 
   _Identity provides the basis of a large percentage of security assurances and a well-defined identity strategy is effective in protecting the organization from cybersecurity threats._
   > Implement a well-defined identity strategy.
-* Does the organization assign permissions to Azure workloads based on individual users/resources or use custom permissions?
+* Does the organization assign permissions to Azure workloads based on individual resources or use custom permissions?
 
 
-  _Custom resource-based permissions are often not needed and can result in increased complexity and confusion as they do not carry the intention to new similar resources. This then accumulates into a complex legacy configuration that is difficult to maintain or change without fear of "breaking something" – negatively impacting both security and solution agility._
+  _Custom resource-based permissions are often not needed and can result in increased complexity and confusion as they do not carry the intention to new similar resources. This then accumulates into a complex legacy configuration that is difficult to maintain or change without fear of "breaking something" – negatively impacting both security and solution agility. Higher level permissions sets - based on resource groups or management groups - are usually more efficient._
   > Assign permissions based on management or resource groups.
 * Does the organizational security team have read-only access into all cloud environment resources for this workload?
 
@@ -867,7 +832,7 @@ Because security will have broad access to the environment (and visibility into 
 
 
   _OAuth tokens are usually cached after they've been acquired. Application code should first try to get tokens silently from a cache before attempting to acquire a token from the identity provider, to optimise performance and maximize availability. Tokens should be stored securely and handled as any other credentials. When there's a need to share tokens across application servers (instead of each server acquiring and caching their own) encryption should be used. [Acquire and cache tokens](https://docs.microsoft.com/azure/active-directory/develop/msal-acquire-cache-tokens)_
-  > Configure web apps to reuse authentication tokens securely.
+  > Configure web apps to reuse authentication tokens securely and handle them like other credentials.
 * How is the workload authenticated when communicating with Azure platform services?
 
 
@@ -883,7 +848,7 @@ Because security will have broad access to the environment (and visibility into 
 
       _Modern authentication protocols support strong controls such as MFA and should be used instead of legacy._
 
-      > Standarize on modern authentication protocols.
+      > Standardize on modern authentication protocols.
 * How is user authentication handled in this workload?
 
 
@@ -903,3 +868,20 @@ Because security will have broad access to the environment (and visibility into 
 
 
   _Consideration should always be given to authenticating with identity services rather than cryptographic keys when available. Managing keys securely with application code is difficult and regularly leads to mistakes like accidentally publishing sensitive access keys to code repositories like GitHub. Identity systems (such as Azure Active Directory) offer secure and usable experience for access control with built-in sophisticated mechanisms for key rotation, monitoring for anomalies, and more._
+* Does the organization synchronize current on-premises Active Directory with Azure AD, or other cloud identity systems?
+
+
+  _Consistency of identities across cloud and on-premises will reduce human errors and resulting security risk. Teams managing resources in both environments need a consistent authoritative source to achieve security assurances._
+  > Synchronize on-premise directory with Azure AD
+    - Does the organization synchronize on-premises admin accounts to Azure Active Directory, or to another cloud identity provider?
+
+
+      _Synchronizing on-premises admin accounts to Azure Active Directory creates a pivot point that allows an on-premsise compromise to impact Azure workloads._
+
+      > Avoid synching on-premises admin accounts to AAD.
+    - Does the organization use cloud provider identity services designed to host non-employee rather than including vendors, partners, and customers into a corporate directory?
+
+
+      _Using a cloud identity provider reduces risk by granting the appropriate level of access to external entities instead of the full default permissions given to full-time employees. This least privilege approach and clear differentiation of external accounts from company staff makes it easier to prevent and detect attacks coming in from these vectors._
+
+      > Use cloud provider identity services for non-employees.
