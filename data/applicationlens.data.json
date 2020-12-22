@@ -1605,17 +1605,17 @@
     "category": "Operational Model & DevOps",
     "subCategory": "Roles & Responsibilities",
     "title": "Are tools or processes in place to grant access on a just-in-time basis?",
-    "context": "Minimizing the number of people who have access to secure information or resources reduces the chance of a malicious actor gaining access or an authorized user inadvertently impacting a sensitive resource. For example, Azure AD [Privileged Identity Management](https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-configure) provides time-based and approval-based role activation to mitigate the risks of excessive, unnecessary, or misused access permissions on resources that you care about",
-    "recommendation": "Implement just-in-time privileged access management",
+    "context": "Minimizing the number of people who have access to secure information or resources reduces the chance of a malicious actor gaining access or an authorized user inadvertently impacting a sensitive resource. For example, Azure AD [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) provides time-based and approval-based role activation to mitigate the risks of excessive, unnecessary, or misused access permissions on resources that you care about.",
+    "recommendation": "Implement just-in-time privileged access management.",
     "children": [
       {
         "title": "Does anyone have long-standing write-access to production environments?",
-        "context": "Write-access to production systems should be limited to service principals and no user accounts have regular write-access",
-        "recommendation": "",
-        "id": ""
+        "context": "Write-access to production systems should be limited to service principals and no user accounts have regular write-access.",
+        "recommendation": "Limit long-standing write access to production environments only to service principals.",
+        "id": "operational_model_devops_long_write_access"
       }
     ],
-    "id": ""
+    "id": "operational_model_devops_justintime_access"
   },
   {
     "type": "Questions",
@@ -3033,7 +3033,7 @@
     "category": "Identity & Access Control",
     "subCategory": "Authentication and authorization",
     "title": "Are authentication tokens cached securely and encrypted when sharing across web servers in this workload?",
-    "recommendation": "Configure web apps to reuse authentication tokens securely.",
+    "recommendation": "Configure web apps to reuse authentication tokens securely and handle them like other credentials.",
     "id": "identity__access_control_8946",
     "context": "OAuth tokens are usually cached after they've been acquired. Application code should first try to get tokens silently from a cache before attempting to acquire a token from the identity provider, to optimise performance and maximize availability. Tokens should be stored securely and handled as any other credentials. When there's a need to share tokens across application servers (instead of each server acquiring and caching their own) encryption should be used. [Acquire and cache tokens](https://docs.microsoft.com/azure/active-directory/develop/msal-acquire-cache-tokens)"
   },
@@ -3131,7 +3131,7 @@
         {
             "title": "Does this workload leverage modern (OAuth 2.0, OpenID) authentication protocols?",
             "context": "Modern authentication protocols support strong controls such as MFA and should be used instead of legacy.",
-            "recommendation": "Standarize on modern authentication protocols.",
+            "recommendation": "Standardize on modern authentication protocols.",
             "id": "identity_access_control_modern_protocols"
         }
     ]
@@ -3204,20 +3204,7 @@
     "lens": "application",
     "category": "Operational Procedures",
     "subCategory": "Configuration & Secrets Management",
-    "title": "Who is responsible to manage the keys and secrets for this workload?",
-    "recommendation": "",
-    "id": "operational_procedures_9157",
-    "context": "Central SecOps team provides guidance on how keys and secrets are managed (governance), application DevOps team is responsible to manage the application related keys and secrets."
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Operational Procedures",
-    "subCategory": "Configuration & Secrets Management",
-    "title": "Does the organization have a clear guidance or requirement on what type of keys should be used for this workload? PMK - Platform Managed Keys vs CMK - Customer Managed Keys",
+    "title": "Does the organization have a clear guidance or requirement on what type of keys (PMK - Platform Managed Keys vs CMK - Customer Managed Keys) should be used for this workload?",
     "recommendation": "Provide guidance for either platform managed keys (PMK) or customer managed keys (CMK), based on security or compliance requirements of this workload.",
     "id": "operational_procedures_6813",
     "context": "Different approaches can be used by the workload team. Decisions are often driven by security, compliance and specific data classification requirements. Understanding these requirements is important to determine which key types are best suitable (MMK - Microsoft-managed Keys, CMK - Customer-managed Keys or BYOK - Bring Your Own Key)."
@@ -3346,7 +3333,7 @@
     "lens": "application",
     "category": "Networking & Connectivity",
     "subCategory": "Data flow",
-    "title": "Has the organization deployed controls to manage traffic between subnets, Azure components and tiers of the workload?",
+    "title": "Is the traffic between subnets, Azure components and tiers of the workload managed and secured?",
     "recommendation": "Control network traffic between subnets (east/west) and application tiers (north/south).",
     "id": "networking__connectivity_8447",
     "context": "Data filtering between subnets and other Azure resources should be protected. Network Security Groups, PrivateLink, and Private Endpoints can be used for traffic filtering."
@@ -4036,19 +4023,6 @@
       "security"
     ],
     "lens": "application",
-    "category": "Operational Model & DevOps",
-    "subCategory": "General",
-    "title": "Does the organization consider and follow best practices related to container security for this workload?",
-    "context": "Containerized applications face the same risks as any application and also adds new requirements to securely the hosting and management of the containerized applications.",
-    "recommendation": "Follow best practices for container security.",
-    "id": "operational_model_devops_container_security"
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
     "category": "Application Design",
     "subCategory": "Threat Analysis",
     "title": "Does the organization evaluate the security posture of this workload using standard benchmarks?",
@@ -4078,7 +4052,7 @@
     "category": "Operational Model & DevOps",
     "subCategory": "Roles & Responsibilities",
     "title": "Does the organization have the appropriate emergency access accounts configured for this workload in case of an emergency?",
-    "context": "While rare, sometimes extreme circumstances arise where all normal means of administrative access are unavailable and for this reason emergency access accounts should be available. [Emergency Access Acounts](https://docs.microsoft.com/azure/active-directory/roles/security-emergency-access)",
+    "context": "While rare, sometimes extreme circumstances arise where all normal means of administrative access are unavailable and for this reason emergency access accounts (also refered to as 'break glass' accounts) should be available. These accounts are strictly controlled in accordance with best practice guidance, and they are closely monitored for unsanctioned use to ensure they are not compromised or used for nefarious purposes. [Emergency Access Acounts](https://docs.microsoft.com/azure/active-directory/roles/security-emergency-access)",
     "recommendation": "Configure emergency access accounts.",
     "id": "operational_model_devops_emergency_access_accounts"
   },
@@ -4162,7 +4136,7 @@
     ],
     "lens": "application",
     "category": "Identity & Access Control",
-    "subCategory": "Control-plane RBAC",
+    "subCategory": "Authentication and authorization",
     "title": "Does the organization synchronize current on-premises Active Directory with Azure AD, or other cloud identity systems?",
     "context": "Consistency of identities across cloud and on-premises will reduce human errors and resulting security risk. Teams managing resources in both environments need a consistent authoritative source to achieve security assurances.",
     "recommendation": "Synchronize on-premise directory with Azure AD",
@@ -4216,8 +4190,8 @@
     "lens": "application",
     "category": "Identity & Access Control",
     "subCategory": "Control-plane RBAC",
-    "title": "Does the organization assign permissions to Azure workloads based on individual users/resources or use custom permissions?",
-    "context": "Custom resource-based permissions are often not needed and can result in increased complexity and confusion as they do not carry the intention to new similar resources. This then accumulates into a complex legacy configuration that is difficult to maintain or change without fear of \"breaking something\" – negatively impacting both security and solution agility.",
+    "title": "Does the organization assign permissions to Azure workloads based on individual resources or use custom permissions?",
+    "context": "Custom resource-based permissions are often not needed and can result in increased complexity and confusion as they do not carry the intention to new similar resources. This then accumulates into a complex legacy configuration that is difficult to maintain or change without fear of \"breaking something\" – negatively impacting both security and solution agility. Higher level permissions sets - based on resource groups or management groups - are usually more efficient.",
     "recommendation": "Assign permissions based on management or resource groups.",
     "id": "identity_access_control_permissions_assignment"
   },
