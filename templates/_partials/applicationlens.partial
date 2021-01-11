@@ -11,6 +11,8 @@
 
 The following Design Principles provide context for questions, why a certain aspect is important and how is it applicable to {{ .pillarDisplayName }}.
 
+These critical design principles are used as lenses to assess the {{ .pillarDisplayName }} of an application deployed on Azure, providing a framework for the application assessment questions that follow.
+
 {{ range $designPrinciple := $designPrinciples }}
 ## {{ safeHTML $designPrinciple.title }}
 
@@ -21,8 +23,6 @@ The following Design Principles provide context for questions, why a certain asp
 {{ end }}
 
 ---
-
-These critical design principals are used as lenses to assess the {{ .pillarDisplayName }} of an application deployed on Azure, providing a framework for the following application assessment questions.
 
 {{ end }}
 

@@ -40,6 +40,8 @@
 
 The following Design Principles provide context for questions, why a certain aspect is important and how is it applicable to Operational Excellence.
 
+These critical design principles are used as lenses to assess the Operational Excellence of an application deployed on Azure, providing a framework for the application assessment questions that follow.
+
 
 ## Optimize build and release processes
 
@@ -78,8 +80,6 @@ The following Design Principles provide context for questions, why a certain asp
 
 
 ---
-
-These critical design principals are used as lenses to assess the Operational Excellence of an application deployed on Azure, providing a framework for the following application assessment questions.
 
 
 

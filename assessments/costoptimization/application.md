@@ -43,6 +43,8 @@
 
 The following Design Principles provide context for questions, why a certain aspect is important and how is it applicable to Cost Optimization.
 
+These critical design principles are used as lenses to assess the Cost Optimization of an application deployed on Azure, providing a framework for the application assessment questions that follow.
+
 
 ## Choose the correct resources for your business goals
 
@@ -81,8 +83,6 @@ The following Design Principles provide context for questions, why a certain asp
 
 
 ---
-
-These critical design principals are used as lenses to assess the Cost Optimization of an application deployed on Azure, providing a framework for the following application assessment questions.
 
 
 
