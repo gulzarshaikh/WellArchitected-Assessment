@@ -942,7 +942,7 @@
     "category": "Operational Procedures",
     "subCategory": "Configuration & Secrets Management",
     "title": "How are passwords and other secrets managed?",
-    "context": "API keys, database connection string and passwords need to be stored in a secure store and not within the application code or configuration. This simplifies operational tasks like key rotation as well as improving overall security.",
+    "context": "API keys, database connection string and passwords are all sensitive to leakage, occasionally require rotation and are prone to expiration. Storing them in a secure store and not within the application code or configuration simplifies operational tasks like key rotation as well as improving overall security.",
     "recommendation": "Tools like Azure Key Vault or HashiCorp Vault should be used to store and manage secrets securely rather than being baked into the application artefact during deployment, as this simplifies operational tasks like key rotation as well as improving overall security. Keys and secrets stored in source code should be identified with static code scanning tools. Ensure that these scans are an integrated part of the continuous integration (CI) process.",
     "id": "app_ops_secretmanagement"
   },
@@ -1610,7 +1610,7 @@
     "children": [
       {
         "title": "Does anyone have long-standing write-access to production environments?",
-        "context": "Write-access to production systems should be limited to service principals and no user accounts have regular write-access.",
+        "context": "Regular, long-standing write access to production environments by user accounts can pose a security risk and manual intervention is often prone to errors.",
         "recommendation": "Limit long-standing write access to production environments only to service principals.",
         "id": "operational_model_devops_long_write_access"
       }
@@ -2813,8 +2813,8 @@
             "id": "application_design_process_compliance"
         },
         {
-            "title": "Has the organization established a monitoring and assessing solution for compliance?",
-            "context": "Continuous monitoring and assessing workload increases the overall security and compliance of your workload in Azure. For example Azure Security Center provides a regulatory compliance dashboard.",
+            "title": "Has the organization established a monitoring and assessment solution for compliance?",
+            "context": "Continuously monitoring and assessing the workload increases the overall security and compliance of your workload in Azure. For example Azure Security Center provides a regulatory compliance dashboard.",
             "recommendation": "Continuously assess and monitor compliance.",
             "id": "application_design_compliance_monitoring"
           }
@@ -2993,7 +2993,7 @@
     "lens": "application",
     "category": "Operational Procedures",
     "subCategory": "Incident Response",
-    "title": "Are there playbooks built to help incident responders quickly understand the workload and components to mitigate an attack and investigate.",
+    "title": "Are there playbooks built to help incident responders quickly understand the workload and components to mitigate an attack and investigate?",
     "recommendation": "Define security playbooks which help to understand, investigte and respond to security incidents. It is recommended to automate as many steps of those procedures as you can. Automation reduces overhead. It can also improve your security by ensuring the process steps are done quickly, consistently, and according to your predefined requirements.",
     "id": "operational_procedures_9578",
     "context": "Incident responders are part of a central SecOps team and need to understand security insights of an application. Playbooks can help to understand the security concepts and cover the typical investigation activities. These procedures can and should be automated as much as possible (while maintaining confidence and security)."
