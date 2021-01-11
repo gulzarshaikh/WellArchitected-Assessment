@@ -144,7 +144,7 @@ These critical design principals are used as lenses to assess the Security of an
 
   _Native security controls are maintained and supported by the service provider, eliminating, or reducing effort required to integrate external security tooling and update those integrations over time._
   > Use native security capabilities in application services.
-* Does the organization use cloud services for well-established functions instead of building custom service implementations for this workload?
+* Does this workload use cloud services for well-established functions instead of building custom service implementations?
 
 
   _Developers should use services available from a cloud provider for well-established functions like databases, encryption, identity directory, and authentication instead of writing custom versions or third-party solutions that must be integrated into the cloud provider._
