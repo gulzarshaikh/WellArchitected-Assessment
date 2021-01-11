@@ -11,7 +11,7 @@
     - [Threat Analysis](#Threat-Analysis)
     - [Security Criteria &amp; Data Classification](#Security-Criteria--Data-Classification)
     - [Dependencies, frameworks and libraries](#Dependencies-frameworks-and-libraries)
-  - [Health Modelling](#Health-Modelling)
+  - [Health Modelling &amp; Monitoring](#Health-Modelling--Monitoring)
     - [Application Level Monitoring](#Application-Level-Monitoring)
     - [Resource/Infrastructure Level Monitoring](#ResourceInfrastructure-Level-Monitoring)
     - [Auditing](#Auditing)
@@ -318,7 +318,7 @@ These critical design principles are used as lenses to assess the Security of an
 
   _Application frameworks are frequently provided with updates (e.g. security), released by the vendor or communities. Critical and important security patches need to be prioritized._
   > Include framework & library updates into workload lifecycle.
-## Health Modelling
+## Health Modelling &amp; Monitoring
     
 ### Application Level Monitoring
             

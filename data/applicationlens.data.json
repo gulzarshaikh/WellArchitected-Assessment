@@ -335,7 +335,7 @@
       "costoptimization"
     ],
     "lens": "application",
-    "category": "Health Modelling",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Application Level Monitoring",
     "title": "Is an Application Performance Management (APM) tool used collect application level logs?",
     "context": "In order to successfully maintain the application it's important to 'turn the lights on' and have clear visibility of important metrics both in real-time and historically.",
@@ -348,7 +348,7 @@
       "operationalexcellence"
     ],
     "lens": "application",
-    "category": "Health Modelling",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Application Level Monitoring",
     "title": "Are application logs collected from different application environments?",
     "context": "Application logs support the end-to-end application lifecycle. Logging is essential in understanding how the application operates in various environments and what events occur and under which conditions.",
@@ -361,7 +361,7 @@
       "operationalexcellence"
     ],
     "lens": "application",
-    "category": "Health Modelling",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Application Level Monitoring",
     "title": "Are log messages captured in a structured format?",
     "context": "Structured format, following well-known schema can help in parsing and analyzing logs.",
@@ -374,7 +374,7 @@
       "operationalexcellence"
     ],
     "lens": "application",
-    "category": "Health Modelling",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Application Level Monitoring",
     "title": "Are log levels used to capture different types of application events?",
     "context": "Different log levels, such as INFO, WARNING, ERROR, and DEBUG can be used across environments (such as DEBUG for development environment).",
@@ -387,7 +387,7 @@
       "operationalexcellence"
     ],
     "lens": "application",
-    "category": "Health Modelling",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Application Level Monitoring",
     "title": "Are application events correlated across all application components?",
     "context": "[Distributed tracing](https://docs.microsoft.com/azure/architecture/microservices/logging-monitoring#distributed-tracing) provides the ability to build and visualize end-to-end transaction flows for the application.",
@@ -400,7 +400,7 @@
       "operationalexcellence"
     ],
     "lens": "application",
-    "category": "Health Modelling",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Application Level Monitoring",
     "title": "Is it possible to evaluate critical application performance targets and non-functional requirements (NFRs)?",
     "context": "",
@@ -422,7 +422,7 @@
       "costoptimization"
     ],
     "lens": "application",
-    "category": "Health Modelling",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Resource/Infrastructure Level Monitoring",
     "title": "Which log aggregation technology is used to collect logs and metrics from Azure resources?",
     "context": "Log aggregation technologies, such as Azure Log Analytics or Splunk, should be used to collate logs and metrics across all application components for subsequent evaluation. Resources may include Azure IaaS and PaaS services as well as 3rd-party appliances such as firewalls or anti-malware solutions used in the application. For instance, if Azure Event Hub is used, the [Diagnostic Settings](https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs) should be configured to push logs and metrics to the data sink. Understanding usage helps with right-sizing of the workload, but additional cost for logging needs to be accepted and included in the cost model.",
@@ -435,7 +435,7 @@
       "operationalexcellence"
     ],
     "lens": "application",
-    "category": "Health Modelling",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Resource/Infrastructure Level Monitoring",
     "title": "Are you collecting Azure Activity Logs within the log aggregation tool?",
     "context": "Azure Activity Logs provide audit information about when an Azure resource is modified, such as when a virtual machine is started or stopped. Such information is extremely useful for the interpretation and troubleshooting of operational issues, as it provides transparency around configuration changes.",
@@ -449,7 +449,7 @@
       "reliability"
     ],
     "lens": "application",
-    "category": "Health Modelling",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Resource/Infrastructure Level Monitoring",
     "title": "Is resource-level monitoring enforced throughout the application?",
     "context": "Resource- or infrastructure-level monitoring refers to the used platform services such as Azure VMs, Express Route or SQL Database. But also covers 3rd-party solutions like an NVA.",
@@ -462,7 +462,7 @@
       "operationalexcellence"
     ],
     "lens": "application",
-    "category": "Health Modelling",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Resource/Infrastructure Level Monitoring",
     "title": "Are logs and metrics available for critical internal dependencies?",
     "context": "To be able to build a robust application health model it is vital that visibility into the operational state of critical internal dependencies, such as a shared NVA or Express Route connection, be achieved.",
@@ -475,7 +475,7 @@
       "operationalexcellence"
     ],
     "lens": "application",
-    "category": "Health Modelling",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Resource/Infrastructure Level Monitoring",
     "title": "Are critical external dependencies monitored?",
     "context": "It's common for applications to depend on other services or libraries. Despite these are external, it is still possible to monitor their health and availability using probes.",
@@ -488,7 +488,7 @@
       "operationalexcellence"
     ],
     "lens": "application",
-    "category": "Health Modelling",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Data Interpretation & Health Modelling",
     "title": "Are application and resource level logs aggregated in a single data sink, or is it possible to cross-query events at both levels?",
     "context": "To build a robust application health model it is vital that application and resource level data be correlated and evaluated together to optimize the detection of issues and troubleshooting of detected issues.",
@@ -502,7 +502,7 @@
       "reliability"
     ],
     "lens": "application",
-    "category": "Health Modelling",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Data Interpretation & Health Modelling",
     "title": "Are application level events automatically correlated with resource level metrics to quantify the current application state?",
     "context": "The overall health state can be impacted by both application-level issues as well as resource-level failures. Telemetry correlation should be used to ensure transactions can be mapped through the end-to-end application and critical system flows, as this is vital to root cause analysis for failures. Platform-level metrics and logs such as CPU percentage, network in/out, and disk operations/sec should be collected from the application to inform a health model and detect/predict issues([Telemetry correlation](https://docs.microsoft.com/azure/azure-monitor/app/correlation)). This can also help to distinguish between transient and non-transient faults",
@@ -515,7 +515,7 @@
       "operationalexcellence"
     ],
     "lens": "application",
-    "category": "Health Modelling",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Data Interpretation & Health Modelling",
     "title": "Is the transaction flow data used to generate application/service maps?",
     "context": "Is there a correlation between events in different services and are those visualized?",
@@ -529,7 +529,7 @@
       "reliability"
     ],
     "lens": "application",
-    "category": "Health Modelling",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Data Interpretation & Health Modelling",
     "title": "Is a health model used to qualify what 'healthy' and 'unhealthy' states represent for the application?",
     "context": "",
@@ -556,7 +556,7 @@
       "operationalexcellence"
     ],
     "lens": "application",
-    "category": "Health Modelling",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Data Interpretation & Health Modelling",
     "title": "Are long-term trends analysed to predict operational issues before they occur?",
     "context": "Are Operations and/or analytics teams using the stored events for machine learning or similar to make predictions for the future?",
@@ -569,7 +569,7 @@
       "operationalexcellence"
     ],
     "lens": "application",
-    "category": "Health Modelling",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Data Interpretation & Health Modelling",
     "title": "Have retention times for logs and metrics been defined and with housekeeping mechanisms configured?",
     "context": "",
@@ -582,7 +582,7 @@
       "operationalexcellence"
     ],
     "lens": "application",
-    "category": "Health Modelling",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Dashboarding",
     "title": "What technology is used to visualize the application health model and encompassed logs and metrics?",
     "context": "Visualization, often also called Dashboarding, refers to how data is presented to operations teams and other interested users.",
@@ -595,7 +595,7 @@
       "operationalexcellence"
     ],
     "lens": "application",
-    "category": "Health Modelling",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Dashboarding",
     "title": "Are dashboards tailored to a specific audience?",
     "context": "Is there just one big dashboard or do you build individualized solutions for different teams (e.g. networking teams might have a different interest focus than the security team).",
@@ -609,7 +609,7 @@
       "costoptimization"
     ],
     "lens": "application",
-    "category": "Health Modelling",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Dashboarding",
     "title": "Is Role Based Access Control (RBAC) used to control access to operational and financial dashboards and underlying data?",
     "context": "Are the dashboards openly available in your organization or do you limit access based on roles etc.? For example: developers usually don't need to know the overall cost of Azure for the company, but it might be good for them to be able to watch a particular workload.",
@@ -623,7 +623,7 @@
       "costoptimization"
     ],
     "lens": "application",
-    "category": "Health Modelling",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Alerting",
     "title": "What technology is used for alerting?",
     "context": "Alerts from tools such as Splunk or Azure Monitor proactively notify or respond to operational states that deviate from norm. Alerts can also enable cost-awareness by watching budgets and limits and helping workload teams to scale appropriately.",
@@ -637,7 +637,7 @@
       "costoptimization"
     ],
     "lens": "application",
-    "category": "Health Modelling",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Alerting",
     "title": "Are specific owners and processes defined for each alert type?",
     "context": "Having well-defined owners and response playbooks per alert is vital to optimizing operational effectiveness. Alerts don't have to be only technical, for example the budget owner should be made aware of capacity issues so that budgets can be adjusted and discussed.",
@@ -650,7 +650,7 @@
       "operationalexcellence"
     ],
     "lens": "application",
-    "category": "Health Modelling",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Alerting",
     "title": "Are operational events prioritized based on business impact?",
     "context": "Are all alerts being treated the same or do you analyze the potential business impact when defining an alert?",
@@ -664,7 +664,7 @@
       "costoptimization"
     ],
     "lens": "application",
-    "category": "Health Modelling",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Alerting",
     "title": "Are push notifications enabled to inform responsible parties of alerts in real time?",
     "context": "Do teams have to actively monitor the systems and dashboard or are alerts sent to them by email etc.? This can help identify not just operational incidents but also budget overruns.",
@@ -677,7 +677,7 @@
       "operationalexcellence"
     ],
     "lens": "application",
-    "category": "Health Modelling",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Alerting",
     "title": "Is alerting integrated with an IT Service Management (ITSM) system?",
     "context": "",
@@ -691,7 +691,7 @@
       "reliability"
     ],
     "lens": "application",
-    "category": "Health Modelling",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Alerting",
     "title": "Have Azure Service Health alerts been created to respond to Service-level events?",
     "context": "Azure Service Health provides a view into the health of Azure services and regions, as well as issuing service impacting communications about outages, planned maintenance activities, and other health advisories.",
@@ -705,7 +705,7 @@
       "reliability"
     ],
     "lens": "application",
-    "category": "Health Modelling",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Alerting",
     "title": "Have Azure Resource Health alerts been created to respond to Resource-level events?",
     "context": "Azure Resource Health provides information about the health of individual resources such as a specific virtual machine, and is highly useful when diagnosing unavailable resources.",
@@ -718,7 +718,7 @@
       "operationalexcellence"
     ],
     "lens": "application",
-    "category": "Health Modelling",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Alerting",
     "title": "Are Azure notifications sent to subscriptions owners received and if necessary properly routed to relevant technical stakeholders?",
     "context": "Subscription notification emails can contain important service notifications or security alerts([Azure account contact information](https://docs.microsoft.com/azure/cost-management-billing/manage/change-azure-account-profile#service-and-marketing-emails)).",
@@ -2622,7 +2622,7 @@
       "reliability"
     ],
     "lens": "application",
-    "category": "Health Modelling",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Monitoring and Measurement",
     "title": "Is white-box monitoring used to instrument the application with semantic logs and metrics?",
     "context": "Application level metrics and logs, such as current memory consumption or request latency, should be collected from the application to inform a health model and detect/predict issues([Instrumenting an application with Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview))",
@@ -2635,7 +2635,7 @@
       "reliability"
     ],
     "lens": "application",
-    "category": "Health Modelling",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Monitoring and Measurement",
     "title": "Is the application instrumented to measure the customer experience?",
     "context": "Effective instrumentation is vital to detecting and resolving performance anomalies that can impact customer experience and application availability([Monitor performance](https://docs.microsoft.com/azure/azure-monitor/app/web-monitor-performance))",
@@ -2648,7 +2648,7 @@
       "reliability"
     ],
     "lens": "application",
-    "category": "Health Modelling",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Monitoring and Measurement",
     "title": "Is the application instrumented to track calls to dependent services?",
     "context": "Dependency tracking and measuring the duration/status of dependency calls is vital to measuring overall application health and should be used to inform a health model for the application([Dependency Tracking](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-dependencies))",
@@ -2661,7 +2661,7 @@
       "reliability"
     ],
     "lens": "application",
-    "category": "Health Modelling",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Monitoring and Measurement",
     "title": "Is black-box monitoring used to measure platform services and the resulting customer experience?",
     "context": "Black-box monitoring tests externally visible application behavior without knowledge of the internals of the system. This is a common approach to measuring customer-centric SLIs/SLOs/SLAs([Azure Monitor Reference](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability))",
@@ -2674,7 +2674,7 @@
       "reliability"
     ],
     "lens": "application",
-    "category": "Health Modelling",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Monitoring and Measurement",
     "title": "Are there known gaps in application observability that led to missed incidents and/or false positives?",
     "context": "What you cannot see, you cannot measure. What you cannot measure, you cannot improve",
@@ -2687,7 +2687,7 @@
       "reliability"
     ],
     "lens": "application",
-    "category": "Health Modelling",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Monitoring and Measurement",
     "title": "Are error budgets used to track service reliability?",
     "context": "An error budget describes the maximum amount of time that the application can fail without consequence, and is typically calculated as 1-SLA. For example, if the SLA specifies that the application will function 99.99% of the time before the business has to compensate customers, the error budget is 52 minutes and 35 seconds per year. Error budgets are a device to encourage development teams to minimize real incidents and maximize innovation by taking risks within acceptable limits, given teams are free to ‘spend’ budget appropriately",
@@ -2700,7 +2700,7 @@
       "reliability"
     ],
     "lens": "application",
-    "category": "Health Modelling",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Monitoring and Measurement",
     "title": "Is there an policy that dictates what will happen when the error budget has been exhausted?",
     "context": "If the application error budget has been met or exceeded and the application is operating at or below the defined SLA, a policy may stipulate that all deployments are frozen until they reduce the number of errors to a level that allows deployments to proceed",
@@ -2713,7 +2713,7 @@
       "reliability"
     ],
     "lens": "application",
-    "category": "Health Modelling",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Alerting",
     "title": "Do all alerts require an immediate response from an on-call engineer?",
     "context": "Alerts only deliver value if they are actionable and effectively prioritized by on-call engineers through defined operational procedures",
@@ -2913,7 +2913,7 @@
       "security"
     ],
     "lens": "application",
-    "category": "Health Modelling",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Application Level Monitoring",
     "title": "How is security monitored in this workload?",
     "recommendation": "",
@@ -2926,7 +2926,7 @@
       "security"
     ],
     "lens": "application",
-    "category": "Health Modelling",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Application Level Monitoring",
     "title": "Does the organization actively monitor identity related risk events related to potentially compromised identities of this workload?",
     "recommendation": "Establish detection and response strategy for identity risks.",
@@ -2939,7 +2939,7 @@
       "security"
     ],
     "lens": "application",
-    "category": "Health Modelling",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Application Level Monitoring",
     "title": "Is Personally identifiable information (PII) detected and removed/obfuscated automatically for this workload?",
     "recommendation": "Automatically remove/obfuscate personally identifiable information (PII) for this workload.",
@@ -2952,7 +2952,7 @@
       "security"
     ],
     "lens": "application",
-    "category": "Health Modelling",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Auditing",
     "title": "Does the organization conduct periodic & automated access reviews of the workload to make sure only authorized people have access?",
     "recommendation": "Conduct periodic access reviews for the workload.",
@@ -3746,7 +3746,7 @@
       "security"
     ],
     "lens": "application",
-    "category": "Health Modelling",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Application Level Monitoring",
     "title": "Does the organization have a central SecOps teams which monitors security related telemetry data for this workload?",
     "context": "Organization is monitoring the security posture across workloads and central SecOps team is monitoring security-related telemetry data and investigating security breaches.",
@@ -3767,7 +3767,7 @@
       "security"
     ],
     "lens": "application",
-    "category": "Health Modelling",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Resource/Infrastructure Level Monitoring",
     "title": "Does the security team have access to and monitor all subscriptions and tenants that are connected to the existing cloud environment, relative to this workload?",
     "context": "Ensure the security organization is aware of all enrollments and associated subscriptions connected to the existing environment and is able to monitor those resources as part of the overall enterprise security posture.",
@@ -4444,7 +4444,7 @@
       "costoptimization"
     ],
     "lens": "application",
-    "category": "Health Modelling",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Alerting",
     "title": "Are there alerts defined for cost thresholds and limits?",
     "context": "This is to ensure that if any budget is close to threshold, the cost owner gets notified to take appropriate actions on the change.",

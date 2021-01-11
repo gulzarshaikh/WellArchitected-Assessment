@@ -10,7 +10,7 @@
     - [Key Scenarios](#Key-Scenarios)
     - [Dependencies](#Dependencies)
     - [Application Composition](#Application-Composition)
-  - [Health Modelling](#Health-Modelling)
+  - [Health Modelling &amp; Monitoring](#Health-Modelling--Monitoring)
     - [Application Level Monitoring](#Application-Level-Monitoring)
     - [Resource/Infrastructure Level Monitoring](#ResourceInfrastructure-Level-Monitoring)
     - [Dashboarding](#Dashboarding)
@@ -295,7 +295,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
 
   > Analyze ROI regularly, use different Azure datacenter locations to optimize cost, use Azure Marketplace, track the resource tier and optimize appropriately, take advantage of appropriate subscription offer types.
-## Health Modelling
+## Health Modelling &amp; Monitoring
     
 ### Application Level Monitoring
             

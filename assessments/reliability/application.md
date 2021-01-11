@@ -9,7 +9,7 @@
     - [Failure Mode Analysis](#Failure-Mode-Analysis)
     - [Targets &amp; Non Functional Requirements](#Targets--Non-Functional-Requirements)
     - [Dependencies](#Dependencies)
-  - [Health Modelling](#Health-Modelling)
+  - [Health Modelling &amp; Monitoring](#Health-Modelling--Monitoring)
     - [Resource/Infrastructure Level Monitoring](#ResourceInfrastructure-Level-Monitoring)
     - [Data Interpretation &amp; Health Modelling](#Data-Interpretation--Health-Modelling)
     - [Alerting](#Alerting)
@@ -244,7 +244,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
 
   _If the application lifecycle is closely coupled with that of its dependencies it can limit the operational agility of the application, particularly where new releases are concerned_
-## Health Modelling
+## Health Modelling &amp; Monitoring
     
 ### Resource/Infrastructure Level Monitoring
             
