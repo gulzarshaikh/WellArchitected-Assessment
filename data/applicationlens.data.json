@@ -3630,7 +3630,7 @@
     "lens": "application",
     "category": "Application Design",
     "subCategory": "Design",
-    "title": "Does the organization use cloud services for well-established functions instead of building custom service implementations for this workload?",
+    "title": "Does this workload use cloud services for well-established functions instead of building custom service implementations?",
     "context": "Developers should use services available from a cloud provider for well-established functions like databases, encryption, identity directory, and authentication instead of writing custom versions or third-party solutions that must be integrated into the cloud provider.",
     "recommendation": "Use services available from a cloud provider for well-established functions like databases, encryption, identity directory, and authentication.",
     "id": "application_design_cloud_established"
