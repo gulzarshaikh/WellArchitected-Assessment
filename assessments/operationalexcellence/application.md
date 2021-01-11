@@ -589,7 +589,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 * How are passwords and other secrets managed?
 
 
-  _API keys, database connection string and passwords need to be stored in a secure store and not within the application code or configuration. This simplifies operational tasks like key rotation as well as improving overall security._
+  _API keys, database connection string and passwords are all sensitive to leakage, occasionally require rotation and are prone to expiration. Storing them in a secure store and not within the application code or configuration simplifies operational tasks like key rotation as well as improving overall security._
   > Tools like Azure Key Vault or HashiCorp Vault should be used to store and manage secrets securely rather than being baked into the application artefact during deployment, as this simplifies operational tasks like key rotation as well as improving overall security. Keys and secrets stored in source code should be identified with static code scanning tools. Ensure that these scans are an integrated part of the continuous integration (CI) process.
 * Do you have procedures in place for key/secret rotation?
 
@@ -869,7 +869,7 @@ Stress Testing : *Stress testing is a type of negative testing which involves va
     - Does anyone have long-standing write-access to production environments?
 
 
-      _Write-access to production systems should be limited to service principals and no user accounts have regular write-access._
+      _Regular, long-standing write access to production environments by user accounts can pose a security risk and manual intervention is often prone to errors._
 
       > Limit long-standing write access to production environments only to service principals.
 ### Common Engineering Criteria

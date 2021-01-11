@@ -259,10 +259,10 @@ These critical design principals are used as lenses to assess the Security of an
       _Knowing whether your cloud resources are in compliance with standards mandated by governments or industry organizations is essential in today's globalized world (e.g. GDPR)._
 
       > Perform regulatory compliance attestation.
-    - Has the organization established a monitoring and assessing solution for compliance?
+    - Has the organization established a monitoring and assessment solution for compliance?
 
 
-      _Continuous monitoring and assessing workload increases the overall security and compliance of your workload in Azure. For example Azure Security Center provides a regulatory compliance dashboard._
+      _Continuously monitoring and assessing the workload increases the overall security and compliance of your workload in Azure. For example Azure Security Center provides a regulatory compliance dashboard._
 
       > Continuously assess and monitor compliance.
 * Does the organization periodically perform external and/or internal workload audits?
@@ -564,7 +564,7 @@ These critical design principals are used as lenses to assess the Security of an
 * How are passwords and other secrets managed?
 
 
-  _API keys, database connection string and passwords need to be stored in a secure store and not within the application code or configuration. This simplifies operational tasks like key rotation as well as improving overall security._
+  _API keys, database connection string and passwords are all sensitive to leakage, occasionally require rotation and are prone to expiration. Storing them in a secure store and not within the application code or configuration simplifies operational tasks like key rotation as well as improving overall security._
   > Tools like Azure Key Vault or HashiCorp Vault should be used to store and manage secrets securely rather than being baked into the application artefact during deployment, as this simplifies operational tasks like key rotation as well as improving overall security. Keys and secrets stored in source code should be identified with static code scanning tools. Ensure that these scans are an integrated part of the continuous integration (CI) process.
 * Do you have procedures in place for key/secret rotation?
 
@@ -615,7 +615,7 @@ These critical design principals are used as lenses to assess the Security of an
 
   _Actions executed during an incident and response investigation could impact application availability or performance. It is recommended to define these processes and align them with the responsible (and in most cases central) SecOps team. The impact of such an investigation on the application has to be analyzed._
   > Establish an incident response plan and perform periodically a simulated execution.
-* Are there playbooks built to help incident responders quickly understand the workload and components to mitigate an attack and investigate.
+* Are there playbooks built to help incident responders quickly understand the workload and components to mitigate an attack and investigate?
 
 
   _Incident responders are part of a central SecOps team and need to understand security insights of an application. Playbooks can help to understand the security concepts and cover the typical investigation activities. These procedures can and should be automated as much as possible (while maintaining confidence and security)._
@@ -703,7 +703,7 @@ These critical design principals are used as lenses to assess the Security of an
     - Does anyone have long-standing write-access to production environments?
 
 
-      _Write-access to production systems should be limited to service principals and no user accounts have regular write-access._
+      _Regular, long-standing write access to production environments by user accounts can pose a security risk and manual intervention is often prone to errors._
 
       > Limit long-standing write access to production environments only to service principals.
 * Does the organization clearly define CI/CD roles and permissions for this workload?
