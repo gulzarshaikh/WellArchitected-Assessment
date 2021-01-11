@@ -10,7 +10,7 @@
     - [Key Scenarios](#Key-Scenarios)
     - [Dependencies](#Dependencies)
     - [Application Composition](#Application-Composition)
-  - [Health Modelling](#Health-Modelling)
+  - [Health Modelling &amp; Monitoring](#Health-Modelling--Monitoring)
     - [Application Level Monitoring](#Application-Level-Monitoring)
     - [Resource/Infrastructure Level Monitoring](#ResourceInfrastructure-Level-Monitoring)
     - [Data Interpretation &amp; Health Modelling](#Data-Interpretation--Health-Modelling)
@@ -296,7 +296,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
       _Service announcements provide insights into new features and services, as well as features or services which become deprecated._
 
       > Use announcement subscriptions to stay up to date.
-## Health Modelling
+## Health Modelling &amp; Monitoring
     
 ### Application Level Monitoring
             
