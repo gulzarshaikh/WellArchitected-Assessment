@@ -670,7 +670,7 @@
     - Does anyone have long-standing write-access to production environments?
 
 
-      _Write-access to production systems should be limited to service principals and no user accounts have regular write-access_
+      _Write-access to production systems should be limited to service principals and no user accounts should have regular write-access_
 
 * Does the organization have release gate approvals configured in their DevOps release process of this workload?
 
@@ -752,12 +752,12 @@
 * Does the organization protect the workload infrastructure with role-based access control (RBAC)?
 
 
-  _Performing role-based or/or resource-based authorization with Azure Active Directory allows centralized management that supports principal of least privilege when accessing organizational resources. RBAC provides the necessary tools to maintain separation of concerns when it comes to accessing the application infrastructure. Aligned with the [separation of duties](#separation-of-duties) section, users should have only the minimal set of permissions. Examples: "Developers can't access production infrastructure.", "Only the SecOps team can read and manage Key Vault secrets.", "Project A team can access and manage Resource Group A and all resources within."_
+  _Performing role-based or/or resource-based authorization with Azure Active Directory allows centralized management that supports the principle of least privilege when accessing organizational resources. RBAC provides the necessary tools to maintain separation of concerns when it comes to accessing the application infrastructure. Aligned with the [separation of duties](#separation-of-duties) section, users should have only the minimal set of permissions. Examples: "Developers can't access production infrastructure.", "Only the SecOps team can read and manage Key Vault secrets.", "Project A team can access and manage Resource Group A and all resources within."_
   > Implement role-based access control for application infrastructure.
 * Does the organization leverage resource locks in this workload to protect critical infrastructure?
 
 
-  _Critical infrastructure typically doesn't change often. To prevent accidental/undesired modification of resources, Azure offers the locking functionality where only specific roles and users with permissions are able to delete/modify resources. Locks can be used on critical parts of the infrastructure, but special care needs to be taken in the DevOps process - modification locks can sometimes block automation._
+  _Critical infrastructure typically doesn't change often. To prevent accidental/undesired modification of resources, Azure offers the locking functionality where only specific roles and users with permissions are able to delete/modify resources. Locks can be used on critical parts of the infrastructure, but special care needs to be taken in the DevOps process - modification locks can sometimes block automation (see [Considerations before applying locks](https://review.docs.microsoft.com/azure/azure-resource-manager/management/lock-resources#considerations-before-applying-locks) for more information)._
   > Implement resource locks to protect critical infrastructure.
 * Is there a direct access to the workload infrastructure through Azure Portal, command-line Interface (CLI) or REST API?
 

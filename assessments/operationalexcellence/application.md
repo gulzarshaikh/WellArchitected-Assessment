@@ -869,7 +869,7 @@ Stress Testing : *Stress testing is a type of negative testing which involves va
     - Does anyone have long-standing write-access to production environments?
 
 
-      _Write-access to production systems should be limited to service principals and no user accounts have regular write-access_
+      _Write-access to production systems should be limited to service principals and no user accounts should have regular write-access_
 
 ### Common Engineering Criteria
             
