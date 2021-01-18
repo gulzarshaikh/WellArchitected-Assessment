@@ -7,6 +7,8 @@ This security assessment has been produced to help the global CE&S community to 
 ## Navigation Menu
 
 ### [Application Security](./application.md) 
+
+- [Design Principles](./application.md#design-principles)
 - [Application Assessment Checklist](./application.md#Application-Assessment-Checklist)
   - [Application Design](./application.md#Application-Design)
     - [Design](./application.md#Design)
@@ -15,7 +17,7 @@ This security assessment has been produced to help the global CE&S community to 
     - [Threat Analysis](./application.md#Threat-Analysis)
     - [Security Criteria &amp; Data Classification](./application.md#Security-Criteria--Data-Classification)
     - [Dependencies, frameworks and libraries](./application.md#Dependencies-frameworks-and-libraries)
-  - [Health Modelling](./application.md#Health-Modelling)
+  - [Health Modelling &amp; Monitoring](./application.md#Health-Modelling--Monitoring)
     - [Application Level Monitoring](./application.md#Application-Level-Monitoring)
     - [Resource/Infrastructure Level Monitoring](./application.md#ResourceInfrastructure-Level-Monitoring)
     - [Auditing](./application.md#Auditing)
@@ -49,5 +51,7 @@ This security assessment has been produced to help the global CE&S community to 
 
   - [Compute](./service.md#Compute)
     - [Azure Kubernetes Service (AKS)](./service.md#Azure-Kubernetes-Service-AKS)
+  - [Data](./service.md#Data)
+    - [Azure Databricks](./service.md#Azure-Databricks)
   - [Storage](./service.md#Storage)
     - [Storage Accounts](./service.md#Storage-Accounts)

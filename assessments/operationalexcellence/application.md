@@ -10,7 +10,7 @@
     - [Key Scenarios](#Key-Scenarios)
     - [Dependencies](#Dependencies)
     - [Application Composition](#Application-Composition)
-  - [Health Modelling](#Health-Modelling)
+  - [Health Modelling &amp; Monitoring](#Health-Modelling--Monitoring)
     - [Application Level Monitoring](#Application-Level-Monitoring)
     - [Resource/Infrastructure Level Monitoring](#ResourceInfrastructure-Level-Monitoring)
     - [Data Interpretation &amp; Health Modelling](#Data-Interpretation--Health-Modelling)
@@ -39,6 +39,8 @@
 # Design Principles
 
 The following Design Principles provide context for questions, why a certain aspect is important and how is it applicable to Operational Excellence.
+
+These critical design principles are used as lenses to assess the Operational Excellence of an application deployed on Azure, providing a framework for the application assessment questions that follow.
 
 
 ## Optimize build and release processes
@@ -78,8 +80,6 @@ The following Design Principles provide context for questions, why a certain asp
 
 
 ---
-
-These critical design principals are used as lenses to assess the Operational Excellence of an application deployed on Azure, providing a framework for the following application assessment questions.
 
 
 
@@ -296,7 +296,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
       _Service announcements provide insights into new features and services, as well as features or services which become deprecated._
 
       > Use announcement subscriptions to stay up to date.
-## Health Modelling
+## Health Modelling &amp; Monitoring
     
 ### Application Level Monitoring
             
@@ -589,7 +589,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 * How are passwords and other secrets managed?
 
 
-  _Are secrets stored in a specially protected way or in the same way as any other application configuration?_
+  _API keys, database connection string and passwords are all sensitive to leakage, occasionally require rotation and are prone to expiration. Storing them in a secure store and not within the application code or configuration simplifies operational tasks like key rotation as well as improving overall security._
   > Tools like Azure Key Vault or HashiCorp Vault should be used to store and manage secrets securely rather than being baked into the application artefact during deployment, as this simplifies operational tasks like key rotation as well as improving overall security. Keys and secrets stored in source code should be identified with static code scanning tools. Ensure that these scans are an integrated part of the continuous integration (CI) process.
 * Do you have procedures in place for key/secret rotation?
 
@@ -864,13 +864,14 @@ Stress Testing : *Stress testing is a type of negative testing which involves va
 * Are tools or processes in place to grant access on a just-in-time basis?
 
 
-  _Minimizing the number of people who have access to secure information or resources reduces the chance of a malicious actor gaining access or an authorized user inadvertently impacting a sensitive resource. For example, Azure AD [Privileged Identity Management](https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-configure) provides time-based and approval-based role activation to mitigate the risks of excessive, unnecessary, or misused access permissions on resources that you care about_
-  > Implement just-in-time privileged access management
+  _Minimizing the number of people who have access to secure information or resources reduces the chance of a malicious actor gaining access or an authorized user inadvertently impacting a sensitive resource. For example, Azure AD [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) provides time-based and approval-based role activation to mitigate the risks of excessive, unnecessary, or misused access permissions on resources that you care about._
+  > Implement just-in-time privileged access management.
     - Does anyone have long-standing write-access to production environments?
 
 
-      _Write-access to production systems should be limited to service principals and no user accounts should have regular write-access_
+      _Regular, long-standing write access to production environments by user accounts can pose a security risk and manual intervention is often prone to errors._
 
+      > Limit long-standing write access to production environments only to service principals.
 ### Common Engineering Criteria
             
 * Is the choice and desired configuration of Azure services centrally governed or can the developers pick and choose?

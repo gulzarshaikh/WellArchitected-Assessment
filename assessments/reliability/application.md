@@ -9,7 +9,7 @@
     - [Failure Mode Analysis](#Failure-Mode-Analysis)
     - [Targets &amp; Non Functional Requirements](#Targets--Non-Functional-Requirements)
     - [Dependencies](#Dependencies)
-  - [Health Modelling](#Health-Modelling)
+  - [Health Modelling &amp; Monitoring](#Health-Modelling--Monitoring)
     - [Resource/Infrastructure Level Monitoring](#ResourceInfrastructure-Level-Monitoring)
     - [Data Interpretation &amp; Health Modelling](#Data-Interpretation--Health-Modelling)
     - [Alerting](#Alerting)
@@ -50,6 +50,8 @@
 # Design Principles
 
 The following Design Principles provide context for questions, why a certain aspect is important and how is it applicable to Reliability.
+
+These critical design principles are used as lenses to assess the Reliability of an application deployed on Azure, providing a framework for the application assessment questions that follow.
 
 
 ## Design for Business Requirements
@@ -96,8 +98,6 @@ The following Design Principles provide context for questions, why a certain asp
 
 
 ---
-
-These critical design principals are used as lenses to assess the Reliability of an application deployed on Azure, providing a framework for the following application assessment questions.
 
 
 
@@ -244,7 +244,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
 
   _If the application lifecycle is closely coupled with that of its dependencies it can limit the operational agility of the application, particularly where new releases are concerned_
-## Health Modelling
+## Health Modelling &amp; Monitoring
     
 ### Resource/Infrastructure Level Monitoring
             

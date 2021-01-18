@@ -1,6 +1,8 @@
 # Application Cost Optimization
 
 # Navigation Menu
+
+- [Design Principles](#design-principles)
 - [Application Assessment Checklist](#Application-Assessment-Checklist)
   - [Application Design](#Application-Design)
     - [Design](#Design)
@@ -8,7 +10,7 @@
     - [Key Scenarios](#Key-Scenarios)
     - [Dependencies](#Dependencies)
     - [Application Composition](#Application-Composition)
-  - [Health Modelling](#Health-Modelling)
+  - [Health Modelling &amp; Monitoring](#Health-Modelling--Monitoring)
     - [Application Level Monitoring](#Application-Level-Monitoring)
     - [Resource/Infrastructure Level Monitoring](#ResourceInfrastructure-Level-Monitoring)
     - [Dashboarding](#Dashboarding)
@@ -35,6 +37,52 @@
     - [Financial Management &amp; Cost Models](#Financial-Management--Cost-Models)
     - [Culture &amp; Dynamics](#Culture--Dynamics)
     - [Licensing](#Licensing)
+
+
+# Design Principles
+
+The following Design Principles provide context for questions, why a certain aspect is important and how is it applicable to Cost Optimization.
+
+These critical design principles are used as lenses to assess the Cost Optimization of an application deployed on Azure, providing a framework for the application assessment questions that follow.
+
+
+## Choose the correct resources for your business goals
+
+
+  Choose the right resources that are aligned with business goals and can handle the performance needs of the workload. When onboarding new workloads explore the possibility of modernization and cloud native offerings where possible. Using the PaaS or SaaS layer as opposed to IaaS is typically more cost effective.
+
+
+
+## Set up budgets and keep within cost constraints
+
+
+  Consider the budget constraints as part of the architectural design, identifying acceptable boundaries pertaining to scale, redundancy, and performance against cost. After initial estimations, set budgets and alerts at different scopes to continuously measure the cost.
+
+
+
+## Dynamically allocate and de-allocate resources to match performance needs
+
+
+  Identify idle or underutilised resources (e.g. through Azure Advisor or other tools) and reconfigure, consolidate or shut down.
+
+
+
+## Optimise your workloads and aim for scalable costs
+
+
+  Consider the usage metrics and performance to determine the number of instances used as your workload cost should scale linearly with demand. The cost management process should be rigorous, iterative and a key principle of responsible cloud optimization.
+
+
+
+## Continuously monitor and optimise your cost management
+
+
+  Conduct regular cost reviews, measure and forecast the capacity needs so that you can provision resources dynamically and scale with demand.
+
+
+
+
+---
 
 
 
@@ -247,7 +295,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
 
   > Analyze ROI regularly, use different Azure datacenter locations to optimize cost, use Azure Marketplace, track the resource tier and optimize appropriately, take advantage of appropriate subscription offer types.
-## Health Modelling
+## Health Modelling &amp; Monitoring
     
 ### Application Level Monitoring
             

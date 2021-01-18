@@ -41,7 +41,7 @@
     ]
   },
   {
-    "title": "Health Modelling",
+    "title": "Health Modelling & Monitoring",
     "subCategories": [
       {
         "title": "Application Level Monitoring"
@@ -241,6 +241,9 @@
       },
       {
         "title": "Azure Cache for Redis"
+      },
+      {
+        "title": "Azure Databricks"
       }
     ]
   },

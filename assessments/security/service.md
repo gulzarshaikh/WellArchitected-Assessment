@@ -8,6 +8,8 @@ This list contains design considerations and recommended configuration options, 
 
   - [Compute](#Compute)
     - [Azure Kubernetes Service (AKS)](#Azure-Kubernetes-Service-AKS)
+  - [Data](#Data)
+    - [Azure Databricks](#Azure-Databricks)
   - [Storage](#Storage)
     - [Storage Accounts](#Storage-Accounts)
 # Compute
@@ -49,6 +51,37 @@ This list contains design considerations and recommended configuration options, 
                                 
                             
 * Define [Pod resource requests and limits](https://docs.microsoft.com/azure/aks/developer-best-practices-resource-management#define-pod-resource-requests-and-limits) in application deployment manifests.
+# Data
+        
+## Azure Databricks
+### Design Considerations
+* All users&#39; notebooks and notebook results are encrypted at rest by default. If additional requirements are in place, consider using [customer-managed keys for notebooks](https://docs.microsoft.com/azure/databricks/security/keys/customer-managed-key-notebook).
+### Configuration Recommendations
+* Isolate your workspaces, compute and data from public access. Make sure that only the right people have access and only via secure channels.
+  - Ensure that the cloud workspaces for your analytics are only accessible by properly [managed users](https://docs.microsoft.com/azure/databricks/administration-guide/users-groups/). Azure Active Directory can handle single sign-on for remote access. For additional security, see [Conditional Access](https://docs.microsoft.com/azure/databricks/administration-guide/access-control/conditional-access).
+                            
+  - Implement Azure Private Link and ensure that all traffic between users of your platform,the notebooks and the compute clusters that process queries is encrypted and transmitted over the cloud provider’s network backbone, inaccessible to the outside world.
+                            
+  - Restrict and monitor your virtual machines. Clusters which execute queries should have SSH and network access restricted to prevent installation of arbitrary packages and should use only images that are periodically scanned for vulnerabilities.
+                            
+  - Use Dynamic IP access lists to allow admins to access workspaces only from their corporate networks.
+                            
+* Use the [VNet injection](https://docs.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject) functionality to enable more secure scenarios, such as:
+  - Connecting to other Azure services using service endpoints.
+                            
+  - Connecting to on-premises data sources, taking advantage of user-defined routes.
+                            
+  - Connecting to a network virtual appliance to inspect all outbound traffic and take actions according to allow and deny rules.
+                            
+  - Using custom DNS.
+                            
+  - Deploying Azure Databricks clusters in existing virtual networks.
+                            
+* Use [diagnostic logs](https://docs.microsoft.com/azure/databricks/administration-guide/account-settings/azure-diagnostic-logs) to audit workspace access and permissions. Use audit logs to see privileged activity in a workspace, cluster resizing, files/folders shared on the cluster etc.
+* Consider using the [Secure cluster connectivity](https://docs.microsoft.com/azure/databricks/security/secure-cluster-connectivity) feature and [hub/spoke architecture](https://databricks.com/blog/2020/03/27/data-exfiltration-protection-with-azure-databricks.html) to prevent opening ports and assigning public IP addresses on cluster nodes.
+* Use Azure Active Directory [credential passthrough](https://docs.microsoft.com/azure/databricks/security/credential-passthrough/adls-passthrough) to avoid the need for service principals when communicating with Azure Data Lake Storage.
+### Supporting Source Artifacts
+* Databricks blog: [Best practices to secure an enterprise-scale data platform](https://databricks.com/blog/2020/03/16/security-that-unblocks.html)
 # Storage
         
 ## Storage Accounts
