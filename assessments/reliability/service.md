@@ -34,7 +34,6 @@ This list contains design considerations and recommended configuration options, 
     - [Azure Virtual Networks](#Azure-Virtual-Networks)
     - [ExpressRoute](#ExpressRoute)
     - [Application Delivery (General)](#Application-Delivery-General)
-    - [Azure Application Gateway v2](#Azure-Application-Gateway-v2)
     - [Azure Application Gateway](#Azure-Application-Gateway)
     - [Azure Front Door](#Azure-Front-Door)
     - [Azure Loadbalancer](#Azure-Loadbalancer)
@@ -914,17 +913,11 @@ Resources
 * Create a separate health endpoint on the backend to be used by the health probe, that can aggregate the state of the critical services and dependencies needed to serve requests.
   > More information on creating such an endpoint can be found [here](https://docs.microsoft.com/en-us/azure/architecture/patterns/health-endpoint-monitoring).
                             
-## Azure Application Gateway v2
-### Configuration Recommendations
-* In new deployments, use Application Gateway v2 unless there is a compelling reason to use v1.
-* Deploy at least two AppGateway v2 instances to increase availability
-* Deploy the instances in a [zone-aware configuration](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-autoscaling-zone-redundant), where available.
-* Use Application Gateway with Web Application Firewall (WAF) within an application Virtual Network for protecting inbound HTTP/S traffic from the internet.
+## Azure Application Gateway
+### Design Considerations
 * When using Azure Front Door and Application Gateway to protect HTTP/S applications, use WAF policies in Front Door and lock down Application Gateway to receive traffic only from Azure Front Door.
   > While this is the general recommendation, certain scenarios might force a customer to implement rules specifically on AppGateway: For example, if ModSec CRS 2.2.9, CRS 3.0 or CRS 3.1 rules are required, this can only be implemented on AppGatway. Conversely, rate-limiting and geo-filtering are available only on Azure Front Door, not on AppGateway.
                             
-## Azure Application Gateway
-### Design Considerations
 * Review underutilized resources
   > Identify and delete Application Gateways with empty backend pools. 
                             
@@ -1025,6 +1018,8 @@ Guidance: plan to provide enough time for updates to take place before accessing
 * Understand the WAF ruleset
   > Understand the WAF rule set, configuration and scoring. Currently Azure Application Gateway WAF uses the modSecurity Core Rule Set (CRS) v2.2.6.
                             
+### Configuration Recommendations
+* Deploy at least two AppGateway v2 instances to increase availability
 ## Azure Front Door
 ### Configuration Recommendations
 * Use Azure Front Door WAF policies to provide global protection across Azure regions for inbound HTTP/S connections to a &#34;Landing Zone&#34;.
