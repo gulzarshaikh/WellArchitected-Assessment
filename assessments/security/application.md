@@ -768,9 +768,15 @@ These critical design principles are used as lenses to assess the Security of an
     - Does the organization regularly review access from accounts that have privileges to this workload?
 
 
-      _It is important to set up a recurring review pattern to ensure that accounts are removed from permissions as roles change._
+      _It is important to monitor the usage of high privilege accounts and set up a recurring review pattern to ensure that accounts are removed from permissions as roles change._
 
-      > Regularly review critical access roles.
+      > Regularly review access for critical roles.
+    - Are all roles (critical and non-critical) assigned only to accounts which really need them and reviewed regularly?
+
+
+      _It is important to set up a recurring review pattern to ensure that accounts are removed from permissions as roles change. Even the Reader role, especially with wide scope (subscription, resource group level), can provide an attack vector, because if attacker compromises such user account or service principal, they get access to information such as source code of Azure Automation runbooks, Azure Logic Apps definitions, virtual network structure and other configuration properties of various services._
+
+      > Assign all roles only as needed and review access periodically.
 * Has a designated point of contact been assigned for this workload to receive Azure incident notifications from Microsoft?
 
 
