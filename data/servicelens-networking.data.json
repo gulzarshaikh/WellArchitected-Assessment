@@ -984,14 +984,14 @@
     "context": "More information on creating such an endpoint can be found [here](https://docs.microsoft.com/en-us/azure/architecture/patterns/health-endpoint-monitoring)."
   },
   {
-    "type": "Configuration Recommendations",
+    "type": "Design Recommendations",
     "pillars": [
       "reliability",
       "operationalexcellence"
     ],
     "lens": "service",
     "category": "Networking",
-    "subCategory": "Azure Application Gateway v2",
+    "subCategory": "Azure Application Gateway",
     "title": "In new deployments, use Application Gateway v2 unless there is a compelling reason to use v1.",
     "recommendation": "",
     "id": "networking_8111"
@@ -1004,46 +1004,20 @@
     ],
     "lens": "service",
     "category": "Networking",
-    "subCategory": "Azure Application Gateway v2",
+    "subCategory": "Azure Application Gateway",
     "title": "Deploy at least two AppGateway v2 instances to increase availability",
     "recommendation": "",
     "id": "networking_8172"
   },
   {
-    "type": "Configuration Recommendations",
+    "type": "Design Considerations",
     "pillars": [
       "reliability",
       "operationalexcellence"
     ],
     "lens": "service",
     "category": "Networking",
-    "subCategory": "Azure Application Gateway v2",
-    "title": "Deploy the instances in a [zone-aware configuration](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-autoscaling-zone-redundant), where available.",
-    "recommendation": "",
-    "id": "networking_6888"
-  },
-  {
-    "type": "Configuration Recommendations",
-    "pillars": [
-      "reliability",
-      "operationalexcellence"
-    ],
-    "lens": "service",
-    "category": "Networking",
-    "subCategory": "Azure Application Gateway v2",
-    "title": "Use Application Gateway with Web Application Firewall (WAF) within an application Virtual Network for protecting inbound HTTP/S traffic from the internet.",
-    "recommendation": "",
-    "id": "networking_117"
-  },
-  {
-    "type": "Configuration Recommendations",
-    "pillars": [
-      "reliability",
-      "operationalexcellence"
-    ],
-    "lens": "service",
-    "category": "Networking",
-    "subCategory": "Azure Application Gateway v2",
+    "subCategory": "Azure Application Gateway",
     "title": "When using Azure Front Door and Application Gateway to protect HTTP/S applications, use WAF policies in Front Door and lock down Application Gateway to receive traffic only from Azure Front Door.",
     "recommendation": "",
     "id": "networking_6215",
