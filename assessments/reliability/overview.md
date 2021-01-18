@@ -84,6 +84,7 @@ This reliability assessment has been produced to help the global CE&S community 
     - [ExpressRoute](./service.md#ExpressRoute)
     - [Application Delivery (General)](./service.md#Application-Delivery-General)
     - [Azure Application Gateway v2](./service.md#Azure-Application-Gateway-v2)
+    - [Azure Application Gateway](./service.md#Azure-Application-Gateway)
     - [Azure Front Door](./service.md#Azure-Front-Door)
     - [Azure Loadbalancer](./service.md#Azure-Loadbalancer)
     - [Traffic Manager](./service.md#Traffic-Manager)

@@ -35,6 +35,7 @@ This list contains design considerations and recommended configuration options, 
     - [ExpressRoute](#ExpressRoute)
     - [Application Delivery (General)](#Application-Delivery-General)
     - [Azure Application Gateway v2](#Azure-Application-Gateway-v2)
+    - [Azure Application Gateway](#Azure-Application-Gateway)
     - [Azure Front Door](#Azure-Front-Door)
     - [Azure Loadbalancer](#Azure-Loadbalancer)
     - [Traffic Manager](#Traffic-Manager)
@@ -842,6 +843,108 @@ Resources
 * Use Application Gateway with Web Application Firewall (WAF) within an application Virtual Network for protecting inbound HTTP/S traffic from the internet.
 * When using Azure Front Door and Application Gateway to protect HTTP/S applications, use WAF policies in Front Door and lock down Application Gateway to receive traffic only from Azure Front Door.
   > While this is the general recommendation, certain scenarios might force a customer to implement rules specifically on AppGateway: For example, if ModSec CRS 2.2.9, CRS 3.0 or CRS 3.1 rules are required, this can only be implemented on AppGatway. Conversely, rate-limiting and geo-filtering are available only on Azure Front Door, not on AppGateway.
+                            
+## Azure Application Gateway
+### Design Considerations
+* Review underutilized resources
+  > Identify and delete Application Gateways with empty backend pools. 
+                            
+* Stop Application Gateways when they are not used
+  > You can stop Azure Application Gateways, for example, in dev/test environments after business hours. This will incur in savings, as you will not be charged while Application Gateway is stopped. You can refer to the following articles to how to stop and start an Application Gateway.
+                            
+* Have a scale-in and scale-out policy
+  > Having both a scale-in and a scale-out policy ensures that there will be enough instances to handle incoming traffic, but that the number of instances is also reduced when possible. https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-autoscaling-zone-redundant#pricing
+                            
+* Review consumption metrics across different parameters
+  > You can view the amount of consumption for different parameters (compute unit, throughput & persistent connections) as well as the Capacity Units being utilized as part of the Application Gateway metrics under the Monitoring section. This information can be used to validate that the provisioned instance count matches the amount of incoming traffic. 
+                            
+* Use Application Gateway v2 SKU for its autoscaling capabilities and performance benefits.
+  > The v2 SKU offers autoscaling to ensure that your Application Gateway can scale up as traffic increases. It also offers other significant performance benefits, such as 5x better TLS offload performance, quicker deployment and update times, zone redundancy, and more when compared to v1. For more information, see our v2 documentation and see our v1 to v2 migration documentation to learn how to migrate your existing v1 SKU gateways to v2 SKU.
+                            
+* Approximating the Application Gateway Instance count
+  > Application Gateway v2 scales out depending on a variety of factors, including but not limited to CPU, memory, and network utilization. To determine the approximate instance count, the customer can look at the following metrics:�        Compute Units � This is an indicator of CPU utilization. 1 Application Gateway instance is approximately 10 compute units�        Throughput � Application Gateway instance can support 60 to 75 MBps of throughput. This will vary depending on the type of payload the customer has. Eq. 1: Approximate instance count =  Once the customer has approximated the instance count, they can compare to their maximum instance count to determine how close to they are to reaching the maximum available capacity. 
+                            
+* Understand Application Gateway autoscaling trends
+  > The autoscale algorithm scales out aggressively, so it is possible that actual instance count could be greater than target instance count. If the actual instance count is greater than the target instance count, then Application Gateway will slowly scale down to reach the target instance count eventually. These metrics in general are best used for determining the general trend of Application Gateway�s scaling capabilities in response to different workloads to the Application Gateway.
+                            
+* Define the minimum instance count
+  > For Application Gateway v2 SKU, autoscaling takes six to seven minutes to scale out and provision additional set of instances ready to take traffic. Until then, if there are short spikes in traffic, your existing gateway instances might get under stress and this may cause unexpected latency or loss of traffic.It is recommended that you set your minimum instance count to an optimal level. Once you calculate the average approximate instance count, as well as you determine your Application Gateway autoscaling trends, you can define the minimum instance count based on your application patterns. As described in the Approximating Application Gateway Instance count section, check your Current Compute Units metric for the past one month. Compute unit metric is a representation of your gateway's CPU utilization and based on your peak usage divided by 10, you can set the minimum number of instances required. For example, if your Current Compute Units avg over the past month is 50, you would set the Application Gateway minimum instance count to 5.
+                            
+* Define the maximum instance count
+  > We suggest having 125 as the maximum autoscale instance limit, so the gateway can be scaled out at any time. This maximum has no implications on billing, as the customer is always charged only for the capacity they actually consume. When setting the maximum instance count to 125, ensure that the subnet that the Application Gateway is deployed in has at enough available IP addresses in case Application Gateway does scales all the way up.
+                            
+* Define Application Gateway subnet size
+  > An application gateway is a dedicated deployment in your virtual network. Within your virtual network, a dedicated subnet is required for the application gateway. You can have multiple instances of a given application gateway deployment in a subnet. You can also deploy other application gateways (of the same SKU) in the subnet.The following considerations will help you to define the correct size for the Application Gateway subnet based on your scenario:�        Application Gateway uses one private IP address per instance, plus another private IP address if a private front-end IP is configured.�        Azure also reserves five IP addresses in each subnet for internal use: the first four and the last IP addresses.�        Application Gateway (Standard or WAF) SKU can support up to 32 instances (32 instance IP addresses + 1 private front-end IP + 5 Azure reserved) � so a minimum subnet size of /26 is recommended.�        Application Gateway (Standard_v2 or WAF_v2 SKU) can support up to 125 instances (125 instance IP addresses + 1 private front-end IP + 5 Azure reserved) � so a minimum subnet size of /24 is recommended o   should we change this to /27 or /28 min required?? A /29 fails �{"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/DeployOperations for usage details.","details":[{"code":"ApplicationGatewaySubnetDoesNotHaveEnoughCapacity","message":"Subnet /subscriptions/f31b0350-72a9-4843-96c1-b93515783b91/resourceGroups/appgtw/providers/Microsoft.Network/virtualNetworks/east-vnet/subnets/app-gtw-29 used for Application Gateway /subscriptions/f31b0350-72a9-4843-96c1-b93515783b91/resourceGroups/appgtw/providers/Microsoft.Network/applicationGateways/ivgtw does not have enough capacity. Required capacity is at least 10, currently available capacity in subnet is 3."}]}�.�        If you are intending to deploy additional Application Gateways in the same subnet, consider the additional IP addresses that will be required for their maximum instance count for both, Standard and Standard v2.
+                            
+* Monitoring Application Gateway � Capacity metrics
+  > The following metrics can be used by the customer as indicators of utilization of provisioned Application Gateway capacity. Alerts can be set as needed by the customers to get notifications once a threshold has been reached for any metric.Metric Name Explanation Use case Current Compute UnitsCPU utilization of Application gateway VM. One Application Gateway instance supports 10 Compute Units. This will help catch issues where customer is sending more traffic than what Application Gateway instances can handle.  Throughput The amount of traffic (in Bps) that is served by Application Gateway.Directly measures the amount of traffic served by Application Gateway. This threshold is dependent on the payload size. For smaller payloads but more frequent connections, the throughput limits will be lower, and alert should be adjusted accordingly. Current Connections TCP connections currently active on Application Gateway.  This will help catch issues where the connection count increases beyond the capacity of Application gateway. Look for a capacity unit drop during the increase in new connection count to identify if Application Gateway is out of capacity. 
+                            
+* Use Metrics for troubleshooting
+  > Application Gateway exposes a few other metrics for troubleshooting that can be used as indicators of issues either at Application Gateway or the backend. We recommend evaluating alerts as per the table below.Metric Name Explanation Use case Unhealthy Host Count Indicates number of backends that Application Gateway is unable to probe successfully. This will catch issues where Application Gateway instances are unable to connect to the backend. Based on probe settings (example: probe interval is 10 seconds, unhealthy host count threshold is 3 failed probes), a backend will turn unhealthy if Application Gateway instance is not able to reach it for 30 seconds (depends on the configured timeout and interval in the custom probe). Response Status (dimension 4xx and 5xx) The HTTP response status returned to clients from Application Gateway itself. This will be usually the same as Backend Response status unless:a) Application Gateway is unable to get a response from the backend or b) Application Gateway has an internal error in serving responses.  This metric indicates issues either with Application Gateway or backend. This metric in conjunction with Backend Response status (see below) can be used to identify whether Application Gateway or the backend is failing to serve requests.  Backend Response Status (dimension 4xx and 5xx) The HTTP response status returned to Application Gateway from the backend.  Can be used to validate if the backend is successfully receiving requests and serving responses.  Backend Last Byte Response TimeTime interval between start of establishing a connection to backend server and receiving the last byte of the response body. Increase in this latency implies that the backend is getting loaded and is taking longer to respond to requests. Action item would be to scale up the backend.Application Gateway Total TimeThis is the interval from the time when Application Gateway receives the first byte of the HTTP request to the time when the last response byte has been sent to the client.  Note: includes client RTTIncrease in this latency, without any accompanying application changes or access traffic pattern changes should be cause for investigation. If this metric is increasing, closely monitor the metrics above to determine if anything is rising like compute units, total throughput, or total request count. 
+                            
+* Turn on diagnostics on Application Gateway and WAF
+  > Diagnostic logs allow you to view firewall logs, performance logs, and access logs. You can use these logs in Azure to manage and troubleshoot Application Gateways.
+                            
+* Use Advanced Monitoring Metrics
+  > In addition to the throughput data offered, consider configuring monitoring and alerting on metrics like Unhealthy Hosts, Latency and the number of connections and requests. Notice the difference between connections and requests: On connection represents the TCP connection (sockets pair), while a requests represents a resource request, ie, a GET/PUT,POST, etc. One connection can serve multiple requests (on AppGW v2, up to 100).
+                            
+* When using App Gateway as ingress controller, enable AKS Diagnostic Settings with a storage account
+  > TODO Add explanation here
+                            
+* Ensure that your App Gateway and the AKS cluster&#39;s nodes are on the same VNET. 
+  > It is not required for the Pods to be on the same VNet as App Gateway Ensure you understand the current App Gateway limitsHttp content limits:maxAllowedContentLength (Bytes): 2147483647 (2MB)maxQueryString (Bytes) = 4096maxUrl (Bytes): 2048 https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits#application-gateway-limits
+                            
+* Test health probes and ensure you have the correct rules configured (AppGW V2 only)
+  > (need to add why and how)
+                            
+* Match timeout settings to backend application
+  > Ensure you have configured the IdleTimeout settings to match the listener and traffic characteristics of the backend application. The default value is set to 4 minutes and can be configured to a maximum of 30. https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-tcp-reset
+                            
+* Plan for rule updates based on timing of when rule is deployed vs applied vs available (reduce 502s) 
+  > (fast path updates vs slow path updates??)
+Guidance: plan to provide enough time for updates to take place before accessing AppGW or making further changes(add some examples however do not add specific timings).
+                            
+* Use health probes to detect backend unavailability
+  > In case AppGateway is used to load balance incoming traffic over multiple backend instances, it is recommended to implement health probes. These will ensure that traffic is not routed to backends that are unable to handle the traffic. 
+                            
+* Understand the impact of the Interval and Threshold settings on Health Probes
+  > The health probe will send requests to the provided endpoint on a set interval. Additionally, there is a threshold of failed requests that will be tolerated before the backend is marked unhealthy. These numbers present a trade-off: Setting a higher interval puts a higher load on your service (each AppGateway instance sends its own health probes, so 100 instances every 30 seconds means 100 requests per 30 seconds) but setting a lower interval will leave more time before an outage is detected. Similarly, setting a low unhealthy threshold may mean that short, transient failures may take out a backend. Setting this number too high again means it can take longer to take a backend out of rotation.
+                            
+* Verify downstream dependencies via Health Endpoints
+  > In a more advanced scenario, each backend also has its own dependencies to ensure failures are isolated. For example, an API hosted behind AppGateway may have multiple backends, each connected to a different database (replica). When such a dependency fails, the API app may be working but will not return valid results. For that reason, the health endpoint should ideally validate all dependencies. Keep in mind that if each call to the health endpoint has a direct dependency call, that database would receive 100 queries every 30 seconds instead of 1. To avoid this, the health endpoint should cache the state of the dependencies for a short period of time. See Health monitoring overview for Azure Application Gateway | Microsoft Docs and Azure Front Door - backend health monitoring | Microsoft Docs and Health probes to scale and provide HA for your service - Azure Load Balancer | Microsoft Docs
+                            
+* Ensure that custom domain labels do not expose internal names 
+  > If the customer does not choose a label, then the current naming scheme is used (GUID.cloudapp.net� generated by RDFE) � add information about information disclosure
+                            
+* Understand the restrictions of NSGs on App Gateway
+  > Network Security Groups (NSGs) � NSGs are supported on Application Gateway, but there are some restrictions as documented on the following article. 
+                            
+* Do not use User Defined Routes on the App Gateway subnet
+  > Using User Defined Routes (UDR) on the Application Gateway subnet might cause the health status in the back-end health view to appear as Unknown. It also might cause generation of Application Gateway logs and metrics to fail. We recommend that you don't use UDRs on the Application Gateway subnet so that you can view the back-end health, logs, and metrics. If your organizations require to use UDR in the Application Gateway subnet, please ensure you review the supported scenarios.
+                            
+* Understand DNS lookups on App Gateway subnet
+  > When the backend pool contains a resolvable FQDN, the DNS resolution is based on a private DNS zone or custom DNS server (if configured on the VNet), or it uses the default Azure-provided DNS.
+                            
+* Set up an TLS policy for extra security
+  > Set up a TLS policy for extra security. Ensure you're using the latest TLS policy version (AppGwSslPolicy20170401S). This enforces TLS 1.2 and stronger ciphers.
+                            
+* Use AppGateway for TLS Termination
+  > Using AppGateway for TLS termination to benefit from a number of advantages: Improved Performance because requests going to different backends to have to re-authenticate to each backend, better utilization of backend servers since they don't have to perform TLS processing, intelligent routing by accessing the request content and easier certificate management since the certificate only needs to be installed on AppGateway. 
+                            
+* When re-encrypting backend traffic, ensure the backend server certificate contains both the root and intermediate CAs.
+  > In order for a TLS/SSL certificate to be trusted, that certificate of the backend server must have been issued by a CA that is well-known. If the certificate was not issued by a trusted CA, the application gateway will then check to see if the certificate of the issuing CA was issued by a trusted CA, and so on until either a trusted CA is found (at which point a trusted, secure connection will be established) or no trusted CA can be found (at which point the application gateway will mark the backend unhealthy).
+                            
+* Use Azure Key Vault for storing TLS certificates
+  > Using Key Vault integration offers stronger security, easier separation of duties (app dev / security), support for managed certificates and an easier certificate renewal and rotation process.
+                            
+* Understand the impact of enabling the Web Application Firewall
+  > When Web Application Firewall (WAF) is enabled, every request must be buffered by the Application Gateway until it fully arrives and check if the request matches with any rule violation in its core rule set and then forward the packet to the backend instances. This is also the case with large file uploads (30MB+ in size) and results in a latency that can be significant.  
+                            
+* Become familiar with the OWASP policies
+  > AppGwv1 RuleSets of OWASP 3.0, OWASP 2.2.9. AppGwv2 Rulesets support OWASP 3.1, 3.0, 2.2.9, and "Microsoft_BotManageRuleSet 0.1". 
+                            
+* Understand the WAF ruleset
+  > Understand the WAF rule set, configuration and scoring. Currently Azure Application Gateway WAF uses the modSecurity Core Rule Set (CRS) v2.2.6.
                             
 ## Azure Front Door
 ### Configuration Recommendations
