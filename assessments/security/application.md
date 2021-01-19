@@ -839,6 +839,12 @@ Because security will have broad access to the environment (and visibility into 
 
   _OAuth tokens are usually cached after they've been acquired. Application code should first try to get tokens silently from a cache before attempting to acquire a token from the identity provider, to optimise performance and maximize availability. Tokens should be stored securely and handled as any other credentials. When there's a need to share tokens across application servers (instead of each server acquiring and caching their own) encryption should be used. [Acquire and cache tokens](https://docs.microsoft.com/azure/active-directory/develop/msal-acquire-cache-tokens)_
   > Configure web apps to reuse authentication tokens securely and handle them like other credentials.
+    - Is trusted state information protected when stored on untrusted client (such as cookie in a web browser)?
+
+
+      _State data can contain not just session identifier, but also account and claims information, which can get exploited by the client. In a situation where the application needs to round-trip trusted state via an untrusted client (which can be session cookie in a web browser), it has to ensure that the information isn't tampered with. See [ASP.NET Core Data Protection](https://docs.microsoft.com/en-us/aspnet/core/security/data-protection/introduction?view=aspnetcore-5.0) for more details on how to use .NET APIs._
+
+      > Implement Data Protection for trusted state information.
 * How is the workload authenticated when communicating with Azure platform services?
 
 
