@@ -768,9 +768,15 @@ These critical design principles are used as lenses to assess the Security of an
     - Does the organization regularly review access from accounts that have privileges to this workload?
 
 
-      _It is important to set up a recurring review pattern to ensure that accounts are removed from permissions as roles change._
+      _It is important to monitor the usage of high privilege accounts and set up a recurring review pattern to ensure that accounts are removed from permissions as roles change._
 
-      > Regularly review critical access roles.
+      > Regularly review access for critical roles.
+    - Are all roles (critical and non-critical) assigned only to accounts which really need them and reviewed regularly?
+
+
+      _All access should be assigned only when really needed. Even the Reader role, especially with wide scope (subscription, resource group level), can provide an attack vector, because if attacker compromises such user account or service principal, they get access to information such as source code of Azure Automation runbooks, Azure Logic Apps definitions, virtual network structure and other configuration properties of various services._
+
+      > Assign all roles only as needed and review access periodically.
 * Has a designated point of contact been assigned for this workload to receive Azure incident notifications from Microsoft?
 
 
@@ -833,6 +839,12 @@ Because security will have broad access to the environment (and visibility into 
 
   _OAuth tokens are usually cached after they've been acquired. Application code should first try to get tokens silently from a cache before attempting to acquire a token from the identity provider, to optimise performance and maximize availability. Tokens should be stored securely and handled as any other credentials. When there's a need to share tokens across application servers (instead of each server acquiring and caching their own) encryption should be used. [Acquire and cache tokens](https://docs.microsoft.com/azure/active-directory/develop/msal-acquire-cache-tokens)_
   > Configure web apps to reuse authentication tokens securely and handle them like other credentials.
+    - Is trusted state information protected when stored on untrusted client (such as cookie in a web browser)?
+
+
+      _State data can contain not just session identifier, but also account and claims information, which can get exploited by the client. In a situation where the application needs to round-trip trusted state via an untrusted client (which can be session cookie in a web browser), it has to ensure that the information isn't tampered with. See [ASP.NET Core Data Protection](https://docs.microsoft.com/en-us/aspnet/core/security/data-protection/introduction?view=aspnetcore-5.0) for more details on how to use .NET APIs._
+
+      > Implement Data Protection for trusted state information.
 * How is the workload authenticated when communicating with Azure platform services?
 
 
