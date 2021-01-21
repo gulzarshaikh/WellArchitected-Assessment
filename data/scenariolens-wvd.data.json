@@ -62,6 +62,10 @@
                 "context": "For WVD Session Hosts to join onto your Active Directory domain, the Virtual Network they reside on should be able to resolve your Active Directory domain name. It is strongly recommended to extend and build [Domain Controllers in Azure](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/identity/adds-extend-domain)."
             },
             {
+                "title": "Connection to application(s), Active Directory Domain Services and on-prem workloads should be in line with the expected availability requirements for the environment",
+                "context": "Availability of applications, domain services and connectivity methods should adhere to the availability requirements. Refer back to [Networking Reliability](https://github.com/Azure/WellArchitected-Assessment/blob/main/assessments/reliability/application.md#networking--connectivity) for more information."
+            },
+            {
                 "title": "Application workload line of sight from your WVD Session Host(s)",
                 "context": "Some application workloads may not be running in Azure which means that WVD will require access to third party datacenters (ExpressRoute, site-to-site VPN). It is recommended to migrate applications and workloads accessed by WVD into Azure as close to the WVD environment as possible following [Enterprise Scale Landing Zone guidance](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/)."
             },
