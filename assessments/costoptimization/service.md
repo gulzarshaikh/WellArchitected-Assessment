@@ -123,3 +123,7 @@ This list contains design considerations and recommended configuration options, 
   - **DDOS Standard**: gives protection for their workload types and how their patterns are. Otherwise you can use the basic (i.e. for small customers).
                             
 ## IP Addresses
+### Configuration Recommendations
+* PIPs (Public IPs) are free unless you don’t use them – if they aren’t assigned to anything you will pay for it.
+  > There should be a process to look for orphan NICs and PIPs that are not being used in production and non-production.
+                            
