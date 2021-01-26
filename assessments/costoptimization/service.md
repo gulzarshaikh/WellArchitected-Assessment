@@ -42,6 +42,9 @@ This list contains design considerations and recommended configuration options, 
     > Unlike System node pools that always require running nodes, User node pools allow you to scale to 0.
                                 
                             
+* Use the Start/Stop feature in Azure Kubernetes Services (AKS).
+  > (in preview as of 11/2020) The AKS Stop/Start cluster feature now in public preview allows AKS customers to completely pause an AKS cluster, saving time and cost. The stop/start feature keeps cluster configurations in place and customers can pick up where they left off without reconfiguring the clusters.
+                            
 ## Virtual Machines
 ### Configuration Recommendations
 * Have you performed a recent review of SKUs that could benefit from Reserved Instances for 1 or 3 years or more?
@@ -61,9 +64,6 @@ This list contains design considerations and recommended configuration options, 
                             
 * Use Zone to Zone disaster recovery for virtual machines.
   > (in preview as of 11/2020) Replicate, failover and failback your business-critical virtual machines within the same region with zones. Ideal for those that have complicated networking infrastructure and want to avoid the cost and complexity of recreating it in a secondary region.
-                            
-* Use the Start/Stop feature in Azure Kubernetes Services (AKS).
-  > (in preview as of 11/2020) The AKS Stop/Start cluster feature now in public preview allows AKS customers to completely pause an AKS cluster, saving time and cost. The stop/start feature keeps cluster configurations in place and customers can pick up where they left off without reconfiguring the clusters.
                             
 # Storage
         
