@@ -202,7 +202,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
     - What is the maximum traffic volume the application is expected to serve without performance degradation?
 
 
-      _Scale requirements the application must be able to effectively satisfy, such as the number of concurrent users or requests per second, is a critical lens for assessing operations. From the cost perspective, it's recommended to se a budget for extreme circumstances and indicate upper limit for cost (when it's not worth serving more traffic due to overall costs)._
+      _Scale requirements the application must be able to effectively satisfy, such as the number of concurrent users or requests per second, is a critical lens for assessing operations. From the cost perspective, it's recommended to set a budget for extreme circumstances and indicate upper limit for cost (when it's not worth serving more traffic due to overall costs)._
 
       > Traffic limits for the application should be defined in quantified and measurable manner.
     - Are these performance targets monitored and measured across the application and/or key scenarios?
@@ -286,15 +286,6 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
   _Deliberate selection of resources and sizing is important to maintain efficiency and optimal cost._
   > Automate based on the application lifespan, use DevOps and deployment automation, configure auto-scale policies for the workload (both in and out), select the right resource offering size (VM, disk, database), choose appropriate services that match business requirements.
-* How are you monitoring your costs?
-
-
-  _The organizations needs to be aware of workload costs._
-  > Watch cloud costs, create and respond to cost alerts, perform cost reviews on a regular cadence.
-* What trade-offs have you made to optimize for cost?
-
-
-  > Analyze ROI regularly, use different Azure datacenter locations to optimize cost, use Azure Marketplace, track the resource tier and optimize appropriately, take advantage of appropriate subscription offer types.
 ## Health Modelling &amp; Monitoring
     
 ### Application Level Monitoring
@@ -363,13 +354,13 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 * Are you using Azure Front Door, Azure App Gateway or Web Application Firewall?
 
 
-  _FD enabled WAF – cost and performance implications with this. Can save costs instead of using 3rd party app. Latency of FD is great – uses unicast. You only have to sync once. If you only want 1 or 2 regions you can use app gateway. There are cost implications of having a WAF ($25 per region) – check hours and GB/s._
+  _There are cost implications to using Front Door with Web Application Firewall enabled, but it can save costs compared to using a 3rd party app. Front Door has a good latency, because it uses unicast. If only 1 or 2 regions are required, Application Gateway can be used. There are cost implications of having a WAF ($25 per region) – you should check pricing of hours and GB/s._
 ### Data flow
             
 * Are you moving data between regions?
 
 
-  _Moving data between regions can add additional cost, it can be on the storage layer or networking layer, it's worth reviewing if this cost is justified or can be replace via re-architecture or accepting the cost due to e.g. disaster recovery (DR)._
+  _Moving data between regions can add additional cost, it can be on the storage layer or networking layer, it's worth reviewing if this cost is can be replaced via re-architecture or justified due to e.g. disaster recovery (DR)._
   > Consider if the cost of data transfer is acceptable.
 * How is the workload connected between regions? Is it using network peering or gateways?
 
@@ -379,7 +370,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 * How are Azure resources connecting to the internet? Via NSG or via on-prem internet?
 
 
-  _This can have extra cost as data has to go back to on-prem to go to the internet, this cost should be acknowledged._
+  _Tunnelling internet traffic through on-premises can have extra cost as data has to go back to on-prem to go to the internet, this cost should be acknowledged._
 ## Operational Procedures
     
 ### Scalability &amp; Capacity Model
@@ -460,7 +451,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 * Is the application deployed to multiple environments with different configurations?
 
 
-  _This is to understand the scope and distinguish between SKUs used in production and non-production environments or also with the goal to drive down cost by for example consolidating environments for some applications that are not as critical to the business and not needing the same testing._
+  _Understand the scope of the solution and distinguish between SKUs used in production and non-production environments. To drive down cost, it might be possible to for example consolidate environments for applications that are not as critical to the business and don't need the same testing._
     - What is the ratio of cost of production and non-production environments for this workload?
 
 
@@ -492,7 +483,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 * Have you deployed a Hub and Spoke Design or Virtual WAN?
 
 
-  _Virtual WAN has costs that are different in hub and spoke design. Have to pay for the peering network or other service routing. If you want to deploy Private Link, you don't pay for peering just for private link._
+  _Virtual WAN has costs that are different in hub and spoke design. The cost of the peering network or other service routing has to be included. If Private Link is deployed, you don't pay for peering just for private link._
   > Consider whether to deploy Hub and Spoke or Virtual WAN for this workload.
 ### SKUs
             

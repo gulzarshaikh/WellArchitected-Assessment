@@ -16,7 +16,6 @@ This list contains design considerations and recommended configuration options, 
   - [Networking](#Networking)
     - [Network Virtual Appliances (NVA)](#Network-Virtual-Appliances-NVA)
     - [Network Connectivity](#Network-Connectivity)
-    - [Application Delivery (General)](#Application-Delivery-General)
     - [IP Addresses](#IP-Addresses)
 # Compute
         
@@ -111,7 +110,6 @@ This list contains design considerations and recommended configuration options, 
                             
   - Azure Firewall is also metered (pay for instance and for usage) – the same applies to load balancers.
                             
-## Application Delivery (General)
 ### Configuration Recommendations
 * Select SKU for service so that it does the job required and that allows the customer to grow as the workload evolves.
   - **Load balancer**: 2 SKUs (Basic – free and Standard – paid). We recommend Standard because it has richer capabilities (outbound rules, granular network security config, monitoring, etc.), provides SLA and can be deployed in Availability Zones. Capabilities in Basic are limited.
@@ -124,6 +122,6 @@ This list contains design considerations and recommended configuration options, 
                             
 ## IP Addresses
 ### Configuration Recommendations
-* PIPs (Public IPs) are until used. Static PIPs are paid even when not assigned to resources.
+* PIPs (Public IPs) are free until used. Static PIPs are paid even when not assigned to resources.
   > There's a difference in billing for regular and static public IP addresses. There should be a process to look for orphan network interface cards (NICs) and PIPs that are not being used in production and non-production.
                             
