@@ -48,16 +48,16 @@ This list contains design considerations and recommended configuration options, 
 ## Virtual Machines
 ### Configuration Recommendations
 * Have you performed a recent review of SKUs that could benefit from Reserved Instances for 1 or 3 years or more?
-  > Purchasing reserved instances is a simple way to reduce Azure costs. You have to manage utilization if it’s too low then you are paying for resourcing that is not being used. One advice is to keep RI instances simple and not trying to have too much management overhead that has to be factored in as well as part of the cost.
+  > Purchasing reserved instances is a way to reduce Azure costs for workloads with stable usage. You have to manage utilization: if it’s too low then you are paying for resources that are not being used. One advice is to keep RI instances simple and not trying to have too much management overhead that has to be factored in as well as part of the cost.
                             
 * Are you using Burstable (B) series VM sizes for VMs that are idle most of the time and have high usage for a certain period of time?
-  > The B-series VMs are ideal for workloads that do not need the full performance of the CPU continuously, like web servers, proof of concepts, small databases and development build environments and provide a cost savings.
+  > The B-series VMs are ideal for workloads that do not need the full performance of the CPU continuously (like web servers, proof of concepts, small databases and development build environments) and provide cost savings.
                             
 * Do you shut down the VM instances which are not in use?
   > Use the Start/Stop VMs during off-hours feature of virtual machines to minimize waste. There are many configuration options to schedule start the stop times. The feature is suitable as a low-cost automation option. Azure Advisor evaluates virtual machines based on CPU and network utilization over a time period. Then, the recommended actions are shut down or resize instances and cost saving with both actions.
                             
 * Are Spot VMs being used?
-  > Spot VMs are ideal for workloads that can be interrupted, such as highly parallel batch processing jobs. These VMs take advantage of the surplus capacity in Azure at a lower cost. They're also well suited for experimental, development, and testing of large-scale solutions.
+  > Spot VMs are ideal for workloads that can be interrupted, such as highly parallel batch processing jobs. These VMs take advantage of the surplus capacity in Azure at a lower cost. They're also well suited for experimenting, development and testing of large-scale solutions.
                             
 * Are you using PaaS as an alternative to virtual machines?
   > When you use the PaaS model, operational and maintenance costs are included in the pricing and in some cases can be cheaper than managing VMs on your own.
@@ -105,25 +105,25 @@ This list contains design considerations and recommended configuration options, 
 ## Network Connectivity
 ### Design Considerations
 * Running cost of services (services are metered – pay for service itself and consumption on service)
-  - VNET Peering Cost – customers start putting everything in 1 VNET for example to save costs but that’s preventing them from growing because they will reach a point that they can’t fit everything in one VNET.
+  - VNet Peering Cost – putting everything in 1 VNet can be a way save costs, but it also prevents the infrastructure from growing because the VNet eventually reaches a point where new resources don&#39;t fit anymore.
                             
-  - If you have 2 VNETs that are peered and you want to access a private endpoint – you pay only for private endpoint access and not VNET peering cost.
+  - For 2 VNets that are peered and private endpoint is used – only the private endpoint access is billed and not VNet peering cost.
                             
-  - Azure Firewall is also metered (pay for instance and for usage) – same for load balancers.
+  - Azure Firewall is also metered (pay for instance and for usage) – the same applies to load balancers.
                             
 ## Application Delivery (General)
 ### Configuration Recommendations
 * Select SKU for service so that it does the job required and that allows the customer to grow as the workload evolves.
-  - **Load balancer**: 2 SKUs (basic – free and standard – fee based). We recommend standard because it has richer capabilities (outbound rules, granular network security config, monitoring, etc), provides SLA and can be deployed in AZs. Capabilities in basic are limited.
+  - **Load balancer**: 2 SKUs (Basic – free and Standard – paid). We recommend Standard because it has richer capabilities (outbound rules, granular network security config, monitoring, etc.), provides SLA and can be deployed in Availability Zones. Capabilities in Basic are limited.
                             
   - **App Gateway**: Basic or V2.
                             
   - **Gateways**: limit throughput, performance, etc.
                             
-  - **DDOS Standard**: gives protection for their workload types and how their patterns are. Otherwise you can use the basic (i.e. for small customers).
+  - **DDoS Standard**: Depending on the workload and usage patterns, Standard can provide useful protection. Otherwise you can use the Basic (i.e. for small customers).
                             
 ## IP Addresses
 ### Configuration Recommendations
-* PIPs (Public IPs) are free unless you don’t use them – if they aren’t assigned to anything you will pay for it.
-  > There should be a process to look for orphan NICs and PIPs that are not being used in production and non-production.
+* PIPs (Public IPs) are until used. Static PIPs are paid even when not assigned to resources.
+  > There's a difference in billing for regular and static public IP addresses. There should be a process to look for orphan network interface cards (NICs) and PIPs that are not being used in production and non-production.
                             
