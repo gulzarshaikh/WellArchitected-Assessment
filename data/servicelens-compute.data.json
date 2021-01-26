@@ -850,7 +850,7 @@
         "category": "Compute",
         "subCategory": "Virtual Machines",
         "title": "Have you performed a recent review of SKUs that could benefit from Reserved Instances for 1 or 3 years or more?",
-        "context": "Purchasing reserved instances is a simple way to reduce Azure costs. You have to manage utilization if it’s too low then you are paying for resourcing that is not being used. One advice is to keep RI instances simple and not trying to have too much management overhead that has to be factored in as well as part of the cost."
+        "context": "Purchasing reserved instances is a way to reduce Azure costs for workloads with stable usage. You have to manage utilization: if it’s too low then you are paying for resources that are not being used. One advice is to keep RI instances simple and not trying to have too much management overhead that has to be factored in as well as part of the cost."
     },
     {
         "type": "Configuration Recommendations",
@@ -861,7 +861,7 @@
         "category": "Compute",
         "subCategory": "Virtual Machines",
         "title": "Are you using Burstable (B) series VM sizes for VMs that are idle most of the time and have high usage for a certain period of time?",
-        "context": "The B-series VMs are ideal for workloads that do not need the full performance of the CPU continuously, like web servers, proof of concepts, small databases and development build environments and provide a cost savings."
+        "context": "The B-series VMs are ideal for workloads that do not need the full performance of the CPU continuously (like web servers, proof of concepts, small databases and development build environments) and provide cost savings."
     },
     {
         "type": "Configuration Recommendations",
@@ -883,7 +883,7 @@
         "category": "Compute",
         "subCategory": "Virtual Machines",
         "title": "Are Spot VMs being used?",
-        "context": "Spot VMs are ideal for workloads that can be interrupted, such as highly parallel batch processing jobs. These VMs take advantage of the surplus capacity in Azure at a lower cost. They're also well suited for experimental, development, and testing of large-scale solutions."
+        "context": "Spot VMs are ideal for workloads that can be interrupted, such as highly parallel batch processing jobs. These VMs take advantage of the surplus capacity in Azure at a lower cost. They're also well suited for experimenting, development and testing of large-scale solutions."
     },
     {
         "type": "Configuration Recommendations",
