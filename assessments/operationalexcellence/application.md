@@ -243,7 +243,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
     - Do you maintain a complete list of application dependencies?
 
 
-      _Examples of typical dependencies include platform dependencies outside the remit of the application, such as Azure Active Directory, Express Route, or a central NVA (Network Virtual Appliance), as well as application dependencies such as APIs which may be in-house or externally owned by a third-party. For cost it’s important to  understand the cost for these services and how they are being charged, this makes it easier to understanding an all up cost, for more details please see cost models._
+      _Examples of typical dependencies include platform dependencies outside the remit of the application, such as Azure Active Directory, Express Route, or a central NVA (Network Virtual Appliance), as well as application dependencies such as APIs which may be in-house or externally owned by a third-party. For cost it’s important to  understand the price for these services and how they are being charged, this makes it easier to understanding an all up cost. For more details see cost models._
 
       > Map application dependencies either as a simple list or a document (usually this is part of a design document or reference architecture).
     - Is the impact of an outage with each dependency well understood?
@@ -271,7 +271,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
     - What operational features/capabilities are used for leveraged services?
 
 
-      _Operational capabilities, such as auto-scale and auto-heal for AppServices, can reduce management overheads, support operational effectiveness and reduce cost._
+      _Operational capabilities, such as auto-scale and auto-heal for App Services, can reduce management overheads, support operational effectiveness and reduce cost._
 
       > Make sure you understand the operational features/capabilities available and how they can be used in the solution.
     - What technologies and frameworks are used by the application?

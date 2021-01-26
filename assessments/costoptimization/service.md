@@ -104,7 +104,7 @@ This list contains design considerations and recommended configuration options, 
 ## Network Connectivity
 ### Design Considerations
 * Running cost of services (services are metered – pay for service itself and consumption on service)
-  - VNet Peering Cost – putting everything in 1 VNet can be a way save costs, but it also prevents the infrastructure from growing because the VNet eventually reaches a point where new resources don&#39;t fit anymore.
+  - VNet Peering Cost – consider the consequences of putting all resources in a single VNet to save costs, because it also prevents the infrastructure from growing. The VNet can eventually reach a point where new resources don&#39;t fit anymore.
                             
   - For 2 VNets that are peered and private endpoint is used – only the private endpoint access is billed and not VNet peering cost.
                             
