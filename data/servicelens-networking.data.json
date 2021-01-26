@@ -1186,7 +1186,7 @@
     ],
     "lens": "service",
     "category": "Networking",
-    "subCategory": "Application Delivery (General)",
+    "subCategory": "Network Connectivity",
     "title": "Select SKU for service so that it does the job required and that allows the customer to grow as the workload evolves.",
     "children": 
     [
@@ -1265,7 +1265,7 @@
     "lens": "service",
     "category": "Networking",
     "subCategory": "IP Addresses",
-    "title": "PIPs (Public IPs) are until used. Static PIPs are paid even when not assigned to resources.",
+    "title": "PIPs (Public IPs) are free until used. Static PIPs are paid even when not assigned to resources.",
     "context": "There's a difference in billing for regular and static public IP addresses. There should be a process to look for orphan network interface cards (NICs) and PIPs that are not being used in production and non-production.",
     "id": "networking_cost_orphan_nic"
   }

@@ -171,7 +171,7 @@
       },
       {
         "title": "What is the maximum traffic volume the application is expected to serve without performance degradation?",
-        "context": "Scale requirements the application must be able to effectively satisfy, such as the number of concurrent users or requests per second, is a critical lens for assessing operations. From the cost perspective, it's recommended to se a budget for extreme circumstances and indicate upper limit for cost (when it's not worth serving more traffic due to overall costs).",
+        "context": "Scale requirements the application must be able to effectively satisfy, such as the number of concurrent users or requests per second, is a critical lens for assessing operations. From the cost perspective, it's recommended to set a budget for extreme circumstances and indicate upper limit for cost (when it's not worth serving more traffic due to overall costs).",
         "recommendation": "Traffic limits for the application should be defined in quantified and measurable manner.",
         "id": "app_design_performance_maximum_traffic"
       },
@@ -4304,7 +4304,7 @@
     "category": "Efficiency and Sizing",
     "subCategory": "Architecture",
     "title": "Is the application deployed to multiple environments with different configurations?",
-    "context": "This is to understand the scope and distinguish between SKUs used in production and non-production environments or also with the goal to drive down cost by for example consolidating environments for some applications that are not as critical to the business and not needing the same testing.",
+    "context": "Understand the scope of the solution and distinguish between SKUs used in production and non-production environments. To drive down cost, it might be possible to for example consolidate environments for applications that are not as critical to the business and don't need the same testing.",
     "recommendation": "",
     "id": "efficiency_and_sizing_prod_environments",
     "children": [
@@ -4422,7 +4422,7 @@
     "category": "Efficiency and Sizing",
     "subCategory": "Architecture",
     "title": "Have you deployed a Hub and Spoke Design or Virtual WAN?",
-    "context": "Virtual WAN has costs that are different in hub and spoke design. Have to pay for the peering network or other service routing. If you want to deploy Private Link, you don't pay for peering just for private link.",
+    "context": "Virtual WAN has costs that are different in hub and spoke design. The cost of the peering network or other service routing has to be included. If Private Link is deployed, you don't pay for peering just for private link.",
     "recommendation": "Consider whether to deploy Hub and Spoke or Virtual WAN for this workload.",
     "id": "efficiency_and_sizing_hub_spoke_virtual"
   },
@@ -4435,7 +4435,7 @@
     "category": "Networking & Connectivity",
     "subCategory": "Data flow",
     "title": "Are you moving data between regions?",
-    "context": "Moving data between regions can add additional cost, it can be on the storage layer or networking layer, it's worth reviewing if this cost is justified or can be replace via re-architecture or accepting the cost due to e.g. disaster recovery (DR).",
+    "context": "Moving data between regions can add additional cost, it can be on the storage layer or networking layer, it's worth reviewing if this cost is can be replaced via re-architecture or justified due to e.g. disaster recovery (DR).",
     "recommendation": "Consider if the cost of data transfer is acceptable.",
     "id": "networking_connectivity_moving_between_regions"
   },
@@ -4747,7 +4747,7 @@
     "category": "Networking & Connectivity",
     "subCategory": "Data flow",
     "title": "How are Azure resources connecting to the internet? Via NSG or via on-prem internet?",
-    "context": "This can have extra cost as data has to go back to on-prem to go to the internet, this cost should be acknowledged.",
+    "context": "Tunnelling internet traffic through on-premises can have extra cost as data has to go back to on-prem to go to the internet, this cost should be acknowledged.",
     "recommendation": "",
     "id": "networking_connectivity_on_prem_internet"
   },
@@ -4760,7 +4760,7 @@
     "category": "Networking & Connectivity",
     "subCategory": "Endpoints",
     "title": "Are you using Azure Front Door, Azure App Gateway or Web Application Firewall?",
-    "context": "FD enabled WAF – cost and performance implications with this. Can save costs instead of using 3rd party app. Latency of FD is great – uses unicast. You only have to sync once. If you only want 1 or 2 regions you can use app gateway. There are cost implications of having a WAF ($25 per region) – check hours and GB/s.",
+    "context": "There are cost implications to using Front Door with Web Application Firewall enabled, but it can save costs compared to using a 3rd party app. Front Door has a good latency, because it uses unicast. If only 1 or 2 regions are required, Application Gateway can be used. There are cost implications of having a WAF ($25 per region) – you should check pricing of hours and GB/s.",
     "recommendation": "",
     "id": "networking_connectivity_front_door_waf_cost"
   },
@@ -4789,31 +4789,5 @@
     "context": "Deliberate selection of resources and sizing is important to maintain efficiency and optimal cost.",
     "recommendation": "Automate based on the application lifespan, use DevOps and deployment automation, configure auto-scale policies for the workload (both in and out), select the right resource offering size (VM, disk, database), choose appropriate services that match business requirements.",
     "id": "application_design_optimal_sizing"
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "costoptimization"
-    ],
-    "lens": "application",
-    "category": "Application Design",
-    "subCategory": "Application Composition",
-    "title": "How are you monitoring your costs?",
-    "context": "The organizations needs to be aware of workload costs.",
-    "recommendation": "Watch cloud costs, create and respond to cost alerts, perform cost reviews on a regular cadence.",
-    "id": "application_design_monitor_costs"
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "costoptimization"
-    ],
-    "lens": "application",
-    "category": "Application Design",
-    "subCategory": "Application Composition",
-    "title": "What trade-offs have you made to optimize for cost?",
-    "context": "",
-    "recommendation": "Analyze ROI regularly, use different Azure datacenter locations to optimize cost, use Azure Marketplace, track the resource tier and optimize appropriately, take advantage of appropriate subscription offer types.",
-    "id": "application_design_cost_tradeoffs"
   }
 ]
