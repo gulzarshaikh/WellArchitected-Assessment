@@ -26,9 +26,7 @@
                             
 ## FSLogix
 ### Design Considerations
-* [FSLogix](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix) technology allows for users profiles to be stored in a central location and accessed by WVD Session Hosts, side loading the disks in a seamless manner
-  > If using a solution where your users can sign into different Windows Virtual Desktop Session Hosts (Multi-session for example), [FSLogix](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix) should be used to centralize users' profiles.
-                            
+* [FSLogix](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix) technology allows for users profiles to be stored in a central location and accessed by WVD Session Hosts, side loading the disks in a seamless manner. If using a solution where your users can sign into different Windows Virtual Desktop Session Hosts (Multi-session for example), [FSLogix](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix) should be used to centralize users&#39; profiles.
   - (Storage) Storage requirements should be optimized for performance in the Windows Virtual Desktop service
     > [Storage sizing for Azure Files and Azure NetApp Files](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix#performance-requirements) need to align with IOPS Requirements
                                 
