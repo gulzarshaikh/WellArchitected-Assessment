@@ -39,7 +39,7 @@
                 "context": "This increases performance and latency for a better end user experience"
             },
             {
-                "title": "Exclude user profile VHD(x) from AV and malware scans" ,
+                "title": "Exclude user profile VHD(x) from AV and malware scans",
                 "context": "All files inside the VHD would be scanned on demand"
             }
 
@@ -90,7 +90,7 @@
                 "context": "This is a prerequisite for Windows Virtual Desktop. This is required to translate the user signing into the WVD Management plane via Azure AD to the user in the Active Directory forest"
             },
             {
-                "title": " WVD Users must be sourced from the same Active Directory Domain Service (ADDS) that is synchronising to Azure AD. WVD Does not support B2B or Microsoft Accounts",
+                "title": "WVD Users must be sourced from the same Active Directory Domain Service (ADDS) that is synchronising to Azure AD. WVD Does not support B2B or Microsoft Accounts",
                 "context": "Synchronize all identities to a single Azure AD using Azure AD Connect"
             },
             {
