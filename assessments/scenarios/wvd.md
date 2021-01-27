@@ -85,7 +85,7 @@
     > This is a prerequisite for Windows Virtual Desktop. This is required to translate the user signing into the WVD Management plane via Azure AD to the user in the Active Directory forest
                                 
                             
-  -  WVD Users must be sourced from the same Active Directory Domain Service (ADDS) that is synchronising to Azure AD. WVD Does not support B2B or Microsoft Accounts
+  - WVD Users must be sourced from the same Active Directory Domain Service (ADDS) that is synchronising to Azure AD. WVD Does not support B2B or Microsoft Accounts
     > Synchronize all identities to a single Azure AD using Azure AD Connect
                                 
                             
