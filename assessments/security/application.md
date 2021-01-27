@@ -172,7 +172,7 @@ These critical design principles are used as lenses to assess the Security of an
     - What operational features/capabilities are used for leveraged services?
 
 
-      _Operational capabilities, such as auto-scale and auto-heal for AppServices, can reduce management overheads, support operational effectiveness and reduce cost._
+      _Operational capabilities, such as auto-scale and auto-heal for App Services, can reduce management overheads, support operational effectiveness and reduce cost._
 
       > Make sure you understand the operational features/capabilities available and how they can be used in the solution.
     - What technologies and frameworks are used by the application?

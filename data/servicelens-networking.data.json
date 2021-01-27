@@ -1186,12 +1186,12 @@
     ],
     "lens": "service",
     "category": "Networking",
-    "subCategory": "Application Delivery (General)",
+    "subCategory": "Network Connectivity",
     "title": "Select SKU for service so that it does the job required and that allows the customer to grow as the workload evolves.",
     "children": 
     [
         {
-            "title": "**Load balancer**: 2 SKUs (basic – free and standard – fee based). We recommend standard because it has richer capabilities (outbound rules, granular network security config, monitoring, etc), provides SLA and can be deployed in AZs. Capabilities in basic are limited.",
+            "title": "**Load balancer**: 2 SKUs (Basic – free and Standard – paid). We recommend Standard because it has richer capabilities (outbound rules, granular network security config, monitoring, etc.), provides SLA and can be deployed in Availability Zones. Capabilities in Basic are limited.",
             "id": "networking_efficient_skus_1"
         },
         {
@@ -1203,7 +1203,7 @@
             "id": "networking_efficient_skus_3"
         },
         {
-            "title": "**DDOS Standard**: gives protection for their workload types and how their patterns are. Otherwise you can use the basic (i.e. for small customers).",
+            "title": "**DDoS Standard**: Depending on the workload and usage patterns, Standard can provide useful protection. Otherwise you can use the Basic (i.e. for small customers).",
             "id": "networking_efficient_skus_4"
         }
     ],
@@ -1243,15 +1243,15 @@
     "children": 
     [
         {
-            "title": "VNET Peering Cost – customers start putting everything in 1 VNET for example to save costs but that’s preventing them from growing because they will reach a point that they can’t fit everything in one VNET.",
+            "title": "VNet Peering Cost – consider the consequences of putting all resources in a single VNet to save costs, because it also prevents the infrastructure from growing. The VNet can eventually reach a point where new resources don't fit anymore.",
             "id": "networking_metered_cost_1"
         },
         {
-            "title": "If you have 2 VNETs that are peered and you want to access a private endpoint – you pay only for private endpoint access and not VNET peering cost.",
+            "title": "For 2 VNets that are peered and private endpoint is used – only the private endpoint access is billed and not VNet peering cost.",
             "id": "networking_metered_cost_2"
         },
         {
-            "title": "Azure Firewall is also metered (pay for instance and for usage) – same for load balancers.",
+            "title": "Azure Firewall is also metered (pay for instance and for usage) – the same applies to load balancers.",
             "id": "networking_metered_cost_3"
         }
     ],
@@ -1265,8 +1265,8 @@
     "lens": "service",
     "category": "Networking",
     "subCategory": "IP Addresses",
-    "title": "PIPs (Public IPs) are free unless you don’t use them – if they aren’t assigned to anything you will pay for it.",
-    "context": "There should be a process to look for orphan NICs and PIPs that are not being used in production and non-production.",
+    "title": "PIPs (Public IPs) are free until used. Static PIPs are paid even when not assigned to resources.",
+    "context": "There's a difference in billing for regular and static public IP addresses. There should be a process to look for orphan network interface cards (NICs) and PIPs that are not being used in production and non-production.",
     "id": "networking_cost_orphan_nic"
   }
 ]
