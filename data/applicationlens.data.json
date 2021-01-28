@@ -4745,7 +4745,7 @@
     ],
     "lens": "application",
     "category": "Networking & Connectivity",
-    "subCategory": "Data flows",
+    "subCategory": "Data flow",
     "title": "How are Azure resources connecting to the internet? Via NSG or via on-prem internet?",
     "context": "Tunnelling internet traffic through on-premises can add extra cost as data has to go back to local network before it reaches the internet, this cost should be acknowledged.",
     "recommendation": "",
@@ -4757,7 +4757,7 @@
       "costoptimization"
     ],
     "lens": "application",
-    "category": "Networking & Connectivitys",
+    "category": "Networking & Connectivity",
     "subCategory": "Endpoints",
     "title": "Are you using Azure Front Door, Azure App Gateway or Web Application Firewall?",
     "context": "There are cost implications to using Front Door with Web Application Firewall enabled, but it can save costs compared to using a 3rd party solution. Front Door has a good latency, because it uses unicast. If only 1 or 2 regions are required, Application Gateway can be used. There are cost implications of having a WAF – you should check pricing of hours and GB/s.",
@@ -4765,7 +4765,7 @@
     "id": "networking_connectivity_front_door_waf_cost"
   },
   {
-    "type": "Questionss",
+    "type": "Questions",
     "pillars": [
       "costoptimization"
     ],
@@ -4778,7 +4778,7 @@
     "id": "networking_connectivity_msft_or_mpls"
   },
   {
-    "type": "Questionss",
+    "type": "Questions",
     "pillars": [
       "costoptimization"
     ],
