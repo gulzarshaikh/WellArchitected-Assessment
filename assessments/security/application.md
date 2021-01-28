@@ -240,7 +240,7 @@ These critical design principles are used as lenses to assess the Security of an
 * Has the organization identified and classified business critical workloads which may adversely affect operations if they are compromised or become unavailable?
 
 
-  _Enterprise organizations typically have a large application portfolio. Have key business applications been identified and classified? This should include applications that have a high business impact if affected. Examples would be business critical data, regulated data, or business critical availability. These applications also might include applications which have a high exposure to attach such as public facing websites key to organizational success._
+  _Enterprise organizations typically have a large application portfolio. Have key business applications been identified and classified? This should include applications that have a high business impact if affected. Examples would be business critical data, regulated data, or business critical availability. These applications also might include applications which have a high exposure to attack such as public facing websites key to organizational success._
   > Identify and classify business critical applications.
 * Does the organization evaluate the security posture of this workload using standard benchmarks?
 
@@ -334,7 +334,7 @@ These critical design principles are used as lenses to assess the Security of an
 * Is Personally identifiable information (PII) detected and removed/obfuscated automatically for this workload?
 
 
-  _Extra care should be take around logging of sensitive application areas. PII (contact information, payment information etc.) should not be stored in any application logs and protective measures should be applied (such as obfuscation). Machine learning tools like [Cognitive Search PII detection](https://docs.microsoft.com/azure/search/cognitive-search-skill-pii-detection) can help with this._
+  _Extra care should be taken around logging of sensitive application areas. PII (contact information, payment information etc.) should not be stored in any application logs and protective measures should be applied (such as obfuscation). Machine learning tools like [Cognitive Search PII detection](https://docs.microsoft.com/azure/search/cognitive-search-skill-pii-detection) can help with this._
   > Automatically remove/obfuscate personally identifiable information (PII) for this workload.
 * Does the organization have a central SecOps teams which monitors security related telemetry data for this workload?
 
@@ -359,7 +359,7 @@ These critical design principles are used as lenses to assess the Security of an
 * Does the organization conduct periodic & automated access reviews of the workload to make sure only authorized people have access?
 
 
-  _As people in the organization and on the project change, it is crucial to make sure that only the right people have access to the application infrastructure. Auditing and reviewing the access control reduces the attack vector to the application. Azure control plane depends on Azure AD and access reviews are often centrally performed often as part of internal or external audit activities. For the application specific access it is recommended to do the same at least twice a year._
+  _As people in the organization and on the project change, it is crucial to make sure that only the right people have access to the application infrastructure. Auditing and reviewing access reduces the attack vector to the application. Azure control plane depends on Azure AD and access reviews are often centrally performed often as part of internal or external audit activities. For the application specific access it is recommended to do the same at least twice a year._
   > Conduct periodic access reviews for the workload.
 ## Networking &amp; Connectivity
     
@@ -378,9 +378,9 @@ These critical design principles are used as lenses to assess the Security of an
 * Does the organization use Azure Firewall or any 3rd party next generation Firewall for this workload to control outgoing traffic of Azure PaaS services (data exfiltration protection) where Private Link is not available?
 
 
-  _NVA solutions and Azure Firewall (for supported protocols) can be leveraged as a reverse proxy to restrict access to only authorized PaaS services for services where Private Link is not yet supported (Azure Firewall)._
+  _NVA solutions and Azure Firewall (for supported protocols) can be leveraged as a reverse proxy to restrict access to only authorized PaaS services for services where Private Link is not yet supported._
   > Use Azure Firewall or a 3rd party next generation firewall to protect against data exfiltration concerns.
-* Does the workload use network security groups (NSG) to isolate and protect traffic within the workloads VNet?
+* Does the workload use network security groups (NSG) to isolate and protect traffic within the workload's VNet?
 
 
   _If NSGs are being used to isolate and protect the application, the rule set should be reviewed to confirm that required services are not unintentionally blocked._
@@ -412,7 +412,7 @@ These critical design principles are used as lenses to assess the Security of an
 * Are all public endpoints of this workload protected / secured?
 
 
-  _External application endpoints should be protected against common attack vectors, such as Denial of Service (DoS) attacks like Slowloris, to prevent potential application downtime due to malicious intent. Azure-native technologies such as Azure Firewall, Application Gateway/Azure Front Door WAF, and DDoS Protection Standard Plan can be used to achieve requisite protection (Azure DDoS Protection)._
+  _External application endpoints should be protected against common attack vectors, such as Denial of Service (DoS) attacks like Slowloris, to prevent potential application downtime due to malicious intent. Azure-native technologies such as Azure Firewall, Application Gateway/Azure Front Door WAF, and DDoS Protection Standard Plan can be used to achieve requisite protection._
   > Protect all public endpoints with appropriate solutions, e.g. Azure Front Door, Application Gateway, Azure Firewall, Azure DDOS Protection or any 3rd party solution.
     - Are public endpoints of this workload protected with firewall or WAF (Web Application Firewall)?
 
@@ -446,7 +446,7 @@ These critical design principles are used as lenses to assess the Security of an
 * Are there controls in place for this workload to detect and protect from data exfiltration?
 
 
-  _Data exfiltration occurs when an internal/external malicious actor performs and unauthorized data transfer. The solution should leverage a layered approach such as, hub/spoke for network communications with deep packet inspection to detect/protect from a data exfiltration attack. Azure Firewall, UDR (User-defined Routes), NSG (Network Security Groups), Key Protection, Data Encryption, PrivateLink, and Private Endpoints are layered defenses for a data exfiltration attack. Azure Sentinel and Azure Security Center can be used to detect data exfiltration attempts and alert incident responders._
+  _Data exfiltration occurs when an internal/external malicious actor performs an unauthorized data transfer. The solution should leverage a layered approach such as hub/spoke for network communications with deep packet inspection to detect/protect from data exfiltration attack. Azure Firewall, UDR (User-defined Routes), NSG (Network Security Groups), Key Protection, Data Encryption, PrivateLink, and Private Endpoints are layered defenses for a data exfiltration attack. Azure Sentinel and Azure Security Center can be used to detect data exfiltration attempts and alert incident responders._
   > Apply a layered defense in depth / zero trust approach, e.g. use Azure Security Center to detect data exfiltration attempts.
 * Is the traffic between subnets, Azure components and tiers of the workload managed and secured?
 
@@ -535,7 +535,7 @@ These critical design principles are used as lenses to assess the Security of an
 * How is data at rest protected in this workload?
 
 
-  _This includes all information storage objects, containers, and types that exist statically on physical media, whether magnetic or optical disk.  All data should be classified and encrypted with an encryption standard. How is the data classified and tagged as such so that it can be audited._
+  _This includes all information storage objects, containers, and types that exist statically on physical media, whether magnetic or optical disk.  All data should be classified and encrypted with an encryption standard. It should also be tagged so that it can be audited._
   > Classify your data at rest and use encryption.
 * Is there any portion of the workload that does not secure data in transit?
 
@@ -564,17 +564,17 @@ These critical design principles are used as lenses to assess the Security of an
 * How are passwords and other secrets managed?
 
 
-  _API keys, database connection string and passwords are all sensitive to leakage, occasionally require rotation and are prone to expiration. Storing them in a secure store and not within the application code or configuration simplifies operational tasks like key rotation as well as improving overall security._
+  _API keys, database connection strings and passwords are all sensitive to leakage, occasionally require rotation and are prone to expiration. Storing them in a secure store and not within the application code or configuration simplifies operational tasks like key rotation as well as improving overall security._
   > Tools like Azure Key Vault or HashiCorp Vault should be used to store and manage secrets securely rather than being baked into the application artefact during deployment, as this simplifies operational tasks like key rotation as well as improving overall security. Keys and secrets stored in source code should be identified with static code scanning tools. Ensure that these scans are an integrated part of the continuous integration (CI) process.
-* Do you have procedures in place for key/secret rotation?
+* Do you have procedures in place for secret rotation?
 
 
   _In the situation where a key or secret becomes compromised, it is important to be able to quickly act and generate new versions. Key rotation reduces the attack vectors and should be automated and executed without any human interactions._
-  > Secrets (keys, certificates etc.) should be replaced once they have reached the end of their active lifetime or once they have been compromised. Renewed certificates should also use a new key. A process needs to be in place for situations where keys get compromised (leaked) and need to be regenerated on-demand. Tools, such as Azure Key Vault should ideally be used to store and manage application secrets to help with rotation processes([Key Vault Key Rotation](https://docs.microsoft.com/azure/key-vault/secrets/tutorial-rotation-dual))
+  > Secrets (keys, certificates etc.) should be replaced once they have reached the end of their active lifetime or once they have been compromised. Renewed certificates should also use a new key. A process needs to be in place for situations where keys get compromised (leaked) and need to be regenerated on-demand. Tools, such as Azure Key Vault should ideally be used to store and manage application secrets to help with rotation processes ([Key Vault Key Rotation](https://docs.microsoft.com/azure/key-vault/secrets/tutorial-rotation-dual))
 * Does the application use Managed Identities?
 
 
-  _Managed Identities in Azure can be used to securely access Azure services while removing the need to store the secrets or certificates of Service Principals([Managed Identities Overview](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview))_
+  _Managed Identities in Azure can be used to securely access Azure services while removing the need to store the secrets or certificates of Service Principals ([Managed Identities Overview](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview))_
   > Wherever possible Azure Managed Identities (either system-managed or user-managed) should be used since they remove the management burden of storing and rotating keys for service principles. Thus, they provide higher security as well as easier maintenance.
 * Are the expiry dates of SSL/TLS certificates monitored and are processes in place to renew them?
 
@@ -584,7 +584,7 @@ These critical design principles are used as lenses to assess the Security of an
 * Is there a defined access model for keys and secrets for this workload?
 
 
-  _Permissions to keys and secrets have to be controlled with a [access model](https://docs.microsoft.com/azure/key-vault/general/secure-your-key-vault)._
+  _Permissions to keys and secrets have to be controlled with an [access model](https://docs.microsoft.com/azure/key-vault/general/secure-your-key-vault)._
   > Define an access model for keys and secrets. Use Azure Key Vault as the secure store and protect the keys/secrets with Azure RBAC.
 * Does the organization have a clear guidance or requirement on what type of keys (PMK - Platform Managed Keys vs CMK - Customer Managed Keys) should be used for this workload?
 
@@ -642,13 +642,13 @@ These critical design principles are used as lenses to assess the Security of an
     - Are dependencies and framework components included in the code scanning process of this workload?
 
 
-      _As part of the continuous integration process it is crucial that every release includes a scan of all components in use. Vulnerable dependencies should be flagged and investigated. This can done in combination with other code scanning tasks (e.g. code churn, test results/coverage)._
+      _As part of the continuous integration process it is crucial that every release includes a scan of all components in use. Vulnerable dependencies should be flagged and investigated. This can be done in combination with other code scanning tasks (e.g. code churn, test results/coverage)._
 
       > Include code scans into CI/CD process that also covers 3rd party dependencies and framework components.
 * How are credentials, certificates and other secrets managed in CI/CD pipelines for this workload?
 
 
-  _Secrets need to be managed in a secure manner inside of the CI/CD pipeline. The secrets needs to be stored either in a secure store inside the pipeline or externally in Azure Key Vault. When deploying application infrastructure (e.g. with Azure Resource Manager or Terraform), credentials and keys should be generated during the process, stored directly in Key Vault and referenced by deployed resources. Hardcoded credentials should be avoided._
+  _Secrets need to be managed in a secure manner inside of the CI/CD pipeline. Secrets need to be stored either in a secure store inside the pipeline or externally in Azure Key Vault. When deploying application infrastructure (e.g. with Azure Resource Manager or Terraform), credentials and keys should be generated during the process, stored directly in Key Vault and referenced by deployed resources. Hardcoded credentials should be avoided._
   > Store keys and secrets outside of deployment pipeline in Azure Key Vault or in secure store for the pipeline.
 * Are branch policies used in source control management of this workload? How are they configured?
 
@@ -802,7 +802,7 @@ These critical design principles are used as lenses to assess the Security of an
 * Is there a direct access to the workload infrastructure through Azure Portal, command-line Interface (CLI) or REST API?
 
 
-  _While it is recommended to deploy application infrastructure via automation and CI/CD. To maximize application autonomy and agility, restrictive access control need be balanced on less critical development and test environments._
+  _While it is recommended to deploy application infrastructure via automation and CI/CD, to maximize application autonomy and agility, restrictive access control need be balanced on less critical development and test environments._
   > Restrict application infrastructure access only to CI/CD for critical workloads.
 * Does the organization use a single identity provider for cross-platform identity management of this workload?
 
