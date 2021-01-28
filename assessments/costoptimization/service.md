@@ -21,8 +21,8 @@ This list contains design considerations and recommended configuration options, 
         
 ## Azure App Service
 ### Configuration Recommendations
-* Are you saving costs by using the App Service Premium (V3) Plan over the Premium (PV2) Plan?
-  > The App Service Premium (V3) Plan has a 20% discount versus comparable PV2 configurations. Reserved Instance commitment (1Y, 3Y, Dev/Test) discounts are avialable for App Services running in the Premium V3 plan.
+* Are you saving costs by using the App Service Premium (v3) Plan over the Premium (Pv2) Plan?
+  > The App Service Premium (v3) Plan has a 20% discount versus comparable Pv2 configurations. Reserved Instance commitment (1Y, 3Y, Dev/Test) discounts are available for App Services running in the Premium v3 plan.
                             
 ## Azure Kubernetes Service (AKS)
 ### Configuration Recommendations
@@ -50,10 +50,10 @@ This list contains design considerations and recommended configuration options, 
   > Purchasing reserved instances is a way to reduce Azure costs for workloads with stable usage. You have to manage utilization: if it’s too low then you are paying for resources that are not being used. One advice is to keep RI instances simple and not trying to have too much management overhead that has to be factored in as well as part of the cost.
                             
 * Are you using Burstable (B) series VM sizes for VMs that are idle most of the time and have high usage for a certain period of time?
-  > The B-series VMs are ideal for workloads that do not need the full performance of the CPU continuously (like web servers, proof of concepts, small databases and development build environments) and provide cost savings.
+  > The B-series VMs are ideal for workloads that do not need the full performance of the CPU continuously (like web servers, proof of concepts, small databases and development build environments).
                             
 * Do you shut down the VM instances which are not in use?
-  > Use the Start/Stop VMs during off-hours feature of virtual machines to minimize waste. There are many configuration options to schedule start the stop times. The feature is suitable as a low-cost automation option. Azure Advisor evaluates virtual machines based on CPU and network utilization over a time period. Then, the recommended actions are shut down or resize instances and cost saving with both actions.
+  > Use the Start/Stop VMs during off-hours feature of virtual machines to minimize waste. There are many configuration options to schedule start the stop times. The feature is suitable as a low-cost automation option. Azure Advisor evaluates virtual machines based on CPU and network utilization over a time period and recommends actions like shut down or resize instances.
                             
 * Are Spot VMs being used?
   > Spot VMs are ideal for workloads that can be interrupted, such as highly parallel batch processing jobs. These VMs take advantage of the surplus capacity in Azure at a lower cost. They're also well suited for experimenting, development and testing of large-scale solutions.
@@ -69,28 +69,28 @@ This list contains design considerations and recommended configuration options, 
 ## Storage Accounts
 ### Configuration Recommendations
 * Are you saving by reserving capacity for data for block blob storage?
-  > Money can be saved by reserving capacity for block bob and for Azure Data Lake Storage gen 2 data in standard storage account when customer commits to 1- or 3-years reservation.
+  > Money can be saved by reserving capacity for block blob and for Azure Data Lake Storage gen 2 data in standard storage account when customer commits to 1 or 3 years reservation.
                             
 * Are you organizing data into access tiers?
-  > You can reduce cost by placing blob data into the most cost-effective access tier. Choose from 4 access tiers that are designed to optimize your cost around data use. Place frequent access data in hot tier, less frequent in cold or archive tier.  Use Premium for high TPS workloads or ones where latency is critical.
+  > You can reduce cost by placing blob data into the most cost-effective access tier. Place frequently accessed data in hot tier, less frequent in cold or archive tier. Use Premium storage for workloads with high transaction volumes or ones where latency is critical.
                             
 * Are you using lifecycle policy to move data between access tiers?
-  > Using lifecycle management policy periodically move data between tiers and that save money. Policies can move data based on rules that you specify. For example, you might create rules that move blobs to the archive tier if that blob has not been modified in 90 days. Unused data can be also completely removed using a policy. By creating policies that adjust the access tier of your data, you can design the least expensive storage options for your need. 
+  > Lifecycle management policy periodically moves data between tiers. Policies can move data based on rules that specified by the user. For example, you might create rules that move blobs to the archive tier if that blob has not been modified in 90 days. Unused data can be also completely removed using a policy. By creating policies that adjust the access tier of your data, you can design the least expensive storage options for your need. 
                             
 ## Disks
 ### Design Considerations
 * Are you leveraging shared disk for workload such SQL server failover cluster instance (FCI), file server for general use (IW workload) and SAP ASCS/SCS?
-  > You can leverage shared disks (in preview as of 11/2020) to enable cost-effective clustering instead of setting their own shared disks via S2D (Storage Spaces Direct). Sample workloads that would benefit from shared disks are: SQL Server Failover Cluster Instances (FCI), Scale-out File Server (SoFS), File Server for General Use (IW workload) and SAP ASCS/SCS.
+  > You can leverage shared disks (in preview as of 11/2020) to enable cost-effective clustering instead of setting up own shared disks via S2D (Storage Spaces Direct). Sample workloads that would benefit from shared disks are: SQL Server Failover Cluster Instances (FCI), Scale-out File Server (SoFS), File Server for General Use (IW workload) and SAP ASCS/SCS.
                             
 ### Configuration Recommendations
 * Are you using Premium disks (P30 &amp; above)? 
-  > Premium Disk (P30 & above) can be reserved (1 or 3 years) at discounted price.
+  > Premium Disks (P30 & above) can be reserved (1 or 3 years) at discounted price.
                             
 * Are you utilizing bursting for P20 and below disks for workload such as batch jobs, workload which handle traffic spikes, and for improving OS boot time?
-  > Azure Disks offer variety of SKUs and sizes to satisfy different workload requirements. Some of the more recent features could help further optimize cost-performance of existing Disk use cases. Firstly, you can leverage disk bursting for Premium (Disks P20 and below). Example scenarios that could benefit from this feature are improving OS boot time, handling batch jobs and handling traffic spikes. 
+  > Azure Disks offer variety of SKUs and sizes to satisfy different workload requirements. Some of the more recent features could help further optimize cost-performance of existing disk use cases. Firstly, you can leverage disk bursting for Premium (disks P20 and below). Example scenarios that could benefit from this feature are improving OS boot time, handling batch jobs and handling traffic spikes. 
                             
 * For database workloads, are you configuring data and log files on different disks?
-  > You can optimize IaaS DB workload performance by configuring their system, data and log files to be on different Disk SKUs (leveraging Premium Disks for data and Ultra Disks for logs satisfies most production scenarios). Further, you can optimize Ultra Disk cost/performance by taking advantage of the ability to configure capacity, IOPS and throughput independently; and ability to dynamically configure these attributes. Example workloads are SQL on IaaS, Cassandra DB, Maria DB, MySql and Mongo DB on IaaS. Learn more about Ultra Disks.
+  > You can optimize IaaS DB workload performance by configuring system, data and log files to be on different disk SKUs (leveraging Premium Disks for data and Ultra Disks for logs satisfies most production scenarios). Further, Ultra Disk cost/performance can be optimized by taking advantage of the ability to configure capacity, IOPS and throughput independently; and ability to dynamically configure these attributes. Example workloads are SQL on IaaS, Cassandra DB, Maria DB, MySql and Mongo DB on IaaS.
                             
 # Networking
         

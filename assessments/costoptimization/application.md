@@ -95,12 +95,12 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
 
   _Understanding if the application is cloud-native or not provides a very useful high level indication about potential technical debt for operability and cost efficiency._
-  > While cloud-native workloads are preferred, migrated or modernized applications are reality and they might not be aware of the available functionality like auto-scaling, platform notifications and other the underlying cloud platform can offer. Make sure to understand the limitations and implement workarounds if available.
-* Are Azure Tags used to enrich Azure resources with operational meta-data?
+  > While cloud-native workloads are preferred, migrated or modernized applications are reality and they might not utilize the available cloud functionality like auto-scaling, platform notifications etc. Make sure to understand the limitations and implement workarounds if available.
+* Are Azure Tags used to enrich Azure resources with operational metadata?
 
 
   _Using tags can help to manage resources and make it easier to find relevant items during operational procedures._
-  > Azure Tags provide the ability to associate critical meta-data as a name-value pair, such as billing information (e.g. cost center code), environment information (e.g. environment type), with Azure resources, resource groups, and subscriptions. See [Tagging Strategies](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging) for best practices.
+  > Azure Tags provide the ability to associate critical metadata as a name-value pair, such as billing information (e.g. cost center code), environment information (e.g. environment type), with Azure resources, resource groups, and subscriptions. See [Tagging Strategies](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging) for best practices.
 * Does the application have a well-defined naming standard for Azure resources?
 
 
@@ -135,7 +135,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 * Is there a plan to modernize the workload?
 
 
-  _Is there a plan to change the execution model to Serverless? To move as far as you can up the stack. When the workload is serverless, it’s charged only for actual use, whereas whith traditional infrastructure there are loads of underlying things that need to be factored into the price. By applying an end date to the application it encourage you to discuss the goal of re-designing the Application to make even better use of the cloud. It might be more expensive from and ACR point of view but factoring in other things like licenses, people, time to deploy it can drive down cost._
+  _Is there a plan to change the execution model to Serverless? To move as far as you can up the stack towards cloud-native. When the workload is serverless, it’s charged only for actual use, whereas whith traditional infrastructure there are many underlying things that need to be factored into the price. By applying an end date to the application it encourages you to discuss the goal of re-designing the application to make even better use of the cloud. It might be more expensive from an Azure cost point of view but factoring in other things like licenses, people, time to deploy can drive down cost._
 ### Targets &amp; Non Functional Requirements
             
 * Are availability targets such as Service Level Agreements (SLAs), Service Level Indicators (SLIs), and Service Level Objectives (SLOs) defined for the application and/or key scenarios?
@@ -308,7 +308,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
 
   _Are the dashboards openly available in your organization or do you limit access based on roles etc.? For example: developers usually don't need to know the overall cost of Azure for the company, but it might be good for them to be able to watch a particular workload._
-  > Access to operational and financial data may be tightly controlled to align with segregation of duties, and careful attention should be made to ensure it doesn't hinder operational effectiveness; i.e. scenarios where developers have to raise an ITSM ticket to access logs should be avoided
+  > Access to operational and financial data should be tightly controlled to align with segregation of duties, while making sure that it doesn't hinder operational effectiveness; i.e. scenarios where developers have to raise an ITSM ticket to access logs should be avoided
 ### Alerting
             
 * What technology is used for alerting?
@@ -354,23 +354,23 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 * Are you using Azure Front Door, Azure App Gateway or Web Application Firewall?
 
 
-  _There are cost implications to using Front Door with Web Application Firewall enabled, but it can save costs compared to using a 3rd party app. Front Door has a good latency, because it uses unicast. If only 1 or 2 regions are required, Application Gateway can be used. There are cost implications of having a WAF ($25 per region) – you should check pricing of hours and GB/s._
+  _There are cost implications to using Front Door with Web Application Firewall enabled, but it can save costs compared to using a 3rd party solution. Front Door has a good latency, because it uses unicast. If only 1 or 2 regions are required, Application Gateway can be used. There are cost implications of having a WAF – you should check pricing of hours and GB/s._
 ### Data flow
             
 * Are you moving data between regions?
 
 
-  _Moving data between regions can add additional cost, it can be on the storage layer or networking layer, it's worth reviewing if this cost is can be replaced via re-architecture or justified due to e.g. disaster recovery (DR)._
+  _Moving data between regions can add additional cost - both on the storage layer or networking layer. It's worth reviewing if this cost is can be replaced via re-architecture or justified due to e.g. disaster recovery (DR)._
   > Consider if the cost of data transfer is acceptable.
 * How is the workload connected between regions? Is it using network peering or gateways?
 
 
-  _This would have an extra cost if applications or services are exchanging data between regions._
-  > Make sure the workload works with cross-region peering efficiently.
+  _VNET Peering has additional cost. Peering within the same region is cheaper than peering between regions or Global regions. Inbound and outbound traffic is charged at both ends of the peered networks._
+  > Make sure the workload works with cross-region peering efficiently and be aware of additional costs.
 * How are Azure resources connecting to the internet? Via NSG or via on-prem internet?
 
 
-  _Tunnelling internet traffic through on-premises can have extra cost as data has to go back to on-prem to go to the internet, this cost should be acknowledged._
+  _Tunnelling internet traffic through on-premises can add extra cost as data has to go back to local network before it reaches the internet, this cost should be acknowledged._
 ## Operational Procedures
     
 ### Scalability &amp; Capacity Model
@@ -483,7 +483,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 * Have you deployed a Hub and Spoke Design or Virtual WAN?
 
 
-  _Virtual WAN has costs that are different in hub and spoke design. The cost of the peering network or other service routing has to be included. If Private Link is deployed, you don't pay for peering just for private link._
+  _Virtual WAN has costs that are different in hub and spoke design. The cost of the peering network or other service routing has to be included. If Private Link is deployed, peering is not billed - only private link._
   > Consider whether to deploy Hub and Spoke or Virtual WAN for this workload.
 ### SKUs
             
@@ -497,7 +497,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 * Is Azure Advisor being used to optimize SKUs discovered in this workload?
 
 
-  _Azure Advisor helps to optimize and improve efficiency of the workload by identifying idle and underutilized resources.It analyzes your configurations and usage telemetry and consolodates it into personalized, actionable recommendations to help you optimise your resources._
+  _Azure Advisor helps to optimize and improve efficiency of the workload by identifying idle and underutilized resources. It analyzes your configurations and usage telemetry and consolidates it into personalized, actionable recommendations to help you optimise your resources._
   > Use Azure Advisor to identify SKUs for optimization.
     - Are the Advisor recommendations being reviewed weekly or bi-weekly for optimization?
 
@@ -512,7 +512,8 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 * Are you using Azure Cost Management (ACM) to track spending in this workload?
 
 
-  _In order to track cost spending ACM tool can help you understand how much you are spending, where and when. This can help make a better understanding to how and if cost can be reduced._
+  _In order to track spending an ACM tool can help with understanding how much is spent, where and when. This helps to make better decisions about how and if cost can be reduced._
+  > Use ACM or other cost management tools to understand if savings are possible.
 ## Governance
     
 ### Financial Management &amp; Cost Models
@@ -538,7 +539,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 * Is there a cost owner for every service used by this workload?
 
 
-  _Every service should have a cost owner that is tracking and is responsible for cost. This drives responsibility and awareness on who the owner is an who owns the cost tracking._
+  _Every service should have a cost owner that is tracking and is responsible for cost. This drives responsibility and awareness on who owns the cost tracking._
   > Establish a cost owner for each service used by the workload.
 * Is spending forecast to ensure it aligns with budget?
 
@@ -561,11 +562,11 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
   _As Azure changes and new services are introduced, it’s recommended that key services are revisited to see if any new services offered in Azure can help drive down cost or if new SKUs can help drive down cost. It’s recommended that this is done 1-4 times a year._
   > Revisit key Azure services to see if there were any updates which could reduce the spend.
-* When new applications are introduced to the company, how is the budget negotiated?
+* When new applications are introduced to the company, how is the budget defined?
 
 
-  _It can be a good idea to have a clear understanding how an IT budget is defined. This is especially true for applications that are not built in-house and delivered, where IT budget has to be factored in as part of the delivery._
-  > Understand how is the budget negotiated.
+  _It is important to have a clear understanding how an IT budget is defined. This is especially true for applications that are not built in-house, where IT budget has to be factored in as part of the delivery._
+  > Understand how is the budget defined.
 * When you build new workloads, are you factoring the budget into the building phase? (Is the cost associated to the criticality to the business?)
 
 
