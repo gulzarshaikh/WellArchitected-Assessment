@@ -269,7 +269,7 @@
         "context" : "Using the selective disks backup and restore functionality, you can back up a subset of the data disks in a VM. This provides an efficient and cost-effective solution for your backup and restore needs."
     },
     {
-        "type": "Design Consideration",
+        "type": "Design Considerations",
         "pillars": [
             "costoptimization"
         ],
