@@ -107,12 +107,12 @@ These critical design principles are used as lenses to assess the Operational Ex
 
 
   _Understanding if the application is cloud-native or not provides a very useful high level indication about potential technical debt for operability and cost efficiency._
-  > While cloud-native workloads are preferred, migrated or modernized applications are reality and they might not be aware of the available functionality like auto-scaling, platform notifications and other the underlying cloud platform can offer. Make sure to understand the limitations and implement workarounds if available.
-* Are Azure Tags used to enrich Azure resources with operational meta-data?
+  > While cloud-native workloads are preferred, migrated or modernized applications are reality and they might not utilize the available cloud functionality like auto-scaling, platform notifications etc. Make sure to understand the limitations and implement workarounds if available.
+* Are Azure Tags used to enrich Azure resources with operational metadata?
 
 
   _Using tags can help to manage resources and make it easier to find relevant items during operational procedures._
-  > Azure Tags provide the ability to associate critical meta-data as a name-value pair, such as billing information (e.g. cost center code), environment information (e.g. environment type), with Azure resources, resource groups, and subscriptions. See [Tagging Strategies](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging) for best practices.
+  > Azure Tags provide the ability to associate critical metadata as a name-value pair, such as billing information (e.g. cost center code), environment information (e.g. environment type), with Azure resources, resource groups, and subscriptions. See [Tagging Strategies](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging) for best practices.
 * Does the application have a well-defined naming standard for Azure resources?
 
 
@@ -418,7 +418,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
 
   _Are the dashboards openly available in your organization or do you limit access based on roles etc.? For example: developers usually don't need to know the overall cost of Azure for the company, but it might be good for them to be able to watch a particular workload._
-  > Access to operational and financial data may be tightly controlled to align with segregation of duties, and careful attention should be made to ensure it doesn't hinder operational effectiveness; i.e. scenarios where developers have to raise an ITSM ticket to access logs should be avoided
+  > Access to operational and financial data should be tightly controlled to align with segregation of duties, while making sure that it doesn't hinder operational effectiveness; i.e. scenarios where developers have to raise an ITSM ticket to access logs should be avoided
 ### Alerting
             
 * What technology is used for alerting?

@@ -838,8 +838,8 @@
         "lens": "service",
         "category": "Compute",
         "subCategory": "Azure App Service",
-        "title": "Are you saving costs by using the App Service Premium (V3) Plan over the Premium (PV2) Plan?",
-        "context": "The App Service Premium (V3) Plan has a 20% discount versus comparable PV2 configurations. Reserved Instance commitment (1Y, 3Y, Dev/Test) discounts are avialable for App Services running in the Premium V3 plan."
+        "title": "Are you saving costs by using the App Service Premium (v3) Plan over the Premium (Pv2) Plan?",
+        "context": "The App Service Premium (v3) Plan has a 20% discount versus comparable Pv2 configurations. Reserved Instance commitment (1Y, 3Y, Dev/Test) discounts are available for App Services running in the Premium v3 plan."
     },
     {
         "type": "Configuration Recommendations",
@@ -861,7 +861,7 @@
         "category": "Compute",
         "subCategory": "Virtual Machines",
         "title": "Are you using Burstable (B) series VM sizes for VMs that are idle most of the time and have high usage for a certain period of time?",
-        "context": "The B-series VMs are ideal for workloads that do not need the full performance of the CPU continuously (like web servers, proof of concepts, small databases and development build environments) and provide cost savings."
+        "context": "The B-series VMs are ideal for workloads that do not need the full performance of the CPU continuously (like web servers, proof of concepts, small databases and development build environments)."
     },
     {
         "type": "Configuration Recommendations",
@@ -872,7 +872,7 @@
         "category": "Compute",
         "subCategory": "Virtual Machines",
         "title": "Do you shut down the VM instances which are not in use?",
-        "context": "Use the Start/Stop VMs during off-hours feature of virtual machines to minimize waste. There are many configuration options to schedule start the stop times. The feature is suitable as a low-cost automation option. Azure Advisor evaluates virtual machines based on CPU and network utilization over a time period. Then, the recommended actions are shut down or resize instances and cost saving with both actions."
+        "context": "Use the Start/Stop VMs during off-hours feature of virtual machines to minimize waste. There are many configuration options to schedule start the stop times. The feature is suitable as a low-cost automation option. Azure Advisor evaluates virtual machines based on CPU and network utilization over a time period and recommends actions like shut down or resize instances."
     },
     {
         "type": "Configuration Recommendations",
