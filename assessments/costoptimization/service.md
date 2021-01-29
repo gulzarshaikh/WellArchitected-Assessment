@@ -67,6 +67,13 @@ This list contains design considerations and recommended configuration options, 
 # Storage
         
 ## Storage Accounts
+### Design Considerations
+* Are you periodically disposing or cleaning up unused storage resources (e.g. unattached disks, old snapshots)?
+  > Unused storage resources can incur cost and its good idea to regularly perform cleanup to reduce cost.
+                            
+* Azure Blob access time tracking and access time-based lifecycle management
+  > (in preview as of 11/2020) Minimize your storage cost automatically by setting up a policy based on last access time to: cost-effective backup storage options. Transition your data from a hotter access tier to a cooler access tier (hot to cool, cool to archive, or hot to archive) if there is no access for a period. Delete your data if there is no access for an extended period.
+                            
 ### Configuration Recommendations
 * Are you saving by reserving capacity for data for block blob storage?
   > Money can be saved by reserving capacity for block blob and for Azure Data Lake Storage gen 2 data in standard storage account when customer commits to 1 or 3 years reservation.
@@ -81,6 +88,9 @@ This list contains design considerations and recommended configuration options, 
 ### Design Considerations
 * Are you leveraging shared disk for workload such SQL server failover cluster instance (FCI), file server for general use (IW workload) and SAP ASCS/SCS?
   > You can leverage shared disks (in preview as of 11/2020) to enable cost-effective clustering instead of setting up own shared disks via S2D (Storage Spaces Direct). Sample workloads that would benefit from shared disks are: SQL Server Failover Cluster Instances (FCI), Scale-out File Server (SoFS), File Server for General Use (IW workload) and SAP ASCS/SCS.
+                            
+* Are you using selective disk backup and restore for Azure VMs?
+  > Using the selective disks backup and restore functionality, you can back up a subset of the data disks in a VM. This provides an efficient and cost-effective solution for your backup and restore needs.
                             
 ### Configuration Recommendations
 * Are you using Premium disks (P30 &amp; above)? 

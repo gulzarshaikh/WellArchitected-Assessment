@@ -247,7 +247,7 @@
         "context" : "You can optimize IaaS DB workload performance by configuring system, data and log files to be on different disk SKUs (leveraging Premium Disks for data and Ultra Disks for logs satisfies most production scenarios). Further, Ultra Disk cost/performance can be optimized by taking advantage of the ability to configure capacity, IOPS and throughput independently; and ability to dynamically configure these attributes. Example workloads are SQL on IaaS, Cassandra DB, Maria DB, MySql and Mongo DB on IaaS."
     },
     {
-        "type": "Design Consideration",
+        "type": "Design Considerations",
         "pillars": [
             "costoptimization"
         ],
@@ -258,7 +258,7 @@
         "context" : "Unused storage resources can incur cost and its good idea to regularly perform cleanup to reduce cost."
     },
     {
-        "type": "Design Consideration",
+        "type": "Design Considerations",
         "pillars": [
             "costoptimization"
         ],
@@ -269,7 +269,7 @@
         "context" : "Using the selective disks backup and restore functionality, you can back up a subset of the data disks in a VM. This provides an efficient and cost-effective solution for your backup and restore needs."
     },
     {
-        "type": "Design Consideration",
+        "type": "Design Considerations",
         "pillars": [
             "costoptimization"
         ],
