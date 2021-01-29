@@ -385,7 +385,7 @@ Resources
 * To reduce latency and CPU jitter, it is recommended to enable accelerated networking on client virtual machines both [Windows](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell) and [Linux](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
 * Implement [retry logic](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific#cosmos-db) in your client.
 ### Supporting Source Artifacts
-* In order to check if multi location is not selected you can use the following query: 
+* In order to check if multi location is not selected you can use the following query:
 ```
 Resources
 |where  type =~ 'Microsoft.DocumentDb/databaseAccounts'
@@ -409,7 +409,7 @@ resources
 ```
  
                             
-* To see the consistency levels for your cosmos db accounts you can use the query below: 
+* To see the consistency levels for your cosmos db accounts you can use the query below:
 ```
 Resources
 | project name, type, location, consistencyLevel = properties.consistencyPolicy.defaultConsistencyLevel 
@@ -472,7 +472,7 @@ Resources
                             
 * Apply general Azure configuration recommendations for all Azure Stack Hub services.
 ### Configuration Recommendations
-* Treat Azure Stack Hub as a scale unit and deploy multiple instances to remove Azure Stack Hub as a single point of failure for encompassed workloads. 
+* Treat Azure Stack Hub as a scale unit and deploy multiple instances to remove Azure Stack Hub as a single point of failure for encompassed workloads.
   - Deploy workloads in either an active-active or active-passive configuration across Azure Stack Hub stamps and/or Azure.
                             
 # Storage
@@ -565,7 +565,7 @@ Resources
 ### Configuration Recommendations
 * The number of partitions reflect the degree of downstream parallelism you can achieve. For maximum throughput, use the maximum number of partitions (32) when creating the Event Hub. This will allow you to scale up to 32 concurrent processing entities and will offer the highest send/receive availability.
 * In high-throughput scenarios, use batched events. This means that the service will deliver a json array with multiple events to the subscribers, instead of an array with one event. The consuming application must be able to process these arrays.
-* As part of your solution-wide availability and disaster recovery strategy, consider enabling the EventHub geo disaster-recovery option. This will allow the creation of a secondary namespace in a different region. Note that only the active namespace receives messages at any time and that messages and events themselves are not replicated to the secondary region. 
+* As part of your solution-wide availability and disaster recovery strategy, consider enabling the EventHub geo disaster-recovery option. This will allow the creation of a secondary namespace in a different region. Note that only the active namespace receives messages at any time and that messages and events themselves are not replicated to the secondary region.
   > Note: The RTO for the regional failover is 'up to 30 minutes'. Confirm this aligns with the requirements of the customer and fits in the broader availability strategy. If a higher RTO is required, consider implementing a client-side failover pattern too.
                             
 * When developing new applications, use EventProcessorClient (.Net and Java) or EventHubConsumerClient (Python and Javascript) as the client SDK. EventProcessorHost has been deprecated.
@@ -698,12 +698,12 @@ Resources
 * Configure supported 3rd party SaaS security providers within Firewall Manager if the customer wishes to use such solutions to protect outbound connections.
 ## Network Virtual Appliances (NVA)
 ### Configuration Recommendations
-* If 3rd party NVAs are required for east-west and/or south-north traffic protection/filtering: 
+* If 3rd party NVAs are required for east-west and/or south-north traffic protection/filtering:
   - For VWAN network topologies, deploy the NVAs to a separate VNet (i.e. NVA VNet) and connect it to the regional Virtual WAN Hub as well as to the &#34;Landing Zones&#34; that require access to NVAs as described in this [article](https://docs.microsoft.com/en-us/azure/virtual-wan/virtual-wan-route-table-portal).
                             
   - For non-Virtual WAN network topologies, deploy the 3rd party NVAs in the central Hub VNet.
                             
-* If 3rd party NVAs are required for inbound HTTP/S connections, they should be deployed within a &#34;Landing Zone&#34; or &#34;solution-level&#34; Virtual Network, together with the applications that they are protecting and exposing to the internet.     
+* If 3rd party NVAs are required for inbound HTTP/S connections, they should be deployed within a &#34;Landing Zone&#34; or &#34;solution-level&#34; Virtual Network, together with the applications that they are protecting and exposing to the internet.
 ## Network Connectivity
 ### Design Considerations
 * Azure native network security services such as Azure Firewall, Application Gateway, and Azure Front Door are fully managed services, meaning that customers do not incur the operational and management costs associated with infrastructure deployments, which can become complex at scale.
@@ -786,7 +786,7 @@ Resources
   - For the 10 Gbps SKU, the minimum circuit bandwidth is 1 Gbps.
                             
 ### Configuration Recommendations
-* Use ExpressRoute as the primary connectivity channel for connecting on-premises network to Microsoft Azure.    
+* Use ExpressRoute as the primary connectivity channel for connecting on-premises network to Microsoft Azure.
   - VPNs can be used as a source of backup connectivity to enhance connectivity resiliency.
                             
 * Use dual ExpressRoute circuits from different peering locations when connecting an on-premises location to Virtual Networks in Azure. This setup will ensure redundant paths to Azure, removing single points of failure between on-premises and Azure.
@@ -819,7 +819,7 @@ Resources
   > While this is the general recommendation, certain scenarios might force a customer to implement rules specifically on AppGateway: For example, if ModSec CRS 2.2.9, CRS 3.0 or CRS 3.1 rules are required, this can only be implemented on AppGatway. Conversely, rate-limiting and geo-filtering are available only on Azure Front Door, not on AppGateway. Instructions on how to lock down traffic can be found [here](https://docs.microsoft.com/en-us/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door)
                             
 * Global applications that span protocols other than HTTP/S should be delivered using Azure Traffic Manager. Traffic manager does not forward traffic, but only performs DNS redirection. This means that the connection from the client is established directly to the target using any protocol.
-* When doing global loadbalancing for HTTP/S applications, Front Door is preferred over Traffic Manager. This is because, amongst others:  
+* When doing global loadbalancing for HTTP/S applications, Front Door is preferred over Traffic Manager. This is because, amongst others:
   - Azure Front Door optimizes the number of TCP connections to the backend when forwarding traffic
                             
   - Changes to the routing configuration, e.g. based on backend health, are instantaneous. With Traffic Manager, traffic will point to the original backend until a new DNS lookup is performed, plus potential time for DNS propagation.

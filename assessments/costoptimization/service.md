@@ -93,7 +93,7 @@ This list contains design considerations and recommended configuration options, 
   > Using the selective disks backup and restore functionality, you can back up a subset of the data disks in a VM. This provides an efficient and cost-effective solution for your backup and restore needs.
                             
 ### Configuration Recommendations
-* Are you using Premium disks (P30 &amp; above)? 
+* Are you using Premium disks (P30 &amp; above)?
   > Premium Disks (P30 & above) can be reserved (1 or 3 years) at discounted price.
                             
 * Are you utilizing bursting for P20 and below disks for workload such as batch jobs, workload which handle traffic spikes, and for improving OS boot time?
