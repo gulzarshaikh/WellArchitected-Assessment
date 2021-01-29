@@ -113,11 +113,11 @@ jobs:
 
           if($foundIssues) 
           {
-              Write-Error "Please fix the mismatching (sub)categories or add new categories to the categories.json"
+              Write-Error "Please fix the mismatch in categories or types."
           }
           else
           {
-              Write-Host "All good! All used categories exist in the categories.json"
+              Write-Host "All good! All used categories exist in the categories.json and all used types are in types.json."
           }
       
       - name: Move files into the Hugo directories
