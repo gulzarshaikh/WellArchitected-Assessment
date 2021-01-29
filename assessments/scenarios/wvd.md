@@ -12,15 +12,15 @@
 ## Management &amp; Monitoring
 ### Design Considerations
 * Managing and monitoring any Azure service is a core component from an operations standpoint which is why this is included in Design Considerations
-  - Windows Virtual Desktop service logs should be integrated into Azure Monitor
+  - Windows Virtual Desktop service logs should be integrated into Azure Monitor Log Analytics
     > Azure Monitor allows for a central location around log and monitoring data in Azure
                                 
                             
   - Configure the necessary performance counters for your monitoring services
-    > We recommend enabling [performance counters for WVD](https://docs.microsoft.com/en-gb/azure/virtual-desktop/azure-monitor#set-up-performance-counters). Azure Monitor for Windows Virtual Desktop is currently in public preview so should not be used for production workloads. However the 
+    > We recommend enabling [performance counters for WVD](https://docs.microsoft.com/en-gb/azure/virtual-desktop/azure-monitor#set-up-performance-counters). Azure Monitor for Windows Virtual Desktop is currently in public preview so should not be used for production workloads.
                                 
                             
-  - Windows Virtual Desktop Session Hosts should be backed up if autoscale is configured
+  - Windows Virtual Desktop Session Hosts should be backed up (when not using auto-scale/pooled)
     > [WVD Session Hosts backed up](https://github.com/Azure/RDS-Templates/tree/master/EnableBackupScript) can be used to back up WVD Session Hosts
                                 
                             
@@ -66,7 +66,7 @@
     > For WVD Session Hosts to join onto your Active Directory domain, the Virtual Network they reside on should be able to resolve your Active Directory domain name. It is strongly recommended to extend and build [Domain Controllers in Azure](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/identity/adds-extend-domain).
                                 
                             
-  - Connection to application(s), Active Directory Domain Services and on-prem workloads should be in line with the expected availability requirements for the environment
+  - Connection to application(s), Active Directory Domain Services and workloads should be in line with the expected availability requirements for the environment
     > Availability of applications, domain services and connectivity methods should adhere to the availability requirements. Refer back to [Networking Reliability](https://github.com/Azure/WellArchitected-Assessment/blob/main/assessments/reliability/application.md#networking--connectivity) for more information.
                                 
                             
@@ -98,7 +98,7 @@
                                 
                             
   - Follow the principle of least privilege
-    > For WVD Users, the Desktop Virtualization User built-in RBAC Role to Security Groups to grant access to WVD App Groups
+    > [Built-in RBAC Roles](https://docs.microsoft.com/en-us/azure/virtual-desktop/rbac) should be reviewed. Assignment to groups can provide lower administration rather than user assignment.
                                 
                             
   - Leverage Azure AD Conditional Access policies
