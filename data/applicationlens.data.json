@@ -2303,7 +2303,7 @@
     "category": "Scalability & Performance",
     "subCategory": "App Performance",
     "title": "Does the application require long running TCP connections?",
-    "context": "If an application is initiating many outbound TCP or UDP connections it may exhaust all available ports leading to SNAT port exhaustion and poor application performance. Long-running connections exacerbate this risk by occupying ports for sustained durations. Effort should be taken to ensure that the application can scale within the port limits of the chosen application hosting platform([Managing SNAT port exhaustion](https://docs.microsoft.com/azure/load-balancer/troubleshoot-outbound-connection#snatexhaust))    ",
+    "context": "If an application is initiating many outbound TCP or UDP connections it may exhaust all available ports leading to SNAT port exhaustion and poor application performance. Long-running connections exacerbate this risk by occupying ports for sustained durations. Effort should be taken to ensure that the application can scale within the port limits of the chosen application hosting platform([Managing SNAT port exhaustion](https://docs.microsoft.com/azure/load-balancer/troubleshoot-outbound-connection#snatexhaust))",
     "recommendation": "",
     "id": ""
   },
@@ -3172,7 +3172,7 @@
     "children": [
         {
             "title": "Does the organization enforce password less or multi-factor authentication for users of this workload?",
-            "context": "Attack methods have evolved to the point where passwords alone cannot reliably protect an account.  Modern authentication solutions including password-less and multi-factor authentication increase security posture through strong authentication.  ",
+            "context": "Attack methods have evolved to the point where passwords alone cannot reliably protect an account.  Modern authentication solutions including password-less and multi-factor authentication increase security posture through strong authentication.",
             "recommendation": "Enforce password-less or MFA.",
             "id": "identity_access_control_paswordless"
         }
@@ -3804,7 +3804,7 @@
     "category": "Networking & Connectivity",
     "subCategory": "Connectivity",
     "title": "Does the organization identify and isolate groups of resources from other parts of the organization to aid in detecting and containing adversary movement within the enterprise?",
-    "context": "A unified [enterprise segmentation strategy](https://docs.microsoft.com/azure/architecture/framework/Security/governance#enterprise-segmentation-strategy) will guide all technical teams to consistently segment access using networking, applications, identity, and any other access controls. ",
+    "context": "A unified [enterprise segmentation strategy](https://docs.microsoft.com/azure/architecture/framework/Security/governance#enterprise-segmentation-strategy) will guide all technical teams to consistently segment access using networking, applications, identity, and any other access controls.",
     "recommendation": "Establish a unified enterprise segmentation strategy.",
     "id": "networking_connectivity_enterprise_segmentation_strategy",
     "children": [
@@ -3903,7 +3903,7 @@
     "category": "Security & Compliance",
     "subCategory": "Network Security",
     "title": "Has the organization enabled enhanced network visibility by integrating network logs into a Security information and event management (SIEM) solution or similar technology?",
-    "context": "Integrating logs from the network devices, and even raw network traffic itself, will provide greater visibility into potential security threats flowing over the wire. ",
+    "context": "Integrating logs from the network devices, and even raw network traffic itself, will provide greater visibility into potential security threats flowing over the wire.",
     "recommendation": "Integrate network logs into a SIEM.",
     "id": "security_compliance_network_logs_siem"
   },
@@ -4047,7 +4047,7 @@
     "category": "Operational Model & DevOps",
     "subCategory": "Roles & Responsibilities",
     "title": "Has the organization developed and maintained a security training program to ensure technical staff of this workload are well-informed and equipped with the appropriate skills?",
-    "context": "Cybersecurity threats are always evolving and therefore those responsible for organizational information security require specialized, continual, and relevant training to ensure staff maintains the level of competency required to protect, detect, and respond.  ",
+    "context": "Cybersecurity threats are always evolving and therefore those responsible for organizational information security require specialized, continual, and relevant training to ensure staff maintains the level of competency required to protect, detect, and respond.",
     "recommendation": "Develop security training program.",
     "id": "operational_model_devops_security_training_program"
   },
@@ -4086,7 +4086,7 @@
     "category": "Operational Model & DevOps",
     "subCategory": "Common Engineering Criteria",
     "title": "Has the organization implemented or considered implementing elevated security capabilities such as dedicated Hardware Security Modules (HSMs) or the use of [Confidential Computing](https://azure.microsoft.com/solutions/confidential-compute/)?",
-    "context": "Careful consideration is necessary on whether to utilize specialized security capabilities in an organization’s enterprise architecture. ",
+    "context": "Careful consideration is necessary on whether to utilize specialized security capabilities in an organization’s enterprise architecture.",
     "recommendation": "Review and consider elevated security capabilities for Azure workloads.",
     "id": "operational_model_devops_confidential_computing"
   },
@@ -4218,7 +4218,7 @@
     "category": "Identity & Access Control",
     "subCategory": "Control-plane RBAC",
     "title": "Does the organizational security team have read-only access into all cloud environment resources for this workload?",
-    "context": "Provide [security teams](https://docs.microsoft.com/azure/architecture/framework/Security/governance#security-team-visibility) read-only access to the security aspects of all technical resources in their purview. Security organizations require visibility into the technical environment to perform their duties of assessing and reporting on organizational risk. Without this visibility, security will have to rely on information provided from groups, operating the environment, who have a potential conflict of interest (and other priorities).\nNote that security teams may separately be granted additional privileges if they have operational responsibilities or a requirement to enforce compliance on Azure resources.\nFor example in Azure, assign security teams to the Security Readers permission that provides access to measure security risk (without providing access to the data itself).\nBecause security will have broad access to the environment (and visibility into potentially exploitable vulnerabilities), you should consider them critical impact accounts and apply the same protections as administrators. ",
+    "context": "Provide [security teams](https://docs.microsoft.com/azure/architecture/framework/Security/governance#security-team-visibility) read-only access to the security aspects of all technical resources in their purview. Security organizations require visibility into the technical environment to perform their duties of assessing and reporting on organizational risk. Without this visibility, security will have to rely on information provided from groups, operating the environment, who have a potential conflict of interest (and other priorities).\nNote that security teams may separately be granted additional privileges if they have operational responsibilities or a requirement to enforce compliance on Azure resources.\nFor example in Azure, assign security teams to the Security Readers permission that provides access to measure security risk (without providing access to the data itself).\nBecause security will have broad access to the environment (and visibility into potentially exploitable vulnerabilities), you should consider them critical impact accounts and apply the same protections as administrators.",
     "recommendation": "Ensure security team has \"Security Readers\" or equivalent on cloud resources in their purview.",
     "id": "identity_access_control_security_team_read_role"
   },
@@ -4473,7 +4473,7 @@
     "lens": "application",
     "category": "Operational Procedures",
     "subCategory": "Operational Lifecycles",
-    "title": "Does every environment have a target end date? ",
+    "title": "Does every environment have a target end date?",
     "context": "If your workload or environment isn't needed then you should be able to decommission it. The same should occur if you are introducing a new service or new feature.",
     "recommendation": "",
     "id": "operational_procedures_target_end_date"
@@ -4603,7 +4603,7 @@
     "lens": "application",
     "category": "Governance",
     "subCategory": "Financial Management & Cost Models",
-    "title": "Do shared services have an owner and is all up cost with the distribution model defined and communicated by the owner to the service subscribers? ",
+    "title": "Do shared services have an owner and is all up cost with the distribution model defined and communicated by the owner to the service subscribers?",
     "context": "",
     "recommendation": "",
     "id": "governance_shared_services_cost_owner"

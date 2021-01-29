@@ -510,7 +510,7 @@
         "lens": "service",
         "category": "Data",
         "subCategory": "Cosmos DB",
-        "title": "In order to check if multi location is not selected you can use the following query: ",
+        "title": "In order to check if multi location is not selected you can use the following query:",
         "code": "Resources\n|where  type =~ 'Microsoft.DocumentDb/databaseAccounts'\n|where array_length( properties.locations) <=1\n"
     },
     {
@@ -546,7 +546,7 @@
         "lens": "service",
         "category": "Data",
         "subCategory": "Cosmos DB",
-        "title": "To see the consistency levels for your cosmos db accounts you can use the query below: ",
+        "title": "To see the consistency levels for your cosmos db accounts you can use the query below:",
         "code": "Resources\n| project name, type, location, consistencyLevel = properties.consistencyPolicy.defaultConsistencyLevel \n| where type == \"microsoft.documentdb/databaseaccounts\" \n| order by name asc\n"
     },
     {
