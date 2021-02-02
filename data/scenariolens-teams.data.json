@@ -1,0 +1,16 @@
+[
+    {
+        "type": "Questions",
+        "pillars": [
+            "scenario/teams"
+        ],
+        "lens": "scenario",
+        "category": "Teams Tab Apps",
+        "subCategory": "Design",
+        "title": "Is the current implementation able to scale?",
+        "context": "",
+        "recommendation": "",
+        "children": [],
+        "id": ""
+    } 
+]

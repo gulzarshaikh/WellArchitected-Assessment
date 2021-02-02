@@ -29,7 +29,8 @@ For each scoped assessment, the content is structured through three technical le
 ||||
 
 ## Scenarios
-- [**SAP**](./assessments/scenarios/sap.md)
+- **[SAP](./assessments/scenarios/sap.md)**
+- **[Microsoft Teams](./assessments/scenarios/teams.md)**
 - **IoT**
 
 # Repository Structure
