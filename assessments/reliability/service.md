@@ -618,14 +618,16 @@ Resources
 ```
 Resources 
 | where type == 'microsoft.eventgrid/domains' 
-| project name, resourceGroup, location, subscriptionId, properties['publicNetworkAccess']```
+| project name, resourceGroup, location, subscriptionId, properties['publicNetworkAccess']
+```
  
                             
 * Identify Firewall Rules for all public Event Grid Domains:
 ```
 Resources 
 | where type == 'microsoft.eventgrid/domains' and properties['publicNetworkAccess'] == 'Enabled'
-| project name, resourceGroup, location, subscriptionId, properties['inboundIpRules']```
+| project name, resourceGroup, location, subscriptionId, properties['inboundIpRules']
+```
  
                             
 * Retrieve Resource ID of existent private endpoints for Event Grid Domains:
@@ -634,7 +636,8 @@ Resources
 | where type == 'microsoft.eventgrid/domains' and notnull(properties['privateEndpointConnections']) 
 | mvexpand properties['privateEndpointConnections'] 
 | project-rename privateEndpointConnections = properties_privateEndpointConnections 
-| project name, resourceGroup, location, subscriptionId, privateEndpointConnections['properties']['privateEndpoint']['id']```
+| project name, resourceGroup, location, subscriptionId, privateEndpointConnections['properties']['privateEndpoint']['id']
+```
  
                             
 * Determine Input Schema type for all available Event Grid Topics:
@@ -649,14 +652,16 @@ Resources
 ```
 Resources 
 | where type == 'microsoft.eventgrid/topics' 
-| project name, resourceGroup, location, subscriptionId, properties['publicNetworkAccess']```
+| project name, resourceGroup, location, subscriptionId, properties['publicNetworkAccess']
+```
  
                             
 * Identify Firewall Rules for all public Event Grid Topics:
 ```
 Resources 
 | where type == 'microsoft.eventgrid/topics' and properties['publicNetworkAccess'] == 'Enabled'
-| project name, resourceGroup, location, subscriptionId, properties['inboundIpRules']```
+| project name, resourceGroup, location, subscriptionId, properties['inboundIpRules']
+```
  
                             
 * Retrieve Resource ID of existent private endpoints for Event Grid Topics:
@@ -665,7 +670,8 @@ Resources
 | where type == 'microsoft.eventgrid/topics' and notnull(properties['privateEndpointConnections']) 
 | mvexpand properties['privateEndpointConnections'] 
 | project-rename privateEndpointConnections = properties_privateEndpointConnections 
-| project name, resourceGroup, location, subscriptionId, privateEndpointConnections['properties']['privateEndpoint']['id']```
+| project name, resourceGroup, location, subscriptionId, privateEndpointConnections['properties']['privateEndpoint']['id']
+```
  
                             
 ## Event Hub
