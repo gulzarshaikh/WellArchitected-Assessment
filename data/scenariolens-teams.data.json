@@ -8,7 +8,7 @@
         "category": "Teams",
         "subCategory": "Requirements",
         "title": "Requirements",
-        "context": "High-level requirements for a specific Teams App solution like availability, latency, expected no. of users etc.",
+        "context": "High-level requirements for a specific Microsoft Teams App solution like availability, latency, expected no. of users etc.",
         "recommendation": "",
         "children": [
             {
@@ -19,6 +19,9 @@
                 "title": "Is the solution accessed from users in a specific geographic region?",
                 "context": "Solutions with users from various geographical regions have other requirements in regards to latency and availability.",
                 "recommendation": "Solutions with users from different geographical regions should leverage multi-region deployments and global load balancers like Azure Front Door or Traffic Manager to distribute load across different regional deployments for latency and failover purposes."
+            },
+            {
+                "title": "What is the expected SLA for the solution and its components?"
             }
         ],
         "id": ""
@@ -38,6 +41,10 @@
             {
                 "title": "Is the solution backend hosted on a cloud platform like Azure?",
                 "context": "Cloud platforms like Microsoft Azure offer certain capabilities like auto scaling and data center regions across the globe that might not be available on-premises."
+            },
+            {
+                "title": "Does the solution depend on specific Azure PaaS services?",
+                "context": "Not all PaaS services are available in all Azure data center regions, do not have the same scale capabilities, SLAs and options."
             },
             {
                 "title": "Does the solution have dependencies to any on-premises systems?",
