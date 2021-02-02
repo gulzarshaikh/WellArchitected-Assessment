@@ -66,6 +66,24 @@
         "id": ""
     },
     {
+        "type": "Design Considerations",
+        "pillars": [
+            "scenario/teams"
+        ],
+        "lens": "scenario",
+        "category": "Teams Tab Apps",
+        "subCategory": "Design",
+        "title": "Security",
+        "context": "",
+        "recommendation": "",
+        "children": [
+            {
+                "title": "If the solution requires authentication, integrate Microsoft single sign-on (SSO) for a seamless sign-in experience."
+            }
+        ],
+        "id": ""
+    },
+    {
         "type": "Questions",
         "pillars": [
             "scenario/teams"
