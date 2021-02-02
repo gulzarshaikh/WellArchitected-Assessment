@@ -8,8 +8,8 @@
         "category": "Teams Tab Apps",
         "subCategory": "Design",
         "title": "Is the current solution able to scale?",
-        "context": "",
-        "recommendation": "",
+        "context": "Scalability is a key aspect to fulfill increasing usage while maintaining a consistent user experience.",
+        "recommendation": "Teams Apps should be designed from the beginning to be able to scale in and out easily based on changing demand.",
         "children": [
             {
                 "title": "Is the solution separated into separate components that can scale individually?",
@@ -36,5 +36,23 @@
             }
         ],
         "id": ""
-    }  
+    },
+    {
+        "type": "Questions",
+        "pillars": [
+            "scenario/teams"
+        ],
+        "lens": "scenario",
+        "category": "Teams Tab Apps",
+        "subCategory": "Processes",
+        "title": "How are changes and features rolled out?",
+        "context": "",
+        "recommendation": "",
+        "children": [
+            {
+                "title": ""
+            }
+        ],
+        "id": ""
+    }    
 ]
