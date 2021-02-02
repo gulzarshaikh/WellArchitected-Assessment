@@ -38,7 +38,8 @@
                 "title": "Is the solution backend hosted on a cloud platform like Azure?"
             },
             {
-                "title": "Does the solution have dependencies to any on-premises systems?"
+                "title": "Does the solution have dependencies to any on-premises systems?",
+                "context": "Solutions with dependencies to on-premises systems might have specific requirements in regards to connectivity via e.g. VPN or Express Route."
             }
         ],
         "id": ""
