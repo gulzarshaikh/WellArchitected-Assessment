@@ -3,11 +3,32 @@
 # Navigation Menu
 
   - [Teams Tab Apps](#Teams-Tab-Apps)
-    - [Design](#Design)
+    - [Requirements](#Requirements)
     - [Architecture](#Architecture)
+    - [Design](#Design)
     - [Processes](#Processes)
 # Teams Tab Apps
         
+## Requirements
+### Questions
+* Requirements
+  - How many users are expected to use the solution?
+    > The number of expected hourly, daily, monthly users is a good indicator for later requirements in regards to scalability and others.
+                                
+                            
+  - Is the solution accessed from users in a specific geographic region?
+    > Solutions with users from various geographical regions have other requirements in regards to latency and availability.
+                                
+                            
+## Architecture
+### Questions
+* Solution Architecture &amp; Overview
+  - Is the solution backend hosted on a cloud platform like Azure?
+                            
+  - Does the solution have dependencies to any on-premises systems?
+    > Solutions with dependencies to on-premises systems might have specific requirements in regards to connectivity via e.g. VPN or Express Route.
+                                
+                            
 ## Design
 ### Questions
 * Is the current solution able to scale?
@@ -19,13 +40,6 @@
                             
 * How is the solution and its components monitored?
   - Are critical system flows within the solution monitored?
-                            
-## Architecture
-### Questions
-* Solution Architecture &amp; Overview
-  - Is the solution backend hosted on a cloud platform like Azure?
-                            
-  - Does the solution have dependencies to any on-premises systems?
                             
 ## Processes
 ### Questions
