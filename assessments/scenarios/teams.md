@@ -13,7 +13,7 @@
 ## Requirements
 ### Questions
 * Requirements
-  > High-level requirements for a specific Teams App solution like availability, latency, expected no. of users etc.
+  > High-level requirements for a specific Microsoft Teams App solution like availability, latency, expected no. of users etc.
                             
   - How many users are expected to use the solution?
     > The number of expected hourly, daily, monthly users is a good indicator for later requirements in regards to scalability and others.
@@ -23,6 +23,8 @@
     > Solutions with users from various geographical regions have other requirements in regards to latency and availability.
                                 
                             
+  - What is the expected SLA for the solution and its components?
+                            
 # Teams Tab Apps
         
 ## Architecture
@@ -30,6 +32,10 @@
 * Solution Architecture &amp; Overview
   - Is the solution backend hosted on a cloud platform like Azure?
     > Cloud platforms like Microsoft Azure offer certain capabilities like auto scaling and data center regions across the globe that might not be available on-premises.
+                                
+                            
+  - Does the solution depend on specific Azure PaaS services?
+    > Not all PaaS services are available in all Azure data center regions, do not have the same scale capabilities, SLAs and options.
                                 
                             
   - Does the solution have dependencies to any on-premises systems?
