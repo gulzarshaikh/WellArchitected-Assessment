@@ -17,15 +17,20 @@ For each scoped assessment, the content is structured through three technical le
 
 # Assessment Navigation
 
-|||||
-| --- | --- | --- | --- |
-| [**Go-Live**](./assessments/golive/overview.md) | Application | Service | Scenario 
-| [**Reliability**](./assessments/reliability/overview.md) | [Application](./assessments/reliability/application.md) | [Service](assessments/reliability/service.md) | Scenario |
+## Pillars
+||||
+| --- | --- | --- |
+| [**Go-Live**](./assessments/golive/overview.md) | Application | Service |
+| [**Reliability**](./assessments/reliability/overview.md) | [Application](./assessments/reliability/application.md) | [Service](assessments/reliability/service.md) |
 | [**Operational Excellence**](./assessments/operationalexcellence/overview.md) | [Application](./assessments/operationalexcellence/application.md) | [Service](./assessments/operationalexcellence/service.md) | Scenario |
-| [**Security**](./assessments/security/overview.md) | [Application](./assessments/security/application.md) | [Service](./assessments/security/service.md) | Scenario |
-| [**Cost Optimization**](./assessments/costoptimization/overview.md) | [Application](./assessments/costoptimization/application.md) | [Service](./assessments/costoptimization/service.md) | Scenario |
-| [**Performance Efficiency**](./assessments/performance/overview.md) | [Application](./assessments/performance/application.md) | [Service](./assessments/performance/service.md) | Scenario |
-|||||
+| [**Security**](./assessments/security/overview.md) | [Application](./assessments/security/application.md) | [Service](./assessments/security/service.md) |
+| [**Cost Optimization**](./assessments/costoptimization/overview.md) | [Application](./assessments/costoptimization/application.md) | [Service](./assessments/costoptimization/service.md) |
+| [**Performance Efficiency**](./assessments/performance/overview.md) | [Application](./assessments/performance/application.md) | [Service](./assessments/performance/service.md) |
+||||
+
+## Scenarios
+- [**SAP**](./assessments/scenarios/sap.md)
+- **IoT**
 
 # Repository Structure
 
