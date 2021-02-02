@@ -35,7 +35,8 @@
         "recommendation": "",
         "children": [
             {
-                "title": "Is the solution backend hosted on a cloud platform like Azure?"
+                "title": "Is the solution backend hosted on a cloud platform like Azure?",
+                "context": "Cloud platforms like Microsoft Azure offer certain capabilities like auto scaling and data center regions across the globe that might not be available on-premises."
             },
             {
                 "title": "Does the solution have dependencies to any on-premises systems?",
@@ -94,6 +95,12 @@
         "context": "",
         "recommendation": "",
         "children": [
+            {
+                "title": "Is there a separation between dev/test and prod?"
+            },
+            {
+                "title": "Are new releases versioned and tested before they're rolled out to production?"
+            },
             {
                 "title": "Is it possible to test changes in a production-like environment first?"
             }
