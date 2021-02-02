@@ -108,7 +108,7 @@
     "category": "Messaging",
     "subCategory": "Event Grid",
     "title": "Identify Public Network Access status for all available Event Grid Domains:",
-    "code": "Resources \n| where type == 'microsoft.eventgrid/domains' \n| project name, resourceGroup, location, subscriptionId, properties['publicNetworkAccess']"
+    "code": "Resources \n| where type == 'microsoft.eventgrid/domains' \n| project name, resourceGroup, location, subscriptionId, properties['publicNetworkAccess']\n"
   },
   {
     "type": "Supporting Source Artifacts",
@@ -120,7 +120,7 @@
     "category": "Messaging",
     "subCategory": "Event Grid",
     "title": "Identify Firewall Rules for all public Event Grid Domains:",
-    "code": "Resources \n| where type == 'microsoft.eventgrid/domains' and properties['publicNetworkAccess'] == 'Enabled'\n| project name, resourceGroup, location, subscriptionId, properties['inboundIpRules']"
+    "code": "Resources \n| where type == 'microsoft.eventgrid/domains' and properties['publicNetworkAccess'] == 'Enabled'\n| project name, resourceGroup, location, subscriptionId, properties['inboundIpRules']\n"
   },
   {
     "type": "Supporting Source Artifacts",
@@ -132,7 +132,7 @@
     "category": "Messaging",
     "subCategory": "Event Grid",
     "title": "Retrieve Resource ID of existent private endpoints for Event Grid Domains:",
-    "code": "Resources \n| where type == 'microsoft.eventgrid/domains' and notnull(properties['privateEndpointConnections']) \n| mvexpand properties['privateEndpointConnections'] \n| project-rename privateEndpointConnections = properties_privateEndpointConnections \n| project name, resourceGroup, location, subscriptionId, privateEndpointConnections['properties']['privateEndpoint']['id']"
+    "code": "Resources \n| where type == 'microsoft.eventgrid/domains' and notnull(properties['privateEndpointConnections']) \n| mvexpand properties['privateEndpointConnections'] \n| project-rename privateEndpointConnections = properties_privateEndpointConnections \n| project name, resourceGroup, location, subscriptionId, privateEndpointConnections['properties']['privateEndpoint']['id']\n"
   },
   {
     "type": "Supporting Source Artifacts",
@@ -156,7 +156,7 @@
     "category": "Messaging",
     "subCategory": "Event Grid",
     "title": "Identify Public Network Access status for all available Event Grid Topics:",
-    "code": "Resources \n| where type == 'microsoft.eventgrid/topics' \n| project name, resourceGroup, location, subscriptionId, properties['publicNetworkAccess']"
+    "code": "Resources \n| where type == 'microsoft.eventgrid/topics' \n| project name, resourceGroup, location, subscriptionId, properties['publicNetworkAccess']\n"
   },
   {
     "type": "Supporting Source Artifacts",
@@ -168,7 +168,7 @@
     "category": "Messaging",
     "subCategory": "Event Grid",
     "title": "Identify Firewall Rules for all public Event Grid Topics:",
-    "code": "Resources \n| where type == 'microsoft.eventgrid/topics' and properties['publicNetworkAccess'] == 'Enabled'\n| project name, resourceGroup, location, subscriptionId, properties['inboundIpRules']"
+    "code": "Resources \n| where type == 'microsoft.eventgrid/topics' and properties['publicNetworkAccess'] == 'Enabled'\n| project name, resourceGroup, location, subscriptionId, properties['inboundIpRules']\n"
   },
   {
     "type": "Supporting Source Artifacts",
@@ -180,7 +180,7 @@
     "category": "Messaging",
     "subCategory": "Event Grid",
     "title": "Retrieve Resource ID of existent private endpoints for Event Grid Topics:",
-    "code": "Resources \n| where type == 'microsoft.eventgrid/topics' and notnull(properties['privateEndpointConnections']) \n| mvexpand properties['privateEndpointConnections'] \n| project-rename privateEndpointConnections = properties_privateEndpointConnections \n| project name, resourceGroup, location, subscriptionId, privateEndpointConnections['properties']['privateEndpoint']['id']"
+    "code": "Resources \n| where type == 'microsoft.eventgrid/topics' and notnull(properties['privateEndpointConnections']) \n| mvexpand properties['privateEndpointConnections'] \n| project-rename privateEndpointConnections = properties_privateEndpointConnections \n| project name, resourceGroup, location, subscriptionId, privateEndpointConnections['properties']['privateEndpoint']['id']\n"
   },
   {
     "type": "Design Considerations",
