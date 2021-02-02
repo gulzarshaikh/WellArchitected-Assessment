@@ -4,6 +4,7 @@
 
   - [Teams Tab Apps](#Teams-Tab-Apps)
     - [Design](#Design)
+    - [Architecture](#Architecture)
     - [Processes](#Processes)
 # Teams Tab Apps
         
@@ -19,8 +20,15 @@
 * How is the solution and its components monitored?
   - Are critical system flows within the solution monitored?
                             
+## Architecture
+### Questions
+* Solution Architecture &amp; Overview
+  - Is the solution backend hosted on a cloud platform like Azure?
+                            
+  - Does the solution have dependencies to any on-premises systems?
+                            
 ## Processes
 ### Questions
 * How are changes and features rolled out?
-  - 
+  - Is it possible to test changes in a production-like environment first?
                             
