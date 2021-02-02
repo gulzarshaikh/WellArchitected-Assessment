@@ -6,6 +6,27 @@
         ],
         "lens": "scenario",
         "category": "Teams Tab Apps",
+        "subCategory": "Architecture",
+        "title": "Solution Architecture & Overview",
+        "context": "",
+        "recommendation": "",
+        "children": [
+            {
+                "title": "Is the solution backend hosted on a cloud platform like Azure?"
+            },
+            {
+                "title": "Does the solution have dependencies to any on-premises systems?"
+            }
+        ],
+        "id": ""
+    },
+    {
+        "type": "Questions",
+        "pillars": [
+            "scenario/teams"
+        ],
+        "lens": "scenario",
+        "category": "Teams Tab Apps",
         "subCategory": "Design",
         "title": "Is the current solution able to scale?",
         "context": "Scalability is a key aspect to fulfill increasing usage while maintaining a consistent user experience.",
@@ -50,7 +71,7 @@
         "recommendation": "",
         "children": [
             {
-                "title": ""
+                "title": "Is it possible to test changes in a production-like environment first?"
             }
         ],
         "id": ""

@@ -3,8 +3,7 @@
     "type": "Questions",
     "pillars": [
       "operationalexcellence",
-      "security",
-      "scenario/teams"
+      "security"
     ],
     "lens": "application",
     "category": "Application Design",
