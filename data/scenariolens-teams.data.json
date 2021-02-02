@@ -5,10 +5,10 @@
             "scenario/teams"
         ],
         "lens": "scenario",
-        "category": "Teams Tab Apps",
+        "category": "Teams",
         "subCategory": "Requirements",
         "title": "Requirements",
-        "context": "High-level requirements for a specific Teams Tab App solution like availability, latency, expected no. of users etc.",
+        "context": "High-level requirements for a specific Teams App solution like availability, latency, expected no. of users etc.",
         "recommendation": "",
         "children": [
             {

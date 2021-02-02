@@ -387,11 +387,16 @@
       ]
   },
   {
-    "title": "Teams Tab Apps",
+    "title": "Teams",
     "subCategories": [
       {
         "title": "Requirements"
-      },
+      }
+    ]
+  },
+  {
+    "title": "Teams Tab Apps",
+    "subCategories": [
       {
         "title": "Architecture"
       },
