@@ -387,7 +387,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
   > Especially when demand is fluctuating, it is useful to monitor historical capacity utilization to derive predictions about future growth. Azure Monitor provides the ability to collect utilization metrics for Azure services so that they can be operationalized in the context of a defined capacity model. The Azure Portal can also be used to inspect current subscription usage and quota status. ([Supported metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported))
 ### Operational Lifecycles
             
-* Does every environment have a target end date? 
+* Does every environment have a target end date?
 
 
   _If your workload or environment isn't needed then you should be able to decommission it. The same should occur if you are introducing a new service or new feature._
@@ -546,7 +546,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
   _In order to predict costs and trends it’s recommended to use forecasting to be proactive for any spending that might be going up due to higher demand than anticipated._
   > Use cost forcasting as a tool to estimate if the workload is aligned with budget.
-* Do shared services have an owner and is all up cost with the distribution model defined and communicated by the owner to the service subscribers? 
+* Do shared services have an owner and is all up cost with the distribution model defined and communicated by the owner to the service subscribers?
 
 
 ### Culture &amp; Dynamics

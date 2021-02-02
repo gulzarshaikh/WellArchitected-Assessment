@@ -690,7 +690,7 @@
         "lens": "service",
         "category": "Compute",
         "subCategory": "Service Fabric",
-        "title": "Use durability level Silver (5 VMs) or higher for production scenarios. ",
+        "title": "Use durability level Silver (5 VMs) or higher for production scenarios.",
         "context": "This will ensure the Azure infrastructure communicates with the Service Fabric controller on scheduling reboots, etc."
     },
     {
@@ -702,7 +702,7 @@
         "lens": "service",
         "category": "Compute",
         "subCategory": "Service Fabric",
-        "title": "For critical workloads, consider using Availability Zones for your Service Fabric clusters. ",
+        "title": "For critical workloads, consider using Availability Zones for your Service Fabric clusters.",
         "context": "This means deploying a primary NodeType (and by extension a VM ScaleSet) to each AZ. This will ensure that the Service Fabric system services are spread across zones."
     },
     {
@@ -747,7 +747,7 @@
         "lens": "service",
         "category": "Compute",
         "subCategory": "Service Fabric",
-        "title": "Apply Network Security Groups (NSG) to restrict traffic flow between subnets/node types. Ensure that the [correct ports](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-networking#cluster-networking) are opened for managing the cluster. ",
+        "title": "Apply Network Security Groups (NSG) to restrict traffic flow between subnets/node types. Ensure that the [correct ports](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-networking#cluster-networking) are opened for managing the cluster.",
         "context": "For example, you may have an API Management instance (one subnet), a frontend subnet (exposing a website directly) and a backend subnet (accessible only to frontend), each implemented on a different VM Scale Set."
     },
     {
@@ -770,7 +770,7 @@
         "lens": "service",
         "category": "Compute",
         "subCategory": "Service Fabric",
-        "title": "When using the Service Fabric Secret Store to distribute secrets, use a separate data encipherment certificate to encrypt the values. ",
+        "title": "When using the Service Fabric Secret Store to distribute secrets, use a separate data encipherment certificate to encrypt the values.",
         "context": "This certificate is deployed to the VM scaleset nodes to decrypt the secret values. When using this approach, ensure that secrets are inserted and encrypted at release time. Using this approach means that changing the secrets requires a deployment. Make sure your key-rotation process is fully automated to do this without downtime."
     },
     {

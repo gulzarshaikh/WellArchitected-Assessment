@@ -188,7 +188,7 @@
         "lens": "service",
         "category": "Storage",
         "subCategory": "Disks",
-        "title": "Are you using Premium disks (P30 & above)? ",
+        "title": "Are you using Premium disks (P30 & above)?",
         "context" : "Premium Disks (P30 & above) can be reserved (1 or 3 years) at discounted price."
     },
     {

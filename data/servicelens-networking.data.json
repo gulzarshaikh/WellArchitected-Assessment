@@ -104,7 +104,7 @@
     "lens": "service",
     "category": "Networking",
     "subCategory": "Network Virtual Appliances (NVA)",
-    "title": "If 3rd party NVAs are required for east-west and/or south-north traffic protection/filtering: ",
+    "title": "If 3rd party NVAs are required for east-west and/or south-north traffic protection/filtering:",
     "recommendation": "",
     "id": "networking_1701",
     "children": [
@@ -129,7 +129,7 @@
     "lens": "service",
     "category": "Networking",
     "subCategory": "Network Virtual Appliances (NVA)",
-    "title": "If 3rd party NVAs are required for inbound HTTP/S connections, they should be deployed within a \"Landing Zone\" or \"solution-level\" Virtual Network, together with the applications that they are protecting and exposing to the internet.     ",
+    "title": "If 3rd party NVAs are required for inbound HTTP/S connections, they should be deployed within a \"Landing Zone\" or \"solution-level\" Virtual Network, together with the applications that they are protecting and exposing to the internet.",
     "recommendation": "",
     "id": "networking_9821"
   },
@@ -603,7 +603,7 @@
     "lens": "service",
     "category": "Networking",
     "subCategory": "ExpressRoute",
-    "title": "Use ExpressRoute as the primary connectivity channel for connecting on-premises network to Microsoft Azure.    ",
+    "title": "Use ExpressRoute as the primary connectivity channel for connecting on-premises network to Microsoft Azure.",
     "recommendation": "",
     "id": "networking_4137",
     "children": [
@@ -930,7 +930,7 @@
     "lens": "service",
     "category": "Networking",
     "subCategory": "Application Delivery (General)",
-    "title": "When doing global loadbalancing for HTTP/S applications, Front Door is preferred over Traffic Manager. This is because, amongst others:  ",
+    "title": "When doing global loadbalancing for HTTP/S applications, Front Door is preferred over Traffic Manager. This is because, amongst others:",
     "recommendation": "",
     "id": "networking_3742",
     "children": [
