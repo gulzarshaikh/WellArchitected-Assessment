@@ -2,17 +2,18 @@
 
 # Navigation Menu
 
-  - [Teams Tab Apps](#Teams-Tab-Apps)
+  - [Teams](#Teams)
     - [Requirements](#Requirements)
+  - [Teams Tab Apps](#Teams-Tab-Apps)
     - [Architecture](#Architecture)
     - [Design](#Design)
     - [Processes](#Processes)
-# Teams Tab Apps
+# Teams
         
 ## Requirements
 ### Questions
 * Requirements
-  > High-level requirements for a specific Teams Tab App solution like availability, latency, expected no. of users etc.
+  > High-level requirements for a specific Teams App solution like availability, latency, expected no. of users etc.
                             
   - How many users are expected to use the solution?
     > The number of expected hourly, daily, monthly users is a good indicator for later requirements in regards to scalability and others.
@@ -22,6 +23,8 @@
     > Solutions with users from various geographical regions have other requirements in regards to latency and availability.
                                 
                             
+# Teams Tab Apps
+        
 ## Architecture
 ### Questions
 * Solution Architecture &amp; Overview
