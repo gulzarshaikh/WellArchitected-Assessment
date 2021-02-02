@@ -7,9 +7,34 @@
         "lens": "scenario",
         "category": "Teams Tab Apps",
         "subCategory": "Design",
-        "title": "Is the current implementation able to scale?",
+        "title": "Is the current solution able to scale?",
         "context": "",
         "recommendation": "",
+        "children": [
+            {
+                "title": "Is the solution separated into separate components that can scale individually?",
+                "context": "Separate components of an application might have different requirements in regards to scalability, state and lifecycle.",
+                "recommendation": "Separate larger solutions into smaller, microservice-like components that can scale individually."
+            }
+        ],
         "id": ""
-    } 
+    },
+    {
+        "type": "Questions",
+        "pillars": [
+            "scenario/teams"
+        ],
+        "lens": "scenario",
+        "category": "Teams Tab Apps",
+        "subCategory": "Design",
+        "title": "How is the solution and its components monitored?",
+        "context": "",
+        "recommendation": "",
+        "children": [
+            {
+                "title": "Are critical system flows within the solution monitored?"
+            }
+        ],
+        "id": ""
+    }  
 ]
