@@ -6,6 +6,29 @@
         ],
         "lens": "scenario",
         "category": "Teams Tab Apps",
+        "subCategory": "Requirements",
+        "title": "Requirements",
+        "context": "",
+        "recommendation": "",
+        "children": [
+            {
+                "title": "How many users are expected to use the solution?",
+                "context": "The number of expected hourly, daily, monthly users is a good indicator for later requirements in regards to scalability and others."
+            },
+            {
+                "title": "Is the solution accessed from users in a specific geographic region?",
+                "context": "Solutions with users from various geographical regions have other requirements in regards to latency and availability."
+            }
+        ],
+        "id": ""
+    },
+    {
+        "type": "Questions",
+        "pillars": [
+            "scenario/teams"
+        ],
+        "lens": "scenario",
+        "category": "Teams Tab Apps",
         "subCategory": "Architecture",
         "title": "Solution Architecture & Overview",
         "context": "",

@@ -390,13 +390,19 @@
     "title": "Teams Tab Apps",
     "subCategories": [
       {
-        "title": "Design"
+        "title": "Requirements"
       },
       {
         "title": "Architecture"
       },
       {
+        "title": "Design"
+      },
+      {
         "title": "Processes"
+      },
+      {
+        "title": "Security"
       }
     ]
   }
