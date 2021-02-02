@@ -385,5 +385,16 @@
               "title": "Licensing"
           }
       ]
-  }
+  },
+  {
+    "title": "Teams Tab Apps",
+    "subCategories": [
+      {
+        "title": "Design"
+      },
+      {
+        "title": "Architecture"
+      }
+    ]
+  },
 ]
