@@ -8,7 +8,7 @@
         "category": "Teams Tab Apps",
         "subCategory": "Requirements",
         "title": "Requirements",
-        "context": "",
+        "context": "High-level requirements for a specific Teams Tab App solution like availability, latency, expected no. of users etc.",
         "recommendation": "",
         "children": [
             {
@@ -17,7 +17,8 @@
             },
             {
                 "title": "Is the solution accessed from users in a specific geographic region?",
-                "context": "Solutions with users from various geographical regions have other requirements in regards to latency and availability."
+                "context": "Solutions with users from various geographical regions have other requirements in regards to latency and availability.",
+                "recommendation": "Solutions with users from different geographical regions should leverage multi-region deployments and global load balancers like Azure Front Door or Traffic Manager to distribute load across different regional deployments for latency and failover purposes."
             }
         ],
         "id": ""
@@ -97,6 +98,11 @@
         "children": [
             {
                 "title": "Are critical system flows within the solution monitored?"
+            },
+            {
+                "title": "Are response times monitored?",
+                "context": "If a response to an action takes more than three seconds, you must provide a loading message or warning.",
+                "recommendation": "Make sure that the app displays a loading indicator or some form of warning when something is taking longer than expected to respond."
             }
         ],
         "id": ""
@@ -118,6 +124,10 @@
             },
             {
                 "title": "Are new releases versioned and tested before they're rolled out to production?"
+            },
+            {
+                "title": "Where are changes to the Teams Tab app tested?",
+                "context": "Microsoft Teams apps can be debugged Purely local, Locally hosted in Teams or Cloud-hosted in Teams. See [Choosing a setup to test and debug your Microsoft Teams app](https://docs.microsoft.com/microsoftteams/platform/concepts/build-and-test/debug) for more."
             },
             {
                 "title": "Is it possible to test changes in a production-like environment first?"
