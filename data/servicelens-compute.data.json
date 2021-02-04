@@ -491,7 +491,7 @@
         "category": "Compute",
         "subCategory": "Azure Kubernetes Service (AKS)",
         "title": "Query to identify AKS clusters using **Azure CNI or Kubenet as Network Plugins**:",
-        "code": "Resources\n| where type =~ 'Microsoft.ContainerService/managedClusters'\n| project name, location, resourceGroup, subscriptionId, properties.networkProfile.networkPlugin"
+        "code": "Resources\n| where type =~ 'Microsoft.ContainerService/managedClusters'\n| project name, location, resourceGroup, subscriptionId, properties.networkProfile.networkPlugin\n"
     },
     {
         "type": "Supporting Source Artifacts",
@@ -515,7 +515,7 @@
         "category": "Compute",
         "subCategory": "Azure Kubernetes Service (AKS)",
         "title": "Query to identify AKS clusters that are **NOT using RBAC**:",
-        "code": "Resources\n| where type =~ 'Microsoft.ContainerService/managedClusters'\n| where properties.enableRBAC == false"
+        "code": "Resources\n| where type =~ 'Microsoft.ContainerService/managedClusters'\n| where properties.enableRBAC == false\n"
     },
     {
         "type": "Design Considerations",
