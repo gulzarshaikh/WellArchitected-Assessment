@@ -469,7 +469,7 @@
         "category": "Compute",
         "subCategory": "Azure Kubernetes Service (AKS)",
         "title": "Query to identify AKS clusters that are not deployed across **Availability Zones**:",
-        "code": "Resources\n| where\n    type =~ 'Microsoft.ContainerService/managedClusters'\n\tand isnull(zones)\n"
+        "code": "Resources\n| where type =~ 'Microsoft.ContainerService/managedClusters'\n| where isnull(zones)\n"
     },
     {
         "type": "Supporting Source Artifacts",
@@ -480,7 +480,7 @@
         "category": "Compute",
         "subCategory": "Azure Kubernetes Service (AKS)",
         "title": "Query to identify AKS clusters that are deployed using **Availability Sets**:",
-        "code": "Resources\n| where\n    type =~ 'Microsoft.ContainerService/managedClusters'\n\tand properties.agentPoolProfiles[0].type != 'VirtualMachineScaleSets'\n| project name, location, resourceGroup, subscriptionId, properties.agentPoolProfiles[0].type\n"
+        "code": "Resources\n| where type =~ 'Microsoft.ContainerService/managedClusters'\n| where properties.agentPoolProfiles[0].type != 'VirtualMachineScaleSets'\n| project name, location, resourceGroup, subscriptionId, properties.agentPoolProfiles[0].type\n"
     },
     {
         "type": "Supporting Source Artifacts",
