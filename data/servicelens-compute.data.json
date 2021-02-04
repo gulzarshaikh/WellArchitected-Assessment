@@ -503,7 +503,7 @@
         "category": "Compute",
         "subCategory": "Azure Kubernetes Service (AKS)",
         "title": "Query to identify AKS clusters that are not deployed using a **Managed Identity**:",
-        "code": "Resources\n| where\n    type =~ 'Microsoft.ContainerService/managedClusters'\n\tand isnull(identity)\n"
+        "code": "Resources\n| where type =~ 'Microsoft.ContainerService/managedClusters'\n| where isnull(identity)\n"
     },
     {
         "type": "Supporting Source Artifacts",
