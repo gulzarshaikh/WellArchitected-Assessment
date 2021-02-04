@@ -222,7 +222,8 @@ Resources
 ```
 Resources
 | where type =~ 'Microsoft.ContainerService/managedClusters'
-| where properties.enableRBAC == false```
+| where properties.enableRBAC == false
+```
  
                             
 ## Service Fabric
