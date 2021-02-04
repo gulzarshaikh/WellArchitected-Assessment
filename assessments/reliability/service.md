@@ -237,7 +237,7 @@ Resources
 ```
  
                             
-* Query to identify AKS clusters using **Azure CNI or Kubenet as Network Plugins**:
+* Query to identify which networking plugin (CNI or Kubenet) is being used by AKS clusters:
 ```
 Resources
 | where type =~ 'Microsoft.ContainerService/managedClusters'
