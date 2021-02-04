@@ -218,6 +218,13 @@ Resources
 ```
  
                             
+* Query to identify AKS clusters that are **NOT using RBAC**:
+```
+Resources
+| where type =~ 'Microsoft.ContainerService/managedClusters'
+| where properties.enableRBAC == false```
+ 
+                            
 ## Service Fabric
 ## Virtual Machines
 ### Design Considerations

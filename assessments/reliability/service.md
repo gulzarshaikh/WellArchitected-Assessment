@@ -229,7 +229,7 @@ Resources
 ```
  
                             
-* Query to identify AKS clusters that are deployed within a AvailabilitySet:
+* Query to identify AKS clusters that are deployed using **Availability Sets**:
 ```
 Resources
 | where
@@ -239,6 +239,13 @@ Resources
 ```
  
                             
+* Query to identify AKS clusters using **Azure CNI or Kubenet as Network Plugins**:
+```
+Resources
+| where type =~ 'Microsoft.ContainerService/managedClusters'
+| project name, location, resourceGroup, subscriptionId, properties.networkProfile.networkPlugin```
+ 
+                            
 * Query to identify AKS clusters that are not deployed using a **Managed Identity**:
 ```
 Resources
@@ -246,6 +253,13 @@ Resources
     type =~ 'Microsoft.ContainerService/managedClusters'
 	and isnull(identity)
 ```
+ 
+                            
+* Query to identify AKS clusters that are **NOT using RBAC**:
+```
+Resources
+| where type =~ 'Microsoft.ContainerService/managedClusters'
+| where properties.enableRBAC == false```
  
                             
 ## Service Fabric
