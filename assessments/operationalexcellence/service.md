@@ -559,6 +559,75 @@ Resources
 * If EventGrid delivers to an endpoint that holds custom code, ensure that the message is accepted with an HTTP 200-204 response only when it can be successfully processed. 
 * Monitor EventGrid for failed event publishing (Publish Failed metric). Additionally, the &#39;Unmatched&#39; metric will show messages that are published, but not matched to any subscription. Depending on your application architecture, the latter may be intentional.
 * Monitor EventGrid for failed event delivery. The &#39;Delivery Failed&#39; metric will increase every time a message cannot be delivered to an event handler (timeout or a non 200-204 HTTP status code). Additionally, if an event must not be lost, set up a Dead-Letter-Queue (DLQ) storage account. This is where events that cannot be delivered after the maximum retry count will be placed. Optionally, implement a notification system on the DLQ storage account, e.g. by handling a &#39;new file&#39; event through Event Grid.
+### Supporting Source Artifacts
+* Determine Input Schema type for all available Event Grid Domains:
+```
+Resources 
+| where type == 'microsoft.eventgrid/domains'
+| project name, resourceGroup, location, subscriptionId, properties['inputSchema']
+```
+ 
+                            
+* Identify Public Network Access status for all available Event Grid Domains:
+```
+Resources 
+| where type == 'microsoft.eventgrid/domains' 
+| project name, resourceGroup, location, subscriptionId, properties['publicNetworkAccess']
+```
+ 
+                            
+* Identify Firewall Rules for all public Event Grid Domains:
+```
+Resources 
+| where type == 'microsoft.eventgrid/domains' and properties['publicNetworkAccess'] == 'Enabled'
+| project name, resourceGroup, location, subscriptionId, properties['inboundIpRules']
+```
+ 
+                            
+* Retrieve Resource ID of existent private endpoints for Event Grid Domains:
+```
+Resources 
+| where type == 'microsoft.eventgrid/domains' and notnull(properties['privateEndpointConnections']) 
+| mvexpand properties['privateEndpointConnections'] 
+| project-rename privateEndpointConnections = properties_privateEndpointConnections 
+| project name, resourceGroup, location, subscriptionId, privateEndpointConnections['properties']['privateEndpoint']['id']
+```
+ 
+                            
+* Determine Input Schema type for all available Event Grid Topics:
+```
+Resources 
+| where type == 'microsoft.eventgrid/topics'
+| project name, resourceGroup, location, subscriptionId, properties['inputSchema']
+```
+ 
+                            
+* Identify Public Network Access status for all available Event Grid Topics:
+```
+Resources 
+| where type == 'microsoft.eventgrid/topics' 
+| project name, resourceGroup, location, subscriptionId, properties['publicNetworkAccess']
+```
+ 
+                            
+* Identify Firewall Rules for all public Event Grid Topics:
+```
+Resources 
+| where type == 'microsoft.eventgrid/topics' and properties['publicNetworkAccess'] == 'Enabled'
+| project name, resourceGroup, location, subscriptionId, properties['inboundIpRules']
+```
+ 
+                            
+* Retrieve Resource ID of existent private endpoints for Event Grid Topics:
+```
+Resources 
+| where type == 'microsoft.eventgrid/topics' and notnull(properties['privateEndpointConnections']) 
+| mvexpand properties['privateEndpointConnections'] 
+| project-rename privateEndpointConnections = properties_privateEndpointConnections 
+| project name, resourceGroup, location, subscriptionId, privateEndpointConnections['properties']['privateEndpoint']['id']
+```
+ 
+                            
 ## Event Hub
 ### Design Considerations
 * Azure Event Hubs has a [published SLA](https://azure.microsoft.com/support/legal/sla/event-hubs) of 99.95% for the Basic and Standard Tiers, and 99.99% for the Dedicated Tier.
