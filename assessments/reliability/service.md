@@ -197,8 +197,8 @@ Resources
     > [Azure Policy](https://docs.microsoft.com/azure/aks/use-pod-security-on-azure-policy) can help to apply at-scale enforcements and safeguards on your clusters in a centralized, consistent manner. It can also control what functions pods are granted and if anything is running against company policy. This access is defined through built-in policies provided by the [Azure Policy Add-on for AKS](https://docs.microsoft.com/azure/governance/policy/concepts/policy-for-kubernetes). By providing additional control over the security aspects of your pod's specification, like root privileges, enables stricter security adherence and visibility into what is deployed in your cluster. If a pod does not meet conditions specified in the policy, Azure Policy can disallow the pod to start or flag a violation.
                                 
                             
-* Ensure proper selection of Network Plug-in [Kubenet vs. Azure CNI](https://docs.microsoft.com/azure/aks/concepts-network#compare-network-models) based on network requirements and cluster sizing.
-  > CNI is required for specific scenarios like for example Windows-based node pools and the use of Azure Network Policies. See [Kubenet vs. Azure CNI](https://docs.microsoft.com/azure/aks/concepts-network#compare-network-models) for more information.
+* Ensure proper selection of network plugin based on network requirements and cluster sizing.
+  > Azure CNI is required for specific scenarios like for example Windows-based node pools, specific networking requirements and Kubernetes Network Policies. See [Kubenet vs. Azure CNI](https://docs.microsoft.com/azure/aks/concepts-network#compare-network-models) for more information.
                             
 * Use [Azure Network Policies](https://docs.microsoft.com/azure/aks/use-network-policies) or Calico to control traffic between pods. **Requires CNI Network Plug-in.**
 * Utilize a central monitoring tool (eg. - [Azure Monitor and App Insights](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview)) to centrally collect metrics, logs, and diagnostics for troubleshooting purposes.
@@ -223,28 +223,41 @@ Resources
 * Query to identify AKS clusters that are not deployed across **Availability Zones**:
 ```
 Resources
-| where
-    type =~ 'Microsoft.ContainerService/managedClusters'
-	and isnull(zones)
+| where type =~ 'Microsoft.ContainerService/managedClusters'
+| where isnull(zones)
 ```
  
                             
-* Query to identify AKS clusters that are deployed within a AvailabilitySet:
+* Query to identify AKS clusters that are deployed using **Availability Sets**:
 ```
 Resources
-| where
-    type =~ 'Microsoft.ContainerService/managedClusters'
-	and properties.agentPoolProfiles[0].type != 'VirtualMachineScaleSets'
+| where type =~ 'Microsoft.ContainerService/managedClusters'
+| where properties.agentPoolProfiles[0].type != 'VirtualMachineScaleSets'
 | project name, location, resourceGroup, subscriptionId, properties.agentPoolProfiles[0].type
+```
+ 
+                            
+* Query to identify which networking plugin (CNI or Kubenet) is being used by AKS clusters:
+```
+Resources
+| where type =~ 'Microsoft.ContainerService/managedClusters'
+| project name, location, resourceGroup, subscriptionId, properties.networkProfile.networkPlugin
 ```
  
                             
 * Query to identify AKS clusters that are not deployed using a **Managed Identity**:
 ```
 Resources
-| where
-    type =~ 'Microsoft.ContainerService/managedClusters'
-	and isnull(identity)
+| where type =~ 'Microsoft.ContainerService/managedClusters'
+| where isnull(identity)
+```
+ 
+                            
+* Query to identify AKS clusters that are **NOT using RBAC**:
+```
+Resources
+| where type =~ 'Microsoft.ContainerService/managedClusters'
+| where properties.enableRBAC == false
 ```
  
                             

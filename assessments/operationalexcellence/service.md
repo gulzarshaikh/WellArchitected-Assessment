@@ -212,9 +212,16 @@ Resources
 * Query to identify AKS clusters that are not deployed using a **Managed Identity**:
 ```
 Resources
-| where
-    type =~ 'Microsoft.ContainerService/managedClusters'
-	and isnull(identity)
+| where type =~ 'Microsoft.ContainerService/managedClusters'
+| where isnull(identity)
+```
+ 
+                            
+* Query to identify AKS clusters that are **NOT using RBAC**:
+```
+Resources
+| where type =~ 'Microsoft.ContainerService/managedClusters'
+| where properties.enableRBAC == false
 ```
  
                             
