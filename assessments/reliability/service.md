@@ -223,18 +223,16 @@ Resources
 * Query to identify AKS clusters that are not deployed across **Availability Zones**:
 ```
 Resources
-| where
-    type =~ 'Microsoft.ContainerService/managedClusters'
-	and isnull(zones)
+| where type =~ 'Microsoft.ContainerService/managedClusters'
+| where isnull(zones)
 ```
  
                             
 * Query to identify AKS clusters that are deployed using **Availability Sets**:
 ```
 Resources
-| where
-    type =~ 'Microsoft.ContainerService/managedClusters'
-	and properties.agentPoolProfiles[0].type != 'VirtualMachineScaleSets'
+| where type =~ 'Microsoft.ContainerService/managedClusters'
+| where properties.agentPoolProfiles[0].type != 'VirtualMachineScaleSets'
 | project name, location, resourceGroup, subscriptionId, properties.agentPoolProfiles[0].type
 ```
  
