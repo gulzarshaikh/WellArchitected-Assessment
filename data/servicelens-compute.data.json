@@ -490,7 +490,7 @@
         "lens": "service",
         "category": "Compute",
         "subCategory": "Azure Kubernetes Service (AKS)",
-        "title": "Query to identify AKS clusters using **Azure CNI or Kubenet as Network Plugins**:",
+        "title": "Query to identify which networking plugin (CNI or Kubenet) is being used by AKS clusters:",
         "code": "Resources\n| where type =~ 'Microsoft.ContainerService/managedClusters'\n| project name, location, resourceGroup, subscriptionId, properties.networkProfile.networkPlugin\n"
     },
     {
