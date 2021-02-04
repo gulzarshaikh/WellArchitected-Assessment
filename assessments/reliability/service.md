@@ -243,7 +243,8 @@ Resources
 ```
 Resources
 | where type =~ 'Microsoft.ContainerService/managedClusters'
-| project name, location, resourceGroup, subscriptionId, properties.networkProfile.networkPlugin```
+| project name, location, resourceGroup, subscriptionId, properties.networkProfile.networkPlugin
+```
  
                             
 * Query to identify AKS clusters that are not deployed using a **Managed Identity**:
@@ -259,7 +260,8 @@ Resources
 ```
 Resources
 | where type =~ 'Microsoft.ContainerService/managedClusters'
-| where properties.enableRBAC == false```
+| where properties.enableRBAC == false
+```
  
                             
 ## Service Fabric
