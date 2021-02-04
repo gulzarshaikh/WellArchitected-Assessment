@@ -479,8 +479,19 @@
         "lens": "service",
         "category": "Compute",
         "subCategory": "Azure Kubernetes Service (AKS)",
-        "title": "Query to identify AKS clusters that are deployed within a AvailabilitySet:",
+        "title": "Query to identify AKS clusters that are deployed using **Availability Sets**:",
         "code": "Resources\n| where\n    type =~ 'Microsoft.ContainerService/managedClusters'\n\tand properties.agentPoolProfiles[0].type != 'VirtualMachineScaleSets'\n| project name, location, resourceGroup, subscriptionId, properties.agentPoolProfiles[0].type\n"
+    },
+    {
+        "type": "Supporting Source Artifacts",
+        "pillars": [
+            "reliability"
+        ],
+        "lens": "service",
+        "category": "Compute",
+        "subCategory": "Azure Kubernetes Service (AKS)",
+        "title": "Query to identify AKS clusters using **Azure CNI or Kubenet as Network Plugins**:",
+        "code": "Resources\n| where type =~ 'Microsoft.ContainerService/managedClusters'\n| project name, location, resourceGroup, subscriptionId, properties.networkProfile.networkPlugin"
     },
     {
         "type": "Supporting Source Artifacts",
@@ -493,6 +504,18 @@
         "subCategory": "Azure Kubernetes Service (AKS)",
         "title": "Query to identify AKS clusters that are not deployed using a **Managed Identity**:",
         "code": "Resources\n| where\n    type =~ 'Microsoft.ContainerService/managedClusters'\n\tand isnull(identity)\n"
+    },
+    {
+        "type": "Supporting Source Artifacts",
+        "pillars": [
+            "reliability",
+            "operationalexcellence"
+        ],
+        "lens": "service",
+        "category": "Compute",
+        "subCategory": "Azure Kubernetes Service (AKS)",
+        "title": "Query to identify AKS clusters that are **NOT using RBAC**:",
+        "code": "Resources\n| where type =~ 'Microsoft.ContainerService/managedClusters'\n| where properties.enableRBAC == false"
     },
     {
         "type": "Design Considerations",
