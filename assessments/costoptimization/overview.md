@@ -57,4 +57,5 @@ This assessment has been produced to help the global CE&S community to optimize 
   - [Networking](./service.md#Networking)
     - [Network Virtual Appliances (NVA)](./service.md#Network-Virtual-Appliances-NVA)
     - [Network Connectivity](./service.md#Network-Connectivity)
+    - [API Management](./service.md#API-Management)
     - [IP Addresses](./service.md#IP-Addresses)

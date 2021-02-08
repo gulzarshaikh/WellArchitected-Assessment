@@ -16,6 +16,7 @@ This list contains design considerations and recommended configuration options, 
   - [Networking](#Networking)
     - [Network Virtual Appliances (NVA)](#Network-Virtual-Appliances-NVA)
     - [Network Connectivity](#Network-Connectivity)
+    - [API Management](#API-Management)
     - [IP Addresses](#IP-Addresses)
 # Compute
         
@@ -129,6 +130,11 @@ This list contains design considerations and recommended configuration options, 
   - **Gateways**: limit throughput, performance, etc.
                             
   - **DDoS Standard**: Depending on the workload and usage patterns, Standard can provide useful protection. Otherwise you can use the Basic (i.e. for small customers).
+                            
+## API Management
+### Configuration Recommendations
+* Downgrade or upgrade API Management tier
+  > API Management allows to switch between Basic, Standard and Premium tiers. It's possible to downgrade to a lower tier than production during weekend or holidays. This process can be automated as a job using [Set-AzApiManagement](https://docs.microsoft.com/en-us/powershell/module/az.apimanagement/set-azapimanagement?view=azps-5.4.0) cmdlet.
                             
 ## IP Addresses
 ### Configuration Recommendations
