@@ -133,8 +133,11 @@ This list contains design considerations and recommended configuration options, 
                             
 ## API Management
 ### Configuration Recommendations
-* Downgrade or upgrade API Management tier
-  > API Management allows to switch between Basic, Standard and Premium tiers. It's possible to downgrade to a lower tier than production during weekend or holidays. This process can be automated as a job using [Set-AzApiManagement](https://docs.microsoft.com/en-us/powershell/module/az.apimanagement/set-azapimanagement?view=azps-5.4.0) cmdlet.
+* Are you using higher tier?
+  > Consider switching between Basic, Standard and Premium tiers. It's possible to downgrade to a lower tier than production during weekend or holidays if features available in higher tier are also available in lower tier. This process can be automated as a job using [Set-AzApiManagement](https://docs.microsoft.com/en-us/powershell/module/az.apimanagement/set-azapimanagement?view=azps-5.4.0) cmdlet.
+                            
+* Have you configured autoscaling?
+  > Consider scaling up or down API Management instance to control costs. API Management can be [configured](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-autoscale) with Autoscale based on a either a metric or a specific count. Scaling up or down can be [automated](https://docs.microsoft.com/en-us/azure/api-management/scripts/powershell-scale-and-addregion-apim-service?toc=/powershell/module/toc.json) using Azure Automation.
                             
 ## IP Addresses
 ### Configuration Recommendations
