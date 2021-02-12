@@ -133,11 +133,11 @@ This list contains design considerations and recommended configuration options, 
                             
 ## API Management
 ### Configuration Recommendations
-* Are you using higher tier?
-  > Consider switching between Basic, Standard and Premium tiers. It's possible to downgrade to a lower tier than production during weekend or holidays if features available in higher tier are also available in lower tier. This process can be automated as a job using [Set-AzApiManagement](https://docs.microsoft.com/en-us/powershell/module/az.apimanagement/set-azapimanagement?view=azps-5.4.0) cmdlet.
+* Do you need all the features all the time?
+  > Consider switching between Basic, Standard and Premium tiers. If a workload does not need features available in higher tier then consider switching to a lower tier. As an example, a workload may need just 1GB of cache during off-peak period compared to 5GB of cache during peak period. Costs associated with such a workload can be significantly reduced by switching from Premium to Standard tier during off-peak period and back to Premium tier during peak period. This process can be automated as a job using [Set-AzApiManagement](https://docs.microsoft.com/en-us/powershell/module/az.apimanagement/set-azapimanagement?view=azps-5.4.0) cmdlet. Refer to [documentation](https://azure.microsoft.com/en-us/pricing/details/api-management/) on features available in different APIM tiers.
                             
 * Have you configured autoscaling?
-  > Consider scaling up or down API Management instance to control costs. API Management can be [configured](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-autoscale) with Autoscale based on a either a metric or a specific count. Scaling up or down can be [automated](https://docs.microsoft.com/en-us/azure/api-management/scripts/powershell-scale-and-addregion-apim-service?toc=/powershell/module/toc.json) using Azure Automation.
+  > Consider scaling up or down API Management instance to control costs. API Management can be [configured](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-autoscale) with Autoscale based on a either a metric or a specific count. APIM costs depend upon no. of units which determines throughput in requests per seconds (RPS). An auto-scaled APIM instance switches between scale units appropriate for RPS numbers during a specific time window. Auto-scaling helps in achieving balance between cost optimization and performance.
                             
 ## IP Addresses
 ### Configuration Recommendations
