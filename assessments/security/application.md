@@ -246,7 +246,7 @@ These critical design principles are used as lenses to assess the Security of an
 
 
   _[Benchmarking](https://docs.microsoft.com/azure/architecture/framework/Security/governance#evaluate-security-using-benchmarks) enables security program improvement by learning from external organizations. It lets the organization know how its current security state compares to that of other organizations. As an example, the Center for Internet Security (CIS) has created security benchmarks for Azure that map to the CIS Control Framework. Another reference example is the MITRE ATT&CK™ framework that defines the various adversary tactics and techniques based on real-world observations._
-  > Establish security benchmarking aligned to industry standards.
+  > Establish security benchmarking using Azure Security benchmark to align with industry standards.
 ### Security Criteria &amp; Data Classification
             
 * How do you monitor and maintain your compliance of this workload?
