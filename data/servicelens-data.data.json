@@ -853,5 +853,16 @@
         "category": "Data",
         "subCategory": "Azure Databricks",
         "title": "Databricks blog: [Best practices to secure an enterprise-scale data platform](https://databricks.com/blog/2020/03/16/security-that-unblocks.html)"
-    }
+    },
+    {
+        "type": "Configuration Recommendations",
+        "pillars": [
+            "costoptimization"
+        ],
+        "lens": "service",
+        "category": "Data",
+        "subCategory": "Azure SQL Database",
+        "title": "Are you using Reserved Capacity?",
+        "context": "Compute costs associated with Azure SQL Database can be reduced by using [Reservation Discount](https://docs.microsoft.com/en-us/azure/cost-management-billing/reservations/understand-reservation-charges). Once the total compute capacity and performance tier for Azure SQL databases in a region is determined, this information can be used to reserve the capacity. The reservation can span 1 or 3 years. Significant cost optimization can be realized with this commitment. Refer to documentation on [Save costs for resources with reserved capacity](https://docs.microsoft.com/en-us/azure/azure-sql/database/reserved-capacity-overview) for more details."
+      }
 ]
