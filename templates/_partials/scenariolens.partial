@@ -1,7 +1,7 @@
 {{- $lens := "scenario" -}}
 {{- $filtered := where (where .input "pillars" "intersect" .pillars) "lens" $lens }}
 
-{{- $types := slice "Design Considerations" "Configuration Recommendations" "Questions" "Supporting Source Artifacts" }}
+{{- $types := slice "Design Principles" "Design Considerations" "Design Recommendations" "Configuration Recommendations" "Questions" "Supporting Source Artifacts" }}
 
 # Navigation Menu
 {{ partial "navigation.partial" (dict "input" .input "pillars" .pillars "lens" $lens "categories" .categories) }}
