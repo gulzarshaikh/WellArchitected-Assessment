@@ -10,6 +10,8 @@ This list contains design considerations and recommended configuration options, 
     - [Azure App Service](#Azure-App-Service)
     - [Azure Kubernetes Service (AKS)](#Azure-Kubernetes-Service-AKS)
     - [Virtual Machines](#Virtual-Machines)
+  - [Data](#Data)
+    - [Azure SQL Database](#Azure-SQL-Database)
   - [Storage](#Storage)
     - [Storage Accounts](#Storage-Accounts)
     - [Disks](#Disks)
@@ -63,6 +65,13 @@ This list contains design considerations and recommended configuration options, 
                             
 * Use Zone to Zone disaster recovery for virtual machines.
   > (in preview as of 11/2020) Replicate, failover and failback your business-critical virtual machines within the same region with zones. Ideal for those that have complicated networking infrastructure and want to avoid the cost and complexity of recreating it in a secondary region.
+                            
+# Data
+        
+## Azure SQL Database
+### Configuration Recommendations
+* Are you using Reserved Capacity?
+  > Compute costs associated with Azure SQL Database can be reduced by using [Reservation Discount](https://docs.microsoft.com/en-us/azure/cost-management-billing/reservations/understand-reservation-charges). Once the total compute capacity and performance tier for Azure SQL databases in a region is determined, this information can be used to reserve the capacity. The reservation can span 1 or 3 years. Significant cost optimization can be realized with this commitment. Refer to documentation on [Save costs for resources with reserved capacity](https://docs.microsoft.com/en-us/azure/azure-sql/database/reserved-capacity-overview) for more details.
                             
 # Storage
         
