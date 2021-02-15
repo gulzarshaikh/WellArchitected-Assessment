@@ -13,18 +13,22 @@
         "children": [
             {
                 "title": "How many users are expected to use the solution?",
-                "context": "The number of expected hourly, daily, monthly users is a good indicator for later requirements in regards to scalability and others."
+                "context": "The number of expected hourly, daily, monthly users is a good indicator for later requirements in regards to scalability and others.",
+                "id": "teams_high_level_requirements_1"
             },
             {
                 "title": "Is the solution accessed from users in a specific geographic region?",
                 "context": "Solutions with users from various geographical regions have other requirements in regards to latency and availability.",
-                "recommendation": "Solutions with users from different geographical regions should leverage multi-region deployments and global load balancers like Azure Front Door or Traffic Manager to distribute load across different regional deployments for latency and failover purposes."
+                "recommendation": "Solutions with users from different geographical regions should leverage multi-region deployments and global load balancers like Azure Front Door or Traffic Manager to distribute load across different regional deployments for latency and failover purposes.",
+                "id": "teams_high_level_requirements_2"
             },
             {
-                "title": "What is the expected SLA for the solution and its components?"
+                "title": "What is the expected SLA or availability for the solution and its components?",
+                "context": "Different Teams applications can have varying requirements in terms of availability and contractual SLAs. Internal-only chatbot may accept more outage time than a Tabs application used as the only surface for a business system. Availability of dependent services (such as QnA knowledgbases) need to be considered as well.",
+                "id": "teams_high_level_requirements_3"
             }
         ],
-        "id": ""
+        "id": "teams_high_level_requirements"
     },
     {
         "type": "Questions",
@@ -141,5 +145,16 @@
             }
         ],
         "id": ""
-    }    
+    },
+    {
+      "type": "Design Recommendations",
+      "pillars": [
+          "scenario/teams"
+      ],
+      "lens": "scenario",
+      "category": "Security & Compliance",
+      "subCategory": "Network Security",
+      "title": "Protect QnA Maker with network isolation.",
+      "context": "Azure Cognitive Services provides a layered security model. This model enables you to [secure your Cognitive Services accounts](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal) to a specific subset of networks. When network rules are configured, only applications requesting data over the specified set of networks can access the account. On the App Service side, you can use the `CognitiveServicesManagement` service tag to allow the Authoring APIs to invoke App Service and update Azure Search accordingly. Make sure you also allow other entry points like Bot service, QnA Maker portal (may be your corporate network) etc. for prediction `GenerateAnswer` API access. Alternatively, the App Service Environment (ASE) can be used to host QnA Maker App Service. See [Recommended settings for network isolation](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/set-up-qnamaker-service-azure?tabs=v1#recommended-settings-for-network-isolation) for more."
+    }
 ]
