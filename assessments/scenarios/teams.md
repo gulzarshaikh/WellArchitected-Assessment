@@ -2,12 +2,17 @@
 
 # Navigation Menu
 
+  - [Security &amp; Compliance](#Security--Compliance)
+    - [Network Security](#Network-Security)
   - [Teams](#Teams)
     - [Requirements](#Requirements)
   - [Teams Tab Apps](#Teams-Tab-Apps)
     - [Architecture](#Architecture)
     - [Design](#Design)
     - [Processes](#Processes)
+# Security &amp; Compliance
+        
+## Network Security
 # Teams
         
 ## Requirements
@@ -23,7 +28,9 @@
     > Solutions with users from various geographical regions have other requirements in regards to latency and availability.
                                 
                             
-  - What is the expected SLA for the solution and its components?
+  - What is the expected SLA or availability for the solution and its components?
+    > Different Teams applications can have varying requirements in terms of availability and contractual SLAs. Internal-only chatbot may accept more outage time than a Tabs application used as the only surface for a business system. Availability of dependent services (such as QnA knowledgbases) need to be considered as well.
+                                
                             
 # Teams Tab Apps
         
