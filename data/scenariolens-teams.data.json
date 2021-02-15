@@ -155,6 +155,43 @@
       "category": "Security & Compliance",
       "subCategory": "Network Security",
       "title": "Protect QnA Maker with network isolation.",
-      "context": "Azure Cognitive Services provides a layered security model. This model enables you to [secure your Cognitive Services accounts](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal) to a specific subset of networks. When network rules are configured, only applications requesting data over the specified set of networks can access the account. On the App Service side, you can use the `CognitiveServicesManagement` service tag to allow the Authoring APIs to invoke App Service and update Azure Search accordingly. Make sure you also allow other entry points like Bot service, QnA Maker portal (may be your corporate network) etc. for prediction `GenerateAnswer` API access. Alternatively, the App Service Environment (ASE) can be used to host QnA Maker App Service. See [Recommended settings for network isolation](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/set-up-qnamaker-service-azure?tabs=v1#recommended-settings-for-network-isolation) for more."
+      "context": "Azure Cognitive Services provides a layered security model. This model enables you to [secure your Cognitive Services accounts](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal) to a specific subset of networks. When network rules are configured, only applications requesting data over the specified set of networks can access the account. On the App Service side, you can use the `CognitiveServicesManagement` service tag to allow the Authoring APIs to invoke App Service and update Azure Search accordingly. Make sure you also allow other entry points like Bot service, QnA Maker portal (may be your corporate network) etc. for prediction `GenerateAnswer` API access. Alternatively, the App Service Environment (ASE) can be used to host QnA Maker App Service. See [Recommended settings for network isolation](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/set-up-qnamaker-service-azure?tabs=v1#recommended-settings-for-network-isolation) for more.",
+      "id": "network_security_qna_network_isolation"
+    },
+    {
+      "type": "Design Considerations",
+      "pillars": [
+        "scenario/teams"
+      ],
+      "lens": "scenario",
+      "category": "Teams Bot Apps",
+      "subCategory": "Architecture",
+      "title": "Pick the right storage for state information.",
+      "context": "Bot Framework [offers implementations](https://docs.microsoft.com/azure/bot-service/bot-builder-concept-state?view=azure-bot-service-4.0#storage-layer) for basic state storage layers: memory storage, Azure Blob Storage, Azure Cosmos DB partitioned storage. It is recommended to avoid memory storage for production, but you should also consider the cost/performance factor of Blob Storage vs. Cosmos DB. While Blob Storage is the cheaper option, it can become a bottleneck for high-load scenarios. Also, try to avoid using single Storage Account for multiple apps under load (due to the 20k RPS limit per storage account).",
+      "id": "architecture_bot_state_storage"
+    },
+    {
+      "type": "Design Recommendations",
+      "pillars": [
+        "scenario/teams"
+      ],
+      "lens": "scenario",
+      "category": "Teams Bot Apps",
+      "subCategory": "Architecture",
+      "title": "Use one Application Insights instance for all components.",
+      "context": "Chatbot solutions usually involve several Azure Services - Bot Service, Channels Registration, QnA Maker, LUIS etc. Azure Portal offers to create separate Application Insights instances for each of them, but the recommended best practice is to consolidate all telemetry within a single AI instance to make it easier to navigate through logs and correlate events.",
+      "id": "architecture_bot_single_application_insights"
+    },
+    {
+      "type": "Configuration Recommendations",
+      "pillars": [
+        "scenario/teams"
+      ],
+      "lens": "scenario",
+      "category": "Teams Bot Apps",
+      "subCategory": "Design",
+      "title": "Avoid storing bot secrets in App Service App Settings.",
+      "context": "Client ID, client secret, API keys, service principal information - all of this should be stored in Azure Key Vault and referenced using the [standard App Service mechanism](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references).",
+      "id": "architecture_bot_avoid_secrets_in_appsettings"
     }
 ]
