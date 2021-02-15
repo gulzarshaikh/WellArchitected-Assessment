@@ -24,7 +24,7 @@ This list contains design considerations and recommended configuration options, 
         
 ## Azure App Service
 ### Configuration Recommendations
-* Are you saving costs by using the App Service Premium (v3) Plan over the Premium (Pv2) Plan?
+* Consider the cost savings of using App Service Premium v3 plan over the Premium v2 plan.
   > The App Service Premium (v3) Plan has a 20% discount versus comparable Pv2 configurations. Reserved Instance commitment (1Y, 3Y, Dev/Test) discounts are available for App Services running in the Premium v3 plan.
                             
 ## Azure Kubernetes Service (AKS)
@@ -49,19 +49,19 @@ This list contains design considerations and recommended configuration options, 
                             
 ## Virtual Machines
 ### Configuration Recommendations
-* Have you performed a recent review of SKUs that could benefit from Reserved Instances for 1 or 3 years or more?
+* Perform a review of SKUs that could benefit from Reserved Instances for 1 or 3 years or more.
   > Purchasing reserved instances is a way to reduce Azure costs for workloads with stable usage. You have to manage utilization: if it’s too low then you are paying for resources that are not being used. One advice is to keep RI instances simple and not trying to have too much management overhead that has to be factored in as well as part of the cost.
                             
-* Are you using Burstable (B) series VM sizes for VMs that are idle most of the time and have high usage for a certain period of time?
+* Consider using Burstable (B) series VM sizes for VMs that are idle most of the time and have high usage for a certain period of time.
   > The B-series VMs are ideal for workloads that do not need the full performance of the CPU continuously (like web servers, proof of concepts, small databases and development build environments).
                             
-* Do you shut down the VM instances which are not in use?
+* Shut down VM instances which are not in use.
   > Use the Start/Stop VMs during off-hours feature of virtual machines to minimize waste. There are many configuration options to schedule start the stop times. The feature is suitable as a low-cost automation option. Azure Advisor evaluates virtual machines based on CPU and network utilization over a time period and recommends actions like shut down or resize instances.
                             
-* Are Spot VMs being used?
+* Use Spot VMs when appropriate.
   > Spot VMs are ideal for workloads that can be interrupted, such as highly parallel batch processing jobs. These VMs take advantage of the surplus capacity in Azure at a lower cost. They're also well suited for experimenting, development and testing of large-scale solutions.
                             
-* Are you using PaaS as an alternative to virtual machines?
+* Consider PaaS as an alternative to virtual machines.
   > When you use the PaaS model, operational and maintenance costs are included in the pricing and in some cases can be cheaper than managing VMs on your own.
                             
 * Use Zone to Zone disaster recovery for virtual machines.
@@ -71,45 +71,45 @@ This list contains design considerations and recommended configuration options, 
         
 ## Azure SQL Database
 ### Configuration Recommendations
-* Are you using Reserved Capacity?
-  > Compute costs associated with Azure SQL Database can be reduced by using [Reservation Discount](https://docs.microsoft.com/en-us/azure/cost-management-billing/reservations/understand-reservation-charges). Once the total compute capacity and performance tier for Azure SQL databases in a region is determined, this information can be used to reserve the capacity. The reservation can span 1 or 3 years. Significant cost optimization can be realized with this commitment. Refer to documentation on [Save costs for resources with reserved capacity](https://docs.microsoft.com/en-us/azure/azure-sql/database/reserved-capacity-overview) for more details.
+* Consider Reserved Capacity for Azure SQL Database.
+  > Compute costs associated with Azure SQL Database can be reduced by using [Reservation Discount](https://docs.microsoft.com/azure/cost-management-billing/reservations/understand-reservation-charges). Once the total compute capacity and performance tier for Azure SQL databases in a region is determined, this information can be used to reserve the capacity. The reservation can span 1 or 3 years. Significant cost optimization can be realized with this commitment. Refer to documentation on [Save costs for resources with reserved capacity](https://docs.microsoft.com/azure/azure-sql/database/reserved-capacity-overview) for more details.
                             
 # Storage
         
 ## Storage Accounts
 ### Design Considerations
-* Are you periodically disposing or cleaning up unused storage resources (e.g. unattached disks, old snapshots)?
+* Periodically dispose and clean up unused storage resources (e.g. unattached disks, old snapshots).
   > Unused storage resources can incur cost and its good idea to regularly perform cleanup to reduce cost.
                             
 * Azure Blob access time tracking and access time-based lifecycle management
   > (in preview as of 11/2020) Minimize your storage cost automatically by setting up a policy based on last access time to: cost-effective backup storage options. Transition your data from a hotter access tier to a cooler access tier (hot to cool, cool to archive, or hot to archive) if there is no access for a period. Delete your data if there is no access for an extended period.
                             
 ### Configuration Recommendations
-* Are you saving by reserving capacity for data for block blob storage?
+* Consider cost savings of reserving data capacity for block blob storage.
   > Money can be saved by reserving capacity for block blob and for Azure Data Lake Storage gen 2 data in standard storage account when customer commits to 1 or 3 years reservation.
                             
-* Are you organizing data into access tiers?
+* Organize data into access tiers.
   > You can reduce cost by placing blob data into the most cost-effective access tier. Place frequently accessed data in hot tier, less frequent in cold or archive tier. Use Premium storage for workloads with high transaction volumes or ones where latency is critical.
                             
-* Are you using lifecycle policy to move data between access tiers?
+* Use lifecycle policy to move data between access tiers.
   > Lifecycle management policy periodically moves data between tiers. Policies can move data based on rules that specified by the user. For example, you might create rules that move blobs to the archive tier if that blob has not been modified in 90 days. Unused data can be also completely removed using a policy. By creating policies that adjust the access tier of your data, you can design the least expensive storage options for your need. 
                             
 ## Disks
 ### Design Considerations
-* Are you leveraging shared disk for workload such SQL server failover cluster instance (FCI), file server for general use (IW workload) and SAP ASCS/SCS?
+* Leverage shared disk for workload such SQL server failover cluster instance (FCI), file server for general use (IW workload) and SAP ASCS/SCS.
   > You can leverage shared disks (in preview as of 11/2020) to enable cost-effective clustering instead of setting up own shared disks via S2D (Storage Spaces Direct). Sample workloads that would benefit from shared disks are: SQL Server Failover Cluster Instances (FCI), Scale-out File Server (SoFS), File Server for General Use (IW workload) and SAP ASCS/SCS.
                             
-* Are you using selective disk backup and restore for Azure VMs?
+* Consider selective disk backup and restore for Azure VMs.
   > Using the selective disks backup and restore functionality, you can back up a subset of the data disks in a VM. This provides an efficient and cost-effective solution for your backup and restore needs.
                             
 ### Configuration Recommendations
-* Are you using Premium disks (P30 &amp; above)?
+* Consider using Premium disks (P30 &amp; above).
   > Premium Disks (P30 & above) can be reserved (1 or 3 years) at discounted price.
                             
-* Are you utilizing bursting for P20 and below disks for workload such as batch jobs, workload which handle traffic spikes, and for improving OS boot time?
+* Utilize bursting for P20 and below disks for workloads such as batch jobs, workloads which handle traffic spikes, and for improving OS boot time.
   > Azure Disks offer variety of SKUs and sizes to satisfy different workload requirements. Some of the more recent features could help further optimize cost-performance of existing disk use cases. Firstly, you can leverage disk bursting for Premium (disks P20 and below). Example scenarios that could benefit from this feature are improving OS boot time, handling batch jobs and handling traffic spikes. 
                             
-* For database workloads, are you configuring data and log files on different disks?
+* Configure data and log files on different disks for database workloads.
   > You can optimize IaaS DB workload performance by configuring system, data and log files to be on different disk SKUs (leveraging Premium Disks for data and Ultra Disks for logs satisfies most production scenarios). Further, Ultra Disk cost/performance can be optimized by taking advantage of the ability to configure capacity, IOPS and throughput independently; and ability to dynamically configure these attributes. Example workloads are SQL on IaaS, Cassandra DB, Maria DB, MySql and Mongo DB on IaaS.
                             
 # Networking
@@ -142,11 +142,11 @@ This list contains design considerations and recommended configuration options, 
                             
 ## API Management
 ### Configuration Recommendations
-* Do you need all the features all the time?
-  > Consider switching between Basic, Standard and Premium tiers. If a workload does not need features available in higher tier then consider switching to a lower tier. As an example, a workload may need just 1GB of cache during off-peak period compared to 5GB of cache during peak period. Costs associated with such a workload can be significantly reduced by switching from Premium to Standard tier during off-peak period and back to Premium tier during peak period. This process can be automated as a job using [Set-AzApiManagement](https://docs.microsoft.com/en-us/powershell/module/az.apimanagement/set-azapimanagement?view=azps-5.4.0) cmdlet. Refer to [documentation](https://azure.microsoft.com/en-us/pricing/details/api-management/) on features available in different APIM tiers.
+* Consider which features are needed all the time.
+  > Consider switching between Basic, Standard and Premium tiers. If a workload does not need features available in higher tier then consider switching to a lower tier. As an example, a workload may need just 1GB of cache during off-peak period compared to 5GB of cache during peak period. Costs associated with such a workload can be significantly reduced by switching from Premium to Standard tier during off-peak period and back to Premium tier during peak period. This process can be automated as a job using [Set-AzApiManagement](https://docs.microsoft.com/en-us/powershell/module/az.apimanagement/set-azapimanagement?view=azps-5.4.0) cmdlet. Refer to [documentation](https://azure.microsoft.com/pricing/details/api-management/) on features available in different APIM tiers.
                             
-* Have you configured autoscaling?
-  > Consider scaling up or down API Management instance to control costs. API Management can be [configured](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-autoscale) with Autoscale based on a either a metric or a specific count. APIM costs depend upon no. of units which determines throughput in requests per seconds (RPS). An auto-scaled APIM instance switches between scale units appropriate for RPS numbers during a specific time window. Auto-scaling helps in achieving balance between cost optimization and performance.
+* Configure autoscaling where appropriate.
+  > Consider scaling up or down API Management instance to control costs. API Management can be [configured](https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale) with Autoscale based on a either a metric or a specific count. APIM costs depend upon no. of units which determines throughput in requests per seconds (RPS). An auto-scaled APIM instance switches between scale units appropriate for RPS numbers during a specific time window. Auto-scaling helps in achieving balance between cost optimization and performance.
                             
 ## IP Addresses
 ### Configuration Recommendations
