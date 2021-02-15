@@ -10,6 +10,9 @@
     - [Architecture](#Architecture)
     - [Design](#Design)
     - [Processes](#Processes)
+  - [Teams Bot Apps](#Teams-Bot-Apps)
+    - [Architecture](#Architecture)
+    - [Design](#Design)
 # Security &amp; Compliance
         
 ## Network Security
@@ -85,4 +88,20 @@
                                 
                             
   - Is it possible to test changes in a production-like environment first?
+                            
+# Teams Bot Apps
+        
+## Architecture
+### Design Considerations
+* Pick the right storage for state information.
+  > Bot Framework [offers implementations](https://docs.microsoft.com/azure/bot-service/bot-builder-concept-state?view=azure-bot-service-4.0#storage-layer) for basic state storage layers: memory storage, Azure Blob Storage, Azure Cosmos DB partitioned storage. It is recommended to avoid memory storage for production, but you should also consider the cost/performance factor of Blob Storage vs. Cosmos DB. While Blob Storage is the cheaper option, it can become a bottleneck for high-load scenarios. Also, try to avoid using single Storage Account for multiple apps under load (due to the 20k RPS limit per storage account).
+                            
+### Design Recommendations
+* Use one Application Insights instance for all components.
+  > Chatbot solutions usually involve several Azure Services - Bot Service, Channels Registration, QnA Maker, LUIS etc. Azure Portal offers to create separate Application Insights instances for each of them, but the recommended best practice is to consolidate all telemetry within a single AI instance to make it easier to navigate through logs and correlate events.
+                            
+## Design
+### Configuration Recommendations
+* Avoid storing bot secrets in App Service App Settings.
+  > Client ID, client secret, API keys, service principal information - all of this should be stored in Azure Key Vault and referenced using the [standard App Service mechanism](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references).
                             
