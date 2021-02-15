@@ -197,8 +197,8 @@ Resources
     > [Azure Policy](https://docs.microsoft.com/azure/aks/use-pod-security-on-azure-policy) can help to apply at-scale enforcements and safeguards on your clusters in a centralized, consistent manner. It can also control what functions pods are granted and if anything is running against company policy. This access is defined through built-in policies provided by the [Azure Policy Add-on for AKS](https://docs.microsoft.com/azure/governance/policy/concepts/policy-for-kubernetes). By providing additional control over the security aspects of your pod's specification, like root privileges, enables stricter security adherence and visibility into what is deployed in your cluster. If a pod does not meet conditions specified in the policy, Azure Policy can disallow the pod to start or flag a violation.
                                 
                             
-* Ensure proper selection of Network Plug-in [Kubenet vs. Azure CNI](https://docs.microsoft.com/azure/aks/concepts-network#compare-network-models) based on network requirements and cluster sizing.
-  > CNI is required for specific scenarios like for example Windows-based node pools and the use of Azure Network Policies. See [Kubenet vs. Azure CNI](https://docs.microsoft.com/azure/aks/concepts-network#compare-network-models) for more information.
+* Ensure proper selection of network plugin based on network requirements and cluster sizing.
+  > Azure CNI is required for specific scenarios like for example Windows-based node pools, specific networking requirements and Kubernetes Network Policies. See [Kubenet vs. Azure CNI](https://docs.microsoft.com/azure/aks/concepts-network#compare-network-models) for more information.
                             
 * Use [Azure Network Policies](https://docs.microsoft.com/azure/aks/use-network-policies) or Calico to control traffic between pods. **Requires CNI Network Plug-in.**
 * Utilize a central monitoring tool (eg. - [Azure Monitor and App Insights](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview)) to centrally collect metrics, logs, and diagnostics for troubleshooting purposes.
@@ -223,28 +223,41 @@ Resources
 * Query to identify AKS clusters that are not deployed across **Availability Zones**:
 ```
 Resources
-| where
-    type =~ 'Microsoft.ContainerService/managedClusters'
-	and isnull(zones)
+| where type =~ 'Microsoft.ContainerService/managedClusters'
+| where isnull(zones)
 ```
  
                             
-* Query to identify AKS clusters that are deployed within a AvailabilitySet:
+* Query to identify AKS clusters that are deployed using **Availability Sets**:
 ```
 Resources
-| where
-    type =~ 'Microsoft.ContainerService/managedClusters'
-	and properties.agentPoolProfiles[0].type != 'VirtualMachineScaleSets'
+| where type =~ 'Microsoft.ContainerService/managedClusters'
+| where properties.agentPoolProfiles[0].type != 'VirtualMachineScaleSets'
 | project name, location, resourceGroup, subscriptionId, properties.agentPoolProfiles[0].type
+```
+ 
+                            
+* Query to identify which networking plugin (CNI or Kubenet) is being used by AKS clusters:
+```
+Resources
+| where type =~ 'Microsoft.ContainerService/managedClusters'
+| project name, location, resourceGroup, subscriptionId, properties.networkProfile.networkPlugin
 ```
  
                             
 * Query to identify AKS clusters that are not deployed using a **Managed Identity**:
 ```
 Resources
-| where
-    type =~ 'Microsoft.ContainerService/managedClusters'
-	and isnull(identity)
+| where type =~ 'Microsoft.ContainerService/managedClusters'
+| where isnull(identity)
+```
+ 
+                            
+* Query to identify AKS clusters that are **NOT using RBAC**:
+```
+Resources
+| where type =~ 'Microsoft.ContainerService/managedClusters'
+| where properties.enableRBAC == false
 ```
  
                             
@@ -605,6 +618,75 @@ Resources
 * If EventGrid delivers to an endpoint that holds custom code, ensure that the message is accepted with an HTTP 200-204 response only when it can be successfully processed. 
 * Monitor EventGrid for failed event publishing (Publish Failed metric). Additionally, the &#39;Unmatched&#39; metric will show messages that are published, but not matched to any subscription. Depending on your application architecture, the latter may be intentional.
 * Monitor EventGrid for failed event delivery. The &#39;Delivery Failed&#39; metric will increase every time a message cannot be delivered to an event handler (timeout or a non 200-204 HTTP status code). Additionally, if an event must not be lost, set up a Dead-Letter-Queue (DLQ) storage account. This is where events that cannot be delivered after the maximum retry count will be placed. Optionally, implement a notification system on the DLQ storage account, e.g. by handling a &#39;new file&#39; event through Event Grid.
+### Supporting Source Artifacts
+* Determine Input Schema type for all available Event Grid Domains:
+```
+Resources 
+| where type == 'microsoft.eventgrid/domains'
+| project name, resourceGroup, location, subscriptionId, properties['inputSchema']
+```
+ 
+                            
+* Identify Public Network Access status for all available Event Grid Domains:
+```
+Resources 
+| where type == 'microsoft.eventgrid/domains' 
+| project name, resourceGroup, location, subscriptionId, properties['publicNetworkAccess']
+```
+ 
+                            
+* Identify Firewall Rules for all public Event Grid Domains:
+```
+Resources 
+| where type == 'microsoft.eventgrid/domains' and properties['publicNetworkAccess'] == 'Enabled'
+| project name, resourceGroup, location, subscriptionId, properties['inboundIpRules']
+```
+ 
+                            
+* Retrieve Resource ID of existent private endpoints for Event Grid Domains:
+```
+Resources 
+| where type == 'microsoft.eventgrid/domains' and notnull(properties['privateEndpointConnections']) 
+| mvexpand properties['privateEndpointConnections'] 
+| project-rename privateEndpointConnections = properties_privateEndpointConnections 
+| project name, resourceGroup, location, subscriptionId, privateEndpointConnections['properties']['privateEndpoint']['id']
+```
+ 
+                            
+* Determine Input Schema type for all available Event Grid Topics:
+```
+Resources 
+| where type == 'microsoft.eventgrid/topics'
+| project name, resourceGroup, location, subscriptionId, properties['inputSchema']
+```
+ 
+                            
+* Identify Public Network Access status for all available Event Grid Topics:
+```
+Resources 
+| where type == 'microsoft.eventgrid/topics' 
+| project name, resourceGroup, location, subscriptionId, properties['publicNetworkAccess']
+```
+ 
+                            
+* Identify Firewall Rules for all public Event Grid Topics:
+```
+Resources 
+| where type == 'microsoft.eventgrid/topics' and properties['publicNetworkAccess'] == 'Enabled'
+| project name, resourceGroup, location, subscriptionId, properties['inboundIpRules']
+```
+ 
+                            
+* Retrieve Resource ID of existent private endpoints for Event Grid Topics:
+```
+Resources 
+| where type == 'microsoft.eventgrid/topics' and notnull(properties['privateEndpointConnections']) 
+| mvexpand properties['privateEndpointConnections'] 
+| project-rename privateEndpointConnections = properties_privateEndpointConnections 
+| project name, resourceGroup, location, subscriptionId, privateEndpointConnections['properties']['privateEndpoint']['id']
+```
+ 
+                            
 ## Event Hub
 ### Design Considerations
 * Azure Event Hubs has a [published SLA](https://azure.microsoft.com/support/legal/sla/event-hubs) of 99.95% for the Basic and Standard Tiers, and 99.99% for the Dedicated Tier.

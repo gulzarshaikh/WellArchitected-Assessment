@@ -378,8 +378,8 @@
         "lens": "service",
         "category": "Compute",
         "subCategory": "Azure Kubernetes Service (AKS)",
-        "title": "Ensure proper selection of Network Plug-in [Kubenet vs. Azure CNI](https://docs.microsoft.com/azure/aks/concepts-network#compare-network-models) based on network requirements and cluster sizing.",
-        "context": "CNI is required for specific scenarios like for example Windows-based node pools and the use of Azure Network Policies. See [Kubenet vs. Azure CNI](https://docs.microsoft.com/azure/aks/concepts-network#compare-network-models) for more information."
+        "title": "Ensure proper selection of network plugin based on network requirements and cluster sizing.",
+        "context": "Azure CNI is required for specific scenarios like for example Windows-based node pools, specific networking requirements and Kubernetes Network Policies. See [Kubenet vs. Azure CNI](https://docs.microsoft.com/azure/aks/concepts-network#compare-network-models) for more information."
     },     
     {
         "type": "Configuration Recommendations",
@@ -469,7 +469,7 @@
         "category": "Compute",
         "subCategory": "Azure Kubernetes Service (AKS)",
         "title": "Query to identify AKS clusters that are not deployed across **Availability Zones**:",
-        "code": "Resources\n| where\n    type =~ 'Microsoft.ContainerService/managedClusters'\n\tand isnull(zones)\n"
+        "code": "Resources\n| where type =~ 'Microsoft.ContainerService/managedClusters'\n| where isnull(zones)\n"
     },
     {
         "type": "Supporting Source Artifacts",
@@ -479,8 +479,19 @@
         "lens": "service",
         "category": "Compute",
         "subCategory": "Azure Kubernetes Service (AKS)",
-        "title": "Query to identify AKS clusters that are deployed within a AvailabilitySet:",
-        "code": "Resources\n| where\n    type =~ 'Microsoft.ContainerService/managedClusters'\n\tand properties.agentPoolProfiles[0].type != 'VirtualMachineScaleSets'\n| project name, location, resourceGroup, subscriptionId, properties.agentPoolProfiles[0].type\n"
+        "title": "Query to identify AKS clusters that are deployed using **Availability Sets**:",
+        "code": "Resources\n| where type =~ 'Microsoft.ContainerService/managedClusters'\n| where properties.agentPoolProfiles[0].type != 'VirtualMachineScaleSets'\n| project name, location, resourceGroup, subscriptionId, properties.agentPoolProfiles[0].type\n"
+    },
+    {
+        "type": "Supporting Source Artifacts",
+        "pillars": [
+            "reliability"
+        ],
+        "lens": "service",
+        "category": "Compute",
+        "subCategory": "Azure Kubernetes Service (AKS)",
+        "title": "Query to identify which networking plugin (CNI or Kubenet) is being used by AKS clusters:",
+        "code": "Resources\n| where type =~ 'Microsoft.ContainerService/managedClusters'\n| project name, location, resourceGroup, subscriptionId, properties.networkProfile.networkPlugin\n"
     },
     {
         "type": "Supporting Source Artifacts",
@@ -492,7 +503,19 @@
         "category": "Compute",
         "subCategory": "Azure Kubernetes Service (AKS)",
         "title": "Query to identify AKS clusters that are not deployed using a **Managed Identity**:",
-        "code": "Resources\n| where\n    type =~ 'Microsoft.ContainerService/managedClusters'\n\tand isnull(identity)\n"
+        "code": "Resources\n| where type =~ 'Microsoft.ContainerService/managedClusters'\n| where isnull(identity)\n"
+    },
+    {
+        "type": "Supporting Source Artifacts",
+        "pillars": [
+            "reliability",
+            "operationalexcellence"
+        ],
+        "lens": "service",
+        "category": "Compute",
+        "subCategory": "Azure Kubernetes Service (AKS)",
+        "title": "Query to identify AKS clusters that are **NOT using RBAC**:",
+        "code": "Resources\n| where type =~ 'Microsoft.ContainerService/managedClusters'\n| where properties.enableRBAC == false\n"
     },
     {
         "type": "Design Considerations",
