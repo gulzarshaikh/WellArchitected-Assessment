@@ -111,9 +111,17 @@ jobs:
               }
           }
 
+          # Check for duplicate IDs
+          $duplicateIds = $AllItems |  Where-Object { $_.id -ne $null -and $_.id -ne "" } | Group-Object -Property id | Where-Object { $_.Count -gt 1 }
+          foreach($id in $duplicateIds)
+          {
+              Write-Warning "ID $($id.Name) was used multiple times! Please make sure to use unique IDs"
+              $foundIssues = $true
+          }
+
           if($foundIssues) 
           {
-              Write-Error "Please fix the mismatch in categories or types."
+              Write-Error "Please fix duplicate IDs and/or mismatch in categories or types."
           }
           else
           {
