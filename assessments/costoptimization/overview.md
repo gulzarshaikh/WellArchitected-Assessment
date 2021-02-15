@@ -51,6 +51,8 @@ This assessment has been produced to help the global CE&S community to optimize 
     - [Azure App Service](./service.md#Azure-App-Service)
     - [Azure Kubernetes Service (AKS)](./service.md#Azure-Kubernetes-Service-AKS)
     - [Virtual Machines](./service.md#Virtual-Machines)
+  - [Data](./service.md#Data)
+    - [Azure SQL Database](./service.md#Azure-SQL-Database)
   - [Storage](./service.md#Storage)
     - [Storage Accounts](./service.md#Storage-Accounts)
     - [Disks](./service.md#Disks)
