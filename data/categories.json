@@ -410,5 +410,22 @@
         "title": "Security"
       }
     ]
+  },
+  {
+    "title": "Teams Bot Apps",
+    "subCategories": [
+      {
+        "title": "Architecture"
+      },
+      {
+        "title": "Design"
+      },
+      {
+        "title": "Processes"
+      },
+      {
+        "title": "Security"
+      }
+    ]
   }
 ]
