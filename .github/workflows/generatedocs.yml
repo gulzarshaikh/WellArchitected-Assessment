@@ -73,12 +73,14 @@ jobs:
               Copy-Item -Path $_.FullName -Destination $env:GENERATOR_ROOT/data
           }
 
-      - name: Check categories and types
+      - name: Check categories, types and IDs
         shell: pwsh
         run: |
           # This will check whether 
           # - only (sub)categories from the categories.json are used 
           # - only types from types.json are used
+          # - all used IDs are unique
+
           $foundIssues = $false
           $validCategories = Get-Content -Path $env:GENERATOR_ROOT/data/categories.json | ConvertFrom-Json
           $validTypes = Get-Content -Path $env:GENERATOR_ROOT/data/types.json | ConvertFrom-Json
@@ -112,7 +114,7 @@ jobs:
               }
           }
 
-          # Check for duplicate IDs
+          # Check for duplicate IDs. For now we filter out all items which have no ID yet. Those should become mandatory at some point.
           $duplicateIds = $AllItems |  Where-Object { $_.id -ne $null -and $_.id -ne "" } | Group-Object -Property id | Where-Object { $_.Count -gt 1 }
           foreach($id in $duplicateIds)
           {
