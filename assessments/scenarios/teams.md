@@ -13,6 +13,10 @@
 # Security &amp; Compliance
         
 ## Network Security
+### Design Recommendations
+* Protect QnA Maker with network isolation.
+  > Azure Cognitive Services provides a layered security model. This model enables you to [secure your Cognitive Services accounts](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal) to a specific subset of networks. When network rules are configured, only applications requesting data over the specified set of networks can access the account. On the App Service side, you can use the `CognitiveServicesManagement` service tag to allow the Authoring APIs to invoke App Service and update Azure Search accordingly. Make sure you also allow other entry points like Bot service, QnA Maker portal (may be your corporate network) etc. for prediction `GenerateAnswer` API access. Alternatively, the App Service Environment (ASE) can be used to host QnA Maker App Service. See [Recommended settings for network isolation](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/set-up-qnamaker-service-azure?tabs=v1#recommended-settings-for-network-isolation) for more.
+                            
 # Teams
         
 ## Requirements
