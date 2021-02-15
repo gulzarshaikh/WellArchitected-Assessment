@@ -193,5 +193,29 @@
       "title": "Avoid storing bot secrets in App Service App Settings.",
       "context": "Client ID, client secret, API keys, service principal information - all of this should be stored in Azure Key Vault and referenced using the [standard App Service mechanism](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references).",
       "id": "architecture_bot_avoid_secrets_in_appsettings"
+    },
+    {
+      "type": "Design Recommendations",
+      "pillars": [
+          "scenario/teams"
+      ],
+      "lens": "scenario",
+      "category": "Teams",
+      "subCategory": "Dependencies",
+      "title": "QnA Maker: Consider deploying a resilient knowledge base endpoint with business continuity.",
+      "context": "To ensure that knowledge bases are always available, even during a datacenter or service outage, consider deploying QnA Maker in a [resilient configuration](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/set-up-qnamaker-service-azure?tabs=v1#business-continuity-with-traffic-manager).",
+      "id": "qna_business_continuity"
+    },
+    {
+      "type": "Design Recommendations",
+      "pillars": [
+          "scenario/teams"
+      ],
+      "lens": "scenario",
+      "category": "Scalability & Performance",
+      "subCategory": "App Performance",
+      "title": "Divide Web Apps to App Service Plans efficiently.",
+      "context": "Teams apps can consist of several dependencies which are commonly hosted as Azure Web Apps (e.g. QnA Maker, chatbot, web interface, management website etc.). It's necessary to understand the performance characteristics and utilization of each of them and divide them to App Service Plans accordingly (less utilized apps together and heavily utilized apps to separate plans).",
+      "id": "app_performance_divide_apps_to_plans"
     }
 ]

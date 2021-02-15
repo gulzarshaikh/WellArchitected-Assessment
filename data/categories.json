@@ -391,6 +391,9 @@
     "subCategories": [
       {
         "title": "Requirements"
+      },
+      {
+        "title": "Dependencies"
       }
     ]
   },
