@@ -2,10 +2,13 @@
 
 # Navigation Menu
 
+  - [Scalability &amp; Performance](#Scalability--Performance)
+    - [App Performance](#App-Performance)
   - [Security &amp; Compliance](#Security--Compliance)
     - [Network Security](#Network-Security)
   - [Teams](#Teams)
     - [Requirements](#Requirements)
+    - [Dependencies](#Dependencies)
   - [Teams Tab Apps](#Teams-Tab-Apps)
     - [Architecture](#Architecture)
     - [Design](#Design)
@@ -13,6 +16,13 @@
   - [Teams Bot Apps](#Teams-Bot-Apps)
     - [Architecture](#Architecture)
     - [Design](#Design)
+# Scalability &amp; Performance
+        
+## App Performance
+### Design Recommendations
+* Divide Web Apps to App Service Plans efficiently.
+  > Teams apps can consist of several dependencies which are commonly hosted as Azure Web Apps (e.g. QnA Maker, chatbot, web interface, management website etc.). It's necessary to understand the performance characteristics and utilization of each of them and divide them to App Service Plans accordingly (less utilized apps together and heavily utilized apps to separate plans).
+                            
 # Security &amp; Compliance
         
 ## Network Security
@@ -38,6 +48,11 @@
   - What is the expected SLA or availability for the solution and its components?
     > Different Teams applications can have varying requirements in terms of availability and contractual SLAs. Internal-only chatbot may accept more outage time than a Tabs application used as the only surface for a business system. Availability of dependent services (such as QnA knowledgbases) need to be considered as well.
                                 
+                            
+## Dependencies
+### Design Recommendations
+* QnA Maker: Consider deploying a resilient knowledge base endpoint with business continuity.
+  > To ensure that knowledge bases are always available, even during a datacenter or service outage, consider deploying QnA Maker in a [resilient configuration](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/set-up-qnamaker-service-azure?tabs=v1#business-continuity-with-traffic-manager).
                             
 # Teams Tab Apps
         
