@@ -226,6 +226,32 @@ Resources
  
                             
 ## Service Fabric
+### Configuration Recommendations
+* Review the [Service Fabric production readiness checklist](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist)
+* Use durability level Silver (5 VMs) or higher for production scenarios.
+  > This will ensure the Azure infrastructure communicates with the Service Fabric controller on scheduling reboots, etc.
+                            
+* For critical workloads, consider using Availability Zones for your Service Fabric clusters.
+  > This means deploying a primary NodeType (and by extension a VM ScaleSet) to each AZ. This will ensure that the Service Fabric system services are spread across zones.
+                            
+* For production scenarios, use the Standard tier load balancer. The Basic SKU is free, but does not have an SLA.
+* Keep the different node types and gateway services on different subnets.
+* Apply Network Security Groups (NSG) to restrict traffic flow between subnets/node types. Ensure that the [correct ports](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-networking#cluster-networking) are opened for managing the cluster.
+  > For example, you may have an API Management instance (one subnet), a frontend subnet (exposing a website directly) and a backend subnet (accessible only to frontend), each implemented on a different VM Scale Set.
+                            
+* When using secrets (connection strings, passwords) in SF services, either retrieve them directly from Key Vault at runtime or use the [Service Fabric Secrets Store](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-store)
+* When using the Service Fabric Secret Store to distribute secrets, use a separate data encipherment certificate to encrypt the values.
+  > This certificate is deployed to the VM scaleset nodes to decrypt the secret values. When using this approach, ensure that secrets are inserted and encrypted at release time. Using this approach means that changing the secrets requires a deployment. Make sure your key-rotation process is fully automated to do this without downtime.
+                            
+* Do not use self-signed certificates for production scenarios. Either provision a certificate through your PKI or use a public certificate authority.
+* Deploy certificates by adding them to Azure Keyvault and referencing the URI in your deployment.
+* Have a process in place for monitoring the expiration date of certificates.
+  > For example, Key Vault offers a feature that sends an email when x% of the certificate's lifespan has elapsed.
+                            
+* Enable Azure Active Directory integration for your cluster to ensure users can access Service Fabric Explorer using their AAD credentials. Do not distribute the cluster certificate among users to access Explorer. 
+* Exclude the Service Fabric processes from Windows Defender to improve performance
+  > By default, Windows Defender antivirus is installed on Windows Server 2016 and 2019. To reduce any performance impact and resource consumption overhead incurred by Windows Defender, and if your security policies allow you to exclude processes and paths for open-source software, you can [exclude](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-security#windows-defender) the Service Fabric executables from Defender scans.
+                            
 ## Virtual Machines
 ### Design Considerations
 * Microsoft provides the following [SLAs for virtual machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/):

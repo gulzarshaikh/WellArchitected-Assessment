@@ -694,7 +694,7 @@
         "context": "[Service Fabric](https://azure.microsoft.com/support/legal/sla/service-fabric/v1_0/)[Virtual Machine Scale Set](https://azure.microsoft.com/support/legal/sla/virtual-machine-scale-sets/v1_1/)"
     },
     {
-        "type": "Design Recommendations",
+        "type": "Configuration Recommendations",
         "pillars": [
             "reliability",
             "operationalexcellence"
@@ -705,7 +705,7 @@
         "title": "Review the [Service Fabric production readiness checklist](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist)"
     },
     {
-        "type": "Design Recommendations",
+        "type": "Configuration Recommendations",
         "pillars": [
             "reliability",
             "operationalexcellence"
@@ -717,7 +717,7 @@
         "context": "This will ensure the Azure infrastructure communicates with the Service Fabric controller on scheduling reboots, etc."
     },
     {
-        "type": "Design Recommendations",
+        "type": "Configuration Recommendations",
         "pillars": [
             "reliability",
             "operationalexcellence"
@@ -729,7 +729,7 @@
         "context": "This means deploying a primary NodeType (and by extension a VM ScaleSet) to each AZ. This will ensure that the Service Fabric system services are spread across zones."
     },
     {
-        "type": "Design Recommendations",
+        "type": "Configuration Recommendations",
         "pillars": [
             "reliability"
         ],
@@ -740,7 +740,7 @@
         "context": "API Management can [integrate](https://docs.microsoft.com/azure/service-fabric/service-fabric-api-management-overview) with Service Fabric directly."
     },
     {
-        "type": "Design Recommendations",
+        "type": "Configuration Recommendations",
         "pillars": [
             "reliability",
             "operationalexcellence"
@@ -751,7 +751,7 @@
         "title": "For production scenarios, use the Standard tier load balancer. The Basic SKU is free, but does not have an SLA."
     },
     {
-        "type": "Design Recommendations",
+        "type": "Configuration Recommendations",
         "pillars": [
             "reliability",
             "operationalexcellence"
@@ -762,7 +762,7 @@
         "title": "Keep the different node types and gateway services on different subnets."
     },
     {
-        "type": "Design Recommendations",
+        "type": "Configuration Recommendations",
         "pillars": [
             "reliability",
             "operationalexcellence"
@@ -774,7 +774,7 @@
         "context": "For example, you may have an API Management instance (one subnet), a frontend subnet (exposing a website directly) and a backend subnet (accessible only to frontend), each implemented on a different VM Scale Set."
     },
     {
-        "type": "Design Recommendations",
+        "type": "Configuration Recommendations",
         "pillars": [
             "reliability",
             "operationalexcellence"
@@ -785,7 +785,7 @@
         "title": "When using secrets (connection strings, passwords) in SF services, either retrieve them directly from Key Vault at runtime or use the [Service Fabric Secrets Store](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-store)"
     },
     {
-        "type": "Design Recommendations",
+        "type": "Configuration Recommendations",
         "pillars": [
             "reliability",
             "operationalexcellence"
@@ -797,7 +797,7 @@
         "context": "This certificate is deployed to the VM scaleset nodes to decrypt the secret values. When using this approach, ensure that secrets are inserted and encrypted at release time. Using this approach means that changing the secrets requires a deployment. Make sure your key-rotation process is fully automated to do this without downtime."
     },
     {
-        "type": "Design Recommendations",
+        "type": "Configuration Recommendations",
         "pillars": [
             "reliability",
             "operationalexcellence"
@@ -808,7 +808,7 @@
         "title": "Do not use self-signed certificates for production scenarios. Either provision a certificate through your PKI or use a public certificate authority."
     },
     {
-        "type": "Design Recommendations",
+        "type": "Configuration Recommendations",
         "pillars": [
             "reliability",
             "operationalexcellence"
@@ -819,7 +819,7 @@
         "title": "Deploy certificates by adding them to Azure Keyvault and referencing the URI in your deployment."
     },
     {
-        "type": "Design Recommendations",
+        "type": "Configuration Recommendations",
         "pillars": [
             "reliability",
             "operationalexcellence"
@@ -831,7 +831,7 @@
         "context": "For example, Key Vault offers a feature that sends an email when x% of the certificate's lifespan has elapsed."
     },
     {
-        "type": "Design Recommendations",
+        "type": "Configuration Recommendations",
         "pillars": [
             "reliability",
             "operationalexcellence"
@@ -842,7 +842,7 @@
         "title": "Enable Azure Active Directory integration for your cluster to ensure users can access Service Fabric Explorer using their AAD credentials. Do not distribute the cluster certificate among users to access Explorer. "
     },
     {
-        "type": "Design Recommendations",
+        "type": "Configuration Recommendations",
         "pillars": [
             "reliability",
             "operationalexcellence"
