@@ -719,7 +719,8 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 * Is application infrastructure defined as code?
 
 
-  > It is highly recommended do describe the entire infrastructure as code, using either ARM Templates, Terraform, or other tools. This allows for proper versioning and configuration management, encouraging consistency and reproducibility across environments
+  _[Infrastructure as Code](https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code) (IaC) is the management of infrastructure (networks, virtual machines, load balancers, and connection topology) in a descriptive model, using the same versioning as DevOps team uses for source code. Like the principle that the same source code generates the same binary, an IaC model generates the same environment every time it is applied._
+  > It is highly recommended to describe the entire infrastructure as code, using either ARM Templates, Terraform, or other tools. This allows for proper versioning and configuration management, encouraging consistency and reproducibility across environments.
     - Are any operational changes performed outside of IaC?
 
 
@@ -731,7 +732,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
       _Configuration drift occurs when changes are applied outside of IaC processes such as manual changes._
 
-      > Tools like terraform support a plan command that helps to identify change and monitor configuration drift, with Azure as the ultimate source of truth
+      > Tools like Terraform offer a 'plan' command that helps to identify changes and monitor configuration drift, with Azure as the ultimate source of truth.
 * Is the process to deploy infrastructure automated?
 
 
