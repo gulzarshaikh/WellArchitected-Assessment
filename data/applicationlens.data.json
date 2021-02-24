@@ -1259,7 +1259,7 @@
     "category": "Deployment & Testing",
     "subCategory": "Application Infrastructure Deployments & Infrastructure as Code (IaC)",
     "title": "Is application infrastructure defined as code?",
-    "context": "[Infrastructure as Code](https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code) (IaC) is the management of infrastructure (networks, virtual machines, load balancers, and connection topology) in a descriptive model, using the same versioning as DevOps team uses for source code. Like the principle that the same source code generates the same binary, an IaC model generates the same environment every time it is applied.",
+    "context": "[Infrastructure as Code](https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code) (IaC) is the management of infrastructure (networks, virtual machines, load balancers, and connection topology) in a descriptive model, using the same versioning as the team uses for application source code. Like the principle that the same source code generates the same binary, an IaC model generates the same environment every time it is applied.",
     "recommendation": "It is highly recommended to describe the entire infrastructure as code, using either ARM Templates, Terraform, or other tools. This allows for proper versioning and configuration management, encouraging consistency and reproducibility across environments.",
     "children": [
       {
