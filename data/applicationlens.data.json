@@ -1259,8 +1259,8 @@
     "category": "Deployment & Testing",
     "subCategory": "Application Infrastructure Deployments & Infrastructure as Code (IaC)",
     "title": "Is application infrastructure defined as code?",
-    "context": "",
-    "recommendation": "It is highly recommended do describe the entire infrastructure as code, using either ARM Templates, Terraform, or other tools. This allows for proper versioning and configuration management, encouraging consistency and reproducibility across environments",
+    "context": "[Infrastructure as Code](https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code) (IaC) is the management of infrastructure (networks, virtual machines, load balancers, and connection topology) in a descriptive model, using the same versioning as DevOps team uses for source code. Like the principle that the same source code generates the same binary, an IaC model generates the same environment every time it is applied.",
+    "recommendation": "It is highly recommended to describe the entire infrastructure as code, using either ARM Templates, Terraform, or other tools. This allows for proper versioning and configuration management, encouraging consistency and reproducibility across environments.",
     "children": [
       {
         "title": "Are any operational changes performed outside of IaC?",
@@ -1271,7 +1271,7 @@
       {
         "title": "How does the application track and address configuration drift?",
         "context": "Configuration drift occurs when changes are applied outside of IaC processes such as manual changes.",
-        "recommendation": "Tools like terraform support a plan command that helps to identify change and monitor configuration drift, with Azure as the ultimate source of truth",
+        "recommendation": "Tools like Terraform offer a 'plan' command that helps to identify changes and monitor configuration drift, with Azure as the ultimate source of truth.",
         "id": "app_deploy_configdrift"
       }
     ],
