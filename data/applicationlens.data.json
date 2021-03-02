@@ -4312,8 +4312,47 @@
     "lens": "application",
     "category": "Application Design",
     "subCategory": "Design Patterns",
+    "title": "What datasources are you using?",
+    "context": "Your application will most likely require more than one type of datastore depending on business requirements. Choosing the right mix and correct implementation is extremely important for optimizing application performance.",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Application Design",
+    "subCategory": "Design Patterns",
     "title": "Would you consider the application design to be a microservice architecture?",
     "context": "As compared to a monolithic architecture--an application that is tightly coupled with synchronous communication and often a single datastore--microservices leverage concepts such as asynchronous communication, service discovery, various resiliency strategies, and each service has its own datastore.",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Application Design",
+    "subCategory": "Design Patterns",
+    "title": "Are your microservices using independent datastores or sharing the same datastore (e.g. a single database server that has multiple databases/tables is still considered a single datastore)?",
+    "context": "One of the fundamental concepts of a microservice is that it uses its own datastore. Not only does this help with resiliency, but can also improve performance by reducing load on a single source, thus eliminating bottlenecks due to long-running queries.",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Application Design",
+    "subCategory": "Design Patterns",
+    "title": "Are the datastores' access restricted only to their respective service or can multiple microservices access the datastores directly?",
+    "context": "",
     "recommendation": "",
     "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
   },
@@ -4343,6 +4382,19 @@
     "recommendation": "",
     "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
   },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Application Design",
+    "subCategory": "Transactional",
+    "title": "If the application was to fail or recycle, could the data be refreshed for the user with minimal effort and/or time?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },  
   {
     "type": "Questions",
     "pillars": [
@@ -4390,6 +4442,32 @@
     "lens": "application",
     "category": "Application Design",
     "subCategory": "Transactional",
+    "title": "Where possible, have tasks been configured to execute in parallel?",
+    "context": "There are many ways to handle long-running tasks. The common way is to use parallel execution threads and leverage WaitAll or WaitAny process waits. However, using these methods introduce blocking on threads and can have large, detrimental performance hits on applications, especially distributed applications. Additionally, the blocks can prevent the execution of other tasks that may not have a dependency on the data at the current code position. Instead, it is better to follow asynchronous models and leverage message queuing for long-running tasks. In this pattern, tasks publish and subscribe to data on the queue and tasks can execute as soon as the data is made available.",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },  
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Application Design",
+    "subCategory": "Transactional",
+    "title": "Are long-running tasks and workflows leveraging durable functions?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },  
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Application Design",
+    "subCategory": "Transactional",
     "title": "How does your application have retry logic in response to a failure?",
     "context": "When your application encounters an exception or given component (service) of your application fails, the application needs to handle the failure/exception gracefully and log the exception in order to mitigate the problem in the future.",
     "recommendation": "",
@@ -4405,6 +4483,45 @@
     "subCategory": "Disaster Planning",
     "title": "Is you application deployed to multiple regions?",
     "context": "Leveraging multiple regions is not only important for disaster recovery and high-availability. Multi-region deployment is also ideal for performance improvements as your application scales. Additionally, user requests can be directed to their closest region which reduces latency between the user and your service.",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Application Design",
+    "subCategory": "Disaster Planning",
+    "title": "Were regions chosen based on location and proximity to your users or based on resource types that were available?",
+    "context": "Not only is it important to utilize regions close to your audience, but it is equally important to choose regions that offer the SKUs that will support your future growth. Not all regions share the same parity when it comes to product SKUs. Plan your growth, then choose regions that will support those plans.    ",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Application Design",
+    "subCategory": "Disaster Planning",
+    "title": "Are the regions paired?",
+    "context": "Paired regions have built-in support for high-availability of certain resources. Not all resources support paired regions, but those that do ensure that your application remains operational. The operational level may be reduced (e.g. read-only of certain resources), but still operational nonetheless. Make sure your multi-region application is deployed to paired regions and that your operational level is understood in the case that (a) service(s) in your primary region are in a failed state.",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Application Design",
+    "subCategory": "Disaster Planning",
+    "title": "Have you ensured that both (all) regions in use have the same performance and scale SKUs that are currently leveraged in the primary region?",
+    "context": "When planning for scale and efficiency, it is important that regions are not only paired, but homogenous in their service offerings. Additionally, you should make sure that, if one region fails, the second region can scale appropriately to sufficiently handle the influx of additional user requests.",
     "recommendation": "",
     "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
   },
