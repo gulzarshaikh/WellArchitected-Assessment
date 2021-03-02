@@ -94,27 +94,32 @@
     
 ### Usage Prediction
             
-* Will your application be exposed to yearly or monthly major peak loads?
+* Will your application be exposed to yearly or monthly heavy, peak loads?
 
 
+  _Major events like Black Friday, Singles Day, End-of-month reporting or marketing pushes can create abnormal load on your application and require additional resources. Understanding the upticks in demand can help you proactively scale so that customers/users experience little to no performance degradation._
 ### Service SKU
             
 * Do you know your scale limits and what is most likely to be your bottleneck?
 
 
+  _An application is made up of many different components, services, and frameworks within both infrastructure and application code. The design and choices in each area will incur unique limits and scale options. Knowing how your application behaves under different kinds of load allows you to be better prepared. It can also help you recognize which individual services to scale, if necessary, versus scaling your entire infrastructure. This can help increase performance efficiency without sacrificing costs._
 * Is the required peak capacity aligned with the subscription quotas and limits?
 
 
+  _Limitless scale requires dedicated design and one of the important design considerations is the limits and quotas of Azure subscriptions. Some services are almost limitless, others require more planning. Some services have 'soft' limits that can be increased by contacting support._
 ### Disaster Recovery
             
 * If you have a disaster recovery plan in another region, have you ensured you have the needed capacity quotas allocated?
 
 
+  _Quotas and limits typically apply at the region level and, therefore, the needed capacity should also be planned for the secondary region._
 ### Data
             
 * Do you know the growth rate of your data?
 
 
+  _Your solution might work great in the first week or month, but what happens when data just keeps increasing? Will the solution slow down, or will it even break at a particular threshold? Planning for data growth, data retention, and archiving is essential in capacity planning. Without adequately planning capacity for your datastores, performance will be negatively affected._
 * Has caching and queuing been considered to handle varying load?
 
 
