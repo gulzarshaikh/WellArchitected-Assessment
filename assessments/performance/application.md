@@ -41,43 +41,55 @@
 * Was your application architected based on prescribed architecture from the Azure Architecture Center or a Cloud Design Pattern?
 
 
-* When designing the application were latency, request time, and payload size primary design considerations?
+  _Starting with a prescribed, proven architecture may help with alleviating some basic performance issues. It is suggested to check out the Azure Architecture Center and Cloud Design Patterns to determine if the application's architecture is similar._
+* When designing the application, which of the following design considerations were considered? (Latency between layers, Request time, Payload sizes, High Availability)
 
 
+  _When designing a new application or reviewing and existing one, there are three concepts to think about: 1) reducing latency; 2) reducing total request time; and, 3) reducing overall payload sizes. Implementing any combination of these concepts can dramatically improve overall application performance._
 * When designing the application, were you able to choose the data source during the design phase?
 
 
+  _Your application will most likely require more than one type of datastore depending on business requirements. Choosing the right mix and correct implementation is extremely important for optimizing application performance._
 * Would you consider the application design to be a microservice architecture?
 
 
+  _As compared to a monolithic architecture--an application that is tightly coupled with synchronous communication and often a single datastore--microservices leverage concepts such as asynchronous communication, service discovery, various resiliency strategies, and each service has its own datastore._
 ### Transactional
             
 * Can you measure the efficiency of the connections that are created to external services and datastores?
 
 
+  _It is important to be able to determine the total time for a round-robin between your application and its data source. This enables you to establish a baseline in which to measure against future changes along with calculating the cumulative effect of a single request to a service. It may help to leverage connection pooling or a connection multiplexer in order to reduce the need to create and close connections each time you need to communicate with a service. This helps to reduce the CPU overhead on the server that maintains all of those connections. When communicating with a service using an HttpClient or similar type of object, always create this object once and reuse it for subsequent requests. Ways to instantiate an object once can use the Singleton pattern of Dependency Injection or storing the object in a static variable._
 * Is the application stateless?
 
 
+  _If the application is stateful, meaning that data or state will be stored locally in the instance of the application, it may increase performance by enabling session affinity. When session affinity is enabled, subsequent requests to the application will be directed to the same server that processed the initial request. If session affinity is not enabled, subsequent requests would be directed to the next available server depending on the load balancing rules, and the subsequent server would be required to reload all applicable data._
 * Is the application code written using asynchronous patterns?
 
 
+  _When calling a service, this is a request that will take time to complete (return). The time for the caller to receive a response could range from milliseconds to minutes and during that time the thread is held by the process until the response comes back (or an exception happens). This means that, while the thread was waiting for a response, it was blocked from processing any other requests. Using an asynchronous pattern, the thread is released and available to process other requests while the initial request is still being processed in the background._
 * Does your application batch requests?
 
 
-* Does your application have any long running tasks or workflow scenarios?
+  _Creating a lot of individual requests has a tremendous amount of overhead for the producer and consumer of those requests. This will also increase bandwidth as certain elements of data are included in each request. If an API supports batching, you can batch all of the requests (the batch size varies by API and payload size) into a single request. The server will receive the one batched request and process all of the contained, individual requests. This better leverages the server's resources so that the requests can be processed much faster._
+* Does your application have any long-running tasks or workflow scenarios?
 
 
-* Does your application have retry logic in response to a failure?
+  _You can offload a long-running task or a multi-step workflow process to a separate, dedicated workers instead of using the application's resources to handle it. To handle this scenario, you can add tasks (messages) to a queue and have a dedicated worker listening to the queue to pick up a message and process it._
+* How does your application have retry logic in response to a failure?
 
 
+  _When your application encounters an exception or given component (service) of your application fails, the application needs to handle the failure/exception gracefully and log the exception in order to mitigate the problem in the future._
 ### Disaster Planning
             
 * Is you application deployed to multiple regions?
 
 
+  _Leveraging multiple regions is not only important for disaster recovery and high-availability. Multi-region deployment is also ideal for performance improvements as your application scales. Additionally, user requests can be directed to their closest region which reduces latency between the user and your service._
 * Is your app deployed to multiple Availability Zones?
 
 
+  _Many regions have availability zones with them. This is to prevent against inoperability of your application in the case of a partial region failure. While this configuration is utilized for high-availability, you should also be aware of the impact it may have on your application should a service encounter an issue within one zone.  Furthermore, if an individual zone fails, but your application is deployed to multiple zones within the same region, it can prevent your application from having to communicate with a service in your secondary region. Both scenarios are important when considering performance efficiency and latency of requests._
 ## Capacity Planning
     
 ### Usage Prediction
