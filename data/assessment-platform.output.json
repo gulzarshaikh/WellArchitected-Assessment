@@ -22,8 +22,8 @@
                   "context": "",
                   "links": [
                     {
-                      "text": "",
-                      "url": ""
+                      "title": "recovery targets",
+                      "url": "/azure/architecture/framework/reliability/receoverytargets"
                     }
                   ],
                   "nextSteps": "1"
@@ -36,7 +36,17 @@
               "title": "Availability targets such as Service Level Agreements (SLAs) and Service Level Objectives (SLOs).",
               "context": "Understanding customer availability expectations is vital to reviewing overall operations for the application. For instance, if a customer is striving to achieve an application SLO of 99.999%, the level of inherent operational actionality required by the application is going to far greater than if an SLO of 99.9% was the aspiration",
               "recommendations": [
-
+                {
+                  "title": "Having clearly defined availability targets is crucial in order to have a goal to work and measure against. This will also determine which services an application can leverage vs. those which do not qualify in terms of the SLA they offer.",
+                  "context": "",
+                  "links": [
+                    {
+                      "title": "availability targets",
+                      "url": "/azure/architecture/framework/reliability/monitorkeytargets"
+                    }
+                  ],
+                  "nextSteps": "1"
+                }
               ],
               "score": 20
           },
@@ -45,7 +55,17 @@
               "title": "Availability metrics to measure and monitor availability such as Mean Time To Recover (MTTR) and Mean Time Between Failure (MTBF).",
               "context": "Monitoring and measuring application availability is vital to qualifying overall application health and progress towards defined targets.",
               "recommendations": [
-
+                {
+                  "title": "Make sure you measure and monitor key targets such as\n- **Mean Time Between Failures (MTBF)**: The average time between failures of a particular component\n- **Mean Time Between Failures (MTBF)**: The average time between failures of a particular component",
+                  "context": "",
+                  "links": [
+                    {
+                      "title": "recovery targets",
+                      "url": "/azure/architecture/framework/reliability/monitorkeytargets"
+                    }
+                  ],
+                  "nextSteps": "1"
+                }
               ],
               "score": 20
           },
@@ -54,7 +74,17 @@
               "title": "Composite SLA for the workload derived using the Azure SLAs for all relevant resources.",
               "context": "A composite SLA captures the end-to-end SLA across all application components and dependencies. It is calculated using the individual SLAs of Azure services housing application components and provides an important indicator of designed availability in relation to customer expectations and targets([Composite SLAs](https://docs.microsoft.com/azure/architecture/framework/resiliency/business-metrics#understand-service-level-agreements))",
               "recommendations": [
-
+                {
+                  "title": "Make sure the composite SLA of all components and dependencies on the critical paths are understood.",
+                  "context": "",
+                  "links": [
+                    {
+                      "title": "Composite SLAs",
+                      "url": "/azure/architecture/framework/reliability/compositeslas"
+                    }
+                  ],
+                  "nextSteps": "1"
+                }
               ],
               "score": 20
           },
@@ -63,7 +93,17 @@
               "title": "SLAs for all internal and external dependencies are understood.",
               "context": "Availability targets for any dependencies leveraged by the application should be understood and ideally align with application targets",
               "recommendations": [
-                
+                {
+                  "title": "Make sure SLAs/SLOs/SLIs for all leveraged dependencies are understood",
+                  "context": "",
+                  "links": [
+                    {
+                      "title": "SLAs/SLOs/SLIs for dependencies",
+                      "url": "/azure/architecture/framework/reliability/slafordependencies"
+                    }
+                  ],
+                  "nextSteps": "1"
+                }
               ],
               "score": 20
           },
