@@ -7,6 +7,10 @@
         "title": "What reliability targets and metrics have you defined for your application?",
         "context": "Availability targets, such as Service Level Agreements (SLA) and Service Level Objectives (SLO), and Recovery targets, such as Recovery Time Objectives (RTO) and Recovery Point Objectives (RPO), should be defined and tested to ensure application reliability aligns with business requirements.",
         "id": "pnp_question_reliability1",
+        "video": {
+          "title": "What reliability targets and metrics have you defined for your application?",
+          "url": "https://www.microsoft.com/en-us/videoplayer/embed/RE4yYLM"
+        },
         "answers": [
             {
                 "question_id": "app_design_recovery_targets",

@@ -1,0 +1,78 @@
+[
+  {
+      "type": "PnP Questions",
+      "pillars": [
+          "reliability"
+      ],
+      "title": "What reliability targets and metrics have you defined for your application?",
+      "context": "Availability targets, such as Service Level Agreements (SLA) and Service Level Objectives (SLO), and Recovery targets, such as Recovery Time Objectives (RTO) and Recovery Point Objectives (RPO), should be defined and tested to ensure application reliability aligns with business requirements.",
+      "id": "pnp_question_reliability1",
+      "video": {
+        "title": "What reliability targets and metrics have you defined for your application?",
+        "url": "https://www.microsoft.com/en-us/videoplayer/embed/RE4yYLM"
+      },
+      "answers": [
+          {
+              "question_id": "app_design_recovery_targets",
+              "title": "Recovery targets to identify how long the workload can be unavailable (Recovery Time Objective) and how much data is acceptable to lose during a disaster (Recovery Point Objective).",
+              "context": "Understanding customer reliability expectations is vital to reviewing the overall reliability of the application. For instance, if a customer is striving to achieve an application RTO of less than a minute then back-up based and active-passive disaster recovery strategies are unlikely to be appropriate \nRecovery time objective (RTO): The maximum acceptable time the application is unavailable after a disaster incident \nRecovery point objective (RPO): The maximum duration of data loss that is acceptable during a disaster event",
+              "recommendations": [
+                {
+                  "title": "Recovery targets should be defined in accordance to the required RTO and RPO targets for the workloads.",
+                  "context": "",
+                  "links": [
+                    {
+                      "text": "",
+                      "url": ""
+                    }
+                  ],
+                  "nextSteps": "1"
+                }
+              ],
+              "score": 20
+          },
+          {
+              "question_id": "app_design_availabilitytargets",
+              "title": "Availability targets such as Service Level Agreements (SLAs) and Service Level Objectives (SLOs).",
+              "context": "Understanding customer availability expectations is vital to reviewing overall operations for the application. For instance, if a customer is striving to achieve an application SLO of 99.999%, the level of inherent operational actionality required by the application is going to far greater than if an SLO of 99.9% was the aspiration",
+              "recommendations": [
+
+              ],
+              "score": 20
+          },
+          {
+              "question_id": "app_design_targets_smonitoring",
+              "title": "Availability metrics to measure and monitor availability such as Mean Time To Recover (MTTR) and Mean Time Between Failure (MTBF).",
+              "context": "Monitoring and measuring application availability is vital to qualifying overall application health and progress towards defined targets.",
+              "recommendations": [
+
+              ],
+              "score": 20
+          },
+          {
+              "question_id": "app_design_compositesla",
+              "title": "Composite SLA for the workload derived using the Azure SLAs for all relevant resources.",
+              "context": "A composite SLA captures the end-to-end SLA across all application components and dependencies. It is calculated using the individual SLAs of Azure services housing application components and provides an important indicator of designed availability in relation to customer expectations and targets([Composite SLAs](https://docs.microsoft.com/azure/architecture/framework/resiliency/business-metrics#understand-service-level-agreements))",
+              "recommendations": [
+
+              ],
+              "score": 20
+          },
+          {
+              "question_id": "app_design_targets_deps",
+              "title": "SLAs for all internal and external dependencies are understood.",
+              "context": "Availability targets for any dependencies leveraged by the application should be understood and ideally align with application targets",
+              "recommendations": [
+                
+              ],
+              "score": 20
+          },
+          {
+              "title": "None of the above",
+              "context": "",
+              "recommendations": [],
+              "score": 0
+          }
+      ]
+  }
+]
