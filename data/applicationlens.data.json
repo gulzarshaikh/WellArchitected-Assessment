@@ -2037,7 +2037,7 @@
     "children": [
       {
         "title": "Were regions chosen based on location and proximity to your users or based on resource types that were available?",
-        "context": "Not only is it important to utilize regions close to your audience, but it is equally important to choose regions that offer the SKUs that will support your future growth. Not all regions share the same parity when it comes to product SKUs. Plan your growth, then choose regions that will support those plans.    ",
+        "context": "Not only is it important to utilize regions close to your audience, but it is equally important to choose regions that offer the SKUs that will support your future growth. Not all regions share the same parity when it comes to product SKUs. Plan your growth, then choose regions that will support those plans.",
         "recommendation": "",
         "id": ""
       },
@@ -2417,7 +2417,7 @@
     "category": "Scalability & Performance",
     "subCategory": "Network Throughput and Latency",
     "title": "Are there any components/scenarios that are very sensitive to network latency?",
-    "context": "Components or scenarios that are sensitive to network latency may indicate a need for co-locality within a single Availability Zone or even closer using Proximity Placement Groups with Accelerated Networking enabled([Proximity Placement Groups](https://docs.microsoft.com/azure/virtual-machines/windows/co-location#proximity-placement-groups))",
+    "context": "Components or scenarios that are sensitive to network latency may indicate a need for co-locality within a single Availability Zone or even closer using Proximity Placement Groups with Accelerated Networking enabled ([Proximity Placement Groups](https://docs.microsoft.com/azure/virtual-machines/windows/co-location#proximity-placement-groups))",
     "recommendation": "",
     "id": ""
   },
@@ -2430,7 +2430,7 @@
     "category": "Scalability & Performance",
     "subCategory": "Network Throughput and Latency",
     "title": "Have gateways (ExpressRoute or VPN) been sized accordingly to the expected cross-premises network throughput?",
-    "context": "Azure Virtual Network Gateways throughput varies based on SKU. Gateways should therefore be sized according to required throughput([VPN Gateway SKUs](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku))",
+    "context": "Azure Virtual Network Gateways throughput varies based on SKU. Gateways should therefore be sized according to required throughput ([VPN Gateway SKUs](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku))",
     "recommendation": "",
     "id": ""
   },
@@ -2565,7 +2565,7 @@
     "category": "Security & Compliance",
     "subCategory": "Identity and Access",
     "title": "Are Azure AD emergency access accounts and processes defined for recovering from identity failures?",
-    "context": "The impact of no administrative access can be mitigated by creating two or more emergency access accounts([Emergency Access accounts in Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access))",
+    "context": "The impact of no administrative access can be mitigated by creating two or more emergency access accounts ([Emergency Access accounts in Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access))",
     "recommendation": "",
     "id": ""
   },
@@ -2614,7 +2614,7 @@
     "category": "Security & Compliance",
     "subCategory": "Network Security",
     "title": "Are all external application endpoints secured?",
-    "context": "External application endpoints should be protected against common attack vectors, such as Denial of Service (DoS) attacks like Slowloris, to prevent potential application downtime due to malicious intent. Azure native technologies such as Azure Firewall, Application Gateway/Azure Front Door WAF, and DDoS Protection Standard Plan can be used to achieve requisite protection([Azure DDoS Protection](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview))",
+    "context": "External application endpoints should be protected against common attack vectors, such as Denial of Service (DoS) attacks like Slowloris, to prevent potential application downtime due to malicious intent. Azure native technologies such as Azure Firewall, Application Gateway/Azure Front Door WAF, and DDoS Protection Standard Plan can be used to achieve requisite protection ([Azure DDoS Protection](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview))",
     "recommendation": "",
     "id": ""
   },
@@ -5005,7 +5005,7 @@
       "performanceefficiency"
     ],
     "lens": "application",
-    "category": "Capacity Planning",
+    "category": "Capacity & Service Availability",
     "subCategory": "Usage Prediction",
     "title": "Will your application be exposed to yearly or monthly heavy, peak loads?",
     "context": "Major events like Black Friday, Singles Day, End-of-month reporting or marketing pushes can create abnormal load on your application and require additional resources. Understanding the upticks in demand can help you proactively scale so that customers/users experience little to no performance degradation.",
@@ -5032,7 +5032,7 @@
       "performanceefficiency"
     ],
     "lens": "application",
-    "category": "Capacity Planning",
+    "category": "Capacity & Service Availability",
     "subCategory": "Service SKU",
     "title": "Do you know your scale limits and what is most likely to be your bottleneck?",
     "context": "An application is made up of many different components, services, and frameworks within both infrastructure and application code. The design and choices in each area will incur unique limits and scale options. Knowing how your application behaves under different kinds of load allows you to be better prepared. It can also help you recognize which individual services to scale, if necessary, versus scaling your entire infrastructure. This can help increase performance efficiency without sacrificing costs. ",
@@ -5045,7 +5045,7 @@
       "performanceefficiency"
     ],
     "lens": "application",
-    "category": "Capacity Planning",
+    "category": "Capacity & Service Availability",
     "subCategory": "Service SKU",
     "title": "Is the required peak capacity aligned with the subscription quotas and limits?",
     "context": "Limitless scale requires dedicated design and one of the important design considerations is the limits and quotas of Azure subscriptions. Some services are almost limitless, others require more planning. Some services have 'soft' limits that can be increased by contacting support.",
@@ -5584,7 +5584,7 @@
       "performanceefficiency"
     ],
     "lens": "application",
-    "category": "Monitoring",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Logging",
     "title": "Do you have detailed instrumentation in the application code?",
     "context": "Instrumentation of your code allows precise detection of underperforming pieces when load or stress tests are applied. It is critical to have this data available to improve and identify performance opportunities in the application code. Application Performance Monitoring (APM) tools, such as Application Insights, should be used to manage the performance and availability of the application, along with aggregating application level logs and events for subsequent interpretation.",
@@ -5597,7 +5597,7 @@
       "performanceefficiency"
     ],
     "lens": "application",
-    "category": "Monitoring",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Logging",
     "title": "Are application logs collected from different application environments?",
     "context": "Application logs and events should be collected across all major environments to support the end-to-end application lifecycle. Furthermore, corresponding log entries across the application should capture a correlation ID for their respective transactions.",
@@ -5610,7 +5610,7 @@
       "performanceefficiency"
     ],
     "lens": "application",
-    "category": "Monitoring",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Logging",
     "title": "Are application events correlated across all application components?",
     "context": "Event correlation between the layers of the application will provide the ability to connect tracing data of the complete application stack. Once this connection is made, you can see a complete picture of where time is spent at each layer. This will typically mean having a tool that can query the repositories of tracing data in correlation to a unique identifier that represents a given transaction that has flowed through the system.<br /><br />Log events coming from different application components or different component tiers of the application should be correlated to build end-to-end transaction flows. For instance, this is often achieved by using consistent correlation IDs transferred between components within a transaction.",
@@ -5623,7 +5623,7 @@
       "performanceefficiency"
     ],
     "lens": "application",
-    "category": "Monitoring",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Logging",
     "title": "Are log messages captured in a structured format?",
     "context": "Application events should be captured as a structured data type with machine-readable data points rather than unstructured string types. Structured data can easily be indexed and searched, and reporting can be greatly simplified.",
@@ -5636,7 +5636,7 @@
       "performanceefficiency"
     ],
     "lens": "application",
-    "category": "Monitoring",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Performance Targets",
     "title": "Is it possible to evaluate critical application performance targets and non-functional requirements (NFRs)?",
     "context": "Application-level metrics should include end-to-end transaction times of key technical functions, such as database queries, response times for external API calls, failure rates or processing steps, etc.",
@@ -5649,7 +5649,7 @@
       "performanceefficiency"
     ],
     "lens": "application",
-    "category": "Monitoring",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Performance Targets",
     "title": "Is the end-to-end performance of critical system flows monitored?",
     "context": "It should be possible to correlate application log events across critical system flows, such as user logins, to fully assess the health of key scenarios in the context of targets and non-functional requirements (NFRs).",
@@ -5662,7 +5662,7 @@
       "performanceefficiency"
     ],
     "lens": "application",
-    "category": "Monitoring",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Logging",
     "title": "Which log aggregation technology is used to collect logs and metrics from Azure resources?",
     "context": "Log aggregation technologies, such as Azure Log Analytics or Splunk, should be used to collate logs and metrics across all application components for subsequent evaluation. Resources may include Azure IaaS and PaaS services as well as 3rd-party appliances such as firewalls and Anti-Malware solutions used in the application. For instance, if Azure Event Hub is used, the Diagnostics Settings should be configured to push logs and metrics to the data sink.",
@@ -5675,7 +5675,7 @@
       "performanceefficiency"
     ],
     "lens": "application",
-    "category": "Monitoring",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Logging",
     "title": "Are you collecting Azure Activity Logs within the log aggregation tool?",
     "context": "Azure Activity Logs provide audit information about when an Azure resource is modified, such as when a virtual machine is started or stopped. Such information is extremely useful for the interpretation and troubleshooting of issues as it provides transparency around configuration changes that can be mapped to adverse performance events.",
@@ -5688,7 +5688,7 @@
       "performanceefficiency"
     ],
     "lens": "application",
-    "category": "Monitoring",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Logging",
     "title": "Is resource-level monitoring enforced throughout the application?",
     "context": "All application resources should be configured to route diagnostic logs and metrics to the chosen log aggregation technology. Azure Policy should also be used as a device to ensure the consistent use of diagnostic settings across the application, to enforce the desired configuration for each Azure service.",
@@ -5701,7 +5701,7 @@
       "performanceefficiency"
     ],
     "lens": "application",
-    "category": "Monitoring",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Logging",
     "title": "Are logs and metrics available for critical internal dependencies?",
     "context": "To be able to build a robust application health model, it is vital that visibility into the operational state of critical, internal dependencies, such as a shared network virtual appliance (NVA) or Express Route connection, be achieved.",
@@ -5714,7 +5714,7 @@
       "performanceefficiency"
     ],
     "lens": "application",
-    "category": "Monitoring",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Dependencies",
     "title": "Are critical external dependencies monitored?",
     "context": "Critical, external dependencies, such as an API service, should be monitored to ensure operational visibility of performance. For instance, a probe could be used to measure the latency of an external API.",
@@ -5727,7 +5727,7 @@
       "performanceefficiency"
     ],
     "lens": "application",
-    "category": "Monitoring",
+    "category": "MonitHealth Modelling & Monitoringoring",
     "subCategory": "Logging",
     "title": "Are application- and resource-level logs aggregated in a single data sink, or is it possible to cross-query events at both levels?",
     "context": "To build a robust application health model, it is vital that application- and resource-level data be correlated and evaluated together to optimize the detection of issues and the troubleshooting of those detected issues.",
@@ -5754,7 +5754,7 @@
       "performanceefficiency"
     ],
     "lens": "application",
-    "category": "Monitoring",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Modelling",
     "title": "Is a health model used to qualify what 'healthy' and 'unhealthy' states represent for the application?",
     "context": "A holistic application health model should be used to quantify what &quot;healthy&quot; and &quot;unhealthy&quot; states represent across all application components. It is highly recommended that a &quot;traffic light&quot; model be used to indicate green/healthy state when key, non-functional requirements and targets are fully satisfied and resources are optimally utilized (e.g. 95% of requests are processed in <= 500ms with AKS node utilization at x%, etc.).",
@@ -5781,7 +5781,7 @@
       "performanceefficiency"
     ],
     "lens": "application",
-    "category": "Monitoring",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Modelling",
     "title": "Are long-term trends analyzed to predict performance issues before they occur?",
     "context": "Analytics can and should be performed across long-term operational data to help inform on the history of application performance and detect if there have been any regressions. For instance, if the average response times have been slowly increasing over time and getting closer to maximum target.",
@@ -5794,7 +5794,7 @@
       "performanceefficiency"
     ],
     "lens": "application",
-    "category": "Monitoring",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Logging",
     "title": "Have retention times for logs and metrics been defined and with housekeeping mechanisms configured?",
     "context": "Clear retention times should be defined to allow for suitable, historic analysis, but also control storage costs. Suitable housekeeping tasks should also be used to archive data to cheaper storage or aggregate data for long-term trend analysis.",
