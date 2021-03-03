@@ -5327,8 +5327,8 @@
     "lens": "application",
     "category": "Monitoring",
     "subCategory": "Logging",
-    "title": "Do you have detailed instrumentation throughout the application's code?",
-    "context": "",
+    "title": "Do you have detailed instrumentation in the application code?",
+    "context": "Instrumentation of your code allows precise detection of underperforming pieces when load or stress tests are applied. It is critical to have this data available to improve and identify performance opportunities in the application code. Application Performance Monitoring (APM) tools, such as Application Insights, should be used to manage the performance and availability of the application, along with aggregating application level logs and events for subsequent interpretation.",
     "recommendation": "",
     "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
   },
@@ -5340,8 +5340,8 @@
     "lens": "application",
     "category": "Monitoring",
     "subCategory": "Logging",
-    "title": "Are application logs collected from all application environments?",
-    "context": "",
+    "title": "Are application logs collected from different application environments?",
+    "context": "Application logs and events should be collected across all major environments to support the end-to-end application lifecycle. Furthermore, corresponding log entries across the application should capture a correlation ID for their respective transactions.",
     "recommendation": "",
     "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
   },
@@ -5354,7 +5354,7 @@
     "category": "Monitoring",
     "subCategory": "Logging",
     "title": "Are application events correlated across all application components?",
-    "context": "",
+    "context": "Event correlation between the layers of the application will provide the ability to connect tracing data of the complete application stack. Once this connection is made, you can see a complete picture of where time is spent at each layer. This will typically mean having a tool that can query the repositories of tracing data in correlation to a unique identifier that represents a given transaction that has flowed through the system.<br /><br />Log events coming from different application components or different component tiers of the application should be correlated to build end-to-end transaction flows. For instance, this is often achieved by using consistent correlation IDs transferred between components within a transaction.",
     "recommendation": "",
     "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
   },
@@ -5367,7 +5367,7 @@
     "category": "Monitoring",
     "subCategory": "Logging",
     "title": "Are log messages captured in a structured format?",
-    "context": "",
+    "context": "Application events should be captured as a structured data type with machine-readable data points rather than unstructured string types. Structured data can easily be indexed and searched, and reporting can be greatly simplified.",
     "recommendation": "",
     "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
   },
@@ -5380,7 +5380,7 @@
     "category": "Monitoring",
     "subCategory": "Performance Targets",
     "title": "Is it possible to evaluate critical application performance targets and non-functional requirements (NFRs)?",
-    "context": "",
+    "context": "Application-level metrics should include end-to-end transaction times of key technical functions, such as database queries, response times for external API calls, failure rates or processing steps, etc.",
     "recommendation": "",
     "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
   },
@@ -5393,7 +5393,7 @@
     "category": "Monitoring",
     "subCategory": "Performance Targets",
     "title": "Is the end-to-end performance of critical system flows monitored?",
-    "context": "",
+    "context": "It should be possible to correlate application log events across critical system flows, such as user logins, to fully assess the health of key scenarios in the context of targets and non-functional requirements (NFRs).",
     "recommendation": "",
     "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
   },
@@ -5405,8 +5405,8 @@
     "lens": "application",
     "category": "Monitoring",
     "subCategory": "Logging",
-    "title": "Are you currently using a log aggregation technology to collect logs and metrics from Azure resources?",
-    "context": "",
+    "title": "Which log aggregation technology is used to collect logs and metrics from Azure resources?",
+    "context": "Log aggregation technologies, such as Azure Log Analytics or Splunk, should be used to collate logs and metrics across all application components for subsequent evaluation. Resources may include Azure IaaS and PaaS services as well as 3rd-party appliances such as firewalls and Anti-Malware solutions used in the application. For instance, if Azure Event Hub is used, the Diagnostics Settings should be configured to push logs and metrics to the data sink.",
     "recommendation": "",
     "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
   },
@@ -5418,8 +5418,8 @@
     "lens": "application",
     "category": "Monitoring",
     "subCategory": "Logging",
-    "title": "Are you collection Azure Activity Logs within the log aggregation tool?",
-    "context": "",
+    "title": "Are you collecting Azure Activity Logs within the log aggregation tool?",
+    "context": "Azure Activity Logs provide audit information about when an Azure resource is modified, such as when a virtual machine is started or stopped. Such information is extremely useful for the interpretation and troubleshooting of issues as it provides transparency around configuration changes that can be mapped to adverse performance events.",
     "recommendation": "",
     "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
   },
@@ -5431,8 +5431,8 @@
     "lens": "application",
     "category": "Monitoring",
     "subCategory": "Logging",
-    "title": "Is resource-level monitoring available for critical internal dependencies?",
-    "context": "",
+    "title": "Is resource-level monitoring enforced throughout the application?",
+    "context": "All application resources should be configured to route diagnostic logs and metrics to the chosen log aggregation technology. Azure Policy should also be used as a device to ensure the consistent use of diagnostic settings across the application, to enforce the desired configuration for each Azure service.",
     "recommendation": "",
     "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
   },
@@ -5445,7 +5445,7 @@
     "category": "Monitoring",
     "subCategory": "Logging",
     "title": "Are logs and metrics available for critical internal dependencies?",
-    "context": "",
+    "context": "To be able to build a robust application health model, it is vital that visibility into the operational state of critical, internal dependencies, such as a shared network virtual appliance (NVA) or Express Route connection, be achieved.",
     "recommendation": "",
     "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
   },
@@ -5458,7 +5458,7 @@
     "category": "Monitoring",
     "subCategory": "Dependencies",
     "title": "Are critical external dependencies monitored?",
-    "context": "",
+    "context": "Critical, external dependencies, such as an API service, should be monitored to ensure operational visibility of performance. For instance, a probe could be used to measure the latency of an external API.",
     "recommendation": "",
     "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
   },
@@ -5470,8 +5470,8 @@
     "lens": "application",
     "category": "Monitoring",
     "subCategory": "Logging",
-    "title": "Are application and resource level logs aggregated in a single data sink, or is it possible to cross-query events at both levels?",
-    "context": "",
+    "title": "Are application- and resource-level logs aggregated in a single data sink, or is it possible to cross-query events at both levels?",
+    "context": "To build a robust application health model, it is vital that application- and resource-level data be correlated and evaluated together to optimize the detection of issues and the troubleshooting of those detected issues.",
     "recommendation": "",
     "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
   },
@@ -5483,8 +5483,8 @@
     "lens": "application",
     "category": "Monitoring",
     "subCategory": "Logging",
-    "title": "Are application-level events automatically correlated with performance metrics to quantify the current application state?",
-    "context": "",
+    "title": "Are application level events automatically correlated with performance metrics to quantify the current application state?",
+    "context": "The overall performance can be impacted by both application-level issues as well as resource-level failures. This can also help to distinguish between transient and non-transient faults.",
     "recommendation": "",
     "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
   },
@@ -5497,7 +5497,7 @@
     "category": "Monitoring",
     "subCategory": "Logging",
     "title": "Is the transaction flow data used to generate application/service maps?",
-    "context": "",
+    "context": "An Application Map can help you identify performance bottlenecks of failure hotspots across components of a distributed application.",
     "recommendation": "",
     "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
   },
@@ -5510,7 +5510,7 @@
     "category": "Monitoring",
     "subCategory": "Modelling",
     "title": "Is a health model used to qualify what 'healthy' and 'unhealthy' states represent for the application?",
-    "context": "",
+    "context": "A holistic application health model should be used to quantify what &quot;healthy&quot; and &quot;unhealthy&quot; states represent across all application components. It is highly recommended that a &quot;traffic light&quot; model be used to indicate green/healthy state when key, non-functional requirements and targets are fully satisfied and resources are optimally utilized (e.g. 95% of requests are processed in <= 500ms with AKS node utilization at x%, etc.).",
     "recommendation": "",
     "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
   },
@@ -5523,7 +5523,7 @@
     "category": "Monitoring",
     "subCategory": "Modelling",
     "title": "Are critical system flows used to inform the health model?",
-    "context": "",
+    "context": "The health model should be able to surface the respective health of critical system flows or key subsystems to ensure appropriate operational prioritization is applied. For example, the health model should be able to represent the current state of the user login transaction flow.",
     "recommendation": "",
     "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
   },
@@ -5536,7 +5536,7 @@
     "category": "Monitoring",
     "subCategory": "Modelling",
     "title": "Can the health model determine if the application is performing at expected performance targets?",
-    "context": "",
+    "context": "The health model should have the ability to evaluate application performance as a part of the application's overall health state.",
     "recommendation": "",
     "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
   },
@@ -5549,7 +5549,7 @@
     "category": "Monitoring",
     "subCategory": "Modelling",
     "title": "Are long-term trends analyzed to predict performance issues before they occur?",
-    "context": "",
+    "context": "Analytics can and should be performed across long-term operational data to help inform on the history of application performance and detect if there have been any regressions. For instance, if the average response times have been slowly increasing over time and getting closer to maximum target.",
     "recommendation": "",
     "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
   },
@@ -5562,7 +5562,7 @@
     "category": "Monitoring",
     "subCategory": "Logging",
     "title": "Have retention times for logs and metrics been defined and with housekeeping mechanisms configured?",
-    "context": "",
+    "context": "Clear retention times should be defined to allow for suitable, historic analysis, but also control storage costs. Suitable housekeeping tasks should also be used to archive data to cheaper storage or aggregate data for long-term trend analysis.",
     "recommendation": "",
     "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
   },
@@ -5574,7 +5574,7 @@
     "lens": "application",
     "category": "Troubleshooting",
     "subCategory": "Data",
-    "title": "Does the application require heavy database utilization?",
+    "title": "Does the application spend a lot of time in the database?",
     "context": "Applications that spend a lot of execution time in the database layers can benefit from a database tuning analysis. This analysis will only focus on the data tier components and may require special resources such as DBA's to tune queries, indexes, execution plans, and more.",
     "recommendation": "",
     "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
@@ -5587,8 +5587,34 @@
     "lens": "application",
     "category": "Troubleshooting",
     "subCategory": "Process",
-    "title": "Does the application currently exhibit high CPU and/or memory utilization?",
+    "title": "Does the application have high CPU or memory utilization?",
     "context": "If the application has very high CPU or memory utilization, then consider scaling the application either horizontal or vertical. Scaling horizontal to more compute resources will spread the load across more machines. This will, however, increase the network complexity as there will be more machines to support the system. Scaling the application vertical to a larger machine this is optimized for higher CPU or memory workloads may also be considered. Profiling the application code can be useful to find code structures that may be sub-optimal and replace them with better-optimized code. These decisions are a balance of several factors that can include cost, system complexity, and time to implement.",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Troubleshooting",
+    "subCategory": "Process",
+    "title": "Have you identified the length of time it takes before CPU or memory increases?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Troubleshooting",
+    "subCategory": "Process",
+    "title": "How long does it take for system resources to return to &quot;normal?&quot;",
+    "context": "",
     "recommendation": "",
     "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
   },
@@ -5605,6 +5631,33 @@
     "recommendation": "",
     "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
   },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Troubleshooting",
+    "subCategory": "Process",
+    "title": "Have you identified the length of time it takes before response times increase?",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Troubleshooting",
+    "subCategory": "Process",
+    "title": "How long does it take for response times to return to &quot;normal?&quot;",
+    "context": "",
+    "recommendation": "",
+    "id": "11aae656-d2b5-443f-9faa-c3471355cafd"
+  },
+
   {
     "type": "Questions",
     "pillars": [
