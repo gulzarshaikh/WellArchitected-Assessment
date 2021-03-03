@@ -72,6 +72,18 @@
       },
       {
         "title": "Auditing"
+      },
+      {
+        "title": "Logging"
+      },
+      {
+        "title": "Performance Targets"
+      },
+      {
+        "title": "Dependencies"
+      },
+      {
+        "title": "Modelling"
       }
     ]
   },
@@ -83,6 +95,18 @@
       },
       {
         "title": "Capacity"
+      },
+      {
+        "title": "Usage Prediction"
+      },
+      {
+        "title": "Service SKU"
+      },
+      {
+        "title": "Disaster Recovery"
+      },
+      {
+        "title": "Data"
       }
     ]
   },
@@ -357,23 +381,6 @@
     ]
   },
   {
-    "title": "Capacity Planning",
-    "subCategories": [
-      {
-        "title": "Usage Prediction"
-      },
-      {
-        "title": "Service SKU"
-      },
-      {
-        "title": "Disaster Recovery"
-      },
-      {
-        "title": "Data"
-      }
-    ]
-  },
-  {
     "title": "Performance Testing",
     "subCategories": [
       {
@@ -405,23 +412,6 @@
       },
       {
         "title": "Data"
-      }
-    ]
-  },
-  {
-    "title": "Monitoring",
-    "subCategories": [
-      {
-        "title": "Logging"
-      },
-      {
-        "title": "Performance Targets"
-      },
-      {
-        "title": "Dependencies"
-      },
-      {
-        "title": "Modelling"
       }
     ]
   },
