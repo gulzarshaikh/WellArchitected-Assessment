@@ -22,6 +22,8 @@ This operational excellence assessment has been produced to help the global CE&S
     - [Data Interpretation &amp; Health Modelling](./application.md#Data-Interpretation--Health-Modelling)
     - [Dashboarding](./application.md#Dashboarding)
     - [Alerting](./application.md#Alerting)
+  - [Scalability &amp; Performance](./application.md#Scalability--Performance)
+    - [Data Size/Growth](./application.md#Data-SizeGrowth)
   - [Security &amp; Compliance](./application.md#Security--Compliance)
     - [Identity and Access](./application.md#Identity-and-Access)
     - [Security Center](./application.md#Security-Center)
