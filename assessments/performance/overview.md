@@ -27,6 +27,7 @@ This assessment has been produced to help the global CE&S community to optimize 
     - [Load Capacity](./application.md#Load-Capacity)
     - [Design Efficiency](./application.md#Design-Efficiency)
     - [DevOps](./application.md#DevOps)
+    - [Data](./application.md#Data)
   - [Monitoring](./application.md#Monitoring)
     - [Logging](./application.md#Logging)
     - [Performance Targets](./application.md#Performance-Targets)
