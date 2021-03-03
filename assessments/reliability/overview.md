@@ -7,13 +7,15 @@ This reliability assessment has been produced to help the global CE&S community 
 ## Navigation Menu
 
 ### [Application Reliability](./application.md) 
+
+- [Design Principles](./application.md#design-principles)
 - [Application Assessment Checklist](./application.md#Application-Assessment-Checklist)
   - [Application Design](./application.md#Application-Design)
     - [Design](./application.md#Design)
     - [Failure Mode Analysis](./application.md#Failure-Mode-Analysis)
     - [Targets &amp; Non Functional Requirements](./application.md#Targets--Non-Functional-Requirements)
     - [Dependencies](./application.md#Dependencies)
-  - [Health Modelling](./application.md#Health-Modelling)
+  - [Health Modelling &amp; Monitoring](./application.md#Health-Modelling--Monitoring)
     - [Resource/Infrastructure Level Monitoring](./application.md#ResourceInfrastructure-Level-Monitoring)
     - [Data Interpretation &amp; Health Modelling](./application.md#Data-Interpretation--Health-Modelling)
     - [Alerting](./application.md#Alerting)

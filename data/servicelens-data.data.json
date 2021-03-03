@@ -510,7 +510,7 @@
         "lens": "service",
         "category": "Data",
         "subCategory": "Cosmos DB",
-        "title": "In order to check if multi location is not selected you can use the following query: ",
+        "title": "In order to check if multi location is not selected you can use the following query:",
         "code": "Resources\n|where  type =~ 'Microsoft.DocumentDb/databaseAccounts'\n|where array_length( properties.locations) <=1\n"
     },
     {
@@ -546,7 +546,7 @@
         "lens": "service",
         "category": "Data",
         "subCategory": "Cosmos DB",
-        "title": "To see the consistency levels for your cosmos db accounts you can use the query below: ",
+        "title": "To see the consistency levels for your cosmos db accounts you can use the query below:",
         "code": "Resources\n| project name, type, location, consistencyLevel = properties.consistencyPolicy.defaultConsistencyLevel \n| where type == \"microsoft.documentdb/databaseaccounts\" \n| order by name asc\n"
     },
     {
@@ -752,5 +752,117 @@
         "subCategory": "Azure Cache for Redis",
         "title": "Query to identify Redis Instances that are not on the premium tier:",
         "code": "Resources \n| where type == 'microsoft.cache/redis'\n| where properties.sku.name != 'Premium'\n"
-    }
+    },
+    {
+        "type": "Configuration Recommendations",
+        "pillars": [
+            "security"
+        ],
+        "lens": "service",
+        "category": "Data",
+        "subCategory": "Azure Databricks",
+        "title": "Isolate your workspaces, compute and data from public access. Make sure that only the right people have access and only via secure channels.",
+        "children": [
+            {
+                "title": "Ensure that the cloud workspaces for your analytics are only accessible by properly [managed users](https://docs.microsoft.com/azure/databricks/administration-guide/users-groups/). Azure Active Directory can handle single sign-on for remote access. For additional security, see [Conditional Access](https://docs.microsoft.com/azure/databricks/administration-guide/access-control/conditional-access)."
+            },
+            {
+                "title": "Implement Azure Private Link and ensure that all traffic between users of your platform,the notebooks and the compute clusters that process queries is encrypted and transmitted over the cloud provider’s network backbone, inaccessible to the outside world."
+            },
+            {
+                "title": "Restrict and monitor your virtual machines. Clusters which execute queries should have SSH and network access restricted to prevent installation of arbitrary packages and should use only images that are periodically scanned for vulnerabilities."
+            },
+            {
+                "title": "Use Dynamic IP access lists to allow admins to access workspaces only from their corporate networks."
+            }
+        ]
+    },
+    {
+        "type": "Configuration Recommendations",
+        "pillars": [
+            "security"
+        ],
+        "lens": "service",
+        "category": "Data",
+        "subCategory": "Azure Databricks",
+        "title": "Use the [VNet injection](https://docs.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject) functionality to enable more secure scenarios, such as:",
+        "children": [
+            {
+                "title": "Connecting to other Azure services using service endpoints."
+            },
+            {
+                "title": "Connecting to on-premises data sources, taking advantage of user-defined routes."
+            },
+            {
+                "title": "Connecting to a network virtual appliance to inspect all outbound traffic and take actions according to allow and deny rules."
+            },
+            {
+                "title": "Using custom DNS."
+            },
+            {
+                "title": "Deploying Azure Databricks clusters in existing virtual networks."
+            }
+        ]
+    },
+    {
+        "type": "Configuration Recommendations",
+        "pillars": [
+            "security"
+        ],
+        "lens": "service",
+        "category": "Data",
+        "subCategory": "Azure Databricks",
+        "title": "Use [diagnostic logs](https://docs.microsoft.com/azure/databricks/administration-guide/account-settings/azure-diagnostic-logs) to audit workspace access and permissions. Use audit logs to see privileged activity in a workspace, cluster resizing, files/folders shared on the cluster etc."
+    },
+    {
+        "type": "Configuration Recommendations",
+        "pillars": [
+            "security"
+        ],
+        "lens": "service",
+        "category": "Data",
+        "subCategory": "Azure Databricks",
+        "title": "Consider using the [Secure cluster connectivity](https://docs.microsoft.com/azure/databricks/security/secure-cluster-connectivity) feature and [hub/spoke architecture](https://databricks.com/blog/2020/03/27/data-exfiltration-protection-with-azure-databricks.html) to prevent opening ports and assigning public IP addresses on cluster nodes."
+    },
+    {
+        "type": "Design Considerations",
+        "pillars": [
+            "security"
+        ],
+        "lens": "service",
+        "category": "Data",
+        "subCategory": "Azure Databricks",
+        "title": "All users' notebooks and notebook results are encrypted at rest by default. If additional requirements are in place, consider using [customer-managed keys for notebooks](https://docs.microsoft.com/azure/databricks/security/keys/customer-managed-key-notebook)."
+    },
+    {
+        "type": "Configuration Recommendations",
+        "pillars": [
+            "security"
+        ],
+        "lens": "service",
+        "category": "Data",
+        "subCategory": "Azure Databricks",
+        "title": "Use Azure Active Directory [credential passthrough](https://docs.microsoft.com/azure/databricks/security/credential-passthrough/adls-passthrough) to avoid the need for service principals when communicating with Azure Data Lake Storage."
+    },
+    {
+        "type": "Supporting Source Artifacts",
+        "pillars": [
+            "security"
+        ],
+        "lens": "service",
+        "category": "Data",
+        "subCategory": "Azure Databricks",
+        "title": "Databricks blog: [Best practices to secure an enterprise-scale data platform](https://databricks.com/blog/2020/03/16/security-that-unblocks.html)"
+    },
+    {
+        "type": "Configuration Recommendations",
+        "pillars": [
+            "costoptimization"
+        ],
+        "lens": "service",
+        "category": "Data",
+        "subCategory": "Azure SQL Database",
+        "title": "Consider Reserved Capacity for Azure SQL Database.",
+        "context": "Compute costs associated with Azure SQL Database can be reduced by using [Reservation Discount](https://docs.microsoft.com/azure/cost-management-billing/reservations/understand-reservation-charges). Once the total compute capacity and performance tier for Azure SQL databases in a region is determined, this information can be used to reserve the capacity. The reservation can span 1 or 3 years. Significant cost optimization can be realized with this commitment. Refer to documentation on [Save costs for resources with reserved capacity](https://docs.microsoft.com/azure/azure-sql/database/reserved-capacity-overview) for more details."
+      }
 ]

@@ -50,7 +50,7 @@
     ]
   },
   {
-    "title": "Health Modelling",
+    "title": "Health Modelling & Monitoring",
     "subCategories": [
       {
         "title": "Application Level Monitoring"
@@ -250,6 +250,9 @@
       },
       {
         "title": "Azure Cache for Redis"
+      },
+      {
+        "title": "Azure Databricks"
       }
     ]
   },
@@ -266,6 +269,9 @@
     "subCategories": [
       {
         "title": "Storage Accounts"
+      },
+      {
+          "title": "Disks"
       }
     ]
   },
@@ -329,9 +335,11 @@
         "title": "Traffic Manager"
       },
       {
-        "title": "API Management"
+          "title": "API Management"
+      },
+      {
+          "title": "IP Addresses"
       }
-
     ]
   },
   {
@@ -441,5 +449,33 @@
         "title": "Platform support"
       }
     ]
+  },
+  {
+      "title": "Efficiency and Sizing",
+      "subCategories": [
+        {
+          "title": "Architecture"
+        },
+        {
+          "title": "SKUs"
+        },
+        {
+          "title": "Tools"
+        }
+      ]
+  },
+  {
+      "title": "Governance",
+      "subCategories": [
+          {
+              "title": "Financial Management & Cost Models"
+          },
+          {
+              "title": "Culture & Dynamics"
+          },
+          {
+              "title": "Licensing"
+          }
+      ]
   }
 ]
