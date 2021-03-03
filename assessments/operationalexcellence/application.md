@@ -765,6 +765,11 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
   _Performance Testing: Performance testing is the superset of both load and stress testing. The primary goal of performance testing is to validate benchmark behaviour for the application([Performance Testing](https://docs.microsoft.com/azure/architecture/checklist/dev-ops#testing))
 Load Testing : Load testing validates application scalability by rapidly and/or gradually increasing the load on the application until it reaches a threshold/limit 
 Stress Testing : *Stress testing is a type of negative testing which involves various activities to overload existing resources and remove components to understand overall resiliency and how the application responds to issues_
+    - How does your team perceive the importance of performance testing?
+
+
+      _It is critical that your team understands the importance of performance testing. Additionally, the team should be committed to providing the necessary time and resources for adequately executing performance testing proven practices._
+
     - When do you do test for performance, scalability, and resiliency?
 
 

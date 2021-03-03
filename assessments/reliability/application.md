@@ -144,6 +144,11 @@ These critical design principles are used as lenses to assess the Reliability of
 
 
   _A disaster recovery strategy should capture how the application responds to a disaster situation such as a regional outage or the loss of a critical platform service, using either a re-deployment, warm-spare active-passive, or hot-spare active-active approach. To drive cost down consider splitting application components and data into groups. For example: 1) must protect, 2) nice to protect, 3) ephemeral/can be rebuilt/lost, instead of protecting all data with the same policy._
+    - If you have a disaster recovery plan in another region, have you ensured you have the needed capacity quotas allocated?
+
+
+      _Quotas and limits typically apply at the region level and, therefore, the needed capacity should also be planned for the secondary region._
+
 ### Failure Mode Analysis
             
 * Has pathwise analysis been conducted to identify key flows within the application?
@@ -370,11 +375,21 @@ Public Preview : SLAs do not apply and formal support may be provided on a best-
 * Is the application platform deployed across multiple regions?
 
 
-  _The ability to respond to disaster scenarios for overall compute platform availability and application resiliency is dependant on the use of multiple regions or other deployment locations_
+  _The ability to respond to disaster scenarios for overall compute platform availability and application resiliency is dependant on the use of multiple regions or other deployment locations. Multi-region deployment is also ideal for performance improvements as your application scales. Additionally, user requests can be directed to their closest region which reduces latency between the user and your service._
+    - Were regions chosen based on location and proximity to your users or based on resource types that were available?
+
+
+      _Not only is it important to utilize regions close to your audience, but it is equally important to choose regions that offer the SKUs that will support your future growth. Not all regions share the same parity when it comes to product SKUs. Plan your growth, then choose regions that will support those plans._
+
     - Are paired regions used?
 
 
       _Paired regions exist within the same geography and provide native replication features for recovery purposes, such as Geo-Redundant Storage (GRS) asynchronous replication. In the event of planned maintenance, updates to a region will be performed sequentially only([Business continuity with Azure Paired Regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions))_
+
+    - Have you ensured that both (all) regions in use have the same performance and scale SKUs that are currently leveraged in the primary region?
+
+
+      _When planning for scale and efficiency, it is important that regions are not only paired, but homogenous in their service offerings. Additionally, you should make sure that, if one region fails, the second region can scale appropriately to sufficiently handle the influx of additional user requests._
 
 * Is the underlying application platform service Availability Zone aware?
 
@@ -755,6 +770,11 @@ Public Preview : SLAs do not apply and formal support may be provided on a best-
   _Performance Testing: Performance testing is the superset of both load and stress testing. The primary goal of performance testing is to validate benchmark behaviour for the application([Performance Testing](https://docs.microsoft.com/azure/architecture/checklist/dev-ops#testing))
 Load Testing : Load testing validates application scalability by rapidly and/or gradually increasing the load on the application until it reaches a threshold/limit 
 Stress Testing : *Stress testing is a type of negative testing which involves various activities to overload existing resources and remove components to understand overall resiliency and how the application responds to issues_
+    - How does your team perceive the importance of performance testing?
+
+
+      _It is critical that your team understands the importance of performance testing. Additionally, the team should be committed to providing the necessary time and resources for adequately executing performance testing proven practices._
+
     - When do you do test for performance, scalability, and resiliency?
 
 
