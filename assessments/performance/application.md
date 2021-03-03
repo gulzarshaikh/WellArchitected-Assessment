@@ -141,10 +141,12 @@
 
 
   _Major events like Black Friday, Singles Day, End-of-month reporting or marketing pushes can create abnormal load on your application and require additional resources. Understanding the upticks in demand can help you proactively scale so that customers/users experience little to no performance degradation._
-* Are you able to reasonably predict when these peaks will occur?
+    - Are you able to reasonably predict when these peaks will occur?
 
 
-* Are you able to accurately predict the amount of load your application will experience during these peaks?
+
+    - Are you able to accurately predict the amount of load your application will experience during these peaks?
+
 
 
 ### Service SKU
