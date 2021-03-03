@@ -8,12 +8,14 @@
     - [Transactional](#Transactional)
   - [Application Platform Availability](#Application-Platform-Availability)
     - [Compute Availability](#Compute-Availability)
+  - [Scalability &amp; Performance](#Scalability--Performance)
+    - [App Performance](#App-Performance)
+    - [Data Size/Growth](#Data-SizeGrowth)
   - [Deployment &amp; Testing](#Deployment--Testing)
     - [Testing &amp; Validation](#Testing--Validation)
   - [Capacity Planning](#Capacity-Planning)
     - [Usage Prediction](#Usage-Prediction)
     - [Service SKU](#Service-SKU)
-    - [Data](#Data)
   - [Performance Testing](#Performance-Testing)
     - [Resource Planning](#Resource-Planning)
     - [Tooling](#Tooling)
@@ -123,10 +125,6 @@
 
 
 
-* How does your application have retry logic in response to a failure?
-
-
-  _When your application encounters an exception or given component (service) of your application fails, the application needs to handle the failure/exception gracefully and log the exception in order to mitigate the problem in the future._
 ## Application Platform Availability
     
 ### Compute Availability
@@ -150,6 +148,24 @@
 
       _When planning for scale and efficiency, it is important that regions are not only paired, but homogenous in their service offerings. Additionally, you should make sure that, if one region fails, the second region can scale appropriately to sufficiently handle the influx of additional user requests._
 
+## Scalability &amp; Performance
+    
+### App Performance
+            
+* Does the application logic handle exceptions and errors using resiliency patterns?
+
+
+  _Programming paradigms such as retry patterns, request timeouts, and circuit breaker patterns can improve application resiliency by automatically recovering from transient faults([Error handling for resilient applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design-error-handling))_
+### Data Size/Growth
+            
+* Do you know the growth rate of your data?
+
+
+  _Your solution might work great in the first week or month, but what happens when data just keeps increasing? Will the solution slow down, or will it even break at a particular threshold? Planning for data growth, data retention, and archiving is essential in capacity planning. Without adequately planning capacity for your datastores, performance will be negatively affected._
+* Are target data sizes and associated growth rates calculated per scenario or service?
+
+
+  _Scale limits and recovery options should be assessed in the context of target data sizes and growth rates to ensure suitable capacity exists_
 ## Deployment &amp; Testing
     
 ### Testing &amp; Validation
@@ -206,12 +222,6 @@ Stress Testing : *Stress testing is a type of negative testing which involves va
 
 
   _Limitless scale requires dedicated design and one of the important design considerations is the limits and quotas of Azure subscriptions. Some services are almost limitless, others require more planning. Some services have 'soft' limits that can be increased by contacting support._
-### Data
-            
-* Do you know the growth rate of your data?
-
-
-  _Your solution might work great in the first week or month, but what happens when data just keeps increasing? Will the solution slow down, or will it even break at a particular threshold? Planning for data growth, data retention, and archiving is essential in capacity planning. Without adequately planning capacity for your datastores, performance will be negatively affected._
 ## Performance Testing
     
 ### Resource Planning

@@ -16,6 +16,8 @@
     - [Data Interpretation &amp; Health Modelling](#Data-Interpretation--Health-Modelling)
     - [Dashboarding](#Dashboarding)
     - [Alerting](#Alerting)
+  - [Scalability &amp; Performance](#Scalability--Performance)
+    - [Data Size/Growth](#Data-SizeGrowth)
   - [Security &amp; Compliance](#Security--Compliance)
     - [Identity and Access](#Identity-and-Access)
     - [Security Center](#Security-Center)
@@ -460,6 +462,22 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
   _Subscription notification emails can contain important service notifications or security alerts([Azure account contact information](https://docs.microsoft.com/azure/cost-management-billing/manage/change-azure-account-profile#service-and-marketing-emails))._
   > Subscription notification emails can contain important service notifications or security alerts([Azure account contact information](https://docs.microsoft.com/azure/cost-management-billing/manage/change-azure-account-profile#service-and-marketing-emails)). Thus, it is important that those notifications are received and routed to the relevant technical stakeholders.
+## Scalability &amp; Performance
+    
+### Data Size/Growth
+            
+* Do you know the growth rate of your data?
+
+
+  _Your solution might work great in the first week or month, but what happens when data just keeps increasing? Will the solution slow down, or will it even break at a particular threshold? Planning for data growth, data retention, and archiving is essential in capacity planning. Without adequately planning capacity for your datastores, performance will be negatively affected._
+* Are target data sizes and associated growth rates calculated per scenario or service?
+
+
+  _Scale limits and recovery options should be assessed in the context of target data sizes and growth rates to ensure suitable capacity exists_
+* Are there any mitigation plans defined in case data size exceeds limits?
+
+
+  _Mitigation plans such as purging or archiving data can help the application to remain available in scenarios where data size exceeds expected limits_
 ## Security &amp; Compliance
     
 ### Identity and Access
