@@ -6,6 +6,14 @@
     - [Design](#Design)
     - [Design Patterns](#Design-Patterns)
     - [Transactional](#Transactional)
+  - [Health Modelling &amp; Monitoring](#Health-Modelling--Monitoring)
+    - [Logging](#Logging)
+    - [Performance Targets](#Performance-Targets)
+    - [Dependencies](#Dependencies)
+    - [Modelling](#Modelling)
+  - [Capacity &amp; Service Availability](#Capacity--Service-Availability)
+    - [Usage Prediction](#Usage-Prediction)
+    - [Service SKU](#Service-SKU)
   - [Application Platform Availability](#Application-Platform-Availability)
     - [Compute Availability](#Compute-Availability)
   - [Scalability &amp; Performance](#Scalability--Performance)
@@ -13,9 +21,6 @@
     - [Data Size/Growth](#Data-SizeGrowth)
   - [Deployment &amp; Testing](#Deployment--Testing)
     - [Testing &amp; Validation](#Testing--Validation)
-  - [Capacity Planning](#Capacity-Planning)
-    - [Usage Prediction](#Usage-Prediction)
-    - [Service SKU](#Service-SKU)
   - [Performance Testing](#Performance-Testing)
     - [Resource Planning](#Resource-Planning)
     - [Tooling](#Tooling)
@@ -27,11 +32,6 @@
     - [Design Efficiency](#Design-Efficiency)
     - [DevOps](#DevOps)
     - [Data](#Data)
-  - [Monitoring](#Monitoring)
-    - [Logging](#Logging)
-    - [Performance Targets](#Performance-Targets)
-    - [Dependencies](#Dependencies)
-    - [Modelling](#Modelling)
   - [Troubleshooting](#Troubleshooting)
     - [Data](#Data)
     - [Process](#Process)
@@ -125,6 +125,122 @@
 
 
 
+## Health Modelling &amp; Monitoring
+    
+### Logging
+            
+* Do you have detailed instrumentation in the application code?
+
+
+  _Instrumentation of your code allows precise detection of underperforming pieces when load or stress tests are applied. It is critical to have this data available to improve and identify performance opportunities in the application code. Application Performance Monitoring (APM) tools, such as Application Insights, should be used to manage the performance and availability of the application, along with aggregating application level logs and events for subsequent interpretation._
+* Are application logs collected from different application environments?
+
+
+  _Application logs and events should be collected across all major environments to support the end-to-end application lifecycle. Furthermore, corresponding log entries across the application should capture a correlation ID for their respective transactions._
+* Are application events correlated across all application components?
+
+
+  _Event correlation between the layers of the application will provide the ability to connect tracing data of the complete application stack. Once this connection is made, you can see a complete picture of where time is spent at each layer. This will typically mean having a tool that can query the repositories of tracing data in correlation to a unique identifier that represents a given transaction that has flowed through the system.<br /><br />Log events coming from different application components or different component tiers of the application should be correlated to build end-to-end transaction flows. For instance, this is often achieved by using consistent correlation IDs transferred between components within a transaction._
+* Are log messages captured in a structured format?
+
+
+  _Application events should be captured as a structured data type with machine-readable data points rather than unstructured string types. Structured data can easily be indexed and searched, and reporting can be greatly simplified._
+* Which log aggregation technology is used to collect logs and metrics from Azure resources?
+
+
+  _Log aggregation technologies, such as Azure Log Analytics or Splunk, should be used to collate logs and metrics across all application components for subsequent evaluation. Resources may include Azure IaaS and PaaS services as well as 3rd-party appliances such as firewalls and Anti-Malware solutions used in the application. For instance, if Azure Event Hub is used, the Diagnostics Settings should be configured to push logs and metrics to the data sink._
+* Are you collecting Azure Activity Logs within the log aggregation tool?
+
+
+  _Azure Activity Logs provide audit information about when an Azure resource is modified, such as when a virtual machine is started or stopped. Such information is extremely useful for the interpretation and troubleshooting of issues as it provides transparency around configuration changes that can be mapped to adverse performance events._
+* Is resource-level monitoring enforced throughout the application?
+
+
+  _All application resources should be configured to route diagnostic logs and metrics to the chosen log aggregation technology. Azure Policy should also be used as a device to ensure the consistent use of diagnostic settings across the application, to enforce the desired configuration for each Azure service._
+* Are logs and metrics available for critical internal dependencies?
+
+
+  _To be able to build a robust application health model, it is vital that visibility into the operational state of critical, internal dependencies, such as a shared network virtual appliance (NVA) or Express Route connection, be achieved._
+* Are application- and resource-level logs aggregated in a single data sink, or is it possible to cross-query events at both levels?
+
+
+  _To build a robust application health model, it is vital that application- and resource-level data be correlated and evaluated together to optimize the detection of issues and the troubleshooting of those detected issues._
+    - Are application level events automatically correlated with performance metrics to quantify the current application state?
+
+
+      _The overall performance can be impacted by both application-level issues as well as resource-level failures. This can also help to distinguish between transient and non-transient faults._
+
+    - Is the transaction flow data used to generate application/service maps?
+
+
+      _An Application Map can help you identify performance bottlenecks of failure hotspots across components of a distributed application._
+
+* Have retention times for logs and metrics been defined and with housekeeping mechanisms configured?
+
+
+  _Clear retention times should be defined to allow for suitable, historic analysis, but also control storage costs. Suitable housekeeping tasks should also be used to archive data to cheaper storage or aggregate data for long-term trend analysis._
+### Performance Targets
+            
+* Is it possible to evaluate critical application performance targets and non-functional requirements (NFRs)?
+
+
+  _Application-level metrics should include end-to-end transaction times of key technical functions, such as database queries, response times for external API calls, failure rates or processing steps, etc._
+* Is the end-to-end performance of critical system flows monitored?
+
+
+  _It should be possible to correlate application log events across critical system flows, such as user logins, to fully assess the health of key scenarios in the context of targets and non-functional requirements (NFRs)._
+### Dependencies
+            
+* Are critical external dependencies monitored?
+
+
+  _Critical, external dependencies, such as an API service, should be monitored to ensure operational visibility of performance. For instance, a probe could be used to measure the latency of an external API._
+### Modelling
+            
+* Is a health model used to qualify what 'healthy' and 'unhealthy' states represent for the application?
+
+
+  _A holistic application health model should be used to quantify what &quot;healthy&quot; and &quot;unhealthy&quot; states represent across all application components. It is highly recommended that a &quot;traffic light&quot; model be used to indicate green/healthy state when key, non-functional requirements and targets are fully satisfied and resources are optimally utilized (e.g. 95% of requests are processed in <= 500ms with AKS node utilization at x%, etc.)._
+    - Are critical system flows used to inform the health model?
+
+
+      _The health model should be able to surface the respective health of critical system flows or key subsystems to ensure appropriate operational prioritization is applied. For example, the health model should be able to represent the current state of the user login transaction flow._
+
+    - Can the health model determine if the application is performing at expected performance targets?
+
+
+      _The health model should have the ability to evaluate application performance as a part of the application's overall health state._
+
+* Are long-term trends analyzed to predict performance issues before they occur?
+
+
+  _Analytics can and should be performed across long-term operational data to help inform on the history of application performance and detect if there have been any regressions. For instance, if the average response times have been slowly increasing over time and getting closer to maximum target._
+## Capacity &amp; Service Availability
+    
+### Usage Prediction
+            
+* Will your application be exposed to yearly or monthly heavy, peak loads?
+
+
+  _Major events like Black Friday, Singles Day, End-of-month reporting or marketing pushes can create abnormal load on your application and require additional resources. Understanding the upticks in demand can help you proactively scale so that customers/users experience little to no performance degradation._
+    - Are you able to reasonably predict when these peaks will occur?
+
+
+
+    - Are you able to accurately predict the amount of load your application will experience during these peaks?
+
+
+
+### Service SKU
+            
+* Do you know your scale limits and what is most likely to be your bottleneck?
+
+
+  _An application is made up of many different components, services, and frameworks within both infrastructure and application code. The design and choices in each area will incur unique limits and scale options. Knowing how your application behaves under different kinds of load allows you to be better prepared. It can also help you recognize which individual services to scale, if necessary, versus scaling your entire infrastructure. This can help increase performance efficiency without sacrificing costs._
+* Is the required peak capacity aligned with the subscription quotas and limits?
+
+
+  _Limitless scale requires dedicated design and one of the important design considerations is the limits and quotas of Azure subscriptions. Some services are almost limitless, others require more planning. Some services have 'soft' limits that can be increased by contacting support._
 ## Application Platform Availability
     
 ### Compute Availability
@@ -196,32 +312,6 @@ Stress Testing : *Stress testing is a type of negative testing which involves va
 
       _It is a common "chaos monkey" practice to verify the effectiveness of operational procedures using artificial faults. For example, taking dependencies offline (stopping API apps, shutting down VMs, etc.), restricting access (enabling firewall rules, changing connection strings, etc.) or forcing failover (database level, Front Door, etc.) is a good way to validate that the application is able to handle faults gracefully_
 
-## Capacity Planning
-    
-### Usage Prediction
-            
-* Will your application be exposed to yearly or monthly heavy, peak loads?
-
-
-  _Major events like Black Friday, Singles Day, End-of-month reporting or marketing pushes can create abnormal load on your application and require additional resources. Understanding the upticks in demand can help you proactively scale so that customers/users experience little to no performance degradation._
-    - Are you able to reasonably predict when these peaks will occur?
-
-
-
-    - Are you able to accurately predict the amount of load your application will experience during these peaks?
-
-
-
-### Service SKU
-            
-* Do you know your scale limits and what is most likely to be your bottleneck?
-
-
-  _An application is made up of many different components, services, and frameworks within both infrastructure and application code. The design and choices in each area will incur unique limits and scale options. Knowing how your application behaves under different kinds of load allows you to be better prepared. It can also help you recognize which individual services to scale, if necessary, versus scaling your entire infrastructure. This can help increase performance efficiency without sacrificing costs._
-* Is the required peak capacity aligned with the subscription quotas and limits?
-
-
-  _Limitless scale requires dedicated design and one of the important design considerations is the limits and quotas of Azure subscriptions. Some services are almost limitless, others require more planning. Some services have 'soft' limits that can be increased by contacting support._
 ## Performance Testing
     
 ### Resource Planning
@@ -455,96 +545,6 @@ Stress Testing : *Stress testing is a type of negative testing which involves va
 
       _Use caching whenever possible, whether it is client-side caching, view caching, or data caching. Caching can also be configured on the browser, the server, or on an appliance in-between (e.g. Azure Frontdoor). Incorporating caching can help reduce latency and server taxation by eliminating repetitive class to microservices, APIs, and data stores._
 
-## Monitoring
-    
-### Logging
-            
-* Do you have detailed instrumentation in the application code?
-
-
-  _Instrumentation of your code allows precise detection of underperforming pieces when load or stress tests are applied. It is critical to have this data available to improve and identify performance opportunities in the application code. Application Performance Monitoring (APM) tools, such as Application Insights, should be used to manage the performance and availability of the application, along with aggregating application level logs and events for subsequent interpretation._
-* Are application logs collected from different application environments?
-
-
-  _Application logs and events should be collected across all major environments to support the end-to-end application lifecycle. Furthermore, corresponding log entries across the application should capture a correlation ID for their respective transactions._
-* Are application events correlated across all application components?
-
-
-  _Event correlation between the layers of the application will provide the ability to connect tracing data of the complete application stack. Once this connection is made, you can see a complete picture of where time is spent at each layer. This will typically mean having a tool that can query the repositories of tracing data in correlation to a unique identifier that represents a given transaction that has flowed through the system.<br /><br />Log events coming from different application components or different component tiers of the application should be correlated to build end-to-end transaction flows. For instance, this is often achieved by using consistent correlation IDs transferred between components within a transaction._
-* Are log messages captured in a structured format?
-
-
-  _Application events should be captured as a structured data type with machine-readable data points rather than unstructured string types. Structured data can easily be indexed and searched, and reporting can be greatly simplified._
-* Which log aggregation technology is used to collect logs and metrics from Azure resources?
-
-
-  _Log aggregation technologies, such as Azure Log Analytics or Splunk, should be used to collate logs and metrics across all application components for subsequent evaluation. Resources may include Azure IaaS and PaaS services as well as 3rd-party appliances such as firewalls and Anti-Malware solutions used in the application. For instance, if Azure Event Hub is used, the Diagnostics Settings should be configured to push logs and metrics to the data sink._
-* Are you collecting Azure Activity Logs within the log aggregation tool?
-
-
-  _Azure Activity Logs provide audit information about when an Azure resource is modified, such as when a virtual machine is started or stopped. Such information is extremely useful for the interpretation and troubleshooting of issues as it provides transparency around configuration changes that can be mapped to adverse performance events._
-* Is resource-level monitoring enforced throughout the application?
-
-
-  _All application resources should be configured to route diagnostic logs and metrics to the chosen log aggregation technology. Azure Policy should also be used as a device to ensure the consistent use of diagnostic settings across the application, to enforce the desired configuration for each Azure service._
-* Are logs and metrics available for critical internal dependencies?
-
-
-  _To be able to build a robust application health model, it is vital that visibility into the operational state of critical, internal dependencies, such as a shared network virtual appliance (NVA) or Express Route connection, be achieved._
-* Are application- and resource-level logs aggregated in a single data sink, or is it possible to cross-query events at both levels?
-
-
-  _To build a robust application health model, it is vital that application- and resource-level data be correlated and evaluated together to optimize the detection of issues and the troubleshooting of those detected issues._
-    - Are application level events automatically correlated with performance metrics to quantify the current application state?
-
-
-      _The overall performance can be impacted by both application-level issues as well as resource-level failures. This can also help to distinguish between transient and non-transient faults._
-
-    - Is the transaction flow data used to generate application/service maps?
-
-
-      _An Application Map can help you identify performance bottlenecks of failure hotspots across components of a distributed application._
-
-* Have retention times for logs and metrics been defined and with housekeeping mechanisms configured?
-
-
-  _Clear retention times should be defined to allow for suitable, historic analysis, but also control storage costs. Suitable housekeeping tasks should also be used to archive data to cheaper storage or aggregate data for long-term trend analysis._
-### Performance Targets
-            
-* Is it possible to evaluate critical application performance targets and non-functional requirements (NFRs)?
-
-
-  _Application-level metrics should include end-to-end transaction times of key technical functions, such as database queries, response times for external API calls, failure rates or processing steps, etc._
-* Is the end-to-end performance of critical system flows monitored?
-
-
-  _It should be possible to correlate application log events across critical system flows, such as user logins, to fully assess the health of key scenarios in the context of targets and non-functional requirements (NFRs)._
-### Dependencies
-            
-* Are critical external dependencies monitored?
-
-
-  _Critical, external dependencies, such as an API service, should be monitored to ensure operational visibility of performance. For instance, a probe could be used to measure the latency of an external API._
-### Modelling
-            
-* Is a health model used to qualify what 'healthy' and 'unhealthy' states represent for the application?
-
-
-  _A holistic application health model should be used to quantify what &quot;healthy&quot; and &quot;unhealthy&quot; states represent across all application components. It is highly recommended that a &quot;traffic light&quot; model be used to indicate green/healthy state when key, non-functional requirements and targets are fully satisfied and resources are optimally utilized (e.g. 95% of requests are processed in <= 500ms with AKS node utilization at x%, etc.)._
-    - Are critical system flows used to inform the health model?
-
-
-      _The health model should be able to surface the respective health of critical system flows or key subsystems to ensure appropriate operational prioritization is applied. For example, the health model should be able to represent the current state of the user login transaction flow._
-
-    - Can the health model determine if the application is performing at expected performance targets?
-
-
-      _The health model should have the ability to evaluate application performance as a part of the application's overall health state._
-
-* Are long-term trends analyzed to predict performance issues before they occur?
-
-
-  _Analytics can and should be performed across long-term operational data to help inform on the history of application performance and detect if there have been any regressions. For instance, if the average response times have been slowly increasing over time and getting closer to maximum target._
 ## Troubleshooting
     
 ### Data
