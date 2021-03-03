@@ -1673,7 +1673,7 @@
     "lens": "application",
     "category": "Application Design",
     "subCategory": "Design",
-    "title": "Does the workload support multi-region deployments?",
+    "title": "Is the workload deployed across multiple regions?",
     "context": "Multiple regions should be used for failover purposes in a disaster state, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active strategies. Additional cost needs to be taken into consideration - mostly from compute, data and networking perspectivce, but also services like Azure Site Recovery (ASR). ([Failover strategies](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones))",
     "recommendation": "",
     "id": "application_design_multiregion_deployments"
