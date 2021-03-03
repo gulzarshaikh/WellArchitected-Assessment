@@ -5727,7 +5727,7 @@
       "performanceefficiency"
     ],
     "lens": "application",
-    "category": "MonitHealth Modelling & Monitoringoring",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Logging",
     "title": "Are application- and resource-level logs aggregated in a single data sink, or is it possible to cross-query events at both levels?",
     "context": "To build a robust application health model, it is vital that application- and resource-level data be correlated and evaluated together to optimize the detection of issues and the troubleshooting of those detected issues.",
