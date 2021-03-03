@@ -5020,33 +5020,21 @@
     "title": "Will your application be exposed to yearly or monthly heavy, peak loads?",
     "context": "Major events like Black Friday, Singles Day, End-of-month reporting or marketing pushes can create abnormal load on your application and require additional resources. Understanding the upticks in demand can help you proactively scale so that customers/users experience little to no performance degradation.",
     "recommendation": "",
-    "id": ""
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "performanceefficiency"
-    ],
-    "lens": "application",
-    "category": "Capacity Planning",
-    "subCategory": "Usage Prediction",
-    "title": "Are you able to reasonably predict when these peaks will occur?",
-    "context": "",
-    "recommendation": "",
-    "id": ""
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "performanceefficiency"
-    ],
-    "lens": "application",
-    "category": "Capacity Planning",
-    "subCategory": "Usage Prediction",
-    "title": "Are you able to accurately predict the amount of load your application will experience during these peaks?",
-    "context": "",
-    "recommendation": "",
-    "id": ""
+    "id": "",
+    "children": [
+      {
+        "title": "Are you able to reasonably predict when these peaks will occur?",
+        "context": "",
+        "recommendation": "",
+        "id": ""
+      },
+      {
+        "title": "Are you able to accurately predict the amount of load your application will experience during these peaks?",
+        "context": "",
+        "recommendation": "",
+        "id": ""
+      }
+    ]
   },
   {
     "type": "Questions",
