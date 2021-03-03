@@ -2314,7 +2314,8 @@
   {
     "type": "Questions",
     "pillars": [
-      "reliability"
+      "reliability",
+      "performanceefficiency"
     ],
     "lens": "application",
     "category": "Scalability & Performance",
@@ -2340,7 +2341,24 @@
   {
     "type": "Questions",
     "pillars": [
-      "reliability"
+      "reliability",
+      "performanceefficiency",
+      "operationalexcellence"
+    ],
+    "lens": "application",
+    "category": "Scalability & Performance",
+    "subCategory": "Data Size/Growth",
+    "title": "Do you know the growth rate of your data?",
+    "context": "Your solution might work great in the first week or month, but what happens when data just keeps increasing? Will the solution slow down, or will it even break at a particular threshold? Planning for data growth, data retention, and archiving is essential in capacity planning. Without adequately planning capacity for your datastores, performance will be negatively affected.",
+    "recommendation": "",
+    "id": ""
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "reliability",
+      "performanceefficiency",
+      "operationalexcellence"
     ],
     "lens": "application",
     "category": "Scalability & Performance",
@@ -2353,7 +2371,8 @@
   {
     "type": "Questions",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "application",
     "category": "Scalability & Performance",
@@ -4986,19 +5005,6 @@
       "performanceefficiency"
     ],
     "lens": "application",
-    "category": "Application Design",
-    "subCategory": "Transactional",
-    "title": "How does your application have retry logic in response to a failure?",
-    "context": "When your application encounters an exception or given component (service) of your application fails, the application needs to handle the failure/exception gracefully and log the exception in order to mitigate the problem in the future.",
-    "recommendation": "",
-    "id": ""
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "performanceefficiency"
-    ],
-    "lens": "application",
     "category": "Capacity Planning",
     "subCategory": "Usage Prediction",
     "title": "Will your application be exposed to yearly or monthly heavy, peak loads?",
@@ -5043,19 +5049,6 @@
     "subCategory": "Service SKU",
     "title": "Is the required peak capacity aligned with the subscription quotas and limits?",
     "context": "Limitless scale requires dedicated design and one of the important design considerations is the limits and quotas of Azure subscriptions. Some services are almost limitless, others require more planning. Some services have 'soft' limits that can be increased by contacting support.",
-    "recommendation": "",
-    "id": ""
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "performanceefficiency"
-    ],
-    "lens": "application",
-    "category": "Capacity Planning",
-    "subCategory": "Data",
-    "title": "Do you know the growth rate of your data?",
-    "context": "Your solution might work great in the first week or month, but what happens when data just keeps increasing? Will the solution slow down, or will it even break at a particular threshold? Planning for data growth, data retention, and archiving is essential in capacity planning. Without adequately planning capacity for your datastores, performance will be negatively affected.",
     "recommendation": "",
     "id": ""
   },
