@@ -448,14 +448,16 @@
 
 
   _To build a robust application health model, it is vital that application- and resource-level data be correlated and evaluated together to optimize the detection of issues and the troubleshooting of those detected issues._
-* Are application level events automatically correlated with performance metrics to quantify the current application state?
+    - Are application level events automatically correlated with performance metrics to quantify the current application state?
 
 
-  _The overall performance can be impacted by both application-level issues as well as resource-level failures. This can also help to distinguish between transient and non-transient faults._
-* Is the transaction flow data used to generate application/service maps?
+      _The overall performance can be impacted by both application-level issues as well as resource-level failures. This can also help to distinguish between transient and non-transient faults._
+
+    - Is the transaction flow data used to generate application/service maps?
 
 
-  _An Application Map can help you identify performance bottlenecks of failure hotspots across components of a distributed application._
+      _An Application Map can help you identify performance bottlenecks of failure hotspots across components of a distributed application._
+
 * Have retention times for logs and metrics been defined and with housekeeping mechanisms configured?
 
 
@@ -482,14 +484,16 @@
 
 
   _A holistic application health model should be used to quantify what &quot;healthy&quot; and &quot;unhealthy&quot; states represent across all application components. It is highly recommended that a &quot;traffic light&quot; model be used to indicate green/healthy state when key, non-functional requirements and targets are fully satisfied and resources are optimally utilized (e.g. 95% of requests are processed in <= 500ms with AKS node utilization at x%, etc.)._
-* Are critical system flows used to inform the health model?
+    - Are critical system flows used to inform the health model?
 
 
-  _The health model should be able to surface the respective health of critical system flows or key subsystems to ensure appropriate operational prioritization is applied. For example, the health model should be able to represent the current state of the user login transaction flow._
-* Can the health model determine if the application is performing at expected performance targets?
+      _The health model should be able to surface the respective health of critical system flows or key subsystems to ensure appropriate operational prioritization is applied. For example, the health model should be able to represent the current state of the user login transaction flow._
+
+    - Can the health model determine if the application is performing at expected performance targets?
 
 
-  _The health model should have the ability to evaluate application performance as a part of the application's overall health state._
+      _The health model should have the ability to evaluate application performance as a part of the application's overall health state._
+
 * Are long-term trends analyzed to predict performance issues before they occur?
 
 
@@ -508,20 +512,24 @@
 
 
   _If the application has very high CPU or memory utilization, then consider scaling the application either horizontal or vertical. Scaling horizontal to more compute resources will spread the load across more machines. This will, however, increase the network complexity as there will be more machines to support the system. Scaling the application vertical to a larger machine this is optimized for higher CPU or memory workloads may also be considered. Profiling the application code can be useful to find code structures that may be sub-optimal and replace them with better-optimized code. These decisions are a balance of several factors that can include cost, system complexity, and time to implement._
-* Have you identified the length of time it takes before CPU or memory increases?
+    - Have you identified the length of time it takes before CPU or memory increases?
 
 
-* How long does it take for system resources to return to &quot;normal?&quot;
+
+    - How long does it take for system resources to return to &amp;quot;normal?&amp;quot;
+
 
 
 * Does the application response times increase while not using all the CPU or memory allocated to the system regardless of the load?
 
 
   _When the system response times increase without any increase in the CPU or memory, this is an indicator that there is a resource that is time-blocked. This can mean many things such as thread sleep, connection wait, message queueing, etc. The list can go on. The bottom line is there is something that is consuming time but not compute resources. Try to locate these issues with tracing data that can deliver time spans for each layer of the application architecture that is correlated to an application transaction._
-* Have you identified the length of time it takes before response times increase?
+    - Have you identified the length of time it takes before response times increase?
 
 
-* How long does it take for response times to return to &quot;normal?&quot;
+
+    - How long does it take for response times to return to &amp;quot;normal?&amp;quot;
+
 
 
 * Do you profile the application code with any profiling tools?
