@@ -90,7 +90,8 @@
     "title": "Are availability targets such as Service Level Agreements (SLAs), Service Level Indicators (SLIs), and Service Level Objectives (SLOs) defined for the application and/or key scenarios?",
     "context": "Understanding customer availability expectations is vital to reviewing overall operations for the application. For instance, if a customer is striving to achieve an application SLO of 99.999%, the level of inherent operational actionality required by the application is going to far greater than if an SLO of 99.9% was the aspiration",
     "recommendation": {
-      "title": "Having clearly defined availability targets is crucial in order to have a goal to work and measure against. This will also determine which services an application can leverage vs. those which do not qualify in terms of the SLA they offer.",
+      "title": "Define availability targets (SLA, SLI, SLO)",
+      "context": "Having clearly defined availability targets is crucial in order to have a goal to work and measure against. This will also determine which services an application can leverage vs. those which do not qualify in terms of the SLA they offer.",
       "links": [
         {
           "title": "availability targets",
@@ -99,6 +100,7 @@
       ]
     },
     "statement": "Availability targets such as Service Level Agreements (SLAs) and Service Level Objectives (SLOs).",
+    "id": "app_design_availabilitytargets",
     "children": [
       {
         "title": "Are SLAs/SLOs/SLIs for all leveraged dependencies understood?",
@@ -119,7 +121,8 @@
         "title": "Has a composite SLA been calculated for the application and/or key scenarios using Azure SLAs?",
         "context": "A composite SLA captures the end-to-end SLA across all application components and dependencies. It is calculated using the individual SLAs of Azure services housing application components and provides an important indicator of designed availability in relation to customer expectations and targets([Composite SLAs](https://docs.microsoft.com/azure/architecture/framework/resiliency/business-metrics#understand-service-level-agreements))",
         "recommendation": {
-          "title": "Make sure the composite SLA of all components and dependencies on the critical paths are understood.",
+          "title": "Calculate composite SLA",
+          "context": "Make sure the composite SLA of all components and dependencies on the critical paths are understood.",
           "links": [
             {
               "title": "Composite SLAs",
@@ -140,7 +143,8 @@
         "title": "Are these availability targets monitored and measured?",
         "context": "Monitoring and measuring application availability is vital to qualifying overall application health and progress towards defined targets.",
         "recommendation": {
-          "title": "Make sure you measure and monitor key targets such as\n- **Mean Time Between Failures (MTBF)**: The average time between failures of a particular component\n- **Mean Time Between Failures (MTBF)**: The average time between failures of a particular component",
+          "title": "Measure key availability targets",
+          "context": "Make sure you measure and monitor key targets such as\n- **Mean Time Between Failures (MTBF)**: The average time between failures of a particular component\n- **Mean Time Between Failures (MTBF)**: The average time between failures of a particular component",
           "links": [
             {
               "title": "",
@@ -157,8 +161,7 @@
         "recommendation": "It should be fully understood what are the consequences if availability targets are not satisfied. This will also inform when to initiate a failover case.",
         "id": "app_design_targets_notsatisfied"
       }
-    ],
-    "id": "app_design_availabilitytargets"
+    ]
   },
   {
     "type": "Questions",
@@ -172,7 +175,8 @@
     "title": "Are recovery targets such as Recovery Time Objective (RTO) and Recovery Point Objective (RPO) defined for the application and/or key scenarios?",
     "context": "Understanding customer reliability expectations is vital to reviewing the overall reliability of the application. For instance, if a customer is striving to achieve an application RTO of less than a minute then back-up based and active-passive disaster recovery strategies are unlikely to be appropriate \nRecovery time objective (RTO): The maximum acceptable time the application is unavailable after a disaster incident \nRecovery point objective (RPO): The maximum duration of data loss that is acceptable during a disaster event",
     "recommendation": {
-      "title": "Recovery targets should be defined in accordance to the required RTO and RPO targets for the workloads.",
+      "title": "Define recovery targets (RTO, RPO)",
+      "context": "Recovery targets should be defined in accordance to the required RTO and RPO targets for the workload.",
       "links": [
         {
           "title": "recovery targets",
