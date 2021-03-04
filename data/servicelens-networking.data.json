@@ -1,0 +1,1296 @@
+[
+  {
+    "type": "Design Considerations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Azure Firewall",
+    "title": "When deployed to a single Availability Zone, Azure Firewall provides a [99.95% SLA](https://azure.microsoft.com/en-us/support/legal/sla/azure-firewall/v1_1/).",
+    "recommendation": "",
+    "id": "networking_3822"
+  },
+  {
+    "type": "Design Considerations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Azure Firewall",
+    "title": "When deployed to two or more Availability Zones, Azure Firewall provides a [99.99% SLA](https://azure.microsoft.com/en-us/support/legal/sla/azure-firewall/v1_1/)",
+    "recommendation": "",
+    "id": "networking_2134"
+  },
+  {
+    "type": "Design Considerations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Azure Firewall",
+    "title": "Use Azure Firewall to govern:",
+    "recommendation": "",
+    "id": "networking_9186",
+    "children": [
+      {
+        "title": "Azure outbound traffic to the internet",
+        "recommendation": "",
+        "id": "networking_9502"
+      },
+      {
+        "title": "Non-HTTP/S inbound connections",
+        "recommendation": "",
+        "id": "networking_1852"
+      },
+      {
+        "title": "East-west traffic filtering (if required by customer)",
+        "recommendation": "",
+        "id": "networking_4124"
+      }
+    ]
+  },
+  {
+    "type": "Design Considerations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Azure Firewall",
+    "title": "Use Firewall Manager with Azure Virtual WAN to deploy and manage Azure Firewalls across Azure Virtual WAN Hubs, or in Hub VNets.",
+    "recommendation": "",
+    "id": "networking_7361"
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Azure Firewall",
+    "title": "Create a global Azure Firewall policy to govern security posture across the global network environment and assign it to all Azure Firewalls.",
+    "recommendation": "",
+    "id": "networking_9805",
+    "context": "Allow for granular policies to meet requirements of specific regions by delegating incremental Firewall Policies to local security teams via RBAC."
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Azure Firewall",
+    "title": "Configure supported 3rd party SaaS security providers within Firewall Manager if the customer wishes to use such solutions to protect outbound connections.",
+    "recommendation": "",
+    "id": "networking_4498"
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Network Virtual Appliances (NVA)",
+    "title": "If 3rd party NVAs are required for east-west and/or south-north traffic protection/filtering:",
+    "recommendation": "",
+    "id": "networking_1701",
+    "children": [
+      {
+        "title": "For VWAN network topologies, deploy the NVAs to a separate VNet (i.e. NVA VNet) and connect it to the regional Virtual WAN Hub as well as to the \"Landing Zones\" that require access to NVAs as described in this [article](https://docs.microsoft.com/en-us/azure/virtual-wan/virtual-wan-route-table-portal).",
+        "recommendation": "",
+        "id": "networking_2636"
+      },
+      {
+        "title": "For non-Virtual WAN network topologies, deploy the 3rd party NVAs in the central Hub VNet.",
+        "recommendation": "",
+        "id": "networking_522"
+      }
+    ]
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Network Virtual Appliances (NVA)",
+    "title": "If 3rd party NVAs are required for inbound HTTP/S connections, they should be deployed within a \"Landing Zone\" or \"solution-level\" Virtual Network, together with the applications that they are protecting and exposing to the internet.",
+    "recommendation": "",
+    "id": "networking_9821"
+  },
+  {
+    "type": "Design Considerations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Network Connectivity",
+    "title": "Azure native network security services such as Azure Firewall, Application Gateway, and Azure Front Door are fully managed services, meaning that customers do not incur the operational and management costs associated with infrastructure deployments, which can become complex at scale.",
+    "recommendation": "",
+    "id": "networking_1814"
+  },
+  {
+    "type": "Design Considerations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Network Connectivity",
+    "title": "Azure PaaS services are typically accessed over public endpoints, however, the Azure platform provides capabilities to secure such endpoints or even make them entirely private.",
+    "recommendation": "",
+    "id": "networking_9064"
+  },
+  {
+    "type": "Design Considerations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Network Connectivity",
+    "title": "Azure provides three models for private network connectivity: VNet injection, VNet Service Endpoints and Private Link:",
+    "recommendation": "",
+    "id": "networking_9752",
+    "children": [
+      {
+        "title": "VNet injection applies to services that are deployed specifically for you, such as AKS nodes, SQL Managed Instance, Virtual Machines. These resources connect directly to your virtual network.",
+        "recommendation": "",
+        "id": "networking_3281"
+      },
+      {
+        "title": "[Virtual Network (VNet) service endpoints](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview) provide secure and direct connectivity to Azure services over an optimized route over the Azure backbone network.",
+        "recommendation": "",
+        "id": "networking_2694",
+        "context": "Service Endpoints enable private IP addresses in the VNet to reach the endpoint of an Azure service without needing a public IP address on the VNet."
+      },
+      {
+        "title": "[Private Link](https://docs.microsoft.com/en-us/azure/private-link/private-endpoint-overview#private-link-resource) provides dedicated access using private IP addresses to Azure PaaS instances, or custom services behind an Azure Load Balancer Standard.",
+        "recommendation": "",
+        "id": "networking_6663"
+      },
+      {
+        "title": "Use Private Link, where available, for shared Azure PaaS services. Private Link is generally available for several services and is in public preview for numerous ones.",
+        "recommendation": "",
+        "id": "networking_8865"
+      },
+      {
+        "title": "Access Azure PaaS services from on-premises via ExpressRoute private peering.",
+        "recommendation": "",
+        "id": "networking_1863",
+        "context": "Use either virtual network injection for dedicated Azure services or Azure Private Link for available shared Azure services. To access Azure PaaS services from on-premises when virtual network injection or Private Link isn't available, use ExpressRoute with Microsoft peering. This method avoids transiting over the public internet."
+      },
+      {
+        "title": "Use virtual network service endpoints to secure access to Azure PaaS services from within your virtual network, but only when Private Link isn't available and there are no data exfiltration concerns.",
+        "recommendation": "",
+        "id": "networking_209"
+      },
+      {
+        "title": "Service Endpoints do not allow a PaaS service to be accessed from on-premises networks. Private Endpoints do.",
+        "recommendation": "",
+        "id": "networking_2652"
+      },
+      {
+        "title": "To address data exfiltration concerns with service endpoints, use NVA filtering or use virtual network service endpoint policies for Azure Storage.",
+        "recommendation": "",
+        "id": "networking_1191"
+      }
+    ]
+  },
+
+  {
+    "type": "Design Considerations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Network Connectivity",
+    "title": "3rd party NVAs may also be used, should the customer prefer to use NVAs or for situations where native services do not satisfy specific customer requirements.",
+    "recommendation": "",
+    "id": "networking_7683"
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Network Connectivity",
+    "title": "Don't enable virtual network service endpoints by default on all subnets.",
+    "recommendation": "",
+    "id": "networking_6809"
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Network Connectivity",
+    "title": "Don't use virtual network service endpoints when there are data exfiltration concerns, unless you use NVA filtering.",
+    "recommendation": "",
+    "id": "networking_5342"
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Network Connectivity",
+    "title": "We don't recommend that you implement forced tunneling to enable communication from Azure to Azure resources.",
+    "recommendation": "",
+    "id": "networking_899"
+  },
+  {
+    "type": "Design Considerations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Azure Virtual Networks",
+    "title": "Overlapping IP address spaces across on-premises and Azure regions will create major contention challenges.",
+    "recommendation": "",
+    "id": "networking_3252"
+  },
+  {
+    "type": "Design Considerations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Azure Virtual Networks",
+    "title": "While Virtual Network address space can be added after creation, this process will require an outage if the Virtual Network is already connected to another Virtual Network via peering, since the Virtual Network peering will have to be deleted and re-created.",
+    "recommendation": "",
+    "id": "networking_490",
+    "context": "(Note: Modification of address space on peered vnets was announced at Ignite in sept 2020, but no timelines provided. Check the status before discussing with customer.)"
+  },
+  {
+    "type": "Design Considerations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Azure Virtual Networks",
+    "title": "Azure reserves 5 IP addresses within each subnet which should be factored in when sizing Virtual Networks and encompassed subnets.",
+    "recommendation": "",
+    "id": "networking_7027"
+  },
+  {
+    "type": "Design Considerations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Azure Virtual Networks",
+    "title": "Some Azure services do require [dedicated subnets](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-for-azure-services#services-that-can-be-deployed-into-a-virtual-network), such as Azure Firewall, Azure Bastion or Virtual Network Gateway.",
+    "recommendation": "",
+    "id": "networking_4156"
+  },
+  {
+    "type": "Design Considerations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Azure Virtual Networks",
+    "title": "Subnets can be delegated to certain services to create instances of that service within the subnet.",
+    "recommendation": "",
+    "id": "networking_3065"
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Azure Virtual Networks",
+    "title": "Use Azure DDoS Standard Protection Plans to protect all public endpoints hosted within customer Virtual Networks.",
+    "recommendation": "",
+    "id": "networking_1633"
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Azure Virtual Networks",
+    "title": "Do not replicate on-premises DMZ concepts and architectures into Azure.",
+    "recommendation": "",
+    "id": "networking_2195",
+    "context": "Customers can get similar security capabilities in Azure as on-premises, but the implementation and architecture will need to be adapted to the cloud."
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Azure Virtual Networks",
+    "title": "Azure PaaS services that have been injected into a Virtual Network still perform management plane operations using public IP addresses. Ensure that this communication is locked down within the Virtual Network using UDRs and NSGs.",
+    "recommendation": "",
+    "id": "networking_4837"
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Azure Virtual Networks",
+    "title": "Access Azure PaaS services from on-premises via ExpressRoute Private Peering, using either VNet injection for dedicated Azure services or Azure Private Link for available shared Azure services.",
+    "recommendation": "",
+    "id": "networking_6463",
+    "children": [
+      {
+        "title": "To access Azure PaaS services from on-premises networks when VNet injection or Private Link are not available, use ExpressRoute with Microsoft Peering when there are no data exfiltration concerns. This would avoid transit over the public internet.",
+        "recommendation": "",
+        "id": "networking_4826"
+      }
+    ]
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Azure Virtual Networks",
+    "title": "Use VNet Service Endpoints to secure access to Azure PaaS services from within a customer VNet, but only when Private Link is not available and when there are no data exfiltration concerns. To address data exfiltration concerns with Service Endpoints:",
+    "recommendation": "",
+    "id": "networking_2646",
+    "children": [
+      {
+        "title": "Use NVA filtering.",
+        "recommendation": "",
+        "id": "networking_1402"
+      },
+      {
+        "title": "Use VNet Service Endpoint Policies for Azure Storage.",
+        "recommendation": "",
+        "id": "networking_2492"
+      }
+    ]
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Azure Virtual Networks",
+    "title": "Do not enable VNet Service Endpoints by default on all subnets.",
+    "recommendation": "",
+    "id": "networking_3505"
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Azure Virtual Networks",
+    "title": "Do not use VNet Service Endpoints when there are data exfiltration concerns, unless NVA filtering is used.",
+    "recommendation": "",
+    "id": "networking_4580"
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Azure Virtual Networks",
+    "title": "It is strongly recommended to not implement forced tunneling to enable communication from Azure to Azure resources.",
+    "recommendation": "",
+    "id": "networking_9219"
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Azure Virtual Networks",
+    "title": "It is vital that enterprise customers plan for IP addressing in Azure to ensure there is no overlapping IP address space across considered on-premises locations and Azure regions.",
+    "recommendation": "",
+    "id": "networking_5257",
+    "children": [
+      {
+        "title": "Plan for non-overlapping IP address spaces across Azure regions and on-premises locations well in advance.",
+        "recommendation": "",
+        "id": "networking_2743"
+      },
+      {
+        "title": "Use IP addresses from the address allocation for private internets (RFC 1918).",
+        "recommendation": "",
+        "id": "networking_3984"
+      },
+      {
+        "title": "For environments with limited private IP addresses (RFC 1918) availability, consider using IPv6.",
+        "recommendation": "",
+        "id": "networking_4561"
+      },
+      {
+        "title": "Do not create unnecessarily large Virtual Networks (for example: /16) to ensure there is no unnecessary wastage of IP address space.",
+        "recommendation": "",
+        "id": "networking_2720"
+      },
+      {
+        "title": "Do not create Virtual Networks without planning the required address space in advance, since adding address space will cause an outage once a Virtual Network is connected via Virtual Network Peering.",
+        "recommendation": "",
+        "id": "networking_1576"
+      },
+      {
+        "title": "Do not use public IP addresses for Virtual Networks, especially if the public IP addresses do not belong to the customer.",
+        "recommendation": "",
+        "id": "networking_1561"
+      }
+    ]
+  },
+  {
+    "type": "Design Considerations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "ExpressRoute",
+    "title": "Azure ExpressRoute provides dedicated private connectivity to Microsoft services such as Azure and Office 365 from on-premises locations.",
+    "recommendation": "",
+    "id": "networking_7057"
+  },
+  {
+    "type": "Design Considerations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "ExpressRoute",
+    "title": "Private Link can be used to establish connectivity to PaaS services over ExpressRoute with Private Peering.",
+    "recommendation": "",
+    "id": "networking_4305"
+  },
+  {
+    "type": "Design Considerations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "ExpressRoute",
+    "title": "When multiple virtual networks are connected to the same ExpressRoute circuit, they will become part of the same routing domain and all virtual networks will share the bandwidth.",
+    "recommendation": "",
+    "id": "networking_2840"
+  },
+  {
+    "type": "Design Considerations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "ExpressRoute",
+    "title": "ExpressRoute Global Reach (where available) allows customers to connect on-premises locations together using ExpressRoute circuits to transit traffic over the Microsoft backbone network.",
+    "recommendation": "",
+    "id": "networking_7908"
+  },
+  {
+    "type": "Design Considerations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "ExpressRoute",
+    "title": "ExpressRoute Global Reach is available in many ExpressRoute peering [locations](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-global-reach#availability).",
+    "recommendation": "",
+    "id": "networking_8343"
+  },
+  {
+    "type": "Design Considerations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "ExpressRoute",
+    "title": "ExpressRoute Direct allows to create multiple ExpressRoute circuits at no additional cost, up to the ExpressRoute Direct port capacity (10G or 100G and allows you to connect directly to Microsoft's ExpressRoute routers).",
+    "recommendation": "",
+    "id": "networking_5427",
+    "children": [
+      {
+        "title": "For the 100 Gbps SKU, the minimum circuit bandwidth is 5 Gbps.",
+        "recommendation": "",
+        "id": "networking_6646"
+      },
+      {
+        "title": "For the 10 Gbps SKU, the minimum circuit bandwidth is 1 Gbps.",
+        "recommendation": "",
+        "id": "networking_2656"
+      }
+    ]
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "ExpressRoute",
+    "title": "Use ExpressRoute as the primary connectivity channel for connecting on-premises network to Microsoft Azure.",
+    "recommendation": "",
+    "id": "networking_4137",
+    "children": [
+      {
+        "title": "VPNs can be used as a source of backup connectivity to enhance connectivity resiliency.",
+        "recommendation": "",
+        "id": "networking_3235"
+      }
+    ]
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "ExpressRoute",
+    "title": "Use dual ExpressRoute circuits from different peering locations when connecting an on-premises location to Virtual Networks in Azure. This setup will ensure redundant paths to Azure, removing single points of failure between on-premises and Azure.",
+    "recommendation": "",
+    "id": "networking_1282"
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "ExpressRoute",
+    "title": "When multiple ExpressRoute circuits are used, [optimize routing](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-optimize-routing) by using BGP local preference and AS Path prepending.",
+    "recommendation": "",
+    "id": "networking_7830"
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "ExpressRoute",
+    "title": "Ensure the right SKU is used for the ExpressRoute/VPN Gateways based on bandwidth and performance requirements.",
+    "recommendation": "",
+    "id": "networking_6080"
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "ExpressRoute",
+    "title": "Deploy a Zone Redundant ExpressRoute Gateway in the supported Azure regions.",
+    "recommendation": "",
+    "id": "networking_3038"
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "ExpressRoute",
+    "title": "For scenarios that require bandwidth higher than 10Gbps or dedicated 10/100 Gbps ports, use ExpressRoute Direct.",
+    "recommendation": "",
+    "id": "networking_6618"
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "ExpressRoute",
+    "title": "When very low latency is required, or throughput from on-premises to Azure must be greater than 10 Gbps, enable FastPath to bypass the ExpressRoute Gateway from the data path.",
+    "recommendation": "",
+    "id": "networking_8994"
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "ExpressRoute",
+    "title": "Use VPN Gateways to connect branches or remote locations to Azure.",
+    "recommendation": "",
+    "id": "networking_5096",
+    "children": [
+      {
+        "title": "For higher resiliency, deploy Zone-Redundant Gateways (where available).",
+        "recommendation": "",
+        "id": "networking_3032"
+      }
+    ]
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "ExpressRoute",
+    "title": "Use ExpressRoute Global Reach to connect large offices /regional headquarters/datacenter that are connected to Azure via ExpressRoute.",
+    "recommendation": "",
+    "id": "networking_9352"
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "ExpressRoute",
+    "title": "When traffic isolation or dedicated bandwidth is required, such as for separating production and non-production environments, different ExpressRoute circuits should be used to ensure isolated routing domains and to mitigate noisy neighbour risks.",
+    "recommendation": "",
+    "id": "networking_4446"
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "ExpressRoute",
+    "title": "Proactively monitor ExpressRoute circuits using Network Performance Monitor.",
+    "recommendation": "",
+    "id": "networking_1739"
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "ExpressRoute",
+    "title": "Do not explicitly use ExpressRoute circuits from a single peering location as it creates a single point of failure, making the customer likely susceptible to peering location outages.",
+    "recommendation": "",
+    "id": "networking_5352"
+  },
+  {
+    "type": "Design Considerations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Application Delivery (General)",
+    "title": "Azure Load Balancer (internal and public) provides high availability for application delivery at a regional level. (Standard tier only)",
+    "recommendation": "",
+    "id": "networking_9126"
+  },
+  {
+    "type": "Design Considerations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Application Delivery (General)",
+    "title": "Azure Application Gateway allows the secure delivery of HTTP/S applications at a regional level.",
+    "recommendation": "",
+    "id": "networking_4593"
+  },
+  {
+    "type": "Design Considerations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Application Delivery (General)",
+    "title": "Azure Front Door allows the secure, delivery of highly available HTTP/S applications across Azure regions.",
+    "recommendation": "",
+    "id": "networking_3642"
+  },
+  {
+    "type": "Design Considerations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Application Delivery (General)",
+    "title": "Azure Traffic manager allows the delivery of applications through DNS redirection, including traffic using protocols other than HTTP/S).",
+    "recommendation": "",
+    "id": "networking_5332"
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Application Delivery (General)",
+    "title": "Application delivery for both internal and external facing applications should be part of the application. It should not be centrally managed within an organization.",
+    "recommendation": "",
+    "id": "networking_7817"
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Application Delivery (General)",
+    "title": "For secure delivery of HTTP/S applications, ensure Web Application Firewall (WAF) protection/policies are enabled. This can be done in either Application Gateway or Front Door.",
+    "recommendation": "",
+    "id": "networking_8058"
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Application Delivery (General)",
+    "title": "Use a 3rd party Network Virtual Appliance (NVA) if Application Gateway v2 cannot be used for the security of HTTP/S applications.",
+    "recommendation": "",
+    "id": "networking_569"
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Application Delivery (General)",
+    "title": "Application Gateway v2 or 3rd party NVAs used for inbound HTTP/S connections, should be deployed  in the Virtual Network together with the applications that they are securing. It should not be managed centrally within the organization and shared with other workloads.",
+    "recommendation": "",
+    "id": "networking_2014"
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Application Delivery (General)",
+    "title": "All public IP addresses in a the solution should be protected with a DDoS Standard protection plan.",
+    "recommendation": "",
+    "id": "networking_3573"
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Application Delivery (General)",
+    "title": "Global HTTP/S applications that span Azure regions should be delivered and protected using Azure Front Door with Web Application Firewall (WAF) policies.",
+    "recommendation": "",
+    "id": "networking_8158"
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Application Delivery (General)",
+    "title": "When using Azure Front Door and Application Gateway to protect HTTP/S applications, use WAF policies in Front Door and lock down Application Gateway to receive traffic only from Azure Front Door.",
+    "recommendation": "",
+    "id": "networking_5364",
+    "context": "While this is the general recommendation, certain scenarios might force a customer to implement rules specifically on AppGateway: For example, if ModSec CRS 2.2.9, CRS 3.0 or CRS 3.1 rules are required, this can only be implemented on AppGatway. Conversely, rate-limiting and geo-filtering are available only on Azure Front Door, not on AppGateway. Instructions on how to lock down traffic can be found [here](https://docs.microsoft.com/en-us/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door)"
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Application Delivery (General)",
+    "title": "Global applications that span protocols other than HTTP/S should be delivered using Azure Traffic Manager. Traffic manager does not forward traffic, but only performs DNS redirection. This means that the connection from the client is established directly to the target using any protocol.",
+    "recommendation": "",
+    "id": "networking_1793"
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Application Delivery (General)",
+    "title": "When doing global loadbalancing for HTTP/S applications, Front Door is preferred over Traffic Manager. This is because, amongst others:",
+    "recommendation": "",
+    "id": "networking_3742",
+    "children": [
+      {
+        "title": "Azure Front Door optimizes the number of TCP connections to the backend when forwarding traffic",
+        "recommendation": "",
+        "id": "networking_8092"
+      },
+      {
+        "title": "Changes to the routing configuration, e.g. based on backend health, are instantaneous. With Traffic Manager, traffic will point to the original backend until a new DNS lookup is performed, plus potential time for DNS propagation.",
+        "recommendation": "",
+        "id": "networking_8381"
+      },
+      {
+        "title": "Front Door supports caching on global edge nodes, negating the need for a separate CDN service",
+        "recommendation": "",
+        "id": "networking_3137"
+      },
+      {
+        "title": "Front Door supports Web Application Firewall rules, negating the need for a separate WAF service",
+        "recommendation": "",
+        "id": "networking_864"
+      }
+    ]
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Application Delivery (General)",
+    "title": "Enable health probes for backends.",
+    "recommendation": "",
+    "id": "networking_5465",
+    "context": "Health probes are http(s) endpoints that are queried by the load balancer (Azure Front Door, Traffic Manager, AppGateway) service to determine if the backend is healthy enough to handle requests."
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Application Delivery (General)",
+    "title": "Create a separate health endpoint on the backend to be used by the health probe, that can aggregate the state of the critical services and dependencies needed to serve requests.",
+    "recommendation": "",
+    "id": "networking_7120",
+    "context": "More information on creating such an endpoint can be found [here](https://docs.microsoft.com/en-us/azure/architecture/patterns/health-endpoint-monitoring)."
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Azure Application Gateway v2",
+    "title": "In new deployments, use Application Gateway v2 unless there is a compelling reason to use v1.",
+    "recommendation": "",
+    "id": "networking_8111"
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Azure Application Gateway v2",
+    "title": "Deploy at least two AppGateway v2 instances to increase availability",
+    "recommendation": "",
+    "id": "networking_8172"
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Azure Application Gateway v2",
+    "title": "Deploy the instances in a [zone-aware configuration](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-autoscaling-zone-redundant), where available.",
+    "recommendation": "",
+    "id": "networking_6888"
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Azure Application Gateway v2",
+    "title": "Use Application Gateway with Web Application Firewall (WAF) within an application Virtual Network for protecting inbound HTTP/S traffic from the internet.",
+    "recommendation": "",
+    "id": "networking_117"
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Azure Application Gateway v2",
+    "title": "When using Azure Front Door and Application Gateway to protect HTTP/S applications, use WAF policies in Front Door and lock down Application Gateway to receive traffic only from Azure Front Door.",
+    "recommendation": "",
+    "id": "networking_6215",
+    "context": "While this is the general recommendation, certain scenarios might force a customer to implement rules specifically on AppGateway: For example, if ModSec CRS 2.2.9, CRS 3.0 or CRS 3.1 rules are required, this can only be implemented on AppGatway. Conversely, rate-limiting and geo-filtering are available only on Azure Front Door, not on AppGateway."
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Azure Front Door",
+    "title": "Use Azure Front Door WAF policies to provide global protection across Azure regions for inbound HTTP/S connections to a \"Landing Zone\".",
+    "recommendation": "",
+    "id": "networking_4367"
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Azure Front Door",
+    "title": "When using Azure Front Door and Application Gateway to protect HTTP/S applications, use WAF policies in Front Door and lock down Application Gateway to receive traffic only from Azure Front Door.",
+    "recommendation": "",
+    "id": "networking_9105",
+    "context": "While this is the general recommendation, certain scenarios might force a customer to implement rules specifically on AppGateway: For example, if ModSec CRS 2.2.9, CRS 3.0 or CRS 3.1 rules are required, this can only be implemented on AppGatway. Conversely, rate-limiting and geo-filtering are available only on Azure Front Door, not on AppGateway. Instructions on how to lock down traffic can be found [here](https://docs.microsoft.com/en-us/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door)"
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Azure Front Door",
+    "title": "Create a rule to block access to the health endpoint from the Internet",
+    "recommendation": "",
+    "id": "networking_9641"
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Azure Front Door",
+    "title": "Front Door currently does not support SSL passthrough, this means Front Door must hold the certificate to terminate the encrypted inbound connection. Ensure that the connection to the back-end is re-encrypted.",
+    "recommendation": "",
+    "id": "networking_8792"
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Azure Loadbalancer",
+    "title": "For production workloads, use the Standard SKU. Basic loadbalancers do not have an SLA. Additionally, the Standard SKU [supports Availability Zones](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-standard-availability-zones).",
+    "recommendation": "",
+    "id": "networking_2314"
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Traffic Manager",
+    "title": "When a backend becomes unavailable, Traffic Manager will not fail over to another region immediately. There will be a time interval where clients cannot be served. The length of this interval depends on",
+    "recommendation": "",
+    "id": "networking_4443",
+    "children": [
+      {
+        "title": "The time settings of the health probe (probe interval and the number and the number of unhealthy responses allowed)",
+        "recommendation": "",
+        "id": "networking_8641"
+      },
+      {
+        "title": "The TTL of the DNS record. By default this is 5 minutes. If this time interval is too long, consider adjusting the health probe timing or DNS record TTL. If the resulting interval is still too large for the scenario at hand, consider switching to Azure Front Door for global loadbalancing.",
+        "recommendation": "",
+        "id": "networking_4473"
+      }
+    ]
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "API Management",
+    "title": "[Secure the communication](https://docs.microsoft.com/en-us/azure/api-management/api-management-faq#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services) between API Management and your backend.",
+    "recommendation": "",
+    "id": "networking_7064"
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "API Management",
+    "title": "When exposing APIs to third parties, ensure that",
+    "recommendation": "",
+    "id": "networking_4433",
+    "children": [
+      {
+        "title": "Each party has its own credential",
+        "recommendation": "",
+        "id": "networking_7054"
+      },
+      {
+        "title": "Quotas and rate limits have been set",
+        "recommendation": "",
+        "id": "networking_5024"
+      }
+    ]
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+        "costoptimization"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Network Connectivity",
+    "title": "Select SKU for service so that it does the job required and that allows the customer to grow as the workload evolves.",
+    "children": 
+    [
+        {
+            "title": "**Load balancer**: 2 SKUs (Basic – free and Standard – paid). We recommend Standard because it has richer capabilities (outbound rules, granular network security config, monitoring, etc.), provides SLA and can be deployed in Availability Zones. Capabilities in Basic are limited.",
+            "id": "networking_efficient_skus_1"
+        },
+        {
+            "title": "**App Gateway**: Basic or V2.",
+            "id": "networking_efficient_skus_2"
+        },
+        {
+            "title": "**Gateways**: limit throughput, performance, etc.",
+            "id": "networking_efficient_skus_3"
+        },
+        {
+            "title": "**DDoS Standard**: Depending on the workload and usage patterns, Standard can provide useful protection. Otherwise you can use the Basic (i.e. for small customers).",
+            "id": "networking_efficient_skus_4"
+        }
+    ],
+    "id": "networking_efficient_skus"
+  },
+  {
+    "type": "Design Considerations",
+    "pillars": [
+        "costoptimization"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Network Virtual Appliances (NVA)",
+    "title": "There's a difference between using a third party app (NVA) an Azure native service (Firewall or Application Gateway).",
+    "children": 
+    [
+        {
+            "title": "With managed PaaS services such as Azure Firewall or Application Gateway, Microsoft handles the management of the service and the underlying infrastructure. Using NVAs, which usually have to be deployed on VMs (IaaS), the customer has to handle the management operations (such as patching and updating) of that VM and the appliance on top. Managing 3rd party services also usually mean using specific vendor tools - integration can become difficult.",
+            "id": "networking_cost_nva_1"
+        },
+        {
+            "title": "Some of the costs for networking services are not obvious for customers.",
+            "id": "networking_cost_nva_2"
+        }
+    ],
+    "id": "networking_cost_nva"
+  },
+  {
+    "type": "Design Considerations",
+    "pillars": [
+        "costoptimization"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "Network Connectivity",
+    "title": "Running cost of services (services are metered – pay for service itself and consumption on service)",
+    "children": 
+    [
+        {
+            "title": "VNet Peering Cost – consider the consequences of putting all resources in a single VNet to save costs, because it also prevents the infrastructure from growing. The VNet can eventually reach a point where new resources don't fit anymore.",
+            "id": "networking_metered_cost_1"
+        },
+        {
+            "title": "For 2 VNets that are peered and private endpoint is used – only the private endpoint access is billed and not VNet peering cost.",
+            "id": "networking_metered_cost_2"
+        },
+        {
+            "title": "Azure Firewall is also metered (pay for instance and for usage) – the same applies to load balancers.",
+            "id": "networking_metered_cost_3"
+        }
+    ],
+    "id": "networking_metered_cost"
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+        "costoptimization"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "IP Addresses",
+    "title": "PIPs (Public IPs) are free until used. Static PIPs are paid even when not assigned to resources.",
+    "context": "There's a difference in billing for regular and static public IP addresses. There should be a process to look for orphan network interface cards (NICs) and PIPs that are not being used in production and non-production.",
+    "id": "networking_cost_orphan_nic"
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+        "costoptimization"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "API Management",
+    "title": "Consider which features are needed all the time.",
+    "context": "Consider switching between Basic, Standard and Premium tiers. If a workload does not need features available in higher tier then consider switching to a lower tier. As an example, a workload may need just 1GB of cache during off-peak period compared to 5GB of cache during peak period. Costs associated with such a workload can be significantly reduced by switching from Premium to Standard tier during off-peak period and back to Premium tier during peak period. This process can be automated as a job using [Set-AzApiManagement](https://docs.microsoft.com/en-us/powershell/module/az.apimanagement/set-azapimanagement?view=azps-5.4.0) cmdlet. Refer to [documentation](https://azure.microsoft.com/pricing/details/api-management/) on features available in different APIM tiers.",
+    "id": "networking_cost_api_managed_right_size"
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+        "costoptimization"
+    ],
+    "lens": "service",
+    "category": "Networking",
+    "subCategory": "API Management",
+    "title": "Configure autoscaling where appropriate.",
+    "context": "Consider scaling up or down API Management instance to control costs. API Management can be [configured](https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale) with Autoscale based on a either a metric or a specific count. APIM costs depend upon no. of units which determines throughput in requests per seconds (RPS). An auto-scaled APIM instance switches between scale units appropriate for RPS numbers during a specific time window. Auto-scaling helps in achieving balance between cost optimization and performance.",
+    "id": "networking_cost_api_use_autoscaling"
+  }
+]

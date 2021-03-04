@@ -8,6 +8,8 @@ This list contains design considerations and recommended configuration options, 
 
   - [Compute](#Compute)
     - [Azure Kubernetes Service (AKS)](#Azure-Kubernetes-Service-AKS)
+  - [Data](#Data)
+    - [Azure Databricks](#Azure-Databricks)
   - [Storage](#Storage)
     - [Storage Accounts](#Storage-Accounts)
 # Compute
@@ -31,21 +33,55 @@ This list contains design considerations and recommended configuration options, 
                             
   - Use [Pod Identities](https://docs.microsoft.com/azure/aks/operator-best-practices-identity#use-pod-identities) and [Secrets Store CSI Driver](https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage) with Azure Key Vault to protect secrets, certificates, and connection strings.
                             
-  - Ensure certificates are [rotated](https://docs.microsoft.com/azure/aks/certificate-rotation) on a regular basis (e.g. every 90 days).
-                            
-  - Regularly process Linux node security and kernel updates and reboots using [kured](https://docs.microsoft.com/azure/aks/node-updates-kured).
-                            
   - Use [Azure Security Center](https://docs.microsoft.com/azure/security-center/defender-for-kubernetes-introduction) to provide AKS recommendations.
                             
-* Ensure proper selection of Network Plug-in [Kubenet vs. Azure CNI](https://docs.microsoft.com/azure/aks/concepts-network#compare-network-models) based on network requirements and cluster sizing.
-* Use [Azure Network Policies](https://docs.microsoft.com/azure/aks/use-network-policies) or Calico to control traffic between pods. **Requires CNI Network Plug-in.**
-* Secure clusters and pods with Azure Policy
-  > [Azure Policy](https://docs.microsoft.com/azure/aks/use-pod-security-on-azure-policy) can help to apply at-scale enforcements and safeguards on your clusters in a centralized, consistent manner. It can also control what functions pods are granted and if anything is running against company policy. This access is defined through built-in policies provided by the [Azure Policy Add-on for AKS](https://docs.microsoft.com/azure/governance/policy/concepts/policy-for-kubernetes). By providing additional control over the security aspects of your pod's specification, like root privileges, enables stricter security adherence and visibility into what is deployed in your cluster. If a pod does not meet conditions specified in the policy, Azure Policy can disallow the pod to start or flag a violation.
+  - Secure clusters and pods with Azure Policy
+    > [Azure Policy](https://docs.microsoft.com/azure/aks/use-pod-security-on-azure-policy) can help to apply at-scale enforcements and safeguards on your clusters in a centralized, consistent manner. It can also control what functions pods are granted and if anything is running against company policy. This access is defined through built-in policies provided by the [Azure Policy Add-on for AKS](https://docs.microsoft.com/azure/governance/policy/concepts/policy-for-kubernetes). By providing additional control over the security aspects of your pod's specification, like root privileges, enables stricter security adherence and visibility into what is deployed in your cluster. If a pod does not meet conditions specified in the policy, Azure Policy can disallow the pod to start or flag a violation.
+                                
                             
-* Utlize a central monitoring tool (eg. - [Azure Monitor and App Insights](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview)) to centrally collect metrics, logs, and diagnostics for troubleshooting purposes.
+* Ensure proper selection of network plugin based on network requirements and cluster sizing.
+  > Azure CNI is required for specific scenarios like for example Windows-based node pools, specific networking requirements and Kubernetes Network Policies. See [Kubenet vs. Azure CNI](https://docs.microsoft.com/azure/aks/concepts-network#compare-network-models) for more information.
+                            
+* Use [Azure Network Policies](https://docs.microsoft.com/azure/aks/use-network-policies) or Calico to control traffic between pods. **Requires CNI Network Plug-in.**
+* Utilize a central monitoring tool (eg. - [Azure Monitor and App Insights](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview)) to centrally collect metrics, logs, and diagnostics for troubleshooting purposes.
   - Enable and review [Kubernetes master node logs](https://docs.microsoft.com/azure/aks/view-master-logs).
                             
+  - Configure scraping of Prometheus metrics with Azure Monitor for containers
+    > Azure Monitor for containers provides a seamless onboarding experience to collect Prometheus metrics. See [Configure scraping of Prometheus metrics with Azure Monitor for containers](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-prometheus-integration) for more.
+                                
+                            
 * Define [Pod resource requests and limits](https://docs.microsoft.com/azure/aks/developer-best-practices-resource-management#define-pod-resource-requests-and-limits) in application deployment manifests.
+# Data
+        
+## Azure Databricks
+### Design Considerations
+* All users&#39; notebooks and notebook results are encrypted at rest by default. If additional requirements are in place, consider using [customer-managed keys for notebooks](https://docs.microsoft.com/azure/databricks/security/keys/customer-managed-key-notebook).
+### Configuration Recommendations
+* Isolate your workspaces, compute and data from public access. Make sure that only the right people have access and only via secure channels.
+  - Ensure that the cloud workspaces for your analytics are only accessible by properly [managed users](https://docs.microsoft.com/azure/databricks/administration-guide/users-groups/). Azure Active Directory can handle single sign-on for remote access. For additional security, see [Conditional Access](https://docs.microsoft.com/azure/databricks/administration-guide/access-control/conditional-access).
+                            
+  - Implement Azure Private Link and ensure that all traffic between users of your platform,the notebooks and the compute clusters that process queries is encrypted and transmitted over the cloud provider’s network backbone, inaccessible to the outside world.
+                            
+  - Restrict and monitor your virtual machines. Clusters which execute queries should have SSH and network access restricted to prevent installation of arbitrary packages and should use only images that are periodically scanned for vulnerabilities.
+                            
+  - Use Dynamic IP access lists to allow admins to access workspaces only from their corporate networks.
+                            
+* Use the [VNet injection](https://docs.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject) functionality to enable more secure scenarios, such as:
+  - Connecting to other Azure services using service endpoints.
+                            
+  - Connecting to on-premises data sources, taking advantage of user-defined routes.
+                            
+  - Connecting to a network virtual appliance to inspect all outbound traffic and take actions according to allow and deny rules.
+                            
+  - Using custom DNS.
+                            
+  - Deploying Azure Databricks clusters in existing virtual networks.
+                            
+* Use [diagnostic logs](https://docs.microsoft.com/azure/databricks/administration-guide/account-settings/azure-diagnostic-logs) to audit workspace access and permissions. Use audit logs to see privileged activity in a workspace, cluster resizing, files/folders shared on the cluster etc.
+* Consider using the [Secure cluster connectivity](https://docs.microsoft.com/azure/databricks/security/secure-cluster-connectivity) feature and [hub/spoke architecture](https://databricks.com/blog/2020/03/27/data-exfiltration-protection-with-azure-databricks.html) to prevent opening ports and assigning public IP addresses on cluster nodes.
+* Use Azure Active Directory [credential passthrough](https://docs.microsoft.com/azure/databricks/security/credential-passthrough/adls-passthrough) to avoid the need for service principals when communicating with Azure Data Lake Storage.
+### Supporting Source Artifacts
+* Databricks blog: [Best practices to secure an enterprise-scale data platform](https://databricks.com/blog/2020/03/16/security-that-unblocks.html)
 # Storage
         
 ## Storage Accounts

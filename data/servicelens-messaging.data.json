@@ -87,6 +87,102 @@
     "title": "Monitor EventGrid for failed event delivery. The 'Delivery Failed' metric will increase every time a message cannot be delivered to an event handler (timeout or a non 200-204 HTTP status code). Additionally, if an event must not be lost, set up a Dead-Letter-Queue (DLQ) storage account. This is where events that cannot be delivered after the maximum retry count will be placed. Optionally, implement a notification system on the DLQ storage account, e.g. by handling a 'new file' event through Event Grid."
   },
   {
+    "type": "Supporting Source Artifacts",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Messaging",
+    "subCategory": "Event Grid",
+    "title": "Determine Input Schema type for all available Event Grid Domains:",
+    "code": "Resources \n| where type == 'microsoft.eventgrid/domains'\n| project name, resourceGroup, location, subscriptionId, properties['inputSchema']\n"
+  },
+  {
+    "type": "Supporting Source Artifacts",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Messaging",
+    "subCategory": "Event Grid",
+    "title": "Identify Public Network Access status for all available Event Grid Domains:",
+    "code": "Resources \n| where type == 'microsoft.eventgrid/domains' \n| project name, resourceGroup, location, subscriptionId, properties['publicNetworkAccess']\n"
+  },
+  {
+    "type": "Supporting Source Artifacts",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Messaging",
+    "subCategory": "Event Grid",
+    "title": "Identify Firewall Rules for all public Event Grid Domains:",
+    "code": "Resources \n| where type == 'microsoft.eventgrid/domains' and properties['publicNetworkAccess'] == 'Enabled'\n| project name, resourceGroup, location, subscriptionId, properties['inboundIpRules']\n"
+  },
+  {
+    "type": "Supporting Source Artifacts",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Messaging",
+    "subCategory": "Event Grid",
+    "title": "Retrieve Resource ID of existent private endpoints for Event Grid Domains:",
+    "code": "Resources \n| where type == 'microsoft.eventgrid/domains' and notnull(properties['privateEndpointConnections']) \n| mvexpand properties['privateEndpointConnections'] \n| project-rename privateEndpointConnections = properties_privateEndpointConnections \n| project name, resourceGroup, location, subscriptionId, privateEndpointConnections['properties']['privateEndpoint']['id']\n"
+  },
+  {
+    "type": "Supporting Source Artifacts",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Messaging",
+    "subCategory": "Event Grid",
+    "title": "Determine Input Schema type for all available Event Grid Topics:",
+    "code": "Resources \n| where type == 'microsoft.eventgrid/topics'\n| project name, resourceGroup, location, subscriptionId, properties['inputSchema']\n"
+  },
+  {
+    "type": "Supporting Source Artifacts",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Messaging",
+    "subCategory": "Event Grid",
+    "title": "Identify Public Network Access status for all available Event Grid Topics:",
+    "code": "Resources \n| where type == 'microsoft.eventgrid/topics' \n| project name, resourceGroup, location, subscriptionId, properties['publicNetworkAccess']\n"
+  },
+  {
+    "type": "Supporting Source Artifacts",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Messaging",
+    "subCategory": "Event Grid",
+    "title": "Identify Firewall Rules for all public Event Grid Topics:",
+    "code": "Resources \n| where type == 'microsoft.eventgrid/topics' and properties['publicNetworkAccess'] == 'Enabled'\n| project name, resourceGroup, location, subscriptionId, properties['inboundIpRules']\n"
+  },
+  {
+    "type": "Supporting Source Artifacts",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Messaging",
+    "subCategory": "Event Grid",
+    "title": "Retrieve Resource ID of existent private endpoints for Event Grid Topics:",
+    "code": "Resources \n| where type == 'microsoft.eventgrid/topics' and notnull(properties['privateEndpointConnections']) \n| mvexpand properties['privateEndpointConnections'] \n| project-rename privateEndpointConnections = properties_privateEndpointConnections \n| project name, resourceGroup, location, subscriptionId, privateEndpointConnections['properties']['privateEndpoint']['id']\n"
+  },
+  {
     "type": "Design Considerations",
     "pillars": [
       "reliability",
@@ -128,7 +224,7 @@
     "lens": "service",
     "category": "Messaging",
     "subCategory": "Event Hub",
-    "title": "As part of your solution-wide availability and disaster recovery strategy, consider enabling the EventHub geo disaster-recovery option. This will allow the creation of a secondary namespace in a different region. Note that only the active namespace receives messages at any time and that messages and events themselves are not replicated to the secondary region. ",
+    "title": "As part of your solution-wide availability and disaster recovery strategy, consider enabling the EventHub geo disaster-recovery option. This will allow the creation of a secondary namespace in a different region. Note that only the active namespace receives messages at any time and that messages and events themselves are not replicated to the secondary region.",
     "context": "Note: The RTO for the regional failover is 'up to 30 minutes'. Confirm this aligns with the requirements of the customer and fits in the broader availability strategy. If a higher RTO is required, consider implementing a client-side failover pattern too."
   },
   {
@@ -356,7 +452,7 @@
         "title": "[Paired Namespace (Active/Passive)](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-geo-dr)"
       },
       {
-        "title": "NOTE: the secondary region should be an Azure paired region. https://docs.microsoft.com/azure/best-practices-availability-paired-regions "
+        "title": "NOTE: the secondary region should preferably be an [Azure paired region](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)."
       }
     ]
   },
@@ -379,7 +475,7 @@
     "lens": "service",
     "category": "Messaging",
     "subCategory": "Service Bus",
-    "title": "Review the Service Bus performance improvements documentation https://docs.microsoft.com/azure/service-bus-messaging/service-bus-performance-improvements"
+    "title": "Review the [Best Practices for performance improvements using Service Bus Messaging](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-performance-improvements)."
   },
   {
     "type": "Configuration Recommendations",
@@ -469,7 +565,7 @@
     "lens": "service",
     "category": "Messaging",
     "subCategory": "Storage Queues",
-    "title": "Using geo-zone-redundant storage (GZRS) or read-access geo-zone-redundant storage (RA-GZRS) will provide 16 nines or durability and will protect against failover if an entire datacenter becomes unavailable. https://docs.microsoft.com/azure/storage/common/storage-redundancy "
+    "title": "Using geo-zone-redundant storage (GZRS) or read-access geo-zone-redundant storage (RA-GZRS) will provide 16 nines or durability and will protect against failover if an entire datacenter becomes unavailable. See [Azure Storage redundancy](https://docs.microsoft.com/azure/storage/common/storage-redundancy) for more information."
   },
   {
     "type": "Configuration Recommendations",

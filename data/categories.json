@@ -41,7 +41,7 @@
     ]
   },
   {
-    "title": "Health Modelling",
+    "title": "Health Modelling & Monitoring",
     "subCategories": [
       {
         "title": "Application Level Monitoring"
@@ -241,6 +241,9 @@
       },
       {
         "title": "Azure Cache for Redis"
+      },
+      {
+        "title": "Azure Databricks"
       }
     ]
   },
@@ -257,6 +260,9 @@
     "subCategories": [
       {
         "title": "Storage Accounts"
+      },
+      {
+          "title": "Disks"
       }
     ]
   },
@@ -284,6 +290,50 @@
     ]
   },
   {
+    "title": "Networking",
+    "subCategories": [
+      {
+        "title": "Azure Firewall"
+      },
+      {
+        "title": "Network Virtual Appliances (NVA)"
+      },
+      {
+        "title": "Network Connectivity"
+      },
+      {
+        "title": "Azure Virtual Networks"
+      },
+      {
+        "title": "ExpressRoute"
+      },
+      {
+        "title": "Azure DNS"
+      },
+      {
+        "title": "Application Delivery (General)"
+      },
+      {
+        "title": "Azure Application Gateway v2"
+      },
+      {
+        "title": "Azure Front Door"
+      },
+      {
+        "title": "Azure Loadbalancer"
+      },
+      {
+        "title": "Traffic Manager"
+      },
+      {
+          "title": "API Management"
+      },
+      {
+          "title": "IP Addresses"
+      }
+    ]
+  },
+  {
     "title": "Identity & Access Control",
     "subCategories": [
       {
@@ -296,5 +346,44 @@
         "title": "Authentication and authorization"
       }
     ]
+  },
+  {
+    "title": "SAP",
+    "subCategories": [
+      {
+        "title": "Design"
+      },
+      {
+        "title": "Platform support"
+      }
+    ]
+  },
+  {
+      "title": "Efficiency and Sizing",
+      "subCategories": [
+        {
+          "title": "Architecture"
+        },
+        {
+          "title": "SKUs"
+        },
+        {
+          "title": "Tools"
+        }
+      ]
+  },
+  {
+      "title": "Governance",
+      "subCategories": [
+          {
+              "title": "Financial Management & Cost Models"
+          },
+          {
+              "title": "Culture & Dynamics"
+          },
+          {
+              "title": "Licensing"
+          }
+      ]
   }
 ]
