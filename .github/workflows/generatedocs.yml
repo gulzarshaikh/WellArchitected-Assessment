@@ -3,9 +3,9 @@ name: Generate Assessment Content
 on:
   push:
     paths:
-    - '.github/workflows/generatedocs.yml'
-    - 'data/**'
-    - 'templates/**'
+      - ".github/workflows/generatedocs.yml"
+      - "data/**"
+      - "templates/**"
 
 jobs:
   HugoBuild:
@@ -16,12 +16,7 @@ jobs:
 
       - name: Set working directories
         run: |
-          # Define the names of content directories, for use in the rest of the workflow
-          #echo '::set-env name=DATADIR::data'
-          #echo '::set-env name=TEMPLATEDIR::templates'
-          #echo '::set-env name=OUTPUTDIR::assessments'
-          #echo '::set-env name=GENERATOR_ROOT::generator'
-          
+          # Define the names of content directories, for use in the rest of the workflow         
           echo 'DATADIR=data' >> $GITHUB_ENV
           echo 'TEMPLATEDIR=templates' >> $GITHUB_ENV
           echo 'OUTPUTDIR=assessments' >> $GITHUB_ENV
@@ -130,7 +125,7 @@ jobs:
           {
               Write-Host "All good! All used categories exist in the categories.json and all used types are in types.json."
           }
-      
+
       - name: Move files into the Hugo directories
         shell: pwsh
         run: |
@@ -144,7 +139,7 @@ jobs:
             # Get output names in the form of "pillar-lens" (e.g. "opex-servicelens").
             # Currently this approach is limited to one level of nesting and will not work for deeper sub-directories.
             $project =  (Split-Path $_ -Parent | Split-Path -Leaf) + "-" + (Split-Path $_ -LeafBase)  
-          
+
             Write-Output "Adding project $project to Hugo."
 
             # Each project template will be in a separate directory.
@@ -162,7 +157,7 @@ jobs:
 
       - uses: srt32/hugo-action@master
         name: Build Hugo content
-        with: 
+        with:
           # TODO: make path dynamic
           args: -s generator
 
@@ -197,11 +192,11 @@ jobs:
         run: |
           # Get outputdir from variables
           $outputdir = $env:OUTPUTDIR
-          
+
           # Set the name on the commits as it will appear in Github
           git config --global user.name 'Github Action'
           git config --global user.email 'wellarchitected@users.noreply.github.com'
-     
+
           # Everything coming from Hugo is in the output dir by now
           git add $outputdir
           git status --short
