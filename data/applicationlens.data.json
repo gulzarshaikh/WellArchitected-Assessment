@@ -106,7 +106,8 @@
         "title": "Are SLAs/SLOs/SLIs for all leveraged dependencies understood?",
         "context": "Availability targets for any dependencies leveraged by the application should be understood and ideally align with application targets",
         "recommendation": {
-          "title": "Make sure SLAs/SLOs/SLIs for all leveraged dependencies are understood",
+          "title": "Understand SLA/SLO/SLI for dependencies",
+          "context": "Make sure SLAs/SLOs/SLIs for all leveraged dependencies are understood.",
           "links": [
             {
               "title": "SLAs/SLOs/SLIs for dependencies",
