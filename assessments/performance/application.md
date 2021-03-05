@@ -158,6 +158,10 @@
 
       _The health model should have the ability to evaluate application performance as a part of the application's overall health state._
 
+* Have retention times for logs and metrics been defined and with housekeeping mechanisms configured?
+
+
+  > Clear retention times should be defined to allow for suitable historic analysis but also control storage costs. Suitable housekeeping tasks should also be used to archive data to cheaper storage or aggregate data for long-term trend analysis
 ### Logging
             
 * Do you have detailed instrumentation in the application code?
@@ -206,10 +210,6 @@
 
       _An Application Map can help you identify performance bottlenecks of failure hotspots across components of a distributed application._
 
-* Have retention times for logs and metrics been defined and with housekeeping mechanisms configured?
-
-
-  _Clear retention times should be defined to allow for suitable, historic analysis, but also control storage costs. Suitable housekeeping tasks should also be used to archive data to cheaper storage or aggregate data for long-term trend analysis._
 ### Performance Targets
             
 * Is it possible to evaluate critical application performance targets and non-functional requirements (NFRs)?
