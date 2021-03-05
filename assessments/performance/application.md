@@ -7,9 +7,11 @@
     - [Design Patterns](#Design-Patterns)
     - [Transactional](#Transactional)
   - [Health Modelling &amp; Monitoring](#Health-Modelling--Monitoring)
+    - [Application Level Monitoring](#Application-Level-Monitoring)
+    - [Resource/Infrastructure Level Monitoring](#ResourceInfrastructure-Level-Monitoring)
     - [Logging](#Logging)
-    - [Performance Targets](#Performance-Targets)
     - [Dependencies](#Dependencies)
+    - [Data Interpretation &amp; Health Modelling](#Data-Interpretation--Health-Modelling)
     - [Modelling](#Modelling)
   - [Capacity &amp; Service Availability Planning](#Capacity--Service-Availability-Planning)
     - [Usage Prediction](#Usage-Prediction)
@@ -44,11 +46,19 @@
     
 ### Design
             
+* Is the workload deployed across multiple regions?
+
+
+  _Multiple regions should be used for failover purposes in a disaster state, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active strategies. Additional cost needs to be taken into consideration - mostly from compute, data and networking perspectivce, but also services like Azure Site Recovery (ASR). ([Failover strategies](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones))_
 * Within a region is the application architecture designed to use Availability Zones?
 
 
   _[Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones) can be used to optimise application availability within a region by providing datacenter level fault tolerance. However, the application architecture must not share dependencies between zones to use them effectively. It is also important to note that Availability Zones may introduce performance and cost considerations for applications which are extremely 'chatty' across zones given the implied physical separation between each zone and inter-zone bandwidth charges. That also means that AZ can be considered to get higher SLA for lower cost. Be aware of [pricing changes](https://azure.microsoft.com/pricing/details/bandwidth/) coming to Availability Zone bandwidth starting February 2021._
   > Use Availability Zones where applicable to improve reliability and optimize costs.
+* Can the application operate with reduced functionality or degraded performance in the presence of an outage?
+
+
+  _Avoiding failure is impossible in the public cloud, and as a result applications require resilience to respond to outages and deliver reliability. The application should therefore be designed to operate even when impacted by regional, zonal, service or component failures across critical application scenarios and functionality_
 * Has a Business Continuity Disaster Recovery (BCDR) strategy been defined for the application and/or its key scenarios?
 
 
@@ -127,90 +137,100 @@
 
 ## Health Modelling &amp; Monitoring
     
+### Application Level Monitoring
+            
+* Are application events correlated across all application components?
+
+
+  _[Distributed tracing](https://docs.microsoft.com/azure/architecture/microservices/logging-monitoring#distributed-tracing) provides the ability to build and visualize end-to-end transaction flows for the application._
+  > Events coming from different application components or different component tiers of the application should be correlated to build end-to-end transaction flows. For instance, this is often achieved by using consistent correlation IDs transferred between components within a transaction.<br /><br />Event correlation between the layers of the application will provide the ability to connect tracing data of the complete application stack. Once this connection is made, you can see a complete picture of where time is spent at each layer. This will typically mean having a tool that can query the repositories of tracing data in correlation to a unique identifier that represents a given transaction that has flowed through the system.
+* Is it possible to evaluate critical application performance targets and non-functional requirements (NFRs)?
+
+
+  > Application level metrics should include end-to-end transaction times of key technical functions, such as database queries, response times for external API calls, failure rates of processing steps, etc.
+    - Is the end-to-end performance of critical system flows monitored?
+
+
+      _To fully assess the health of key scenarios in the context of targets and NFRs, application log events across critical system flows should be correlated._
+
+      > Correlate application log events across critical system flows, such as user login.
+### Resource/Infrastructure Level Monitoring
+            
+* Is resource-level monitoring enforced throughout the application?
+
+
+  _Resource- or infrastructure-level monitoring refers to the used platform services such as Azure VMs, Express Route or SQL Database. But also covers 3rd-party solutions like an NVA._
+  > All application resources should be configured to route diagnostic logs and metrics to the chosen log aggregation technology. Azure Policy should also be used as a device to ensure the consistent use of diagnostic settings across the application, to enforce the desired configuration for each Azure service.
 ### Logging
             
+* Are application logs collected from different application environments?
+
+
+  _Application logs support the end-to-end application lifecycle. Logging is essential in understanding how the application operates in various environments and what events occur and under which conditions._
+  > Application logs and events should be collected across all major environments. Sufficient degree of separation and filtering should be in place to ensure non-critical environments do not convolute production log interpretation. Furthermore, corresponding log entries across the application should capture a correlation ID for their respective transactions.
+* Are log messages captured in a structured format?
+
+
+  _Structured format, following well-known schema can help in parsing and analyzing logs._
+  > Application events should be captured as a structured data type with machine-readable data points rather than unstructured string types. Structured data can easily be indexed and searched, and reporting can be greatly simplified.
+* Which log aggregation technology is used to collect logs and metrics from Azure resources?
+
+
+  _Log aggregation technologies, such as Azure Log Analytics or Splunk, should be used to collate logs and metrics across all application components for subsequent evaluation. Resources may include Azure IaaS and PaaS services as well as 3rd-party appliances such as firewalls or anti-malware solutions used in the application. For instance, if Azure Event Hub is used, the [Diagnostic Settings](https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs) should be configured to push logs and metrics to the data sink. Understanding usage helps with right-sizing of the workload, but additional cost for logging needs to be accepted and included in the cost model._
+  > Use log aggregation technology, such as Azure Log Analytics or Splunk, to gather information across all application components.
+* Are logs and metrics available for critical internal dependencies?
+
+
+  _To be able to build a robust application health model it is vital that visibility into the operational state of critical internal dependencies, such as a shared NVA or Express Route connection, be achieved._
+  > Make sure logs and key metrics of critical components are collected and stored.
+* Are application and resource level logs aggregated in a single data sink, or is it possible to cross-query events at both levels?
+
+
+  _To build a robust application health model it is vital that application and resource level data be correlated and evaluated together to optimize the detection of issues and troubleshooting of detected issues._
+  > Implement a unified solution to aggregate and query application and resource level logs, such as Azure Log Analytics.
 * Do you have detailed instrumentation in the application code?
 
 
   _Instrumentation of your code allows precise detection of underperforming pieces when load or stress tests are applied. It is critical to have this data available to improve and identify performance opportunities in the application code. Application Performance Monitoring (APM) tools, such as Application Insights, should be used to manage the performance and availability of the application, along with aggregating application level logs and events for subsequent interpretation._
-* Are application logs collected from different application environments?
-
-
-  _Application logs and events should be collected across all major environments to support the end-to-end application lifecycle. Furthermore, corresponding log entries across the application should capture a correlation ID for their respective transactions._
-* Are application events correlated across all application components?
-
-
-  _Event correlation between the layers of the application will provide the ability to connect tracing data of the complete application stack. Once this connection is made, you can see a complete picture of where time is spent at each layer. This will typically mean having a tool that can query the repositories of tracing data in correlation to a unique identifier that represents a given transaction that has flowed through the system.<br /><br />Log events coming from different application components or different component tiers of the application should be correlated to build end-to-end transaction flows. For instance, this is often achieved by using consistent correlation IDs transferred between components within a transaction._
-* Are log messages captured in a structured format?
-
-
-  _Application events should be captured as a structured data type with machine-readable data points rather than unstructured string types. Structured data can easily be indexed and searched, and reporting can be greatly simplified._
-* Which log aggregation technology is used to collect logs and metrics from Azure resources?
-
-
-  _Log aggregation technologies, such as Azure Log Analytics or Splunk, should be used to collate logs and metrics across all application components for subsequent evaluation. Resources may include Azure IaaS and PaaS services as well as 3rd-party appliances such as firewalls and Anti-Malware solutions used in the application. For instance, if Azure Event Hub is used, the Diagnostics Settings should be configured to push logs and metrics to the data sink._
 * Are you collecting Azure Activity Logs within the log aggregation tool?
 
 
   _Azure Activity Logs provide audit information about when an Azure resource is modified, such as when a virtual machine is started or stopped. Such information is extremely useful for the interpretation and troubleshooting of issues as it provides transparency around configuration changes that can be mapped to adverse performance events._
-* Is resource-level monitoring enforced throughout the application?
-
-
-  _All application resources should be configured to route diagnostic logs and metrics to the chosen log aggregation technology. Azure Policy should also be used as a device to ensure the consistent use of diagnostic settings across the application, to enforce the desired configuration for each Azure service._
-* Are logs and metrics available for critical internal dependencies?
-
-
-  _To be able to build a robust application health model, it is vital that visibility into the operational state of critical, internal dependencies, such as a shared network virtual appliance (NVA) or Express Route connection, be achieved._
-* Are application- and resource-level logs aggregated in a single data sink, or is it possible to cross-query events at both levels?
-
-
-  _To build a robust application health model, it is vital that application- and resource-level data be correlated and evaluated together to optimize the detection of issues and the troubleshooting of those detected issues._
-    - Are application level events automatically correlated with performance metrics to quantify the current application state?
-
-
-      _The overall performance can be impacted by both application-level issues as well as resource-level failures. This can also help to distinguish between transient and non-transient faults._
-
-    - Is the transaction flow data used to generate application/service maps?
-
-
-      _An Application Map can help you identify performance bottlenecks of failure hotspots across components of a distributed application._
-
-* Have retention times for logs and metrics been defined and with housekeeping mechanisms configured?
-
-
-  _Clear retention times should be defined to allow for suitable, historic analysis, but also control storage costs. Suitable housekeeping tasks should also be used to archive data to cheaper storage or aggregate data for long-term trend analysis._
-### Performance Targets
-            
-* Is it possible to evaluate critical application performance targets and non-functional requirements (NFRs)?
-
-
-  _Application-level metrics should include end-to-end transaction times of key technical functions, such as database queries, response times for external API calls, failure rates or processing steps, etc._
-* Is the end-to-end performance of critical system flows monitored?
-
-
-  _It should be possible to correlate application log events across critical system flows, such as user logins, to fully assess the health of key scenarios in the context of targets and non-functional requirements (NFRs)._
 ### Dependencies
             
 * Are critical external dependencies monitored?
 
 
-  _Critical, external dependencies, such as an API service, should be monitored to ensure operational visibility of performance. For instance, a probe could be used to measure the latency of an external API._
-### Modelling
+  _It's common for applications to depend on other services or libraries. Despite these are external, it is still possible to monitor their health and availability using probes._
+  > Critical external dependencies, such as an API service, should be monitored to ensure operational visibility of dependency health. For instance, a probe could be used to measure the availability and latency of an external API.
+### Data Interpretation &amp; Health Modelling
             
 * Is a health model used to qualify what 'healthy' and 'unhealthy' states represent for the application?
 
 
-  _A holistic application health model should be used to quantify what &quot;healthy&quot; and &quot;unhealthy&quot; states represent across all application components. It is highly recommended that a &quot;traffic light&quot; model be used to indicate green/healthy state when key, non-functional requirements and targets are fully satisfied and resources are optimally utilized (e.g. 95% of requests are processed in <= 500ms with AKS node utilization at x%, etc.)._
+  > A holistic application health model should be used to quantify what 'healthy' and 'unhealthy' states represent across all application components. It is highly recommended that a 'traffic light' model be used to indicate a green/healthy state when key non-functional requirements and targets are fully satisfied and resources are optimally utilized, e.g. 95% of requests are processed in <= 500ms with AKS node utilization at x% etc. Once established, this health model should inform critical monitoring metrics across system components and operational sub-system composition. It is important to note that the health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state.
     - Are critical system flows used to inform the health model?
 
 
-      _The health model should be able to surface the respective health of critical system flows or key subsystems to ensure appropriate operational prioritization is applied. For example, the health model should be able to represent the current state of the user login transaction flow._
 
+      > The health model should be able to surface the respective health of critical system flows or key subsystems to ensure appropriate operational prioritization is applied. For example, the health model should be able to represent the current state of the user login transaction flow
+    - Can the health model distinguish between transient and non-transient faults?
+
+
+      _Is the health model treating all failures the same?_
+
+      > The health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state
     - Can the health model determine if the application is performing at expected performance targets?
 
 
       _The health model should have the ability to evaluate application performance as a part of the application's overall health state._
 
+* Have retention times for logs and metrics been defined and with housekeeping mechanisms configured?
+
+
+  > Clear retention times should be defined to allow for suitable historic analysis but also control storage costs. Suitable housekeeping tasks should also be used to archive data to cheaper storage or aggregate data for long-term trend analysis
+### Modelling
+            
 * Are long-term trends analyzed to predict performance issues before they occur?
 
 
@@ -271,7 +291,7 @@
 * Does the application logic handle exceptions and errors using resiliency patterns?
 
 
-  _Programming paradigms such as retry patterns, request timeouts, and circuit breaker patterns can improve application resiliency by automatically recovering from transient faults([Error handling for resilient applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design-error-handling))_
+  _Programming paradigms such as retry patterns, request timeouts, and circuit breaker patterns can improve application resiliency by automatically recovering from transient faults ([Error handling for resilient applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design-error-handling))_
 ### Data Size/Growth
             
 * Do you know the growth rate of your data?

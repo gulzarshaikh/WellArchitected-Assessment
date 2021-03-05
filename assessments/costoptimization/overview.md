@@ -18,7 +18,7 @@ This assessment has been produced to help the global CE&S community to optimize 
     - [Application Composition](./application.md#Application-Composition)
   - [Health Modelling &amp; Monitoring](./application.md#Health-Modelling--Monitoring)
     - [Application Level Monitoring](./application.md#Application-Level-Monitoring)
-    - [Resource/Infrastructure Level Monitoring](./application.md#ResourceInfrastructure-Level-Monitoring)
+    - [Logging](./application.md#Logging)
     - [Dashboarding](./application.md#Dashboarding)
     - [Alerting](./application.md#Alerting)
   - [Networking &amp; Connectivity](./application.md#Networking--Connectivity)

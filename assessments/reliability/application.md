@@ -126,7 +126,7 @@ These critical design principles are used as lenses to assess the Reliability of
 * Is the application designed to use managed services?
 
 
-  _Azure managed services provide native resiliency capabilities to support overall application reliability, and where possible platform as a service offerings should be used to leverage these capabilities([Use managed services](https://docs.microsoft.com/azure/architecture/guide/design-principles/managed-services))_
+  _Azure managed services provide native resiliency capabilities to support overall application reliability, and where possible platform as a service offerings should be used to leverage these capabilities ([Use managed services](https://docs.microsoft.com/azure/architecture/guide/design-principles/managed-services))_
 * Has the application been designed to scale-out?
 
 
@@ -158,11 +158,11 @@ These critical design principles are used as lenses to assess the Reliability of
 * Have all fault-points and fault-modes been identified?
 
 
-  _Fault-points describe the elements within an application architecture which are capable of failing, while fault-modes capture the various ways by which a fault-point may fail. To ensure an application is resilient to end-to-end failures, it is essential that all fault-points and fault-modes are understood and operationalized([Failure Mode Analysis for Azure applications](https://docs.microsoft.com/azure/architecture/resiliency/failure-mode-analysis))_
+  _Fault-points describe the elements within an application architecture which are capable of failing, while fault-modes capture the various ways by which a fault-point may fail. To ensure an application is resilient to end-to-end failures, it is essential that all fault-points and fault-modes are understood and operationalized ([Failure Mode Analysis for Azure applications](https://docs.microsoft.com/azure/architecture/resiliency/failure-mode-analysis))_
 * Have all single points of failure been eliminated?
 
 
-  _A single point of failure describes a specific fault-point which if it where to fail would bring down the entire application. Single points of failure  introduce significant risk since any failure of this component will cause an application outage([Make all things redundant](https://docs.microsoft.com/azure/architecture/guide/design-principles/redundancy))_
+  _A single point of failure describes a specific fault-point which if it where to fail would bring down the entire application. Single points of failure  introduce significant risk since any failure of this component will cause an application outage ([Make all things redundant](https://docs.microsoft.com/azure/architecture/guide/design-principles/redundancy))_
 * Have all 'singletons' been eliminated?
 
 
@@ -244,7 +244,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 * Can the application operate in the absence of its dependencies?
 
 
-  _If the application has strong dependencies which it cannot operate in the absence of, then the availability and recovery targets of these dependencies should align with that of the application itself. Effort should be taken to minimize dependencies to achieve control over application reliability([Minimize dependencies](https://docs.microsoft.com/azure/architecture/guide/design-principles/minimize-coordination))_
+  _If the application has strong dependencies which it cannot operate in the absence of, then the availability and recovery targets of these dependencies should align with that of the application itself. Effort should be taken to minimize dependencies to achieve control over application reliability ([Minimize dependencies](https://docs.microsoft.com/azure/architecture/guide/design-principles/minimize-coordination))_
 * Is the lifecycle of the application decoupled from its dependencies?
 
 
@@ -279,6 +279,11 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
       _Is the health model treating all failures the same?_
 
       > The health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state
+    - Can the health model determine if the application is performing at expected performance targets?
+
+
+      _The health model should have the ability to evaluate application performance as a part of the application's overall health state._
+
 ### Alerting
             
 * Have Azure Service Health alerts been created to respond to Service-level events?
@@ -304,7 +309,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 * Is the application instrumented to measure the customer experience?
 
 
-  _Effective instrumentation is vital to detecting and resolving performance anomalies that can impact customer experience and application availability([Monitor performance](https://docs.microsoft.com/azure/azure-monitor/app/web-monitor-performance))_
+  _Effective instrumentation is vital to detecting and resolving performance anomalies that can impact customer experience and application availability ([Monitor performance](https://docs.microsoft.com/azure/azure-monitor/app/web-monitor-performance))_
 * Is the application instrumented to track calls to dependent services?
 
 
@@ -332,11 +337,11 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 * Are Azure services available in the required regions?
 
 
-  _All Azure services and SKUs are not available within every Azure region, so it is important to understand if the selected regions for the application offer all of the required capabilities. Service availability also varies across sovereign clouds, such as China ("Mooncake") or USGov, USNat, and USSec clouds. In situations where capabilities are missing, steps should be taken to ascertain if a roadmap exists to deliver required services([Azure Products by Region](https://azure.microsoft.com/global-infrastructure/services/))._
+  _All Azure services and SKUs are not available within every Azure region, so it is important to understand if the selected regions for the application offer all of the required capabilities. Service availability also varies across sovereign clouds, such as China ("Mooncake") or USGov, USNat, and USSec clouds. In situations where capabilities are missing, steps should be taken to ascertain if a roadmap exists to deliver required services ([Azure Products by Region](https://azure.microsoft.com/global-infrastructure/services/))._
 * Are Azure Availability Zones available in the required regions?
 
 
-  _Not all regions support Availability Zones today, so when assessing the suitability of availability strategy in relation to targets it is important to confirm if targeted regions also provide zonal support. All net new Azure regions will conform to the 3 + 0 datacenter design, and where possible existing regions will expand to provide support for Availability Zones([Regions that support Availability Zones in Azure](https://docs.microsoft.com/azure/availability-zones/az-region))_
+  _Not all regions support Availability Zones today, so when assessing the suitability of availability strategy in relation to targets it is important to confirm if targeted regions also provide zonal support. All net new Azure regions will conform to the 3 + 0 datacenter design, and where possible existing regions will expand to provide support for Availability Zones ([Regions that support Availability Zones in Azure](https://docs.microsoft.com/azure/availability-zones/az-region))_
 * Are any preview services/capabilities required in production?
 
 
@@ -493,7 +498,7 @@ Public Preview : SLAs do not apply and formal support may be provided on a best-
 * Does the application logic handle exceptions and errors using resiliency patterns?
 
 
-  _Programming paradigms such as retry patterns, request timeouts, and circuit breaker patterns can improve application resiliency by automatically recovering from transient faults([Error handling for resilient applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design-error-handling))_
+  _Programming paradigms such as retry patterns, request timeouts, and circuit breaker patterns can improve application resiliency by automatically recovering from transient faults ([Error handling for resilient applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design-error-handling))_
 * Does the application require long running TCP connections?
 
 

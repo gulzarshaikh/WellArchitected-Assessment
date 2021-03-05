@@ -59,6 +59,12 @@
         "title": "Resource/Infrastructure Level Monitoring"
       },
       {
+        "title": "Logging"
+      },
+      {
+        "title": "Dependencies"
+      },
+      {
         "title": "Data Interpretation & Health Modelling"
       },
       {
@@ -74,13 +80,7 @@
         "title": "Auditing"
       },
       {
-        "title": "Logging"
-      },
-      {
         "title": "Performance Targets"
-      },
-      {
-        "title": "Dependencies"
       },
       {
         "title": "Modelling"

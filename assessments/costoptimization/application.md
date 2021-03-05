@@ -12,7 +12,7 @@
     - [Application Composition](#Application-Composition)
   - [Health Modelling &amp; Monitoring](#Health-Modelling--Monitoring)
     - [Application Level Monitoring](#Application-Level-Monitoring)
-    - [Resource/Infrastructure Level Monitoring](#ResourceInfrastructure-Level-Monitoring)
+    - [Logging](#Logging)
     - [Dashboarding](#Dashboarding)
     - [Alerting](#Alerting)
   - [Networking &amp; Connectivity](#Networking--Connectivity)
@@ -299,8 +299,8 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
 
   _In order to successfully maintain the application it's important to 'turn the lights on' and have clear visibility of important metrics both in real-time and historically._
-  > An APM technology, such as Application Insights, should be used to manage the performance and availability of the application, aggregating application level logs and events for subsequent interpretation. It should be considered what is the appropriate level of logging, because too much can incur significant costs. ([Log Analytics pricing](https://azure.microsoft.com/pricing/details/monitor/)
-### Resource/Infrastructure Level Monitoring
+  > An APM technology, such as Application Insights, should be used to manage the performance and availability of the application, aggregating application level logs and events for subsequent interpretation. It should be considered what is the appropriate level of logging, because too much can incur significant costs. ([Log Analytics pricing](https://azure.microsoft.com/pricing/details/monitor/))
+### Logging
             
 * Which log aggregation technology is used to collect logs and metrics from Azure resources?
 

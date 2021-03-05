@@ -13,9 +13,13 @@
   - [Health Modelling &amp; Monitoring](#Health-Modelling--Monitoring)
     - [Application Level Monitoring](#Application-Level-Monitoring)
     - [Resource/Infrastructure Level Monitoring](#ResourceInfrastructure-Level-Monitoring)
+    - [Logging](#Logging)
+    - [Dependencies](#Dependencies)
     - [Data Interpretation &amp; Health Modelling](#Data-Interpretation--Health-Modelling)
     - [Dashboarding](#Dashboarding)
     - [Alerting](#Alerting)
+  - [Capacity &amp; Service Availability Planning](#Capacity--Service-Availability-Planning)
+    - [Capacity](#Capacity)
   - [Scalability &amp; Performance](#Scalability--Performance)
     - [Data Size/Growth](#Data-SizeGrowth)
   - [Security &amp; Compliance](#Security--Compliance)
@@ -132,7 +136,7 @@ These critical design principles are used as lenses to assess the Operational Ex
 * Is the application designed to use managed services?
 
 
-  _Azure managed services provide native resiliency capabilities to support overall application reliability, and where possible platform as a service offerings should be used to leverage these capabilities([Use managed services](https://docs.microsoft.com/azure/architecture/guide/design-principles/managed-services))_
+  _Azure managed services provide native resiliency capabilities to support overall application reliability, and where possible platform as a service offerings should be used to leverage these capabilities ([Use managed services](https://docs.microsoft.com/azure/architecture/guide/design-principles/managed-services))_
 * Has the application been designed to scale-out?
 
 
@@ -142,6 +146,15 @@ These critical design principles are used as lenses to assess the Operational Ex
 
 
   _Understanding the subscription landscape of the application and how components are organized within or across subscriptions is important when analyzing if relevant subscription limits or quotas can be navigated_
+* Has a Business Continuity Disaster Recovery (BCDR) strategy been defined for the application and/or its key scenarios?
+
+
+  _A disaster recovery strategy should capture how the application responds to a disaster situation such as a regional outage or the loss of a critical platform service, using either a re-deployment, warm-spare active-passive, or hot-spare active-active approach. To drive cost down consider splitting application components and data into groups. For example: 1) must protect, 2) nice to protect, 3) ephemeral/can be rebuilt/lost, instead of protecting all data with the same policy._
+    - If you have a disaster recovery plan in another region, have you ensured you have the needed capacity quotas allocated?
+
+
+      _Quotas and limits typically apply at the region level and, therefore, the needed capacity should also be planned for the secondary region._
+
 ### Targets &amp; Non Functional Requirements
             
 * Are availability targets such as Service Level Agreements (SLAs), Service Level Indicators (SLIs), and Service Level Objectives (SLOs) defined for the application and/or key scenarios?
@@ -306,27 +319,12 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
 
   _In order to successfully maintain the application it's important to 'turn the lights on' and have clear visibility of important metrics both in real-time and historically._
-  > An APM technology, such as Application Insights, should be used to manage the performance and availability of the application, aggregating application level logs and events for subsequent interpretation. It should be considered what is the appropriate level of logging, because too much can incur significant costs. ([Log Analytics pricing](https://azure.microsoft.com/pricing/details/monitor/)
-* Are application logs collected from different application environments?
-
-
-  _Application logs support the end-to-end application lifecycle. Logging is essential in understanding how the application operates in various environments and what events occur and under which conditions._
-  > Application logs and events should be collected across all major environments. Sufficient degree of separation and filtering should be in place to ensure non-critical environments do not convolute production log interpretation.
-* Are log messages captured in a structured format?
-
-
-  _Structured format, following well-known schema can help in parsing and analyzing logs._
-  > Application events should ideally be captured as a structured data type with machine-readable data points which can easily be indexed and searched, rather than an unstructured string.
-* Are log levels used to capture different types of application events?
-
-
-  _Different log levels, such as INFO, WARNING, ERROR, and DEBUG can be used across environments (such as DEBUG for development environment)._
-  > Different log levels, such as INFO, WARNING, ERROR, and DEBUG should be pre-configured and applied within relevant environments. The approach to change log levels should be simple configuration change to support operational scenarios where it is necessary to elevate the log level within an environment.
+  > An APM technology, such as Application Insights, should be used to manage the performance and availability of the application, aggregating application level logs and events for subsequent interpretation. It should be considered what is the appropriate level of logging, because too much can incur significant costs. ([Log Analytics pricing](https://azure.microsoft.com/pricing/details/monitor/))
 * Are application events correlated across all application components?
 
 
   _[Distributed tracing](https://docs.microsoft.com/azure/architecture/microservices/logging-monitoring#distributed-tracing) provides the ability to build and visualize end-to-end transaction flows for the application._
-  > Log events coming from different application components or different component tiers of the application should be correlated to build end-to-end transaction flows. For instance, this is often achieved by using consistent correlation IDs transferred between components within a transaction.
+  > Events coming from different application components or different component tiers of the application should be correlated to build end-to-end transaction flows. For instance, this is often achieved by using consistent correlation IDs transferred between components within a transaction.<br /><br />Event correlation between the layers of the application will provide the ability to connect tracing data of the complete application stack. Once this connection is made, you can see a complete picture of where time is spent at each layer. This will typically mean having a tool that can query the repositories of tracing data in correlation to a unique identifier that represents a given transaction that has flowed through the system.
 * Is it possible to evaluate critical application performance targets and non-functional requirements (NFRs)?
 
 
@@ -339,11 +337,6 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
       > Correlate application log events across critical system flows, such as user login.
 ### Resource/Infrastructure Level Monitoring
             
-* Which log aggregation technology is used to collect logs and metrics from Azure resources?
-
-
-  _Log aggregation technologies, such as Azure Log Analytics or Splunk, should be used to collate logs and metrics across all application components for subsequent evaluation. Resources may include Azure IaaS and PaaS services as well as 3rd-party appliances such as firewalls or anti-malware solutions used in the application. For instance, if Azure Event Hub is used, the [Diagnostic Settings](https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs) should be configured to push logs and metrics to the data sink. Understanding usage helps with right-sizing of the workload, but additional cost for logging needs to be accepted and included in the cost model._
-  > Use log aggregation technology, such as Azure Log Analytics or Splunk, to gather information across all application components.
 * Are you collecting Azure Activity Logs within the log aggregation tool?
 
 
@@ -354,11 +347,40 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
   _Resource- or infrastructure-level monitoring refers to the used platform services such as Azure VMs, Express Route or SQL Database. But also covers 3rd-party solutions like an NVA._
   > All application resources should be configured to route diagnostic logs and metrics to the chosen log aggregation technology. Azure Policy should also be used as a device to ensure the consistent use of diagnostic settings across the application, to enforce the desired configuration for each Azure service.
+### Logging
+            
+* Are application logs collected from different application environments?
+
+
+  _Application logs support the end-to-end application lifecycle. Logging is essential in understanding how the application operates in various environments and what events occur and under which conditions._
+  > Application logs and events should be collected across all major environments. Sufficient degree of separation and filtering should be in place to ensure non-critical environments do not convolute production log interpretation. Furthermore, corresponding log entries across the application should capture a correlation ID for their respective transactions.
+* Are log messages captured in a structured format?
+
+
+  _Structured format, following well-known schema can help in parsing and analyzing logs._
+  > Application events should be captured as a structured data type with machine-readable data points rather than unstructured string types. Structured data can easily be indexed and searched, and reporting can be greatly simplified.
+* Are log levels used to capture different types of application events?
+
+
+  _Different log levels, such as INFO, WARNING, ERROR, and DEBUG can be used across environments (such as DEBUG for development environment)._
+  > Different log levels, such as INFO, WARNING, ERROR, and DEBUG should be pre-configured and applied within relevant environments. The approach to change log levels should be simple configuration change to support operational scenarios where it is necessary to elevate the log level within an environment.
+* Which log aggregation technology is used to collect logs and metrics from Azure resources?
+
+
+  _Log aggregation technologies, such as Azure Log Analytics or Splunk, should be used to collate logs and metrics across all application components for subsequent evaluation. Resources may include Azure IaaS and PaaS services as well as 3rd-party appliances such as firewalls or anti-malware solutions used in the application. For instance, if Azure Event Hub is used, the [Diagnostic Settings](https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs) should be configured to push logs and metrics to the data sink. Understanding usage helps with right-sizing of the workload, but additional cost for logging needs to be accepted and included in the cost model._
+  > Use log aggregation technology, such as Azure Log Analytics or Splunk, to gather information across all application components.
 * Are logs and metrics available for critical internal dependencies?
 
 
   _To be able to build a robust application health model it is vital that visibility into the operational state of critical internal dependencies, such as a shared NVA or Express Route connection, be achieved._
   > Make sure logs and key metrics of critical components are collected and stored.
+* Are application and resource level logs aggregated in a single data sink, or is it possible to cross-query events at both levels?
+
+
+  _To build a robust application health model it is vital that application and resource level data be correlated and evaluated together to optimize the detection of issues and troubleshooting of detected issues._
+  > Implement a unified solution to aggregate and query application and resource level logs, such as Azure Log Analytics.
+### Dependencies
+            
 * Are critical external dependencies monitored?
 
 
@@ -366,11 +388,6 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
   > Critical external dependencies, such as an API service, should be monitored to ensure operational visibility of dependency health. For instance, a probe could be used to measure the availability and latency of an external API.
 ### Data Interpretation &amp; Health Modelling
             
-* Are application and resource level logs aggregated in a single data sink, or is it possible to cross-query events at both levels?
-
-
-  _To build a robust application health model it is vital that application and resource level data be correlated and evaluated together to optimize the detection of issues and troubleshooting of detected issues._
-  > Implement a unified solution to aggregate and query application and resource level logs, such as Azure Log Analytics.
 * Are application level events automatically correlated with resource level metrics to quantify the current application state?
 
 
@@ -395,6 +412,11 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
       _Is the health model treating all failures the same?_
 
       > The health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state
+    - Can the health model determine if the application is performing at expected performance targets?
+
+
+      _The health model should have the ability to evaluate application performance as a part of the application's overall health state._
+
 * Are long-term trends analysed to predict operational issues before they occur?
 
 
@@ -462,6 +484,14 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
   _Subscription notification emails can contain important service notifications or security alerts([Azure account contact information](https://docs.microsoft.com/azure/cost-management-billing/manage/change-azure-account-profile#service-and-marketing-emails))._
   > Subscription notification emails can contain important service notifications or security alerts([Azure account contact information](https://docs.microsoft.com/azure/cost-management-billing/manage/change-azure-account-profile#service-and-marketing-emails)). Thus, it is important that those notifications are received and routed to the relevant technical stakeholders.
+## Capacity &amp; Service Availability Planning
+    
+### Capacity
+            
+* Is there a capacity model for the application?
+
+
+  _A capacity model should describe the relationships between the utilization of various components as a ratio, to capture when and how application components should scale-out. For instance, scaling the number of Application Gateway v2 instances may put excess pressure on downstream components unless also scaled to a degree. When modelling capacity for critical system components it is therefore recommended that an N+1 model be applied to ensure complete tolerance to transient faults, where n describes the capacity required to satisfy performance and availability requirements([Performance Efficiency - Capacity](https://docs.microsoft.com/azure/architecture/framework/scalability/capacity))_
 ## Scalability &amp; Performance
     
 ### Data Size/Growth
