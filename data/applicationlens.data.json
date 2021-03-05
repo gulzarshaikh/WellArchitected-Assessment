@@ -102,7 +102,8 @@
           "title": "availability targets",
           "url": "/azure/architecture/framework/reliability/monitorkeytargets"
         }
-      ]
+      ],
+      "priority": "medium"
     },
     "statement": "Availability targets such as Service Level Agreements (SLAs) and Service Level Objectives (SLOs).",
     "id": "app_design_availabilitytargets",
@@ -118,7 +119,8 @@
               "title": "SLAs/SLOs/SLIs for dependencies",
               "url": "/azure/architecture/framework/reliability/slafordependencies"
             }
-          ]
+          ],
+          "priority": "low"
         },
         "id": "app_design_targets_deps",
         "statement": "SLAs for all internal and external dependencies are understood."
@@ -134,7 +136,8 @@
               "title": "Composite SLAs",
               "url": "/azure/architecture/framework/reliability/compositeslas"
             }
-          ]
+          ],
+          "priority": "low"
         },
         "id": "app_design_compositesla",
         "statement": "Composite SLA for the workload derived using the Azure SLAs for all relevant resources."
@@ -156,7 +159,8 @@
               "title": "",
               "url": ""
             }
-          ]
+          ],
+          "priority": "low"
         },
         "id": "app_design_targets_smonitoring",
         "statement": "Availability metrics to measure and monitor availability such as Mean Time To Recover (MTTR) and Mean Time Between Failure (MTBF)."
@@ -189,7 +193,8 @@
           "title": "recovery targets",
           "url": "/azure/architecture/framework/reliability/receoverytargets"
         }
-      ]
+      ],
+      "priority": "high"
     },
     "id": "app_design_recovery_targets",
     "statement": "Recovery targets to identify how long the workload can be unavailable (Recovery Time Objective) and how much data is acceptable to lose during a disaster (Recovery Point Objective)."
