@@ -140,6 +140,11 @@
     
 ### Application Level Monitoring
             
+* Are application events correlated across all application components?
+
+
+  _[Distributed tracing](https://docs.microsoft.com/azure/architecture/microservices/logging-monitoring#distributed-tracing) provides the ability to build and visualize end-to-end transaction flows for the application._
+  > Events coming from different application components or different component tiers of the application should be correlated to build end-to-end transaction flows. For instance, this is often achieved by using consistent correlation IDs transferred between components within a transaction.<br /><br />Event correlation between the layers of the application will provide the ability to connect tracing data of the complete application stack. Once this connection is made, you can see a complete picture of where time is spent at each layer. This will typically mean having a tool that can query the repositories of tracing data in correlation to a unique identifier that represents a given transaction that has flowed through the system.
 * Is it possible to evaluate critical application performance targets and non-functional requirements (NFRs)?
 
 
@@ -150,10 +155,6 @@
       _To fully assess the health of key scenarios in the context of targets and NFRs, application log events across critical system flows should be correlated._
 
       > Correlate application log events across critical system flows, such as user login.
-* Are application events correlated across all application components?
-
-
-  _Event correlation between the layers of the application will provide the ability to connect tracing data of the complete application stack. Once this connection is made, you can see a complete picture of where time is spent at each layer. This will typically mean having a tool that can query the repositories of tracing data in correlation to a unique identifier that represents a given transaction that has flowed through the system.<br /><br />Log events coming from different application components or different component tiers of the application should be correlated to build end-to-end transaction flows. For instance, this is often achieved by using consistent correlation IDs transferred between components within a transaction._
 ### Resource/Infrastructure Level Monitoring
             
 * Is resource-level monitoring enforced throughout the application?
