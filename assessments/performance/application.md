@@ -7,6 +7,7 @@
     - [Design Patterns](#Design-Patterns)
     - [Transactional](#Transactional)
   - [Health Modelling &amp; Monitoring](#Health-Modelling--Monitoring)
+    - [Resource/Infrastructure Level Monitoring](#ResourceInfrastructure-Level-Monitoring)
     - [Data Interpretation &amp; Health Modelling](#Data-Interpretation--Health-Modelling)
     - [Logging](#Logging)
     - [Performance Targets](#Performance-Targets)
@@ -136,6 +137,18 @@
 
 ## Health Modelling &amp; Monitoring
     
+### Resource/Infrastructure Level Monitoring
+            
+* Is resource-level monitoring enforced throughout the application?
+
+
+  _Resource- or infrastructure-level monitoring refers to the used platform services such as Azure VMs, Express Route or SQL Database. But also covers 3rd-party solutions like an NVA._
+  > All application resources should be configured to route diagnostic logs and metrics to the chosen log aggregation technology. Azure Policy should also be used as a device to ensure the consistent use of diagnostic settings across the application, to enforce the desired configuration for each Azure service.
+* Are logs and metrics available for critical internal dependencies?
+
+
+  _To be able to build a robust application health model it is vital that visibility into the operational state of critical internal dependencies, such as a shared NVA or Express Route connection, be achieved._
+  > Make sure logs and key metrics of critical components are collected and stored.
 ### Data Interpretation &amp; Health Modelling
             
 * Is a health model used to qualify what 'healthy' and 'unhealthy' states represent for the application?
@@ -190,14 +203,6 @@
 
 
   _Azure Activity Logs provide audit information about when an Azure resource is modified, such as when a virtual machine is started or stopped. Such information is extremely useful for the interpretation and troubleshooting of issues as it provides transparency around configuration changes that can be mapped to adverse performance events._
-* Is resource-level monitoring enforced throughout the application?
-
-
-  _All application resources should be configured to route diagnostic logs and metrics to the chosen log aggregation technology. Azure Policy should also be used as a device to ensure the consistent use of diagnostic settings across the application, to enforce the desired configuration for each Azure service._
-* Are logs and metrics available for critical internal dependencies?
-
-
-  _To be able to build a robust application health model, it is vital that visibility into the operational state of critical, internal dependencies, such as a shared network virtual appliance (NVA) or Express Route connection, be achieved._
 * Are application- and resource-level logs aggregated in a single data sink, or is it possible to cross-query events at both levels?
 
 
