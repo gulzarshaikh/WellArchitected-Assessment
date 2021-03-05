@@ -1,0 +1,507 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "http://example.com/example.json",
+  "type": "array",
+  "title": "Questions",
+  "description": "List of questions with choices.",
+  "default": [],
+  "examples": [
+      [
+          {
+              "type": "PnP Questions",
+              "category": "reliability",
+              "title": "What reliability targets and metrics have you defined for your application?",
+              "context": "Availability targets, such as Service Level Agreements (SLA) and Service Level Objectives (SLO), and Recovery targets, such as Recovery Time Objectives (RTO) and Recovery Point Objectives (RPO), should be defined and tested to ensure application reliability aligns with business requirements.",
+              "id": "pnp_question_reliability1",
+              "video": {
+                  "title": "What reliability targets and metrics have you defined for your application?",
+                  "url": "https://www.microsoft.com/en-us/videoplayer/embed/RE4yYLM"
+              },
+              "choices": [
+                  {
+                      "waf_github_content_id": "app_design_recovery_targets",
+                      "title": "Recovery targets to identify how long the workload can be unavailable (Recovery Time Objective) and how much data is acceptable to lose during a disaster (Recovery Point Objective).",
+                      "context": "Understanding customer reliability expectations is vital to reviewing the overall reliability of the application. For instance, if a customer is striving to achieve an application RTO of less than a minute then back-up based and active-passive disaster recovery strategies are unlikely to be appropriate.",
+                      "recommendations": [
+                          {
+                              "title": "Define recovery targets (RTO, RPO)",
+                              "context": "Recovery targets should be defined in accordance to the required RTO and RPO targets for the workload.",
+                              "links": [
+                                  {
+                                      "title": "Recovery targets",
+                                      "url": "/azure/architecture/framework/reliability/receoverytargets"
+                                  }
+                              ],
+                              "nextSteps": "1",
+                              "metadata": {
+                                  "priority": "high",
+                                  "category": "Application Design",
+                                  "sub-category": "Targets & Non Functional Requirements",
+                                  "description-long": "Understanding customer reliability expectations is vital to reviewing the overall reliability of the application. For instance, if a customer is striving to achieve an application RTO of less than a minute then back-up based and active-passive disaster recovery strategies are unlikely to be appropriate."
+                              }
+                          }
+                      ],
+                      "score": 20
+                  },
+                  {
+                      "title": "None of the above",
+                      "context": "",
+                      "recommendations": [],
+                      "score": 0
+                  }
+              ]
+          }
+      ]
+  ],
+  "additionalItems": true,
+  "items": {
+      "$id": "#/items",
+      "anyOf": [
+          {
+              "$id": "#/items/anyOf/0",
+              "type": "object",
+              "title": "Question",
+              "description": "A question object, which is injected by the assessment platform.",
+              "default": {},
+              "examples": [],
+              "required": [
+                  "id",
+                  "type",
+                  "category",
+                  "title",
+                  "context",
+                  "video",
+                  "choices"
+              ],
+              "properties": {
+                  "type": {
+                      "$id": "#/items/anyOf/0/properties/type",
+                      "type": "string",
+                      "title": "Type of the question",
+                      "description": "For assessment platform this will be 'PnP Questions'.",
+                      "default": "PnP Questions",
+                      "examples": [
+                          "PnP Questions"
+                      ]
+                  },
+                  "category": {
+                      "$id": "#/items/anyOf/0/properties/category",
+                      "type": "string",
+                      "title": "Topic/pillar for this question",
+                      "description": "The pillar into which this question belongs.",
+                      "default": "",
+                      "examples": [
+                          "reliability"
+                      ],
+                      "enum": [
+                        "costoptimization",
+                        "golive",
+                        "operationalexcellence",
+                        "performanceefficiency",
+                        "reliability",
+                        "security"
+                      ]
+                  },
+                  "title": {
+                      "$id": "#/items/anyOf/0/properties/title",
+                      "type": "string",
+                      "title": "The title schema",
+                      "description": "An explanation about the purpose of this instance.",
+                      "default": "",
+                      "examples": [
+                          "What reliability targets and metrics have you defined for your application?"
+                      ]
+                  },
+                  "context": {
+                      "$id": "#/items/anyOf/0/properties/context",
+                      "type": "string",
+                      "title": "The context schema",
+                      "description": "An explanation about the purpose of this instance.",
+                      "default": "",
+                      "examples": [
+                          "Availability targets, such as Service Level Agreements (SLA) and Service Level Objectives (SLO), and Recovery targets, such as Recovery Time Objectives (RTO) and Recovery Point Objectives (RPO), should be defined and tested to ensure application reliability aligns with business requirements."
+                      ]
+                  },
+                  "id": {
+                      "$id": "#/items/anyOf/0/properties/id",
+                      "type": "string",
+                      "title": "The id schema",
+                      "description": "An explanation about the purpose of this instance.",
+                      "default": "",
+                      "examples": [
+                          "pnp_question_reliability1"
+                      ]
+                  },
+                  "video": {
+                      "$id": "#/items/anyOf/0/properties/video",
+                      "type": "object",
+                      "title": "The video schema",
+                      "description": "An explanation about the purpose of this instance.",
+                      "default": {},
+                      "examples": [
+                          {
+                              "title": "What reliability targets and metrics have you defined for your application?",
+                              "url": "https://www.microsoft.com/en-us/videoplayer/embed/RE4yYLM"
+                          }
+                      ],
+                      "required": [
+                          "title",
+                          "url"
+                      ],
+                      "properties": {
+                          "title": {
+                              "$id": "#/items/anyOf/0/properties/video/properties/title",
+                              "type": "string",
+                              "title": "The title schema",
+                              "description": "An explanation about the purpose of this instance.",
+                              "default": "",
+                              "examples": [
+                                  "What reliability targets and metrics have you defined for your application?"
+                              ]
+                          },
+                          "url": {
+                              "$id": "#/items/anyOf/0/properties/video/properties/url",
+                              "type": "string",
+                              "title": "The url schema",
+                              "description": "An explanation about the purpose of this instance.",
+                              "default": "",
+                              "examples": [
+                                  "https://www.microsoft.com/en-us/videoplayer/embed/RE4yYLM"
+                              ]
+                          }
+                      },
+                      "additionalProperties": true
+                  },
+                  "choices": {
+                      "$id": "#/items/anyOf/0/properties/choices",
+                      "type": "array",
+                      "title": "The choices schema",
+                      "description": "An explanation about the purpose of this instance.",
+                      "default": [],
+                      "examples": [],
+                      "additionalItems": true,
+                      "items": {
+                          "$id": "#/items/anyOf/0/properties/choices/items",
+                          "anyOf": [
+                              {
+                                  "$id": "#/items/anyOf/0/properties/choices/items/anyOf/0",
+                                  "type": "object",
+                                  "title": "The first anyOf schema",
+                                  "description": "An explanation about the purpose of this instance.",
+                                  "default": {},
+                                  "examples": [],
+                                  "required": [
+                                      "waf_github_content_id",
+                                      "title",
+                                      "context",
+                                      "recommendations",
+                                      "score"
+                                  ],
+                                  "properties": {
+                                      "waf_github_content_id": {
+                                          "$id": "#/items/anyOf/0/properties/choices/items/anyOf/0/properties/waf_github_content_id",
+                                          "type": "string",
+                                          "title": "The waf_github_content_id schema",
+                                          "description": "An explanation about the purpose of this instance.",
+                                          "default": "",
+                                          "examples": [
+                                              "app_design_recovery_targets"
+                                          ]
+                                      },
+                                      "title": {
+                                          "$id": "#/items/anyOf/0/properties/choices/items/anyOf/0/properties/title",
+                                          "type": "string",
+                                          "title": "The title schema",
+                                          "description": "An explanation about the purpose of this instance.",
+                                          "default": "",
+                                          "examples": [
+                                              "Recovery targets to identify how long the workload can be unavailable (Recovery Time Objective) and how much data is acceptable to lose during a disaster (Recovery Point Objective)."
+                                          ]
+                                      },
+                                      "context": {
+                                          "$id": "#/items/anyOf/0/properties/choices/items/anyOf/0/properties/context",
+                                          "type": "string",
+                                          "title": "The context schema",
+                                          "description": "An explanation about the purpose of this instance.",
+                                          "default": "",
+                                          "examples": [
+                                              "Understanding customer reliability expectations is vital to reviewing the overall reliability of the application. For instance, if a customer is striving to achieve an application RTO of less than a minute then back-up based and active-passive disaster recovery strategies are unlikely to be appropriate \nRecovery time objective (RTO): The maximum acceptable time the application is unavailable after a disaster incident \nRecovery point objective (RPO): The maximum duration of data loss that is acceptable during a disaster event"
+                                          ]
+                                      },
+                                      "recommendations": {
+                                          "$id": "#/items/anyOf/0/properties/choices/items/anyOf/0/properties/recommendations",
+                                          "type": "array",
+                                          "title": "The recommendations schema",
+                                          "description": "An explanation about the purpose of this instance.",
+                                          "default": [],
+                                          "examples": [],
+                                          "additionalItems": true,
+                                          "items": {
+                                              "$id": "#/items/anyOf/0/properties/choices/items/anyOf/0/properties/recommendations/items",
+                                              "anyOf": [
+                                                  {
+                                                      "$id": "#/items/anyOf/0/properties/choices/items/anyOf/0/properties/recommendations/items/anyOf/0",
+                                                      "type": "object",
+                                                      "title": "The first anyOf schema",
+                                                      "description": "An explanation about the purpose of this instance.",
+                                                      "default": {},
+                                                      "examples": [],
+                                                      "required": [
+                                                          "title",
+                                                          "context",
+                                                          "links",
+                                                          "nextSteps",
+                                                          "metadata"
+                                                      ],
+                                                      "properties": {
+                                                          "title": {
+                                                              "$id": "#/items/anyOf/0/properties/choices/items/anyOf/0/properties/recommendations/items/anyOf/0/properties/title",
+                                                              "type": "string",
+                                                              "title": "The title schema",
+                                                              "description": "An explanation about the purpose of this instance.",
+                                                              "default": "",
+                                                              "examples": [
+                                                                  "Define recovery targets (RTO, RPO)"
+                                                              ]
+                                                          },
+                                                          "context": {
+                                                              "$id": "#/items/anyOf/0/properties/choices/items/anyOf/0/properties/recommendations/items/anyOf/0/properties/context",
+                                                              "type": "string",
+                                                              "title": "The context schema",
+                                                              "description": "An explanation about the purpose of this instance.",
+                                                              "default": "",
+                                                              "examples": [
+                                                                  "Recovery targets should be defined in accordance to the required RTO and RPO targets for the workload."
+                                                              ]
+                                                          },
+                                                          "links": {
+                                                              "$id": "#/items/anyOf/0/properties/choices/items/anyOf/0/properties/recommendations/items/anyOf/0/properties/links",
+                                                              "type": "array",
+                                                              "title": "The links schema",
+                                                              "description": "An explanation about the purpose of this instance.",
+                                                              "default": [],
+                                                              "examples": [
+                                                                  [
+                                                                      {
+                                                                          "title": "Recovery targets",
+                                                                          "url": "/azure/architecture/framework/reliability/receoverytargets"
+                                                                      }
+                                                                  ]
+                                                              ],
+                                                              "additionalItems": true,
+                                                              "items": {
+                                                                  "$id": "#/items/anyOf/0/properties/choices/items/anyOf/0/properties/recommendations/items/anyOf/0/properties/links/items",
+                                                                  "anyOf": [
+                                                                      {
+                                                                          "$id": "#/items/anyOf/0/properties/choices/items/anyOf/0/properties/recommendations/items/anyOf/0/properties/links/items/anyOf/0",
+                                                                          "type": "object",
+                                                                          "title": "The first anyOf schema",
+                                                                          "description": "An explanation about the purpose of this instance.",
+                                                                          "default": {},
+                                                                          "examples": [
+                                                                              {
+                                                                                  "title": "Recovery targets",
+                                                                                  "url": "/azure/architecture/framework/reliability/receoverytargets"
+                                                                              }
+                                                                          ],
+                                                                          "required": [
+                                                                              "title",
+                                                                              "url"
+                                                                          ],
+                                                                          "properties": {
+                                                                              "title": {
+                                                                                  "$id": "#/items/anyOf/0/properties/choices/items/anyOf/0/properties/recommendations/items/anyOf/0/properties/links/items/anyOf/0/properties/title",
+                                                                                  "type": "string",
+                                                                                  "title": "The title schema",
+                                                                                  "description": "An explanation about the purpose of this instance.",
+                                                                                  "default": "",
+                                                                                  "examples": [
+                                                                                      "Recovery targets"
+                                                                                  ]
+                                                                              },
+                                                                              "url": {
+                                                                                  "$id": "#/items/anyOf/0/properties/choices/items/anyOf/0/properties/recommendations/items/anyOf/0/properties/links/items/anyOf/0/properties/url",
+                                                                                  "type": "string",
+                                                                                  "title": "The url schema",
+                                                                                  "description": "An explanation about the purpose of this instance.",
+                                                                                  "default": "",
+                                                                                  "examples": [
+                                                                                      "/azure/architecture/framework/reliability/receoverytargets"
+                                                                                  ]
+                                                                              }
+                                                                          },
+                                                                          "additionalProperties": true
+                                                                      }
+                                                                  ]
+                                                              }
+                                                          },
+                                                          "nextSteps": {
+                                                              "$id": "#/items/anyOf/0/properties/choices/items/anyOf/0/properties/recommendations/items/anyOf/0/properties/nextSteps",
+                                                              "type": "string",
+                                                              "title": "The nextSteps schema",
+                                                              "description": "An explanation about the purpose of this instance.",
+                                                              "default": "",
+                                                              "examples": [
+                                                                  "1"
+                                                              ]
+                                                          },
+                                                          "metadata": {
+                                                              "$id": "#/items/anyOf/0/properties/choices/items/anyOf/0/properties/recommendations/items/anyOf/0/properties/metadata",
+                                                              "type": "object",
+                                                              "title": "The metadata schema",
+                                                              "description": "An explanation about the purpose of this instance.",
+                                                              "default": {},
+                                                              "examples": [
+                                                                  {
+                                                                      "priority": "high",
+                                                                      "category": "Application Design",
+                                                                      "sub-category": "Targets & Non Functional Requirements",
+                                                                      "description-long": "Understanding customer reliability expectations is vital to reviewing the overall reliability of the application. For instance, if a customer is striving to achieve an application RTO of less than a minute then back-up based and active-passive disaster recovery strategies are unlikely to be appropriate \nRecovery time objective (RTO): The maximum acceptable time the application is unavailable after a disaster incident \nRecovery point objective (RPO): The maximum duration of data loss that is acceptable during a disaster event"
+                                                                  }
+                                                              ],
+                                                              "required": [
+                                                                  "priority",
+                                                                  "category",
+                                                                  "sub-category",
+                                                                  "description-long"
+                                                              ],
+                                                              "properties": {
+                                                                  "priority": {
+                                                                      "$id": "#/items/anyOf/0/properties/choices/items/anyOf/0/properties/recommendations/items/anyOf/0/properties/metadata/properties/priority",
+                                                                      "type": "string",
+                                                                      "title": "The priority schema",
+                                                                      "description": "An explanation about the purpose of this instance.",
+                                                                      "default": "",
+                                                                      "examples": [
+                                                                          "high"
+                                                                      ]
+                                                                  },
+                                                                  "category": {
+                                                                      "$id": "#/items/anyOf/0/properties/choices/items/anyOf/0/properties/recommendations/items/anyOf/0/properties/metadata/properties/category",
+                                                                      "type": "string",
+                                                                      "title": "The category schema",
+                                                                      "description": "An explanation about the purpose of this instance.",
+                                                                      "default": "",
+                                                                      "examples": [
+                                                                          "Application Design"
+                                                                      ]
+                                                                  },
+                                                                  "sub-category": {
+                                                                      "$id": "#/items/anyOf/0/properties/choices/items/anyOf/0/properties/recommendations/items/anyOf/0/properties/metadata/properties/sub-category",
+                                                                      "type": "string",
+                                                                      "title": "The sub-category schema",
+                                                                      "description": "An explanation about the purpose of this instance.",
+                                                                      "default": "",
+                                                                      "examples": [
+                                                                          "Targets & Non Functional Requirements"
+                                                                      ]
+                                                                  },
+                                                                  "description-long": {
+                                                                      "$id": "#/items/anyOf/0/properties/choices/items/anyOf/0/properties/recommendations/items/anyOf/0/properties/metadata/properties/description-long",
+                                                                      "type": "string",
+                                                                      "title": "The description-long schema",
+                                                                      "description": "An explanation about the purpose of this instance.",
+                                                                      "default": "",
+                                                                      "examples": [
+                                                                          "Understanding customer reliability expectations is vital to reviewing the overall reliability of the application. For instance, if a customer is striving to achieve an application RTO of less than a minute then back-up based and active-passive disaster recovery strategies are unlikely to be appropriate \nRecovery time objective (RTO): The maximum acceptable time the application is unavailable after a disaster incident \nRecovery point objective (RPO): The maximum duration of data loss that is acceptable during a disaster event"
+                                                                      ]
+                                                                  }
+                                                              },
+                                                              "additionalProperties": true
+                                                          }
+                                                      },
+                                                      "additionalProperties": true
+                                                  }
+                                              ]
+                                          }
+                                      },
+                                      "score": {
+                                          "$id": "#/items/anyOf/0/properties/choices/items/anyOf/0/properties/score",
+                                          "type": "integer",
+                                          "title": "The score schema",
+                                          "description": "An explanation about the purpose of this instance.",
+                                          "default": 0,
+                                          "examples": [
+                                              20
+                                          ]
+                                      }
+                                  },
+                                  "additionalProperties": true
+                              },
+                              {
+                                  "$id": "#/items/anyOf/0/properties/choices/items/anyOf/1",
+                                  "type": "object",
+                                  "title": "The second anyOf schema",
+                                  "description": "An explanation about the purpose of this instance.",
+                                  "default": {},
+                                  "examples": [
+                                      {
+                                          "title": "None of the above",
+                                          "context": "",
+                                          "recommendations": [],
+                                          "score": 0
+                                      }
+                                  ],
+                                  "required": [
+                                      "title",
+                                      "context",
+                                      "recommendations",
+                                      "score"
+                                  ],
+                                  "properties": {
+                                      "title": {
+                                          "$id": "#/items/anyOf/0/properties/choices/items/anyOf/1/properties/title",
+                                          "type": "string",
+                                          "title": "The title schema",
+                                          "description": "An explanation about the purpose of this instance.",
+                                          "default": "",
+                                          "examples": [
+                                              "None of the above"
+                                          ]
+                                      },
+                                      "context": {
+                                          "$id": "#/items/anyOf/0/properties/choices/items/anyOf/1/properties/context",
+                                          "type": "string",
+                                          "title": "The context schema",
+                                          "description": "An explanation about the purpose of this instance.",
+                                          "default": "",
+                                          "examples": [
+                                              ""
+                                          ]
+                                      },
+                                      "recommendations": {
+                                          "$id": "#/items/anyOf/0/properties/choices/items/anyOf/1/properties/recommendations",
+                                          "type": "array",
+                                          "title": "The recommendations schema",
+                                          "description": "An explanation about the purpose of this instance.",
+                                          "default": [],
+                                          "examples": [
+                                              []
+                                          ],
+                                          "additionalItems": true,
+                                          "items": {
+                                              "$id": "#/items/anyOf/0/properties/choices/items/anyOf/1/properties/recommendations/items"
+                                          }
+                                      },
+                                      "score": {
+                                          "$id": "#/items/anyOf/0/properties/choices/items/anyOf/1/properties/score",
+                                          "type": "integer",
+                                          "title": "The score schema",
+                                          "description": "An explanation about the purpose of this instance.",
+                                          "default": 0,
+                                          "examples": [
+                                              0
+                                          ]
+                                      }
+                                  },
+                                  "additionalProperties": true
+                              }
+                          ]
+                      }
+                  }
+              },
+              "additionalProperties": true
+          }
+      ]
+  }
+}
