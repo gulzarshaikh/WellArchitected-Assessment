@@ -7,6 +7,7 @@
     - [Design Patterns](#Design-Patterns)
     - [Transactional](#Transactional)
   - [Health Modelling &amp; Monitoring](#Health-Modelling--Monitoring)
+    - [Application Level Monitoring](#Application-Level-Monitoring)
     - [Data Interpretation &amp; Health Modelling](#Data-Interpretation--Health-Modelling)
     - [Logging](#Logging)
     - [Performance Targets](#Performance-Targets)
@@ -136,6 +137,13 @@
 
 ## Health Modelling &amp; Monitoring
     
+### Application Level Monitoring
+            
+* Are application logs collected from different application environments?
+
+
+  _Application logs support the end-to-end application lifecycle. Logging is essential in understanding how the application operates in various environments and what events occur and under which conditions._
+  > Application logs and events should be collected across all major environments. Sufficient degree of separation and filtering should be in place to ensure non-critical environments do not convolute production log interpretation. Furthermore, corresponding log entries across the application should capture a correlation ID for their respective transactions.
 ### Data Interpretation &amp; Health Modelling
             
 * Is a health model used to qualify what 'healthy' and 'unhealthy' states represent for the application?
@@ -168,10 +176,6 @@
 
 
   _Instrumentation of your code allows precise detection of underperforming pieces when load or stress tests are applied. It is critical to have this data available to improve and identify performance opportunities in the application code. Application Performance Monitoring (APM) tools, such as Application Insights, should be used to manage the performance and availability of the application, along with aggregating application level logs and events for subsequent interpretation._
-* Are application logs collected from different application environments?
-
-
-  _Application logs and events should be collected across all major environments to support the end-to-end application lifecycle. Furthermore, corresponding log entries across the application should capture a correlation ID for their respective transactions._
 * Are application events correlated across all application components?
 
 
