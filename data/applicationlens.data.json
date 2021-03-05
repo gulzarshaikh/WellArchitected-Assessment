@@ -479,11 +479,12 @@
   {
     "type": "Questions",
     "pillars": [
-      "operationalexcellence"
+      "operationalexcellence",
+      "performanceefficiency"
     ],
     "lens": "application",
     "category": "Health Modelling & Monitoring",
-    "subCategory": "Resource/Infrastructure Level Monitoring",
+    "subCategory": "Dependencies",
     "title": "Are critical external dependencies monitored?",
     "context": "It's common for applications to depend on other services or libraries. Despite these are external, it is still possible to monitor their health and availability using probes.",
     "recommendation": "Critical external dependencies, such as an API service, should be monitored to ensure operational visibility of dependency health. For instance, a probe could be used to measure the availability and latency of an external API.",
@@ -497,7 +498,7 @@
     ],
     "lens": "application",
     "category": "Health Modelling & Monitoring",
-    "subCategory": "Data Interpretation & Health Modelling",
+    "subCategory": "Logging",
     "title": "Are application and resource level logs aggregated in a single data sink, or is it possible to cross-query events at both levels?",
     "context": "To build a robust application health model it is vital that application and resource level data be correlated and evaluated together to optimize the detection of issues and troubleshooting of detected issues.",
     "recommendation": "Implement a unified solution to aggregate and query application and resource level logs, such as Azure Log Analytics.",
@@ -5623,46 +5624,6 @@
     "context": "Azure Activity Logs provide audit information about when an Azure resource is modified, such as when a virtual machine is started or stopped. Such information is extremely useful for the interpretation and troubleshooting of issues as it provides transparency around configuration changes that can be mapped to adverse performance events.",
     "recommendation": "",
     "id": ""
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "performanceefficiency"
-    ],
-    "lens": "application",
-    "category": "Health Modelling & Monitoring",
-    "subCategory": "Dependencies",
-    "title": "Are critical external dependencies monitored?",
-    "context": "Critical, external dependencies, such as an API service, should be monitored to ensure operational visibility of performance. For instance, a probe could be used to measure the latency of an external API.",
-    "recommendation": "",
-    "id": ""
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "performanceefficiency"
-    ],
-    "lens": "application",
-    "category": "Health Modelling & Monitoring",
-    "subCategory": "Logging",
-    "title": "Are application- and resource-level logs aggregated in a single data sink, or is it possible to cross-query events at both levels?",
-    "context": "To build a robust application health model, it is vital that application- and resource-level data be correlated and evaluated together to optimize the detection of issues and the troubleshooting of those detected issues.",
-    "recommendation": "",
-    "id": "",
-    "children": [
-      {
-        "title": "Are application level events automatically correlated with performance metrics to quantify the current application state?",
-        "context": "The overall performance can be impacted by both application-level issues as well as resource-level failures. This can also help to distinguish between transient and non-transient faults.",
-        "recommendation": "",
-        "id": ""
-      },
-      {
-        "title": "Is the transaction flow data used to generate application/service maps?",
-        "context": "An Application Map can help you identify performance bottlenecks of failure hotspots across components of a distributed application.",
-        "recommendation": "",
-        "id": ""
-      }
-    ]
   },
   {
     "type": "Questions",
