@@ -88,13 +88,13 @@
     ]
   },
   {
-    "title": "Capacity & Service Availability",
+    "title": "Capacity Planning & Service Availability",
     "subCategories": [
       {
         "title": "Service Availability"
       },
       {
-        "title": "Capacity"
+        "title": "Capacity Planning"
       },
       {
         "title": "Usage Prediction"
