@@ -16,6 +16,8 @@
     - [Data Interpretation &amp; Health Modelling](#Data-Interpretation--Health-Modelling)
     - [Dashboarding](#Dashboarding)
     - [Alerting](#Alerting)
+  - [Scalability &amp; Performance](#Scalability--Performance)
+    - [Data Size/Growth](#Data-SizeGrowth)
   - [Security &amp; Compliance](#Security--Compliance)
     - [Identity and Access](#Identity-and-Access)
     - [Security Center](#Security-Center)
@@ -118,7 +120,7 @@ These critical design principles are used as lenses to assess the Operational Ex
 
   _A well-defined naming convention is important for overall operations to be able to easily determine the usage of certain resources and help understand owners and cost centers responsible for the workload. Naming conventions allow the matching of resource costs to particular workloads._
   > Having a well-defined naming convention is important for overall operations, particularly for large application platforms where there are numerous resources([Naming Conventions](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging))
-* Does the workload support multi-region deployments?
+* Is the workload deployed across multiple regions?
 
 
   _Multiple regions should be used for failover purposes in a disaster state, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active strategies. Additional cost needs to be taken into consideration - mostly from compute, data and networking perspectivce, but also services like Azure Site Recovery (ASR). ([Failover strategies](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones))_
@@ -460,6 +462,22 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
   _Subscription notification emails can contain important service notifications or security alerts([Azure account contact information](https://docs.microsoft.com/azure/cost-management-billing/manage/change-azure-account-profile#service-and-marketing-emails))._
   > Subscription notification emails can contain important service notifications or security alerts([Azure account contact information](https://docs.microsoft.com/azure/cost-management-billing/manage/change-azure-account-profile#service-and-marketing-emails)). Thus, it is important that those notifications are received and routed to the relevant technical stakeholders.
+## Scalability &amp; Performance
+    
+### Data Size/Growth
+            
+* Do you know the growth rate of your data?
+
+
+  _Your solution might work great in the first week or month, but what happens when data just keeps increasing? Will the solution slow down, or will it even break at a particular threshold? Planning for data growth, data retention, and archiving is essential in capacity planning. Without adequately planning capacity for your datastores, performance will be negatively affected._
+* Are target data sizes and associated growth rates calculated per scenario or service?
+
+
+  _Scale limits and recovery options should be assessed in the context of target data sizes and growth rates to ensure suitable capacity exists_
+* Are there any mitigation plans defined in case data size exceeds limits?
+
+
+  _Mitigation plans such as purging or archiving data can help the application to remain available in scenarios where data size exceeds expected limits_
 ## Security &amp; Compliance
     
 ### Identity and Access
@@ -467,7 +485,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 * Are Azure AD emergency access accounts and processes defined for recovering from identity failures?
 
 
-  _The impact of no administrative access can be mitigated by creating two or more emergency access accounts([Emergency Access accounts in Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access))_
+  _The impact of no administrative access can be mitigated by creating two or more emergency access accounts ([Emergency Access accounts in Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access))_
 ### Security Center
             
 * Is Azure Security Center Standard tier enabled for all subscriptions and reporting to centralized workspaces? Also, is automatic provisioning enabled for all subscriptions? ([Security Center Data Collection](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection))
@@ -765,6 +783,11 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
   _Performance Testing: Performance testing is the superset of both load and stress testing. The primary goal of performance testing is to validate benchmark behaviour for the application([Performance Testing](https://docs.microsoft.com/azure/architecture/checklist/dev-ops#testing))
 Load Testing : Load testing validates application scalability by rapidly and/or gradually increasing the load on the application until it reaches a threshold/limit 
 Stress Testing : *Stress testing is a type of negative testing which involves various activities to overload existing resources and remove components to understand overall resiliency and how the application responds to issues_
+    - How does your team perceive the importance of performance testing?
+
+
+      _It is critical that your team understands the importance of performance testing. Additionally, the team should be committed to providing the necessary time and resources for adequately executing performance testing proven practices._
+
     - When do you do test for performance, scalability, and resiliency?
 
 

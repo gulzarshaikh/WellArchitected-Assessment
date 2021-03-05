@@ -1348,7 +1348,8 @@
     "type": "Questions",
     "pillars": [
       "operationalexcellence",
-      "reliability"
+      "reliability",
+      "performanceefficiency"
     ],
     "lens": "application",
     "category": "Deployment & Testing",
@@ -1357,6 +1358,12 @@
     "context": "Performance Testing: Performance testing is the superset of both load and stress testing. The primary goal of performance testing is to validate benchmark behaviour for the application([Performance Testing](https://docs.microsoft.com/azure/architecture/checklist/dev-ops#testing))\nLoad Testing : Load testing validates application scalability by rapidly and/or gradually increasing the load on the application until it reaches a threshold/limit \nStress Testing : *Stress testing is a type of negative testing which involves various activities to overload existing resources and remove components to understand overall resiliency and how the application responds to issues",
     "recommendation": "",
     "children": [
+      {
+        "title": "How does your team perceive the importance of performance testing?",
+        "context": "It is critical that your team understands the importance of performance testing. Additionally, the team should be committed to providing the necessary time and resources for adequately executing performance testing proven practices.",
+        "recommendation": "",
+        "id": ""
+      },
       {
         "title": "When do you do test for performance, scalability, and resiliency?",
         "context": "Regular testing should be performed as part of each major change and if possible on a regular basis to validate existing thresholds, targets and assumptions, as well as ensuring the validity of the health model, capacity model and operational procedures",
@@ -1666,7 +1673,7 @@
     "lens": "application",
     "category": "Application Design",
     "subCategory": "Design",
-    "title": "Does the workload support multi-region deployments?",
+    "title": "Is the workload deployed across multiple regions?",
     "context": "Multiple regions should be used for failover purposes in a disaster state, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active strategies. Additional cost needs to be taken into consideration - mostly from compute, data and networking perspectivce, but also services like Azure Site Recovery (ASR). ([Failover strategies](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones))",
     "recommendation": "",
     "id": "application_design_multiregion_deployments"
@@ -1676,7 +1683,8 @@
     "pillars": [
       "reliability",
       "operationalexcellence",
-      "costoptimization"
+      "costoptimization",
+      "performanceefficiency"
     ],
     "lens": "application",
     "category": "Application Design",
@@ -1865,7 +1873,8 @@
     "type": "Questions",
     "pillars": [
       "reliability",
-      "costoptimization"
+      "costoptimization",
+      "performanceefficiency"
     ],
     "lens": "application",
     "category": "Application Design",
@@ -1873,7 +1882,15 @@
     "title": "Has a Business Continuity Disaster Recovery (BCDR) strategy been defined for the application and/or its key scenarios?",
     "context": "A disaster recovery strategy should capture how the application responds to a disaster situation such as a regional outage or the loss of a critical platform service, using either a re-deployment, warm-spare active-passive, or hot-spare active-active approach. To drive cost down consider splitting application components and data into groups. For example: 1) must protect, 2) nice to protect, 3) ephemeral/can be rebuilt/lost, instead of protecting all data with the same policy.",
     "recommendation": "",
-    "id": "application_design_bcdr_strategy"
+    "id": "application_design_bcdr_strategy",
+    "children": [
+      {
+        "title": "If you have a disaster recovery plan in another region, have you ensured you have the needed capacity quotas allocated?",
+        "context": "Quotas and limits typically apply at the region level and, therefore, the needed capacity should also be planned for the secondary region.",
+        "recommendation": "",
+        "id": ""   
+      }
+    ]
   },
   {
     "type": "Questions",
@@ -1881,7 +1898,7 @@
       "reliability"
     ],
     "lens": "application",
-    "category": "Capacity & Service Availability",
+    "category": "Capacity & Service Availability Planning",
     "subCategory": "Service Availability",
     "title": "Are Azure services available in the required regions?",
     "context": "All Azure services and SKUs are not available within every Azure region, so it is important to understand if the selected regions for the application offer all of the required capabilities. Service availability also varies across sovereign clouds, such as China (\"Mooncake\") or USGov, USNat, and USSec clouds. In situations where capabilities are missing, steps should be taken to ascertain if a roadmap exists to deliver required services([Azure Products by Region](https://azure.microsoft.com/global-infrastructure/services/)).",
@@ -1894,7 +1911,7 @@
       "reliability"
     ],
     "lens": "application",
-    "category": "Capacity & Service Availability",
+    "category": "Capacity & Service Availability Planning",
     "subCategory": "Service Availability",
     "title": "Are Azure Availability Zones available in the required regions?",
     "context": "Not all regions support Availability Zones today, so when assessing the suitability of availability strategy in relation to targets it is important to confirm if targeted regions also provide zonal support. All net new Azure regions will conform to the 3 + 0 datacenter design, and where possible existing regions will expand to provide support for Availability Zones([Regions that support Availability Zones in Azure](https://docs.microsoft.com/azure/availability-zones/az-region))",
@@ -1907,7 +1924,7 @@
       "reliability"
     ],
     "lens": "application",
-    "category": "Capacity & Service Availability",
+    "category": "Capacity & Service Availability Planning",
     "subCategory": "Service Availability",
     "title": "Are any preview services/capabilities required in production?",
     "context": "If the application has taken a dependency on preview services or SKUs then it is important to ensure that the level of support and committed SLAs are in alignment with expectations and that roadmap plans for preview services to go \nGenerally Available (GA) are understood \nPrivate Preview : SLAs do not apply and formal support is not generally provided \nPublic Preview : SLAs do not apply and formal support may be provided on a best-effort basis",
@@ -1920,7 +1937,7 @@
       "reliability"
     ],
     "lens": "application",
-    "category": "Capacity & Service Availability",
+    "category": "Capacity & Service Availability Planning",
     "subCategory": "Service Availability",
     "title": "Are all APIs/SDKs validated against target runtime/languages for required functionality?",
     "context": "While there is a desire across Azure to achieve API/SDK uniformity for supported languages and runtimes, the reality is that capability deltas exist. For instance, not all CosmosDB APIs support the use of direct connect mode over TCP to bypass the platform HTTP gateway. It is therefore important to ensure that APIs/SDKs for selected languages and runtimes provide all of the required capabilities",
@@ -1933,7 +1950,7 @@
       "reliability"
     ],
     "lens": "application",
-    "category": "Capacity & Service Availability",
+    "category": "Capacity & Service Availability Planning",
     "subCategory": "Capacity",
     "title": "Is there a capacity model for the application?",
     "context": "A capacity model should describe the relationships between the utilization of various components as a ratio, to capture when and how application components should scale-out. For instance, scaling the number of Application Gateway v2 instances may put excess pressure on downstream components unless also scaled to a degree. When modelling capacity for critical system components it is therefore recommended that an N+1 model be applied to ensure complete tolerance to transient faults, where n describes the capacity required to satisfy performance and availability requirements([Performance Efficiency - Capacity](https://docs.microsoft.com/azure/architecture/framework/scalability/capacity))",
@@ -1946,7 +1963,7 @@
       "reliability"
     ],
     "lens": "application",
-    "category": "Capacity & Service Availability",
+    "category": "Capacity & Service Availability Planning",
     "subCategory": "Capacity",
     "title": "Is the required capacity (initial and future growth) within Azure service scale limits and quotas?",
     "context": "Due to physical and logical resource constraints within the platform, Azure must apply limits and quotas to service scalability, which may be either hard or soft. The application should therefore take a scale-unit approach to navigate within service limits, and where necessary consider multiple subscriptions which are often the boundary for such limits. It is highly recommended that a structured approach to scale be designed up-front rather than resorting to a 'spill and fill' model([Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits))",
@@ -1959,7 +1976,7 @@
       "reliability"
     ],
     "lens": "application",
-    "category": "Capacity & Service Availability",
+    "category": "Capacity & Service Availability Planning",
     "subCategory": "Capacity",
     "title": "Is the required capacity (initial and future growth) available within targeted regions?",
     "context": "While the promise of the cloud is infinite scale, the reality is that there are finite resources available and as a result situations can occur where capacity can be constrained due to overall demand. If the application requires a large amount of capacity or expects a significant increase in capacity then effort should be invested to ensure that desired capacity is attainable within selected region(s). For applications leveraging a recovery or active-passive based disaster recovery strategy, consideration should also be given to ensure suitable capacity exists in the secondary region(s) since a regional outage can lead to a significant increase in demand within a paired region due to other customer workloads also failing over. To help mitigate this, consideration should be given to pre-provisioning resources within the secondary region([Azure Capacity](https://aka.ms/AzureCapacity))",
@@ -2008,18 +2025,31 @@
   {
     "type": "Questions",
     "pillars": [
-      "reliability"
+      "reliability",
+      "performanceefficiency"
     ],
     "lens": "application",
     "category": "Application Platform Availability",
     "subCategory": "Compute Availability",
     "title": "Is the application platform deployed across multiple regions?",
-    "context": "The ability to respond to disaster scenarios for overall compute platform availability and application resiliency is dependant on the use of multiple regions or other deployment locations",
+    "context": "The ability to respond to disaster scenarios for overall compute platform availability and application resiliency is dependant on the use of multiple regions or other deployment locations. Multi-region deployment is also ideal for performance improvements as your application scales. Additionally, user requests can be directed to their closest region which reduces latency between the user and your service.",
     "recommendation": "",
     "children": [
       {
+        "title": "Were regions chosen based on location and proximity to your users or based on resource types that were available?",
+        "context": "Not only is it important to utilize regions close to your audience, but it is equally important to choose regions that offer the SKUs that will support your future growth. Not all regions share the same parity when it comes to product SKUs. Plan your growth, then choose regions that will support those plans.",
+        "recommendation": "",
+        "id": ""
+      },
+      {
         "title": "Are paired regions used?",
         "context": "Paired regions exist within the same geography and provide native replication features for recovery purposes, such as Geo-Redundant Storage (GRS) asynchronous replication. In the event of planned maintenance, updates to a region will be performed sequentially only([Business continuity with Azure Paired Regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions))",
+        "recommendation": "",
+        "id": ""
+      },
+      {
+        "title": "Have you ensured that both (all) regions in use have the same performance and scale SKUs that are currently leveraged in the primary region?",
+        "context": "When planning for scale and efficiency, it is important that regions are not only paired, but homogenous in their service offerings. Additionally, you should make sure that, if one region fails, the second region can scale appropriately to sufficiently handle the influx of additional user requests.",
         "recommendation": "",
         "id": ""
       }
@@ -2284,11 +2314,12 @@
   {
     "type": "Questions",
     "pillars": [
-      "reliability"
+      "reliability",
+      "performanceefficiency"
     ],
     "lens": "application",
     "category": "Scalability & Performance",
-    "subCategory": "App Performance",
+    "subCategory": "Application Performance",
     "title": "Does the application logic handle exceptions and errors using resiliency patterns?",
     "context": "Programming paradigms such as retry patterns, request timeouts, and circuit breaker patterns can improve application resiliency by automatically recovering from transient faults([Error handling for resilient applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design-error-handling))",
     "recommendation": "",
@@ -2301,7 +2332,7 @@
     ],
     "lens": "application",
     "category": "Scalability & Performance",
-    "subCategory": "App Performance",
+    "subCategory": "Application Performance",
     "title": "Does the application require long running TCP connections?",
     "context": "If an application is initiating many outbound TCP or UDP connections it may exhaust all available ports leading to SNAT port exhaustion and poor application performance. Long-running connections exacerbate this risk by occupying ports for sustained durations. Effort should be taken to ensure that the application can scale within the port limits of the chosen application hosting platform([Managing SNAT port exhaustion](https://docs.microsoft.com/azure/load-balancer/troubleshoot-outbound-connection#snatexhaust))",
     "recommendation": "",
@@ -2310,7 +2341,24 @@
   {
     "type": "Questions",
     "pillars": [
-      "reliability"
+      "reliability",
+      "performanceefficiency",
+      "operationalexcellence"
+    ],
+    "lens": "application",
+    "category": "Scalability & Performance",
+    "subCategory": "Data Size/Growth",
+    "title": "Do you know the growth rate of your data?",
+    "context": "Your solution might work great in the first week or month, but what happens when data just keeps increasing? Will the solution slow down, or will it even break at a particular threshold? Planning for data growth, data retention, and archiving is essential in capacity planning. Without adequately planning capacity for your datastores, performance will be negatively affected.",
+    "recommendation": "",
+    "id": ""
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "reliability",
+      "performanceefficiency",
+      "operationalexcellence"
     ],
     "lens": "application",
     "category": "Scalability & Performance",
@@ -2323,7 +2371,8 @@
   {
     "type": "Questions",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "application",
     "category": "Scalability & Performance",
@@ -2368,7 +2417,7 @@
     "category": "Scalability & Performance",
     "subCategory": "Network Throughput and Latency",
     "title": "Are there any components/scenarios that are very sensitive to network latency?",
-    "context": "Components or scenarios that are sensitive to network latency may indicate a need for co-locality within a single Availability Zone or even closer using Proximity Placement Groups with Accelerated Networking enabled([Proximity Placement Groups](https://docs.microsoft.com/azure/virtual-machines/windows/co-location#proximity-placement-groups))",
+    "context": "Components or scenarios that are sensitive to network latency may indicate a need for co-locality within a single Availability Zone or even closer using Proximity Placement Groups with Accelerated Networking enabled ([Proximity Placement Groups](https://docs.microsoft.com/azure/virtual-machines/windows/co-location#proximity-placement-groups))",
     "recommendation": "",
     "id": ""
   },
@@ -2381,7 +2430,7 @@
     "category": "Scalability & Performance",
     "subCategory": "Network Throughput and Latency",
     "title": "Have gateways (ExpressRoute or VPN) been sized accordingly to the expected cross-premises network throughput?",
-    "context": "Azure Virtual Network Gateways throughput varies based on SKU. Gateways should therefore be sized according to required throughput([VPN Gateway SKUs](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku))",
+    "context": "Azure Virtual Network Gateways throughput varies based on SKU. Gateways should therefore be sized according to required throughput ([VPN Gateway SKUs](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku))",
     "recommendation": "",
     "id": ""
   },
@@ -2516,7 +2565,7 @@
     "category": "Security & Compliance",
     "subCategory": "Identity and Access",
     "title": "Are Azure AD emergency access accounts and processes defined for recovering from identity failures?",
-    "context": "The impact of no administrative access can be mitigated by creating two or more emergency access accounts([Emergency Access accounts in Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access))",
+    "context": "The impact of no administrative access can be mitigated by creating two or more emergency access accounts ([Emergency Access accounts in Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access))",
     "recommendation": "",
     "id": ""
   },
@@ -2565,7 +2614,7 @@
     "category": "Security & Compliance",
     "subCategory": "Network Security",
     "title": "Are all external application endpoints secured?",
-    "context": "External application endpoints should be protected against common attack vectors, such as Denial of Service (DoS) attacks like Slowloris, to prevent potential application downtime due to malicious intent. Azure native technologies such as Azure Firewall, Application Gateway/Azure Front Door WAF, and DDoS Protection Standard Plan can be used to achieve requisite protection([Azure DDoS Protection](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview))",
+    "context": "External application endpoints should be protected against common attack vectors, such as Denial of Service (DoS) attacks like Slowloris, to prevent potential application downtime due to malicious intent. Azure native technologies such as Azure Firewall, Application Gateway/Azure Front Door WAF, and DDoS Protection Standard Plan can be used to achieve requisite protection ([Azure DDoS Protection](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview))",
     "recommendation": "",
     "id": ""
   },
@@ -4956,66 +5005,7 @@
       "performanceefficiency"
     ],
     "lens": "application",
-    "category": "Application Design",
-    "subCategory": "Transactional",
-    "title": "How does your application have retry logic in response to a failure?",
-    "context": "When your application encounters an exception or given component (service) of your application fails, the application needs to handle the failure/exception gracefully and log the exception in order to mitigate the problem in the future.",
-    "recommendation": "",
-    "id": ""
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "performanceefficiency"
-    ],
-    "lens": "application",
-    "category": "Application Design",
-    "subCategory": "Disaster Planning",
-    "title": "Is you application deployed to multiple regions?",
-    "context": "Leveraging multiple regions is not only important for disaster recovery and high-availability. Multi-region deployment is also ideal for performance improvements as your application scales. Additionally, user requests can be directed to their closest region which reduces latency between the user and your service.",
-    "recommendation": "",
-    "id": "",
-    "children" : [
-      {
-        "title": "Were regions chosen based on location and proximity to your users or based on resource types that were available?",
-        "context": "Not only is it important to utilize regions close to your audience, but it is equally important to choose regions that offer the SKUs that will support your future growth. Not all regions share the same parity when it comes to product SKUs. Plan your growth, then choose regions that will support those plans.    ",
-        "recommendation": "",
-        "id": ""
-      },
-      {
-        "title": "Are the regions paired?",
-        "context": "Paired regions have built-in support for high-availability of certain resources. Not all resources support paired regions, but those that do ensure that your application remains operational. The operational level may be reduced (e.g. read-only of certain resources), but still operational nonetheless. Make sure your multi-region application is deployed to paired regions and that your operational level is understood in the case that (a) service(s) in your primary region are in a failed state.",
-        "recommendation": "",
-        "id": ""
-      },
-      {
-        "title": "Have you ensured that both (all) regions in use have the same performance and scale SKUs that are currently leveraged in the primary region?",
-        "context": "When planning for scale and efficiency, it is important that regions are not only paired, but homogenous in their service offerings. Additionally, you should make sure that, if one region fails, the second region can scale appropriately to sufficiently handle the influx of additional user requests.",
-        "recommendation": "",
-        "id": ""
-      }
-    ]
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "performanceefficiency"
-    ],
-    "lens": "application",
-    "category": "Application Design",
-    "subCategory": "Disaster Planning",
-    "title": "Is your app deployed to multiple Availability Zones?",
-    "context": "Many regions have availability zones with them. This is to prevent against inoperability of your application in the case of a partial region failure. While this configuration is utilized for high-availability, you should also be aware of the impact it may have on your application should a service encounter an issue within one zone.  Furthermore, if an individual zone fails, but your application is deployed to multiple zones within the same region, it can prevent your application from having to communicate with a service in your secondary region. Both scenarios are important when considering performance efficiency and latency of requests.",
-    "recommendation": "",
-    "id": ""
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "performanceefficiency"
-    ],
-    "lens": "application",
-    "category": "Capacity Planning",
+    "category": "Capacity & Service Availability Planning",
     "subCategory": "Usage Prediction",
     "title": "Will your application be exposed to yearly or monthly heavy, peak loads?",
     "context": "Major events like Black Friday, Singles Day, End-of-month reporting or marketing pushes can create abnormal load on your application and require additional resources. Understanding the upticks in demand can help you proactively scale so that customers/users experience little to no performance degradation.",
@@ -5042,7 +5032,7 @@
       "performanceefficiency"
     ],
     "lens": "application",
-    "category": "Capacity Planning",
+    "category": "Capacity & Service Availability Planning",
     "subCategory": "Service SKU",
     "title": "Do you know your scale limits and what is most likely to be your bottleneck?",
     "context": "An application is made up of many different components, services, and frameworks within both infrastructure and application code. The design and choices in each area will incur unique limits and scale options. Knowing how your application behaves under different kinds of load allows you to be better prepared. It can also help you recognize which individual services to scale, if necessary, versus scaling your entire infrastructure. This can help increase performance efficiency without sacrificing costs. ",
@@ -5055,49 +5045,10 @@
       "performanceefficiency"
     ],
     "lens": "application",
-    "category": "Capacity Planning",
+    "category": "Capacity & Service Availability Planning",
     "subCategory": "Service SKU",
     "title": "Is the required peak capacity aligned with the subscription quotas and limits?",
     "context": "Limitless scale requires dedicated design and one of the important design considerations is the limits and quotas of Azure subscriptions. Some services are almost limitless, others require more planning. Some services have 'soft' limits that can be increased by contacting support.",
-    "recommendation": "",
-    "id": ""
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "performanceefficiency"
-    ],
-    "lens": "application",
-    "category": "Capacity Planning",
-    "subCategory": "Disaster Recovery",
-    "title": "If you have a disaster recovery plan in another region, have you ensured you have the needed capacity quotas allocated?",
-    "context": "Quotas and limits typically apply at the region level and, therefore, the needed capacity should also be planned for the secondary region.",
-    "recommendation": "",
-    "id": ""
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "performanceefficiency"
-    ],
-    "lens": "application",
-    "category": "Capacity Planning",
-    "subCategory": "Data",
-    "title": "Do you know the growth rate of your data?",
-    "context": "Your solution might work great in the first week or month, but what happens when data just keeps increasing? Will the solution slow down, or will it even break at a particular threshold? Planning for data growth, data retention, and archiving is essential in capacity planning. Without adequately planning capacity for your datastores, performance will be negatively affected.",
-    "recommendation": "",
-    "id": ""
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "performanceefficiency"
-    ],
-    "lens": "application",
-    "category": "Performance Testing",
-    "subCategory": "Resource Planning",
-    "title": "How does your team perceive the importance of performance testing?",
-    "context": "It is critical that your team understands the importance of performance testing. Additionally, the team should be committed to providing the necessary time and resources for adequately executing performance testing proven practices.",
     "recommendation": "",
     "id": ""
   },
@@ -5633,7 +5584,7 @@
       "performanceefficiency"
     ],
     "lens": "application",
-    "category": "Monitoring",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Logging",
     "title": "Do you have detailed instrumentation in the application code?",
     "context": "Instrumentation of your code allows precise detection of underperforming pieces when load or stress tests are applied. It is critical to have this data available to improve and identify performance opportunities in the application code. Application Performance Monitoring (APM) tools, such as Application Insights, should be used to manage the performance and availability of the application, along with aggregating application level logs and events for subsequent interpretation.",
@@ -5646,7 +5597,7 @@
       "performanceefficiency"
     ],
     "lens": "application",
-    "category": "Monitoring",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Logging",
     "title": "Are application logs collected from different application environments?",
     "context": "Application logs and events should be collected across all major environments to support the end-to-end application lifecycle. Furthermore, corresponding log entries across the application should capture a correlation ID for their respective transactions.",
@@ -5659,7 +5610,7 @@
       "performanceefficiency"
     ],
     "lens": "application",
-    "category": "Monitoring",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Logging",
     "title": "Are application events correlated across all application components?",
     "context": "Event correlation between the layers of the application will provide the ability to connect tracing data of the complete application stack. Once this connection is made, you can see a complete picture of where time is spent at each layer. This will typically mean having a tool that can query the repositories of tracing data in correlation to a unique identifier that represents a given transaction that has flowed through the system.<br /><br />Log events coming from different application components or different component tiers of the application should be correlated to build end-to-end transaction flows. For instance, this is often achieved by using consistent correlation IDs transferred between components within a transaction.",
@@ -5672,7 +5623,7 @@
       "performanceefficiency"
     ],
     "lens": "application",
-    "category": "Monitoring",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Logging",
     "title": "Are log messages captured in a structured format?",
     "context": "Application events should be captured as a structured data type with machine-readable data points rather than unstructured string types. Structured data can easily be indexed and searched, and reporting can be greatly simplified.",
@@ -5685,7 +5636,7 @@
       "performanceefficiency"
     ],
     "lens": "application",
-    "category": "Monitoring",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Performance Targets",
     "title": "Is it possible to evaluate critical application performance targets and non-functional requirements (NFRs)?",
     "context": "Application-level metrics should include end-to-end transaction times of key technical functions, such as database queries, response times for external API calls, failure rates or processing steps, etc.",
@@ -5698,7 +5649,7 @@
       "performanceefficiency"
     ],
     "lens": "application",
-    "category": "Monitoring",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Performance Targets",
     "title": "Is the end-to-end performance of critical system flows monitored?",
     "context": "It should be possible to correlate application log events across critical system flows, such as user logins, to fully assess the health of key scenarios in the context of targets and non-functional requirements (NFRs).",
@@ -5711,7 +5662,7 @@
       "performanceefficiency"
     ],
     "lens": "application",
-    "category": "Monitoring",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Logging",
     "title": "Which log aggregation technology is used to collect logs and metrics from Azure resources?",
     "context": "Log aggregation technologies, such as Azure Log Analytics or Splunk, should be used to collate logs and metrics across all application components for subsequent evaluation. Resources may include Azure IaaS and PaaS services as well as 3rd-party appliances such as firewalls and Anti-Malware solutions used in the application. For instance, if Azure Event Hub is used, the Diagnostics Settings should be configured to push logs and metrics to the data sink.",
@@ -5724,7 +5675,7 @@
       "performanceefficiency"
     ],
     "lens": "application",
-    "category": "Monitoring",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Logging",
     "title": "Are you collecting Azure Activity Logs within the log aggregation tool?",
     "context": "Azure Activity Logs provide audit information about when an Azure resource is modified, such as when a virtual machine is started or stopped. Such information is extremely useful for the interpretation and troubleshooting of issues as it provides transparency around configuration changes that can be mapped to adverse performance events.",
@@ -5737,7 +5688,7 @@
       "performanceefficiency"
     ],
     "lens": "application",
-    "category": "Monitoring",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Logging",
     "title": "Is resource-level monitoring enforced throughout the application?",
     "context": "All application resources should be configured to route diagnostic logs and metrics to the chosen log aggregation technology. Azure Policy should also be used as a device to ensure the consistent use of diagnostic settings across the application, to enforce the desired configuration for each Azure service.",
@@ -5750,7 +5701,7 @@
       "performanceefficiency"
     ],
     "lens": "application",
-    "category": "Monitoring",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Logging",
     "title": "Are logs and metrics available for critical internal dependencies?",
     "context": "To be able to build a robust application health model, it is vital that visibility into the operational state of critical, internal dependencies, such as a shared network virtual appliance (NVA) or Express Route connection, be achieved.",
@@ -5763,7 +5714,7 @@
       "performanceefficiency"
     ],
     "lens": "application",
-    "category": "Monitoring",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Dependencies",
     "title": "Are critical external dependencies monitored?",
     "context": "Critical, external dependencies, such as an API service, should be monitored to ensure operational visibility of performance. For instance, a probe could be used to measure the latency of an external API.",
@@ -5776,7 +5727,7 @@
       "performanceefficiency"
     ],
     "lens": "application",
-    "category": "Monitoring",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Logging",
     "title": "Are application- and resource-level logs aggregated in a single data sink, or is it possible to cross-query events at both levels?",
     "context": "To build a robust application health model, it is vital that application- and resource-level data be correlated and evaluated together to optimize the detection of issues and the troubleshooting of those detected issues.",
@@ -5803,7 +5754,7 @@
       "performanceefficiency"
     ],
     "lens": "application",
-    "category": "Monitoring",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Modelling",
     "title": "Is a health model used to qualify what 'healthy' and 'unhealthy' states represent for the application?",
     "context": "A holistic application health model should be used to quantify what &quot;healthy&quot; and &quot;unhealthy&quot; states represent across all application components. It is highly recommended that a &quot;traffic light&quot; model be used to indicate green/healthy state when key, non-functional requirements and targets are fully satisfied and resources are optimally utilized (e.g. 95% of requests are processed in <= 500ms with AKS node utilization at x%, etc.).",
@@ -5830,7 +5781,7 @@
       "performanceefficiency"
     ],
     "lens": "application",
-    "category": "Monitoring",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Modelling",
     "title": "Are long-term trends analyzed to predict performance issues before they occur?",
     "context": "Analytics can and should be performed across long-term operational data to help inform on the history of application performance and detect if there have been any regressions. For instance, if the average response times have been slowly increasing over time and getting closer to maximum target.",
@@ -5843,7 +5794,7 @@
       "performanceefficiency"
     ],
     "lens": "application",
-    "category": "Monitoring",
+    "category": "Health Modelling & Monitoring",
     "subCategory": "Logging",
     "title": "Have retention times for logs and metrics been defined and with housekeeping mechanisms configured?",
     "context": "Clear retention times should be defined to allow for suitable, historic analysis, but also control storage costs. Suitable housekeeping tasks should also be used to archive data to cheaper storage or aggregate data for long-term trend analysis.",
