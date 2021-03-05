@@ -7,6 +7,7 @@
     - [Design Patterns](#Design-Patterns)
     - [Transactional](#Transactional)
   - [Health Modelling &amp; Monitoring](#Health-Modelling--Monitoring)
+    - [Data Interpretation &amp; Health Modelling](#Data-Interpretation--Health-Modelling)
     - [Logging](#Logging)
     - [Performance Targets](#Performance-Targets)
     - [Dependencies](#Dependencies)
@@ -53,6 +54,10 @@
 
   _[Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones) can be used to optimise application availability within a region by providing datacenter level fault tolerance. However, the application architecture must not share dependencies between zones to use them effectively. It is also important to note that Availability Zones may introduce performance and cost considerations for applications which are extremely 'chatty' across zones given the implied physical separation between each zone and inter-zone bandwidth charges. That also means that AZ can be considered to get higher SLA for lower cost. Be aware of [pricing changes](https://azure.microsoft.com/pricing/details/bandwidth/) coming to Availability Zone bandwidth starting February 2021._
   > Use Availability Zones where applicable to improve reliability and optimize costs.
+* Can the application operate with reduced functionality or degraded performance in the presence of an outage?
+
+
+  _Avoiding failure is impossible in the public cloud, and as a result applications require resilience to respond to outages and deliver reliability. The application should therefore be designed to operate even when impacted by regional, zonal, service or component failures across critical application scenarios and functionality_
 * Has a Business Continuity Disaster Recovery (BCDR) strategy been defined for the application and/or its key scenarios?
 
 
@@ -131,6 +136,28 @@
 
 ## Health Modelling &amp; Monitoring
     
+### Data Interpretation &amp; Health Modelling
+            
+* Is a health model used to qualify what 'healthy' and 'unhealthy' states represent for the application?
+
+
+  > A holistic application health model should be used to quantify what 'healthy' and 'unhealthy' states represent across all application components. It is highly recommended that a 'traffic light' model be used to indicate a green/healthy state when key non-functional requirements and targets are fully satisfied and resources are optimally utilized, e.g. 95% of requests are processed in <= 500ms with AKS node utilization at x% etc. Once established, this health model should inform critical monitoring metrics across system components and operational sub-system composition. It is important to note that the health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state.
+    - Are critical system flows used to inform the health model?
+
+
+
+      > The health model should be able to surface the respective health of critical system flows or key subsystems to ensure appropriate operational prioritization is applied. For example, the health model should be able to represent the current state of the user login transaction flow
+    - Can the health model distinguish between transient and non-transient faults?
+
+
+      _Is the health model treating all failures the same?_
+
+      > The health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state
+    - Can the health model determine if the application is performing at expected performance targets?
+
+
+      _The health model should have the ability to evaluate application performance as a part of the application's overall health state._
+
 ### Logging
             
 * Do you have detailed instrumentation in the application code?
@@ -201,20 +228,6 @@
   _Critical, external dependencies, such as an API service, should be monitored to ensure operational visibility of performance. For instance, a probe could be used to measure the latency of an external API._
 ### Modelling
             
-* Is a health model used to qualify what 'healthy' and 'unhealthy' states represent for the application?
-
-
-  _A holistic application health model should be used to quantify what &quot;healthy&quot; and &quot;unhealthy&quot; states represent across all application components. It is highly recommended that a &quot;traffic light&quot; model be used to indicate green/healthy state when key, non-functional requirements and targets are fully satisfied and resources are optimally utilized (e.g. 95% of requests are processed in <= 500ms with AKS node utilization at x%, etc.)._
-    - Are critical system flows used to inform the health model?
-
-
-      _The health model should be able to surface the respective health of critical system flows or key subsystems to ensure appropriate operational prioritization is applied. For example, the health model should be able to represent the current state of the user login transaction flow._
-
-    - Can the health model determine if the application is performing at expected performance targets?
-
-
-      _The health model should have the ability to evaluate application performance as a part of the application's overall health state._
-
 * Are long-term trends analyzed to predict performance issues before they occur?
 
 
