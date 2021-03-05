@@ -11,13 +11,13 @@
     - [Performance Targets](#Performance-Targets)
     - [Dependencies](#Dependencies)
     - [Modelling](#Modelling)
-  - [Capacity &amp; Service Availability](#Capacity--Service-Availability)
+  - [Capacity &amp; Service Availability Planning](#Capacity--Service-Availability-Planning)
     - [Usage Prediction](#Usage-Prediction)
     - [Service SKU](#Service-SKU)
   - [Application Platform Availability](#Application-Platform-Availability)
     - [Compute Availability](#Compute-Availability)
   - [Scalability &amp; Performance](#Scalability--Performance)
-    - [App Performance](#App-Performance)
+    - [Application Performance](#Application-Performance)
     - [Data Size/Growth](#Data-SizeGrowth)
   - [Deployment &amp; Testing](#Deployment--Testing)
     - [Testing &amp; Validation](#Testing--Validation)
@@ -215,7 +215,7 @@
 
 
   _Analytics can and should be performed across long-term operational data to help inform on the history of application performance and detect if there have been any regressions. For instance, if the average response times have been slowly increasing over time and getting closer to maximum target._
-## Capacity &amp; Service Availability
+## Capacity &amp; Service Availability Planning
     
 ### Usage Prediction
             
@@ -266,7 +266,7 @@
 
 ## Scalability &amp; Performance
     
-### App Performance
+### Application Performance
             
 * Does the application logic handle exceptions and errors using resiliency patterns?
 

@@ -14,7 +14,7 @@
     - [Data Interpretation &amp; Health Modelling](#Data-Interpretation--Health-Modelling)
     - [Alerting](#Alerting)
     - [Monitoring and Measurement](#Monitoring-and-Measurement)
-  - [Capacity &amp; Service Availability](#Capacity--Service-Availability)
+  - [Capacity &amp; Service Availability Planning](#Capacity--Service-Availability-Planning)
     - [Service Availability](#Service-Availability)
     - [Capacity](#Capacity)
   - [Application Platform Availability](#Application-Platform-Availability)
@@ -28,7 +28,7 @@
     - [Connectivity](#Connectivity)
     - [Zone-Aware Services](#Zone-Aware-Services)
   - [Scalability &amp; Performance](#Scalability--Performance)
-    - [App Performance](#App-Performance)
+    - [Application Performance](#Application-Performance)
     - [Data Size/Growth](#Data-SizeGrowth)
     - [Data Latency and Throughput](#Data-Latency-and-Throughput)
     - [Network Throughput and Latency](#Network-Throughput-and-Latency)
@@ -106,7 +106,7 @@ These critical design principles are used as lenses to assess the Reliability of
     
 ### Design
             
-* Does the workload support multi-region deployments?
+* Is the workload deployed across multiple regions?
 
 
   _Multiple regions should be used for failover purposes in a disaster state, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active strategies. Additional cost needs to be taken into consideration - mostly from compute, data and networking perspectivce, but also services like Azure Site Recovery (ASR). ([Failover strategies](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones))_
@@ -325,7 +325,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
 
   _If the application error budget has been met or exceeded and the application is operating at or below the defined SLA, a policy may stipulate that all deployments are frozen until they reduce the number of errors to a level that allows deployments to proceed_
-## Capacity &amp; Service Availability
+## Capacity &amp; Service Availability Planning
     
 ### Service Availability
             
@@ -488,7 +488,7 @@ Public Preview : SLAs do not apply and formal support may be provided on a best-
   _Custom health probes should be used to assess overall application health including downstream components and dependent services, such as APIs and datastores, so that traffic is not sent to backend instances that cannot successfully process requests due to dependency failures([Health Endpoint Monitoring Pattern](https://docs.microsoft.com/azure/architecture/patterns/health-endpoint-monitoring))_
 ## Scalability &amp; Performance
     
-### App Performance
+### Application Performance
             
 * Does the application logic handle exceptions and errors using resiliency patterns?
 
