@@ -11,7 +11,6 @@
     - [Resource/Infrastructure Level Monitoring](#ResourceInfrastructure-Level-Monitoring)
     - [Data Interpretation &amp; Health Modelling](#Data-Interpretation--Health-Modelling)
     - [Logging](#Logging)
-    - [Performance Targets](#Performance-Targets)
     - [Dependencies](#Dependencies)
     - [Modelling](#Modelling)
   - [Capacity &amp; Service Availability Planning](#Capacity--Service-Availability-Planning)
@@ -164,6 +163,11 @@
   > All application resources should be configured to route diagnostic logs and metrics to the chosen log aggregation technology. Azure Policy should also be used as a device to ensure the consistent use of diagnostic settings across the application, to enforce the desired configuration for each Azure service.
 ### Data Interpretation &amp; Health Modelling
             
+* Are application and resource level logs aggregated in a single data sink, or is it possible to cross-query events at both levels?
+
+
+  _To build a robust application health model it is vital that application and resource level data be correlated and evaluated together to optimize the detection of issues and troubleshooting of detected issues._
+  > Implement a unified solution to aggregate and query application and resource level logs, such as Azure Log Analytics.
 * Is a health model used to qualify what 'healthy' and 'unhealthy' states represent for the application?
 
 
@@ -200,6 +204,11 @@
 
   _Structured format, following well-known schema can help in parsing and analyzing logs._
   > Application events should be captured as a structured data type with machine-readable data points rather than unstructured string types. Structured data can easily be indexed and searched, and reporting can be greatly simplified.
+* Which log aggregation technology is used to collect logs and metrics from Azure resources?
+
+
+  _Log aggregation technologies, such as Azure Log Analytics or Splunk, should be used to collate logs and metrics across all application components for subsequent evaluation. Resources may include Azure IaaS and PaaS services as well as 3rd-party appliances such as firewalls or anti-malware solutions used in the application. For instance, if Azure Event Hub is used, the [Diagnostic Settings](https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs) should be configured to push logs and metrics to the data sink. Understanding usage helps with right-sizing of the workload, but additional cost for logging needs to be accepted and included in the cost model._
+  > Use log aggregation technology, such as Azure Log Analytics or Splunk, to gather information across all application components.
 * Are logs and metrics available for critical internal dependencies?
 
 
@@ -209,10 +218,6 @@
 
 
   _Instrumentation of your code allows precise detection of underperforming pieces when load or stress tests are applied. It is critical to have this data available to improve and identify performance opportunities in the application code. Application Performance Monitoring (APM) tools, such as Application Insights, should be used to manage the performance and availability of the application, along with aggregating application level logs and events for subsequent interpretation._
-* Which log aggregation technology is used to collect logs and metrics from Azure resources?
-
-
-  _Log aggregation technologies, such as Azure Log Analytics or Splunk, should be used to collate logs and metrics across all application components for subsequent evaluation. Resources may include Azure IaaS and PaaS services as well as 3rd-party appliances such as firewalls and Anti-Malware solutions used in the application. For instance, if Azure Event Hub is used, the Diagnostics Settings should be configured to push logs and metrics to the data sink._
 * Are you collecting Azure Activity Logs within the log aggregation tool?
 
 
@@ -231,12 +236,6 @@
 
       _An Application Map can help you identify performance bottlenecks of failure hotspots across components of a distributed application._
 
-### Performance Targets
-            
-* Is the end-to-end performance of critical system flows monitored?
-
-
-  _It should be possible to correlate application log events across critical system flows, such as user logins, to fully assess the health of key scenarios in the context of targets and non-functional requirements (NFRs)._
 ### Dependencies
             
 * Are critical external dependencies monitored?
