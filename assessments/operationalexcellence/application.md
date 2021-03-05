@@ -16,6 +16,7 @@
     - [Data Interpretation &amp; Health Modelling](#Data-Interpretation--Health-Modelling)
     - [Dashboarding](#Dashboarding)
     - [Alerting](#Alerting)
+    - [Logging](#Logging)
   - [Capacity &amp; Service Availability Planning](#Capacity--Service-Availability-Planning)
     - [Capacity](#Capacity)
   - [Scalability &amp; Performance](#Scalability--Performance)
@@ -317,22 +318,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
 
   _In order to successfully maintain the application it's important to 'turn the lights on' and have clear visibility of important metrics both in real-time and historically._
-  > An APM technology, such as Application Insights, should be used to manage the performance and availability of the application, aggregating application level logs and events for subsequent interpretation. It should be considered what is the appropriate level of logging, because too much can incur significant costs. ([Log Analytics pricing](https://azure.microsoft.com/pricing/details/monitor/)
-* Are application logs collected from different application environments?
-
-
-  _Application logs support the end-to-end application lifecycle. Logging is essential in understanding how the application operates in various environments and what events occur and under which conditions._
-  > Application logs and events should be collected across all major environments. Sufficient degree of separation and filtering should be in place to ensure non-critical environments do not convolute production log interpretation. Furthermore, corresponding log entries across the application should capture a correlation ID for their respective transactions.
-* Are log messages captured in a structured format?
-
-
-  _Structured format, following well-known schema can help in parsing and analyzing logs._
-  > Application events should ideally be captured as a structured data type with machine-readable data points which can easily be indexed and searched, rather than an unstructured string.
-* Are log levels used to capture different types of application events?
-
-
-  _Different log levels, such as INFO, WARNING, ERROR, and DEBUG can be used across environments (such as DEBUG for development environment)._
-  > Different log levels, such as INFO, WARNING, ERROR, and DEBUG should be pre-configured and applied within relevant environments. The approach to change log levels should be simple configuration change to support operational scenarios where it is necessary to elevate the log level within an environment.
+  > An APM technology, such as Application Insights, should be used to manage the performance and availability of the application, aggregating application level logs and events for subsequent interpretation. It should be considered what is the appropriate level of logging, because too much can incur significant costs. ([Log Analytics pricing](https://azure.microsoft.com/pricing/details/monitor/))
 * Are application events correlated across all application components?
 
 
@@ -478,6 +464,23 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
   _Subscription notification emails can contain important service notifications or security alerts([Azure account contact information](https://docs.microsoft.com/azure/cost-management-billing/manage/change-azure-account-profile#service-and-marketing-emails))._
   > Subscription notification emails can contain important service notifications or security alerts([Azure account contact information](https://docs.microsoft.com/azure/cost-management-billing/manage/change-azure-account-profile#service-and-marketing-emails)). Thus, it is important that those notifications are received and routed to the relevant technical stakeholders.
+### Logging
+            
+* Are application logs collected from different application environments?
+
+
+  _Application logs support the end-to-end application lifecycle. Logging is essential in understanding how the application operates in various environments and what events occur and under which conditions._
+  > Application logs and events should be collected across all major environments. Sufficient degree of separation and filtering should be in place to ensure non-critical environments do not convolute production log interpretation. Furthermore, corresponding log entries across the application should capture a correlation ID for their respective transactions.
+* Are log messages captured in a structured format?
+
+
+  _Structured format, following well-known schema can help in parsing and analyzing logs._
+  > Application events should be captured as a structured data type with machine-readable data points rather than unstructured string types. Structured data can easily be indexed and searched, and reporting can be greatly simplified.
+* Are log levels used to capture different types of application events?
+
+
+  _Different log levels, such as INFO, WARNING, ERROR, and DEBUG can be used across environments (such as DEBUG for development environment)._
+  > Different log levels, such as INFO, WARNING, ERROR, and DEBUG should be pre-configured and applied within relevant environments. The approach to change log levels should be simple configuration change to support operational scenarios where it is necessary to elevate the log level within an environment.
 ## Capacity &amp; Service Availability Planning
     
 ### Capacity
