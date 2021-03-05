@@ -24,7 +24,13 @@
                                 "url": "/azure/architecture/framework/reliability/receoverytargets"
                             }
                         ],
-                        "nextSteps": "1"
+                        "nextSteps": "1", // position in the next steps list
+                        "metadata": {
+                          "priority": "",
+                          "category": "",
+                          "sub-category": "",
+                          "description-long": ""
+                        }
                     }
                 ],
                 "score": 20
