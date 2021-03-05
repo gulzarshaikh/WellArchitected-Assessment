@@ -573,7 +573,8 @@
   {
     "type": "Questions",
     "pillars": [
-      "operationalexcellence"
+      "operationalexcellence",
+      "performanceefficiency"
     ],
     "lens": "application",
     "category": "Health Modelling & Monitoring",
@@ -5767,19 +5768,6 @@
     "subCategory": "Modelling",
     "title": "Are long-term trends analyzed to predict performance issues before they occur?",
     "context": "Analytics can and should be performed across long-term operational data to help inform on the history of application performance and detect if there have been any regressions. For instance, if the average response times have been slowly increasing over time and getting closer to maximum target.",
-    "recommendation": "",
-    "id": ""
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "performanceefficiency"
-    ],
-    "lens": "application",
-    "category": "Health Modelling & Monitoring",
-    "subCategory": "Logging",
-    "title": "Have retention times for logs and metrics been defined and with housekeeping mechanisms configured?",
-    "context": "Clear retention times should be defined to allow for suitable, historic analysis, but also control storage costs. Suitable housekeeping tasks should also be used to archive data to cheaper storage or aggregate data for long-term trend analysis.",
     "recommendation": "",
     "id": ""
   },
