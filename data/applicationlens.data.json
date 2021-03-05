@@ -399,7 +399,8 @@
   {
     "type": "Questions",
     "pillars": [
-      "operationalexcellence"
+      "operationalexcellence",
+      "performanceefficiency"
     ],
     "lens": "application",
     "category": "Health Modelling & Monitoring",
@@ -467,7 +468,7 @@
     ],
     "lens": "application",
     "category": "Health Modelling & Monitoring",
-    "subCategory": "Resource/Infrastructure Level Monitoring",
+    "subCategory": "Logging",
     "title": "Are logs and metrics available for critical internal dependencies?",
     "context": "To be able to build a robust application health model it is vital that visibility into the operational state of critical internal dependencies, such as a shared NVA or Express Route connection, be achieved.",
     "recommendation": "Make sure logs and key metrics of critical components are collected and stored.",
@@ -5614,22 +5615,9 @@
     ],
     "lens": "application",
     "category": "Health Modelling & Monitoring",
-    "subCategory": "Logging",
+    "subCategory": "Application Level Monitoring",
     "title": "Are application events correlated across all application components?",
     "context": "Event correlation between the layers of the application will provide the ability to connect tracing data of the complete application stack. Once this connection is made, you can see a complete picture of where time is spent at each layer. This will typically mean having a tool that can query the repositories of tracing data in correlation to a unique identifier that represents a given transaction that has flowed through the system.<br /><br />Log events coming from different application components or different component tiers of the application should be correlated to build end-to-end transaction flows. For instance, this is often achieved by using consistent correlation IDs transferred between components within a transaction.",
-    "recommendation": "",
-    "id": ""
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "performanceefficiency"
-    ],
-    "lens": "application",
-    "category": "Health Modelling & Monitoring",
-    "subCategory": "Performance Targets",
-    "title": "Is it possible to evaluate critical application performance targets and non-functional requirements (NFRs)?",
-    "context": "Application-level metrics should include end-to-end transaction times of key technical functions, such as database queries, response times for external API calls, failure rates or processing steps, etc.",
     "recommendation": "",
     "id": ""
   },
