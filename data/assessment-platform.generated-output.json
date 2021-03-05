@@ -24,12 +24,12 @@
                                 "url": "/azure/architecture/framework/reliability/receoverytargets"
                             }
                         ],
-                        "nextSteps": "1", // position in the next steps list
+                        "nextSteps": "1",
                         "metadata": {
-                          "priority": "",
-                          "category": "",
-                          "sub-category": "",
-                          "description-long": ""
+                          "priority": "high",
+                          "category": "Application Design",
+                          "sub-category": "Targets & Non Functional Requirements",
+                          "description-long": "Understanding customer reliability expectations is vital to reviewing the overall reliability of the application. For instance, if a customer is striving to achieve an application RTO of less than a minute then back-up based and active-passive disaster recovery strategies are unlikely to be appropriate \nRecovery time objective (RTO): The maximum acceptable time the application is unavailable after a disaster incident \nRecovery point objective (RPO): The maximum duration of data loss that is acceptable during a disaster event"
                         }
                     }
                 ],
@@ -49,7 +49,13 @@
                                 "url": "/azure/architecture/framework/reliability/monitorkeytargets"
                             }
                         ],
-                        "nextSteps": "1"
+                        "nextSteps": "1",
+                        "metadata": {
+                          "priority": "medium",
+                          "category": "Application Design",
+                          "sub-category": "Targets & Non Functional Requirements",
+                          "description-long": "Understanding customer availability expectations is vital to reviewing overall operations for the application. For instance, if a customer is striving to achieve an application SLO of 99.999%, the level of inherent operational actionality required by the application is going to far greater than if an SLO of 99.9% was the aspiration"
+                        }
                     }
                 ],
                 "score": 20
@@ -68,7 +74,13 @@
                                 "url": "/azure/architecture/framework/reliability/monitorkeytargets"
                             }
                         ],
-                        "nextSteps": "1"
+                        "nextSteps": "1",
+                        "metadata": {
+                          "priority": "low",
+                          "category": "Application Design",
+                          "sub-category": "Targets & Non Functional Requirements",
+                          "description-long": "Make sure you measure and monitor key targets such as\n- **Mean Time Between Failures (MTBF)**: The average time between failures of a particular component\n- **Mean Time Between Failures (MTBF)**: The average time between failures of a particular component"
+                        }
                     }
                 ],
                 "score": 20
@@ -87,7 +99,13 @@
                                 "url": "/azure/architecture/framework/reliability/compositeslas"
                             }
                         ],
-                        "nextSteps": "1"
+                        "nextSteps": "1",
+                        "metadata": {
+                          "priority": "low",
+                          "category": "Application Design",
+                          "sub-category": "Targets & Non Functional Requirements",
+                          "description-long": "Understanding customer availability expectations is vital to reviewing overall operations for the application. For instance, if a customer is striving to achieve an application SLO of 99.999%, the level of inherent operational actionality required by the application is going to far greater than if an SLO of 99.9% was the aspiration"
+                        }
                     }
                 ],
                 "score": 20
@@ -106,7 +124,13 @@
                                 "url": "/azure/architecture/framework/reliability/slafordependencies"
                             }
                         ],
-                        "nextSteps": "1"
+                        "nextSteps": "1",
+                        "metadata": {
+                          "priority": "low",
+                          "category": "Application Design",
+                          "sub-category": "Targets & Non Functional Requirements",
+                          "description-long": "Make sure SLAs/SLOs/SLIs for all leveraged dependencies are understood."
+                        }
                     }
                 ],
                 "score": 20
