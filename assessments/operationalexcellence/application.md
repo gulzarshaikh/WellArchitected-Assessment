@@ -351,11 +351,6 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
   _Resource- or infrastructure-level monitoring refers to the used platform services such as Azure VMs, Express Route or SQL Database. But also covers 3rd-party solutions like an NVA._
   > All application resources should be configured to route diagnostic logs and metrics to the chosen log aggregation technology. Azure Policy should also be used as a device to ensure the consistent use of diagnostic settings across the application, to enforce the desired configuration for each Azure service.
-* Are logs and metrics available for critical internal dependencies?
-
-
-  _To be able to build a robust application health model it is vital that visibility into the operational state of critical internal dependencies, such as a shared NVA or Express Route connection, be achieved._
-  > Make sure logs and key metrics of critical components are collected and stored.
 * Are critical external dependencies monitored?
 
 
@@ -481,6 +476,11 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
   _Different log levels, such as INFO, WARNING, ERROR, and DEBUG can be used across environments (such as DEBUG for development environment)._
   > Different log levels, such as INFO, WARNING, ERROR, and DEBUG should be pre-configured and applied within relevant environments. The approach to change log levels should be simple configuration change to support operational scenarios where it is necessary to elevate the log level within an environment.
+* Are logs and metrics available for critical internal dependencies?
+
+
+  _To be able to build a robust application health model it is vital that visibility into the operational state of critical internal dependencies, such as a shared NVA or Express Route connection, be achieved._
+  > Make sure logs and key metrics of critical components are collected and stored.
 ## Capacity &amp; Service Availability Planning
     
 ### Capacity

@@ -7,6 +7,7 @@
     - [Design Patterns](#Design-Patterns)
     - [Transactional](#Transactional)
   - [Health Modelling &amp; Monitoring](#Health-Modelling--Monitoring)
+    - [Application Level Monitoring](#Application-Level-Monitoring)
     - [Resource/Infrastructure Level Monitoring](#ResourceInfrastructure-Level-Monitoring)
     - [Data Interpretation &amp; Health Modelling](#Data-Interpretation--Health-Modelling)
     - [Logging](#Logging)
@@ -137,6 +138,22 @@
 
 ## Health Modelling &amp; Monitoring
     
+### Application Level Monitoring
+            
+* Is it possible to evaluate critical application performance targets and non-functional requirements (NFRs)?
+
+
+  > Application level metrics should include end-to-end transaction times of key technical functions, such as database queries, response times for external API calls, failure rates of processing steps, etc.
+    - Is the end-to-end performance of critical system flows monitored?
+
+
+      _To fully assess the health of key scenarios in the context of targets and NFRs, application log events across critical system flows should be correlated._
+
+      > Correlate application log events across critical system flows, such as user login.
+* Are application events correlated across all application components?
+
+
+  _Event correlation between the layers of the application will provide the ability to connect tracing data of the complete application stack. Once this connection is made, you can see a complete picture of where time is spent at each layer. This will typically mean having a tool that can query the repositories of tracing data in correlation to a unique identifier that represents a given transaction that has flowed through the system.<br /><br />Log events coming from different application components or different component tiers of the application should be correlated to build end-to-end transaction flows. For instance, this is often achieved by using consistent correlation IDs transferred between components within a transaction._
 ### Resource/Infrastructure Level Monitoring
             
 * Is resource-level monitoring enforced throughout the application?
@@ -144,11 +161,6 @@
 
   _Resource- or infrastructure-level monitoring refers to the used platform services such as Azure VMs, Express Route or SQL Database. But also covers 3rd-party solutions like an NVA._
   > All application resources should be configured to route diagnostic logs and metrics to the chosen log aggregation technology. Azure Policy should also be used as a device to ensure the consistent use of diagnostic settings across the application, to enforce the desired configuration for each Azure service.
-* Are logs and metrics available for critical internal dependencies?
-
-
-  _To be able to build a robust application health model it is vital that visibility into the operational state of critical internal dependencies, such as a shared NVA or Express Route connection, be achieved._
-  > Make sure logs and key metrics of critical components are collected and stored.
 ### Data Interpretation &amp; Health Modelling
             
 * Is a health model used to qualify what 'healthy' and 'unhealthy' states represent for the application?
@@ -187,14 +199,15 @@
 
   _Structured format, following well-known schema can help in parsing and analyzing logs._
   > Application events should be captured as a structured data type with machine-readable data points rather than unstructured string types. Structured data can easily be indexed and searched, and reporting can be greatly simplified.
+* Are logs and metrics available for critical internal dependencies?
+
+
+  _To be able to build a robust application health model it is vital that visibility into the operational state of critical internal dependencies, such as a shared NVA or Express Route connection, be achieved._
+  > Make sure logs and key metrics of critical components are collected and stored.
 * Do you have detailed instrumentation in the application code?
 
 
   _Instrumentation of your code allows precise detection of underperforming pieces when load or stress tests are applied. It is critical to have this data available to improve and identify performance opportunities in the application code. Application Performance Monitoring (APM) tools, such as Application Insights, should be used to manage the performance and availability of the application, along with aggregating application level logs and events for subsequent interpretation._
-* Are application events correlated across all application components?
-
-
-  _Event correlation between the layers of the application will provide the ability to connect tracing data of the complete application stack. Once this connection is made, you can see a complete picture of where time is spent at each layer. This will typically mean having a tool that can query the repositories of tracing data in correlation to a unique identifier that represents a given transaction that has flowed through the system.<br /><br />Log events coming from different application components or different component tiers of the application should be correlated to build end-to-end transaction flows. For instance, this is often achieved by using consistent correlation IDs transferred between components within a transaction._
 * Which log aggregation technology is used to collect logs and metrics from Azure resources?
 
 
@@ -219,10 +232,6 @@
 
 ### Performance Targets
             
-* Is it possible to evaluate critical application performance targets and non-functional requirements (NFRs)?
-
-
-  _Application-level metrics should include end-to-end transaction times of key technical functions, such as database queries, response times for external API calls, failure rates or processing steps, etc._
 * Is the end-to-end performance of critical system flows monitored?
 
 
