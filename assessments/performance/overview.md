@@ -17,7 +17,6 @@ This assessment has been produced to help the global CE&S community to optimize 
     - [Resource/Infrastructure Level Monitoring](./application.md#ResourceInfrastructure-Level-Monitoring)
     - [Data Interpretation &amp; Health Modelling](./application.md#Data-Interpretation--Health-Modelling)
     - [Logging](./application.md#Logging)
-    - [Performance Targets](./application.md#Performance-Targets)
     - [Dependencies](./application.md#Dependencies)
     - [Modelling](./application.md#Modelling)
   - [Capacity &amp; Service Availability Planning](./application.md#Capacity--Service-Availability-Planning)
