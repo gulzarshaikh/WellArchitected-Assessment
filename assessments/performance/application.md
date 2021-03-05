@@ -9,9 +9,9 @@
   - [Health Modelling &amp; Monitoring](#Health-Modelling--Monitoring)
     - [Application Level Monitoring](#Application-Level-Monitoring)
     - [Resource/Infrastructure Level Monitoring](#ResourceInfrastructure-Level-Monitoring)
-    - [Data Interpretation &amp; Health Modelling](#Data-Interpretation--Health-Modelling)
     - [Logging](#Logging)
     - [Dependencies](#Dependencies)
+    - [Data Interpretation &amp; Health Modelling](#Data-Interpretation--Health-Modelling)
     - [Modelling](#Modelling)
   - [Capacity &amp; Service Availability Planning](#Capacity--Service-Availability-Planning)
     - [Usage Prediction](#Usage-Prediction)
@@ -161,13 +161,50 @@
 
   _Resource- or infrastructure-level monitoring refers to the used platform services such as Azure VMs, Express Route or SQL Database. But also covers 3rd-party solutions like an NVA._
   > All application resources should be configured to route diagnostic logs and metrics to the chosen log aggregation technology. Azure Policy should also be used as a device to ensure the consistent use of diagnostic settings across the application, to enforce the desired configuration for each Azure service.
-### Data Interpretation &amp; Health Modelling
+### Logging
             
+* Are application logs collected from different application environments?
+
+
+  _Application logs support the end-to-end application lifecycle. Logging is essential in understanding how the application operates in various environments and what events occur and under which conditions._
+  > Application logs and events should be collected across all major environments. Sufficient degree of separation and filtering should be in place to ensure non-critical environments do not convolute production log interpretation. Furthermore, corresponding log entries across the application should capture a correlation ID for their respective transactions.
+* Are log messages captured in a structured format?
+
+
+  _Structured format, following well-known schema can help in parsing and analyzing logs._
+  > Application events should be captured as a structured data type with machine-readable data points rather than unstructured string types. Structured data can easily be indexed and searched, and reporting can be greatly simplified.
+* Which log aggregation technology is used to collect logs and metrics from Azure resources?
+
+
+  _Log aggregation technologies, such as Azure Log Analytics or Splunk, should be used to collate logs and metrics across all application components for subsequent evaluation. Resources may include Azure IaaS and PaaS services as well as 3rd-party appliances such as firewalls or anti-malware solutions used in the application. For instance, if Azure Event Hub is used, the [Diagnostic Settings](https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs) should be configured to push logs and metrics to the data sink. Understanding usage helps with right-sizing of the workload, but additional cost for logging needs to be accepted and included in the cost model._
+  > Use log aggregation technology, such as Azure Log Analytics or Splunk, to gather information across all application components.
+* Are logs and metrics available for critical internal dependencies?
+
+
+  _To be able to build a robust application health model it is vital that visibility into the operational state of critical internal dependencies, such as a shared NVA or Express Route connection, be achieved._
+  > Make sure logs and key metrics of critical components are collected and stored.
 * Are application and resource level logs aggregated in a single data sink, or is it possible to cross-query events at both levels?
 
 
   _To build a robust application health model it is vital that application and resource level data be correlated and evaluated together to optimize the detection of issues and troubleshooting of detected issues._
   > Implement a unified solution to aggregate and query application and resource level logs, such as Azure Log Analytics.
+* Do you have detailed instrumentation in the application code?
+
+
+  _Instrumentation of your code allows precise detection of underperforming pieces when load or stress tests are applied. It is critical to have this data available to improve and identify performance opportunities in the application code. Application Performance Monitoring (APM) tools, such as Application Insights, should be used to manage the performance and availability of the application, along with aggregating application level logs and events for subsequent interpretation._
+* Are you collecting Azure Activity Logs within the log aggregation tool?
+
+
+  _Azure Activity Logs provide audit information about when an Azure resource is modified, such as when a virtual machine is started or stopped. Such information is extremely useful for the interpretation and troubleshooting of issues as it provides transparency around configuration changes that can be mapped to adverse performance events._
+### Dependencies
+            
+* Are critical external dependencies monitored?
+
+
+  _It's common for applications to depend on other services or libraries. Despite these are external, it is still possible to monitor their health and availability using probes._
+  > Critical external dependencies, such as an API service, should be monitored to ensure operational visibility of dependency health. For instance, a probe could be used to measure the availability and latency of an external API.
+### Data Interpretation &amp; Health Modelling
+            
 * Is a health model used to qualify what 'healthy' and 'unhealthy' states represent for the application?
 
 
@@ -192,56 +229,6 @@
 
 
   > Clear retention times should be defined to allow for suitable historic analysis but also control storage costs. Suitable housekeeping tasks should also be used to archive data to cheaper storage or aggregate data for long-term trend analysis
-### Logging
-            
-* Are application logs collected from different application environments?
-
-
-  _Application logs support the end-to-end application lifecycle. Logging is essential in understanding how the application operates in various environments and what events occur and under which conditions._
-  > Application logs and events should be collected across all major environments. Sufficient degree of separation and filtering should be in place to ensure non-critical environments do not convolute production log interpretation. Furthermore, corresponding log entries across the application should capture a correlation ID for their respective transactions.
-* Are log messages captured in a structured format?
-
-
-  _Structured format, following well-known schema can help in parsing and analyzing logs._
-  > Application events should be captured as a structured data type with machine-readable data points rather than unstructured string types. Structured data can easily be indexed and searched, and reporting can be greatly simplified.
-* Which log aggregation technology is used to collect logs and metrics from Azure resources?
-
-
-  _Log aggregation technologies, such as Azure Log Analytics or Splunk, should be used to collate logs and metrics across all application components for subsequent evaluation. Resources may include Azure IaaS and PaaS services as well as 3rd-party appliances such as firewalls or anti-malware solutions used in the application. For instance, if Azure Event Hub is used, the [Diagnostic Settings](https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs) should be configured to push logs and metrics to the data sink. Understanding usage helps with right-sizing of the workload, but additional cost for logging needs to be accepted and included in the cost model._
-  > Use log aggregation technology, such as Azure Log Analytics or Splunk, to gather information across all application components.
-* Are logs and metrics available for critical internal dependencies?
-
-
-  _To be able to build a robust application health model it is vital that visibility into the operational state of critical internal dependencies, such as a shared NVA or Express Route connection, be achieved._
-  > Make sure logs and key metrics of critical components are collected and stored.
-* Do you have detailed instrumentation in the application code?
-
-
-  _Instrumentation of your code allows precise detection of underperforming pieces when load or stress tests are applied. It is critical to have this data available to improve and identify performance opportunities in the application code. Application Performance Monitoring (APM) tools, such as Application Insights, should be used to manage the performance and availability of the application, along with aggregating application level logs and events for subsequent interpretation._
-* Are you collecting Azure Activity Logs within the log aggregation tool?
-
-
-  _Azure Activity Logs provide audit information about when an Azure resource is modified, such as when a virtual machine is started or stopped. Such information is extremely useful for the interpretation and troubleshooting of issues as it provides transparency around configuration changes that can be mapped to adverse performance events._
-* Are application- and resource-level logs aggregated in a single data sink, or is it possible to cross-query events at both levels?
-
-
-  _To build a robust application health model, it is vital that application- and resource-level data be correlated and evaluated together to optimize the detection of issues and the troubleshooting of those detected issues._
-    - Are application level events automatically correlated with performance metrics to quantify the current application state?
-
-
-      _The overall performance can be impacted by both application-level issues as well as resource-level failures. This can also help to distinguish between transient and non-transient faults._
-
-    - Is the transaction flow data used to generate application/service maps?
-
-
-      _An Application Map can help you identify performance bottlenecks of failure hotspots across components of a distributed application._
-
-### Dependencies
-            
-* Are critical external dependencies monitored?
-
-
-  _Critical, external dependencies, such as an API service, should be monitored to ensure operational visibility of performance. For instance, a probe could be used to measure the latency of an external API._
 ### Modelling
             
 * Are long-term trends analyzed to predict performance issues before they occur?

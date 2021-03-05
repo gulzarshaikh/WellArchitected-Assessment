@@ -12,9 +12,9 @@
     - [Application Composition](#Application-Composition)
   - [Health Modelling &amp; Monitoring](#Health-Modelling--Monitoring)
     - [Application Level Monitoring](#Application-Level-Monitoring)
+    - [Logging](#Logging)
     - [Dashboarding](#Dashboarding)
     - [Alerting](#Alerting)
-    - [Logging](#Logging)
   - [Networking &amp; Connectivity](#Networking--Connectivity)
     - [Connectivity](#Connectivity)
     - [Endpoints](#Endpoints)
@@ -300,6 +300,13 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
   _In order to successfully maintain the application it's important to 'turn the lights on' and have clear visibility of important metrics both in real-time and historically._
   > An APM technology, such as Application Insights, should be used to manage the performance and availability of the application, aggregating application level logs and events for subsequent interpretation. It should be considered what is the appropriate level of logging, because too much can incur significant costs. ([Log Analytics pricing](https://azure.microsoft.com/pricing/details/monitor/))
+### Logging
+            
+* Which log aggregation technology is used to collect logs and metrics from Azure resources?
+
+
+  _Log aggregation technologies, such as Azure Log Analytics or Splunk, should be used to collate logs and metrics across all application components for subsequent evaluation. Resources may include Azure IaaS and PaaS services as well as 3rd-party appliances such as firewalls or anti-malware solutions used in the application. For instance, if Azure Event Hub is used, the [Diagnostic Settings](https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs) should be configured to push logs and metrics to the data sink. Understanding usage helps with right-sizing of the workload, but additional cost for logging needs to be accepted and included in the cost model._
+  > Use log aggregation technology, such as Azure Log Analytics or Splunk, to gather information across all application components.
 ### Dashboarding
             
 * Is Role Based Access Control (RBAC) used to control access to operational and financial dashboards and underlying data?
@@ -329,13 +336,6 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
   _This is to ensure that if any budget is close to threshold, the cost owner gets notified to take appropriate actions on the change._
   > Set up alerts for cost limits and thresholds.
-### Logging
-            
-* Which log aggregation technology is used to collect logs and metrics from Azure resources?
-
-
-  _Log aggregation technologies, such as Azure Log Analytics or Splunk, should be used to collate logs and metrics across all application components for subsequent evaluation. Resources may include Azure IaaS and PaaS services as well as 3rd-party appliances such as firewalls or anti-malware solutions used in the application. For instance, if Azure Event Hub is used, the [Diagnostic Settings](https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs) should be configured to push logs and metrics to the data sink. Understanding usage helps with right-sizing of the workload, but additional cost for logging needs to be accepted and included in the cost model._
-  > Use log aggregation technology, such as Azure Log Analytics or Splunk, to gather information across all application components.
 ## Networking &amp; Connectivity
     
 ### Connectivity
