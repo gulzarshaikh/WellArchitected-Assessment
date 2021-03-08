@@ -54,6 +54,10 @@ jobs:
           $AllItems = @()
           Get-ChildItem -Path $env:DATADIR | where { $_.Name -match ".data.json$" } | % {
               Get-Content -Path $_.FullName | ConvertFrom-Json | %{
+                  if($_.id -eq '')
+                  {
+                    $_.id=[guid]::NewGuid()
+                  }
                   if($_) 
                   {
                       $AllItems += $_
