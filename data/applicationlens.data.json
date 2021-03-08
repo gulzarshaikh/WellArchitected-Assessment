@@ -5694,19 +5694,13 @@
         "title": "Have you identified the length of time it takes before response times increase?",
         "context": "",
         "recommendation": "",
-        "id": {
-          "value": "84f442ed-e1c3-4666-b1d3-0a83c07f4911",
-          "Guid": "84f442ed-e1c3-4666-b1d3-0a83c07f4911"
-        }
+        "id": ""
       },
       {
         "title": "How long does it take for response times to return to &quot;normal?&quot;",
         "context": "",
         "recommendation": "",
-        "id": {
-          "value": "81dc7499-c5d7-424f-9268-37dabfa35bb2",
-          "Guid": "81dc7499-c5d7-424f-9268-37dabfa35bb2"
-        }
+        "id": ""
       }
     ],
     "id": "d0355ae4-4b4f-4050-a056-6a8c25d7be5e"
