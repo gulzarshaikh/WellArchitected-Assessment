@@ -66,6 +66,8 @@ jobs:
                     {
                       Write-Host "Missing GUID found for ", $_.title
                       $_.id=[guid]::NewGuid()
+                    } catch {
+                      Write-Host "Failed to add child ID"
                     }
                   }
                 }
