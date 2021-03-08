@@ -437,13 +437,14 @@
   {
     "type": "Questions",
     "pillars": [
-      "operationalexcellence"
+      "operationalexcellence",
+      "performanceefficiency"
     ],
     "lens": "application",
     "category": "Health Modelling & Monitoring",
     "subCategory": "Resource/Infrastructure Level Monitoring",
     "title": "Are you collecting Azure Activity Logs within the log aggregation tool?",
-    "context": "Azure Activity Logs provide audit information about when an Azure resource is modified, such as when a virtual machine is started or stopped. Such information is extremely useful for the interpretation and troubleshooting of operational issues, as it provides transparency around configuration changes.",
+    "context": "Azure Activity Logs provide audit information about when an Azure resource is modified, such as when a virtual machine is started or stopped. Such information is extremely useful for the interpretation and troubleshooting of operational and performance issues, as it provides transparency around configuration changes.",
     "recommendation": "Azure Activity Logs should be collected and aggregated.",
     "id": "49e0d916-54f5-45e7-af5b-abc0bc7713c0"
   },
@@ -5586,19 +5587,6 @@
     "context": "Instrumentation of your code allows precise detection of underperforming pieces when load or stress tests are applied. It is critical to have this data available to improve and identify performance opportunities in the application code. Application Performance Monitoring (APM) tools, such as Application Insights, should be used to manage the performance and availability of the application, along with aggregating application level logs and events for subsequent interpretation.",
     "recommendation": "",
     "id": "6b4f9fbf-be67-4b86-96a9-83695aa60bb2"
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "performanceefficiency"
-    ],
-    "lens": "application",
-    "category": "Health Modelling & Monitoring",
-    "subCategory": "Logging",
-    "title": "Are you collecting Azure Activity Logs within the log aggregation tool?",
-    "context": "Azure Activity Logs provide audit information about when an Azure resource is modified, such as when a virtual machine is started or stopped. Such information is extremely useful for the interpretation and troubleshooting of issues as it provides transparency around configuration changes that can be mapped to adverse performance events.",
-    "recommendation": "",
-    "id": "444ca40e-682d-434a-a108-9a0485ba83f3"
   },
   {
     "type": "Questions",
