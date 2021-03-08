@@ -48,31 +48,29 @@ jobs:
             Get-ChildItem -Path $env:DATADIR -Filter *.data.json | % {
               $file = $_.FullName
 
-              $content = Get-Content -Path $file
-
-              $json = $content | ConvertFrom-Json
-
+              $content = Get-Content -Path $file | ConvertFrom-Json
 
               # Check and update IDs for toplevel items
-              $json | % {
+              $content | % {
 
                 if( ($_.id -eq '') -or (-not [guid]::TryParse($_.id, $([ref][guid]::Empty))) )
                 {
-                  Write-Host "Missing GUID found for $_.title"
+                  Write-Host "Missing GUID found for {$_.title}"
                   $_.id=[guid]::NewGuid()
                 }
               }
 
               # Check and update IDs for child-level items
-              $json.children | % {
+              $content.children | % {
                 if( ($_.id -eq '') -or (-not [guid]::TryParse($_.id, $([ref][guid]::Empty))) )
                 {
+                  Write-Host "Missing GUID found for {$_.title}"
                   $_.id=[guid]::NewGuid()
                 }
               }
 
               # Write updates Data files
-              $json | ConvertTo-Json -depth 16 | set-content $file
+              $content | ConvertTo-Json -depth 16 | set-content $file
             }
 
       - name: Merge data files
