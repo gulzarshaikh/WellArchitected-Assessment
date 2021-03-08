@@ -41,13 +41,22 @@ jobs:
                 Write-Error "Invalid JSON in file $file"
               }
 
-
+              # Check and update IDs for toplevel items
               $json | % {
                 if( ($_.id -eq '') -or (-not [guid]::TryParse($_.id, $([ref][guid]::Empty))) )
                 {
                   $_.id=[guid]::NewGuid()
                 }
               }
+
+              # Check and update IDs for child-level items
+              $json.children | % {
+                if( ($_.id -eq '') -or (-not [guid]::TryParse($_.id, $([ref][guid]::Empty))) )
+                {
+                  $_.id=[guid]::NewGuid()
+                }
+              }
+
               $json | ConvertTo-Json -depth 16 | set-content $file
 
 
