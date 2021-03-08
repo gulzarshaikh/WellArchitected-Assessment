@@ -107,6 +107,13 @@ jobs:
                   Write-Warning "Type '$($item.type)' does not exist in types.json. Item: '$($item.title)'"
                   $foundIssues = $true
               }
+
+              if(-not [guid]::TryParse($item.id, $([ref][guid]::Empty)))
+              {
+                  Write-Warning "'$($item.id)' is not a valid GUID. Item: '$($item.title)'"
+                  $foundIssues = $true
+              }
+
           }
 
           # Check for duplicate IDs. For now we filter out all items which have no ID yet. Those should become mandatory at some point.
