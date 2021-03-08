@@ -37,6 +37,15 @@
       },
       {
         "title": "Dependencies, frameworks and libraries"
+      },
+      {
+        "title": "Design Patterns"
+      },
+      {
+        "title": "Transactional"
+      },
+      {
+        "title": "Disaster Planning"
       }
     ]
   },
@@ -48,6 +57,12 @@
       },
       {
         "title": "Resource/Infrastructure Level Monitoring"
+      },
+      {
+        "title": "Logging"
+      },
+      {
+        "title": "Dependencies"
       },
       {
         "title": "Data Interpretation & Health Modelling"
@@ -63,17 +78,35 @@
       },
       {
         "title": "Auditing"
+      },
+      {
+        "title": "Performance Targets"
+      },
+      {
+        "title": "Modelling"
       }
     ]
   },
   {
-    "title": "Capacity & Service Availability",
+    "title": "Capacity & Service Availability Planning",
     "subCategories": [
       {
         "title": "Service Availability"
       },
       {
         "title": "Capacity"
+      },
+      {
+        "title": "Usage Prediction"
+      },
+      {
+        "title": "Service SKU"
+      },
+      {
+        "title": "Disaster Recovery"
+      },
+      {
+        "title": "Data"
       }
     ]
   },
@@ -123,7 +156,7 @@
     "title": "Scalability & Performance",
     "subCategories": [
       {
-        "title": "App Performance"
+        "title": "Application Performance"
       },
       {
         "title": "Data Size/Growth"
@@ -344,6 +377,55 @@
       },
       {
         "title": "Authentication and authorization"
+      }
+    ]
+  },
+  {
+    "title": "Performance Testing",
+    "subCategories": [
+      {
+        "title": "Resource Planning"
+      },
+      {
+        "title": "Tooling"
+      },
+      {
+        "title": "Test Coverage"
+      },
+      {
+        "title": "Benchmarking"
+      },
+      {
+        "title": "Performance Planning"
+      },
+      {
+        "title": "Service SKU"
+      },
+      {
+        "title": "Load Capacity"
+      },
+      {
+        "title": "Design Efficiency"
+      },
+      {
+        "title": "DevOps"
+      },
+      {
+        "title": "Data"
+      }
+    ]
+  },
+  {
+    "title": "Troubleshooting",
+    "subCategories": [
+      {
+        "title": "Data"
+      },
+      {
+        "title": "Process"
+      },
+      {
+        "title": "Network"
       }
     ]
   },
