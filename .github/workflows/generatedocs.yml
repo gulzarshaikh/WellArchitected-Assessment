@@ -58,14 +58,14 @@ jobs:
                   Write-Host "Missing GUID found for ", $_.title
                   $_.id=[guid]::NewGuid()
                 }
-              }
 
-              # Check and update IDs for child-level items
-              $content.children | % {
-                if(-not [guid]::TryParse($_.id, $([ref][guid]::Empty)))
-                {
-                  Write-Host "Missing GUID found for ", $_.title
-                  $_.id=[guid]::NewGuid()
+                # Check and update IDs for child-level items
+                $_.children | % {
+                  if(-not [guid]::TryParse($_.id, $([ref][guid]::Empty)))
+                  {
+                    Write-Host "Missing GUID found for ", $_.title
+                    $_.id=[guid]::NewGuid()
+                  }
                 }
               }
 
