@@ -42,7 +42,6 @@ jobs:
               }
             }
 
-
       - name: Update object GUIDs in source data JSON files
         shell: pwsh
         run: |
@@ -51,10 +50,15 @@ jobs:
 
               $content = Get-Content -Path $file
 
+              $json = $content | ConvertFrom-Json
+
+
               # Check and update IDs for toplevel items
               $json | % {
+
                 if( ($_.id -eq '') -or (-not [guid]::TryParse($_.id, $([ref][guid]::Empty))) )
                 {
+                  Write-Host "Missing GUID found for $_.title"
                   $_.id=[guid]::NewGuid()
                 }
               }
