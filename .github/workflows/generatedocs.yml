@@ -56,14 +56,8 @@ jobs:
                 if(-not [guid]::TryParse($_.id, $([ref][guid]::Empty)))
                 {
                   Write-Host "Missing GUID found for ", $_.title
-
-                  try {
-                    # Override ID with GUID if incorrect or empty
-                    $_.id=$(New-guid)
-                  } catch {
-                    # Add ID property if it does not exist
-                    $_ | Add-Member -NotePropertyName id -NotePropertyValue $(New-guid)
-                  }
+                  # Override ID with GUID if incorrect or empty
+                  $_.id=$(New-guid)
                 }
 
                 # Check and update IDs for child-level items
