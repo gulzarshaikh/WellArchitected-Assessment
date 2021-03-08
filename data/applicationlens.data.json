@@ -80,7 +80,7 @@
     "title": "Does the application have a well-defined naming standard for Azure resources?",
     "context": "A well-defined naming convention is important for overall operations to be able to easily determine the usage of certain resources and help understand owners and cost centers responsible for the workload. Naming conventions allow the matching of resource costs to particular workloads.",
     "recommendation": "Having a well-defined naming convention is important for overall operations, particularly for large application platforms where there are numerous resources([Naming Conventions](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging))",
-    "id": "xxxxxf3970d77-e4e3-4f8e-bc35-30c6ce2dfc1f"
+    "id": "f3970d77-e4e3-4f8e-bc35-30c6ce2dfc1f"
   },
   {
     "type": "Questions",
