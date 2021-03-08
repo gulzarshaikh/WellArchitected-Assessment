@@ -40,6 +40,17 @@ jobs:
               catch {
                 Write-Error "Invalid JSON in file $file"
               }
+
+
+              $json.update | % {
+                if( ($_.id -eq '') -or (-not [guid]::TryParse($_.id, $([ref][guid]::Empty))) )
+                {
+                  $_.id=[guid]::NewGuid()
+                }
+              }
+              $json | ConvertTo-Json -depth 16 | set-content $file
+
+
           }
 
       - name: Merge data files
@@ -54,10 +65,6 @@ jobs:
           $AllItems = @()
           Get-ChildItem -Path $env:DATADIR | where { $_.Name -match ".data.json$" } | % {
               Get-Content -Path $_.FullName | ConvertFrom-Json | %{
-                  if( ($_.id -eq '') -or (-not [guid]::TryParse($_.id, $([ref][guid]::Empty))) )
-                  {
-                      $_.id=[guid]::NewGuid()
-                  }
                   if($_) 
                   {
                       $AllItems += $_
