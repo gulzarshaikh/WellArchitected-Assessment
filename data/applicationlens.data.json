@@ -11,7 +11,8 @@
     "title": "Are there any regulatory or governance requirements for this workload?",
     "context": "Regulatory requirements may mandate that operational data, such as application logs and metrics, remain within a certain geo-political region. This has obvious implications for how the application should be operationalized.",
     "recommendation": "Make sure that all regulatory requirements are known and well understood. Create processes for obtaining attestations and be familiar with the [Microsoft Trust Center](https://www.microsoft.com/trust-center). Regulatory requirements like data sovereignty and others might affect the overall architecture as well as the selection and configuration of specific PaaS and SaaS services.",
-    "id": "8b014a9f-3a27-4b77-aa05-04bf94284a68"
+    "id": ""
+    //"id": "8b014a9f-3a27-4b77-aa05-04bf94284a68"
   },
   {
     "type": "Questions",
