@@ -58,10 +58,11 @@ jobs:
                   Write-Host "Missing GUID found for ", $_.title
 
                   try {
+                    # Override ID with GUID if incorrect or empty
                     $_.id=[guid]::NewGuid()
                   } catch {
                     # Add ID property if it does not exist
-                    $_ | Add-Member -MemberType NoteProperty -Name "id" -Value [guid]::NewGuid()
+                    $_ | Add-Member -MemberType NoteProperty -Name "id" -Value $([guid]::NewGuid())
                   }
                 }
 
