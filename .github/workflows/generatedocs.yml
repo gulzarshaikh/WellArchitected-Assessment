@@ -53,18 +53,18 @@ jobs:
               # Check and update IDs for toplevel items
               $content | % {
 
-                if( ($_.id -eq '') -or (-not [guid]::TryParse($_.id, $([ref][guid]::Empty))) )
+                if(-not [guid]::TryParse($_.id, $([ref][guid]::Empty)))
                 {
-                  Write-Host "Missing GUID found for {$_.title}"
+                  Write-Host "Missing GUID found for ", $_.title
                   $_.id=[guid]::NewGuid()
                 }
               }
 
               # Check and update IDs for child-level items
               $content.children | % {
-                if( ($_.id -eq '') -or (-not [guid]::TryParse($_.id, $([ref][guid]::Empty))) )
+                if(-not [guid]::TryParse($_.id, $([ref][guid]::Empty)))
                 {
-                  Write-Host "Missing GUID found for {$_.title}"
+                  Write-Host "Missing GUID found for ", $_.title
                   $_.id=[guid]::NewGuid()
                 }
               }
