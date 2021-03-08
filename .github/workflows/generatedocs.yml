@@ -60,15 +60,17 @@ jobs:
                 }
 
                 # Check and update IDs for child-level items
-                $_.children | % {
-                  try {
-                    if(-not [guid]::TryParse($_.id, $([ref][guid]::Empty)))
-                    {
-                      Write-Host "Missing GUID found for ", $_.title
-                      $_.id=[guid]::NewGuid()
-                    } 
-                  } catch {
-                      Write-Host "Failed to add child ID"
+                if ($_.children.count -ge 1) {
+                  $_.children | % {
+                    try {
+                      if(-not [guid]::TryParse($_.id, $([ref][guid]::Empty)))
+                      {
+                        Write-Host "Missing GUID found for ", $_.title
+                        $_.id=[guid]::NewGuid()
+                      } 
+                    } catch {
+                        Write-Host "Failed to add child ID"
+                    }
                   }
                 }
               }
