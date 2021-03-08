@@ -62,7 +62,7 @@ jobs:
                     $_.id=$(New-guid)
                   } catch {
                     # Add ID property if it does not exist
-                    $_ | Add-Member -MemberType NoteProperty -Name "id" -Value $(New-guid)
+                    $_ | Add-Member -NotePropertyName id -NotePropertyValue $(New-guid)
                   }
                 }
 
