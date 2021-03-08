@@ -65,7 +65,7 @@ jobs:
                     try {
                       if(-not [guid]::TryParse($_.id, $([ref][guid]::Empty)))
                       {
-                        Write-Host "Missing GUID found for ", $_.title
+                        Write-Host "Missing Child GUID found for ", $_.title
                         $_.id=[guid]::NewGuid()
                       } 
                     } catch {
@@ -220,7 +220,7 @@ jobs:
           }
 
           # Restructure output to the right directories.
-          # e.g. "assesments/opex/applicationlens.md"
+          # e.g. "assessments/opex/applicationlens.md"
            Get-ChildItem $templatedir -Recurse -File -Filter *.md | % {
               $pillar = (Split-Path $_ -Parent | Split-Path -Leaf)
               $lens = (Split-Path $_ -LeafBase)
@@ -236,6 +236,7 @@ jobs:
         run: |
           # Get outputdir from variables
           $outputdir = $env:OUTPUTDIR
+          $datadir   = $env:DATADIR
 
           # Set the name on the commits as it will appear in Github
           git config --global user.name 'Github Action'
@@ -243,6 +244,7 @@ jobs:
 
           # Everything coming from Hugo is in the output dir by now
           git add $outputdir
+          git add $datadir
           git status --short
 
           # Get the name of the commit that triggered the workflow, 
