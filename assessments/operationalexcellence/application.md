@@ -338,7 +338,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 * Are you collecting Azure Activity Logs within the log aggregation tool?
 
 
-  _Azure Activity Logs provide audit information about when an Azure resource is modified, such as when a virtual machine is started or stopped. Such information is extremely useful for the interpretation and troubleshooting of operational issues, as it provides transparency around configuration changes._
+  _Azure Activity Logs provide audit information about when an Azure resource is modified, such as when a virtual machine is started or stopped. Such information is extremely useful for the interpretation and troubleshooting of operational and performance issues, as it provides transparency around configuration changes._
   > Azure Activity Logs should be collected and aggregated.
 * Is resource-level monitoring enforced throughout the application?
 
