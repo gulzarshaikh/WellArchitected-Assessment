@@ -5728,7 +5728,6 @@
     "subCategory": "Network",
     "title": "Do you profile the network with any traffic capturing tools?",
     "context": "Network capture tooling can capture the network traffic and dive deeper into the interactions at the network layer that may affect your application due to network configuration and/or other network traffic issues.",
-    "recommendation": "",
-    "id": "6d3f290e-689b-4ba6-9b23-bc2d88b8ab0b"
+    "recommendation": ""
   }
 ]
