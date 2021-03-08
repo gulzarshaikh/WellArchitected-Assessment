@@ -40,6 +40,16 @@ jobs:
               catch {
                 Write-Error "Invalid JSON in file $file"
               }
+            }
+
+
+      - name: Update object GUIDs in source data JSON files
+        shell: pwsh
+        run: |
+            Get-ChildItem -Path $env:DATADIR -Filter *.data.json | % {
+              $file = $_.FullName
+
+              $content = Get-Content -Path $file
 
               # Check and update IDs for toplevel items
               $json | % {
@@ -57,10 +67,9 @@ jobs:
                 }
               }
 
+              # Write updates Data files
               $json | ConvertTo-Json -depth 16 | set-content $file
-
-
-          }
+            }
 
       - name: Merge data files
         shell: pwsh
