@@ -42,7 +42,7 @@ jobs:
               }
 
 
-              $json.update | % {
+              $json | % {
                 if( ($_.id -eq '') -or (-not [guid]::TryParse($_.id, $([ref][guid]::Empty))) )
                 {
                   $_.id=[guid]::NewGuid()
