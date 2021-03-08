@@ -836,7 +836,8 @@
     "type": "Questions",
     "pillars": [
       "operationalexcellence",
-      "costoptimization"
+      "costoptimization",
+      "reliability"
     ],
     "lens": "application",
     "category": "Operational Procedures",
@@ -889,7 +890,8 @@
   {
     "type": "Questions",
     "pillars": [
-      "operationalexcellence"
+      "operationalexcellence",
+      "reliability"
     ],
     "lens": "application",
     "category": "Operational Procedures",
@@ -1964,33 +1966,6 @@
     "context": "While there is a desire across Azure to achieve API/SDK uniformity for supported languages and runtimes, the reality is that capability deltas exist. For instance, not all CosmosDB APIs support the use of direct connect mode over TCP to bypass the platform HTTP gateway. It is therefore important to ensure that APIs/SDKs for selected languages and runtimes provide all of the required capabilities",
     "recommendation": "",
     "id": "bc85cb20-2a7d-45d3-94f1-92011a7d5d01"
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "reliability",
-      "operationalexcellence"
-    ],
-    "lens": "application",
-    "category": "Capacity & Service Availability Planning",
-    "subCategory": "Capacity",
-    "title": "Is there a capacity model for the application?",
-    "context": "A capacity model should describe the relationships between the utilization of various components as a ratio, to capture when and how application components should scale-out. For instance, scaling the number of Application Gateway v2 instances may put excess pressure on downstream components unless also scaled to a degree. When modelling capacity for critical system components it is therefore recommended that an N+1 model be applied to ensure complete tolerance to transient faults, where n describes the capacity required to satisfy performance and availability requirements([Performance Efficiency - Capacity](https://docs.microsoft.com/azure/architecture/framework/scalability/capacity))",
-    "recommendation": "",
-    "id": "cb8d3e67-37dc-43b0-aefc-cafc2c005bbc"
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "reliability"
-    ],
-    "lens": "application",
-    "category": "Capacity & Service Availability Planning",
-    "subCategory": "Capacity",
-    "title": "Is the required capacity (initial and future growth) within Azure service scale limits and quotas?",
-    "context": "Due to physical and logical resource constraints within the platform, Azure must apply limits and quotas to service scalability, which may be either hard or soft. The application should therefore take a scale-unit approach to navigate within service limits, and where necessary consider multiple subscriptions which are often the boundary for such limits. It is highly recommended that a structured approach to scale be designed up-front rather than resorting to a 'spill and fill' model([Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits))",
-    "recommendation": "",
-    "id": "d5485b08-f859-4724-bcd5-a589a3df37ad"
   },
   {
     "type": "Questions",
