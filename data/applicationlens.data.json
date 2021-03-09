@@ -442,7 +442,7 @@
     ],
     "lens": "application",
     "category": "Health Modelling & Monitoring",
-    "subCategory": "Resource/Infrastructure Level Monitoring",
+    "subCategory": "Resource and Infrastructure Level Monitoring",
     "title": "Are you collecting Azure Activity Logs within the log aggregation tool?",
     "context": "Azure Activity Logs provide audit information about when an Azure resource is modified, such as when a virtual machine is started or stopped. Such information is extremely useful for the interpretation and troubleshooting of operational and performance issues, as it provides transparency around configuration changes.",
     "recommendation": "Azure Activity Logs should be collected and aggregated.",
@@ -457,7 +457,7 @@
     ],
     "lens": "application",
     "category": "Health Modelling & Monitoring",
-    "subCategory": "Resource/Infrastructure Level Monitoring",
+    "subCategory": "Resource and Infrastructure Level Monitoring",
     "title": "Is resource-level monitoring enforced throughout the application?",
     "context": "Resource- or infrastructure-level monitoring refers to the used platform services such as Azure VMs, Express Route or SQL Database. But also covers 3rd-party solutions like an NVA.",
     "recommendation": "All application resources should be configured to route diagnostic logs and metrics to the chosen log aggregation technology. Azure Policy should also be used as a device to ensure the consistent use of diagnostic settings across the application, to enforce the desired configuration for each Azure service.",
@@ -1007,7 +1007,7 @@
     "subCategory": "Configuration & Secrets Management",
     "title": "Are keys and secrets backed-up to geo-redundant storage?",
     "context": "Keys and secrets must still be available in a failover case.",
-    "recommendation": "Keys and secrets should be backed up to geo-redundant storage so that they can be accessed in the event of a regional failure and support recovery objectives. In the event of a regional outage, the Key Vault service will automatically be failed over to the secondary region in a read-only state([Azure Key Vault availability and reliability](https://docs.microsoft.com/azure/key-vault/general/disaster-recovery-guidance))",
+    "recommendation": "Keys and secrets should be backed up to geo-redundant storage so that they can be accessed in the event of a regional failure and support recovery objectives. In the event of a regional outage, the Key Vault service will automatically be failed over to the secondary region in a read-only state ([Azure Key Vault availability and reliability](https://docs.microsoft.com/azure/key-vault/general/disaster-recovery-guidance))",
     "children": [
       {
         "title": "Are certificate/key backups and data backups stored in different geo-redundant storage accounts?",
@@ -1028,8 +1028,8 @@
     "category": "Operational Procedures",
     "subCategory": "Configuration & Secrets Management",
     "title": "Is Soft-Delete enabled for Key Vaults and Key Vault objects?",
-    "context": "The Soft-Delete feature retains resources for a given retention period after a DELETE operation has been performed, while giving the appearance that the object is deleted. It helps to mitigate scenarios where resources are unintentionally, maliciously or incorrectly deleted([Azure Key Vault Soft-Delete](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete))",
-    "recommendation": "Key Vault Soft Delete helps to mitigate scenarios where resources are unintentionally, maliciously or incorrectly deleted([Azure Key Vault Soft-Delete](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete)). It is therefore highly recommended to enable this.",
+    "context": "The Soft-Delete feature retains resources for a given retention period after a DELETE operation has been performed, while giving the appearance that the object is deleted. It helps to mitigate scenarios where resources are unintentionally, maliciously or incorrectly deleted ([Azure Key Vault Soft-Delete](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete))",
+    "recommendation": "Key Vault Soft Delete helps to mitigate scenarios where resources are unintentionally, maliciously or incorrectly deleted ([Azure Key Vault Soft-Delete](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete)). It is therefore highly recommended to enable this.",
     "id": "36d6c72c-9d63-4942-8d0f-a5af79f3cc9e"
   },
   {
@@ -1135,7 +1135,7 @@
     "subCategory": "Operational Lifecycles",
     "title": "Are operational procedures reviewed and refined frequently?",
     "context": "",
-    "recommendation": "Operational procedures should be updated based on outcomes from frequent testing",
+    "recommendation": "Operational procedures should be updated based on outcomes from frequent testing.",
     "id": "cb7e2f75-a15f-41d6-9ca1-bcbdd65c6184"
   },
   {
@@ -1149,7 +1149,7 @@
     "subCategory": "Application Deployments",
     "title": "What is the process to deploy application releases to production?",
     "context": "",
-    "recommendation": "The entire end-to-end CI/CD deployment process should be understood",
+    "recommendation": "The entire end-to-end CI/CD deployment process should be understood.",
     "children": [
       {
         "title": "How long does it take to deploy an entire production environment?",
@@ -1334,7 +1334,7 @@
     "category": "Deployment & Testing",
     "subCategory": "Build Environments",
     "title": "Are mocks/stubs used to test external dependencies in non-production environments?",
-    "context": "",
+    "context": "Mocks/stubs can help to test and validate external dependencies, to increase test coverage, when accessing those external dependencies is not possible due to for example IP restrictions.",
     "recommendation": "The use of dependent services should be appropriately reflected in test environments",
     "id": "e646dee6-2a03-48e8-85e5-55d09e000c83"
   },
@@ -1428,7 +1428,7 @@
     "category": "Deployment & Testing",
     "subCategory": "Testing & Validation",
     "title": "When is integration testing performed?",
-    "context": "Integration tests should be applied as part of the application deployment process, to ensure that different application components  interact with each other as they should. Integration tests typically take longer than smoke testing, and as a consequence occur at a latter stage of the deployment process so they are executed less frequently([Integration Testing](https://docs.microsoft.com/azure/architecture/framework/devops/testing#integration-testing)",
+    "context": "Integration tests should be applied as part of the application deployment process, to ensure that different application components  interact with each other as they should. Integration tests typically take longer than smoke testing, and as a consequence occur at a latter stage of the deployment process so they are executed less frequently ([Integration Testing](https://docs.microsoft.com/azure/architecture/framework/devops/testing#integration-testing)",
     "recommendation": "",
     "id": "905cd585-1316-4aa4-9578-0bf6c1a7b9e1"
   },
@@ -1441,7 +1441,7 @@
     "category": "Deployment & Testing",
     "subCategory": "Testing & Validation",
     "title": "Is unit testing performed to validate application functionality?",
-    "context": "Unit tests are typically run by each new version of code committed into version control. Unit Tests should be extensive and quick to verify things like syntax correctness of application code, Resource Manager templates or Terraform configurations, that the code is following best practices, or that they produce the expected results when provided certain inputs([Unit Testing](https://docs.microsoft.com/azure/architecture/framework/devops/testing#unit-testing))",
+    "context": "Unit tests are typically run by each new version of code committed into version control. Unit Tests should be extensive and quick to verify things like syntax correctness of application code, Resource Manager templates or Terraform configurations, that the code is following best practices, or that they produce the expected results when provided certain inputs ([Unit Testing](https://docs.microsoft.com/azure/architecture/framework/devops/testing#unit-testing))",
     "recommendation": "",
     "id": "7fa3dcaf-7590-41d2-8d50-7f34af9a657b"
   },
@@ -1719,14 +1719,16 @@
   {
     "type": "Questions",
     "pillars": [
-      "reliability"
+      "reliability",
+      "performanceefficiency",
+      "costoptimization"
     ],
     "lens": "application",
     "category": "Application Design",
     "subCategory": "Design",
     "title": "Is component proximity required for application performance reasons?",
     "context": "If all or part of the application is highly sensitive to latency it may mandate component co-locality which can limit the applicability of multi-region and multi-zone strategies",
-    "recommendation": "",
+    "recommendation": "Consider using the same datacenter region, Availability Zone and [Proximity Placement Groups](https://azure.microsoft.com/en-us/blog/announcing-the-general-availability-of-proximity-placement-groups/) and other options to bring latency sensitive components closer together. Keep also in mind that additional charges may apply when chatty workloads are spread across zones and region.",
     "id": "b3d8e0fe-be4a-4269-a4c8-e53c6283effe"
   },
   {
@@ -1762,7 +1764,8 @@
     "pillars": [
       "reliability",
       "operationalexcellence",
-      "costoptimization"
+      "costoptimization",
+      "performanceefficiency"
     ],
     "lens": "application",
     "category": "Application Design",
@@ -3823,7 +3826,7 @@
     ],
     "lens": "application",
     "category": "Health Modelling & Monitoring",
-    "subCategory": "Resource/Infrastructure Level Monitoring",
+    "subCategory": "Resource and Infrastructure Level Monitoring",
     "title": "Does the security team have access to and monitor all subscriptions and tenants that are connected to the existing cloud environment, relative to this workload?",
     "context": "Ensure the security organization is aware of all enrollments and associated subscriptions connected to the existing environment and is able to monitor those resources as part of the overall enterprise security posture.",
     "recommendation": "Ensure all Azure environments that connect to your production environment/network apply your organization’s policy and IT governance controls for security.",
@@ -5579,11 +5582,12 @@
   {
     "type": "Questions",
     "pillars": [
-      "performanceefficiency"
+      "performanceefficiency",
+      "reliability"
     ],
     "lens": "application",
     "category": "Health Modelling & Monitoring",
-    "subCategory": "Logging",
+    "subCategory": "Monitoring and Measurement",
     "title": "Do you have detailed instrumentation in the application code?",
     "context": "Instrumentation of your code allows precise detection of underperforming pieces when load or stress tests are applied. It is critical to have this data available to improve and identify performance opportunities in the application code. Application Performance Monitoring (APM) tools, such as Application Insights, should be used to manage the performance and availability of the application, along with aggregating application level logs and events for subsequent interpretation.",
     "recommendation": "",
