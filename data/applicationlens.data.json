@@ -1184,7 +1184,7 @@
     "subCategory": "Application Deployments",
     "title": "Can the application be deployed automatically from scratch without any manual operations?",
     "context": "Manual deployment steps introduce significant risks where human error is concerned and also increases overall deployment times.",
-    "recommendation": "Manual deployment steps introduce significant risks where human error is concerned and also increases overall deployment times. Automated end-to-end deployments, with manual approval gates where necessary, should be used to ensure a consistent and efficient deployment process([Deployment considerations for DevOps](https://docs.microsoft.com/azure/architecture/framework/devops/deployment))",
+    "recommendation": "Manual deployment steps introduce significant risks where human error is concerned and also increases overall deployment times. Automated end-to-end deployments, with manual approval gates where necessary, should be used to ensure a consistent and efficient deployment process ([Deployment considerations for DevOps](https://docs.microsoft.com/azure/architecture/framework/devops/deployment))",
     "children": [
       {
         "title": "Is there a documented process for any portions of the deployment that require manual intervention?",
@@ -1247,7 +1247,7 @@
     "subCategory": "Application Deployments",
     "title": "Does the application deployment process leverage blue-green deployments and/or canary releases?",
     "context": "Blue/green or canary deployments are a way to gradually release new feature or changes without impacting all users at once.",
-    "recommendation": "Blue-green deployments and/or canary releases can be used to deploy updates in a controlled manner that helps to minimize disruption from unanticipated deployment issues([Stage your workloads](https://docs.microsoft.com/azure/architecture/framework/devops/deployment#stage-your-workloads)) For example, Azure uses canary regions to test and validate new services and capabilities before they are more broadly rolled out to other Azure regions. Where appropriate the application can also use canary environments to validate changes before wider production rollout. Moreover, certain large application platforms may also derive benefit from leveraging Azure canary regions as a basis for validating the potential impact of Azure platform changes on the application.",
+    "recommendation": "Blue-green deployments and/or canary releases can be used to deploy updates in a controlled manner that helps to minimize disruption from unanticipated deployment issues ([Stage your workloads](https://docs.microsoft.com/azure/architecture/framework/devops/deployment#stage-your-workloads)) For example, Azure uses canary regions to test and validate new services and capabilities before they are more broadly rolled out to other Azure regions. Where appropriate the application can also use canary environments to validate changes before wider production rollout. Moreover, certain large application platforms may also derive benefit from leveraging Azure canary regions as a basis for validating the potential impact of Azure platform changes on the application.",
     "id": "da5a44fb-1c50-4527-aac8-5b2d37191367"
   },
   {
@@ -1265,7 +1265,7 @@
       {
         "title": "If Git is used for source control, what branching strategy is used?",
         "context": "While there are various valid ways, a clearly defined strategy should be in place and understood",
-        "recommendation": "To optimize for collaboration and ensure developers spend less time managing version control and more time developing code, a clear and simple branching strategy should be used, such as Trunk-Based Development which is employed internally within Microsoft Engineering([Microsoft Git Strategy](https://docs.microsoft.com/azure/devops/learn/devops-at-microsoft/use-git-microsoft))",
+        "recommendation": "To optimize for collaboration and ensure developers spend less time managing version control and more time developing code, a clear and simple branching strategy should be used, such as Trunk-Based Development which is employed internally within Microsoft Engineering ([Microsoft Git Strategy](https://docs.microsoft.com/azure/devops/learn/devops-at-microsoft/use-git-microsoft))",
         "id": "9c087bad-35fb-4282-bbb9-140cf458e338"
       }
     ],
@@ -1278,7 +1278,7 @@
     ],
     "lens": "application",
     "category": "Deployment & Testing",
-    "subCategory": "Application Infrastructure Deployments & Infrastructure as Code (IaC)",
+    "subCategory": "Application Infrastructure Deployments",
     "title": "Is application infrastructure defined as code?",
     "context": "[Infrastructure as Code](https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code) (IaC) is the management of infrastructure (networks, virtual machines, load balancers, and connection topology) in a descriptive model, using the same versioning as the team uses for application source code. Like the principle that the same source code generates the same binary, an IaC model generates the same environment every time it is applied.",
     "recommendation": "It is highly recommended to describe the entire infrastructure as code, using either ARM Templates, Terraform, or other tools. This allows for proper versioning and configuration management, encouraging consistency and reproducibility across environments.",
@@ -1305,10 +1305,10 @@
     ],
     "lens": "application",
     "category": "Deployment & Testing",
-    "subCategory": "Application Infrastructure Deployments & Infrastructure as Code (IaC)",
+    "subCategory": "Application Infrastructure Deployments",
     "title": "Is the process to deploy infrastructure automated?",
-    "context": "",
-    "recommendation": "It is recommended to use build and release tools to define automated or partially automated CI/CD pipelines for the entire infrastructure",
+    "context": "Manual changes via for example the portal should be avoided whenever possible as any manual deployment steps introduce significant risks where human error is concerned and also increases overall deployment times.",
+    "recommendation": "It is recommended to use build and release tools to define automated or partially automated CI/CD pipelines for the entire infrastructure deployment.",
     "id": "548d645a-de28-46db-ae42-658ce8529848"
   },
   {
@@ -4557,7 +4557,7 @@
     ],
     "lens": "application",
     "category": "Deployment & Testing",
-    "subCategory": "Application Infrastructure Deployments & Infrastructure as Code (IaC)",
+    "subCategory": "Testing & Validation",
     "title": "Are test-environments deployed automatically and deleted after use? Use of tagging for end date?",
     "context": "Automating test cases reduces time, cost and helps inefficient resource utilization. It also provides a structured approach to testing with test scripts. Test environments can quickly become overhead if not monitored properly, therefore stopping these resources when they are not in use enables cost saving. In order to drive down cost a good place to look is test environments that might not be used anymore. Implementing a process can help by tagging all test environments with an end date and an owner and after this date follow up with the owner if the environment is still needed and if so set a new end-of-life date.",
     "recommendation": "Make sure to delete/deallocate resources used in test environments.",
