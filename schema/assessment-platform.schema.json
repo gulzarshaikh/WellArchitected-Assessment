@@ -1,6 +1,6 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "http://example.com/example.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "http://waf/assessment-platform.schema.json",
   "type": "array",
   "title": "Questions",
   "description": "List of questions with choices.",
@@ -87,12 +87,6 @@
                   "category": {
                       "$id": "#/items/anyOf/0/properties/category",
                       "type": "string",
-                      "title": "Topic/pillar for this question",
-                      "description": "The pillar into which this question belongs.",
-                      "default": "",
-                      "examples": [
-                          "reliability"
-                      ],
                       "enum": [
                         "costoptimization",
                         "golive",
@@ -100,13 +94,19 @@
                         "performanceefficiency",
                         "reliability",
                         "security"
+                      ],
+                      "title": "Topic/pillar for this question",
+                      "description": "The pillar into which this question belongs.",
+                      "default": "",
+                      "examples": [
+                          "reliability"
                       ]
                   },
                   "title": {
                       "$id": "#/items/anyOf/0/properties/title",
                       "type": "string",
-                      "title": "The title schema",
-                      "description": "An explanation about the purpose of this instance.",
+                      "title": "Title",
+                      "description": "Represents the high-level question, for which the user selects choices.",
                       "default": "",
                       "examples": [
                           "What reliability targets and metrics have you defined for your application?"
@@ -115,8 +115,8 @@
                   "context": {
                       "$id": "#/items/anyOf/0/properties/context",
                       "type": "string",
-                      "title": "The context schema",
-                      "description": "An explanation about the purpose of this instance.",
+                      "title": "Context",
+                      "description": "Context explains the question and provides relevant information which can help in understanding the purpose and broader setting.",
                       "default": "",
                       "examples": [
                           "Availability targets, such as Service Level Agreements (SLA) and Service Level Objectives (SLO), and Recovery targets, such as Recovery Time Objectives (RTO) and Recovery Point Objectives (RPO), should be defined and tested to ensure application reliability aligns with business requirements."
@@ -125,8 +125,8 @@
                   "id": {
                       "$id": "#/items/anyOf/0/properties/id",
                       "type": "string",
-                      "title": "The id schema",
-                      "description": "An explanation about the purpose of this instance.",
+                      "title": "Id",
+                      "description": "Unique identifier of this question. Can be used for further reference.",
                       "default": "",
                       "examples": [
                           "pnp_question_reliability1"
@@ -135,8 +135,8 @@
                   "video": {
                       "$id": "#/items/anyOf/0/properties/video",
                       "type": "object",
-                      "title": "The video schema",
-                      "description": "An explanation about the purpose of this instance.",
+                      "title": "Video",
+                      "description": "Link to additional video content to be embedded on the page.",
                       "default": {},
                       "examples": [
                           {
@@ -152,8 +152,8 @@
                           "title": {
                               "$id": "#/items/anyOf/0/properties/video/properties/title",
                               "type": "string",
-                              "title": "The title schema",
-                              "description": "An explanation about the purpose of this instance.",
+                              "title": "Title",
+                              "description": "Link title, will be used on the page.",
                               "default": "",
                               "examples": [
                                   "What reliability targets and metrics have you defined for your application?"
@@ -162,32 +162,32 @@
                           "url": {
                               "$id": "#/items/anyOf/0/properties/video/properties/url",
                               "type": "string",
-                              "title": "The url schema",
-                              "description": "An explanation about the purpose of this instance.",
+                              "title": "URL",
+                              "description": "The actual link to the video - usually direct embed, which can be used on the page.",
                               "default": "",
                               "examples": [
                                   "https://www.microsoft.com/en-us/videoplayer/embed/RE4yYLM"
                               ]
                           }
                       },
-                      "additionalProperties": true
+                      "additionalProperties": false
                   },
                   "choices": {
                       "$id": "#/items/anyOf/0/properties/choices",
                       "type": "array",
-                      "title": "The choices schema",
-                      "description": "An explanation about the purpose of this instance.",
+                      "title": "Choices",
+                      "description": "List of choices for this question. Will be rendered as checkboxes on the page.",
                       "default": [],
                       "examples": [],
-                      "additionalItems": true,
+                      "additionalItems": false,
                       "items": {
                           "$id": "#/items/anyOf/0/properties/choices/items",
                           "anyOf": [
                               {
                                   "$id": "#/items/anyOf/0/properties/choices/items/anyOf/0",
                                   "type": "object",
-                                  "title": "The first anyOf schema",
-                                  "description": "An explanation about the purpose of this instance.",
+                                  "title": "Choice",
+                                  "description": "Each choice is represented as statement with checkbox and tooltip.",
                                   "default": {},
                                   "examples": [],
                                   "required": [
@@ -201,8 +201,8 @@
                                       "waf_github_content_id": {
                                           "$id": "#/items/anyOf/0/properties/choices/items/anyOf/0/properties/waf_github_content_id",
                                           "type": "string",
-                                          "title": "The waf_github_content_id schema",
-                                          "description": "An explanation about the purpose of this instance.",
+                                          "title": "waf_github_content_id",
+                                          "description": "Reference back to the original GitHub question which was used to generate this choice.",
                                           "default": "",
                                           "examples": [
                                               "app_design_recovery_targets"
@@ -211,28 +211,28 @@
                                       "title": {
                                           "$id": "#/items/anyOf/0/properties/choices/items/anyOf/0/properties/title",
                                           "type": "string",
-                                          "title": "The title schema",
-                                          "description": "An explanation about the purpose of this instance.",
+                                          "title": "Choice title",
+                                          "description": "Statement text, which would be rendered on the page with a checkbox. It should be a proper sentence and shouldn't be a question. By selecting it the user states that they do something.",
                                           "default": "",
                                           "examples": [
-                                              "Recovery targets to identify how long the workload can be unavailable (Recovery Time Objective) and how much data is acceptable to lose during a disaster (Recovery Point Objective)."
+                                              "Recovery targets are in place to identify how long the workload can be unavailable (Recovery Time Objective) and how much data is acceptable to lose during a disaster (Recovery Point Objective)."
                                           ]
                                       },
                                       "context": {
                                           "$id": "#/items/anyOf/0/properties/choices/items/anyOf/0/properties/context",
                                           "type": "string",
-                                          "title": "The context schema",
-                                          "description": "An explanation about the purpose of this instance.",
+                                          "title": "Choice context",
+                                          "description": "Description of the choice which will be rendered as a tooltip. It should explain to the user in more detail what this choice represents. It has to be single-line and not contain any formatting.",
                                           "default": "",
                                           "examples": [
-                                              "Understanding customer reliability expectations is vital to reviewing the overall reliability of the application. For instance, if a customer is striving to achieve an application RTO of less than a minute then back-up based and active-passive disaster recovery strategies are unlikely to be appropriate \nRecovery time objective (RTO): The maximum acceptable time the application is unavailable after a disaster incident \nRecovery point objective (RPO): The maximum duration of data loss that is acceptable during a disaster event"
+                                              "Understanding customer reliability expectations is vital to reviewing the overall reliability of the application. For instance, if a customer is striving to achieve an application RTO of less than a minute then back-up based and active-passive disaster recovery strategies are unlikely to be appropriate."
                                           ]
                                       },
                                       "recommendations": {
                                           "$id": "#/items/anyOf/0/properties/choices/items/anyOf/0/properties/recommendations",
                                           "type": "array",
-                                          "title": "The recommendations schema",
-                                          "description": "An explanation about the purpose of this instance.",
+                                          "title": "Choice recommendations",
+                                          "description": "List of recommendations to be shown for this particular choice.",
                                           "default": [],
                                           "examples": [],
                                           "additionalItems": true,
@@ -242,8 +242,8 @@
                                                   {
                                                       "$id": "#/items/anyOf/0/properties/choices/items/anyOf/0/properties/recommendations/items/anyOf/0",
                                                       "type": "object",
-                                                      "title": "The first anyOf schema",
-                                                      "description": "An explanation about the purpose of this instance.",
+                                                      "title": "Recommendation",
+                                                      "description": "Recommendation to be shown for this particular choice.",
                                                       "default": {},
                                                       "examples": [],
                                                       "required": [
@@ -257,8 +257,8 @@
                                                           "title": {
                                                               "$id": "#/items/anyOf/0/properties/choices/items/anyOf/0/properties/recommendations/items/anyOf/0/properties/title",
                                                               "type": "string",
-                                                              "title": "The title schema",
-                                                              "description": "An explanation about the purpose of this instance.",
+                                                              "title": "Recommendation title",
+                                                              "description": "Short title which will be used as introduction to this recommendation. Doesn't have to be a proper sentence.",
                                                               "default": "",
                                                               "examples": [
                                                                   "Define recovery targets (RTO, RPO)"
@@ -267,8 +267,8 @@
                                                           "context": {
                                                               "$id": "#/items/anyOf/0/properties/choices/items/anyOf/0/properties/recommendations/items/anyOf/0/properties/context",
                                                               "type": "string",
-                                                              "title": "The context schema",
-                                                              "description": "An explanation about the purpose of this instance.",
+                                                              "title": "Recommendation context",
+                                                              "description": "Description of this recommendation. It should explain what is it about.",
                                                               "default": "",
                                                               "examples": [
                                                                   "Recovery targets should be defined in accordance to the required RTO and RPO targets for the workload."
@@ -277,8 +277,8 @@
                                                           "links": {
                                                               "$id": "#/items/anyOf/0/properties/choices/items/anyOf/0/properties/recommendations/items/anyOf/0/properties/links",
                                                               "type": "array",
-                                                              "title": "The links schema",
-                                                              "description": "An explanation about the purpose of this instance.",
+                                                              "title": "Recommendation links",
+                                                              "description": "One or more hyperlinks",
                                                               "default": [],
                                                               "examples": [
                                                                   [
@@ -288,15 +288,15 @@
                                                                       }
                                                                   ]
                                                               ],
-                                                              "additionalItems": true,
+                                                              "additionalItems": false,
                                                               "items": {
                                                                   "$id": "#/items/anyOf/0/properties/choices/items/anyOf/0/properties/recommendations/items/anyOf/0/properties/links/items",
                                                                   "anyOf": [
                                                                       {
                                                                           "$id": "#/items/anyOf/0/properties/choices/items/anyOf/0/properties/recommendations/items/anyOf/0/properties/links/items/anyOf/0",
                                                                           "type": "object",
-                                                                          "title": "The first anyOf schema",
-                                                                          "description": "An explanation about the purpose of this instance.",
+                                                                          "title": "Link",
+                                                                          "description": "Recommendation link",
                                                                           "default": {},
                                                                           "examples": [
                                                                               {
@@ -312,8 +312,8 @@
                                                                               "title": {
                                                                                   "$id": "#/items/anyOf/0/properties/choices/items/anyOf/0/properties/recommendations/items/anyOf/0/properties/links/items/anyOf/0/properties/title",
                                                                                   "type": "string",
-                                                                                  "title": "The title schema",
-                                                                                  "description": "An explanation about the purpose of this instance.",
+                                                                                  "title": "Link title",
+                                                                                  "description": "Short title which will be used as hyperlink text.",
                                                                                   "default": "",
                                                                                   "examples": [
                                                                                       "Recovery targets"
@@ -322,15 +322,15 @@
                                                                               "url": {
                                                                                   "$id": "#/items/anyOf/0/properties/choices/items/anyOf/0/properties/recommendations/items/anyOf/0/properties/links/items/anyOf/0/properties/url",
                                                                                   "type": "string",
-                                                                                  "title": "The url schema",
-                                                                                  "description": "An explanation about the purpose of this instance.",
+                                                                                  "title": "Link URL",
+                                                                                  "description": "Actual URL of the link.",
                                                                                   "default": "",
                                                                                   "examples": [
                                                                                       "/azure/architecture/framework/reliability/receoverytargets"
                                                                                   ]
                                                                               }
                                                                           },
-                                                                          "additionalProperties": true
+                                                                          "additionalProperties": false
                                                                       }
                                                                   ]
                                                               }
@@ -338,8 +338,8 @@
                                                           "nextSteps": {
                                                               "$id": "#/items/anyOf/0/properties/choices/items/anyOf/0/properties/recommendations/items/anyOf/0/properties/nextSteps",
                                                               "type": "string",
-                                                              "title": "The nextSteps schema",
-                                                              "description": "An explanation about the purpose of this instance.",
+                                                              "title": "Recommendation nextSteps",
+                                                              "description": "Indicates the position of this recommendation in the next steps list.",
                                                               "default": "",
                                                               "examples": [
                                                                   "1"
@@ -348,17 +348,10 @@
                                                           "metadata": {
                                                               "$id": "#/items/anyOf/0/properties/choices/items/anyOf/0/properties/recommendations/items/anyOf/0/properties/metadata",
                                                               "type": "object",
-                                                              "title": "The metadata schema",
-                                                              "description": "An explanation about the purpose of this instance.",
+                                                              "title": "Recommendation metadata",
+                                                              "description": "Additional metadata for a receiving system. Generated from the question data.",
                                                               "default": {},
-                                                              "examples": [
-                                                                  {
-                                                                      "priority": "high",
-                                                                      "category": "Application Design",
-                                                                      "sub-category": "Targets & Non Functional Requirements",
-                                                                      "description-long": "Understanding customer reliability expectations is vital to reviewing the overall reliability of the application. For instance, if a customer is striving to achieve an application RTO of less than a minute then back-up based and active-passive disaster recovery strategies are unlikely to be appropriate \nRecovery time objective (RTO): The maximum acceptable time the application is unavailable after a disaster incident \nRecovery point objective (RPO): The maximum duration of data loss that is acceptable during a disaster event"
-                                                                  }
-                                                              ],
+                                                              "examples": [],
                                                               "required": [
                                                                   "priority",
                                                                   "category",
@@ -369,8 +362,8 @@
                                                                   "priority": {
                                                                       "$id": "#/items/anyOf/0/properties/choices/items/anyOf/0/properties/recommendations/items/anyOf/0/properties/metadata/properties/priority",
                                                                       "type": "string",
-                                                                      "title": "The priority schema",
-                                                                      "description": "An explanation about the purpose of this instance.",
+                                                                      "title": "Recommendation priority",
+                                                                      "description": "",
                                                                       "default": "",
                                                                       "examples": [
                                                                           "high"
@@ -379,8 +372,8 @@
                                                                   "category": {
                                                                       "$id": "#/items/anyOf/0/properties/choices/items/anyOf/0/properties/recommendations/items/anyOf/0/properties/metadata/properties/category",
                                                                       "type": "string",
-                                                                      "title": "The category schema",
-                                                                      "description": "An explanation about the purpose of this instance.",
+                                                                      "title": "Recommendation category",
+                                                                      "description": "",
                                                                       "default": "",
                                                                       "examples": [
                                                                           "Application Design"
@@ -389,8 +382,8 @@
                                                                   "sub-category": {
                                                                       "$id": "#/items/anyOf/0/properties/choices/items/anyOf/0/properties/recommendations/items/anyOf/0/properties/metadata/properties/sub-category",
                                                                       "type": "string",
-                                                                      "title": "The sub-category schema",
-                                                                      "description": "An explanation about the purpose of this instance.",
+                                                                      "title": "Recommendation sub-category",
+                                                                      "description": "",
                                                                       "default": "",
                                                                       "examples": [
                                                                           "Targets & Non Functional Requirements"
@@ -399,15 +392,15 @@
                                                                   "description-long": {
                                                                       "$id": "#/items/anyOf/0/properties/choices/items/anyOf/0/properties/recommendations/items/anyOf/0/properties/metadata/properties/description-long",
                                                                       "type": "string",
-                                                                      "title": "The description-long schema",
-                                                                      "description": "An explanation about the purpose of this instance.",
+                                                                      "title": "Recommendation long description",
+                                                                      "description": "",
                                                                       "default": "",
                                                                       "examples": [
                                                                           "Understanding customer reliability expectations is vital to reviewing the overall reliability of the application. For instance, if a customer is striving to achieve an application RTO of less than a minute then back-up based and active-passive disaster recovery strategies are unlikely to be appropriate \nRecovery time objective (RTO): The maximum acceptable time the application is unavailable after a disaster incident \nRecovery point objective (RPO): The maximum duration of data loss that is acceptable during a disaster event"
                                                                       ]
                                                                   }
                                                               },
-                                                              "additionalProperties": true
+                                                              "additionalProperties": false
                                                           }
                                                       },
                                                       "additionalProperties": true
@@ -418,8 +411,8 @@
                                       "score": {
                                           "$id": "#/items/anyOf/0/properties/choices/items/anyOf/0/properties/score",
                                           "type": "integer",
-                                          "title": "The score schema",
-                                          "description": "An explanation about the purpose of this instance.",
+                                          "title": "Choice score",
+                                          "description": "Weight of the choice. Score is used to calculate overall evaluation of the assessment.",
                                           "default": 0,
                                           "examples": [
                                               20
@@ -431,70 +424,42 @@
                               {
                                   "$id": "#/items/anyOf/0/properties/choices/items/anyOf/1",
                                   "type": "object",
-                                  "title": "The second anyOf schema",
-                                  "description": "An explanation about the purpose of this instance.",
+                                  "title": "Fallback choice",
+                                  "description": "Usually the last choice in the list, which is not tied to a particular question content.",
                                   "default": {},
                                   "examples": [
                                       {
                                           "title": "None of the above",
-                                          "context": "",
-                                          "recommendations": [],
                                           "score": 0
                                       }
                                   ],
                                   "required": [
                                       "title",
-                                      "context",
-                                      "recommendations",
                                       "score"
                                   ],
                                   "properties": {
                                       "title": {
                                           "$id": "#/items/anyOf/0/properties/choices/items/anyOf/1/properties/title",
                                           "type": "string",
-                                          "title": "The title schema",
-                                          "description": "An explanation about the purpose of this instance.",
+                                          "title": "Choice title",
+                                          "description": "Text to be displayed.",
                                           "default": "",
                                           "examples": [
                                               "None of the above"
                                           ]
                                       },
-                                      "context": {
-                                          "$id": "#/items/anyOf/0/properties/choices/items/anyOf/1/properties/context",
-                                          "type": "string",
-                                          "title": "The context schema",
-                                          "description": "An explanation about the purpose of this instance.",
-                                          "default": "",
-                                          "examples": [
-                                              ""
-                                          ]
-                                      },
-                                      "recommendations": {
-                                          "$id": "#/items/anyOf/0/properties/choices/items/anyOf/1/properties/recommendations",
-                                          "type": "array",
-                                          "title": "The recommendations schema",
-                                          "description": "An explanation about the purpose of this instance.",
-                                          "default": [],
-                                          "examples": [
-                                              []
-                                          ],
-                                          "additionalItems": true,
-                                          "items": {
-                                              "$id": "#/items/anyOf/0/properties/choices/items/anyOf/1/properties/recommendations/items"
-                                          }
-                                      },
                                       "score": {
                                           "$id": "#/items/anyOf/0/properties/choices/items/anyOf/1/properties/score",
                                           "type": "integer",
-                                          "title": "The score schema",
-                                          "description": "An explanation about the purpose of this instance.",
+                                          "title": "Choice score",
+                                          "description": "",
                                           "default": 0,
                                           "examples": [
                                               0
                                           ]
                                       }
                                   },
-                                  "additionalProperties": true
+                                  "additionalProperties": false
                               }
                           ]
                       }
