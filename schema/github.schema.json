@@ -37,7 +37,12 @@
     },
     "lens": {
       "type": "string",
-      "description": ""
+      "description": "Lens defines how is this content intended to be consumed. It can affect rendering and transformations to various formats. Each lens has it's own JSON files.",
+      "enum": [
+        "application",
+        "service",
+        "scenario"
+      ]
     },
     "category": {
       "type": "string",
@@ -66,19 +71,23 @@
         "anyOf": [
           {
             "type": "object",
-            "description": "",
+            "description": "An item which is contextually related to the parent. It will share its category, subcategory and pillar.",
             "properties": {
               "id": {
-
+                "type": "string",
+                "description": "Unique identifier of this item."
               },
               "title": {
-
+                "type": "string",
+                "description": "Title of the item - can be a question, recommendation, consideration etc."
               },
               "context": {
-
+                "type": "string",
+                "description": "Detailed explanation of this item. Provides context to the reader - what is this question aiming at, details of the solution and general context."
               },
               "recommendation": {
-
+                "type": "string",
+                "description": "Recommended action or approach for this item."
               }
             }
           }
