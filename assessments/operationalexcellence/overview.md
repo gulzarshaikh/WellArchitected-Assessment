@@ -37,7 +37,7 @@ This operational excellence assessment has been produced to help the global CE&S
     - [Patch &amp; Update Process (PNU)](./application.md#Patch--Update-Process-PNU)
   - [Deployment &amp; Testing](./application.md#Deployment--Testing)
     - [Application Deployments](./application.md#Application-Deployments)
-    - [Application Infrastructure Deployments &amp; Infrastructure as Code (IaC)](./application.md#Application-Infrastructure-Deployments--Infrastructure-as-Code-IaC)
+    - [Application Infrastructure Deployments](./application.md#Application-Infrastructure-Deployments)
     - [Build Environments](./application.md#Build-Environments)
     - [Testing &amp; Validation](./application.md#Testing--Validation)
   - [Operational Model &amp; DevOps](./application.md#Operational-Model--DevOps)
