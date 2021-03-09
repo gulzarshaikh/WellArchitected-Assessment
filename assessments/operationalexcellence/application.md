@@ -31,7 +31,7 @@
     - [Patch &amp; Update Process (PNU)](#Patch--Update-Process-PNU)
   - [Deployment &amp; Testing](#Deployment--Testing)
     - [Application Deployments](#Application-Deployments)
-    - [Application Infrastructure Deployments &amp; Infrastructure as Code (IaC)](#Application-Infrastructure-Deployments--Infrastructure-as-Code-IaC)
+    - [Application Infrastructure Deployments](#Application-Infrastructure-Deployments)
     - [Build Environments](#Build-Environments)
     - [Testing &amp; Validation](#Testing--Validation)
   - [Operational Model &amp; DevOps](#Operational-Model--DevOps)
@@ -125,7 +125,7 @@ These critical design principles are used as lenses to assess the Operational Ex
 * Is the workload deployed across multiple regions?
 
 
-  _Multiple regions should be used for failover purposes in a disaster state, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active strategies. Additional cost needs to be taken into consideration - mostly from compute, data and networking perspectivce, but also services like Azure Site Recovery (ASR). ([Failover strategies](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones))_
+  _Multiple regions should be used for failover purposes in a disaster state, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active strategies. Additional cost needs to be taken into consideration - mostly from compute, data and networking perspective, but also services like Azure Site Recovery (ASR). ([Failover strategies](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones))_
 * Within a region is the application architecture designed to use Availability Zones?
 
 
@@ -270,6 +270,10 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
   _Service Level Agreement (SLA) represents a commitment around performance and availability of the application. Understanding the SLA of individual components within the system is essential in order to define reliability targets. Knowing the SLA of dependencies will also provide a justifications for additional spend when making the dependencies highly available and with proper support contracts._
   > The operational commitments of all external and internal dependencies should be understood to inform the broader application operations and health model.
+* Are all platform-level dependencies identified and understood?
+
+
+  _The usage of platform level dependencies such as Azure Active Directory must also be understood to ensure that their availability and recovery targets align with that of the application_
 * Is the lifecycle of the application decoupled from its dependencies?
 
 
@@ -720,13 +724,13 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
 
   _Manual deployment steps introduce significant risks where human error is concerned and also increases overall deployment times._
-  > Manual deployment steps introduce significant risks where human error is concerned and also increases overall deployment times. Automated end-to-end deployments, with manual approval gates where necessary, should be used to ensure a consistent and efficient deployment process([Deployment considerations for DevOps](https://docs.microsoft.com/azure/architecture/framework/devops/deployment))
+  > Automated end-to-end deployments, with manual approval gates where necessary, should be used to ensure a consistent and efficient deployment process ([Deployment considerations for DevOps](https://docs.microsoft.com/azure/architecture/framework/devops/deployment))
     - Is there a documented process for any portions of the deployment that require manual intervention?
 
 
       _Without detailed release process documentation, there is a much higher risk of an operator improperly configuring settings for the application_
 
-      > Any manual steps that are required in the deployment pipeline must be clearly documented with roles and responsibilties well defined.
+      > Any manual steps that are required in the deployment pipeline must be clearly documented with roles and responsibilities well defined.
 * Can N-1 or N+1 versions be deployed via automated pipelines where N is current deployment version in production?
 
 
@@ -740,7 +744,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
 
   _Blue/green or canary deployments are a way to gradually release new feature or changes without impacting all users at once._
-  > Blue-green deployments and/or canary releases can be used to deploy updates in a controlled manner that helps to minimize disruption from unanticipated deployment issues([Stage your workloads](https://docs.microsoft.com/azure/architecture/framework/devops/deployment#stage-your-workloads)) For example, Azure uses canary regions to test and validate new services and capabilities before they are more broadly rolled out to other Azure regions. Where appropriate the application can also use canary environments to validate changes before wider production rollout. Moreover, certain large application platforms may also derive benefit from leveraging Azure canary regions as a basis for validating the potential impact of Azure platform changes on the application.
+  > Blue-green deployments and/or canary releases can be used to deploy updates in a controlled manner that helps to minimize disruption from unanticipated deployment issues ([Stage your workloads](https://docs.microsoft.com/azure/architecture/framework/devops/deployment#stage-your-workloads)) For example, Azure uses canary regions to test and validate new services and capabilities before they are more broadly rolled out to other Azure regions. Where appropriate the application can also use canary environments to validate changes before wider production rollout. Moreover, certain large application platforms may also derive benefit from leveraging Azure canary regions as a basis for validating the potential impact of Azure platform changes on the application.
 * How does the development team manage application source code, builds, and releases?
 
 
@@ -751,8 +755,8 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
       _While there are various valid ways, a clearly defined strategy should be in place and understood_
 
-      > To optimize for collaboration and ensure developers spend less time managing version control and more time developing code, a clear and simple branching strategy should be used, such as Trunk-Based Development which is employed internally within Microsoft Engineering([Microsoft Git Strategy](https://docs.microsoft.com/azure/devops/learn/devops-at-microsoft/use-git-microsoft))
-### Application Infrastructure Deployments &amp; Infrastructure as Code (IaC)
+      > To optimize for collaboration and ensure developers spend less time managing version control and more time developing code, a clear and simple branching strategy should be used, such as Trunk-Based Development which is employed internally within Microsoft Engineering ([Microsoft Git Strategy](https://docs.microsoft.com/azure/devops/learn/devops-at-microsoft/use-git-microsoft))
+### Application Infrastructure Deployments
             
 * Is application infrastructure defined as code?
 
@@ -774,7 +778,8 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 * Is the process to deploy infrastructure automated?
 
 
-  > It is recommended to use build and release tools to define automated or partially automated CI/CD pipelines for the entire infrastructure
+  _Manual changes via for example the portal should be avoided whenever possible as any manual deployment steps introduce significant risks where human error is concerned and also increases overall deployment times._
+  > It is recommended to use build and release tools to define automated or partially automated CI/CD pipelines for the entire infrastructure deployment.
 ### Build Environments
             
 * Do critical test environments have 1:1 parity with the production environment?
@@ -794,13 +799,13 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 * Are feature flags used to test features before rolling them out to everyone?
 
 
-  > To test new features quickly and without bigger risk, Feature flags are a technique to help frequently integrate code into a shared repository, even if incomplete. It allows for deployment decisions to be separated from release decisions([Feature Flags](https://docs.microsoft.com/azure/architecture/framework/devops/development#feature-flags))
+  > To test new features quickly and without bigger risk, Feature flags are a technique to help frequently integrate code into a shared repository, even if incomplete. It allows for deployment decisions to be separated from release decisions ([Feature Flags](https://docs.microsoft.com/azure/architecture/framework/devops/development#feature-flags))
 ### Testing &amp; Validation
             
 * Is the application tested for performance, scalability, and resiliency?
 
 
-  _Performance Testing: Performance testing is the superset of both load and stress testing. The primary goal of performance testing is to validate benchmark behaviour for the application([Performance Testing](https://docs.microsoft.com/azure/architecture/checklist/dev-ops#testing))
+  _Performance Testing: Performance testing is the superset of both load and stress testing. The primary goal of performance testing is to validate benchmark behavior for the application ([Performance Testing](https://docs.microsoft.com/azure/architecture/checklist/dev-ops#testing))
 Load Testing : Load testing validates application scalability by rapidly and/or gradually increasing the load on the application until it reaches a threshold/limit 
 Stress Testing : *Stress testing is a type of negative testing which involves various activities to overload existing resources and remove components to understand overall resiliency and how the application responds to issues_
     - How does your team perceive the importance of performance testing?
@@ -873,7 +878,7 @@ Stress Testing : *Stress testing is a type of negative testing which involves va
 
 
   _Exploring where technical delivery capabilities reside helps to qualify operational model boundaries and estimate the cost of operating the application as well as defining a budget and cost model._
-  > Explore where technical delivery capabilites reside.
+  > Explore where technical delivery capabilities reside.
 * Is there a separation between development and operations?
 
 
@@ -891,7 +896,7 @@ Stress Testing : *Stress testing is a type of negative testing which involves va
     - Is the workload isolated to a single operations team?
 
 
-      _The goal of workload isolation is to associate an application's specific resources to a team, so that the team can independently manage all aspects of those resources([Workload isolation](https://docs.microsoft.com/azure/architecture/framework/devops/app-design#workload-isolation))_
+      _The goal of workload isolation is to associate an application's specific resources to a team, so that the team can independently manage all aspects of those resources ([Workload isolation](https://docs.microsoft.com/azure/architecture/framework/devops/app-design#workload-isolation))_
 
 * Are any broader teams responsible for operational aspects of the application?
 
