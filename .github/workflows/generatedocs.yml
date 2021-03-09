@@ -57,7 +57,7 @@ jobs:
                 {
                   Write-Host "Missing GUID found for ", $_.title
                   # Override ID with GUID if incorrect or empty
-                  $_.id=Add-Member –MemberType NoteProperty –Name "id" -Value "$((New-guid).ToString())" -Force
+                  $_.id | Add-Member –MemberType NoteProperty –Name "id" -Value "$((New-guid).ToString())" -Force
                 }
 
                 # Check and update IDs for child-level items
@@ -67,7 +67,7 @@ jobs:
                       if(-not [guid]::TryParse($_.id, $([ref][guid]::Empty)))
                       {
                         Write-Host "Missing Child GUID found for ", $_.title
-                        $_.id=Add-Member –MemberType NoteProperty –Name "id" -Value "$((New-guid).ToString())" -Force
+                        $_.id | Add-Member –MemberType NoteProperty –Name "id" -Value "$((New-guid).ToString())" -Force
                       } 
                     } catch {
                         Write-Host "Failed to add child ID"
