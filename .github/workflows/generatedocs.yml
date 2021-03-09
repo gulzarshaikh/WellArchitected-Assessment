@@ -63,15 +63,12 @@ jobs:
                 # Check and update IDs for child-level items
                 if ($_.children.count -ge 1) {
                   $_.children | % {
-                    try {
-                      if(-not [guid]::TryParse($_.id, $([ref][guid]::Empty)))
-                      {
-                        Write-Host "Missing Child GUID found for ", $_.title
-                        $_ | Add-Member –MemberType NoteProperty –Name "id" -Value "$((New-guid).ToString())" -Force
-                      } 
-                    } catch {
-                        Write-Host "Failed to add child ID"
-                    }
+                    if(-not [guid]::TryParse($_.id, $([ref][guid]::Empty)))
+                    {
+                      Write-Host "Missing Child GUID found for ", $_.title
+                      $_ | Add-Member –MemberType NoteProperty –Name "id" -Value "$((New-guid).ToString())" -Force
+                    } 
+                    Write-Host "Failed to add child ID"
                   }
                 }
               }
@@ -145,13 +142,6 @@ jobs:
                   Write-Warning "Type '$($item.type)' does not exist in types.json. Item: '$($item.title)'"
                   $foundIssues = $true
               }
-          }
-
-          $invalidIds = $AllItems |  Where-Object { -not [guid]::TryParse($_.id, $([ref][guid]::Empty)) }
-          foreach($item in $invalidIds)
-          {
-              Write-Warning "ID $($item.id) is not a valid GUID!"
-              $foundIssues = $true
           }
 
           # Check for duplicate IDs. For now we filter out all items which have no ID yet. Those should become mandatory at some point.
