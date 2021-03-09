@@ -24,21 +24,13 @@
     },
     "pillars": {
       "type": "array",
-      "description": "",
+      "description": "WAF pillars. Each item can be assigned to multiple pillars.",
       "items": {
         "anyOf": [
           {
             "type": "string",
             "description": "WAF pillar into which this item belongs.",
-            "enum": [
-              "costoptimization",
-              "golive",
-              "operationalexcellence",
-              "performanceefficiency",
-              "reliability",
-              "security"
-            ],
-            "examples": [ "costoptimization" ]
+            "examples": [ "costoptimization", "scenario/sap" ]
           }
         ]
       }
@@ -57,16 +49,51 @@
     },
     "title": {
       "type": "string",
-      "description": ""
+      "description": "Title of the item - can be a question, recommendation, consideration etc."
     },
     "context": {
       "type": "string",
-      "description": ""
+      "description": "Detailed explanation of this item. Provides context to the reader - what is this question aiming at, details of the solution and general context."
     },
     "recommendation": {
       "type": "string",
       "description": ""
+    },
+    "children": {
+      "type": "array",
+      "description": "",
+      "items": {
+        "anyOf": [
+          {
+            "type": "object",
+            "description": "",
+            "properties": {
+              "id": {
+
+              },
+              "title": {
+
+              },
+              "context": {
+
+              },
+              "recommendation": {
+
+              }
+            }
+          }
+        ]
+      }
     }
   },
-  "required": [ "id" ]
+  "required": [ 
+    "id",
+    "type",
+    "pillars",
+    "lens",
+    "category",
+    "subCategory",
+    "title",
+    "context"
+  ]
 }
