@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://waf/1.0/github.schema.json",
+  
+  "title": "AssessmentItem",
+  "description": "Single item within an assessment. Can be a question, recommendation, consideration etc.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": ""
+    },
+    "type": {
+      "type": "string",
+      "description": "",
+      "enum": [
+        "Questions",
+        "Design Principles",
+        "Design Considerations",
+        "Design Recommendations",
+        "Configuration Recommendations",
+        "Supporting Source Artifacts"
+      ]
+    },
+    "pillars": {
+      "type": "array",
+      "description": "",
+      "items": {
+        "anyOf": [
+          {
+            "type": "string",
+            "description": "WAF pillar into which this item belongs.",
+            "enum": [
+              "costoptimization",
+              "golive",
+              "operationalexcellence",
+              "performanceefficiency",
+              "reliability",
+              "security"
+            ],
+            "examples": [ "costoptimization" ]
+          }
+        ]
+      }
+    },
+    "lens": {
+      "type": "string",
+      "description": ""
+    },
+    "category": {
+      "type": "string",
+      "description": ""
+    },
+    "subCategory": {
+      "type": "string",
+      "description": ""
+    },
+    "title": {
+      "type": "string",
+      "description": ""
+    },
+    "context": {
+      "type": "string",
+      "description": ""
+    },
+    "recommendation": {
+      "type": "string",
+      "description": ""
+    }
+  },
+  "required": [ "id" ]
+}
