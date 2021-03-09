@@ -121,7 +121,7 @@ jobs:
           $AllItems = Get-Content -Path $env:GENERATOR_ROOT/data/input.json | ConvertFrom-Json
 
           # Get all used categories from the input.json and filter to unique
-          $allCategories = $allitems | Select-Object -Property category,subcategory,type,title | Sort-Object -Property category,subcategory,type | Get-Unique -AsString
+          $allCategories = $AllItems | Select-Object -Property category,subcategory,type,title | Sort-Object -Property category,subcategory,type | Get-Unique -AsString
 
           foreach($item in $allCategories) 
           {
