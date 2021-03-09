@@ -68,7 +68,6 @@ jobs:
                       Write-Host "Missing Child GUID found for ", $_.title
                       $_ | Add-Member –MemberType NoteProperty –Name "id" -Value "$((New-guid).ToString())" -Force
                     } 
-                    Write-Host "Failed to add child ID"
                   }
                 }
               }
