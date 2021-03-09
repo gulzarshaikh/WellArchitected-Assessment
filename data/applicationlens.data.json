@@ -4323,7 +4323,7 @@
         "title": "Are the Advisor recommendations being reviewed weekly or bi-weekly for optimization?",
         "context": "Your underutilised resources need to be reviewed often in order to be identified and dealt with accordingly, in addition to ensuring that your actionable recommendations are up-to-date and fully optimised. For example, Azure Advisor monitors your virtual machine (VM) usage for 7 days and then identifies low-utilization VMs.",
         "recommendation": "Review Azure Advisor recommendation periodically.",
-        "id": "026d3471-dfb3-4134-8737-b5d3e11a83c0"
+        "id": ""
       }
     ],
     "id": "ce279686-4463-4d66-9050-d7b3b329502e"
@@ -4339,7 +4339,7 @@
     "title": "Is there a dashboard showing cost related KPIs for this workload which gives a transparent view of the current situation?",
     "context": "Single pane of glass which can be shown during weekly ops meetings and instills accountability within everyone whilst also allowing you to understand where you are in terms of budget through every stage.",
     "recommendation": "",
-    "id": "d7d80a16-0d06-4025-9ce9-46312abe6e60"
+    "id": ""
   },
   {
     "type": "Questions",
@@ -4356,8 +4356,7 @@
       {
         "title": "What is the ratio of cost of production and non-production environments for this workload?",
         "context": "When the customer is spending more money on testing than production, it usually means they have too many non-production environments. Consider ratio of non-production to production environments and if ratio is substantially higher you should consider merging testing environments or re-visit why the cost is so much higher.",
-        "recommendation": "",
-        "id": "57cfabd6-2301-40ae-b0ca-e5130a5cdd82"
+        "recommendation": ""
       },
       {
         "title": "How many production vs. non-production environments do you have?",
@@ -4365,8 +4364,7 @@
         "recommendation": "",
         "id": "8f8c351f-c380-4883-aa24-17710a0c39f5"
       }
-    ],
-    "id": "5e00cb09-5c70-4d1e-9291-a52e866796b6"
+    ]
   },
   {
     "type": "Questions",
