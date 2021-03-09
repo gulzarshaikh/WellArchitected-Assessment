@@ -515,7 +515,7 @@
     "category": "Health Modelling & Monitoring",
     "subCategory": "Data Interpretation & Health Modelling",
     "title": "Are application level events automatically correlated with resource level metrics to quantify the current application state?",
-    "context": "The overall health state can be impacted by both application-level issues as well as resource-level failures. Telemetry correlation should be used to ensure transactions can be mapped through the end-to-end application and critical system flows, as this is vital to root cause analysis for failures. Platform-level metrics and logs such as CPU percentage, network in/out, and disk operations/sec should be collected from the application to inform a health model and detect/predict issues([Telemetry correlation](https://docs.microsoft.com/azure/azure-monitor/app/correlation)). This can also help to distinguish between transient and non-transient faults",
+    "context": "The overall health state can be impacted by both application-level issues as well as resource-level failures. Telemetry correlation should be used to ensure transactions can be mapped through the end-to-end application and critical system flows, as this is vital to root cause analysis for failures. Platform-level metrics and logs such as CPU percentage, network in/out, and disk operations/sec should be collected from the application to inform a health model and detect/predict issues ([Telemetry correlation](https://docs.microsoft.com/azure/azure-monitor/app/correlation)). This can also help to distinguish between transient and non-transient faults.",
     "recommendation": "",
     "id": "1acdbd60-acb6-40de-8e67-c2a17051cac1"
   },
@@ -604,7 +604,7 @@
     "subCategory": "Dashboarding",
     "title": "What technology is used to visualize the application health model and encompassed logs and metrics?",
     "context": "Visualization, often also called Dashboarding, refers to how data is presented to operations teams and other interested users.",
-    "recommendation": "Dashboarding tools, such as Azure Monitor or Grafana, should be used to visualize metrics and events collected at the application and resource levels, to illustrate the health model and the current operational state of the application",
+    "recommendation": "Dashboarding tools, such as Azure Monitor or [Grafana](https://grafana.com/), should be used to visualize metrics and events collected at the application and resource levels, to illustrate the health model and the current operational state of the application.",
     "id": "2f89f20c-69ef-4150-9753-6ba603fb2b7d"
   },
   {
@@ -713,7 +713,7 @@
     "subCategory": "Alerting",
     "title": "Have Azure Service Health alerts been created to respond to Service-level events?",
     "context": "Azure Service Health provides a view into the health of Azure services and regions, as well as issuing service impacting communications about outages, planned maintenance activities, and other health advisories.",
-    "recommendation": "Azure Service Health Alerts should be configured to operationalize Service Health events, however, Service Health alerts should not be used to detect issues due to associated latencies; there is a 5 minute SLO for automated issues, but many issues require manual interpretation to define an RCA. Instead, they should be used to provide extremely useful information to help interpret issues that have already been detected and surfaced via the health model, to inform how best to operationally respond([Azure Service Health](https://docs.microsoft.com/azure/service-health/overview))",
+    "recommendation": "Azure Service Health Alerts should be configured to operationalize Service Health events, however, Service Health alerts should not be used to detect issues due to associated latencies; there is a 5 minute SLO for automated issues, but many issues require manual interpretation to define an RCA. Instead, they should be used to provide extremely useful information to help interpret issues that have already been detected and surfaced via the health model, to inform how best to operationally respond ([Azure Service Health](https://docs.microsoft.com/azure/service-health/overview))",
     "id": "37da75f6-a948-4649-938f-1a841a36bea2"
   },
   {
@@ -739,8 +739,8 @@
     "category": "Health Modelling & Monitoring",
     "subCategory": "Alerting",
     "title": "Are Azure notifications sent to subscriptions owners received and if necessary properly routed to relevant technical stakeholders?",
-    "context": "Subscription notification emails can contain important service notifications or security alerts([Azure account contact information](https://docs.microsoft.com/azure/cost-management-billing/manage/change-azure-account-profile#service-and-marketing-emails)).",
-    "recommendation": "Subscription notification emails can contain important service notifications or security alerts([Azure account contact information](https://docs.microsoft.com/azure/cost-management-billing/manage/change-azure-account-profile#service-and-marketing-emails)). Thus, it is important that those notifications are received and routed to the relevant technical stakeholders.",
+    "context": "Subscription notification emails can contain important service notifications or security alerts ([Azure account contact information](https://docs.microsoft.com/azure/cost-management-billing/manage/change-azure-account-profile#service-and-marketing-emails)).",
+    "recommendation": "Subscription notification emails can contain important service notifications or security alerts ([Azure account contact information](https://docs.microsoft.com/azure/cost-management-billing/manage/change-azure-account-profile#service-and-marketing-emails)). Thus, it is important that those notifications are received and routed to the relevant technical stakeholders.",
     "id": "d34470a5-15fc-498f-9788-81b354ef3fcb"
   },
   {
@@ -758,7 +758,7 @@
     "children": [
       {
         "title": "Has the failover and failback approach been tested/validated at least once?",
-        "context": "Only plans and playbooks that have been executed sucessfully at least once can be considered working.",
+        "context": "Only plans and playbooks that have been executed successfully at least once can be considered working.",
         "recommendation": "The precise steps required to failover and failback the application must be tested to validate the effectiveness of the defined disaster recovery approach. Testing of the disaster recovery strategy should occur according to a reasonably regular cadence, such as annually, to ensure that operational application changes do not impact the applicability of the selected approach",
         "id": "25e34538-345e-420a-bddd-c0ba6fd883ed"
       },
@@ -871,8 +871,8 @@
     "category": "Operational Procedures",
     "subCategory": "Scalability & Capacity Model",
     "title": "Is the process to provision and deprovision capacity codified?",
-    "context": "",
-    "recommendation": "Fluctuation in application traffic is typically expected. To ensure optimal operation is maintained, such variations should be met by automated scalability. The significance of automated capacity responses underpinned by a robust capacity model was highlighted by the COVID-19 crisis where many applications experienced severe traffic variations. While Auto-scaling enables a PaaS or IaaS service to scale within a pre-configured (and often times limited) range of resources, is provisioning or deprovisioning capacity a more advanced and complex process of for example adding additional scale units like additional clusters, instances or deployments. The process should be codified, automated and the effects of adding/removing capacity should be well understood.",
+    "context": "Codifying and automating the process helps to avoid human error, varying results and to speed up the overall process.",
+    "recommendation": "Fluctuation in application traffic is typically expected. To ensure optimal operation is maintained, such variations should be met by automated scalability. The significance of automated capacity responses underpinned by a robust capacity model was highlighted by the COVID-19 crisis where many applications experienced severe traffic variations. While Auto-scaling enables a PaaS or IaaS service to scale within a pre-configured (and often times limited) range of resources, is provisioning or de-provisioning capacity a more advanced and complex process of for example adding additional scale units like additional clusters, instances or deployments. The process should be codified, automated and the effects of adding/removing capacity should be well understood.",
     "id": "cbf4551a-15dc-4aac-85aa-97df8d293dfc"
   },
   {
@@ -884,7 +884,7 @@
     "category": "Operational Procedures",
     "subCategory": "Scalability & Capacity Model",
     "title": "Is the impact of changes in application health on capacity fully understood?",
-    "context": "For example, if an outage in an external API is mitigated by writing messages into a retry queue, this queue will get sudden spikes in load which it will need to be able to handle",
+    "context": "For example, if an outage in an external API is mitigated by writing messages into a retry queue, this queue will get sudden spikes in load which it will need to be able to handle.",
     "recommendation": "Any change in the health state of application components can influence the capacity demands on other components. Those impacts need to be fully understood and measures such as auto-scaling need to be in place to handle those.",
     "id": "a91eab73-2d36-48de-bffb-d76638a72ec5"
   },
@@ -904,7 +904,7 @@
       {
         "title": "Is the required capacity (initial and future growth) available within targeted regions?",
         "context": "While the promise of the cloud is infinite scale, the reality is that there are finite resources available and as a result situations can occur where capacity can be constrained due to overall demand.",
-        "recommendation": "If the application requires a large amount of capacity or expects a significant increase in capacity then effort should be invested to ensure that desired capacity is attainable within selected region(s). For applications leveraging a recovery or active-passive based disaster recovery strategy, consideration should also be given to ensure suitable capacity exists in the secondary region(s) since a regional outage can lead to a significant increase in demand within a paired region due to other customer workloads also failing over. To help mitigate this, consideration should be given to pre-provisioning resources within the secondary region([Azure Capacity](https://aka.ms/AzureCapacity))",
+        "recommendation": "If the application requires a large amount of capacity or expects a significant increase in capacity then effort should be invested to ensure that desired capacity is attainable within selected region(s). For applications leveraging a recovery or active-passive based disaster recovery strategy, consideration should also be given to ensure suitable capacity exists in the secondary region(s) since a regional outage can lead to a significant increase in demand within a paired region due to other customer workloads also failing over. To help mitigate this, consideration should be given to pre-provisioning resources within the secondary region ([Azure Capacity](https://aka.ms/AzureCapacity))",
         "id": "79d32a9a-60da-4065-8fda-3a53c82c9516"
       }
     ],
