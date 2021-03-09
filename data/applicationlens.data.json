@@ -5657,12 +5657,13 @@
         "title": "Have you identified the length of time it takes before response times increase?",
         "context": "",
         "recommendation": "",
-        "id": "thisisawrongguid"
+        "id": "64c54e9f-fda6-4238-abfe-d07789d03405"
       },
       {
         "title": "How long does it take for response times to return to &quot;normal?&quot;",
         "context": "",
-        "recommendation": ""
+        "recommendation": "",
+        "id": "1f578457-2fc2-4192-a002-39d08ec07c26"
       }
     ],
     "id": "d0355ae4-4b4f-4050-a056-6a8c25d7be5e"
@@ -5690,6 +5691,7 @@
     "subCategory": "Network",
     "title": "Do you profile the network with any traffic capturing tools?",
     "context": "Network capture tooling can capture the network traffic and dive deeper into the interactions at the network layer that may affect your application due to network configuration and/or other network traffic issues.",
-    "recommendation": ""
+    "recommendation": "",
+    "id": "dda2307a-2316-42db-9914-2122d7a0634d"
   }
 ]
