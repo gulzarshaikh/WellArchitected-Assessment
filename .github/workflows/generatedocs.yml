@@ -40,7 +40,41 @@ jobs:
               catch {
                 Write-Error "Invalid JSON in file $file"
               }
-          }
+            }
+
+      - name: Update object GUIDs in source data JSON files
+        shell: pwsh
+        run: |
+            Get-ChildItem -Path $env:DATADIR -Filter *.data.json | % {
+              $file = $_.FullName
+
+              $content = Get-Content -Path $file | ConvertFrom-Json
+
+              # Check and update IDs for toplevel items
+              $content | % {
+
+                if(-not [guid]::TryParse($_.id, $([ref][guid]::Empty)))
+                {
+                  Write-Host "Missing GUID found for ", $_.title
+                  # Override ID with GUID if incorrect or empty
+                  $_ | Add-Member –MemberType NoteProperty –Name "id" -Value "$((New-guid).ToString())" -Force
+                }
+
+                # Check and update IDs for child-level items
+                if ($_.children.count -ge 1) {
+                  $_.children | % {
+                    if(-not [guid]::TryParse($_.id, $([ref][guid]::Empty)))
+                    {
+                      Write-Host "Missing Child GUID found for ", $_.title
+                      $_ | Add-Member –MemberType NoteProperty –Name "id" -Value "$((New-guid).ToString())" -Force
+                    } 
+                  }
+                }
+              }
+
+              # Write updates Data files
+              $content | ConvertTo-Json -depth 16 | set-content $file
+            }
 
       - name: Merge data files
         shell: pwsh
@@ -83,7 +117,7 @@ jobs:
           $AllItems = Get-Content -Path $env:GENERATOR_ROOT/data/input.json | ConvertFrom-Json
 
           # Get all used categories from the input.json and filter to unique
-          $allCategories = $allitems | Select-Object -Property category,subcategory,type,title | Sort-Object -Property category,subcategory,type | Get-Unique -AsString
+          $allCategories = $AllItems | Select-Object -Property category,subcategory,type,title | Sort-Object -Property category,subcategory,type | Get-Unique -AsString
 
           foreach($item in $allCategories) 
           {
@@ -176,7 +210,7 @@ jobs:
           }
 
           # Restructure output to the right directories.
-          # e.g. "assesments/opex/applicationlens.md"
+          # e.g. "assessments/opex/applicationlens.md"
            Get-ChildItem $templatedir -Recurse -File -Filter *.md | % {
               $pillar = (Split-Path $_ -Parent | Split-Path -Leaf)
               $lens = (Split-Path $_ -LeafBase)
@@ -192,6 +226,7 @@ jobs:
         run: |
           # Get outputdir from variables
           $outputdir = $env:OUTPUTDIR
+          $datadir   = $env:DATADIR
 
           # Set the name on the commits as it will appear in Github
           git config --global user.name 'Github Action'
@@ -199,6 +234,7 @@ jobs:
 
           # Everything coming from Hugo is in the output dir by now
           git add $outputdir
+          git add $datadir
           git status --short
 
           # Get the name of the commit that triggered the workflow, 
