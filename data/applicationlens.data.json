@@ -11,7 +11,7 @@
     "title": "Are there any regulatory or governance requirements for this workload?",
     "context": "Regulatory requirements may mandate that operational data, such as application logs and metrics, remain within a certain geo-political region. This has obvious implications for how the application should be operationalized.",
     "recommendation": "Make sure that all regulatory requirements are known and well understood. Create processes for obtaining attestations and be familiar with the [Microsoft Trust Center](https://www.microsoft.com/trust-center). Regulatory requirements like data sovereignty and others might affect the overall architecture as well as the selection and configuration of specific PaaS and SaaS services.",
-    "id": "8b014a9f-3a27-4b77-aa05-04bf94284a68"
+    "id": "e29151ac-52d2-40cf-accd-61cf0d98df5a"
   },
   {
     "type": "Questions",
@@ -437,13 +437,14 @@
   {
     "type": "Questions",
     "pillars": [
-      "operationalexcellence"
+      "operationalexcellence",
+      "performanceefficiency"
     ],
     "lens": "application",
     "category": "Health Modelling & Monitoring",
     "subCategory": "Resource/Infrastructure Level Monitoring",
     "title": "Are you collecting Azure Activity Logs within the log aggregation tool?",
-    "context": "Azure Activity Logs provide audit information about when an Azure resource is modified, such as when a virtual machine is started or stopped. Such information is extremely useful for the interpretation and troubleshooting of operational issues, as it provides transparency around configuration changes.",
+    "context": "Azure Activity Logs provide audit information about when an Azure resource is modified, such as when a virtual machine is started or stopped. Such information is extremely useful for the interpretation and troubleshooting of operational and performance issues, as it provides transparency around configuration changes.",
     "recommendation": "Azure Activity Logs should be collected and aggregated.",
     "id": "49e0d916-54f5-45e7-af5b-abc0bc7713c0"
   },
@@ -836,7 +837,8 @@
     "type": "Questions",
     "pillars": [
       "operationalexcellence",
-      "costoptimization"
+      "costoptimization",
+      "reliability"
     ],
     "lens": "application",
     "category": "Operational Procedures",
@@ -889,7 +891,8 @@
   {
     "type": "Questions",
     "pillars": [
-      "operationalexcellence"
+      "operationalexcellence",
+      "reliability"
     ],
     "lens": "application",
     "category": "Operational Procedures",
@@ -1964,33 +1967,6 @@
     "context": "While there is a desire across Azure to achieve API/SDK uniformity for supported languages and runtimes, the reality is that capability deltas exist. For instance, not all CosmosDB APIs support the use of direct connect mode over TCP to bypass the platform HTTP gateway. It is therefore important to ensure that APIs/SDKs for selected languages and runtimes provide all of the required capabilities",
     "recommendation": "",
     "id": "bc85cb20-2a7d-45d3-94f1-92011a7d5d01"
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "reliability",
-      "operationalexcellence"
-    ],
-    "lens": "application",
-    "category": "Capacity & Service Availability Planning",
-    "subCategory": "Capacity",
-    "title": "Is there a capacity model for the application?",
-    "context": "A capacity model should describe the relationships between the utilization of various components as a ratio, to capture when and how application components should scale-out. For instance, scaling the number of Application Gateway v2 instances may put excess pressure on downstream components unless also scaled to a degree. When modelling capacity for critical system components it is therefore recommended that an N+1 model be applied to ensure complete tolerance to transient faults, where n describes the capacity required to satisfy performance and availability requirements([Performance Efficiency - Capacity](https://docs.microsoft.com/azure/architecture/framework/scalability/capacity))",
-    "recommendation": "",
-    "id": "cb8d3e67-37dc-43b0-aefc-cafc2c005bbc"
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "reliability"
-    ],
-    "lens": "application",
-    "category": "Capacity & Service Availability Planning",
-    "subCategory": "Capacity",
-    "title": "Is the required capacity (initial and future growth) within Azure service scale limits and quotas?",
-    "context": "Due to physical and logical resource constraints within the platform, Azure must apply limits and quotas to service scalability, which may be either hard or soft. The application should therefore take a scale-unit approach to navigate within service limits, and where necessary consider multiple subscriptions which are often the boundary for such limits. It is highly recommended that a structured approach to scale be designed up-front rather than resorting to a 'spill and fill' model([Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits))",
-    "recommendation": "",
-    "id": "d5485b08-f859-4724-bcd5-a589a3df37ad"
   },
   {
     "type": "Questions",
@@ -5619,19 +5595,6 @@
     ],
     "lens": "application",
     "category": "Health Modelling & Monitoring",
-    "subCategory": "Logging",
-    "title": "Are you collecting Azure Activity Logs within the log aggregation tool?",
-    "context": "Azure Activity Logs provide audit information about when an Azure resource is modified, such as when a virtual machine is started or stopped. Such information is extremely useful for the interpretation and troubleshooting of issues as it provides transparency around configuration changes that can be mapped to adverse performance events.",
-    "recommendation": "",
-    "id": "444ca40e-682d-434a-a108-9a0485ba83f3"
-  },
-  {
-    "type": "Questions",
-    "pillars": [
-      "performanceefficiency"
-    ],
-    "lens": "application",
-    "category": "Health Modelling & Monitoring",
     "subCategory": "Modelling",
     "title": "Are long-term trends analyzed to predict performance issues before they occur?",
     "context": "Analytics can and should be performed across long-term operational data to help inform on the history of application performance and detect if there have been any regressions. For instance, if the average response times have been slowly increasing over time and getting closer to maximum target.",
@@ -5694,13 +5657,13 @@
         "title": "Have you identified the length of time it takes before response times increase?",
         "context": "",
         "recommendation": "",
-        "id": "fff062e8-645e-4b39-9a2b-1ab4e781c173"
+        "id": "64c54e9f-fda6-4238-abfe-d07789d03405"
       },
       {
         "title": "How long does it take for response times to return to &quot;normal?&quot;",
         "context": "",
         "recommendation": "",
-        "id": "d4aedc6b-1204-4293-bb80-f0ea16f30c29"
+        "id": "1f578457-2fc2-4192-a002-39d08ec07c26"
       }
     ],
     "id": "d0355ae4-4b4f-4050-a056-6a8c25d7be5e"
@@ -5729,6 +5692,6 @@
     "title": "Do you profile the network with any traffic capturing tools?",
     "context": "Network capture tooling can capture the network traffic and dive deeper into the interactions at the network layer that may affect your application due to network configuration and/or other network traffic issues.",
     "recommendation": "",
-    "id": "6d3f290e-689b-4ba6-9b23-bc2d88b8ab0b"
+    "id": "dda2307a-2316-42db-9914-2122d7a0634d"
   }
 ]

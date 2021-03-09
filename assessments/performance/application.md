@@ -156,6 +156,11 @@
       > Correlate application log events across critical system flows, such as user login.
 ### Resource/Infrastructure Level Monitoring
             
+* Are you collecting Azure Activity Logs within the log aggregation tool?
+
+
+  _Azure Activity Logs provide audit information about when an Azure resource is modified, such as when a virtual machine is started or stopped. Such information is extremely useful for the interpretation and troubleshooting of operational and performance issues, as it provides transparency around configuration changes._
+  > Azure Activity Logs should be collected and aggregated.
 * Is resource-level monitoring enforced throughout the application?
 
 
@@ -192,10 +197,6 @@
 
 
   _Instrumentation of your code allows precise detection of underperforming pieces when load or stress tests are applied. It is critical to have this data available to improve and identify performance opportunities in the application code. Application Performance Monitoring (APM) tools, such as Application Insights, should be used to manage the performance and availability of the application, along with aggregating application level logs and events for subsequent interpretation._
-* Are you collecting Azure Activity Logs within the log aggregation tool?
-
-
-  _Azure Activity Logs provide audit information about when an Azure resource is modified, such as when a virtual machine is started or stopped. Such information is extremely useful for the interpretation and troubleshooting of issues as it provides transparency around configuration changes that can be mapped to adverse performance events._
 ### Dependencies
             
 * Are critical external dependencies monitored?
