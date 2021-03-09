@@ -18,7 +18,7 @@ This operational excellence assessment has been produced to help the global CE&S
     - [Application Composition](./application.md#Application-Composition)
   - [Health Modelling &amp; Monitoring](./application.md#Health-Modelling--Monitoring)
     - [Application Level Monitoring](./application.md#Application-Level-Monitoring)
-    - [Resource/Infrastructure Level Monitoring](./application.md#ResourceInfrastructure-Level-Monitoring)
+    - [Resource and Infrastructure Level Monitoring](./application.md#Resource-and-Infrastructure-Level-Monitoring)
     - [Logging](./application.md#Logging)
     - [Dependencies](./application.md#Dependencies)
     - [Data Interpretation &amp; Health Modelling](./application.md#Data-Interpretation--Health-Modelling)

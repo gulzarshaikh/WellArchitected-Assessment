@@ -114,6 +114,11 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
   _[Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones) can be used to optimise application availability within a region by providing datacenter level fault tolerance. However, the application architecture must not share dependencies between zones to use them effectively. It is also important to note that Availability Zones may introduce performance and cost considerations for applications which are extremely 'chatty' across zones given the implied physical separation between each zone and inter-zone bandwidth charges. That also means that AZ can be considered to get higher SLA for lower cost. Be aware of [pricing changes](https://azure.microsoft.com/pricing/details/bandwidth/) coming to Availability Zone bandwidth starting February 2021._
   > Use Availability Zones where applicable to improve reliability and optimize costs.
+* Is component proximity required for application performance reasons?
+
+
+  _If all or part of the application is highly sensitive to latency it may mandate component co-locality which can limit the applicability of multi-region and multi-zone strategies_
+  > Consider using the same datacenter region, Availability Zone and [Proximity Placement Groups](https://azure.microsoft.com/en-us/blog/announcing-the-general-availability-of-proximity-placement-groups/) and other options to bring latency sensitive components closer together. Keep also in mind that additional charges may apply when chatty workloads are spread across zones and region.
 * Has the application been designed to scale-out?
 
 
@@ -407,7 +412,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 * What is the process to deploy application releases to production?
 
 
-  > The entire end-to-end CI/CD deployment process should be understood
+  > The entire end-to-end CI/CD deployment process should be understood.
     - How long does it take to deploy an entire production environment?
 
 

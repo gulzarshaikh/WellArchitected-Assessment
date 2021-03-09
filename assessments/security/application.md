@@ -13,7 +13,7 @@
     - [Dependencies, frameworks and libraries](#Dependencies-frameworks-and-libraries)
   - [Health Modelling &amp; Monitoring](#Health-Modelling--Monitoring)
     - [Application Level Monitoring](#Application-Level-Monitoring)
-    - [Resource/Infrastructure Level Monitoring](#ResourceInfrastructure-Level-Monitoring)
+    - [Resource and Infrastructure Level Monitoring](#Resource-and-Infrastructure-Level-Monitoring)
     - [Auditing](#Auditing)
   - [Networking &amp; Connectivity](#Networking--Connectivity)
     - [Connectivity](#Connectivity)
@@ -347,7 +347,7 @@ These critical design principles are used as lenses to assess the Security of an
       _Development team needs to be aware of those activities to align their security improvement  activities with the outcome of those activities._
 
       > Define a process for aligning communication, investigation & hunting activities with the application team.
-### Resource/Infrastructure Level Monitoring
+### Resource and Infrastructure Level Monitoring
             
 * Does the security team have access to and monitor all subscriptions and tenants that are connected to the existing cloud environment, relative to this workload?
 

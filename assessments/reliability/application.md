@@ -10,7 +10,7 @@
     - [Targets &amp; Non Functional Requirements](#Targets--Non-Functional-Requirements)
     - [Dependencies](#Dependencies)
   - [Health Modelling &amp; Monitoring](#Health-Modelling--Monitoring)
-    - [Resource/Infrastructure Level Monitoring](#ResourceInfrastructure-Level-Monitoring)
+    - [Resource and Infrastructure Level Monitoring](#Resource-and-Infrastructure-Level-Monitoring)
     - [Data Interpretation &amp; Health Modelling](#Data-Interpretation--Health-Modelling)
     - [Alerting](#Alerting)
     - [Monitoring and Measurement](#Monitoring-and-Measurement)
@@ -119,6 +119,7 @@ These critical design principles are used as lenses to assess the Reliability of
 
 
   _If all or part of the application is highly sensitive to latency it may mandate component co-locality which can limit the applicability of multi-region and multi-zone strategies_
+  > Consider using the same datacenter region, Availability Zone and [Proximity Placement Groups](https://azure.microsoft.com/en-us/blog/announcing-the-general-availability-of-proximity-placement-groups/) and other options to bring latency sensitive components closer together. Keep also in mind that additional charges may apply when chatty workloads are spread across zones and region.
 * Can the application operate with reduced functionality or degraded performance in the presence of an outage?
 
 
@@ -251,7 +252,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
   _If the application lifecycle is closely coupled with that of its dependencies it can limit the operational agility of the application, particularly where new releases are concerned_
 ## Health Modelling &amp; Monitoring
     
-### Resource/Infrastructure Level Monitoring
+### Resource and Infrastructure Level Monitoring
             
 * Is resource-level monitoring enforced throughout the application?
 
@@ -330,6 +331,10 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
 
   _If the application error budget has been met or exceeded and the application is operating at or below the defined SLA, a policy may stipulate that all deployments are frozen until they reduce the number of errors to a level that allows deployments to proceed_
+* Do you have detailed instrumentation in the application code?
+
+
+  _Instrumentation of your code allows precise detection of underperforming pieces when load or stress tests are applied. It is critical to have this data available to improve and identify performance opportunities in the application code. Application Performance Monitoring (APM) tools, such as Application Insights, should be used to manage the performance and availability of the application, along with aggregating application level logs and events for subsequent interpretation._
 ## Capacity &amp; Service Availability Planning
     
 ### Service Availability
@@ -723,7 +728,7 @@ Public Preview : SLAs do not apply and formal support may be provided on a best-
 
 
   _Keys and secrets must still be available in a failover case._
-  > Keys and secrets should be backed up to geo-redundant storage so that they can be accessed in the event of a regional failure and support recovery objectives. In the event of a regional outage, the Key Vault service will automatically be failed over to the secondary region in a read-only state([Azure Key Vault availability and reliability](https://docs.microsoft.com/azure/key-vault/general/disaster-recovery-guidance))
+  > Keys and secrets should be backed up to geo-redundant storage so that they can be accessed in the event of a regional failure and support recovery objectives. In the event of a regional outage, the Key Vault service will automatically be failed over to the secondary region in a read-only state ([Azure Key Vault availability and reliability](https://docs.microsoft.com/azure/key-vault/general/disaster-recovery-guidance))
     - Are certificate/key backups and data backups stored in different geo-redundant storage accounts?
 
 
@@ -732,8 +737,8 @@ Public Preview : SLAs do not apply and formal support may be provided on a best-
 * Is Soft-Delete enabled for Key Vaults and Key Vault objects?
 
 
-  _The Soft-Delete feature retains resources for a given retention period after a DELETE operation has been performed, while giving the appearance that the object is deleted. It helps to mitigate scenarios where resources are unintentionally, maliciously or incorrectly deleted([Azure Key Vault Soft-Delete](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete))_
-  > Key Vault Soft Delete helps to mitigate scenarios where resources are unintentionally, maliciously or incorrectly deleted([Azure Key Vault Soft-Delete](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete)). It is therefore highly recommended to enable this.
+  _The Soft-Delete feature retains resources for a given retention period after a DELETE operation has been performed, while giving the appearance that the object is deleted. It helps to mitigate scenarios where resources are unintentionally, maliciously or incorrectly deleted ([Azure Key Vault Soft-Delete](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete))_
+  > Key Vault Soft Delete helps to mitigate scenarios where resources are unintentionally, maliciously or incorrectly deleted ([Azure Key Vault Soft-Delete](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete)). It is therefore highly recommended to enable this.
 * Is the application stateless or stateful? If it is stateful, is the state externalized in a data store?
 
 

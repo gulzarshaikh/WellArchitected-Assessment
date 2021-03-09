@@ -8,10 +8,11 @@
     - [Transactional](#Transactional)
   - [Health Modelling &amp; Monitoring](#Health-Modelling--Monitoring)
     - [Application Level Monitoring](#Application-Level-Monitoring)
-    - [Resource/Infrastructure Level Monitoring](#ResourceInfrastructure-Level-Monitoring)
+    - [Resource and Infrastructure Level Monitoring](#Resource-and-Infrastructure-Level-Monitoring)
     - [Logging](#Logging)
     - [Dependencies](#Dependencies)
     - [Data Interpretation &amp; Health Modelling](#Data-Interpretation--Health-Modelling)
+    - [Monitoring and Measurement](#Monitoring-and-Measurement)
     - [Modelling](#Modelling)
   - [Capacity &amp; Service Availability Planning](#Capacity--Service-Availability-Planning)
     - [Usage Prediction](#Usage-Prediction)
@@ -55,10 +56,20 @@
 
   _[Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones) can be used to optimise application availability within a region by providing datacenter level fault tolerance. However, the application architecture must not share dependencies between zones to use them effectively. It is also important to note that Availability Zones may introduce performance and cost considerations for applications which are extremely 'chatty' across zones given the implied physical separation between each zone and inter-zone bandwidth charges. That also means that AZ can be considered to get higher SLA for lower cost. Be aware of [pricing changes](https://azure.microsoft.com/pricing/details/bandwidth/) coming to Availability Zone bandwidth starting February 2021._
   > Use Availability Zones where applicable to improve reliability and optimize costs.
+* Is component proximity required for application performance reasons?
+
+
+  _If all or part of the application is highly sensitive to latency it may mandate component co-locality which can limit the applicability of multi-region and multi-zone strategies_
+  > Consider using the same datacenter region, Availability Zone and [Proximity Placement Groups](https://azure.microsoft.com/en-us/blog/announcing-the-general-availability-of-proximity-placement-groups/) and other options to bring latency sensitive components closer together. Keep also in mind that additional charges may apply when chatty workloads are spread across zones and region.
 * Can the application operate with reduced functionality or degraded performance in the presence of an outage?
 
 
   _Avoiding failure is impossible in the public cloud, and as a result applications require resilience to respond to outages and deliver reliability. The application should therefore be designed to operate even when impacted by regional, zonal, service or component failures across critical application scenarios and functionality_
+* Has the application been designed to scale-out?
+
+
+  _Azure provides elastic scalability, however, applications must leverage a scale-unit approach to navigate service and subscription limits to ensure that individual components and the application as a whole can scale horizontally. Don't forget about scale in as well, as this is important to drive cost down. For example, scale in and out for App Service is done via rules. Often customers write scale out rule and never write scale in rule, this leaves the App Service more expensive._
+  > [Design to scale out](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out).
 * Has a Business Continuity Disaster Recovery (BCDR) strategy been defined for the application and/or its key scenarios?
 
 
@@ -154,7 +165,7 @@
       _To fully assess the health of key scenarios in the context of targets and NFRs, application log events across critical system flows should be correlated._
 
       > Correlate application log events across critical system flows, such as user login.
-### Resource/Infrastructure Level Monitoring
+### Resource and Infrastructure Level Monitoring
             
 * Are you collecting Azure Activity Logs within the log aggregation tool?
 
@@ -193,10 +204,6 @@
 
   _To build a robust application health model it is vital that application and resource level data be correlated and evaluated together to optimize the detection of issues and troubleshooting of detected issues._
   > Implement a unified solution to aggregate and query application and resource level logs, such as Azure Log Analytics.
-* Do you have detailed instrumentation in the application code?
-
-
-  _Instrumentation of your code allows precise detection of underperforming pieces when load or stress tests are applied. It is critical to have this data available to improve and identify performance opportunities in the application code. Application Performance Monitoring (APM) tools, such as Application Insights, should be used to manage the performance and availability of the application, along with aggregating application level logs and events for subsequent interpretation._
 ### Dependencies
             
 * Are critical external dependencies monitored?
@@ -230,6 +237,12 @@
 
 
   > Clear retention times should be defined to allow for suitable historic analysis but also control storage costs. Suitable housekeeping tasks should also be used to archive data to cheaper storage or aggregate data for long-term trend analysis
+### Monitoring and Measurement
+            
+* Do you have detailed instrumentation in the application code?
+
+
+  _Instrumentation of your code allows precise detection of underperforming pieces when load or stress tests are applied. It is critical to have this data available to improve and identify performance opportunities in the application code. Application Performance Monitoring (APM) tools, such as Application Insights, should be used to manage the performance and availability of the application, along with aggregating application level logs and events for subsequent interpretation._
 ### Modelling
             
 * Are long-term trends analyzed to predict performance issues before they occur?

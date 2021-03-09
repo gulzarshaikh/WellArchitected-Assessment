@@ -12,7 +12,7 @@
     - [Application Composition](#Application-Composition)
   - [Health Modelling &amp; Monitoring](#Health-Modelling--Monitoring)
     - [Application Level Monitoring](#Application-Level-Monitoring)
-    - [Resource/Infrastructure Level Monitoring](#ResourceInfrastructure-Level-Monitoring)
+    - [Resource and Infrastructure Level Monitoring](#Resource-and-Infrastructure-Level-Monitoring)
     - [Logging](#Logging)
     - [Dependencies](#Dependencies)
     - [Data Interpretation &amp; Health Modelling](#Data-Interpretation--Health-Modelling)
@@ -337,7 +337,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
       _To fully assess the health of key scenarios in the context of targets and NFRs, application log events across critical system flows should be correlated._
 
       > Correlate application log events across critical system flows, such as user login.
-### Resource/Infrastructure Level Monitoring
+### Resource and Infrastructure Level Monitoring
             
 * Are you collecting Azure Activity Logs within the log aggregation tool?
 
@@ -647,7 +647,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
 
   _Keys and secrets must still be available in a failover case._
-  > Keys and secrets should be backed up to geo-redundant storage so that they can be accessed in the event of a regional failure and support recovery objectives. In the event of a regional outage, the Key Vault service will automatically be failed over to the secondary region in a read-only state([Azure Key Vault availability and reliability](https://docs.microsoft.com/azure/key-vault/general/disaster-recovery-guidance))
+  > Keys and secrets should be backed up to geo-redundant storage so that they can be accessed in the event of a regional failure and support recovery objectives. In the event of a regional outage, the Key Vault service will automatically be failed over to the secondary region in a read-only state ([Azure Key Vault availability and reliability](https://docs.microsoft.com/azure/key-vault/general/disaster-recovery-guidance))
     - Are certificate/key backups and data backups stored in different geo-redundant storage accounts?
 
 
@@ -656,8 +656,8 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 * Is Soft-Delete enabled for Key Vaults and Key Vault objects?
 
 
-  _The Soft-Delete feature retains resources for a given retention period after a DELETE operation has been performed, while giving the appearance that the object is deleted. It helps to mitigate scenarios where resources are unintentionally, maliciously or incorrectly deleted([Azure Key Vault Soft-Delete](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete))_
-  > Key Vault Soft Delete helps to mitigate scenarios where resources are unintentionally, maliciously or incorrectly deleted([Azure Key Vault Soft-Delete](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete)). It is therefore highly recommended to enable this.
+  _The Soft-Delete feature retains resources for a given retention period after a DELETE operation has been performed, while giving the appearance that the object is deleted. It helps to mitigate scenarios where resources are unintentionally, maliciously or incorrectly deleted ([Azure Key Vault Soft-Delete](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete))_
+  > Key Vault Soft Delete helps to mitigate scenarios where resources are unintentionally, maliciously or incorrectly deleted ([Azure Key Vault Soft-Delete](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete)). It is therefore highly recommended to enable this.
 * Are the expiry dates of SSL/TLS certificates monitored and are processes in place to renew them?
 
 
@@ -672,7 +672,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 * Are operational procedures reviewed and refined frequently?
 
 
-  > Operational procedures should be updated based on outcomes from frequent testing
+  > Operational procedures should be updated based on outcomes from frequent testing.
 ### Patch &amp; Update Process (PNU)
             
 * Is the Patch & Update Process (PNU) process defined and for all relevant application components?
@@ -709,7 +709,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 * What is the process to deploy application releases to production?
 
 
-  > The entire end-to-end CI/CD deployment process should be understood
+  > The entire end-to-end CI/CD deployment process should be understood.
     - How long does it take to deploy an entire production environment?
 
 
@@ -790,6 +790,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 * Are mocks/stubs used to test external dependencies in non-production environments?
 
 
+  _Mocks/stubs can help to test and validate external dependencies, to increase test coverage, when accessing those external dependencies is not possible due to for example IP restrictions._
   > The use of dependent services should be appropriately reflected in test environments
 * Are releases to production gated by having it successfully deployed and tested in other environments?
 
@@ -835,11 +836,11 @@ Stress Testing : *Stress testing is a type of negative testing which involves va
 * When is integration testing performed?
 
 
-  _Integration tests should be applied as part of the application deployment process, to ensure that different application components  interact with each other as they should. Integration tests typically take longer than smoke testing, and as a consequence occur at a latter stage of the deployment process so they are executed less frequently([Integration Testing](https://docs.microsoft.com/azure/architecture/framework/devops/testing#integration-testing)_
+  _Integration tests should be applied as part of the application deployment process, to ensure that different application components  interact with each other as they should. Integration tests typically take longer than smoke testing, and as a consequence occur at a latter stage of the deployment process so they are executed less frequently ([Integration Testing](https://docs.microsoft.com/azure/architecture/framework/devops/testing#integration-testing)_
 * Is unit testing performed to validate application functionality?
 
 
-  _Unit tests are typically run by each new version of code committed into version control. Unit Tests should be extensive and quick to verify things like syntax correctness of application code, Resource Manager templates or Terraform configurations, that the code is following best practices, or that they produce the expected results when provided certain inputs([Unit Testing](https://docs.microsoft.com/azure/architecture/framework/devops/testing#unit-testing))_
+  _Unit tests are typically run by each new version of code committed into version control. Unit Tests should be extensive and quick to verify things like syntax correctness of application code, Resource Manager templates or Terraform configurations, that the code is following best practices, or that they produce the expected results when provided certain inputs ([Unit Testing](https://docs.microsoft.com/azure/architecture/framework/devops/testing#unit-testing))_
 * Are these tests automated and carried out periodically or on-demand?
 
 
