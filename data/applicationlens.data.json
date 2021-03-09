@@ -5481,19 +5481,20 @@
       {
         "title": "Are you using any caching mechanisms?",
         "context": "Use caching whenever possible, whether it is client-side caching, view caching, or data caching. Caching can also be configured on the browser, the server, or on an appliance in-between (e.g. Azure Frontdoor). Incorporating caching can help reduce latency and server taxation by eliminating repetitive class to microservices, APIs, and data stores.",
-        "recommendation": ""
+        "recommendation": "",
+        "id": "89917711-c113-4b13-bb6e-4b717d466a7b"
       },
       {
         "title": "Of the following static and page caching mechanisms, which are you currently using?<br />- Browser<br />- Azure CDN<br />- Azure Front Door<br />- Other",
         "context": "There are various types of caching mechanisms that can be configured with a web page and its components. Such examples include expiry dates, tags, modification dates, content, or other variances like IP addresses or encoding types.",
         "recommendation": "",
-        "id": ""
+        "id": "17859c2a-0c4a-41e4-9e8c-fc10e0d055bd"
       },
       {
         "title": "Which of the following are you using for data caching?<br />- Azure Redis Cache<br />- IIS Caching Server<br />- SQL Caching Server<br />- Disk<br />- Other solution",
         "context": "Azure Cache for Redis is a preferred solution for data caching as it improves performance by storing data in memory instead of on disk like SQL Server. Certain development frameworks like .NET also have mechanisms for caching data at the server level.",
         "recommendation": "",
-        "id": ""
+        "id": "654cc0be-fa8d-4c07-a1f9-5b0fbdd477de"
       }
     ],
     "id": "ecf65a3d-5f04-4b5a-97a6-e946943a40e8"
