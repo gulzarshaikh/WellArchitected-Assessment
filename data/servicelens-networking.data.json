@@ -72,7 +72,8 @@
     "type": "Configuration Recommendations",
     "pillars": [
       "reliability",
-      "operationalexcellence"
+      "operationalexcellence",
+      "security"
     ],
     "lens": "service",
     "category": "Networking",
