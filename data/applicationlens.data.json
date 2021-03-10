@@ -899,7 +899,7 @@
     "subCategory": "Scalability & Capacity Model",
     "title": "Is the required capacity (initial and future growth) within Azure service scale limits and quotas?",
     "context": "Due to physical and logical resource constraints within the platform, Azure must apply limits and quotas to service scalability, which may be either hard or soft.",
-    "recommendation": "Due to physical and logical resource constraints within the platform, Azure must apply limits and quotas to service scalability, which may be either hard or soft. The application should therefore take a scale-unit approach to navigate within service limits, and where necessary consider multiple subscriptions which are often the boundary for such limits. It is highly recommended that a structured approach to scale be designed up-front rather than resorting to a 'spill and fill' model([Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits))",
+    "recommendation": "Due to physical and logical resource constraints within the platform, Azure must apply limits and quotas to service scalability, which may be either hard or soft. The application should therefore take a scale-unit approach to navigate within service limits, and where necessary consider multiple subscriptions which are often the boundary for such limits. It is highly recommended that a structured approach to scale be designed up-front rather than resorting to a 'spill and fill' model ([Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits))",
     "children": [
       {
         "title": "Is the required capacity (initial and future growth) available within targeted regions?",
@@ -964,7 +964,7 @@
     "subCategory": "Configuration & Secrets Management",
     "title": "How are passwords and other secrets managed?",
     "context": "API keys, database connection strings and passwords are all sensitive to leakage, occasionally require rotation and are prone to expiration. Storing them in a secure store and not within the application code or configuration simplifies operational tasks like key rotation as well as improving overall security.",
-    "recommendation": "Tools like Azure Key Vault or HashiCorp Vault should be used to store and manage secrets securely rather than being baked into the application artefact during deployment, as this simplifies operational tasks like key rotation as well as improving overall security. Keys and secrets stored in source code should be identified with static code scanning tools. Ensure that these scans are an integrated part of the continuous integration (CI) process.",
+    "recommendation": "Tools like Azure Key Vault or [HashiCorp Vault](https://www.vaultproject.io/) should be used to store and manage secrets securely rather than being baked into the application artefact during deployment, as this simplifies operational tasks like key rotation as well as improving overall security. Keys and secrets stored in source code should be identified with static code scanning tools. Ensure that these scans are an integrated part of the continuous integration (CI) process.",
     "id": "902e6215-5216-4a49-8283-a6612d5327b6"
   },
   {
@@ -1204,8 +1204,8 @@
     "category": "Deployment & Testing",
     "subCategory": "Application Deployments",
     "title": "How long does it take to deploy an entire production environment?",
-    "context": "The time it takes for a full deployment needs to algin with recovery targets",
-    "recommendation": "The entire end-to-end deployment process should be understood and align with recovery targets",
+    "context": "The time it takes for a full deployment needs to align with recovery targets.",
+    "recommendation": "The entire end-to-end deployment process should be understood and align with recovery targets.",
     "id": "f2d628f5-015a-4e0c-a74e-af6236d3273a"
   },
   {
@@ -1233,7 +1233,7 @@
     "subCategory": "Application Deployments",
     "title": "Is there a defined hotfix process which bypasses normal deployment procedures?",
     "context": "",
-    "recommendation": "In some scenarios there is an operational need to rapidly deploy changes, such as critical security updates. Having a defined process for how such changes can be safely and effectively performed helps greatly to prevent 'heat of the moment' issues",
+    "recommendation": "In some scenarios there is an operational need to rapidly deploy changes, such as critical security updates. Having a defined process for how such changes can be safely and effectively performed helps greatly to prevent 'heat of the moment' issues.",
     "id": "c0836ae9-b89f-41ae-a072-36c55eea3cda"
   },
   {
@@ -1415,7 +1415,7 @@
     "category": "Deployment & Testing",
     "subCategory": "Testing & Validation",
     "title": "Are smoke tests performed during application deployments?",
-    "context": "Smoke tests are a lightweight way to perform high-level validation of changes. For instance, performing a ping test immediately after a deployment([Smoke Testing](https://docs.microsoft.com/azure/architecture/framework/devops/testing#smoke-testing))",
+    "context": "Smoke tests are a lightweight way to perform high-level validation of changes. For instance, performing a ping test immediately after a deployment ([Smoke Testing](https://docs.microsoft.com/azure/architecture/framework/devops/testing#smoke-testing))",
     "recommendation": "",
     "id": "92c316d7-4d45-4878-b21e-b55504a3b7dc"
   },
