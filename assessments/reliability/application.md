@@ -701,7 +701,7 @@ Public Preview : SLAs do not apply and formal support may be provided on a best-
 
 
   _Due to physical and logical resource constraints within the platform, Azure must apply limits and quotas to service scalability, which may be either hard or soft._
-  > Due to physical and logical resource constraints within the platform, Azure must apply limits and quotas to service scalability, which may be either hard or soft. The application should therefore take a scale-unit approach to navigate within service limits, and where necessary consider multiple subscriptions which are often the boundary for such limits. It is highly recommended that a structured approach to scale be designed up-front rather than resorting to a 'spill and fill' model([Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits))
+  > Due to physical and logical resource constraints within the platform, Azure must apply limits and quotas to service scalability, which may be either hard or soft. The application should therefore take a scale-unit approach to navigate within service limits, and where necessary consider multiple subscriptions which are often the boundary for such limits. It is highly recommended that a structured approach to scale be designed up-front rather than resorting to a 'spill and fill' model ([Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits))
     - Is the required capacity (initial and future growth) available within targeted regions?
 
 
@@ -766,8 +766,8 @@ Public Preview : SLAs do not apply and formal support may be provided on a best-
 * How long does it take to deploy an entire production environment?
 
 
-  _The time it takes for a full deployment needs to algin with recovery targets_
-  > The entire end-to-end deployment process should be understood and align with recovery targets
+  _The time it takes for a full deployment needs to align with recovery targets._
+  > The entire end-to-end deployment process should be understood and align with recovery targets.
 * Can N-1 or N+1 versions be deployed via automated pipelines where N is current deployment version in production?
 
 
