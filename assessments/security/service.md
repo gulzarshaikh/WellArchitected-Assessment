@@ -8,10 +8,13 @@ This list contains design considerations and recommended configuration options, 
 
   - [Compute](#Compute)
     - [Azure Kubernetes Service (AKS)](#Azure-Kubernetes-Service-AKS)
+    - [Service Fabric](#Service-Fabric)
   - [Data](#Data)
     - [Azure Databricks](#Azure-Databricks)
   - [Storage](#Storage)
     - [Storage Accounts](#Storage-Accounts)
+  - [Networking](#Networking)
+    - [Azure Firewall](#Azure-Firewall)
 # Compute
         
 ## Azure Kubernetes Service (AKS)
@@ -51,6 +54,20 @@ This list contains design considerations and recommended configuration options, 
                                 
                             
 * Define [Pod resource requests and limits](https://docs.microsoft.com/azure/aks/developer-best-practices-resource-management#define-pod-resource-requests-and-limits) in application deployment manifests.
+### Supporting Source Artifacts
+* Query to identify AKS clusters that are **NOT using RBAC**:
+```
+Resources
+| where type =~ 'Microsoft.ContainerService/managedClusters'
+| where properties.enableRBAC == false
+```
+ 
+                            
+## Service Fabric
+### Configuration Recommendations
+* Apply Network Security Groups (NSG) to restrict traffic flow between subnets/node types. Ensure that the [correct ports](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-networking#cluster-networking) are opened for managing the cluster.
+  > For example, you may have an API Management instance (one subnet), a frontend subnet (exposing a website directly) and a backend subnet (accessible only to frontend), each implemented on a different VM Scale Set.
+                            
 # Data
         
 ## Azure Databricks
@@ -147,4 +164,11 @@ This list contains design considerations and recommended configuration options, 
   - Allow trusted Microsoft services to access the storage account
     > Turning on firewall rules for storage accounts blocks incoming requests for data by default, unless the requests originate from a service operating within an Azure Virtual Network (VNet) or from allowed public IP addresses. Requests that are blocked include those from other Azure services, from the Azure portal, from logging and metrics services, and so on. You can permit requests from other Azure services by adding an exception to allow trusted Microsoft services to access the storage account. For more information about adding an exception for trusted Microsoft services, see [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security).
                                 
+                            
+# Networking
+        
+## Azure Firewall
+### Configuration Recommendations
+* Create a global Azure Firewall policy to govern security posture across the global network environment and assign it to all Azure Firewalls.
+  > Allow for granular policies to meet requirements of specific regions by delegating incremental Firewall Policies to local security teams via RBAC.
                             

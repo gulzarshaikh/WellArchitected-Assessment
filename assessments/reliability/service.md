@@ -557,9 +557,6 @@ Resources
 * Azure Stack Hub supports only a subset of [VPN Gateway SKUs](https://docs.microsoft.com/azure-stack/user/azure-stack-vpn-gateway-about-vpn-gateways#estimated-aggregate-throughput-by-sku) available in Azure with a limited bandwidth of 100 or 200 Mbps.
   > Only one site-to-site (S2S) VPN connection can be created between two Azure Stack Hub deployments. This is due to a limitation in the platform that only allows a single VPN connection to the same IP address. Multiple S2S VPN connections with higher throughput can be established using 3rd-party NVAs.
                             
-* Azure Stack Hub does currently not support [Virtual network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
-  > Two networks (on the same Azure Stack Hub "stamp") can also not be connected via Azure (Stack) VPN GWs as they're sharing the same IP address. Virtual networks on Azure Stack Hub can be connected using 3rd-party NVAs (e.g. [Fortinet Fortigate](https://docs.microsoft.com/azure-stack/user/azure-stack-network-howto-vnet-to-vnet?view=azs-2002)).
-                            
 * Apply general Azure configuration recommendations for all Azure Stack Hub services.
 ### Configuration Recommendations
 * Treat Azure Stack Hub as a scale unit and deploy multiple instances to remove Azure Stack Hub as a single point of failure for encompassed workloads.
