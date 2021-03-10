@@ -293,7 +293,7 @@ Resources
   > For example, Key Vault offers a feature that sends an email when x% of the certificate's lifespan has elapsed.
                             
 * Enable Azure Active Directory integration for your cluster to ensure users can access Service Fabric Explorer using their AAD credentials. Do not distribute the cluster certificate among users to access Explorer. 
-* Exclude the Service Fabric processes from Windows Defender to improve performance
+* Exclude the Service Fabric processes from Windows Defender to improve performance.
   > By default, Windows Defender antivirus is installed on Windows Server 2016 and 2019. To reduce any performance impact and resource consumption overhead incurred by Windows Defender, and if your security policies allow you to exclude processes and paths for open-source software, you can [exclude](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-security#windows-defender) the Service Fabric executables from Defender scans.
                             
 ## Virtual Machines

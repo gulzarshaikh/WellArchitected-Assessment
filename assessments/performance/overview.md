@@ -51,3 +51,4 @@ This assessment has been produced to help the global CE&S community to optimize 
 
   - [Compute](./service.md#Compute)
     - [Azure Kubernetes Service (AKS)](./service.md#Azure-Kubernetes-Service-AKS)
+    - [Service Fabric](./service.md#Service-Fabric)
