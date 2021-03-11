@@ -165,7 +165,7 @@ These critical design principles are used as lenses to assess the Reliability of
 
 
   _A single point of failure describes a specific fault-point which if it where to fail would bring down the entire application. Single points of failure introduce significant risk since any failure of this component will cause an application outage ([Make all things redundant](https://docs.microsoft.com/azure/architecture/guide/design-principles/redundancy))_
-  > Make sure that all single points of failure are identified and eliminated.
+  > Make sure that all single points of failure are are identified and and wherever possible eliminated. Single point of failures that cannot be avoided need special attention during operations and with regards to resiliency.
 * Have all 'singletons' been eliminated?
 
 
