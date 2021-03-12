@@ -1307,8 +1307,8 @@
     "category": "Deployment & Testing",
     "subCategory": "Application Infrastructure Deployments",
     "title": "Is the process to deploy infrastructure automated?",
-    "context": "Manual changes via for example the portal should be avoided whenever possible as any manual deployment steps introduce significant risks where human error is concerned and also increases overall deployment times.",
-    "recommendation": "It is recommended to use build and release tools to define automated or partially automated CI/CD pipelines for the entire infrastructure deployment.",
+    "context": "Manual changes via for example the Azure Portal or Azure CLI are difficult to test, document and introduce significant risks where human error is concerned and might also increase the overall deployment and recovery times.",
+    "recommendation": "It is recommended to define infrastructure deployments and changes as code and to use build and release tools to develop automated pipelines for their deployment.",
     "id": "548d645a-de28-46db-ae42-658ce8529848"
   },
   {
