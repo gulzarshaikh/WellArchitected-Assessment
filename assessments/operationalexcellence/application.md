@@ -781,8 +781,8 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 * Is the process to deploy infrastructure automated?
 
 
-  _Manual changes via for example the portal should be avoided whenever possible as any manual deployment steps introduce significant risks where human error is concerned and also increases overall deployment times._
-  > It is recommended to use build and release tools to define automated or partially automated CI/CD pipelines for the entire infrastructure deployment.
+  _Manual changes via for example the Azure Portal or Azure CLI are difficult to test, document and introduce significant risks where human error is concerned and might also increase the overall deployment and recovery times._
+  > It is recommended to define infrastructure deployments and changes as code and to use build and release tools to develop automated pipelines for their deployment.
 ### Build Environments
             
 * Do critical test environments have 1:1 parity with the production environment?
