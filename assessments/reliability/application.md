@@ -178,10 +178,10 @@ These critical design principles are used as lenses to assess the Reliability of
       _Availability targets for any dependencies leveraged by the application should be understood and ideally align with application targets_
 
       > Make sure SLAs/SLOs/SLIs for all leveraged dependencies are understood
-    - Has a composite SLA been calculated for the application and/or key scenarios using Azure SLAs?
+    - Has a composite Service-Level Agreement (SLA) been calculated for the application and/or key scenarios using Azure SLAs?
 
 
-      _A composite SLA captures the end-to-end SLA across all application components and dependencies. It is calculated using the individual SLAs of Azure services housing application components and provides an important indicator of designed availability in relation to customer expectations and targets([Composite SLAs](https://docs.microsoft.com/azure/architecture/framework/resiliency/business-metrics#understand-service-level-agreements))_
+      _A [composite SLA](https://docs.microsoft.com/azure/architecture/framework/resiliency/business-metrics#understand-service-level-agreements) captures the end-to-end SLA across all application components and dependencies. It is calculated using the individual SLAs of Azure services housing application components and provides an important indicator of designed availability in relation to customer expectations and targets._
 
       > Make sure the composite SLA of all components and dependencies on the critical paths are understood.
     - Are availability targets considered while the system is running in disaster recovery mode?
@@ -288,7 +288,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
 
   _Azure Service Health provides a view into the health of Azure services and regions, as well as issuing service impacting communications about outages, planned maintenance activities, and other health advisories._
-  > Azure Service Health Alerts should be configured to operationalize Service Health events, however, Service Health alerts should not be used to detect issues due to associated latencies; there is a 5 minute SLO for automated issues, but many issues require manual interpretation to define an RCA. Instead, they should be used to provide extremely useful information to help interpret issues that have already been detected and surfaced via the health model, to inform how best to operationally respond ([Azure Service Health](https://docs.microsoft.com/azure/service-health/overview))
+  > [Azure Service Health](https://docs.microsoft.com/azure/service-health/overview) Alerts should be configured to operationalize Service Health events, however, Service Health alerts should not be used to detect issues due to associated latencies; there is a 5 minute SLO for automated issues, but many issues require manual interpretation to define an RCA. Instead, they should be used to provide extremely useful information to help interpret issues that have already been detected and surfaced via the health model, to inform how best to operationally respond.
 * Have Azure Resource Health alerts been created to respond to Resource-level events?
 
 
@@ -698,14 +698,14 @@ Public Preview : SLAs do not apply and formal support may be provided on a best-
 * Is the required capacity (initial and future growth) within Azure service scale limits and quotas?
 
 
-  _Due to physical and logical resource constraints within the platform, Azure must apply limits and quotas to service scalability, which may be either hard or soft._
-  > Due to physical and logical resource constraints within the platform, Azure must apply limits and quotas to service scalability, which may be either hard or soft. The application should therefore take a scale-unit approach to navigate within service limits, and where necessary consider multiple subscriptions which are often the boundary for such limits. It is highly recommended that a structured approach to scale be designed up-front rather than resorting to a 'spill and fill' model ([Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits))
+  _Due to physical and logical resource constraints within the platform, Azure must apply [limits and quotas](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) to service scalability, which may be either hard or soft._
+  > The application should take a scale-unit approach to navigate within service limits, and where necessary consider multiple subscriptions which are often the boundary for such limits. It is highly recommended that a structured approach to scale be designed up-front rather than resorting to a 'spill and fill' model.
     - Is the required capacity (initial and future growth) available within targeted regions?
 
 
       _While the promise of the cloud is infinite scale, the reality is that there are finite resources available and as a result situations can occur where capacity can be constrained due to overall demand._
 
-      > If the application requires a large amount of capacity or expects a significant increase in capacity then effort should be invested to ensure that desired capacity is attainable within selected region(s). For applications leveraging a recovery or active-passive based disaster recovery strategy, consideration should also be given to ensure suitable capacity exists in the secondary region(s) since a regional outage can lead to a significant increase in demand within a paired region due to other customer workloads also failing over. To help mitigate this, consideration should be given to pre-provisioning resources within the secondary region ([Azure Capacity](https://aka.ms/AzureCapacity))
+      > If the application requires a large amount of capacity or expects a significant increase in capacity then effort should be invested to ensure that desired capacity is attainable within selected region(s). For applications leveraging a recovery or active-passive based disaster recovery strategy, consideration should also be given to ensure suitable capacity exists in the secondary region(s) since a regional outage can lead to a significant increase in demand within a paired region due to other customer workloads also failing over. To help mitigate this, consideration should be given to pre-provisioning resources within the secondary region. ([Azure Capacity](https://aka.ms/AzureCapacity))
 * Is capacity utilization monitored and used to forecast future growth?
 
 
@@ -722,12 +722,12 @@ Public Preview : SLAs do not apply and formal support may be provided on a best-
 
 
   _In the situation where a key or secret becomes compromised, it is important to be able to quickly act and generate new versions. Key rotation reduces the attack vectors and should be automated and executed without any human interactions._
-  > Secrets (keys, certificates etc.) should be replaced once they have reached the end of their active lifetime or once they have been compromised. Renewed certificates should also use a new key. A process needs to be in place for situations where keys get compromised (leaked) and need to be regenerated on-demand. Tools, such as Azure Key Vault should ideally be used to store and manage application secrets to help with rotation processes ([Key Vault Key Rotation](https://docs.microsoft.com/azure/key-vault/secrets/tutorial-rotation-dual))
+  > Secrets (keys, certificates etc.) should be replaced once they have reached the end of their active lifetime or once they have been compromised. Renewed certificates should also use a new key. A process needs to be in place for situations where keys get compromised (leaked) and need to be regenerated on-demand. Tools, such as Azure Key Vault should ideally be used to store and manage application secrets to help with [rotation processes](https://docs.microsoft.com/azure/key-vault/secrets/tutorial-rotation-dual).
 * Are keys and secrets backed-up to geo-redundant storage?
 
 
   _Keys and secrets must still be available in a failover case._
-  > Keys and secrets should be backed up to geo-redundant storage so that they can be accessed in the event of a regional failure and support recovery objectives. In the event of a regional outage, the Key Vault service will automatically be failed over to the secondary region in a read-only state ([Azure Key Vault availability and reliability](https://docs.microsoft.com/azure/key-vault/general/disaster-recovery-guidance))
+  > Keys and secrets should be backed up to geo-redundant storage so that they can be accessed in the event of a regional failure and support recovery objectives. In the event of a regional outage, the Key Vault service will automatically be failed over to the secondary region in a read-only state. ([Azure Key Vault availability and reliability](https://docs.microsoft.com/azure/key-vault/general/disaster-recovery-guidance))
     - Are certificate/key backups and data backups stored in different geo-redundant storage accounts?
 
 
@@ -736,8 +736,8 @@ Public Preview : SLAs do not apply and formal support may be provided on a best-
 * Is Soft-Delete enabled for Key Vaults and Key Vault objects?
 
 
-  _The Soft-Delete feature retains resources for a given retention period after a DELETE operation has been performed, while giving the appearance that the object is deleted. It helps to mitigate scenarios where resources are unintentionally, maliciously or incorrectly deleted ([Azure Key Vault Soft-Delete](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete))_
-  > Key Vault Soft Delete helps to mitigate scenarios where resources are unintentionally, maliciously or incorrectly deleted ([Azure Key Vault Soft-Delete](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete)). It is therefore highly recommended to enable this.
+  _The [Soft-Delete feature](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete) retains resources for a given retention period after a DELETE operation has been performed, while giving the appearance that the object is deleted. It helps to mitigate scenarios where resources are unintentionally, maliciously or incorrectly deleted._
+  > It is highly recommended to enable Key Vault Soft-Delete.
 * Is the application stateless or stateful? If it is stateful, is the state externalized in a data store?
 
 
@@ -754,7 +754,7 @@ Public Preview : SLAs do not apply and formal support may be provided on a best-
 
 
   _Manual deployment steps introduce significant risks where human error is concerned and also increases overall deployment times._
-  > Automated end-to-end deployments, with manual approval gates where necessary, should be used to ensure a consistent and efficient deployment process ([Deployment considerations for DevOps](https://docs.microsoft.com/azure/architecture/framework/devops/deployment))
+  > Automated end-to-end deployments, with manual approval gates where necessary, should be used to ensure a consistent and efficient deployment process. See ([Deployment considerations for DevOps](https://docs.microsoft.com/azure/architecture/framework/devops/deployment)).
     - Is there a documented process for any portions of the deployment that require manual intervention?
 
 
@@ -775,7 +775,7 @@ Public Preview : SLAs do not apply and formal support may be provided on a best-
 
 
   _Blue/green or canary deployments are a way to gradually release new feature or changes without impacting all users at once._
-  > Blue-green deployments and/or canary releases can be used to deploy updates in a controlled manner that helps to minimize disruption from unanticipated deployment issues ([Stage your workloads](https://docs.microsoft.com/azure/architecture/framework/devops/deployment#stage-your-workloads)) For example, Azure uses canary regions to test and validate new services and capabilities before they are more broadly rolled out to other Azure regions. Where appropriate the application can also use canary environments to validate changes before wider production rollout. Moreover, certain large application platforms may also derive benefit from leveraging Azure canary regions as a basis for validating the potential impact of Azure platform changes on the application.
+  > Blue-green deployments and/or canary releases can be used to deploy updates in a controlled manner that helps to minimize disruption from unanticipated deployment issues. For example, Azure uses canary regions to test and validate new services and capabilities before they are more broadly rolled out to other Azure regions. Where appropriate the application can also use canary environments to validate changes before wider production rollout. Moreover, certain large application platforms may also derive benefit from leveraging Azure canary regions as a basis for validating the potential impact of Azure platform changes on the application. See ([Stage your workloads](https://docs.microsoft.com/azure/architecture/framework/devops/deployment#stage-your-workloads)).
 ### Build Environments
             
 * Do critical test environments have 1:1 parity with the production environment?

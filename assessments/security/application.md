@@ -570,11 +570,11 @@ These critical design principles are used as lenses to assess the Security of an
 
 
   _In the situation where a key or secret becomes compromised, it is important to be able to quickly act and generate new versions. Key rotation reduces the attack vectors and should be automated and executed without any human interactions._
-  > Secrets (keys, certificates etc.) should be replaced once they have reached the end of their active lifetime or once they have been compromised. Renewed certificates should also use a new key. A process needs to be in place for situations where keys get compromised (leaked) and need to be regenerated on-demand. Tools, such as Azure Key Vault should ideally be used to store and manage application secrets to help with rotation processes ([Key Vault Key Rotation](https://docs.microsoft.com/azure/key-vault/secrets/tutorial-rotation-dual))
+  > Secrets (keys, certificates etc.) should be replaced once they have reached the end of their active lifetime or once they have been compromised. Renewed certificates should also use a new key. A process needs to be in place for situations where keys get compromised (leaked) and need to be regenerated on-demand. Tools, such as Azure Key Vault should ideally be used to store and manage application secrets to help with [rotation processes](https://docs.microsoft.com/azure/key-vault/secrets/tutorial-rotation-dual).
 * Does the application use Managed Identities?
 
 
-  _Managed Identities in Azure can be used to securely access Azure services while removing the need to store the secrets or certificates of Service Principals ([Managed Identities Overview](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview))_
+  _[Managed Identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) in Azure can be used to securely access Azure services while removing the need to store the secrets or certificates of Service Principals._
   > Wherever possible Azure Managed Identities (either system-managed or user-managed) should be used since they remove the management burden of storing and rotating keys for service principles. Thus, they provide higher security as well as easier maintenance.
 * Are the expiry dates of SSL/TLS certificates monitored and are processes in place to renew them?
 

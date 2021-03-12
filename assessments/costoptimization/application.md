@@ -158,10 +158,10 @@ These critical design principles are used as lenses to assess the Cost Optimizat
       _Availability targets for any dependencies leveraged by the application should be understood and ideally align with application targets_
 
       > Make sure SLAs/SLOs/SLIs for all leveraged dependencies are understood
-    - Has a composite SLA been calculated for the application and/or key scenarios using Azure SLAs?
+    - Has a composite Service-Level Agreement (SLA) been calculated for the application and/or key scenarios using Azure SLAs?
 
 
-      _A composite SLA captures the end-to-end SLA across all application components and dependencies. It is calculated using the individual SLAs of Azure services housing application components and provides an important indicator of designed availability in relation to customer expectations and targets([Composite SLAs](https://docs.microsoft.com/azure/architecture/framework/resiliency/business-metrics#understand-service-level-agreements))_
+      _A [composite SLA](https://docs.microsoft.com/azure/architecture/framework/resiliency/business-metrics#understand-service-level-agreements) captures the end-to-end SLA across all application components and dependencies. It is calculated using the individual SLAs of Azure services housing application components and provides an important indicator of designed availability in relation to customer expectations and targets._
 
       > Make sure the composite SLA of all components and dependencies on the critical paths are understood.
     - Are availability targets considered while the system is running in disaster recovery mode?
