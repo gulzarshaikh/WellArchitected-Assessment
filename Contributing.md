@@ -3,7 +3,7 @@
 
 This guide details on how to the editing process works to contribute content to the repository.
 
-First of all is it important to understand that you should **not modify** any of the output files (i.e. the markdown files) in the `assessments/` directory directly. Those files will be automatically generated using [Hugo](https://gohugo.io/templates/introduction/) as a static-site generator. Instead you only need to add your content to the data JSON files in the `data/` directory.
+First of all it is important to understand that you should **not modify** any of the output files (i.e. the markdown files) in the `assessments/` directory directly. Those files will be automatically generated using [Hugo](https://gohugo.io/templates/introduction/) as a static-site generator. Instead you only need to add your content to the data JSON files in the `data/` directory.
 
 ### How to add/edit content
 
