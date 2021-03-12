@@ -54,7 +54,10 @@
     },
     "title": {
       "type": "string",
-      "description": "Main part of the content that gets rendered. In the case of a Question, this is the question itself. For design considerations and configuration recommendations, this is the guidance text."
+      "description": "Main part of the content that gets rendered. In the case of a Question, this is the question itself. For design considerations and configuration recommendations, this is the guidance text.",
+      "examples": [
+        "Are SLAs/SLOs/SLIs for all leveraged dependencies understood?"
+      ]
     },
     "context": {
       "type": "string",
@@ -62,13 +65,38 @@
     },
     "statement": {
       "type": "string",
-      "description": ""
+      "description": "If this item is a question, the statement field should reflect title, but reworded into a statement format.",
+      "examples": [
+        "SLAs for all internal and external dependencies are understood."
+      ]
     },
     "recommendation": {
       "type": "object",
       "description": "",
-      "items": {
-
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "context": {
+          "type": "string"
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "priority": {
+          "type": "string"
+        }
       }
     },
     "children": {
@@ -93,8 +121,33 @@
                 "description": "Detailed explanation of this item. Provides context to the reader - what is this question aiming at, details of the solution and general context."
               },
               "recommendation": {
-                "type": "string",
-                "description": "Recommended action or approach for this item."
+                "type": "object",
+                "description": "",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "context": {
+                    "type": "string"
+                  },
+                  "links": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "title": {
+                          "type": "string"
+                        },
+                        "url": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "priority": {
+                    "type": "string"
+                  }
+                }
               }
             }
           }
