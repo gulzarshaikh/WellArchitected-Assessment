@@ -8,7 +8,7 @@
     "lens": "service",
     "category": "Networking",
     "subCategory": "Azure Firewall",
-    "title": "When deployed to a single Availability Zone, Azure Firewall provides a [99.95% SLA](https://azure.microsoft.com/en-us/support/legal/sla/azure-firewall/v1_1/).",
+    "title": "When deployed to a single Availability Zone, Azure Firewall provides a [99.95% SLA](https://azure.microsoft.com/support/legal/sla/azure-firewall/v1_1/).",
     "recommendation": "",
     "id": "89d165de-f9bd-408b-bf5d-128dac6c7280"
   },
@@ -21,7 +21,7 @@
     "lens": "service",
     "category": "Networking",
     "subCategory": "Azure Firewall",
-    "title": "When deployed to two or more Availability Zones, Azure Firewall provides a [99.99% SLA](https://azure.microsoft.com/en-us/support/legal/sla/azure-firewall/v1_1/)",
+    "title": "When deployed to two or more Availability Zones, Azure Firewall provides a [99.99% SLA](https://azure.microsoft.com/support/legal/sla/azure-firewall/v1_1/)",
     "recommendation": "",
     "id": "e855d181-4500-41da-bf53-ced609660d81"
   },
@@ -72,7 +72,8 @@
     "type": "Configuration Recommendations",
     "pillars": [
       "reliability",
-      "operationalexcellence"
+      "operationalexcellence",
+      "security"
     ],
     "lens": "service",
     "category": "Networking",
@@ -108,7 +109,7 @@
     "recommendation": "",
     "children": [
       {
-        "title": "For VWAN network topologies, deploy the NVAs to a separate VNet (i.e. NVA VNet) and connect it to the regional Virtual WAN Hub as well as to the \"Landing Zones\" that require access to NVAs as described in this [article](https://docs.microsoft.com/en-us/azure/virtual-wan/virtual-wan-route-table-portal).",
+        "title": "For VWAN network topologies, deploy the NVAs to a separate VNet (i.e. NVA VNet) and connect it to the regional Virtual WAN Hub as well as to the \"Landing Zones\" that require access to NVAs as described in this [article](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-route-table-portal).",
         "recommendation": "",
         "id": "03f87f73-b065-4ce2-b46f-beea622c0a8b"
       },
@@ -177,13 +178,13 @@
         "id": "019989d6-7463-4eb5-8bae-7361b9966246"
       },
       {
-        "title": "[Virtual Network (VNet) service endpoints](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview) provide secure and direct connectivity to Azure services over an optimized route over the Azure backbone network.",
+        "title": "[Virtual Network (VNet) service endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) provide secure and direct connectivity to Azure services over an optimized route over the Azure backbone network.",
         "recommendation": "",
         "context": "Service Endpoints enable private IP addresses in the VNet to reach the endpoint of an Azure service without needing a public IP address on the VNet.",
         "id": "6061e295-bb74-439f-afb8-d2cdd7ab6c34"
       },
       {
-        "title": "[Private Link](https://docs.microsoft.com/en-us/azure/private-link/private-endpoint-overview#private-link-resource) provides dedicated access using private IP addresses to Azure PaaS instances, or custom services behind an Azure Load Balancer Standard.",
+        "title": "[Private Link](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) provides dedicated access using private IP addresses to Azure PaaS instances, or custom services behind an Azure Load Balancer Standard.",
         "recommendation": "",
         "id": "8046435d-70e6-4cf4-bf34-f3212eca829b"
       },
@@ -317,7 +318,7 @@
     "lens": "service",
     "category": "Networking",
     "subCategory": "Azure Virtual Networks",
-    "title": "Some Azure services do require [dedicated subnets](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-for-azure-services#services-that-can-be-deployed-into-a-virtual-network), such as Azure Firewall, Azure Bastion or Virtual Network Gateway.",
+    "title": "Some Azure services do require [dedicated subnets](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services#services-that-can-be-deployed-into-a-virtual-network), such as Azure Firewall, Azure Bastion or Virtual Network Gateway.",
     "recommendation": "",
     "id": "d11462c9-ebc5-4720-865b-8c770bbd4f4c"
   },
@@ -564,7 +565,7 @@
     "lens": "service",
     "category": "Networking",
     "subCategory": "ExpressRoute",
-    "title": "ExpressRoute Global Reach is available in many ExpressRoute peering [locations](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-global-reach#availability).",
+    "title": "ExpressRoute Global Reach is available in many ExpressRoute peering [locations](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach#availability).",
     "recommendation": "",
     "id": "d2289a6b-9b88-45ef-9990-be64ac5d5970"
   },
@@ -635,7 +636,7 @@
     "lens": "service",
     "category": "Networking",
     "subCategory": "ExpressRoute",
-    "title": "When multiple ExpressRoute circuits are used, [optimize routing](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-optimize-routing) by using BGP local preference and AS Path prepending.",
+    "title": "When multiple ExpressRoute circuits are used, [optimize routing](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing) by using BGP local preference and AS Path prepending.",
     "recommendation": "",
     "id": "10f02c65-340a-4289-92ac-6fd59400b817"
   },
@@ -904,7 +905,7 @@
     "subCategory": "Application Delivery (General)",
     "title": "When using Azure Front Door and Application Gateway to protect HTTP/S applications, use WAF policies in Front Door and lock down Application Gateway to receive traffic only from Azure Front Door.",
     "recommendation": "",
-    "context": "While this is the general recommendation, certain scenarios might force a customer to implement rules specifically on AppGateway: For example, if ModSec CRS 2.2.9, CRS 3.0 or CRS 3.1 rules are required, this can only be implemented on AppGatway. Conversely, rate-limiting and geo-filtering are available only on Azure Front Door, not on AppGateway. Instructions on how to lock down traffic can be found [here](https://docs.microsoft.com/en-us/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door)",
+    "context": "While this is the general recommendation, certain scenarios might force a customer to implement rules specifically on AppGateway: For example, if ModSec CRS 2.2.9, CRS 3.0 or CRS 3.1 rules are required, this can only be implemented on AppGatway. Conversely, rate-limiting and geo-filtering are available only on Azure Front Door, not on AppGateway. Instructions on how to lock down traffic can be found [here](https://docs.microsoft.com/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door)",
     "id": "92b12d23-b821-48cc-ae2c-8e3909d0f797"
   },
   {
@@ -980,7 +981,7 @@
     "subCategory": "Application Delivery (General)",
     "title": "Create a separate health endpoint on the backend to be used by the health probe, that can aggregate the state of the critical services and dependencies needed to serve requests.",
     "recommendation": "",
-    "context": "More information on creating such an endpoint can be found [here](https://docs.microsoft.com/en-us/azure/architecture/patterns/health-endpoint-monitoring).",
+    "context": "More information on creating such an endpoint can be found [here](https://docs.microsoft.com/azure/architecture/patterns/health-endpoint-monitoring).",
     "id": "09ab45c2-930b-4352-ac5d-13a1289cdbf9"
   },
   {
@@ -1018,7 +1019,7 @@
     "lens": "service",
     "category": "Networking",
     "subCategory": "Azure Application Gateway v2",
-    "title": "Deploy the instances in a [zone-aware configuration](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-autoscaling-zone-redundant), where available.",
+    "title": "Deploy the instances in a [zone-aware configuration](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant), where available.",
     "recommendation": "",
     "id": "f2a76b38-0e5b-467f-9482-079177a7b69e"
   },
@@ -1073,7 +1074,7 @@
     "subCategory": "Azure Front Door",
     "title": "When using Azure Front Door and Application Gateway to protect HTTP/S applications, use WAF policies in Front Door and lock down Application Gateway to receive traffic only from Azure Front Door.",
     "recommendation": "",
-    "context": "While this is the general recommendation, certain scenarios might force a customer to implement rules specifically on AppGateway: For example, if ModSec CRS 2.2.9, CRS 3.0 or CRS 3.1 rules are required, this can only be implemented on AppGatway. Conversely, rate-limiting and geo-filtering are available only on Azure Front Door, not on AppGateway. Instructions on how to lock down traffic can be found [here](https://docs.microsoft.com/en-us/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door)",
+    "context": "While this is the general recommendation, certain scenarios might force a customer to implement rules specifically on AppGateway: For example, if ModSec CRS 2.2.9, CRS 3.0 or CRS 3.1 rules are required, this can only be implemented on AppGatway. Conversely, rate-limiting and geo-filtering are available only on Azure Front Door, not on AppGateway. Instructions on how to lock down traffic can be found [here](https://docs.microsoft.com/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door)",
     "id": "2fca6b0b-2988-4192-b324-339e90612bf3"
   },
   {
@@ -1111,7 +1112,7 @@
     "lens": "service",
     "category": "Networking",
     "subCategory": "Azure Loadbalancer",
-    "title": "For production workloads, use the Standard SKU. Basic loadbalancers do not have an SLA. Additionally, the Standard SKU [supports Availability Zones](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-standard-availability-zones).",
+    "title": "For production workloads, use the Standard SKU. Basic loadbalancers do not have an SLA. Additionally, the Standard SKU [supports Availability Zones](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones).",
     "recommendation": "",
     "id": "3ffb1d52-342e-49dc-830b-c187be29691c"
   },
@@ -1149,7 +1150,7 @@
     "lens": "service",
     "category": "Networking",
     "subCategory": "API Management",
-    "title": "[Secure the communication](https://docs.microsoft.com/en-us/azure/api-management/api-management-faq#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services) between API Management and your backend.",
+    "title": "[Secure the communication](https://docs.microsoft.com/azure/api-management/api-management-faq#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services) between API Management and your backend.",
     "recommendation": "",
     "id": "d5d1b2d2-b7b0-4fef-9ac7-752aac31fece"
   },
@@ -1274,7 +1275,7 @@
     "category": "Networking",
     "subCategory": "API Management",
     "title": "Consider which features are needed all the time.",
-    "context": "Consider switching between Basic, Standard and Premium tiers. If a workload does not need features available in higher tier then consider switching to a lower tier. As an example, a workload may need just 1GB of cache during off-peak period compared to 5GB of cache during peak period. Costs associated with such a workload can be significantly reduced by switching from Premium to Standard tier during off-peak period and back to Premium tier during peak period. This process can be automated as a job using [Set-AzApiManagement](https://docs.microsoft.com/en-us/powershell/module/az.apimanagement/set-azapimanagement?view=azps-5.4.0) cmdlet. Refer to [documentation](https://azure.microsoft.com/pricing/details/api-management/) on features available in different APIM tiers.",
+    "context": "Consider switching between Basic, Standard and Premium tiers. If a workload does not need features available in higher tier then consider switching to a lower tier. As an example, a workload may need just 1GB of cache during off-peak period compared to 5GB of cache during peak period. Costs associated with such a workload can be significantly reduced by switching from Premium to Standard tier during off-peak period and back to Premium tier during peak period. This process can be automated as a job using [Set-AzApiManagement](https://docs.microsoft.com/powershell/module/az.apimanagement/set-azapimanagement?view=azps-5.4.0) cmdlet. Refer to [documentation](https://azure.microsoft.com/pricing/details/api-management/) on features available in different APIM tiers.",
     "id": "51bd499b-4966-49ee-b59a-960b485a6c5f"
   },
   {

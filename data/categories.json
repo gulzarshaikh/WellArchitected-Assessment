@@ -56,7 +56,7 @@
         "title": "Application Level Monitoring"
       },
       {
-        "title": "Resource/Infrastructure Level Monitoring"
+        "title": "Resource and Infrastructure Level Monitoring"
       },
       {
         "title": "Logging"
@@ -219,7 +219,7 @@
         "title": "Application Deployments"
       },
       {
-        "title": "Application Infrastructure Deployments & Infrastructure as Code (IaC)"
+        "title": "Application Infrastructure Deployments"
       },
       {
         "title": "Build Environments"

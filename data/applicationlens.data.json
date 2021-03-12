@@ -103,8 +103,8 @@
         "id": "c13f33bd-ae2e-4481-812b-617bae0b6703"
       },
       {
-        "title": "Has a composite SLA been calculated for the application and/or key scenarios using Azure SLAs?",
-        "context": "A composite SLA captures the end-to-end SLA across all application components and dependencies. It is calculated using the individual SLAs of Azure services housing application components and provides an important indicator of designed availability in relation to customer expectations and targets([Composite SLAs](https://docs.microsoft.com/azure/architecture/framework/resiliency/business-metrics#understand-service-level-agreements))",
+        "title": "Has a composite Service-Level Agreement (SLA) been calculated for the application and/or key scenarios using Azure SLAs?",
+        "context": "A [composite SLA](https://docs.microsoft.com/azure/architecture/framework/resiliency/business-metrics#understand-service-level-agreements) captures the end-to-end SLA across all application components and dependencies. It is calculated using the individual SLAs of Azure services housing application components and provides an important indicator of designed availability in relation to customer expectations and targets.",
         "recommendation": "Make sure the composite SLA of all components and dependencies on the critical paths are understood.",
         "id": "9f204902-54d0-4f02-9708-91786af5f8f5"
       },
@@ -442,7 +442,7 @@
     ],
     "lens": "application",
     "category": "Health Modelling & Monitoring",
-    "subCategory": "Resource/Infrastructure Level Monitoring",
+    "subCategory": "Resource and Infrastructure Level Monitoring",
     "title": "Are you collecting Azure Activity Logs within the log aggregation tool?",
     "context": "Azure Activity Logs provide audit information about when an Azure resource is modified, such as when a virtual machine is started or stopped. Such information is extremely useful for the interpretation and troubleshooting of operational and performance issues, as it provides transparency around configuration changes.",
     "recommendation": "Azure Activity Logs should be collected and aggregated.",
@@ -457,7 +457,7 @@
     ],
     "lens": "application",
     "category": "Health Modelling & Monitoring",
-    "subCategory": "Resource/Infrastructure Level Monitoring",
+    "subCategory": "Resource and Infrastructure Level Monitoring",
     "title": "Is resource-level monitoring enforced throughout the application?",
     "context": "Resource- or infrastructure-level monitoring refers to the used platform services such as Azure VMs, Express Route or SQL Database. But also covers 3rd-party solutions like an NVA.",
     "recommendation": "All application resources should be configured to route diagnostic logs and metrics to the chosen log aggregation technology. Azure Policy should also be used as a device to ensure the consistent use of diagnostic settings across the application, to enforce the desired configuration for each Azure service.",
@@ -515,7 +515,7 @@
     "category": "Health Modelling & Monitoring",
     "subCategory": "Data Interpretation & Health Modelling",
     "title": "Are application level events automatically correlated with resource level metrics to quantify the current application state?",
-    "context": "The overall health state can be impacted by both application-level issues as well as resource-level failures. Telemetry correlation should be used to ensure transactions can be mapped through the end-to-end application and critical system flows, as this is vital to root cause analysis for failures. Platform-level metrics and logs such as CPU percentage, network in/out, and disk operations/sec should be collected from the application to inform a health model and detect/predict issues([Telemetry correlation](https://docs.microsoft.com/azure/azure-monitor/app/correlation)). This can also help to distinguish between transient and non-transient faults",
+    "context": "The overall health state can be impacted by both application-level issues as well as resource-level failures. Telemetry correlation should be used to ensure transactions can be mapped through the end-to-end application and critical system flows, as this is vital to root cause analysis for failures. Platform-level metrics and logs such as CPU percentage, network in/out, and disk operations/sec should be collected from the application to inform a health model and detect/predict issues ([Telemetry correlation](https://docs.microsoft.com/azure/azure-monitor/app/correlation)). This can also help to distinguish between transient and non-transient faults.",
     "recommendation": "",
     "id": "1acdbd60-acb6-40de-8e67-c2a17051cac1"
   },
@@ -604,7 +604,7 @@
     "subCategory": "Dashboarding",
     "title": "What technology is used to visualize the application health model and encompassed logs and metrics?",
     "context": "Visualization, often also called Dashboarding, refers to how data is presented to operations teams and other interested users.",
-    "recommendation": "Dashboarding tools, such as Azure Monitor or Grafana, should be used to visualize metrics and events collected at the application and resource levels, to illustrate the health model and the current operational state of the application",
+    "recommendation": "Dashboarding tools, such as Azure Monitor or [Grafana](https://grafana.com/), should be used to visualize metrics and events collected at the application and resource levels, to illustrate the health model and the current operational state of the application.",
     "id": "2f89f20c-69ef-4150-9753-6ba603fb2b7d"
   },
   {
@@ -713,7 +713,7 @@
     "subCategory": "Alerting",
     "title": "Have Azure Service Health alerts been created to respond to Service-level events?",
     "context": "Azure Service Health provides a view into the health of Azure services and regions, as well as issuing service impacting communications about outages, planned maintenance activities, and other health advisories.",
-    "recommendation": "Azure Service Health Alerts should be configured to operationalize Service Health events, however, Service Health alerts should not be used to detect issues due to associated latencies; there is a 5 minute SLO for automated issues, but many issues require manual interpretation to define an RCA. Instead, they should be used to provide extremely useful information to help interpret issues that have already been detected and surfaced via the health model, to inform how best to operationally respond([Azure Service Health](https://docs.microsoft.com/azure/service-health/overview))",
+    "recommendation": "[Azure Service Health](https://docs.microsoft.com/azure/service-health/overview) Alerts should be configured to operationalize Service Health events, however, Service Health alerts should not be used to detect issues due to associated latencies; there is a 5 minute SLO for automated issues, but many issues require manual interpretation to define an RCA. Instead, they should be used to provide extremely useful information to help interpret issues that have already been detected and surfaced via the health model, to inform how best to operationally respond.",
     "id": "37da75f6-a948-4649-938f-1a841a36bea2"
   },
   {
@@ -739,8 +739,8 @@
     "category": "Health Modelling & Monitoring",
     "subCategory": "Alerting",
     "title": "Are Azure notifications sent to subscriptions owners received and if necessary properly routed to relevant technical stakeholders?",
-    "context": "Subscription notification emails can contain important service notifications or security alerts([Azure account contact information](https://docs.microsoft.com/azure/cost-management-billing/manage/change-azure-account-profile#service-and-marketing-emails)).",
-    "recommendation": "Subscription notification emails can contain important service notifications or security alerts([Azure account contact information](https://docs.microsoft.com/azure/cost-management-billing/manage/change-azure-account-profile#service-and-marketing-emails)). Thus, it is important that those notifications are received and routed to the relevant technical stakeholders.",
+    "context": "Subscription notification emails can contain important service notifications or security alerts. ([Azure account contact information](https://docs.microsoft.com/azure/cost-management-billing/manage/change-azure-account-profile#service-and-marketing-emails)).",
+    "recommendation": "Make sure that subscription notification emails are routed to the relevant technical stakeholders.",
     "id": "d34470a5-15fc-498f-9788-81b354ef3fcb"
   },
   {
@@ -758,7 +758,7 @@
     "children": [
       {
         "title": "Has the failover and failback approach been tested/validated at least once?",
-        "context": "Only plans and playbooks that have been executed sucessfully at least once can be considered working.",
+        "context": "Only plans and playbooks that have been executed successfully at least once can be considered working.",
         "recommendation": "The precise steps required to failover and failback the application must be tested to validate the effectiveness of the defined disaster recovery approach. Testing of the disaster recovery strategy should occur according to a reasonably regular cadence, such as annually, to ensure that operational application changes do not impact the applicability of the selected approach",
         "id": "25e34538-345e-420a-bddd-c0ba6fd883ed"
       },
@@ -871,8 +871,8 @@
     "category": "Operational Procedures",
     "subCategory": "Scalability & Capacity Model",
     "title": "Is the process to provision and deprovision capacity codified?",
-    "context": "",
-    "recommendation": "Fluctuation in application traffic is typically expected. To ensure optimal operation is maintained, such variations should be met by automated scalability. The significance of automated capacity responses underpinned by a robust capacity model was highlighted by the COVID-19 crisis where many applications experienced severe traffic variations. While Auto-scaling enables a PaaS or IaaS service to scale within a pre-configured (and often times limited) range of resources, is provisioning or deprovisioning capacity a more advanced and complex process of for example adding additional scale units like additional clusters, instances or deployments. The process should be codified, automated and the effects of adding/removing capacity should be well understood.",
+    "context": "Codifying and automating the process helps to avoid human error, varying results and to speed up the overall process.",
+    "recommendation": "Fluctuation in application traffic is typically expected. To ensure optimal operation is maintained, such variations should be met by automated scalability. The significance of automated capacity responses underpinned by a robust capacity model was highlighted by the COVID-19 crisis where many applications experienced severe traffic variations. While Auto-scaling enables a PaaS or IaaS service to scale within a pre-configured (and often times limited) range of resources, is provisioning or de-provisioning capacity a more advanced and complex process of for example adding additional scale units like additional clusters, instances or deployments. The process should be codified, automated and the effects of adding/removing capacity should be well understood.",
     "id": "cbf4551a-15dc-4aac-85aa-97df8d293dfc"
   },
   {
@@ -884,7 +884,7 @@
     "category": "Operational Procedures",
     "subCategory": "Scalability & Capacity Model",
     "title": "Is the impact of changes in application health on capacity fully understood?",
-    "context": "For example, if an outage in an external API is mitigated by writing messages into a retry queue, this queue will get sudden spikes in load which it will need to be able to handle",
+    "context": "For example, if an outage in an external API is mitigated by writing messages into a retry queue, this queue will get sudden spikes in load which it will need to be able to handle.",
     "recommendation": "Any change in the health state of application components can influence the capacity demands on other components. Those impacts need to be fully understood and measures such as auto-scaling need to be in place to handle those.",
     "id": "a91eab73-2d36-48de-bffb-d76638a72ec5"
   },
@@ -898,13 +898,13 @@
     "category": "Operational Procedures",
     "subCategory": "Scalability & Capacity Model",
     "title": "Is the required capacity (initial and future growth) within Azure service scale limits and quotas?",
-    "context": "Due to physical and logical resource constraints within the platform, Azure must apply limits and quotas to service scalability, which may be either hard or soft.",
-    "recommendation": "Due to physical and logical resource constraints within the platform, Azure must apply limits and quotas to service scalability, which may be either hard or soft. The application should therefore take a scale-unit approach to navigate within service limits, and where necessary consider multiple subscriptions which are often the boundary for such limits. It is highly recommended that a structured approach to scale be designed up-front rather than resorting to a 'spill and fill' model([Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits))",
+    "context": "Due to physical and logical resource constraints within the platform, Azure must apply [limits and quotas](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) to service scalability, which may be either hard or soft.",
+    "recommendation": "The application should take a scale-unit approach to navigate within service limits, and where necessary consider multiple subscriptions which are often the boundary for such limits. It is highly recommended that a structured approach to scale be designed up-front rather than resorting to a 'spill and fill' model.",
     "children": [
       {
         "title": "Is the required capacity (initial and future growth) available within targeted regions?",
         "context": "While the promise of the cloud is infinite scale, the reality is that there are finite resources available and as a result situations can occur where capacity can be constrained due to overall demand.",
-        "recommendation": "If the application requires a large amount of capacity or expects a significant increase in capacity then effort should be invested to ensure that desired capacity is attainable within selected region(s). For applications leveraging a recovery or active-passive based disaster recovery strategy, consideration should also be given to ensure suitable capacity exists in the secondary region(s) since a regional outage can lead to a significant increase in demand within a paired region due to other customer workloads also failing over. To help mitigate this, consideration should be given to pre-provisioning resources within the secondary region([Azure Capacity](https://aka.ms/AzureCapacity))",
+        "recommendation": "If the application requires a large amount of capacity or expects a significant increase in capacity then effort should be invested to ensure that desired capacity is attainable within selected region(s). For applications leveraging a recovery or active-passive based disaster recovery strategy, consideration should also be given to ensure suitable capacity exists in the secondary region(s) since a regional outage can lead to a significant increase in demand within a paired region due to other customer workloads also failing over. To help mitigate this, consideration should be given to pre-provisioning resources within the secondary region. ([Azure Capacity](https://aka.ms/AzureCapacity))",
         "id": "79d32a9a-60da-4065-8fda-3a53c82c9516"
       }
     ],
@@ -964,7 +964,7 @@
     "subCategory": "Configuration & Secrets Management",
     "title": "How are passwords and other secrets managed?",
     "context": "API keys, database connection strings and passwords are all sensitive to leakage, occasionally require rotation and are prone to expiration. Storing them in a secure store and not within the application code or configuration simplifies operational tasks like key rotation as well as improving overall security.",
-    "recommendation": "Tools like Azure Key Vault or HashiCorp Vault should be used to store and manage secrets securely rather than being baked into the application artefact during deployment, as this simplifies operational tasks like key rotation as well as improving overall security. Keys and secrets stored in source code should be identified with static code scanning tools. Ensure that these scans are an integrated part of the continuous integration (CI) process.",
+    "recommendation": "Tools like Azure Key Vault or [HashiCorp Vault](https://www.vaultproject.io/) should be used to store and manage secrets securely rather than being baked into the application artefact during deployment, as this simplifies operational tasks like key rotation as well as improving overall security. Keys and secrets stored in source code should be identified with static code scanning tools. Ensure that these scans are an integrated part of the continuous integration (CI) process.",
     "id": "902e6215-5216-4a49-8283-a6612d5327b6"
   },
   {
@@ -979,7 +979,7 @@
     "subCategory": "Configuration & Secrets Management",
     "title": "Do you have procedures in place for secret rotation?",
     "context": "In the situation where a key or secret becomes compromised, it is important to be able to quickly act and generate new versions. Key rotation reduces the attack vectors and should be automated and executed without any human interactions.",
-    "recommendation": "Secrets (keys, certificates etc.) should be replaced once they have reached the end of their active lifetime or once they have been compromised. Renewed certificates should also use a new key. A process needs to be in place for situations where keys get compromised (leaked) and need to be regenerated on-demand. Tools, such as Azure Key Vault should ideally be used to store and manage application secrets to help with rotation processes ([Key Vault Key Rotation](https://docs.microsoft.com/azure/key-vault/secrets/tutorial-rotation-dual))",
+    "recommendation": "Secrets (keys, certificates etc.) should be replaced once they have reached the end of their active lifetime or once they have been compromised. Renewed certificates should also use a new key. A process needs to be in place for situations where keys get compromised (leaked) and need to be regenerated on-demand. Tools, such as Azure Key Vault should ideally be used to store and manage application secrets to help with [rotation processes](https://docs.microsoft.com/azure/key-vault/secrets/tutorial-rotation-dual).",
     "id": "010e6217-ea74-4f08-aec7-2d80b1972a14"
   },
   {
@@ -992,7 +992,7 @@
     "category": "Operational Procedures",
     "subCategory": "Configuration & Secrets Management",
     "title": "Does the application use Managed Identities?",
-    "context": "Managed Identities in Azure can be used to securely access Azure services while removing the need to store the secrets or certificates of Service Principals ([Managed Identities Overview](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview))",
+    "context": "[Managed Identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) in Azure can be used to securely access Azure services while removing the need to store the secrets or certificates of Service Principals.",
     "recommendation": "Wherever possible Azure Managed Identities (either system-managed or user-managed) should be used since they remove the management burden of storing and rotating keys for service principles. Thus, they provide higher security as well as easier maintenance.",
     "id": "0dfaf9be-ac16-40c6-954c-cecc0023ae1a"
   },
@@ -1007,7 +1007,7 @@
     "subCategory": "Configuration & Secrets Management",
     "title": "Are keys and secrets backed-up to geo-redundant storage?",
     "context": "Keys and secrets must still be available in a failover case.",
-    "recommendation": "Keys and secrets should be backed up to geo-redundant storage so that they can be accessed in the event of a regional failure and support recovery objectives. In the event of a regional outage, the Key Vault service will automatically be failed over to the secondary region in a read-only state([Azure Key Vault availability and reliability](https://docs.microsoft.com/azure/key-vault/general/disaster-recovery-guidance))",
+    "recommendation": "Keys and secrets should be backed up to geo-redundant storage so that they can be accessed in the event of a regional failure and support recovery objectives. In the event of a regional outage, the Key Vault service will automatically be failed over to the secondary region in a read-only state. ([Azure Key Vault availability and reliability](https://docs.microsoft.com/azure/key-vault/general/disaster-recovery-guidance))",
     "children": [
       {
         "title": "Are certificate/key backups and data backups stored in different geo-redundant storage accounts?",
@@ -1028,8 +1028,8 @@
     "category": "Operational Procedures",
     "subCategory": "Configuration & Secrets Management",
     "title": "Is Soft-Delete enabled for Key Vaults and Key Vault objects?",
-    "context": "The Soft-Delete feature retains resources for a given retention period after a DELETE operation has been performed, while giving the appearance that the object is deleted. It helps to mitigate scenarios where resources are unintentionally, maliciously or incorrectly deleted([Azure Key Vault Soft-Delete](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete))",
-    "recommendation": "Key Vault Soft Delete helps to mitigate scenarios where resources are unintentionally, maliciously or incorrectly deleted([Azure Key Vault Soft-Delete](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete)). It is therefore highly recommended to enable this.",
+    "context": "The [Soft-Delete feature](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete) retains resources for a given retention period after a DELETE operation has been performed, while giving the appearance that the object is deleted. It helps to mitigate scenarios where resources are unintentionally, maliciously or incorrectly deleted.",
+    "recommendation": "It is highly recommended to enable Key Vault Soft-Delete.",
     "id": "36d6c72c-9d63-4942-8d0f-a5af79f3cc9e"
   },
   {
@@ -1135,7 +1135,7 @@
     "subCategory": "Operational Lifecycles",
     "title": "Are operational procedures reviewed and refined frequently?",
     "context": "",
-    "recommendation": "Operational procedures should be updated based on outcomes from frequent testing",
+    "recommendation": "Operational procedures should be updated based on outcomes from frequent testing.",
     "id": "cb7e2f75-a15f-41d6-9ca1-bcbdd65c6184"
   },
   {
@@ -1149,7 +1149,7 @@
     "subCategory": "Application Deployments",
     "title": "What is the process to deploy application releases to production?",
     "context": "",
-    "recommendation": "The entire end-to-end CI/CD deployment process should be understood",
+    "recommendation": "The entire end-to-end CI/CD deployment process should be understood.",
     "children": [
       {
         "title": "How long does it take to deploy an entire production environment?",
@@ -1184,12 +1184,12 @@
     "subCategory": "Application Deployments",
     "title": "Can the application be deployed automatically from scratch without any manual operations?",
     "context": "Manual deployment steps introduce significant risks where human error is concerned and also increases overall deployment times.",
-    "recommendation": "Manual deployment steps introduce significant risks where human error is concerned and also increases overall deployment times. Automated end-to-end deployments, with manual approval gates where necessary, should be used to ensure a consistent and efficient deployment process([Deployment considerations for DevOps](https://docs.microsoft.com/azure/architecture/framework/devops/deployment))",
+    "recommendation": "Automated end-to-end deployments, with manual approval gates where necessary, should be used to ensure a consistent and efficient deployment process. See ([Deployment considerations for DevOps](https://docs.microsoft.com/azure/architecture/framework/devops/deployment)).",
     "children": [
       {
         "title": "Is there a documented process for any portions of the deployment that require manual intervention?",
         "context": "Without detailed release process documentation, there is a much higher risk of an operator improperly configuring settings for the application",
-        "recommendation": "Any manual steps that are required in the deployment pipeline must be clearly documented with roles and responsibilties well defined.",
+        "recommendation": "Any manual steps that are required in the deployment pipeline must be clearly documented with roles and responsibilities well defined.",
         "id": "43578635-dade-49cb-8c64-6c8431ac0369"
       }
     ],
@@ -1204,8 +1204,8 @@
     "category": "Deployment & Testing",
     "subCategory": "Application Deployments",
     "title": "How long does it take to deploy an entire production environment?",
-    "context": "The time it takes for a full deployment needs to algin with recovery targets",
-    "recommendation": "The entire end-to-end deployment process should be understood and align with recovery targets",
+    "context": "The time it takes for a full deployment needs to align with recovery targets.",
+    "recommendation": "The entire end-to-end deployment process should be understood and align with recovery targets.",
     "id": "f2d628f5-015a-4e0c-a74e-af6236d3273a"
   },
   {
@@ -1233,7 +1233,7 @@
     "subCategory": "Application Deployments",
     "title": "Is there a defined hotfix process which bypasses normal deployment procedures?",
     "context": "",
-    "recommendation": "In some scenarios there is an operational need to rapidly deploy changes, such as critical security updates. Having a defined process for how such changes can be safely and effectively performed helps greatly to prevent 'heat of the moment' issues",
+    "recommendation": "In some scenarios there is an operational need to rapidly deploy changes, such as critical security updates. Having a defined process for how such changes can be safely and effectively performed helps greatly to prevent 'heat of the moment' issues.",
     "id": "c0836ae9-b89f-41ae-a072-36c55eea3cda"
   },
   {
@@ -1247,7 +1247,7 @@
     "subCategory": "Application Deployments",
     "title": "Does the application deployment process leverage blue-green deployments and/or canary releases?",
     "context": "Blue/green or canary deployments are a way to gradually release new feature or changes without impacting all users at once.",
-    "recommendation": "Blue-green deployments and/or canary releases can be used to deploy updates in a controlled manner that helps to minimize disruption from unanticipated deployment issues([Stage your workloads](https://docs.microsoft.com/azure/architecture/framework/devops/deployment#stage-your-workloads)) For example, Azure uses canary regions to test and validate new services and capabilities before they are more broadly rolled out to other Azure regions. Where appropriate the application can also use canary environments to validate changes before wider production rollout. Moreover, certain large application platforms may also derive benefit from leveraging Azure canary regions as a basis for validating the potential impact of Azure platform changes on the application.",
+    "recommendation": "Blue-green deployments and/or canary releases can be used to deploy updates in a controlled manner that helps to minimize disruption from unanticipated deployment issues. For example, Azure uses canary regions to test and validate new services and capabilities before they are more broadly rolled out to other Azure regions. Where appropriate the application can also use canary environments to validate changes before wider production rollout. Moreover, certain large application platforms may also derive benefit from leveraging Azure canary regions as a basis for validating the potential impact of Azure platform changes on the application. See ([Stage your workloads](https://docs.microsoft.com/azure/architecture/framework/devops/deployment#stage-your-workloads)).",
     "id": "da5a44fb-1c50-4527-aac8-5b2d37191367"
   },
   {
@@ -1265,7 +1265,7 @@
       {
         "title": "If Git is used for source control, what branching strategy is used?",
         "context": "While there are various valid ways, a clearly defined strategy should be in place and understood",
-        "recommendation": "To optimize for collaboration and ensure developers spend less time managing version control and more time developing code, a clear and simple branching strategy should be used, such as Trunk-Based Development which is employed internally within Microsoft Engineering([Microsoft Git Strategy](https://docs.microsoft.com/azure/devops/learn/devops-at-microsoft/use-git-microsoft))",
+        "recommendation": "To optimize for collaboration and ensure developers spend less time managing version control and more time developing code, a clear and simple branching strategy should be used, such as Trunk-Based Development which is employed internally [within Microsoft Engineering](https://docs.microsoft.com/azure/devops/learn/devops-at-microsoft/use-git-microsoft).",
         "id": "9c087bad-35fb-4282-bbb9-140cf458e338"
       }
     ],
@@ -1278,7 +1278,7 @@
     ],
     "lens": "application",
     "category": "Deployment & Testing",
-    "subCategory": "Application Infrastructure Deployments & Infrastructure as Code (IaC)",
+    "subCategory": "Application Infrastructure Deployments",
     "title": "Is application infrastructure defined as code?",
     "context": "[Infrastructure as Code](https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code) (IaC) is the management of infrastructure (networks, virtual machines, load balancers, and connection topology) in a descriptive model, using the same versioning as the team uses for application source code. Like the principle that the same source code generates the same binary, an IaC model generates the same environment every time it is applied.",
     "recommendation": "It is highly recommended to describe the entire infrastructure as code, using either ARM Templates, Terraform, or other tools. This allows for proper versioning and configuration management, encouraging consistency and reproducibility across environments.",
@@ -1305,10 +1305,10 @@
     ],
     "lens": "application",
     "category": "Deployment & Testing",
-    "subCategory": "Application Infrastructure Deployments & Infrastructure as Code (IaC)",
+    "subCategory": "Application Infrastructure Deployments",
     "title": "Is the process to deploy infrastructure automated?",
-    "context": "",
-    "recommendation": "It is recommended to use build and release tools to define automated or partially automated CI/CD pipelines for the entire infrastructure",
+    "context": "Manual changes via for example the Azure Portal or Azure CLI are difficult to test, document and introduce significant risks where human error is concerned and might also increase the overall deployment and recovery times.",
+    "recommendation": "It is recommended to define infrastructure deployments and changes as code and to use build and release tools to develop automated pipelines for their deployment.",
     "id": "548d645a-de28-46db-ae42-658ce8529848"
   },
   {
@@ -1334,7 +1334,7 @@
     "category": "Deployment & Testing",
     "subCategory": "Build Environments",
     "title": "Are mocks/stubs used to test external dependencies in non-production environments?",
-    "context": "",
+    "context": "Mocks/stubs can help to test and validate external dependencies, to increase test coverage, when accessing those external dependencies is not possible due to for example IP restrictions.",
     "recommendation": "The use of dependent services should be appropriately reflected in test environments",
     "id": "e646dee6-2a03-48e8-85e5-55d09e000c83"
   },
@@ -1362,7 +1362,7 @@
     "subCategory": "Build Environments",
     "title": "Are feature flags used to test features before rolling them out to everyone?",
     "context": "",
-    "recommendation": "To test new features quickly and without bigger risk, Feature flags are a technique to help frequently integrate code into a shared repository, even if incomplete. It allows for deployment decisions to be separated from release decisions([Feature Flags](https://docs.microsoft.com/azure/architecture/framework/devops/development#feature-flags))",
+    "recommendation": "To test new features quickly and without bigger risk, Feature flags are a technique to help frequently integrate code into a shared repository, even if incomplete. It allows for deployment decisions to be separated from release decisions ([Feature Flags](https://docs.microsoft.com/azure/architecture/framework/devops/development#feature-flags))",
     "id": "79c0b89b-feb0-4ed6-b5d0-8d72525baee1"
   },
   {
@@ -1376,7 +1376,7 @@
     "category": "Deployment & Testing",
     "subCategory": "Testing & Validation",
     "title": "Is the application tested for performance, scalability, and resiliency?",
-    "context": "Performance Testing: Performance testing is the superset of both load and stress testing. The primary goal of performance testing is to validate benchmark behaviour for the application([Performance Testing](https://docs.microsoft.com/azure/architecture/checklist/dev-ops#testing))\nLoad Testing : Load testing validates application scalability by rapidly and/or gradually increasing the load on the application until it reaches a threshold/limit \nStress Testing : *Stress testing is a type of negative testing which involves various activities to overload existing resources and remove components to understand overall resiliency and how the application responds to issues",
+    "context": "Performance Testing: Performance testing is the superset of both load and stress testing. The primary goal of performance testing is to validate benchmark behavior for the application ([Performance Testing](https://docs.microsoft.com/azure/architecture/checklist/dev-ops#testing))\nLoad Testing : Load testing validates application scalability by rapidly and/or gradually increasing the load on the application until it reaches a threshold/limit \nStress Testing : *Stress testing is a type of negative testing which involves various activities to overload existing resources and remove components to understand overall resiliency and how the application responds to issues",
     "recommendation": "",
     "children": [
       {
@@ -1415,7 +1415,7 @@
     "category": "Deployment & Testing",
     "subCategory": "Testing & Validation",
     "title": "Are smoke tests performed during application deployments?",
-    "context": "Smoke tests are a lightweight way to perform high-level validation of changes. For instance, performing a ping test immediately after a deployment([Smoke Testing](https://docs.microsoft.com/azure/architecture/framework/devops/testing#smoke-testing))",
+    "context": "Smoke tests are a lightweight way to perform high-level validation of changes. For instance, performing a ping test immediately after a deployment ([Smoke Testing](https://docs.microsoft.com/azure/architecture/framework/devops/testing#smoke-testing))",
     "recommendation": "",
     "id": "92c316d7-4d45-4878-b21e-b55504a3b7dc"
   },
@@ -1428,7 +1428,7 @@
     "category": "Deployment & Testing",
     "subCategory": "Testing & Validation",
     "title": "When is integration testing performed?",
-    "context": "Integration tests should be applied as part of the application deployment process, to ensure that different application components  interact with each other as they should. Integration tests typically take longer than smoke testing, and as a consequence occur at a latter stage of the deployment process so they are executed less frequently([Integration Testing](https://docs.microsoft.com/azure/architecture/framework/devops/testing#integration-testing)",
+    "context": "Integration tests should be applied as part of the application deployment process, to ensure that different application components  interact with each other as they should. Integration tests typically take longer than smoke testing, and as a consequence occur at a latter stage of the deployment process so they are executed less frequently ([Integration Testing](https://docs.microsoft.com/azure/architecture/framework/devops/testing#integration-testing)",
     "recommendation": "",
     "id": "905cd585-1316-4aa4-9578-0bf6c1a7b9e1"
   },
@@ -1441,7 +1441,7 @@
     "category": "Deployment & Testing",
     "subCategory": "Testing & Validation",
     "title": "Is unit testing performed to validate application functionality?",
-    "context": "Unit tests are typically run by each new version of code committed into version control. Unit Tests should be extensive and quick to verify things like syntax correctness of application code, Resource Manager templates or Terraform configurations, that the code is following best practices, or that they produce the expected results when provided certain inputs([Unit Testing](https://docs.microsoft.com/azure/architecture/framework/devops/testing#unit-testing))",
+    "context": "Unit tests are typically run by each new version of code committed into version control. Unit Tests should be extensive and quick to verify things like syntax correctness of application code, Resource Manager templates or Terraform configurations, that the code is following best practices, or that they produce the expected results when provided certain inputs ([Unit Testing](https://docs.microsoft.com/azure/architecture/framework/devops/testing#unit-testing))",
     "recommendation": "",
     "id": "7fa3dcaf-7590-41d2-8d50-7f34af9a657b"
   },
@@ -1548,7 +1548,7 @@
     "subCategory": "Roles & Responsibilities",
     "title": "Has the application been built and maintained in-house or by an external partner?",
     "context": "Exploring where technical delivery capabilities reside helps to qualify operational model boundaries and estimate the cost of operating the application as well as defining a budget and cost model.",
-    "recommendation": "Explore where technical delivery capabilites reside.",
+    "recommendation": "Explore where technical delivery capabilities reside.",
     "id": "50b1113a-f4e9-4d5e-b580-6c941956a2b7"
   },
   {
@@ -1577,7 +1577,7 @@
       },
       {
         "title": "Is the workload isolated to a single operations team?",
-        "context": "The goal of workload isolation is to associate an application's specific resources to a team, so that the team can independently manage all aspects of those resources([Workload isolation](https://docs.microsoft.com/azure/architecture/framework/devops/app-design#workload-isolation))",
+        "context": "The goal of workload isolation is to associate an application's specific resources to a team, so that the team can independently manage all aspects of those resources ([Workload isolation](https://docs.microsoft.com/azure/architecture/framework/devops/app-design#workload-isolation))",
         "recommendation": "",
         "id": "ac2da964-f113-43a9-8d69-49a80b2ea136"
       }
@@ -1696,7 +1696,7 @@
     "category": "Application Design",
     "subCategory": "Design",
     "title": "Is the workload deployed across multiple regions?",
-    "context": "Multiple regions should be used for failover purposes in a disaster state, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active strategies. Additional cost needs to be taken into consideration - mostly from compute, data and networking perspectivce, but also services like Azure Site Recovery (ASR). ([Failover strategies](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones))",
+    "context": "Multiple regions should be used for failover purposes in a disaster state, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active strategies. Additional cost needs to be taken into consideration - mostly from compute, data and networking perspective, but also services like Azure Site Recovery (ASR). ([Failover strategies](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones))",
     "recommendation": "",
     "id": "bfa31e14-50d3-4dd7-9bdc-44358ac6a68f"
   },
@@ -1719,14 +1719,15 @@
   {
     "type": "Questions",
     "pillars": [
-      "reliability"
+      "performanceefficiency",
+      "costoptimization"
     ],
     "lens": "application",
     "category": "Application Design",
     "subCategory": "Design",
     "title": "Is component proximity required for application performance reasons?",
     "context": "If all or part of the application is highly sensitive to latency it may mandate component co-locality which can limit the applicability of multi-region and multi-zone strategies",
-    "recommendation": "",
+    "recommendation": "Consider using the same datacenter region, Availability Zone and [Proximity Placement Groups](https://azure.microsoft.com/blog/announcing-the-general-availability-of-proximity-placement-groups/) and other options to bring latency sensitive components closer together. Keep also in mind that additional charges may apply when chatty workloads are spread across zones and region.",
     "id": "b3d8e0fe-be4a-4269-a4c8-e53c6283effe"
   },
   {
@@ -1753,8 +1754,8 @@
     "category": "Application Design",
     "subCategory": "Design",
     "title": "Is the application designed to use managed services?",
-    "context": "Azure managed services provide native resiliency capabilities to support overall application reliability, and where possible platform as a service offerings should be used to leverage these capabilities ([Use managed services](https://docs.microsoft.com/azure/architecture/guide/design-principles/managed-services))",
-    "recommendation": "",
+    "context": "Platform-as-a-Service (PaaS) services provide native resiliency capabilities to support overall application reliability and native capabilities for scalability, monitoring and disaster recovery.",
+    "recommendation": "Where possible prefer Platform-as-a-Service (PaaS) offerings to leverage their advanced capabilities and to avoid managing the underlying infrastructure. (see [Use managed services](https://docs.microsoft.com/azure/architecture/guide/design-principles/managed-services) and [What is PaaS?](https://azure.microsoft.com/overview/what-is-paas/))",
     "id": "2242ef08-b0d5-4bb6-b5bf-881fa702d3c6"
   },
   {
@@ -1762,7 +1763,8 @@
     "pillars": [
       "reliability",
       "operationalexcellence",
-      "costoptimization"
+      "costoptimization",
+      "performanceefficiency"
     ],
     "lens": "application",
     "category": "Application Design",
@@ -1782,7 +1784,7 @@
     "category": "Application Design",
     "subCategory": "Design",
     "title": "Is the application deployed across multiple Azure subscriptions?",
-    "context": "Understanding the subscription landscape of the application and how components are organized within or across subscriptions is important when analyzing if relevant subscription limits or quotas can be navigated",
+    "context": "Understanding the subscription landscape of the application and how components are organized within or across subscriptions is important when analyzing if relevant subscription limits or quotas can be navigated.",
     "recommendation": "",
     "id": "bb4bf73a-4312-4064-bae4-736c7663f7f0"
   },
@@ -1821,8 +1823,8 @@
     "category": "Application Design",
     "subCategory": "Failure Mode Analysis",
     "title": "Have all single points of failure been eliminated?",
-    "context": "A single point of failure describes a specific fault-point which if it where to fail would bring down the entire application. Single points of failure  introduce significant risk since any failure of this component will cause an application outage ([Make all things redundant](https://docs.microsoft.com/azure/architecture/guide/design-principles/redundancy))",
-    "recommendation": "",
+    "context": "A single point of failure describes a specific fault-point which if it where to fail would bring down the entire application. Single points of failure introduce significant risk since any failure of this component will cause an application outage ([Make all things redundant](https://docs.microsoft.com/azure/architecture/guide/design-principles/redundancy))",
+    "recommendation": "Make sure that all single points of failure are identified and wherever possible eliminated. Single point of failures that cannot be avoided need special attention during operations and with regards to resiliency.",
     "id": "30dacd9f-9aca-49bf-868b-e37fc70e38d1"
   },
   {
@@ -1841,7 +1843,8 @@
   {
     "type": "Questions",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "application",
     "category": "Application Design",
@@ -1990,7 +1993,7 @@
     "category": "Operational Procedures",
     "subCategory": "Configuration & Secrets Management",
     "title": "Is the application stateless or stateful? If it is stateful, is the state externalized in a data store?",
-    "context": "Stateless processes can easily be hosted across multiple compute instances to meet scale demands, as well as helping to reduce complexity and ensure high cacheability([Stateless web services](https://docs.microsoft.com/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices))",
+    "context": "Stateless processes can easily be hosted across multiple compute instances to meet scale demands, as well as helping to reduce complexity and ensure high cacheability (see [Stateless web services](https://docs.microsoft.com/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices))",
     "recommendation": "",
     "id": "ef82b932-0bfa-48d7-ae04-af6be7c3606a"
   },
@@ -2003,7 +2006,7 @@
     "category": "Operational Procedures",
     "subCategory": "Configuration & Secrets Management",
     "title": "Is the session state (if any) non-sticky and externalized to a data store?",
-    "context": "Sticky session state limits application scalability because it is not possible to balance load. With sticky sessions all requests from a client must be sent to the same compute instance where the session state was initially created, regardless of the load on that compute instance. Externalizing session state allows for traffic to be evenly distributed across multiple compute nodes, with required state retrieved from the external data store([Avoid session state](https://docs.microsoft.com/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#sessionstate))",
+    "context": "Sticky session state limits application scalability because it is not possible to balance load. With sticky sessions all requests from a client must be sent to the same compute instance where the session state was initially created, regardless of the load on that compute instance. Externalizing session state allows for traffic to be evenly distributed across multiple compute nodes, with required state retrieved from the external data store ([Avoid session state](https://docs.microsoft.com/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#sessionstate))",
     "recommendation": "",
     "id": "90f75e94-be97-4ea9-9e6c-6606e9dd6403"
   },
@@ -2016,7 +2019,7 @@
     "category": "Application Platform Availability",
     "subCategory": "Service SKU",
     "title": "Are all application platform services running in a HA configuration/SKU?",
-    "context": "Azure application platform services offer resiliency features to support application reliability, though they may only be applicable at a certain SKU. For instance, Service Bus Premium SKU provides predictable latency and throughput to mitigate noisy neighbor scenarios, as well as the ability to automatically scale and replicate metadata to another Service Bus instance for failover purposes([Azure Service Bus Premium SKU](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging)",
+    "context": "Azure application platform services offer resiliency features to support application reliability, though they may only be applicable at a certain SKU. For instance, Service Bus Premium SKU provides predictable latency and throughput to mitigate noisy neighbor scenarios, as well as the ability to automatically scale and replicate metadata to another Service Bus instance for failover purposes ([Azure Service Bus Premium SKU](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging)",
     "recommendation": "",
     "id": "f261c117-c18b-4a5a-8b2a-86543fd969aa"
   },
@@ -2041,7 +2044,7 @@
       },
       {
         "title": "Are paired regions used?",
-        "context": "Paired regions exist within the same geography and provide native replication features for recovery purposes, such as Geo-Redundant Storage (GRS) asynchronous replication. In the event of planned maintenance, updates to a region will be performed sequentially only([Business continuity with Azure Paired Regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions))",
+        "context": "Paired regions exist within the same geography and provide native replication features for recovery purposes, such as Geo-Redundant Storage (GRS) asynchronous replication. In the event of planned maintenance, updates to a region will be performed sequentially only ([Business continuity with Azure Paired Regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions))",
         "recommendation": "",
         "id": "7a12b9a0-b9cd-4971-9af7-838703da94b0"
       },
@@ -2063,7 +2066,7 @@
     "category": "Application Platform Availability",
     "subCategory": "Compute Availability",
     "title": "Is the underlying application platform service Availability Zone aware?",
-    "context": "Platform services that can leverage Availability Zones are deployed in either a zonal manner within a particular zone, or in a zone-redundant configuration across multiple zones([Building solutions for high availability using Availability Zones](https://docs.microsoft.com/azure/architecture/high-availability/building-solutions-for-high-availability))",
+    "context": "Platform services that can leverage Availability Zones are deployed in either a zonal manner within a particular zone, or in a zone-redundant configuration across multiple zones ([Building solutions for high availability using Availability Zones](https://docs.microsoft.com/azure/architecture/high-availability/building-solutions-for-high-availability))",
     "recommendation": "",
     "id": "607de629-d1ce-4287-9fe1-c5d6f460d341"
   },
@@ -2227,7 +2230,7 @@
     "category": "Networking & Connectivity",
     "subCategory": "Connectivity",
     "title": "Has a failure path been simulated to ensure connectivity is available over alternative paths?",
-    "context": "The failure of a connection path onto other connection paths should be tested to validate connectivity and operational effectiveness. Using Site-to-Site VPN connectivity as a backup path for ExpressRoute provides an additional layer of network resiliency for cross-premises connectivity([Using site-to-site VPN as a backup for ExpressRoute private peering](https://docs.microsoft.com/azure/expressroute/use-s2s-vpn-as-backup-for-expressroute-privatepeering))",
+    "context": "The failure of a connection path onto other connection paths should be tested to validate connectivity and operational effectiveness. Using Site-to-Site VPN connectivity as a backup path for ExpressRoute provides an additional layer of network resiliency for cross-premises connectivity ([Using site-to-site VPN as a backup for ExpressRoute private peering](https://docs.microsoft.com/azure/expressroute/use-s2s-vpn-as-backup-for-expressroute-privatepeering))",
     "recommendation": "",
     "id": "d8042586-8239-4d1f-95a2-18f363493510"
   },
@@ -2240,7 +2243,7 @@
     "category": "Networking & Connectivity",
     "subCategory": "Connectivity",
     "title": "Have all single points of failure been eliminated from the data path (on-premises and Azure)?",
-    "context": "Single-instance Network Virtual Appliances (NVAs), whether deployed in Azure or within an on-premises datacenter, introduce significant connectivity risk([Deploy highly available network virtual appliances](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha)",
+    "context": "Single-instance Network Virtual Appliances (NVAs), whether deployed in Azure or within an on-premises datacenter, introduce significant connectivity risk ([Deploy highly available network virtual appliances](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha)",
     "recommendation": "",
     "id": "e3490fd7-6328-471e-86e5-732dc4d405c8"
   },
@@ -2305,7 +2308,7 @@
     "category": "Networking & Connectivity",
     "subCategory": "Zone-Aware Services",
     "title": "Do health probes assess critical application dependencies?",
-    "context": "Custom health probes should be used to assess overall application health including downstream components and dependent services, such as APIs and datastores, so that traffic is not sent to backend instances that cannot successfully process requests due to dependency failures([Health Endpoint Monitoring Pattern](https://docs.microsoft.com/azure/architecture/patterns/health-endpoint-monitoring))",
+    "context": "Custom health probes should be used to assess overall application health including downstream components and dependent services, such as APIs and datastores, so that traffic is not sent to backend instances that cannot successfully process requests due to dependency failures ([Health Endpoint Monitoring Pattern](https://docs.microsoft.com/azure/architecture/patterns/health-endpoint-monitoring))",
     "recommendation": "",
     "id": "1c70914e-d93a-4265-9828-0af492269f42"
   },
@@ -2332,7 +2335,7 @@
     "category": "Scalability & Performance",
     "subCategory": "Application Performance",
     "title": "Does the application require long running TCP connections?",
-    "context": "If an application is initiating many outbound TCP or UDP connections it may exhaust all available ports leading to SNAT port exhaustion and poor application performance. Long-running connections exacerbate this risk by occupying ports for sustained durations. Effort should be taken to ensure that the application can scale within the port limits of the chosen application hosting platform([Managing SNAT port exhaustion](https://docs.microsoft.com/azure/load-balancer/troubleshoot-outbound-connection#snatexhaust))",
+    "context": "If an application is initiating many outbound TCP or UDP connections it may exhaust all available ports leading to SNAT port exhaustion and poor application performance. Long-running connections exacerbate this risk by occupying ports for sustained durations. Effort should be taken to ensure that the application can scale within the port limits of the chosen application hosting platform ([Managing SNAT port exhaustion](https://docs.microsoft.com/azure/load-balancer/troubleshoot-outbound-connection#snatexhaust))",
     "recommendation": "",
     "id": "dbae0514-eeb8-402d-9d82-c4f48407464e"
   },
@@ -2377,7 +2380,7 @@
     "subCategory": "Data Size/Growth",
     "title": "Are there any mitigation plans defined in case data size exceeds limits?",
     "context": "Mitigation plans such as purging or archiving data can help the application to remain available in scenarios where data size exceeds expected limits",
-    "recommendation": "",
+    "recommendation": "Make sure that data size and growth is monitored, proper alerts are configured and develop (automated and codified, if possible) mitigation plans to help the application to remain available - or to recover if needed.",
     "id": "e76fc3b0-6446-4590-84ef-4df313593f37"
   },
   {
@@ -3085,7 +3088,7 @@
     "children": [
       {
         "title": "Is trusted state information protected when stored on untrusted client (such as cookie in a web browser)?",
-        "context": "State data can contain not just session identifier, but also account and claims information, which can get exploited by the client. In a situation where the application needs to round-trip trusted state via an untrusted client (which can be session cookie in a web browser), it has to ensure that the information isn't tampered with. See [ASP.NET Core Data Protection](https://docs.microsoft.com/en-us/aspnet/core/security/data-protection/introduction?view=aspnetcore-5.0) for more details on how to use .NET APIs.",
+        "context": "State data can contain not just session identifier, but also account and claims information, which can get exploited by the client. In a situation where the application needs to round-trip trusted state via an untrusted client (which can be session cookie in a web browser), it has to ensure that the information isn't tampered with. See [ASP.NET Core Data Protection](https://docs.microsoft.com/aspnet/core/security/data-protection/introduction?view=aspnetcore-5.0) for more details on how to use .NET APIs.",
         "recommendation": "Implement Data Protection for trusted state information.",
         "id": "dc1712e2-4577-4b5c-b8a1-3bf7ae40f578"
       }
@@ -3822,7 +3825,7 @@
     ],
     "lens": "application",
     "category": "Health Modelling & Monitoring",
-    "subCategory": "Resource/Infrastructure Level Monitoring",
+    "subCategory": "Resource and Infrastructure Level Monitoring",
     "title": "Does the security team have access to and monitor all subscriptions and tenants that are connected to the existing cloud environment, relative to this workload?",
     "context": "Ensure the security organization is aware of all enrollments and associated subscriptions connected to the existing environment and is able to monitor those resources as part of the overall enterprise security posture.",
     "recommendation": "Ensure all Azure environments that connect to your production environment/network apply your organization’s policy and IT governance controls for security.",
@@ -4557,7 +4560,7 @@
     ],
     "lens": "application",
     "category": "Deployment & Testing",
-    "subCategory": "Application Infrastructure Deployments & Infrastructure as Code (IaC)",
+    "subCategory": "Testing & Validation",
     "title": "Are test-environments deployed automatically and deleted after use? Use of tagging for end date?",
     "context": "Automating test cases reduces time, cost and helps inefficient resource utilization. It also provides a structured approach to testing with test scripts. Test environments can quickly become overhead if not monitored properly, therefore stopping these resources when they are not in use enables cost saving. In order to drive down cost a good place to look is test environments that might not be used anymore. Implementing a process can help by tagging all test environments with an end date and an owner and after this date follow up with the owner if the environment is still needed and if so set a new end-of-life date.",
     "recommendation": "Make sure to delete/deallocate resources used in test environments.",
@@ -5478,21 +5481,19 @@
         "title": "Are you using any caching mechanisms?",
         "context": "Use caching whenever possible, whether it is client-side caching, view caching, or data caching. Caching can also be configured on the browser, the server, or on an appliance in-between (e.g. Azure Frontdoor). Incorporating caching can help reduce latency and server taxation by eliminating repetitive class to microservices, APIs, and data stores.",
         "recommendation": "",
-        "children": [
-          {
-            "title": "Of the following static and page caching mechanisms, which are you currently using?<br />- Browser<br />- Azure CDN<br />- Azure Front Door<br />- Other",
-            "context": "There are various types of caching mechanisms that can be configured with a web page and its components. Such examples include expiry dates, tags, modification dates, content, or other variances like IP addresses or encoding types.",
-            "recommendation": "",
-            "id": ""
-          },
-          {
-            "title": "Which of the following are you using for data caching?<br />- Azure Redis Cache<br />- IIS Caching Server<br />- SQL Caching Server<br />- Disk<br />- Other solution",
-            "context": "Azure Cache for Redis is a preferred solution for data caching as it improves performance by storing data in memory instead of on disk like SQL Server. Certain development frameworks like .NET also have mechanisms for caching data at the server level.",
-            "recommendation": "",
-            "id": ""
-          }
-        ],
-        "id": "cbd2ab7c-2fde-4aef-817a-5053656b3dfa"
+        "id": "89917711-c113-4b13-bb6e-4b717d466a7b"
+      },
+      {
+        "title": "Of the following static and page caching mechanisms, which are you currently using?<br />- Browser<br />- Azure CDN<br />- Azure Front Door<br />- Other",
+        "context": "There are various types of caching mechanisms that can be configured with a web page and its components. Such examples include expiry dates, tags, modification dates, content, or other variances like IP addresses or encoding types.",
+        "recommendation": "",
+        "id": "17859c2a-0c4a-41e4-9e8c-fc10e0d055bd"
+      },
+      {
+        "title": "Which of the following are you using for data caching?<br />- Azure Redis Cache<br />- IIS Caching Server<br />- SQL Caching Server<br />- Disk<br />- Other solution",
+        "context": "Azure Cache for Redis is a preferred solution for data caching as it improves performance by storing data in memory instead of on disk like SQL Server. Certain development frameworks like .NET also have mechanisms for caching data at the server level.",
+        "recommendation": "",
+        "id": "654cc0be-fa8d-4c07-a1f9-5b0fbdd477de"
       }
     ],
     "id": "ecf65a3d-5f04-4b5a-97a6-e946943a40e8"
@@ -5578,11 +5579,12 @@
   {
     "type": "Questions",
     "pillars": [
-      "performanceefficiency"
+      "performanceefficiency",
+      "reliability"
     ],
     "lens": "application",
     "category": "Health Modelling & Monitoring",
-    "subCategory": "Logging",
+    "subCategory": "Monitoring and Measurement",
     "title": "Do you have detailed instrumentation in the application code?",
     "context": "Instrumentation of your code allows precise detection of underperforming pieces when load or stress tests are applied. It is critical to have this data available to improve and identify performance opportunities in the application code. Application Performance Monitoring (APM) tools, such as Application Insights, should be used to manage the performance and availability of the application, along with aggregating application level logs and events for subsequent interpretation.",
     "recommendation": "",

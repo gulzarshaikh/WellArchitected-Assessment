@@ -48,18 +48,6 @@
     "id": "8997a0d8-ffdc-48cf-9fd0-c94e621907a4"
   },
   {
-    "type": "Design Considerations",
-    "pillars": [
-      "reliability"
-    ],
-    "lens": "service",
-    "category": "Hybrid",
-    "subCategory": "Azure Stack Hub",
-    "title": "Azure Stack Hub does currently not support [Virtual network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).",
-    "context": "Two networks (on the same Azure Stack Hub \"stamp\") can also not be connected via Azure (Stack) VPN GWs as they're sharing the same IP address. Virtual networks on Azure Stack Hub can be connected using 3rd-party NVAs (e.g. [Fortinet Fortigate](https://docs.microsoft.com/azure-stack/user/azure-stack-network-howto-vnet-to-vnet?view=azs-2002)).",
-    "id": "0132f288-b0b7-44f7-9dce-e524eb667bb6"
-  },
-  {
     "type": "Configuration Recommendations",
     "pillars": [
       "reliability",

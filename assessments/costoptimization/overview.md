@@ -30,7 +30,6 @@ This assessment has been produced to help the global CE&S community to optimize 
     - [Operational Lifecycles](./application.md#Operational-Lifecycles)
   - [Deployment &amp; Testing](./application.md#Deployment--Testing)
     - [Application Deployments](./application.md#Application-Deployments)
-    - [Application Infrastructure Deployments &amp; Infrastructure as Code (IaC)](./application.md#Application-Infrastructure-Deployments--Infrastructure-as-Code-IaC)
     - [Build Environments](./application.md#Build-Environments)
     - [Testing &amp; Validation](./application.md#Testing--Validation)
   - [Operational Model &amp; DevOps](./application.md#Operational-Model--DevOps)
