@@ -154,7 +154,9 @@
 
 
   _[Distributed tracing](https://docs.microsoft.com/azure/architecture/microservices/logging-monitoring#distributed-tracing) provides the ability to build and visualize end-to-end transaction flows for the application._
-  > Events coming from different application components or different component tiers of the application should be correlated to build end-to-end transaction flows. For instance, this is often achieved by using consistent correlation IDs transferred between components within a transaction.<br /><br />Event correlation between the layers of the application will provide the ability to connect tracing data of the complete application stack. Once this connection is made, you can see a complete picture of where time is spent at each layer. This will typically mean having a tool that can query the repositories of tracing data in correlation to a unique identifier that represents a given transaction that has flowed through the system.
+  > Events coming from different application components or different component tiers of the application should be correlated to build end-to-end transaction flows. For instance, this is often achieved by using consistent correlation IDs transferred between components within a transaction.
+
+Event correlation between the layers of the application will provide the ability to connect tracing data of the complete application stack. Once this connection is made, you can see a complete picture of where time is spent at each layer. This will typically mean having a tool that can query the repositories of tracing data in correlation to a unique identifier that represents a given transaction that has flowed through the system.
 * Is it possible to evaluate critical application performance targets and non-functional requirements (NFRs)?
 
 
@@ -353,7 +355,9 @@ Stress Testing : *Stress testing is a type of negative testing which involves va
 * Have you identified the required human and environment resources needed to create performance tests?
 
 
-  _Successfully implementing meaningful performance tests requires a number of resources. If is not just a single developer or QA Analyst running some tests on their local machine. Instead, performance tests need a test environment (also known as a test bed) that tests can be executed against without interfering with production environments and data. Performance testing requires input and commitment from developers, architects, database administrators, and network administrators. In short, solid performance testing is a team responsibility.<br /><br />Additionally, to run scaled tests, a machine with enough resources (e.g. memory, processors, network connections, etc.) needs to be made available. While this machine can be located within a data center or on-premises, it is often advantageous to perform performance testing from instances located from multiple geographies. This better simulates what an end-user can expect._
+  _Successfully implementing meaningful performance tests requires a number of resources. If is not just a single developer or QA Analyst running some tests on their local machine. Instead, performance tests need a test environment (also known as a test bed) that tests can be executed against without interfering with production environments and data. Performance testing requires input and commitment from developers, architects, database administrators, and network administrators. In short, solid performance testing is a team responsibility.
+
+Additionally, to run scaled tests, a machine with enough resources (e.g. memory, processors, network connections, etc.) needs to be made available. While this machine can be located within a data center or on-premises, it is often advantageous to perform performance testing from instances located from multiple geographies. This better simulates what an end-user can expect._
 ### Tooling
             
 * Are you currently using tools for conducting performance testing?
@@ -385,7 +389,9 @@ Stress Testing : *Stress testing is a type of negative testing which involves va
 * Have you identified goals or baselines for application performance?
 
 
-  _There are many types of goals when determining baselines for application performance. Perhaps baselines center around a certain number of visitors within a given time period, the time it takes to render a page, type  required for executing a stored procedure, or a desired number of transactions if your site conducts some type of e-commerce. It is important to identify and maintain a shared understanding of these baselines so that you can architect a system that meets them.<br /><br />Baselines can vary based on types of connections or platforms that a user may leverage for accessing the application. It may be important to establish baselines that address the diversity of connections, platforms, and other elements (like time of day, or weekday versus weekend)._
+  _There are many types of goals when determining baselines for application performance. Perhaps baselines center around a certain number of visitors within a given time period, the time it takes to render a page, type  required for executing a stored procedure, or a desired number of transactions if your site conducts some type of e-commerce. It is important to identify and maintain a shared understanding of these baselines so that you can architect a system that meets them.
+
+Baselines can vary based on types of connections or platforms that a user may leverage for accessing the application. It may be important to establish baselines that address the diversity of connections, platforms, and other elements (like time of day, or weekday versus weekend)._
     - Are your goals based on device and/or connectivity type, or are they considered the same across the board?
 
 
@@ -394,11 +400,13 @@ Stress Testing : *Stress testing is a type of negative testing which involves va
 * Do you have goals defined for establishing an initial connection to a service?
 
 
-  _It would be helpful to determine a goal that is based upon from when the connection reaches the server, to when the service spins/cycles up, to providing a response. By establishing this baseline, you and your customer can determine if adequate resources have been assigned to the machine. These resources can included, but are not limited to processors, RAM, and disk IOPS. Finally, creating rules for &quot;Always-On&quot; or properly configuring idle time-outs (e.g. IIS, containers, etc.) will be especially helpful for optimizing response times._
+  _It would be helpful to determine a goal that is based upon from when the connection reaches the server, to when the service spins/cycles up, to providing a response. By establishing this baseline, you and your customer can determine if adequate resources have been assigned to the machine. These resources can included, but are not limited to processors, RAM, and disk IOPS. Finally, creating rules for "Always-On" or properly configuring idle time-outs (e.g. IIS, containers, etc.) will be especially helpful for optimizing response times._
 * Do you have goals defined for a complete page load?
 
 
-  _What are your goals for a completed page load? When formulating this metric, it is important to note the varying thresholds that can be deemed acceptable. Some companies--whose primary audience is internal and are salary-based--may base their thresholds on the user's mental capacity to sit at the application screen. Other customers that have service-related users (i.e. users who are paid for performance) may base their thresholds on the ability to keep the user working as fast as possible (mental state is not the primary motivator) because increased productivity typically increases revenue.<br /><br />Typically, most industry standards target page load times to 1-2 seconds, while 3-5 seconds is &quot;acceptable,&quot; and more than 5 is unacceptable. If applications are being hosted in Azure App Services, there are a number of tactics that can increase page performance._
+  _What are your goals for a completed page load? When formulating this metric, it is important to note the varying thresholds that can be deemed acceptable. Some companies--whose primary audience is internal and are salary-based--may base their thresholds on the user's mental capacity to sit at the application screen. Other customers that have service-related users (i.e. users who are paid for performance) may base their thresholds on the ability to keep the user working as fast as possible (mental state is not the primary motivator) because increased productivity typically increases revenue.
+
+Typically, most industry standards target page load times to 1-2 seconds, while 3-5 seconds is "acceptable," and more than 5 is unacceptable. If applications are being hosted in Azure App Services, there are a number of tactics that can increase page performance._
     - What are your goals for a completed page load?
 
 
@@ -422,7 +430,7 @@ Stress Testing : *Stress testing is a type of negative testing which involves va
 * Do you have goals defined for server response times?
 
 
-  _Similar to previous questions regarding the initial connection to a service, you will also want to understand how long it takes for the server to receive, process, and then return data. This round-trip can also help ensure that enough hardware resources have been assigned to the environment. Additionally, it is possible to identify &quot;noisy neighbors&quot;--applications running on the same disk (typically in a virtualized environment) or sharing the same network--that are consuming available resources. Finally, another bottleneck in many environments is traffic on a network that is being shared with a data store (e.g. SQL). If an application server and its database server share the same network as general traffic, then the overall performance of the application can be greatly affected._
+  _Similar to previous questions regarding the initial connection to a service, you will also want to understand how long it takes for the server to receive, process, and then return data. This round-trip can also help ensure that enough hardware resources have been assigned to the environment. Additionally, it is possible to identify "noisy neighbors"--applications running on the same disk (typically in a virtualized environment) or sharing the same network--that are consuming available resources. Finally, another bottleneck in many environments is traffic on a network that is being shared with a data store (e.g. SQL). If an application server and its database server share the same network as general traffic, then the overall performance of the application can be greatly affected._
     - What are your goals for a full server response?
 
 
@@ -469,7 +477,7 @@ Stress Testing : *Stress testing is a type of negative testing which involves va
     - Do you understand why your application responds to its typical load in the ways that it does?
 
 
-      _Identifying a typical load helps you determine realistic expectations for performance testing. A &quot;typical load&quot; can be measured in individual users, web requests, user sessions, or transactions. When documenting typical loads, also ensure that all predictable periods have typical loads documented._
+      _Identifying a typical load helps you determine realistic expectations for performance testing. A "typical load" can be measured in individual users, web requests, user sessions, or transactions. When documenting typical loads, also ensure that all predictable periods have typical loads documented._
 
 ### Service SKU
             
@@ -511,7 +519,7 @@ Stress Testing : *Stress testing is a type of negative testing which involves va
 * Considering the three types of testing--performance, load, and stress--which have you performed on your application?
 
 
-  _In general, the concept of &quot;performance testing&quot; includes three smaller, definitive categories--performance testing, load testing, and stress testing. Most customers, however, equate load testing to performance testing. It is important to understand the differences and being able to articulate them._
+  _In general, the concept of "performance testing" includes three smaller, definitive categories--performance testing, load testing, and stress testing. Most customers, however, equate load testing to performance testing. It is important to understand the differences and being able to articulate them._
 * Have you completed a stress test on the application?
 
 
@@ -528,7 +536,7 @@ Stress Testing : *Stress testing is a type of negative testing which involves va
     - Given your determination of acceptable operational margin and response under standard levels of load, has the environment been configured adequately?
 
 
-      _Determine if the environment is rightly configured to handle &quot;standard&quot; loads. (e.g. Are the correct SKUs selected based on desired margins?) Over allocation can unnecessarily increase costs and maintenance; under allocation can result in poor user experience._
+      _Determine if the environment is rightly configured to handle "standard" loads. (e.g. Are the correct SKUs selected based on desired margins?) Over allocation can unnecessarily increase costs and maintenance; under allocation can result in poor user experience._
 
     - How well does the application respond under fluctuating increased levels of loads?
 
@@ -561,7 +569,7 @@ Stress Testing : *Stress testing is a type of negative testing which involves va
 * How do you know when you have reached acceptable efficiency?
 
 
-  _There is almost no limit to how much an application can be performance-tuned. How do you know when you have tuned an application enough? It really comes down to the 80/20 rule--generally, 80% of the application can be optimized by focusing on just 20%. While you can continue optimizing certain elements of the application, after optimizing the initial 20%, a company typically sees a diminishing return on any further optimization. The question the customer must answer is how much of the remaining 80% of the application is worth optimizing for the business. In other words, how much will optimizing the remaining 80% help the business reach its goals (e.g. customer acquisition/retention, sales, etc.)? The business must determine their own realistic definition of &quot;acceptable.&quot;_
+  _There is almost no limit to how much an application can be performance-tuned. How do you know when you have tuned an application enough? It really comes down to the 80/20 rule--generally, 80% of the application can be optimized by focusing on just 20%. While you can continue optimizing certain elements of the application, after optimizing the initial 20%, a company typically sees a diminishing return on any further optimization. The question the customer must answer is how much of the remaining 80% of the application is worth optimizing for the business. In other words, how much will optimizing the remaining 80% help the business reach its goals (e.g. customer acquisition/retention, sales, etc.)? The business must determine their own realistic definition of "acceptable."_
 ### DevOps
             
 * Do you have performance validation stages in your deploy and build pipelines?
@@ -579,12 +587,21 @@ Stress Testing : *Stress testing is a type of negative testing which involves va
 
       _Use caching whenever possible, whether it is client-side caching, view caching, or data caching. Caching can also be configured on the browser, the server, or on an appliance in-between (e.g. Azure Frontdoor). Incorporating caching can help reduce latency and server taxation by eliminating repetitive class to microservices, APIs, and data stores._
 
-    - Of the following static and page caching mechanisms, which are you currently using?&lt;br /&gt;- Browser&lt;br /&gt;- Azure CDN&lt;br /&gt;- Azure Front Door&lt;br /&gt;- Other
+    - Of the following static and page caching mechanisms, which are you currently using?
+- Browser
+- Azure CDN
+- Azure Front Door
+- Other
 
 
       _There are various types of caching mechanisms that can be configured with a web page and its components. Such examples include expiry dates, tags, modification dates, content, or other variances like IP addresses or encoding types._
 
-    - Which of the following are you using for data caching?&lt;br /&gt;- Azure Redis Cache&lt;br /&gt;- IIS Caching Server&lt;br /&gt;- SQL Caching Server&lt;br /&gt;- Disk&lt;br /&gt;- Other solution
+    - Which of the following are you using for data caching?
+- Azure Redis Cache
+- IIS Caching Server
+- SQL Caching Server
+- Disk
+- Other solution
 
 
       _Azure Cache for Redis is a preferred solution for data caching as it improves performance by storing data in memory instead of on disk like SQL Server. Certain development frameworks like .NET also have mechanisms for caching data at the server level._
@@ -607,7 +624,7 @@ Stress Testing : *Stress testing is a type of negative testing which involves va
 
 
 
-    - How long does it take for system resources to return to &amp;quot;normal?&amp;quot;
+    - How long does it take for system resources to return to &#34;normal?&#34;
 
 
 
@@ -619,7 +636,7 @@ Stress Testing : *Stress testing is a type of negative testing which involves va
 
 
 
-    - How long does it take for response times to return to &amp;quot;normal?&amp;quot;
+    - How long does it take for response times to return to &#34;normal?&#34;
 
 
 
