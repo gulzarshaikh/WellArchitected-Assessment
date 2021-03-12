@@ -394,7 +394,7 @@
     "subCategory": "Application Level Monitoring",
     "title": "Are application events correlated across all application components?",
     "context": "[Distributed tracing](https://docs.microsoft.com/azure/architecture/microservices/logging-monitoring#distributed-tracing) provides the ability to build and visualize end-to-end transaction flows for the application.",
-    "recommendation": "Events coming from different application components or different component tiers of the application should be correlated to build end-to-end transaction flows. For instance, this is often achieved by using consistent correlation IDs transferred between components within a transaction.<br /><br />Event correlation between the layers of the application will provide the ability to connect tracing data of the complete application stack. Once this connection is made, you can see a complete picture of where time is spent at each layer. This will typically mean having a tool that can query the repositories of tracing data in correlation to a unique identifier that represents a given transaction that has flowed through the system.",
+    "recommendation": "Events coming from different application components or different component tiers of the application should be correlated to build end-to-end transaction flows. For instance, this is often achieved by using consistent correlation IDs transferred between components within a transaction.\n\nEvent correlation between the layers of the application will provide the ability to connect tracing data of the complete application stack. Once this connection is made, you can see a complete picture of where time is spent at each layer. This will typically mean having a tool that can query the repositories of tracing data in correlation to a unique identifier that represents a given transaction that has flowed through the system.",
     "id": "5be71433-2f3f-4d9c-958a-d6c563f23f5d"
   },
   {
@@ -5062,7 +5062,7 @@
     "category": "Performance Testing",
     "subCategory": "Resource Planning",
     "title": "Have you identified the required human and environment resources needed to create performance tests?",
-    "context": "Successfully implementing meaningful performance tests requires a number of resources. If is not just a single developer or QA Analyst running some tests on their local machine. Instead, performance tests need a test environment (also known as a test bed) that tests can be executed against without interfering with production environments and data. Performance testing requires input and commitment from developers, architects, database administrators, and network administrators. In short, solid performance testing is a team responsibility.<br /><br />Additionally, to run scaled tests, a machine with enough resources (e.g. memory, processors, network connections, etc.) needs to be made available. While this machine can be located within a data center or on-premises, it is often advantageous to perform performance testing from instances located from multiple geographies. This better simulates what an end-user can expect.",
+    "context": "Successfully implementing meaningful performance tests requires a number of resources. If is not just a single developer or QA Analyst running some tests on their local machine. Instead, performance tests need a test environment (also known as a test bed) that tests can be executed against without interfering with production environments and data. Performance testing requires input and commitment from developers, architects, database administrators, and network administrators. In short, solid performance testing is a team responsibility.\n\nAdditionally, to run scaled tests, a machine with enough resources (e.g. memory, processors, network connections, etc.) needs to be made available. While this machine can be located within a data center or on-premises, it is often advantageous to perform performance testing from instances located from multiple geographies. This better simulates what an end-user can expect.",
     "recommendation": "",
     "id": "fa9b1582-6c91-4810-b993-d431a827dbc0"
   },
@@ -5108,7 +5108,7 @@
     "category": "Performance Testing",
     "subCategory": "Benchmarking",
     "title": "Have you identified goals or baselines for application performance?",
-    "context": "There are many types of goals when determining baselines for application performance. Perhaps baselines center around a certain number of visitors within a given time period, the time it takes to render a page, type  required for executing a stored procedure, or a desired number of transactions if your site conducts some type of e-commerce. It is important to identify and maintain a shared understanding of these baselines so that you can architect a system that meets them.<br /><br />Baselines can vary based on types of connections or platforms that a user may leverage for accessing the application. It may be important to establish baselines that address the diversity of connections, platforms, and other elements (like time of day, or weekday versus weekend).",
+    "context": "There are many types of goals when determining baselines for application performance. Perhaps baselines center around a certain number of visitors within a given time period, the time it takes to render a page, type  required for executing a stored procedure, or a desired number of transactions if your site conducts some type of e-commerce. It is important to identify and maintain a shared understanding of these baselines so that you can architect a system that meets them.\n\nBaselines can vary based on types of connections or platforms that a user may leverage for accessing the application. It may be important to establish baselines that address the diversity of connections, platforms, and other elements (like time of day, or weekday versus weekend).",
     "recommendation": "",
     "children": [
       {
@@ -5129,7 +5129,7 @@
     "category": "Performance Testing",
     "subCategory": "Benchmarking",
     "title": "Do you have goals defined for establishing an initial connection to a service?",
-    "context": "It would be helpful to determine a goal that is based upon from when the connection reaches the server, to when the service spins/cycles up, to providing a response. By establishing this baseline, you and your customer can determine if adequate resources have been assigned to the machine. These resources can included, but are not limited to processors, RAM, and disk IOPS. Finally, creating rules for &quot;Always-On&quot; or properly configuring idle time-outs (e.g. IIS, containers, etc.) will be especially helpful for optimizing response times.",
+    "context": "It would be helpful to determine a goal that is based upon from when the connection reaches the server, to when the service spins/cycles up, to providing a response. By establishing this baseline, you and your customer can determine if adequate resources have been assigned to the machine. These resources can included, but are not limited to processors, RAM, and disk IOPS. Finally, creating rules for \"Always-On\" or properly configuring idle time-outs (e.g. IIS, containers, etc.) will be especially helpful for optimizing response times.",
     "recommendation": "",
     "id": "a0d1abc3-a486-42ca-bb08-41821dbc9984"
   },
@@ -5142,7 +5142,7 @@
     "category": "Performance Testing",
     "subCategory": "Benchmarking",
     "title": "Do you have goals defined for a complete page load?",
-    "context": "What are your goals for a completed page load? When formulating this metric, it is important to note the varying thresholds that can be deemed acceptable. Some companies--whose primary audience is internal and are salary-based--may base their thresholds on the user's mental capacity to sit at the application screen. Other customers that have service-related users (i.e. users who are paid for performance) may base their thresholds on the ability to keep the user working as fast as possible (mental state is not the primary motivator) because increased productivity typically increases revenue.<br /><br />Typically, most industry standards target page load times to 1-2 seconds, while 3-5 seconds is &quot;acceptable,&quot; and more than 5 is unacceptable. If applications are being hosted in Azure App Services, there are a number of tactics that can increase page performance.",
+    "context": "What are your goals for a completed page load? When formulating this metric, it is important to note the varying thresholds that can be deemed acceptable. Some companies--whose primary audience is internal and are salary-based--may base their thresholds on the user's mental capacity to sit at the application screen. Other customers that have service-related users (i.e. users who are paid for performance) may base their thresholds on the ability to keep the user working as fast as possible (mental state is not the primary motivator) because increased productivity typically increases revenue.\n\nTypically, most industry standards target page load times to 1-2 seconds, while 3-5 seconds is \"acceptable,\" and more than 5 is unacceptable. If applications are being hosted in Azure App Services, there are a number of tactics that can increase page performance.",
     "recommendation": "",
     "children": [
       {
@@ -5196,7 +5196,7 @@
     "category": "Performance Testing",
     "subCategory": "Benchmarking",
     "title": "Do you have goals defined for server response times?",
-    "context": "Similar to previous questions regarding the initial connection to a service, you will also want to understand how long it takes for the server to receive, process, and then return data. This round-trip can also help ensure that enough hardware resources have been assigned to the environment. Additionally, it is possible to identify &quot;noisy neighbors&quot;--applications running on the same disk (typically in a virtualized environment) or sharing the same network--that are consuming available resources. Finally, another bottleneck in many environments is traffic on a network that is being shared with a data store (e.g. SQL). If an application server and its database server share the same network as general traffic, then the overall performance of the application can be greatly affected.",
+    "context": "Similar to previous questions regarding the initial connection to a service, you will also want to understand how long it takes for the server to receive, process, and then return data. This round-trip can also help ensure that enough hardware resources have been assigned to the environment. Additionally, it is possible to identify \"noisy neighbors\"--applications running on the same disk (typically in a virtualized environment) or sharing the same network--that are consuming available resources. Finally, another bottleneck in many environments is traffic on a network that is being shared with a data store (e.g. SQL). If an application server and its database server share the same network as general traffic, then the overall performance of the application can be greatly affected.",
     "recommendation": "",
     "children": [
       {
@@ -5288,7 +5288,7 @@
       },
       {
         "title": "Do you understand why your application responds to its typical load in the ways that it does?",
-        "context": "Identifying a typical load helps you determine realistic expectations for performance testing. A &quot;typical load&quot; can be measured in individual users, web requests, user sessions, or transactions. When documenting typical loads, also ensure that all predictable periods have typical loads documented.",
+        "context": "Identifying a typical load helps you determine realistic expectations for performance testing. A \"typical load\" can be measured in individual users, web requests, user sessions, or transactions. When documenting typical loads, also ensure that all predictable periods have typical loads documented.",
         "recommendation": "",
         "id": "3e8145b6-2c3b-4385-90da-732bad7eed80"
       }
@@ -5396,7 +5396,7 @@
     "category": "Performance Testing",
     "subCategory": "Load Capacity",
     "title": "Considering the three types of testing--performance, load, and stress--which have you performed on your application?",
-    "context": "In general, the concept of &quot;performance testing&quot; includes three smaller, definitive categories--performance testing, load testing, and stress testing. Most customers, however, equate load testing to performance testing. It is important to understand the differences and being able to articulate them.",
+    "context": "In general, the concept of \"performance testing\" includes three smaller, definitive categories--performance testing, load testing, and stress testing. Most customers, however, equate load testing to performance testing. It is important to understand the differences and being able to articulate them.",
     "recommendation": "",
     "id": "baea1dea-69db-4803-b5ee-fcd61215e6c6"
   },
@@ -5433,7 +5433,7 @@
       },
       {
         "title": "Given your determination of acceptable operational margin and response under standard levels of load, has the environment been configured adequately?",
-        "context": "Determine if the environment is rightly configured to handle &quot;standard&quot; loads. (e.g. Are the correct SKUs selected based on desired margins?) Over allocation can unnecessarily increase costs and maintenance; under allocation can result in poor user experience.",
+        "context": "Determine if the environment is rightly configured to handle \"standard\" loads. (e.g. Are the correct SKUs selected based on desired margins?) Over allocation can unnecessarily increase costs and maintenance; under allocation can result in poor user experience.",
         "recommendation": "",
         "id": "d66b1539-9917-4e37-a712-4724a7881d51"
       },
@@ -5484,13 +5484,13 @@
         "id": "89917711-c113-4b13-bb6e-4b717d466a7b"
       },
       {
-        "title": "Of the following static and page caching mechanisms, which are you currently using?<br />- Browser<br />- Azure CDN<br />- Azure Front Door<br />- Other",
+        "title": "Of the following static and page caching mechanisms, which are you currently using?\n- Browser\n- Azure CDN\n- Azure Front Door\n- Other",
         "context": "There are various types of caching mechanisms that can be configured with a web page and its components. Such examples include expiry dates, tags, modification dates, content, or other variances like IP addresses or encoding types.",
         "recommendation": "",
         "id": "17859c2a-0c4a-41e4-9e8c-fc10e0d055bd"
       },
       {
-        "title": "Which of the following are you using for data caching?<br />- Azure Redis Cache<br />- IIS Caching Server<br />- SQL Caching Server<br />- Disk<br />- Other solution",
+        "title": "Which of the following are you using for data caching?\n- Azure Redis Cache\n- IIS Caching Server\n- SQL Caching Server\n- Disk\n- Other solution",
         "context": "Azure Cache for Redis is a preferred solution for data caching as it improves performance by storing data in memory instead of on disk like SQL Server. Certain development frameworks like .NET also have mechanisms for caching data at the server level.",
         "recommendation": "",
         "id": "654cc0be-fa8d-4c07-a1f9-5b0fbdd477de"
@@ -5559,7 +5559,7 @@
     "category": "Performance Testing",
     "subCategory": "Design Efficiency",
     "title": "How do you know when you have reached acceptable efficiency?",
-    "context": "There is almost no limit to how much an application can be performance-tuned. How do you know when you have tuned an application enough? It really comes down to the 80/20 rule--generally, 80% of the application can be optimized by focusing on just 20%. While you can continue optimizing certain elements of the application, after optimizing the initial 20%, a company typically sees a diminishing return on any further optimization. The question the customer must answer is how much of the remaining 80% of the application is worth optimizing for the business. In other words, how much will optimizing the remaining 80% help the business reach its goals (e.g. customer acquisition/retention, sales, etc.)? The business must determine their own realistic definition of &quot;acceptable.&quot;",
+    "context": "There is almost no limit to how much an application can be performance-tuned. How do you know when you have tuned an application enough? It really comes down to the 80/20 rule--generally, 80% of the application can be optimized by focusing on just 20%. While you can continue optimizing certain elements of the application, after optimizing the initial 20%, a company typically sees a diminishing return on any further optimization. The question the customer must answer is how much of the remaining 80% of the application is worth optimizing for the business. In other words, how much will optimizing the remaining 80% help the business reach its goals (e.g. customer acquisition/retention, sales, etc.)? The business must determine their own realistic definition of \"acceptable.\"",
     "recommendation": "",
     "id": "f9f2ff8b-d2c5-4663-916b-0fd0268f8897"
   },
@@ -5635,7 +5635,7 @@
         "id": "9227d1ee-8958-43e9-a799-b21347a7de77"
       },
       {
-        "title": "How long does it take for system resources to return to &quot;normal?&quot;",
+        "title": "How long does it take for system resources to return to \"normal?\"",
         "context": "",
         "recommendation": "",
         "id": "37deae05-9b30-4d87-97ca-a09a8624ae9a"
@@ -5662,7 +5662,7 @@
         "id": "64c54e9f-fda6-4238-abfe-d07789d03405"
       },
       {
-        "title": "How long does it take for response times to return to &quot;normal?&quot;",
+        "title": "How long does it take for response times to return to \"normal?\"",
         "context": "",
         "recommendation": "",
         "id": "1f578457-2fc2-4192-a002-39d08ec07c26"
