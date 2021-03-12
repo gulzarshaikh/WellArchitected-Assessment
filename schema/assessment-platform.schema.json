@@ -191,7 +191,6 @@
                                   "default": {},
                                   "examples": [],
                                   "required": [
-                                      "waf_github_content_id",
                                       "title",
                                       "context",
                                       "recommendations",
