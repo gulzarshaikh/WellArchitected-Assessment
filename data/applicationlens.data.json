@@ -5484,13 +5484,13 @@
         "id": "89917711-c113-4b13-bb6e-4b717d466a7b"
       },
       {
-        "title": "Of the following static and page caching mechanisms, which are you currently using?\n\t- Browser\n\t- Azure CDN\n\t- Azure Front Door\n\t- Other",
+        "title": "Of the following static and page caching mechanisms, which are you currently using?\n\t\t- Browser\n\t\t- Azure CDN\n\t\t- Azure Front Door\n\t\t- Other",
         "context": "There are various types of caching mechanisms that can be configured with a web page and its components. Such examples include expiry dates, tags, modification dates, content, or other variances like IP addresses or encoding types.",
         "recommendation": "",
         "id": "17859c2a-0c4a-41e4-9e8c-fc10e0d055bd"
       },
       {
-        "title": "Which of the following are you using for data caching?\n\t- Azure Redis Cache\n\t- IIS Caching Server\n\t- SQL Caching Server\n\t- Disk\n\t- Other solution",
+        "title": "Which of the following are you using for data caching?\n\t\t- Azure Redis Cache\n\t\t- IIS Caching Server\n\t\t- SQL Caching Server\n\t\t- Disk\n\t\t- Other solution",
         "context": "Azure Cache for Redis is a preferred solution for data caching as it improves performance by storing data in memory instead of on disk like SQL Server. Certain development frameworks like .NET also have mechanisms for caching data at the server level.",
         "recommendation": "",
         "id": "654cc0be-fa8d-4c07-a1f9-5b0fbdd477de"
