@@ -184,9 +184,7 @@ These critical design principles are used as lenses to assess the Operational Ex
 
       _Monitoring and measuring application availability is vital to qualifying overall application health and progress towards defined targets._
 
-      > Make sure you measure and monitor key targets such as
-- **Mean Time Between Failures (MTBF)**: The average time between failures of a particular component
-- **Mean Time Between Failures (MTBF)**: The average time between failures of a particular component
+      > Make sure you measure and monitor key targets such as<br />- **Mean Time Between Failures (MTBF)**: The average time between failures of a particular component<br />- **Mean Time Between Failures (MTBF)**: The average time between failures of a particular component
     - What are the consequences if availability targets are not satisfied?
 
 
@@ -196,9 +194,7 @@ These critical design principles are used as lenses to assess the Operational Ex
 * Are recovery targets such as Recovery Time Objective (RTO) and Recovery Point Objective (RPO) defined for the application and/or key scenarios?
 
 
-  _Understanding customer reliability expectations is vital to reviewing the overall reliability of the application. For instance, if a customer is striving to achieve an application RTO of less than a minute then back-up based and active-passive disaster recovery strategies are unlikely to be appropriate 
-Recovery time objective (RTO): The maximum acceptable time the application is unavailable after a disaster incident 
-Recovery point objective (RPO): The maximum duration of data loss that is acceptable during a disaster event_
+  _Understanding customer reliability expectations is vital to reviewing the overall reliability of the application. For instance, if a customer is striving to achieve an application RTO of less than a minute then back-up based and active-passive disaster recovery strategies are unlikely to be appropriate<br />**Recovery time objective (RTO)**: The maximum acceptable time the application is unavailable after a disaster incident<br />**Recovery point objective (RPO)**: The maximum duration of data loss that is acceptable during a disaster event_
   > Recovery targets should be defined in accordance to the required RTO and RPO targets for the workloads.
 * Are there well defined performance requirements for the application and/or key scenarios?
 
@@ -327,9 +323,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
 
   _[Distributed tracing](https://docs.microsoft.com/azure/architecture/microservices/logging-monitoring#distributed-tracing) provides the ability to build and visualize end-to-end transaction flows for the application._
-  > Events coming from different application components or different component tiers of the application should be correlated to build end-to-end transaction flows. For instance, this is often achieved by using consistent correlation IDs transferred between components within a transaction.
-
-Event correlation between the layers of the application will provide the ability to connect tracing data of the complete application stack. Once this connection is made, you can see a complete picture of where time is spent at each layer. This will typically mean having a tool that can query the repositories of tracing data in correlation to a unique identifier that represents a given transaction that has flowed through the system.
+  > Events coming from different application components or different component tiers of the application should be correlated to build end-to-end transaction flows. For instance, this is often achieved by using consistent correlation IDs transferred between components within a transaction.<br /><br />Event correlation between the layers of the application will provide the ability to connect tracing data of the complete application stack. Once this connection is made, you can see a complete picture of where time is spent at each layer. This will typically mean having a tool that can query the repositories of tracing data in correlation to a unique identifier that represents a given transaction that has flowed through the system.
 * Is it possible to evaluate critical application performance targets and non-functional requirements (NFRs)?
 
 
@@ -811,9 +805,7 @@ Event correlation between the layers of the application will provide the ability
 * Is the application tested for performance, scalability, and resiliency?
 
 
-  _Performance Testing: Performance testing is the superset of both load and stress testing. The primary goal of performance testing is to validate benchmark behavior for the application ([Performance Testing](https://docs.microsoft.com/azure/architecture/checklist/dev-ops#testing))
-Load Testing : Load testing validates application scalability by rapidly and/or gradually increasing the load on the application until it reaches a threshold/limit 
-Stress Testing : *Stress testing is a type of negative testing which involves various activities to overload existing resources and remove components to understand overall resiliency and how the application responds to issues_
+  _Performance Testing: Performance testing is the superset of both load and stress testing. The primary goal of performance testing is to validate benchmark behavior for the application ([Performance Testing](https://docs.microsoft.com/azure/architecture/checklist/dev-ops#testing))<br />**Load Testing**: Load testing validates application scalability by rapidly and/or gradually increasing the load on the application until it reaches a threshold/limit<br />**Stress Testing**: *Stress testing is a type of negative testing which involves various activities to overload existing resources and remove components to understand overall resiliency and how the application responds to issues_
     - How does your team perceive the importance of performance testing?
 
 
