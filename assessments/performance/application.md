@@ -588,20 +588,20 @@ Typically, most industry standards target page load times to 1-2 seconds, while 
       _Use caching whenever possible, whether it is client-side caching, view caching, or data caching. Caching can also be configured on the browser, the server, or on an appliance in-between (e.g. Azure Frontdoor). Incorporating caching can help reduce latency and server taxation by eliminating repetitive class to microservices, APIs, and data stores._
 
     - Of the following static and page caching mechanisms, which are you currently using?
-- Browser
-- Azure CDN
-- Azure Front Door
-- Other
+	- Browser
+	- Azure CDN
+	- Azure Front Door
+	- Other
 
 
       _There are various types of caching mechanisms that can be configured with a web page and its components. Such examples include expiry dates, tags, modification dates, content, or other variances like IP addresses or encoding types._
 
     - Which of the following are you using for data caching?
-- Azure Redis Cache
-- IIS Caching Server
-- SQL Caching Server
-- Disk
-- Other solution
+	- Azure Redis Cache
+	- IIS Caching Server
+	- SQL Caching Server
+	- Disk
+	- Other solution
 
 
       _Azure Cache for Redis is a preferred solution for data caching as it improves performance by storing data in memory instead of on disk like SQL Server. Certain development frameworks like .NET also have mechanisms for caching data at the server level._
