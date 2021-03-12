@@ -1727,7 +1727,7 @@
     "subCategory": "Design",
     "title": "Is component proximity required for application performance reasons?",
     "context": "If all or part of the application is highly sensitive to latency it may mandate component co-locality which can limit the applicability of multi-region and multi-zone strategies",
-    "recommendation": "Consider using the same datacenter region, Availability Zone and [Proximity Placement Groups](https://azure.microsoft.com/en-us/blog/announcing-the-general-availability-of-proximity-placement-groups/) and other options to bring latency sensitive components closer together. Keep also in mind that additional charges may apply when chatty workloads are spread across zones and region.",
+    "recommendation": "Consider using the same datacenter region, Availability Zone and [Proximity Placement Groups](https://azure.microsoft.com/blog/announcing-the-general-availability-of-proximity-placement-groups/) and other options to bring latency sensitive components closer together. Keep also in mind that additional charges may apply when chatty workloads are spread across zones and region.",
     "id": "b3d8e0fe-be4a-4269-a4c8-e53c6283effe"
   },
   {
@@ -1755,7 +1755,7 @@
     "subCategory": "Design",
     "title": "Is the application designed to use managed services?",
     "context": "Azure-managed or Platform-as-a-Service (PaaS) services provide native resiliency capabilities to support overall application reliability and native capabilities for scalability, monitoring and disaster recovery.",
-    "recommendation": "Where possible prefer managed and Platform-as-a-Service (PaaS) offerings to leverage their advanced capabilities and to avoid managing the underlying infrastructure. (see [Use managed services](https://docs.microsoft.com/azure/architecture/guide/design-principles/managed-services) and [What is PaaS?](https://azure.microsoft.com/en-us/overview/what-is-paas/))",
+    "recommendation": "Where possible prefer managed and Platform-as-a-Service (PaaS) offerings to leverage their advanced capabilities and to avoid managing the underlying infrastructure. (see [Use managed services](https://docs.microsoft.com/azure/architecture/guide/design-principles/managed-services) and [What is PaaS?](https://azure.microsoft.com/overview/what-is-paas/))",
     "id": "2242ef08-b0d5-4bb6-b5bf-881fa702d3c6"
   },
   {
@@ -3088,7 +3088,7 @@
     "children": [
       {
         "title": "Is trusted state information protected when stored on untrusted client (such as cookie in a web browser)?",
-        "context": "State data can contain not just session identifier, but also account and claims information, which can get exploited by the client. In a situation where the application needs to round-trip trusted state via an untrusted client (which can be session cookie in a web browser), it has to ensure that the information isn't tampered with. See [ASP.NET Core Data Protection](https://docs.microsoft.com/en-us/aspnet/core/security/data-protection/introduction?view=aspnetcore-5.0) for more details on how to use .NET APIs.",
+        "context": "State data can contain not just session identifier, but also account and claims information, which can get exploited by the client. In a situation where the application needs to round-trip trusted state via an untrusted client (which can be session cookie in a web browser), it has to ensure that the information isn't tampered with. See [ASP.NET Core Data Protection](https://docs.microsoft.com/aspnet/core/security/data-protection/introduction?view=aspnetcore-5.0) for more details on how to use .NET APIs.",
         "recommendation": "Implement Data Protection for trusted state information.",
         "id": "dc1712e2-4577-4b5c-b8a1-3bf7ae40f578"
       }
