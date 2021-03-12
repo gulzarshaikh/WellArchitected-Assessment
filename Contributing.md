@@ -33,7 +33,8 @@ While each content type might have some distinct attributes, mostly they share a
     "category": "Application Design",
     "subCategory": "Design",
     "title": "Is the application deployed across multiple Azure regions and/or utilizing Availability Zones?",
-    "context": "Understanding the global operational footprint, for failover or performance purposes, is critical to evaluating overall operations. Generally speaking, multiple Azure regions should be used for disaster recovery procedures, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active recovery strategies([Failover strategies](https://docs.microsoft.com/azure/architecture/framework/resiliency/backup-and-recovery))",
+    "context": "Understanding the global operational footprint, for failover or performance purposes, is critical to evaluating overall operations. Generally speaking, multiple Azure regions should be used for disaster recovery procedures, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active recovery strategies. ([Failover strategies](https://docs.microsoft.com/azure/architecture/framework/resiliency/backup-and-recovery))",
+    "recommendation": "Consider multi-region deployment and the use of Availability Zones.",
     "children": [
       {
         "title": "Is the application deployed in either active-active, active-passive, or isolated configurations across leveraged regions?",
@@ -49,11 +50,11 @@ While each content type might have some distinct attributes, mostly they share a
 
 First of all: The order of the attributes in a JSON file is not important.
 
-- The attribute `type` determines what kind of content this artifact represents (see above for the available types). This determines and in which output the artifact will be used. Questions are used for assessments (application lens) while the others are used in more specific guidance (Service and Scenario lenses).
+- The attribute `type` determines what kind of content this artifact represents (see above for the available types) and in which output the artifact will be used. Questions are used for assessments (Application lens) while the others are used in more specific guidance (Service and Scenario lenses).
 - The `pillars` attribute is an array and indicates for which pillars (one or more) this artifact is applicable. There is often an overlap between the different WAF pillars, so when adding new content, think about which pillars this could be useful for.
 - `lens` is either `application` (this will be mostly applicable for type Question), `service` (for Service-specific guidance) or `scenario`.
-- `category` and `subCategory` are important attributes. To drive unification across all the content, there is a curated list of available (sub-)categories in the `categories.json` In most cases we expect that new content will fit into an existing subcategory. Only if that is really not that case, add a new (sub-)category to the `categories.json` and add this in your Pull Request. **Important: Any content which references a (sub)category that does not exist in the categories.json file, will not be rendered in the output!**
-- `title` is the actual main part of the content that gets rendered. In the case of a Question, this is the question itself. For design considerations and configuration recommendations, this is the guidance text.
+- `category` and `subCategory` are important attributes. To drive unification across all the content, there is a curated list of available categories and subcategories in the `categories.json` In most cases we expect that new content will fit into an existing subcategory. Only if that is really not that case, add a new (sub-)category to the `categories.json` and add this in your Pull Request. **Important: Any content which references a (sub)category that does not exist in the categories.json file, will not be rendered in the output!**
+- `title` is the main part of the content that gets rendered. In the case of a Question, this is the question itself. For Design Considerations and Configuration Recommendations, this is the guidance text.
 - `context` is an optional attribute - although it should be filled in most cases to provide more clarity and details to the question/guidance. Ideally this contains a link to some Microsoft/Azure documentation which provides more details.
 - `children` is an optional array of artifacts that will be rendered as sub-elements of the artifact. They share all the attributes like type and category with their parents so those do not need to be specified again.
 - `id` contains a unique GUID to identify items and refer to them. This field is automatically set via a GitHub workflow.
