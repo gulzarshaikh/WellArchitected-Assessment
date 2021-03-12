@@ -12,7 +12,7 @@
     },
     "type": {
       "type": "string",
-      "description": "",
+      "description": "Type determines what kind of content this artifact represents and in which output the artifact will be used. Questions are used for assessments (application lens) while the others are used in more specific guidance (Service and Scenario lenses).",
       "enum": [
         "Questions",
         "Design Principles",
@@ -24,7 +24,7 @@
     },
     "pillars": {
       "type": "array",
-      "description": "WAF pillars. Each item can be assigned to multiple pillars.",
+      "description": "An array that indicates for which pillars (one or more) this artifact is applicable. There is often an overlap between the different WAF pillars, so when adding new content, think about which pillars this could be useful for.",
       "items": {
         "anyOf": [
           {
@@ -46,27 +46,34 @@
     },
     "category": {
       "type": "string",
-      "description": ""
+      "description": "Categories are predefined in the categories.json file. They will be rendered as headers in the MD output."
     },
     "subCategory": {
       "type": "string",
-      "description": ""
+      "description": "Subcategories are predefined in the categories.json file, under corresponding categories. They will be rendered as subheaders in the MD output."
     },
     "title": {
       "type": "string",
-      "description": "Title of the item - can be a question, recommendation, consideration etc."
+      "description": "Main part of the content that gets rendered. In the case of a Question, this is the question itself. For design considerations and configuration recommendations, this is the guidance text."
     },
     "context": {
       "type": "string",
       "description": "Detailed explanation of this item. Provides context to the reader - what is this question aiming at, details of the solution and general context."
     },
-    "recommendation": {
+    "statement": {
       "type": "string",
       "description": ""
     },
+    "recommendation": {
+      "type": "object",
+      "description": "",
+      "items": {
+
+      }
+    },
     "children": {
       "type": "array",
-      "description": "",
+      "description": "Optional array of artifacts that will be rendered as sub-elements of the artifact. They share all the attributes like type and category with their parents so those do not need to be specified again.",
       "items": {
         "anyOf": [
           {
@@ -102,7 +109,6 @@
     "lens",
     "category",
     "subCategory",
-    "title",
-    "context"
+    "title"
   ]
 }
