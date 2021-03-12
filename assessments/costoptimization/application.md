@@ -175,9 +175,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
       _Monitoring and measuring application availability is vital to qualifying overall application health and progress towards defined targets._
 
-      > Make sure you measure and monitor key targets such as
-- **Mean Time Between Failures (MTBF)**: The average time between failures of a particular component
-- **Mean Time Between Failures (MTBF)**: The average time between failures of a particular component
+      > Make sure you measure and monitor key targets such as<br />- **Mean Time Between Failures (MTBF)**: The average time between failures of a particular component<br />- **Mean Time Between Failures (MTBF)**: The average time between failures of a particular component
     - What are the consequences if availability targets are not satisfied?
 
 
@@ -187,9 +185,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 * Are recovery targets such as Recovery Time Objective (RTO) and Recovery Point Objective (RPO) defined for the application and/or key scenarios?
 
 
-  _Understanding customer reliability expectations is vital to reviewing the overall reliability of the application. For instance, if a customer is striving to achieve an application RTO of less than a minute then back-up based and active-passive disaster recovery strategies are unlikely to be appropriate 
-Recovery time objective (RTO): The maximum acceptable time the application is unavailable after a disaster incident 
-Recovery point objective (RPO): The maximum duration of data loss that is acceptable during a disaster event_
+  _Understanding customer reliability expectations is vital to reviewing the overall reliability of the application. For instance, if a customer is striving to achieve an application RTO of less than a minute then back-up based and active-passive disaster recovery strategies are unlikely to be appropriate<br />**Recovery time objective (RTO)**: The maximum acceptable time the application is unavailable after a disaster incident<br />**Recovery point objective (RPO)**: The maximum duration of data loss that is acceptable during a disaster event_
   > Recovery targets should be defined in accordance to the required RTO and RPO targets for the workloads.
 * Are there well defined performance requirements for the application and/or key scenarios?
 

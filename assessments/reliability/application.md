@@ -195,9 +195,7 @@ These critical design principles are used as lenses to assess the Reliability of
 
       _Monitoring and measuring application availability is vital to qualifying overall application health and progress towards defined targets._
 
-      > Make sure you measure and monitor key targets such as
-- **Mean Time Between Failures (MTBF)**: The average time between failures of a particular component
-- **Mean Time Between Failures (MTBF)**: The average time between failures of a particular component
+      > Make sure you measure and monitor key targets such as<br />- **Mean Time Between Failures (MTBF)**: The average time between failures of a particular component<br />- **Mean Time Between Failures (MTBF)**: The average time between failures of a particular component
     - What are the consequences if availability targets are not satisfied?
 
 
@@ -207,9 +205,7 @@ These critical design principles are used as lenses to assess the Reliability of
 * Are recovery targets such as Recovery Time Objective (RTO) and Recovery Point Objective (RPO) defined for the application and/or key scenarios?
 
 
-  _Understanding customer reliability expectations is vital to reviewing the overall reliability of the application. For instance, if a customer is striving to achieve an application RTO of less than a minute then back-up based and active-passive disaster recovery strategies are unlikely to be appropriate 
-Recovery time objective (RTO): The maximum acceptable time the application is unavailable after a disaster incident 
-Recovery point objective (RPO): The maximum duration of data loss that is acceptable during a disaster event_
+  _Understanding customer reliability expectations is vital to reviewing the overall reliability of the application. For instance, if a customer is striving to achieve an application RTO of less than a minute then back-up based and active-passive disaster recovery strategies are unlikely to be appropriate<br />**Recovery time objective (RTO)**: The maximum acceptable time the application is unavailable after a disaster incident<br />**Recovery point objective (RPO)**: The maximum duration of data loss that is acceptable during a disaster event_
   > Recovery targets should be defined in accordance to the required RTO and RPO targets for the workloads.
 ### Dependencies
             
@@ -347,10 +343,7 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 * Are any preview services/capabilities required in production?
 
 
-  _If the application has taken a dependency on preview services or SKUs then it is important to ensure that the level of support and committed SLAs are in alignment with expectations and that roadmap plans for preview services to go 
-Generally Available (GA) are understood 
-Private Preview : SLAs do not apply and formal support is not generally provided 
-Public Preview : SLAs do not apply and formal support may be provided on a best-effort basis_
+  _If the application has taken a dependency on preview services or SKUs then it is important to ensure that the level of support and committed SLAs are in alignment with expectations and that roadmap plans for preview services to go<br />Generally Available (GA) are understood<br />Private Preview : SLAs do not apply and formal support is not generally provided <br />Public Preview : SLAs do not apply and formal support may be provided on a best-effort basis_
 * Are all APIs/SDKs validated against target runtime/languages for required functionality?
 
 
@@ -788,9 +781,7 @@ Public Preview : SLAs do not apply and formal support may be provided on a best-
 * Is the application tested for performance, scalability, and resiliency?
 
 
-  _Performance Testing: Performance testing is the superset of both load and stress testing. The primary goal of performance testing is to validate benchmark behavior for the application ([Performance Testing](https://docs.microsoft.com/azure/architecture/checklist/dev-ops#testing))
-Load Testing : Load testing validates application scalability by rapidly and/or gradually increasing the load on the application until it reaches a threshold/limit 
-Stress Testing : *Stress testing is a type of negative testing which involves various activities to overload existing resources and remove components to understand overall resiliency and how the application responds to issues_
+  _Performance Testing: Performance testing is the superset of both load and stress testing. The primary goal of performance testing is to validate benchmark behavior for the application ([Performance Testing](https://docs.microsoft.com/azure/architecture/checklist/dev-ops#testing))<br />**Load Testing**: Load testing validates application scalability by rapidly and/or gradually increasing the load on the application until it reaches a threshold/limit<br />**Stress Testing**: *Stress testing is a type of negative testing which involves various activities to overload existing resources and remove components to understand overall resiliency and how the application responds to issues_
     - How does your team perceive the importance of performance testing?
 
 
