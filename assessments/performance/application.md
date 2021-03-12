@@ -357,7 +357,7 @@ Stress Testing : *Stress testing is a type of negative testing which involves va
 
   _Successfully implementing meaningful performance tests requires a number of resources. If is not just a single developer or QA Analyst running some tests on their local machine. Instead, performance tests need a test environment (also known as a test bed) that tests can be executed against without interfering with production environments and data. Performance testing requires input and commitment from developers, architects, database administrators, and network administrators. In short, solid performance testing is a team responsibility.
 
-Additionally, to run scaled tests, a machine with enough resources (e.g. memory, processors, network connections, etc.) needs to be made available. While this machine can be located within a data center or on-premises, it is often advantageous to perform performance testing from instances located from multiple geographies. This better simulates what an end-user can expect._
+	Additionally, to run scaled tests, a machine with enough resources (e.g. memory, processors, network connections, etc.) needs to be made available. While this machine can be located within a data center or on-premises, it is often advantageous to perform performance testing from instances located from multiple geographies. This better simulates what an end-user can expect._
 ### Tooling
             
 * Are you currently using tools for conducting performance testing?
@@ -427,7 +427,7 @@ Additionally, to run scaled tests, a machine with enough resources (e.g. memory,
 * Do you have goals defined for server response times?
 
 
-  _Similar to previous questions regarding the initial connection to a service, you will also want to understand how long it takes for the server to receive, process, and then return data. This round-trip can also help ensure that enough hardware resources have been assigned to the environment. Additionally, it is possible to identify "noisy neighbors"--applications running on the same disk (typically in a virtualized environment) or sharing the same network--that are consuming available resources. Finally, another bottleneck in many environments is traffic on a network that is being shared with a data store (e.g. SQL). If an application server and its database server share the same network as general traffic, then the overall performance of the application can be greatly affected._
+  _Similar to previous questions regarding the initial connection to a service, you will also want to understand how long it takes for the server to receive, process, and then return data. This round-trip can also help ensure that enough hardware resources have been assigned to the environment. Additionally, it is possible to identify "noisy neighbors", applications running on the same disk (typically in a virtualized environment) or sharing the same network, that are consuming available resources. Finally, another bottleneck in many environments is traffic on a network that is being shared with a data store (e.g. SQL). If an application server and its database server share the same network as general traffic, then the overall performance of the application can be greatly affected._
     - What are your goals for a full server response?
 
 
