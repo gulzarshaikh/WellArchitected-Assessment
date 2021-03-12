@@ -8,7 +8,7 @@
   "properties": {
     "id": {
       "type": "string",
-      "description": ""
+      "description": "Unique GUID to identify items and refer to them. This field is automatically set via a GitHub workflow."
     },
     "type": {
       "type": "string",
