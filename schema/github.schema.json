@@ -106,6 +106,10 @@
               }
             }
           },
+          "code": {
+            "type": "string",
+            "description": "Source code to provide sample implementation for this item."
+          },
           "children": {
             "type": "array",
             "description": "Optional array of artifacts that will be rendered as sub-elements of the artifact. They share all the attributes like type and category with their parents so those do not need to be specified again.",
@@ -155,6 +159,10 @@
                           "type": "string"
                         }
                       }
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "Source code to provide sample implementation for this item."
                     }
                   }
                 }
