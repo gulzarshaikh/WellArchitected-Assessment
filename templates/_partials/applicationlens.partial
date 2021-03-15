@@ -43,7 +43,7 @@ These critical design principles are used as lenses to assess the {{ .pillarDisp
   _{{ safeHTML (trim $question.context " ") }}_
 {{- end -}}
 
-{{ if $question.recommendation }}
+{{ if (and ($question.recommendation) ($question.recommendation.title)) }}
   > {{ safeHTML (trim $question.recommendation.title " ") }}
 {{- end -}}
 {{ range $child := $question.children }}
@@ -52,7 +52,7 @@ These critical design principles are used as lenses to assess the {{ .pillarDisp
 {{ if $child.context }}
       _{{ safeHTML (trim $child.context " ") }}_
 {{- end }}
-{{ if $child.recommendation }}
+{{ if (and ($child.recommendation) ($child.recommendation.title)) }}
       > {{ safeHTML (trim $child.recommendation.title " ") }}
 {{- end -}}
 {{- end -}}
