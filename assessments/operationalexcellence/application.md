@@ -126,7 +126,6 @@ These critical design principles are used as lenses to assess the Operational Ex
 
 
   _Multiple regions should be used for failover purposes in a disaster state, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active strategies. Additional cost needs to be taken into consideration - mostly from compute, data and networking perspective, but also services like Azure Site Recovery (ASR). ([Failover strategies](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones))_
-  > 
 * Within a region is the application architecture designed to use Availability Zones?
 
 
@@ -146,18 +145,15 @@ These critical design principles are used as lenses to assess the Operational Ex
 
 
   _Understanding the subscription landscape of the application and how components are organized within or across subscriptions is important when analyzing if relevant subscription limits or quotas can be navigated._
-  > 
 * Has a Business Continuity Disaster Recovery (BCDR) strategy been defined for the application and/or its key scenarios?
 
 
   _A disaster recovery strategy should capture how the application responds to a disaster situation such as a regional outage or the loss of a critical platform service, using either a re-deployment, warm-spare active-passive, or hot-spare active-active approach. To drive cost down consider splitting application components and data into groups. For example: 1) must protect, 2) nice to protect, 3) ephemeral/can be rebuilt/lost, instead of protecting all data with the same policy._
-  > 
     - If you have a disaster recovery plan in another region, have you ensured you have the needed capacity quotas allocated?
 
 
       _Quotas and limits typically apply at the region level and, therefore, the needed capacity should also be planned for the secondary region._
 
-      > 
 ### Targets &amp; Non Functional Requirements
             
 * Are availability targets such as Service Level Agreements (SLAs), Service Level Indicators (SLIs), and Service Level Objectives (SLOs) defined for the application and/or key scenarios?
@@ -275,12 +271,10 @@ These critical design principles are used as lenses to assess the Operational Ex
 
 
   _The usage of platform level dependencies such as Azure Active Directory must also be understood to ensure that their availability and recovery targets align with that of the application_
-  > 
 * Is the lifecycle of the application decoupled from its dependencies?
 
 
   _If the application lifecycle is closely coupled with that of its dependencies it can limit the operational agility of the application, particularly where new releases are concerned_
-  > 
 ### Application Composition
             
 * What Azure services are used by the application?
@@ -397,7 +391,6 @@ These critical design principles are used as lenses to assess the Operational Ex
 
 
   _The overall health state can be impacted by both application-level issues as well as resource-level failures. Telemetry correlation should be used to ensure transactions can be mapped through the end-to-end application and critical system flows, as this is vital to root cause analysis for failures. Platform-level metrics and logs such as CPU percentage, network in/out, and disk operations/sec should be collected from the application to inform a health model and detect/predict issues ([Telemetry correlation](https://docs.microsoft.com/azure/azure-monitor/app/correlation)). This can also help to distinguish between transient and non-transient faults._
-  > 
 * Is the transaction flow data used to generate application/service maps?
 
 
@@ -423,7 +416,6 @@ These critical design principles are used as lenses to assess the Operational Ex
 
       _The health model should have the ability to evaluate application performance as a part of the application's overall health state._
 
-      > 
 * Are long-term trends analysed to predict operational issues before they occur?
 
 
@@ -499,12 +491,10 @@ These critical design principles are used as lenses to assess the Operational Ex
 
 
   _Your solution might work great in the first week or month, but what happens when data just keeps increasing? Will the solution slow down, or will it even break at a particular threshold? Planning for data growth, data retention, and archiving is essential in capacity planning. Without adequately planning capacity for your datastores, performance will be negatively affected._
-  > 
 * Are target data sizes and associated growth rates calculated per scenario or service?
 
 
   _Scale limits and recovery options should be assessed in the context of target data sizes and growth rates to ensure suitable capacity exists_
-  > 
 * Are there any mitigation plans defined in case data size exceeds limits?
 
 
@@ -518,21 +508,17 @@ These critical design principles are used as lenses to assess the Operational Ex
 
 
   _The impact of no administrative access can be mitigated by creating two or more emergency access accounts ([Emergency Access accounts in Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access))_
-  > 
 ### Security Center
             
 * Is Azure Security Center Standard tier enabled for all subscriptions and reporting to centralized workspaces? Also, is automatic provisioning enabled for all subscriptions? ([Security Center Data Collection](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection))
 
 
-  > 
 * Is Azure Security Center's Secure Score being formally reviewed and improved on a regular basis? ([Security Center Secure Score](https://docs.microsoft.com/azure/security-center/secure-score-security-controls))
 
 
-  > 
 * Are contact details set in security center to the appropriate email distribution list? ([Security Center Contact Details](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details))
 
 
-  > 
 ## Operational Procedures
     
 ### Recovery &amp; Failover
@@ -711,7 +697,6 @@ These critical design principles are used as lenses to assess the Operational Ex
 
 
   _Emergency patches might contain critical security updates that cannot wait till the next maintenance or release window_
-  > 
 * What is the strategy to keep up with changing dependencies?
 
 
@@ -734,7 +719,6 @@ These critical design principles are used as lenses to assess the Operational Ex
 
 
   _Are numerous releases deployed each day or do releases have a fixed cadence, such as every quarter?_
-  > 
 * Can the application be deployed automatically from scratch without any manual operations?
 
 
@@ -822,71 +806,58 @@ These critical design principles are used as lenses to assess the Operational Ex
 
 
   _Performance Testing: Performance testing is the superset of both load and stress testing. The primary goal of performance testing is to validate benchmark behavior for the application ([Performance Testing](https://docs.microsoft.com/azure/architecture/checklist/dev-ops#testing))<br />**Load Testing**: Load testing validates application scalability by rapidly and/or gradually increasing the load on the application until it reaches a threshold/limit<br />**Stress Testing**: *Stress testing is a type of negative testing which involves various activities to overload existing resources and remove components to understand overall resiliency and how the application responds to issues_
-  > 
     - How does your team perceive the importance of performance testing?
 
 
       _It is critical that your team understands the importance of performance testing. Additionally, the team should be committed to providing the necessary time and resources for adequately executing performance testing proven practices._
 
-      > 
     - When do you do test for performance, scalability, and resiliency?
 
 
       _Regular testing should be performed as part of each major change and if possible on a regular basis to validate existing thresholds, targets and assumptions, as well as ensuring the validity of the health model, capacity model and operational procedures_
 
-      > 
     - Are any tests performed in production?
 
 
       _While the majority of testing should be performed within the testing and staging environments, it is often beneficial to also run a subset of tests against the production system_
 
-      > 
     - Is the application tested with injected faults?
 
 
       _It is a common "chaos monkey" practice to verify the effectiveness of operational procedures using artificial faults. For example, taking dependencies offline (stopping API apps, shutting down VMs, etc.), restricting access (enabling firewall rules, changing connection strings, etc.) or forcing failover (database level, Front Door, etc.) is a good way to validate that the application is able to handle faults gracefully_
 
-      > 
 * Are smoke tests performed during application deployments?
 
 
   _Smoke tests are a lightweight way to perform high-level validation of changes. For instance, performing a ping test immediately after a deployment ([Smoke Testing](https://docs.microsoft.com/azure/architecture/framework/devops/testing#smoke-testing))_
-  > 
 * When is integration testing performed?
 
 
   _Integration tests should be applied as part of the application deployment process, to ensure that different application components  interact with each other as they should. Integration tests typically take longer than smoke testing, and as a consequence occur at a latter stage of the deployment process so they are executed less frequently ([Integration Testing](https://docs.microsoft.com/azure/architecture/framework/devops/testing#integration-testing)_
-  > 
 * Is unit testing performed to validate application functionality?
 
 
   _Unit tests are typically run by each new version of code committed into version control. Unit Tests should be extensive and quick to verify things like syntax correctness of application code, Resource Manager templates or Terraform configurations, that the code is following best practices, or that they produce the expected results when provided certain inputs ([Unit Testing](https://docs.microsoft.com/azure/architecture/framework/devops/testing#unit-testing))_
-  > 
 * Are these tests automated and carried out periodically or on-demand?
 
 
   _Testing should be fully automated where possible and performed as part of the deployment lifecycle to validate the impact of all application changes. Additionally, manual explorative testing may also be conducted_
-  > 
 * Are tests and test data regularly validated and updated to reflect necessary changes?
 
 
   _Tests and test data should be evaluated and updated after each major application change, update, or outage_
-  > 
 * What happens when a test fails?
 
 
   _Failed tests should temporarily block a deployment and lead to a deeper analysis of what has happened and to either a refinement of the test or an improvement of the change that caused the test to fail_
-  > 
 * Do you perform Business Continuity 'fire drills' to test regional failover scenarios?
 
 
   _Business Continuity 'fire drills' help to ensure operational readiness and validate the accuracy of recovery procedures ready for critical incidents_
-  > 
 * What degree of security testing is performed?
 
 
   _Security and penetration testing, such as scanning for open ports or known vulnerabilities and exposed credentials, is vital to ensure overall security and also support operational effectiveness of the system_
-  > 
 ## Operational Model &amp; DevOps
     
 ### General
@@ -895,12 +866,10 @@ These critical design principles are used as lenses to assess the Operational Ex
 
 
   _The contraction of “Dev” and “Ops” refers to replacing siloed Development and Operations to create multidisciplinary teams that now work together with shared and efficient practices and tools. Essential DevOps practices include agile planning, continuous integration, continuous delivery, and monitoring of applications (from [docs.microsoft.com](https://docs.microsoft.com/azure/devops/learn/what-is-devops))._
-  > 
 * Is the current development and operations process connected to a Service Management framework like ISO or ITIL?
 
 
   _[ITIL](https://en.wikipedia.org/wiki/ITIL) is a set of detailed [IT service management (ITSM)](https://en.wikipedia.org/wiki/IT_service_management) practices that can complement DevOps by providing support for products and services built and deployed using DevOps practices._
-  > 
 ### Roles &amp; Responsibilities
             
 * Has the application been built and maintained in-house or by an external partner?
@@ -912,40 +881,33 @@ These critical design principles are used as lenses to assess the Operational Ex
 
 
   _A true DevOps model positions the responsibility of operations with developers, but many customers do not fully embrace DevOps and maintain some degree of team separation between operations and development, either to enforce clear segregation of duties for regulated environments, or to share operations as a business function_
-  > 
     - Does the development team own production deployments?
 
 
       _It is important to understand if developers are responsible for production deployments end-to-end, or if a handover point exists where responsibility is passed to an alternative operations team, potentially to ensure a strict segregation of duties such as Sarbanes-Oxley Act where developers cannot touch financial reporting systems_
 
-      > 
     - How do development and operations teams collaborate to resolve production issues?
 
 
       _It is important to understand how operations and development teams collaborate to address operational issues, and what processes exist to support and structure this collaboration. Moreover, mitigating issues might require the involvement of different teams outside of development or operations, such as networking, and in some cases external parties as well. The processes to support this collaboration should also be understood_
 
-      > 
     - Is the workload isolated to a single operations team?
 
 
       _The goal of workload isolation is to associate an application's specific resources to a team, so that the team can independently manage all aspects of those resources ([Workload isolation](https://docs.microsoft.com/azure/architecture/framework/devops/app-design#workload-isolation))_
 
-      > 
 * Are any broader teams responsible for operational aspects of the application?
 
 
   _Different teams such as Central IT, Security, or Networking may be responsible for aspects of the application which are controlled centrally, such as a shared network virtual appliance (NVA)._
-  > 
 * How are development priorities managed for the application?
 
 
   _It is important to understand how business features are prioritized relative to engineering fundamentals, especially if operations is a separate function_
-  > 
 * Are manual approval gates or workflows required to release to production?
 
 
   _Even with an automated deployment process there might be a requirement for manual approvals to fulfil regulatory compliance, and it is important to understand who owns any gates that do exist_
-  > 
 * Are tools or processes in place to grant access on a just-in-time basis?
 
 
@@ -963,14 +925,11 @@ These critical design principles are used as lenses to assess the Operational Ex
 
 
   _Many customers govern service configuration through a catalogue of allowed services that developers and application owners must pick from_
-  > 
 * Are tools and processes in place to govern available services, enforce mandatory operational functionality and ensure compliance?
 
 
   _Proper standards for naming, tagging, the deployment of specific configurations such as diagnostic logging, and the available set of services and regions is important to drive consistency and ensure compliance. Solutions like [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview) can help to enforce and assess compliance at-scale._
-  > 
 * Are standards, policies, restrictions and best practices defined as code?
 
 
   _Policy-as-Code provides the same benefits as Infrastructure-as-Code in regards to versioning, automation, documentation as well as encouraging consistency and reproducibility. Available solutions in the market are [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview) or [HashiCorp Sentinel](https://www.hashicorp.com/resources/introduction-sentinel-compliance-policy-as-code/)._
-  > 
