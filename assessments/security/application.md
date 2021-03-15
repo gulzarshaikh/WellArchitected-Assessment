@@ -227,6 +227,7 @@ These critical design principles are used as lenses to assess the Security of an
 
       _It's important to understand how the customer is updating when a security vulnerability is discovered in their workload: the process and tools, approvals, who is made aware and if there's executive sponsorship to bypass lengthy processes when it comes to security._
 
+      > 
 * Does the organization have a defined set of security requirements for this workload?
 
 
@@ -253,6 +254,7 @@ These critical design principles are used as lenses to assess the Security of an
 
 
   _Find out how they make sure they maintain compliance as the Azure Platform evolves and they update their application. Are there things preventing them from adopting new features in the platform because it will knock them out of compliance?_
+  > 
     - Does the organization have a process for regulatory or governance compliance attestation for this workload?
 
 
@@ -326,6 +328,7 @@ These critical design principles are used as lenses to assess the Security of an
 
 
   _Organization is monitoring the security posture across workloads and central SecOps team is monitoring security-related telemetry data and investigating security breaches. Communication, investigation and hunting activities need to be aligned with the application team._
+  > 
 * Does the organization actively monitor identity related risk events related to potentially compromised identities of this workload?
 
 
@@ -751,10 +754,12 @@ These critical design principles are used as lenses to assess the Security of an
 
 
   _Application roles and responsibility model need to be defined covering the different access level of each operational function (e.g publish production release, access customer data, manipulate database records). It's in the interest of the application team to include central functions (e.g. SecOps, NetOps, IAM) into this view._
+  > 
 * Has role-based and/or resource-based authorization been configured within Azure AD for this workload?
 
 
   _Role-based and resource-based authorization are common approaches to authorize users based on required permission scopes. [Role-based and resource-based](https://docs.microsoft.com/azure/architecture/multitenant-identity/authorize)_
+  > 
 * Are there any processes and tools leveraged in this workload to manage privileged activities?
 
 
@@ -862,6 +867,7 @@ These critical design principles are used as lenses to assess the Security of an
 
 
   _If possible, applications should utilize Azure Active Directory or other managed identity providers (such as Microsoft Account, Azure B2C...) to avoid managing user credentials with custom implementation. Modern protocols like OAuth 2.0 use token-based authentication with limited timespan, identity providers offer additional functionality like multi-factor authentication, password reset etc._
+  > 
 * Does the organization enforce conditional access for this workload?
 
 
@@ -877,6 +883,7 @@ These critical design principles are used as lenses to assess the Security of an
 
 
   _Consideration should always be given to authenticating with identity services rather than cryptographic keys when available. Managing keys securely with application code is difficult and regularly leads to mistakes like accidentally publishing sensitive access keys to code repositories like GitHub. Identity systems (such as Azure Active Directory) offer secure and usable experience for access control with built-in sophisticated mechanisms for key rotation, monitoring for anomalies, and more._
+  > 
 * Does the organization synchronize current on-premises Active Directory with Azure AD, or other cloud identity systems?
 
 

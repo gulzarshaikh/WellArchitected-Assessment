@@ -109,6 +109,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
 
   _Multiple regions should be used for failover purposes in a disaster state, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active strategies. Additional cost needs to be taken into consideration - mostly from compute, data and networking perspective, but also services like Azure Site Recovery (ASR). ([Failover strategies](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones))_
+  > 
 * Within a region is the application architecture designed to use Availability Zones?
 
 
@@ -128,23 +129,28 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
 
   _An availability strategy should capture how the application remains available when in a failure state and should apply across all application components and the application deployment stamp as a whole such as via multi-geo scale-unit deployment approach. There are cost implications as well: More resources need to be provisioned in advance to provide high availability. Active-active setup, while more expensive than single deployment, can balance cost by lowering load on one stamp and reducing the total amount of resources needed._
+  > 
 * Has a Business Continuity Disaster Recovery (BCDR) strategy been defined for the application and/or its key scenarios?
 
 
   _A disaster recovery strategy should capture how the application responds to a disaster situation such as a regional outage or the loss of a critical platform service, using either a re-deployment, warm-spare active-passive, or hot-spare active-active approach. To drive cost down consider splitting application components and data into groups. For example: 1) must protect, 2) nice to protect, 3) ephemeral/can be rebuilt/lost, instead of protecting all data with the same policy._
+  > 
     - If you have a disaster recovery plan in another region, have you ensured you have the needed capacity quotas allocated?
 
 
       _Quotas and limits typically apply at the region level and, therefore, the needed capacity should also be planned for the secondary region._
 
+      > 
 * Is the workload designed to scale independently?
 
 
   _If the workload contains multiple components and one component requires scale, this triggers scale-out/up of the entire infrastructure. It needs to be evaluated if the application scale is monolithic or each component is scaled independently and for example how the database scales with the rest of the workload._
+  > 
 * Is there a plan to modernize the workload?
 
 
   _Is there a plan to change the execution model to Serverless? To move as far as you can up the stack towards cloud-native. When the workload is serverless, it’s charged only for actual use, whereas whith traditional infrastructure there are many underlying things that need to be factored into the price. By applying an end date to the application it encourages you to discuss the goal of re-designing the application to make even better use of the cloud. It might be more expensive from an Azure cost point of view but factoring in other things like licenses, people, time to deploy can drive down cost._
+  > 
 ### Targets &amp; Non Functional Requirements
             
 * Are availability targets such as Service Level Agreements (SLAs), Service Level Indicators (SLIs), and Service Level Objectives (SLOs) defined for the application and/or key scenarios?
@@ -286,6 +292,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
 
   _When running multiple applications (typically in multi-tenant or microservices scenarios) density can be increased by deploying them on shared infrastructure and utilizing it more. For example: Containerization and moving to Kubernetes (Azure Kubernetes Services) enables pod-based deployment which can utilize underlying nodes efficiently. Similar approach can be taken with App Service Plans. To prevent the 'noisy neighbour' situation, proper monitoring must be in place and performance analysis must be done (if possible)._
+  > 
 * How do you ensure that cloud resources are appropriately provisioned?
 
 
@@ -349,6 +356,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
 
   _Are you closer to your users or on-prem? If users are closer to the cloud you should use MSFT (i.e. egress traffic). MPLS is when another service provider gives you the line._
+  > 
 ### Endpoints
             
 * Does the organization have the capability and plans in place to mitigate DDoS attacks for this workload?
@@ -360,6 +368,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
 
   _There are cost implications to using Front Door with Web Application Firewall enabled, but it can save costs compared to using a 3rd party solution. Front Door has a good latency, because it uses unicast. If only 1 or 2 regions are required, Application Gateway can be used. There are cost implications of having a WAF – you should check pricing of hours and GB/s._
+  > 
 ### Data flow
             
 * Are you moving data between regions?
@@ -376,6 +385,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
 
   _Tunnelling internet traffic through on-premises can add extra cost as data has to go back to local network before it reaches the internet, this cost should be acknowledged._
+  > 
 ## Operational Procedures
     
 ### Scalability &amp; Capacity Model
@@ -396,6 +406,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
 
   _If your workload or environment isn't needed then you should be able to decommission it. The same should occur if you are introducing a new service or new feature._
+  > 
 * Does every environment have a target date for migrating to PaaS or serverless to bring all up cost and transfer risk?
 
 
@@ -447,6 +458,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
 
   _Transparency and traceability when it comes to cost in order to ensure that any discrepancies are able to be followed back to the source and be dealt with accordingly._
+  > 
 ## Efficiency and Sizing
     
 ### Architecture
@@ -455,16 +467,19 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
 
   _Understand the scope of the solution and distinguish between SKUs used in production and non-production environments. To drive down cost, it might be possible to for example consolidate environments for applications that are not as critical to the business and don't need the same testing._
+  > 
     - What is the ratio of cost of production and non-production environments for this workload?
 
 
       _When the customer is spending more money on testing than production, it usually means they have too many non-production environments. Consider ratio of non-production to production environments and if ratio is substantially higher you should consider merging testing environments or re-visit why the cost is so much higher._
 
+      > 
     - How many production vs. non-production environments do you have?
 
 
       _Provisioning non-production environments (like development, test, integration...) each on a separate infrastructure is not always necessary. E.g. using shared App Service Plans and consolidating Web Apps for development and testing environments can save costs._
 
+      > 
 * Are cost-effective regions considered as part of the deployment selection?
 
 
@@ -474,10 +489,12 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
 
   _As part of driving a good behavior it's important that the consumer has understood why they are paying the price for a service and also that the cost is transparent and fair to the user of the service or else it can drive wrong behavior._
+  > 
 * Is the distribution of the cost done in accordance with the usage of the service?
 
 
   _In order to drive down cost it can be advised to incentivize the user of driving the use of a service that helps put less burden on the platform and via this drive down cost as it falls back on the user if a good behavior is followed in order to drive down the price._
+  > 
 * Is the workload using the right operating system for its servers?
 
 
@@ -512,6 +529,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
 
   _Single pane of glass which can be shown during weekly ops meetings and instills accountability within everyone whilst also allowing you to understand where you are in terms of budget through every stage._
+  > 
 * Are you using Azure Cost Management (ACM) to track spending in this workload?
 
 
@@ -525,10 +543,12 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
 
   _Estimate and track costs, educate the employees about the cloud and various pricing models, have appropriate governance about expenditure._
+  > 
 * What actions are you taking to optimize cloud costs of this workload?
 
 
   _Identify opportunities to reduce overall cost, use cost management tools to plan and track costs, tag resources and track that back to costs._
+  > 
 * Is there any weekly review process to follow up on budget overrun or signs of spend that should be dealt with?
 
 
@@ -552,14 +572,17 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 * Do shared services have an owner and is all up cost with the distribution model defined and communicated by the owner to the service subscribers?
 
 
+  > 
 ### Culture &amp; Dynamics
             
 * What happens to the money that you’ve saved? If you go over budget do you have to save somewhere else?
 
 
+  > 
 * Are you allowed to exceed budget, if there is proven business justification for it?
 
 
+  > 
 * Is there a yearly or monthly meeting where you are able to re-negotiate budget or is it given to you?
 
 
@@ -574,10 +597,12 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
 
   _When building new applications it’s a good practice to have a discussion with the business regarding expectations and build a budget as early as possible and document assumptions of how the IT budget for the service was calculated._
+  > 
 * Is there an ongoing conversation between the app owner and the business?
 
 
   _Is what’s delivered from IT and what the business is expecting from IT mapped to the cost of the application?_
+  > 
 ### Licensing
             
 * Is A-HUB (Azure Hybrid Use Benefit) used to drive cost down in order to re-use licenses to drive cost down in cloud?
@@ -594,3 +619,4 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
 
   _Having a go to person in the company who understands the rules and knows what has been bought helps making sure that the right licenses are being used before building a business case for a new workload / application in Azure._
+  > 

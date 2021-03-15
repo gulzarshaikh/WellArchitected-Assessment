@@ -110,6 +110,7 @@ These critical design principles are used as lenses to assess the Reliability of
 
 
   _Multiple regions should be used for failover purposes in a disaster state, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active strategies. Additional cost needs to be taken into consideration - mostly from compute, data and networking perspective, but also services like Azure Site Recovery (ASR). ([Failover strategies](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones))_
+  > 
 * Within a region is the application architecture designed to use Availability Zones?
 
 
@@ -119,6 +120,7 @@ These critical design principles are used as lenses to assess the Reliability of
 
 
   _Avoiding failure is impossible in the public cloud, and as a result applications require resilience to respond to outages and deliver reliability. The application should therefore be designed to operate even when impacted by regional, zonal, service or component failures across critical application scenarios and functionality_
+  > 
 * Is the application designed to use managed services?
 
 
@@ -133,29 +135,35 @@ These critical design principles are used as lenses to assess the Reliability of
 
 
   _Understanding the subscription landscape of the application and how components are organized within or across subscriptions is important when analyzing if relevant subscription limits or quotas can be navigated._
+  > 
 * Is an availability strategy defined? i.e. multi-geo, full/partial
 
 
   _An availability strategy should capture how the application remains available when in a failure state and should apply across all application components and the application deployment stamp as a whole such as via multi-geo scale-unit deployment approach. There are cost implications as well: More resources need to be provisioned in advance to provide high availability. Active-active setup, while more expensive than single deployment, can balance cost by lowering load on one stamp and reducing the total amount of resources needed._
+  > 
 * Has a Business Continuity Disaster Recovery (BCDR) strategy been defined for the application and/or its key scenarios?
 
 
   _A disaster recovery strategy should capture how the application responds to a disaster situation such as a regional outage or the loss of a critical platform service, using either a re-deployment, warm-spare active-passive, or hot-spare active-active approach. To drive cost down consider splitting application components and data into groups. For example: 1) must protect, 2) nice to protect, 3) ephemeral/can be rebuilt/lost, instead of protecting all data with the same policy._
+  > 
     - If you have a disaster recovery plan in another region, have you ensured you have the needed capacity quotas allocated?
 
 
       _Quotas and limits typically apply at the region level and, therefore, the needed capacity should also be planned for the secondary region._
 
+      > 
 ### Failure Mode Analysis
             
 * Has pathwise analysis been conducted to identify key flows within the application?
 
 
   _Pathwise analysis can be used to decompose a complex application into key flows to which business impact can be attached. Frequently, these key flows can be used to identify business critical paths within the application to which reliability targets are most applicable_
+  > 
 * Have all fault-points and fault-modes been identified?
 
 
   _Fault-points describe the elements within an application architecture which are capable of failing, while fault-modes capture the various ways by which a fault-point may fail. To ensure an application is resilient to end-to-end failures, it is essential that all fault-points and fault-modes are understood and operationalized ([Failure Mode Analysis for Azure applications](https://docs.microsoft.com/azure/architecture/resiliency/failure-mode-analysis))_
+  > 
 * Have all single points of failure been eliminated?
 
 
@@ -165,6 +173,7 @@ These critical design principles are used as lenses to assess the Reliability of
 
 
   _A 'singleton' describes a logical component within an application for which there can only ever be a single instance. It can apply to stateful architectural components or application code constructs. Ultimately, singletons introduce a significant risk by creating single points of failure within the application design_
+  > 
 ### Targets &amp; Non Functional Requirements
             
 * Are availability targets such as Service Level Agreements (SLAs), Service Level Indicators (SLIs), and Service Level Objectives (SLOs) defined for the application and/or key scenarios?
@@ -235,14 +244,17 @@ These critical design principles are used as lenses to assess the Reliability of
 
 
   _The usage of platform level dependencies such as Azure Active Directory must also be understood to ensure that their availability and recovery targets align with that of the application_
+  > 
 * Can the application operate in the absence of its dependencies?
 
 
   _If the application has strong dependencies which it cannot operate in the absence of, then the availability and recovery targets of these dependencies should align with that of the application itself. Effort should be taken to minimize dependencies to achieve control over application reliability ([Minimize dependencies](https://docs.microsoft.com/azure/architecture/guide/design-principles/minimize-coordination))_
+  > 
 * Is the lifecycle of the application decoupled from its dependencies?
 
 
   _If the application lifecycle is closely coupled with that of its dependencies it can limit the operational agility of the application, particularly where new releases are concerned_
+  > 
 ## Health Modelling &amp; Monitoring
     
 ### Resource and Infrastructure Level Monitoring
@@ -258,6 +270,7 @@ These critical design principles are used as lenses to assess the Reliability of
 
 
   _The overall health state can be impacted by both application-level issues as well as resource-level failures. Telemetry correlation should be used to ensure transactions can be mapped through the end-to-end application and critical system flows, as this is vital to root cause analysis for failures. Platform-level metrics and logs such as CPU percentage, network in/out, and disk operations/sec should be collected from the application to inform a health model and detect/predict issues ([Telemetry correlation](https://docs.microsoft.com/azure/azure-monitor/app/correlation)). This can also help to distinguish between transient and non-transient faults._
+  > 
 * Is a health model used to qualify what 'healthy' and 'unhealthy' states represent for the application?
 
 
@@ -278,6 +291,7 @@ These critical design principles are used as lenses to assess the Reliability of
 
       _The health model should have the ability to evaluate application performance as a part of the application's overall health state._
 
+      > 
 ### Alerting
             
 * Have Azure Service Health alerts been created to respond to Service-level events?
@@ -294,40 +308,49 @@ These critical design principles are used as lenses to assess the Reliability of
 
 
   _Alerts only deliver value if they are actionable and effectively prioritized by on-call engineers through defined operational procedures_
+  > 
 ### Monitoring and Measurement
             
 * Is white-box monitoring used to instrument the application with semantic logs and metrics?
 
 
   _Application level metrics and logs, such as current memory consumption or request latency, should be collected from the application to inform a health model and detect/predict issues([Instrumenting an application with Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview))_
+  > 
 * Is the application instrumented to measure the customer experience?
 
 
   _Effective instrumentation is vital to detecting and resolving performance anomalies that can impact customer experience and application availability ([Monitor performance](https://docs.microsoft.com/azure/azure-monitor/app/web-monitor-performance))_
+  > 
 * Is the application instrumented to track calls to dependent services?
 
 
   _Dependency tracking and measuring the duration/status of dependency calls is vital to measuring overall application health and should be used to inform a health model for the application([Dependency Tracking](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-dependencies))_
+  > 
 * Is black-box monitoring used to measure platform services and the resulting customer experience?
 
 
   _Black-box monitoring tests externally visible application behavior without knowledge of the internals of the system. This is a common approach to measuring customer-centric SLIs/SLOs/SLAs([Azure Monitor Reference](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability))_
+  > 
 * Are there known gaps in application observability that led to missed incidents and/or false positives?
 
 
   _What you cannot see, you cannot measure. What you cannot measure, you cannot improve_
+  > 
 * Are error budgets used to track service reliability?
 
 
   _An error budget describes the maximum amount of time that the application can fail without consequence, and is typically calculated as 1-SLA. For example, if the SLA specifies that the application will function 99.99% of the time before the business has to compensate customers, the error budget is 52 minutes and 35 seconds per year. Error budgets are a device to encourage development teams to minimize real incidents and maximize innovation by taking risks within acceptable limits, given teams are free to ‘spend’ budget appropriately_
+  > 
 * Is there an policy that dictates what will happen when the error budget has been exhausted?
 
 
   _If the application error budget has been met or exceeded and the application is operating at or below the defined SLA, a policy may stipulate that all deployments are frozen until they reduce the number of errors to a level that allows deployments to proceed_
+  > 
 * Do you have detailed instrumentation in the application code?
 
 
   _Instrumentation of your code allows precise detection of underperforming pieces when load or stress tests are applied. It is critical to have this data available to improve and identify performance opportunities in the application code. Application Performance Monitoring (APM) tools, such as Application Insights, should be used to manage the performance and availability of the application, along with aggregating application level logs and events for subsequent interpretation._
+  > 
 ## Capacity &amp; Service Availability Planning
     
 ### Service Availability
@@ -336,24 +359,29 @@ These critical design principles are used as lenses to assess the Reliability of
 
 
   _All Azure services and SKUs are not available within every Azure region, so it is important to understand if the selected regions for the application offer all of the required capabilities. Service availability also varies across sovereign clouds, such as China ("Mooncake") or USGov, USNat, and USSec clouds. In situations where capabilities are missing, steps should be taken to ascertain if a roadmap exists to deliver required services ([Azure Products by Region](https://azure.microsoft.com/global-infrastructure/services/))._
+  > 
 * Are Azure Availability Zones available in the required regions?
 
 
   _Not all regions support Availability Zones today, so when assessing the suitability of availability strategy in relation to targets it is important to confirm if targeted regions also provide zonal support. All net new Azure regions will conform to the 3 + 0 datacenter design, and where possible existing regions will expand to provide support for Availability Zones ([Regions that support Availability Zones in Azure](https://docs.microsoft.com/azure/availability-zones/az-region))_
+  > 
 * Are any preview services/capabilities required in production?
 
 
   _If the application has taken a dependency on preview services or SKUs then it is important to ensure that the level of support and committed SLAs are in alignment with expectations and that roadmap plans for preview services to go<br />Generally Available (GA) are understood<br />Private Preview : SLAs do not apply and formal support is not generally provided <br />Public Preview : SLAs do not apply and formal support may be provided on a best-effort basis_
+  > 
 * Are all APIs/SDKs validated against target runtime/languages for required functionality?
 
 
   _While there is a desire across Azure to achieve API/SDK uniformity for supported languages and runtimes, the reality is that capability deltas exist. For instance, not all CosmosDB APIs support the use of direct connect mode over TCP to bypass the platform HTTP gateway. It is therefore important to ensure that APIs/SDKs for selected languages and runtimes provide all of the required capabilities_
+  > 
 ### Capacity
             
 * Is the required capacity (initial and future growth) available within targeted regions?
 
 
   _While the promise of the cloud is infinite scale, the reality is that there are finite resources available and as a result situations can occur where capacity can be constrained due to overall demand. If the application requires a large amount of capacity or expects a significant increase in capacity then effort should be invested to ensure that desired capacity is attainable within selected region(s). For applications leveraging a recovery or active-passive based disaster recovery strategy, consideration should also be given to ensure suitable capacity exists in the secondary region(s) since a regional outage can lead to a significant increase in demand within a paired region due to other customer workloads also failing over. To help mitigate this, consideration should be given to pre-provisioning resources within the secondary region([Azure Capacity](https://aka.ms/AzureCapacity))_
+  > 
 ## Application Platform Availability
     
 ### Service SKU
@@ -362,44 +390,53 @@ These critical design principles are used as lenses to assess the Reliability of
 
 
   _Azure application platform services offer resiliency features to support application reliability, though they may only be applicable at a certain SKU. For instance, Service Bus Premium SKU provides predictable latency and throughput to mitigate noisy neighbor scenarios, as well as the ability to automatically scale and replicate metadata to another Service Bus instance for failover purposes ([Azure Service Bus Premium SKU](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging)_
+  > 
 ### Compute Availability
             
 * Is the application platform deployed across multiple regions?
 
 
   _The ability to respond to disaster scenarios for overall compute platform availability and application resiliency is dependant on the use of multiple regions or other deployment locations. Multi-region deployment is also ideal for performance improvements as your application scales. Additionally, user requests can be directed to their closest region which reduces latency between the user and your service._
+  > 
     - Were regions chosen based on location and proximity to your users or based on resource types that were available?
 
 
       _Not only is it important to utilize regions close to your audience, but it is equally important to choose regions that offer the SKUs that will support your future growth. Not all regions share the same parity when it comes to product SKUs. Plan your growth, then choose regions that will support those plans._
 
+      > 
     - Are paired regions used?
 
 
       _Paired regions exist within the same geography and provide native replication features for recovery purposes, such as Geo-Redundant Storage (GRS) asynchronous replication. In the event of planned maintenance, updates to a region will be performed sequentially only ([Business continuity with Azure Paired Regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions))_
 
+      > 
     - Have you ensured that both (all) regions in use have the same performance and scale SKUs that are currently leveraged in the primary region?
 
 
       _When planning for scale and efficiency, it is important that regions are not only paired, but homogenous in their service offerings. Additionally, you should make sure that, if one region fails, the second region can scale appropriately to sufficiently handle the influx of additional user requests._
 
+      > 
 * Is the underlying application platform service Availability Zone aware?
 
 
   _Platform services that can leverage Availability Zones are deployed in either a zonal manner within a particular zone, or in a zone-redundant configuration across multiple zones ([Building solutions for high availability using Availability Zones](https://docs.microsoft.com/azure/architecture/high-availability/building-solutions-for-high-availability))_
+  > 
 * Is the application hosted across 2 or more application platform nodes?
 
 
   _To ensure application platform reliability, it is vital that the application be hosted across at least two nodes to ensure there are no single points of failure. Ideally An n+1 model should be applied for compute availability where n is the number of instances required to support application availability and performance requirements. It is important to note that the higher SLAs provided for virtual machines and associated related platform services, require at least two replica nodes deployed to either an Availability Set or across two or more Availability Zones([SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/))_
+  > 
     - Does the application platform use Availability Zones or Availability Sets?
 
 
       _An Availability Set (AS) is a logical construct to inform Azure that it should distribute contained virtual machine instances across multiple fault and update domains within an Azure region. Availability Zones (AZ) elevate the fault level for virtual machines to a physical datacenter by allowing replica instances to be deployed across multiple datacenters within an Azure region. While zones provide greater resiliency than sets, there are performance and cost considerations where applications are extremely 'chatty' across zones given the implied physical separation and inter-zone bandwidth charges. Ultimately, Azure Virtual Machines and Azure PaaS services, such as Service Fabric and Azure Kubernetes Service (AKS) which use virtual machines underneath, can leverage either AZs or an AS to provide application resiliency within a region([Business continuity with data resiliency](https://azurecomcdn.azureedge.net/cvt-27012b3bd03d67c9fa81a9e2f53f7d081c94f3a68c13cdeb7958edf43b7771e8/mediahandler/files/resourcefiles/azure-resiliency-infographic/Azure_resiliency_infographic.pdf))_
 
+      > 
 * How is the client traffic routed to the application in the case of region, zone or network outage?
 
 
   _In the event of a major outage, client traffic should be routable to application deployments which remain available across other regions or zones. This is ultimately where cross-premises connectivity and global load balancing should be used, depending on whether the application is internal and/or external facing. Services such as Azure Front Door, Azure Traffic Manager, or third-party CDNs can route traffic across regions based on application health solicited via health probes([Traffic Manager endpoint monitoring](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring))_
+  > 
 ## Data Platform Availability
     
 ### Service SKU
@@ -408,34 +445,41 @@ These critical design principles are used as lenses to assess the Reliability of
 
 
   _Azure data platform services offer resiliency features to support application reliability, though they may only be applicable at a certain SKU. For instance, Azure SQL Database Business Critical SKUs, or Azure Storage Zone Redundant Storage (ZRS) with three synchronous replicas spread across AZs_
+  > 
 ### Consistency
             
 * How does CAP theorem apply to the data platform and key application scenarios?
 
 
   _CAP theorem proves that it is impossible for a distributed data store to simultaneously provide more than two guarantees across 1) Consistency (every read receives the most recent write or an error), 2) Availability (very request receives a non-error response, without the guarantee that it contains the most recent write), and 3) Partition tolerance (a system continues to operate despite an arbitrary number of transactions being dropped or delayed by the network between nodes). Determining which of these guarantees are most important in the context of application requirements is critical_
+  > 
 * Are data types categorized by data consistency requirements?
 
 
   _Data consistency requirements, such as strong or eventual consistency, should be understood for all data types and used to inform data grouping and categorization, as well as what data replication/synchronization strategies can be considered to meet application reliability targets_
+  > 
 ### Replication and Redundancy
             
 * Is data replicated across paired regions and/or Availability Zones
 
 
   _Replicating data across zones or paired regions supports application availability objectives to limit the impact of failure scenarios_
+  > 
 * Is data backed-up to zone-redundant or geo-redundant storage?
 
 
   _The ability to restore data from a backup is essential when recovering from data corruption situations as well as failure scenarios. To ensure sufficient redundancy and availability for zonal and regional failure scenarios, such backups should be stored across zones and/or regions_
+  > 
 * Has a data restore process been defined and tested to ensure a consistent application state?
 
 
   _Regular testing of the data restore process promotes operational excellence and confidence in the ability to recover data in alignment with defined recovery objectives for the application_
+  > 
 * How is application traffic routed to data sources in the case of region, zone, or network outage?
 
 
   _Understanding the method used to route application traffic to data sources in the event of a major failure event is critical to identify whether failover processes will meet recovery objectives. Many Azure data platform services offer native reliability capabilities to handle major failures, such as Cosmos DB Automatic Failover or Azure SQL DB Active Geo-Replication. However, it is important to note that some capabilities such as Azure Storage RA-GRS and Azure SQL DB Active Geo-Replication require application-side failover to alternate endpoints in some failure scenarios, so application logic should be developed to handle these scenarios_
+  > 
 ## Networking &amp; Connectivity
     
 ### Connectivity
@@ -444,40 +488,49 @@ These critical design principles are used as lenses to assess the Reliability of
 
 
   _Azure Front Door, Azure Traffic Manager, or third-party CDN services can be used to direct inbound requests to external-facing application endpoints deployed across multiple regions. It is important to note that Traffic Manager is a DNS based load balancer, so failover must wait for DNS propagation to occur. A sufficiently low TTL (Time To Live) value should be used for DNS records, though not all ISPs may honor this. For application scenarios requiring transparent failover, Azure Front Door should be used([Disaster Recovery using Azure Traffic Manager](https://docs.microsoft.com/azure/networking/disaster-recovery-dns-traffic-manager))([Azure Frontdoor routing architecture](https://docs.microsoft.com/azure/frontdoor/front-door-routing-architecture))_
+  > 
 * For cross-premises connectivity (ExpressRoute or VPN) are there redundant connections from different locations?
 
 
   _At least two redundant connections should be established across two or more Azure regions and peering locations to ensure there are no single points of failure. An active/active load-shared configuration provides path diversity and promotes availability of network connection paths. ([Cross-network connectivity](https://docs.microsoft.com/azure/expressroute/cross-network-connectivity))_
+  > 
 * Has a failure path been simulated to ensure connectivity is available over alternative paths?
 
 
   _The failure of a connection path onto other connection paths should be tested to validate connectivity and operational effectiveness. Using Site-to-Site VPN connectivity as a backup path for ExpressRoute provides an additional layer of network resiliency for cross-premises connectivity ([Using site-to-site VPN as a backup for ExpressRoute private peering](https://docs.microsoft.com/azure/expressroute/use-s2s-vpn-as-backup-for-expressroute-privatepeering))_
+  > 
 * Have all single points of failure been eliminated from the data path (on-premises and Azure)?
 
 
   _Single-instance Network Virtual Appliances (NVAs), whether deployed in Azure or within an on-premises datacenter, introduce significant connectivity risk ([Deploy highly available network virtual appliances](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha)_
+  > 
 ### Zone-Aware Services
             
 * Are ExpressRoute/VPN zone-redundant Virtual Network Gateways used?
 
 
   _Zone-redundant virtual network gateways distribute gateway instances across Availability Zones to improve reliability and ensure availability during failure scenarios impacting a datacenter within a region([Zone-redundant Virtual Network Gateways](https://docs.microsoft.com/azure/vpn-gateway/about-zone-redundant-vnet-gateways))_
+  > 
 * If used, is Azure Application Gateway v2 deployed in a zone-redundant configuration?
 
 
   _Azure Application Gateway v2 can be deployed in a zone-redundant configuration to deploy gateway instances across zones for improved reliability and availability during failure scenarios impacting a datacenter within a region([Zone-redundant Application Gateway v2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant))_
+  > 
 * Is Azure Load Balancer Standard being used to load-balance traffic across Availability Zones?
 
 
   _Azure Load Balancer Standard is zone-aware to distribute traffic across Availability Zones and can also be configured in a zone-redundant configuration to improve reliability and ensure availability during failure scenarios impacting a datacenter within a region([Standard Load Balancer and Availability Zones](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones))_
+  > 
 * Are health probes configured for Azure Load Balancer(s)/Azure Application Gateway(s)?
 
 
   _Health probes allow Azure Load Balancers to assess the health of backend endpoints to prevent traffic from being sent to unhealthy instances([Load Balancer health probes](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview))_
+  > 
 * Do health probes assess critical application dependencies?
 
 
   _Custom health probes should be used to assess overall application health including downstream components and dependent services, such as APIs and datastores, so that traffic is not sent to backend instances that cannot successfully process requests due to dependency failures ([Health Endpoint Monitoring Pattern](https://docs.microsoft.com/azure/architecture/patterns/health-endpoint-monitoring))_
+  > 
 ## Scalability &amp; Performance
     
 ### Application Performance
@@ -486,20 +539,24 @@ These critical design principles are used as lenses to assess the Reliability of
 
 
   _Programming paradigms such as retry patterns, request timeouts, and circuit breaker patterns can improve application resiliency by automatically recovering from transient faults ([Error handling for resilient applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design-error-handling))_
+  > 
 * Does the application require long running TCP connections?
 
 
   _If an application is initiating many outbound TCP or UDP connections it may exhaust all available ports leading to SNAT port exhaustion and poor application performance. Long-running connections exacerbate this risk by occupying ports for sustained durations. Effort should be taken to ensure that the application can scale within the port limits of the chosen application hosting platform ([Managing SNAT port exhaustion](https://docs.microsoft.com/azure/load-balancer/troubleshoot-outbound-connection#snatexhaust))_
+  > 
 ### Data Size/Growth
             
 * Do you know the growth rate of your data?
 
 
   _Your solution might work great in the first week or month, but what happens when data just keeps increasing? Will the solution slow down, or will it even break at a particular threshold? Planning for data growth, data retention, and archiving is essential in capacity planning. Without adequately planning capacity for your datastores, performance will be negatively affected._
+  > 
 * Are target data sizes and associated growth rates calculated per scenario or service?
 
 
   _Scale limits and recovery options should be assessed in the context of target data sizes and growth rates to ensure suitable capacity exists_
+  > 
 * Are there any mitigation plans defined in case data size exceeds limits?
 
 
@@ -511,52 +568,63 @@ These critical design principles are used as lenses to assess the Reliability of
 
 
   _Latency targets, which are commonly defined as first byte in to last byte out, should be defined and measured for key application scenarios, as well as each individual component, to validate overall application performance and health_
+  > 
 * Are throughput targets defined, tested, and validated for key scenarios?
 
 
   _Throughput targets, which are commonly defined in terms of IOPS, MB/s and Block Size, should be defined and measured for key application scenarios, as well as each individual component, to validate overall application performance and health. Available throughput typically varies based on SKU, so defined targets should be used to inform the use of appropriate SKUs_
+  > 
 ### Network Throughput and Latency
             
 * Are there any components/scenarios that are very sensitive to network latency?
 
 
   _Components or scenarios that are sensitive to network latency may indicate a need for co-locality within a single Availability Zone or even closer using Proximity Placement Groups with Accelerated Networking enabled ([Proximity Placement Groups](https://docs.microsoft.com/azure/virtual-machines/windows/co-location#proximity-placement-groups))_
+  > 
 * Have gateways (ExpressRoute or VPN) been sized accordingly to the expected cross-premises network throughput?
 
 
   _Azure Virtual Network Gateways throughput varies based on SKU. Gateways should therefore be sized according to required throughput ([VPN Gateway SKUs](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku))_
+  > 
 * Does the application require dedicated bandwidth?
 
 
   _Applications with stringent throughput requirements may require dedicated bandwidth to remove the risks associated with noisy neighbor scenarios_
+  > 
 * If NVAs are used, has expected throughput been tested?
 
 
   _Maximum potential throughput for third-party NVA solutions is based on a combination of the leveraged VM SKU size, support for Accelerated Networking, support for HA ports, and more generally the NVA technology used. Expected throughput should be tested to ensure optimal performance, however, it is best to confirm throughput requirements with the NVA vendor directly_
+  > 
     - Is autoscaling enabled based on throughput
 
 
       _Autoscaling capabilities can vary between NVA solutions, but ultimately help to mitigate common bottle-neck situations_
 
+      > 
 ### Elasticity
             
 * Can the application scale horizontally in response to changing load?
 
 
   _A scale-unit approach should be taken to ensure that each application component and the application as a whole can scale effectively in response to changing demand. A robust capacity model should be used to define when and how the application should scale_
+  > 
 * Has the time to scale in/out been measured?
 
 
   _Time to scale-in and scale-out can vary between Azure services and instance sizes and should be assessed to determine if a certain amount of pre-scaling is required to handle scale requirements and expected traffic patterns, such as seasonal load variations_
+  > 
 * Is autoscaling enabled and integrated within Azure Monitor?
 
 
   _Autoscaling can be leveraged to address unanticipated peak loads to help prevent application outages caused by overloading_
+  > 
     - Has autoscaling been tested under sustained load?
 
 
       _The scaling on any single component may have an impact on downstream application components and dependencies. Autoscaling should therefore be tested regularly to help inform and validate a capacity model describing when and how application components should scale_
 
+      > 
 ## Security &amp; Compliance
     
 ### Identity and Access
@@ -565,58 +633,71 @@ These critical design principles are used as lenses to assess the Reliability of
 
 
   _It is important to confirm that the identity provider (e.g. Azure AD, AD, or ADFS) and its dependencies (e.g. DNS and network connectivity to the identity provider) are designed in a way and provide an SLA/SLO that aligns with application availability targets_
+  > 
 * Has role-based and/or resource-based authorization been configured within Azure AD?
 
 
   _Role-based and resource-based authorization are common approaches to authorize users based on required permission scopes([Role-based and resource-based authorization](https://docs.microsoft.com/azure/architecture/multitenant-identity/authorize))_
+  > 
     - Does the application write-back to Azure AD?
 
 
       _The Azure AD SLA includes authentication, read, write, and administrative actions.  In many cases, applications only require authentication and read access to Azure AD, which aligns with a much higher operational availability due to geographically distributed read replicas([Azure AD Architecture](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-architecture))_
 
+      > 
     - Are authentication tokens cached and encrypted for sharing across web servers?
 
 
       _Application code should first try to get tokens silently from a cache before attempting to acquire a token from the identity provider, to optimise performance and maximize availability([Acquire and cache tokens](https://docs.microsoft.com/azure/active-directory/develop/msal-acquire-cache-tokens))_
 
+      > 
 * Are Azure AD emergency access accounts and processes defined for recovering from identity failures?
 
 
   _The impact of no administrative access can be mitigated by creating two or more emergency access accounts ([Emergency Access accounts in Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access))_
+  > 
 ### Security Center
             
 * Is Azure Security Center Standard tier enabled for all subscriptions and reporting to centralized workspaces? Also, is automatic provisioning enabled for all subscriptions? ([Security Center Data Collection](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection))
 
 
+  > 
 * Is Azure Security Center's Secure Score being formally reviewed and improved on a regular basis? ([Security Center Secure Score](https://docs.microsoft.com/azure/security-center/secure-score-security-controls))
 
 
+  > 
 * Are contact details set in security center to the appropriate email distribution list? ([Security Center Contact Details](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details))
 
 
+  > 
 ### Network Security
             
 * Are all external application endpoints secured?
 
 
   _External application endpoints should be protected against common attack vectors, such as Denial of Service (DoS) attacks like Slowloris, to prevent potential application downtime due to malicious intent. Azure native technologies such as Azure Firewall, Application Gateway/Azure Front Door WAF, and DDoS Protection Standard Plan can be used to achieve requisite protection ([Azure DDoS Protection](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview))_
+  > 
 * Is communication to Azure PaaS services secured using VNet Service Endpoints or Private Link?
 
 
   _Service Endpoints and Private Link can be leveraged to restrict access to PaaS endpoints from only authorized virtual networks, effectively mitigating data intrusion risks and associated impact to application availability. Service Endpoints provide service level access to a PaaS service, while Private Link provides direct access to a specific PaaS resource to mitigate data exfiltration risks (e.g. malicious admin scenarios)_
+  > 
 * If data exfiltration concerns exist for services where Private Link is not yet supported, is filtering via Azure Firewall or an NVA being used?
 
 
   _NVA solutions and Azure Firewall (for supported protocols) can be leveraged as a reverse proxy to restrict access to only authorized PaaS services for services where Private Link is not yet supported([Azure Firewall](https://docs.microsoft.com/azure/firewall/features))_
+  > 
 * Are Network Security Groups (NSGs) being used?
 
 
   _If NSGs are being used to isolate and protect the application, the rule set should be reviewed to confirm that required services are not unintentionally blocked([Azure Platform Considerations for NSGs](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations))_
+  > 
     - Are NSG flow logs being collected?
 
 
       _NSG flow logs should be captured and analyzed to monitor performance and security([Why use NSG flow logs](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview#why-use-flow-logs))_
 
+      > 
 ## Operational Procedures
     
 ### Recovery &amp; Failover
@@ -735,10 +816,12 @@ These critical design principles are used as lenses to assess the Reliability of
 
 
   _Stateless processes can easily be hosted across multiple compute instances to meet scale demands, as well as helping to reduce complexity and ensure high cacheability (see [Stateless web services](https://docs.microsoft.com/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices))_
+  > 
 * Is the session state (if any) non-sticky and externalized to a data store?
 
 
   _Sticky session state limits application scalability because it is not possible to balance load. With sticky sessions all requests from a client must be sent to the same compute instance where the session state was initially created, regardless of the load on that compute instance. Externalizing session state allows for traffic to be evenly distributed across multiple compute nodes, with required state retrieved from the external data store ([Avoid session state](https://docs.microsoft.com/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#sessionstate))_
+  > 
 ## Deployment &amp; Testing
     
 ### Application Deployments
@@ -782,27 +865,33 @@ These critical design principles are used as lenses to assess the Reliability of
 
 
   _Performance Testing: Performance testing is the superset of both load and stress testing. The primary goal of performance testing is to validate benchmark behavior for the application ([Performance Testing](https://docs.microsoft.com/azure/architecture/checklist/dev-ops#testing))<br />**Load Testing**: Load testing validates application scalability by rapidly and/or gradually increasing the load on the application until it reaches a threshold/limit<br />**Stress Testing**: *Stress testing is a type of negative testing which involves various activities to overload existing resources and remove components to understand overall resiliency and how the application responds to issues_
+  > 
     - How does your team perceive the importance of performance testing?
 
 
       _It is critical that your team understands the importance of performance testing. Additionally, the team should be committed to providing the necessary time and resources for adequately executing performance testing proven practices._
 
+      > 
     - When do you do test for performance, scalability, and resiliency?
 
 
       _Regular testing should be performed as part of each major change and if possible on a regular basis to validate existing thresholds, targets and assumptions, as well as ensuring the validity of the health model, capacity model and operational procedures_
 
+      > 
     - Are any tests performed in production?
 
 
       _While the majority of testing should be performed within the testing and staging environments, it is often beneficial to also run a subset of tests against the production system_
 
+      > 
     - Is the application tested with injected faults?
 
 
       _It is a common "chaos monkey" practice to verify the effectiveness of operational procedures using artificial faults. For example, taking dependencies offline (stopping API apps, shutting down VMs, etc.), restricting access (enabling firewall rules, changing connection strings, etc.) or forcing failover (database level, Front Door, etc.) is a good way to validate that the application is able to handle faults gracefully_
 
+      > 
 * Are these tests automated and carried out periodically or on-demand?
 
 
   _Testing should be fully automated where possible and performed as part of the deployment lifecycle to validate the impact of all application changes. Additionally, manual explorative testing may also be conducted_
+  > 
