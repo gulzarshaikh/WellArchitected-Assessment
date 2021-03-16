@@ -812,17 +812,6 @@ These critical design principles are used as lenses to assess the Security of an
 
   _N-1 and N+1 refer to roll-back and roll-forward. Automated deployment pipelines should allow for quick roll-forward and roll-back deployments to address critical bugs and code updates outside of the normal deployment lifecycle._
   > Automated deployment pipelines should allow for quick roll-forward and roll-back deployments to address critical bugs and code updates outside of the normal deployment lifecycle
-* How does the development team manage application source code, builds, and releases?
-
-
-  _It is important to understand whether there is a systematic approach to the development and release process._
-  > The use of source code control systems, such as Azure Repos or GitHub, and build and release systems, such as Azure Pipelines or GitHub Actions, should be understood, including the corresponding processes to access, review and approve changes
-    - If Git is used for source control, what branching strategy is used?
-
-
-      _While there are various valid ways, a clearly defined strategy should be in place and understood_
-
-      > To optimize for collaboration and ensure developers spend less time managing version control and more time developing code, a clear and simple branching strategy should be used, such as Trunk-Based Development which is employed internally [within Microsoft Engineering](https://docs.microsoft.com/azure/devops/learn/devops-at-microsoft/use-git-microsoft).
 * Are code scanning tools an integrated part of the continuous integration (CI) process for this workload?
 
 
@@ -834,6 +823,11 @@ These critical design principles are used as lenses to assess the Security of an
       _As part of the continuous integration process it is crucial that every release includes a scan of all components in use. Vulnerable dependencies should be flagged and investigated. This can be done in combination with other code scanning tasks (e.g. code churn, test results/coverage)._
 
       > Include code scans into CI/CD process that also covers 3rd party dependencies and framework components.
+* Are branch policies used in source control management of this workload? How are they configured?
+
+
+  _Branch policies provide additional level of control over the code which is commited to the product. It is a common practice to not allow pushing against the main branch and require pull-request (PR) with code review before merging the changes by at least one reviewer, other than the change author. Different branches can have different purposes and access levels, for example: feature branches are created by developers and are open to push, integration branch requires PR and code-review and production branch requires additional approval from a senior developer before merging._
+  > Implement branch policy strategy to enhance branch security.
 ### Application Infrastructure Provisioning
             
 * Is application infrastructure defined as code?
