@@ -4253,8 +4253,8 @@
       "reliability"
     ],
     "lens": "application",
-    "category": "Scalability & Performance",
-    "subCategory": "Application Performance",
+    "category": "Application Performance Management",
+    "subCategory": "Network Throughput and Latency",
     "title": "Does the application require long running TCP connections?",
     "context": "If an application is initiating many outbound TCP or UDP connections it may exhaust all available ports leading to SNAT port exhaustion and poor application performance. Long-running connections exacerbate this risk by occupying ports for sustained durations. Effort should be taken to ensure that the application can scale within the port limits of the chosen application hosting platform ([Managing SNAT port exhaustion](https://docs.microsoft.com/azure/load-balancer/troubleshoot-outbound-connection#snatexhaust))",
     "recommendation": {
@@ -4278,7 +4278,7 @@
       "operationalexcellence"
     ],
     "lens": "application",
-    "category": "Scalability & Performance",
+    "category": "Application Performance Management",
     "subCategory": "Data Size/Growth",
     "title": "Do you know the growth rate of your data?",
     "context": "Your solution might work great in the first week or month, but what happens when data just keeps increasing? Will the solution slow down, or will it even break at a particular threshold? Planning for data growth, data retention, and archiving is essential in capacity planning. Without adequately planning capacity for your datastores, performance will be negatively affected.",
@@ -4302,7 +4302,7 @@
       "operationalexcellence"
     ],
     "lens": "application",
-    "category": "Scalability & Performance",
+    "category": "Application Performance Management",
     "subCategory": "Data Size/Growth",
     "title": "Are target data sizes and associated growth rates calculated per scenario or service?",
     "context": "Scale limits and recovery options should be assessed in the context of target data sizes and growth rates to ensure suitable capacity exists",
@@ -4326,7 +4326,7 @@
       "operationalexcellence"
     ],
     "lens": "application",
-    "category": "Scalability & Performance",
+    "category": "Application Performance Management",
     "subCategory": "Data Size/Growth",
     "title": "Are there any mitigation plans defined in case data size exceeds limits?",
     "context": "Mitigation plans such as purging or archiving data can help the application to remain available in scenarios where data size exceeds expected limits",
@@ -4349,7 +4349,7 @@
       "reliability"
     ],
     "lens": "application",
-    "category": "Scalability & Performance",
+    "category": "Application Performance Management",
     "subCategory": "Data Latency and Throughput",
     "title": "Are latency targets defined, tested, and validated for key scenarios?",
     "context": "Latency targets, which are commonly defined as first byte in to last byte out, should be defined and measured for key application scenarios, as well as each individual component, to validate overall application performance and health",
@@ -4372,7 +4372,7 @@
       "reliability"
     ],
     "lens": "application",
-    "category": "Scalability & Performance",
+    "category": "Application Performance Management",
     "subCategory": "Data Latency and Throughput",
     "title": "Are throughput targets defined, tested, and validated for key scenarios?",
     "context": "Throughput targets, which are commonly defined in terms of IOPS, MB/s and Block Size, should be defined and measured for key application scenarios, as well as each individual component, to validate overall application performance and health. Available throughput typically varies based on SKU, so defined targets should be used to inform the use of appropriate SKUs",
@@ -4392,10 +4392,11 @@
     "id": "434e1902-df71-4938-984e-7a159e4d264e",
     "type": "Questions",
     "pillars": [
-      "reliability"
+      "reliability",
+      "performanceefficiency"
     ],
     "lens": "application",
-    "category": "Scalability & Performance",
+    "category": "Application Performance Management",
     "subCategory": "Network Throughput and Latency",
     "title": "Are there any components/scenarios that are very sensitive to network latency?",
     "context": "Components or scenarios that are sensitive to network latency may indicate a need for co-locality within a single Availability Zone or even closer using Proximity Placement Groups with Accelerated Networking enabled ([Proximity Placement Groups](https://docs.microsoft.com/azure/virtual-machines/windows/co-location#proximity-placement-groups))",
@@ -4418,7 +4419,7 @@
       "reliability"
     ],
     "lens": "application",
-    "category": "Scalability & Performance",
+    "category": "Application Performance Management",
     "subCategory": "Network Throughput and Latency",
     "title": "Have gateways (ExpressRoute or VPN) been sized accordingly to the expected cross-premises network throughput?",
     "context": "Azure Virtual Network Gateways throughput varies based on SKU. Gateways should therefore be sized according to required throughput ([VPN Gateway SKUs](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku))",
@@ -4441,7 +4442,7 @@
       "reliability"
     ],
     "lens": "application",
-    "category": "Scalability & Performance",
+    "category": "Application Performance Management",
     "subCategory": "Network Throughput and Latency",
     "title": "Does the application require dedicated bandwidth?",
     "context": "Applications with stringent throughput requirements may require dedicated bandwidth to remove the risks associated with noisy neighbor scenarios",
@@ -4464,7 +4465,7 @@
       "reliability"
     ],
     "lens": "application",
-    "category": "Scalability & Performance",
+    "category": "Application Performance Management",
     "subCategory": "Network Throughput and Latency",
     "title": "If NVAs are used, has expected throughput been tested?",
     "context": "Maximum potential throughput for third-party NVA solutions is based on a combination of the leveraged VM SKU size, support for Accelerated Networking, support for HA ports, and more generally the NVA technology used. Expected throughput should be tested to ensure optimal performance, however, it is best to confirm throughput requirements with the NVA vendor directly",
@@ -4505,7 +4506,7 @@
       "reliability"
     ],
     "lens": "application",
-    "category": "Scalability & Performance",
+    "category": "Application Performance Management",
     "subCategory": "Elasticity",
     "title": "Can the application scale horizontally in response to changing load?",
     "context": "A scale-unit approach should be taken to ensure that each application component and the application as a whole can scale effectively in response to changing demand. A robust capacity model should be used to define when and how the application should scale",
@@ -4528,7 +4529,7 @@
       "reliability"
     ],
     "lens": "application",
-    "category": "Scalability & Performance",
+    "category": "Application Performance Management",
     "subCategory": "Elasticity",
     "title": "Has the time to scale in/out been measured?",
     "context": "Time to scale-in and scale-out can vary between Azure services and instance sizes and should be assessed to determine if a certain amount of pre-scaling is required to handle scale requirements and expected traffic patterns, such as seasonal load variations",
@@ -4551,7 +4552,7 @@
       "reliability"
     ],
     "lens": "application",
-    "category": "Scalability & Performance",
+    "category": "Application Performance Management",
     "subCategory": "Elasticity",
     "title": "Is autoscaling enabled and integrated within Azure Monitor?",
     "context": "Autoscaling can be leveraged to address unanticipated peak loads to help prevent application outages caused by overloading",

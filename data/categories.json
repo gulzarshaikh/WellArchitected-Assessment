@@ -153,11 +153,8 @@
     ]
   },
   {
-    "title": "Scalability & Performance",
+    "title": "Application Performance Management",
     "subCategories": [
-      {
-        "title": "Application Performance"
-      },
       {
         "title": "Data Size/Growth"
       },
