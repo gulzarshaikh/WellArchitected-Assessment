@@ -173,7 +173,13 @@
     "title": "Security & Compliance",
     "subCategories": [
       {
-        "title": "Identity and Access"
+        "title": "Separation of duties"
+      },
+      {
+        "title": "Control-plane RBAC"
+      },
+      {
+        "title": "Authentication and authorization"
       },
       {
         "title": "Security Center"
@@ -366,15 +372,7 @@
   {
     "title": "Identity & Access Control",
     "subCategories": [
-      {
-        "title": "Separation of duties"
-      },
-      {
-        "title": "Control-plane RBAC"
-      },
-      {
-        "title": "Authentication and authorization"
-      }
+
     ]
   },
   {

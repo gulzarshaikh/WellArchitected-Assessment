@@ -2359,7 +2359,8 @@
     "id": "6714b538-53f6-494c-94c9-b9965d23a0a4",
     "type": "Questions",
     "pillars": [
-      "operationalexcellence"
+      "operationalexcellence",
+      "security"
     ],
     "lens": "application",
     "category": "Deployment & Testing",
@@ -4594,7 +4595,7 @@
     ],
     "lens": "application",
     "category": "Security & Compliance",
-    "subCategory": "Identity and Access",
+    "subCategory": "Control-plane RBAC",
     "title": "Is the identity provider and associated dependencies highly available?",
     "context": "It is important to confirm that the identity provider (e.g. Azure AD, AD, or ADFS) and its dependencies (e.g. DNS and network connectivity to the identity provider) are designed in a way and provide an SLA/SLO that aligns with application availability targets",
     "recommendation": {
@@ -4613,11 +4614,12 @@
     "id": "a1a4a381-7949-48a2-85ff-c9b43fd941c0",
     "type": "Questions",
     "pillars": [
-      "reliability"
+      "reliability",
+      "security"
     ],
     "lens": "application",
     "category": "Security & Compliance",
-    "subCategory": "Identity and Access",
+    "subCategory": "Control-plane RBAC",
     "title": "Has role-based and/or resource-based authorization been configured within Azure AD?",
     "context": "Role-based and resource-based authorization are common approaches to authorize users based on required permission scopes([Role-based and resource-based authorization](https://docs.microsoft.com/azure/architecture/multitenant-identity/authorize))",
     "recommendation": {
@@ -4675,7 +4677,7 @@
     ],
     "lens": "application",
     "category": "Security & Compliance",
-    "subCategory": "Identity and Access",
+    "subCategory": "Control-plane RBAC",
     "title": "Are Azure AD emergency access accounts and processes defined for recovering from identity failures?",
     "context": "The impact of no administrative access can be mitigated by creating two or more emergency access accounts ([Emergency Access accounts in Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access))",
     "recommendation": {
@@ -4695,7 +4697,8 @@
     "type": "Questions",
     "pillars": [
       "reliability",
-      "operationalexcellence"
+      "operationalexcellence",
+      "security"
     ],
     "lens": "application",
     "category": "Security & Compliance",
@@ -4718,7 +4721,8 @@
     "type": "Questions",
     "pillars": [
       "reliability",
-      "operationalexcellence"
+      "operationalexcellence",
+      "security"
     ],
     "lens": "application",
     "category": "Security & Compliance",
@@ -4741,7 +4745,8 @@
     "type": "Questions",
     "pillars": [
       "reliability",
-      "operationalexcellence"
+      "operationalexcellence",
+      "security"
     ],
     "lens": "application",
     "category": "Security & Compliance",
@@ -5598,33 +5603,10 @@
       "security"
     ],
     "lens": "application",
-    "category": "Identity & Access Control",
+    "category": "Security & Compliance",
     "subCategory": "Separation of duties",
     "title": "Does the application team have a clear view on responsibilities and individual/group access levels for this workload?",
     "context": "Application roles and responsibility model need to be defined covering the different access level of each operational function (e.g publish production release, access customer data, manipulate database records). It's in the interest of the application team to include central functions (e.g. SecOps, NetOps, IAM) into this view.",
-    "recommendation": {
-      "title": "",
-      "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
-      "priority": "medium"
-    }
-  },
-  {
-    "id": "00a608d8-440f-4907-b02c-71df93a674a3",
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Identity & Access Control",
-    "subCategory": "Separation of duties",
-    "title": "Has role-based and/or resource-based authorization been configured within Azure AD for this workload?",
-    "context": "Role-based and resource-based authorization are common approaches to authorize users based on required permission scopes. [Role-based and resource-based](https://docs.microsoft.com/azure/architecture/multitenant-identity/authorize)",
     "recommendation": {
       "title": "",
       "context": "",
@@ -5644,7 +5626,7 @@
       "security"
     ],
     "lens": "application",
-    "category": "Identity & Access Control",
+    "category": "Security & Compliance",
     "subCategory": "Authentication and authorization",
     "title": "Are authentication tokens cached securely and encrypted when sharing across web servers in this workload?",
     "context": "OAuth tokens are usually cached after they've been acquired. Application code should first try to get tokens silently from a cache before attempting to acquire a token from the identity provider, to optimise performance and maximize availability. Tokens should be stored securely and handled as any other credentials. When there's a need to share tokens across application servers (instead of each server acquiring and caching their own) encryption should be used. [Acquire and cache tokens](https://docs.microsoft.com/azure/active-directory/develop/msal-acquire-cache-tokens)",
@@ -5685,35 +5667,12 @@
       "security"
     ],
     "lens": "application",
-    "category": "Identity & Access Control",
+    "category": "Security & Compliance",
     "subCategory": "Separation of duties",
     "title": "Are there any processes and tools leveraged in this workload to manage privileged activities?",
     "context": "Zero-trust principle comes with the requirement of no standing access to an environment. Native and 3rd party solution can be used to elevate access permissions for at least highly privileged if not all activities. [Azure AD Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) (Azure AD PIM) is the recommended and Azure native solution.",
     "recommendation": {
       "title": "Establish processes and use tools to manage priviliged access.",
-      "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
-      "priority": "medium"
-    }
-  },
-  {
-    "id": "51738818-d2e8-4d95-ab68-14a7b49944b6",
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Identity & Access Control",
-    "subCategory": "Control-plane RBAC",
-    "title": "Does the organization protect the workload infrastructure with role-based access control (RBAC)?",
-    "context": "Performing role-based or/or resource-based authorization with Azure Active Directory allows centralized management that supports the principle of least privilege when accessing organizational resources. RBAC provides the necessary tools to maintain separation of concerns when it comes to accessing the application infrastructure. Aligned with the [separation of duties](#separation-of-duties) section, users should have only the minimal set of permissions. Examples: \"Developers can't access production infrastructure.\", \"Only the SecOps team can read and manage Key Vault secrets.\", \"Project A team can access and manage Resource Group A and all resources within.\"",
-    "recommendation": {
-      "title": "Implement role-based access control for application infrastructure.",
       "context": "",
       "links": [
         {
@@ -5731,35 +5690,12 @@
       "security"
     ],
     "lens": "application",
-    "category": "Identity & Access Control",
+    "category": "Security & Compliance",
     "subCategory": "Control-plane RBAC",
     "title": "Does the organization leverage resource locks in this workload to protect critical infrastructure?",
     "context": "Critical infrastructure typically doesn't change often. To prevent accidental/undesired modification of resources, Azure offers the locking functionality where only specific roles and users with permissions are able to delete/modify resources. Locks can be used on critical parts of the infrastructure, but special care needs to be taken in the DevOps process - modification locks can sometimes block automation (see [Considerations before applying locks](https://review.docs.microsoft.com/azure/azure-resource-manager/management/lock-resources#considerations-before-applying-locks) for more information).",
     "recommendation": {
       "title": "Implement resource locks to protect critical infrastructure.",
-      "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
-      "priority": "medium"
-    }
-  },
-  {
-    "id": "9848eeda-b52e-4dca-a738-955ac7fe78e3",
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Identity & Access Control",
-    "subCategory": "Control-plane RBAC",
-    "title": "Is there a direct access to the workload infrastructure through Azure Portal, command-line Interface (CLI) or REST API?",
-    "context": "While it is recommended to deploy application infrastructure via automation and CI/CD, to maximize application autonomy and agility, restrictive access control need be balanced on less critical development and test environments.",
-    "recommendation": {
-      "title": "Restrict application infrastructure access only to CI/CD for critical workloads.",
       "context": "",
       "links": [
         {
@@ -5800,7 +5736,7 @@
       "security"
     ],
     "lens": "application",
-    "category": "Identity & Access Control",
+    "category": "Security & Compliance",
     "subCategory": "Authentication and authorization",
     "title": "How is the workload authenticated when communicating with Azure platform services?",
     "context": "Try to avoid authentication with keys (connection strings, API keys etc.) and always prefer Managed Identities (formerly also known as Managed Service Identity, MSI). Managed identities enable Azure Services to authenticate to each other without presenting explicit credentials via code. Typical use case is a Web App accessing Key Vault credentials or a Virtual Machine accessing SQL Database. [Managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/)",
@@ -5823,7 +5759,7 @@
       "security"
     ],
     "lens": "application",
-    "category": "Identity & Access Control",
+    "category": "Security & Compliance",
     "subCategory": "Authentication and authorization",
     "title": "Do all APIs for this workload require authentication?",
     "context": "API URLs used by client applications are exposed to attackers (JavaScript code on a website can be viewed, mobile application can be decompiled and inspected) and should be protected. For internal APIs, requiring authentication can increase the difficulty of lateral movement if an attacker obtains network access. Typical mechanisms include API keys, authorization tokens, IP restrictions or Azure Managed identities.",
@@ -5864,7 +5800,7 @@
       "security"
     ],
     "lens": "application",
-    "category": "Identity & Access Control",
+    "category": "Security & Compliance",
     "subCategory": "Authentication and authorization",
     "title": "How is user authentication handled in this workload?",
     "context": "If possible, applications should utilize Azure Active Directory or other managed identity providers (such as Microsoft Account, Azure B2C...) to avoid managing user credentials with custom implementation. Modern protocols like OAuth 2.0 use token-based authentication with limited timespan, identity providers offer additional functionality like multi-factor authentication, password reset etc.",
@@ -5887,7 +5823,7 @@
       "security"
     ],
     "lens": "application",
-    "category": "Identity & Access Control",
+    "category": "Security & Compliance",
     "subCategory": "Authentication and authorization",
     "title": "Does the organization enforce conditional access for this workload?",
     "context": "Modern cloud-based applications are often accessible over the internet and location-based networking restrictions don't make much sense, but it needs to be mapped and understood what kind of restrictions are required. Multi-factor Authentication (MFA) is a necessity for remote access, IP-based filtering can be used to enable ad-hoc debugging, but VPNs are preferred.",
@@ -5928,7 +5864,7 @@
       "security"
     ],
     "lens": "application",
-    "category": "Identity & Access Control",
+    "category": "Security & Compliance",
     "subCategory": "Authentication and authorization",
     "title": "Does the organization prioritize authentication via identity services for this workload vs. cryptographic keys?",
     "context": "Consideration should always be given to authenticating with identity services rather than cryptographic keys when available. Managing keys securely with application code is difficult and regularly leads to mistakes like accidentally publishing sensitive access keys to code repositories like GitHub. Identity systems (such as Azure Active Directory) offer secure and usable experience for access control with built-in sophisticated mechanisms for key rotation, monitoring for anomalies, and more.",
@@ -7546,7 +7482,7 @@
       "security"
     ],
     "lens": "application",
-    "category": "Identity & Access Control",
+    "category": "Security & Compliance",
     "subCategory": "Separation of duties",
     "title": "Has the organization established a lifecycle management policy for critical accounts in this workload?",
     "context": "A compromise of an account in a role that is assigned privileges with a business-critical impact can be detrimental to organizational information systems and should therefore be closely monitored including a lifecycle process.",
@@ -7603,7 +7539,7 @@
       "security"
     ],
     "lens": "application",
-    "category": "Identity & Access Control",
+    "category": "Security & Compliance",
     "subCategory": "Separation of duties",
     "title": "Has a designated point of contact been assigned for this workload to receive Azure incident notifications from Microsoft?",
     "context": "Security alerts need to reach the right people in your organization. It is important to ensure a security contact receives Azure incident notifications, or alerts from Microsoft / Azure Security Center, such as a notification that your resource is compromised and/or attacking another customer.",
@@ -7626,7 +7562,7 @@
       "security"
     ],
     "lens": "application",
-    "category": "Identity & Access Control",
+    "category": "Security & Compliance",
     "subCategory": "Separation of duties",
     "title": "Does the organization assign the appropriate level of privileges for managing the Azure environment for this workload based on a clearly documented strategy built with the principle of least privilege and based on operational needs?",
     "context": "Microsoft recommends starting from the Core Services Reference Permissions model and Segment Reference Permissions model to provide clear guidance for technical teams implementing these permissions.",
@@ -7649,7 +7585,7 @@
       "security"
     ],
     "lens": "application",
-    "category": "Identity & Access Control",
+    "category": "Security & Compliance",
     "subCategory": "Authentication and authorization",
     "title": "Does the organization synchronize current on-premises Active Directory with Azure AD, or other cloud identity systems?",
     "context": "Consistency of identities across cloud and on-premises will reduce human errors and resulting security risk. Teams managing resources in both environments need a consistent authoritative source to achieve security assurances.",
@@ -7706,7 +7642,7 @@
       "security"
     ],
     "lens": "application",
-    "category": "Identity & Access Control",
+    "category": "Security & Compliance",
     "subCategory": "Control-plane RBAC",
     "title": "Does the organization use a single identity provider for cross-platform identity management of this workload?",
     "context": "A single identity provider such as Azure Active Directory (AAD) for all enterprise assets and cloud services will simplify management and security, minimizing the risk of oversights or human mistakes. Ideally this provider should span across platforms (Windows, Linux, Azure, AWS, Google...).",
@@ -7729,7 +7665,7 @@
       "security"
     ],
     "lens": "application",
-    "category": "Identity & Access Control",
+    "category": "Security & Compliance",
     "subCategory": "Control-plane RBAC",
     "title": "Does the organization have a well-defined identity strategy for controlling access to cloud-based workloads?",
     "context": "Identity provides the basis of a large percentage of security assurances and a well-defined identity strategy is effective in protecting the organization from cybersecurity threats.",
@@ -7752,7 +7688,7 @@
       "security"
     ],
     "lens": "application",
-    "category": "Identity & Access Control",
+    "category": "Security & Compliance",
     "subCategory": "Control-plane RBAC",
     "title": "Does the organization assign permissions to Azure workloads based on individual resources or use custom permissions?",
     "context": "Custom resource-based permissions are often not needed and can result in increased complexity and confusion as they do not carry the intention to new similar resources. This then accumulates into a complex legacy configuration that is difficult to maintain or change without fear of \"breaking something\" – negatively impacting both security and solution agility. Higher level permissions sets - based on resource groups or management groups - are usually more efficient.",
@@ -7775,7 +7711,7 @@
       "security"
     ],
     "lens": "application",
-    "category": "Identity & Access Control",
+    "category": "Security & Compliance",
     "subCategory": "Control-plane RBAC",
     "title": "Does the organizational security team have read-only access into all cloud environment resources for this workload?",
     "context": "Provide [security teams](https://docs.microsoft.com/azure/architecture/framework/Security/governance#security-team-visibility) read-only access to the security aspects of all technical resources in their purview. Security organizations require visibility into the technical environment to perform their duties of assessing and reporting on organizational risk. Without this visibility, security will have to rely on information provided from groups, operating the environment, who have a potential conflict of interest (and other priorities).<br />Note that security teams may separately be granted additional privileges if they have operational responsibilities or a requirement to enforce compliance on Azure resources.<br />For example in Azure, assign security teams to the Security Readers permission that provides access to measure security risk (without providing access to the data itself).<br />Because security will have broad access to the environment (and visibility into potentially exploitable vulnerabilities), you should consider them critical impact accounts and apply the same protections as administrators.",
@@ -7798,7 +7734,7 @@
       "security"
     ],
     "lens": "application",
-    "category": "Identity & Access Control",
+    "category": "Security & Compliance",
     "subCategory": "Control-plane RBAC",
     "title": "Does the organization use the root management group and carefully consider any changes that are applied using this group?",
     "context": "The [root management group](https://docs.microsoft.com/azure/architecture/framework/security/design-management-groups#use-root-management-group-with-caution) ensures consistency across the enterprise by applying policies, permissions, and tags across all subscriptions. This group can affect all resources in Azure and incorrect use can impact the security of all workloads in Azure.",
