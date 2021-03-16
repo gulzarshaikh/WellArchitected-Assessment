@@ -4738,7 +4738,7 @@
     "id": "34319d37-7db5-4902-95e3-7e08b1bc90c2",
     "type": "Questions",
     "pillars": [
-      "reliability"
+      "security"
     ],
     "lens": "application",
     "category": "Security & Compliance",
@@ -4761,7 +4761,7 @@
     "id": "45bf67c1-4cb1-4b7d-b1a5-5edeff0aa150",
     "type": "Questions",
     "pillars": [
-      "reliability"
+      "security"
     ],
     "lens": "application",
     "category": "Security & Compliance",
@@ -4784,7 +4784,7 @@
     "id": "c577d9bb-328e-41c4-a196-901cbdf3e188",
     "type": "Questions",
     "pillars": [
-      "reliability"
+      "security"
     ],
     "lens": "application",
     "category": "Security & Compliance",
@@ -4807,7 +4807,7 @@
     "id": "840237e5-e39b-40a2-a473-9fbcd40c305c",
     "type": "Questions",
     "pillars": [
-      "reliability"
+      "security"
     ],
     "lens": "application",
     "category": "Security & Compliance",
