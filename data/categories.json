@@ -370,22 +370,10 @@
     "title": "Performance Testing",
     "subCategories": [
       {
-        "title": "Resource Planning"
-      },
-      {
-        "title": "Tooling"
-      },
-      {
-        "title": "Test Coverage"
+        "title": "Tools & Planning"
       },
       {
         "title": "Benchmarking"
-      },
-      {
-        "title": "Performance Planning"
-      },
-      {
-        "title": "Service SKU"
       },
       {
         "title": "Load Capacity"

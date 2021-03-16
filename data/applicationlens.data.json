@@ -379,6 +379,65 @@
     }
   },
   {
+    "id": "c49a880c-9583-41b8-9dd3-305bbaf77cd8",
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency",
+      "operationalexcellence",
+      "costoptimization"
+    ],
+    "lens": "application",
+    "category": "Application Design",
+    "subCategory": "Targets & Non Functional Requirements",
+    "title": "Are you able to predict general application usage?",
+    "context": "It is important to understand application and environment usage. The customer may have an understanding of certain seasons or incidents that increase user load (e.g. a weather service being hit by users facing a storm, an e-commerce site during the holiday season).",
+    "recommendation": {
+      "title": "Traffic patterns should be identified by analyzing historical traffic data and the effect of significant external events on the application.",
+      "context": "",
+      "links": [
+        {
+          "title": "",
+          "url": ""
+        }
+      ],
+      "priority": "medium"
+    },
+    "children": [
+      {
+        "id": "6b2d1510-0d19-4d28-bf2a-80dbaf323956",
+        "title": "If typical usage is predictable, are your predictions based on time of day, day of week, or season (e.g. holiday shopping season)?",
+        "context": "Dig deeper and document predictable periods. By doing so, you can leverage resources like Azure Automation and Autoscale to proactively scale the application and its underlying environment.",
+        "recommendation": {
+          "title": "",
+          "context": "",
+          "links": [
+            {
+              "title": "",
+              "url": ""
+            }
+          ],
+          "priority": "medium"
+        }
+      },
+      {
+        "id": "3e8145b6-2c3b-4385-90da-732bad7eed80",
+        "title": "Do you understand why your application responds to its typical load in the ways that it does?",
+        "context": "Identifying a typical load helps you determine realistic expectations for performance testing. A \"typical load\" can be measured in individual users, web requests, user sessions, or transactions. When documenting typical loads, also ensure that all predictable periods have typical loads documented.",
+        "recommendation": {
+          "title": "",
+          "context": "",
+          "links": [
+            {
+              "title": "",
+              "url": ""
+            }
+          ],
+          "priority": "medium"
+        }
+      }
+    ]
+  },
+  {
     "id": "995db623-f694-45ff-87c5-fe886e02a100",
     "type": "Questions",
     "pillars": [
@@ -402,22 +461,6 @@
       "priority": "medium"
     },
     "children": [
-      {
-        "id": "282d32ab-0b81-422f-9ae3-481cb9e53eaa",
-        "title": "Does the application have predictable traffic patterns? Or is load highly volatile?",
-        "context": "Understanding the expected application load and known spikes, such as Black Friday for retail applications, is important when assessing operational effectiveness.",
-        "recommendation": {
-          "title": "Traffic patterns should be identified by analyzing historical traffic data and the effect of significant external events on the application.",
-          "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
-          "priority": "medium"
-        }
-      },
       {
         "id": "89333b94-6ced-45ad-abb2-73e82b0d560b",
         "title": "Are there any targets defined for the time it takes to perform scale operations?",
@@ -3546,9 +3589,7 @@
     "type": "Questions",
     "pillars": [
       "reliability",
-      "costoptimization",
-      "operationalexcellence",
-      "performanceefficiency"
+      "operationalexcellence"
     ],
     "lens": "application",
     "category": "Application Design",
@@ -4324,7 +4365,8 @@
     "id": "2712d167-cce7-4365-a309-afbc5a513d8b",
     "type": "Questions",
     "pillars": [
-      "reliability"
+      "operationalexcellence",
+      "performanceefficiency"
     ],
     "lens": "application",
     "category": "Application Performance Management",
@@ -4347,7 +4389,8 @@
     "id": "850c660b-0bca-42d0-80cf-d723808fe92f",
     "type": "Questions",
     "pillars": [
-      "reliability"
+      "operationalexcellence",
+      "performanceefficiency"
     ],
     "lens": "application",
     "category": "Application Performance Management",
@@ -4417,7 +4460,8 @@
     "id": "da08ff51-123a-4f8d-9fcf-996d3f23967c",
     "type": "Questions",
     "pillars": [
-      "reliability"
+      "reliability",
+      "performanceefficiency"
     ],
     "lens": "application",
     "category": "Application Performance Management",
@@ -4481,7 +4525,8 @@
     "id": "4313cabe-1cdf-44b7-9b80-48aec83d43c3",
     "type": "Questions",
     "pillars": [
-      "reliability"
+      "reliability",
+      "performanceefficiency"
     ],
     "lens": "application",
     "category": "Application Performance Management",
@@ -4501,34 +4546,10 @@
     }
   },
   {
-    "id": "40df86e9-96ed-4173-be52-2a4d2d18ca6b",
-    "type": "Questions",
-    "pillars": [
-      "reliability",
-      "performanceefficiency"
-    ],
-    "lens": "application",
-    "category": "Application Performance Management",
-    "subCategory": "Elasticity",
-    "title": "Has the time to scale in/out been measured?",
-    "context": "Time to scale-in and scale-out can vary between Azure services and instance sizes and should be assessed to determine if a certain amount of pre-scaling is required to handle scale requirements and expected traffic patterns, such as seasonal load variations",
-    "recommendation": {
-      "title": "",
-      "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
-      "priority": "medium"
-    }
-  },
-  {
     "id": "742e39f4-0f7a-4f83-b46d-be422695cac4",
     "type": "Questions",
     "pillars": [
-      "reliability",
+      "operationalexcellence",
       "performanceefficiency"
     ],
     "lens": "application",
@@ -4565,6 +4586,30 @@
         }
       }
     ]
+  },
+  {
+    "id": "40df86e9-96ed-4173-be52-2a4d2d18ca6b",
+    "type": "Questions",
+    "pillars": [
+      "reliability",
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Application Performance Management",
+    "subCategory": "Elasticity",
+    "title": "Has the time to scale in/out been measured?",
+    "context": "Time to scale-in and scale-out can vary between Azure services and instance sizes and should be assessed to determine if a certain amount of pre-scaling is required to handle scale requirements and expected traffic patterns, such as seasonal load variations",
+    "recommendation": {
+      "title": "",
+      "context": "",
+      "links": [
+        {
+          "title": "",
+          "url": ""
+        }
+      ],
+      "priority": "medium"
+    }
   },
   {
     "id": "ff6373e5-59e7-4a22-b12a-c7b0dc912222",
@@ -7971,13 +8016,14 @@
     "id": "6e8058fb-1147-462b-9425-893662990a0e",
     "type": "Questions",
     "pillars": [
-      "costoptimization"
+      "costoptimization",
+      "performanceefficiency"
     ],
     "lens": "application",
     "category": "Efficiency and Sizing",
     "subCategory": "SKUs",
     "title": "Are the right sizes and SKUs used for workload services?",
-    "context": "The required performance and infrastructure utilization are key factors which define the 'size' of Azure resources to be used, but there can be hidden aspects that affect cost too. Watch for cost variations between different SKUs - for example App Service Plans S3 cost the same as P2v2, but have worse performance characteristics.",
+    "context": "The required performance and infrastructure utilization are key factors which define the 'size' of Azure resources to be used, but there can be hidden aspects that affect cost too. Watch for cost variations between different SKUs - for example App Service Plans S3 cost the same as P2v2, but have worse performance characteristics. Once the purchased SKUs have been identified, determine if they purchased resources have the capabilities of supporting anticipated load. For example, if you expect the load to require 30 instances of an App Service, yet you are currently leveraging a Standard App Service Plan SKU (maximum of 10 instances supported), then you will need to upgrade your App Service Plan in order to accommodate the anticipated load.",
     "recommendation": {
       "title": "Make sure the optimal service SKUs are used for this workload.",
       "context": "",
@@ -9102,7 +9148,7 @@
     ],
     "lens": "application",
     "category": "Performance Testing",
-    "subCategory": "Resource Planning",
+    "subCategory": "Tools & Planning",
     "title": "Have you identified the required human and environment resources needed to create performance tests?",
     "context": "Successfully implementing meaningful performance tests requires a number of resources. If is not just a single developer or QA Analyst running some tests on their local machine. Instead, performance tests need a test environment (also known as a test bed) that tests can be executed against without interfering with production environments and data. Performance testing requires input and commitment from developers, architects, database administrators, and network administrators. In short, solid performance testing is a team responsibility.<br />Additionally, to run scaled tests, a machine with enough resources (e.g. memory, processors, network connections, etc.) needs to be made available. While this machine can be located within a data center or on-premises, it is often advantageous to perform performance testing from instances located from multiple geographies. This better simulates what an end-user can expect.",
     "recommendation": {
@@ -9125,7 +9171,7 @@
     ],
     "lens": "application",
     "category": "Performance Testing",
-    "subCategory": "Tooling",
+    "subCategory": "Tools & Planning",
     "title": "Are you currently using tools for conducting performance testing?",
     "context": "There are various performance testing tools available for DevOps. Some tools like JMeter only perform testing against endpoints and tests HTTP statuses. Other tools like K6 and Selenium can perform tests that also check data quality and variations. Application Insights, while not necessarily designed to test server load, can test the performance of an application within the user's browser. When determining what testing tools you will implement, it is always important to remember what type of performance testing you are attempting to execute.",
     "recommendation": {
@@ -9540,63 +9586,6 @@
     ]
   },
   {
-    "id": "c49a880c-9583-41b8-9dd3-305bbaf77cd8",
-    "type": "Questions",
-    "pillars": [
-      "performanceefficiency"
-    ],
-    "lens": "application",
-    "category": "Performance Testing",
-    "subCategory": "Performance Planning",
-    "title": "Are you able to predict general application usage?",
-    "context": "It is important to understand application and environment usage. The customer may have an understanding of certain seasons or incidents that increase user load (e.g. a weather service being hit by users facing a storm, an e-commerce site during the holiday season).",
-    "recommendation": {
-      "title": "",
-      "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
-      "priority": "medium"
-    },
-    "children": [
-      {
-        "id": "6b2d1510-0d19-4d28-bf2a-80dbaf323956",
-        "title": "If typical usage is predictable, are your predictions based on time of day, day of week, or season (e.g. holiday shopping season)?",
-        "context": "Dig deeper and document predictable periods. By doing so, you can leverage resources like Azure Automation and Autoscale to proactively scale the application and its underlying environment.",
-        "recommendation": {
-          "title": "",
-          "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
-          "priority": "medium"
-        }
-      },
-      {
-        "id": "3e8145b6-2c3b-4385-90da-732bad7eed80",
-        "title": "Do you understand why your application responds to its typical load in the ways that it does?",
-        "context": "Identifying a typical load helps you determine realistic expectations for performance testing. A \"typical load\" can be measured in individual users, web requests, user sessions, or transactions. When documenting typical loads, also ensure that all predictable periods have typical loads documented.",
-        "recommendation": {
-          "title": "",
-          "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
-          "priority": "medium"
-        }
-      }
-    ]
-  },
-  {
     "id": "42560fb7-70d1-47df-8ec3-ccfd94ec0dae",
     "type": "Questions",
     "pillars": [
@@ -9604,7 +9593,7 @@
     ],
     "lens": "application",
     "category": "Performance Testing",
-    "subCategory": "Test Coverage",
+    "subCategory": "Load Capacity",
     "title": "How much of the application is involved in serving an immediate, single request?",
     "context": "When understanding load and demands on the application, it is necessary to understand how the application is architected--whether monolithic, n-Tier, or microservice-based--and then understand how load is distributed across the application. This is crucial for focusing on the testing of individual components and identifying bottlenecks.",
     "recommendation": {
@@ -9627,7 +9616,7 @@
     ],
     "lens": "application",
     "category": "Performance Testing",
-    "subCategory": "Service SKU",
+    "subCategory": "Tools & Planning",
     "title": "Have you identified all services being utilized in Azure (and on-prem) that need to be measured?",
     "context": "Your assessment may already be complete, but it helps to identify some currently utilized systems to being measuring load capacity. Once these environments have been identified, created benchmarks should include these systems.",
     "recommendation": {
@@ -9650,78 +9639,9 @@
     ],
     "lens": "application",
     "category": "Performance Testing",
-    "subCategory": "Service SKU",
+    "subCategory": "Load Capacity",
     "title": "Are you confident that the correct SKUs and configurations have been applied to the services in order to support your anticipated loads?",
-    "context": "Understand which SKUs you have purchased and ensure that they are the correct size. Additionally, ensure you understand the configuration of those SKUs (e.g. auto-scale settings for Application Gateways and App Services).",
-    "recommendation": {
-      "title": "",
-      "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
-      "priority": "medium"
-    }
-  },
-  {
-    "id": "0155a862-6e45-4eb2-8e85-427fa07a2020",
-    "type": "Questions",
-    "pillars": [
-      "performanceefficiency"
-    ],
-    "lens": "application",
-    "category": "Performance Testing",
-    "subCategory": "Service SKU",
-    "title": "Based on the previous the previous group of questions (expected application and environment usage), do the purchased SKUs and the current configuration support expected usage?",
-    "context": "Once the purchased SKUs have been identified, determine if they purchased resources have the capabilities of supporting anticipated load. For example, if you expect the load to require 30 instances of an App Service, yet you are currently leveraging a Standard App Service Plan SKU (maximum of 10 instances supported), then you will need to upgrade your App Service Plan in order to accommodate the anticipated load.",
-    "recommendation": {
-      "title": "",
-      "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
-      "priority": "medium"
-    }
-  },
-  {
-    "id": "baea1dea-69db-4803-b5ee-fcd61215e6c6",
-    "type": "Questions",
-    "pillars": [
-      "performanceefficiency"
-    ],
-    "lens": "application",
-    "category": "Performance Testing",
-    "subCategory": "Load Capacity",
-    "title": "Considering the three types of testing--performance, load, and stress--which have you performed on your application?",
-    "context": "In general, the concept of \"performance testing\" includes three smaller, definitive categories--performance testing, load testing, and stress testing. Most customers, however, equate load testing to performance testing. It is important to understand the differences and being able to articulate them.",
-    "recommendation": {
-      "title": "",
-      "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
-      "priority": "medium"
-    }
-  },
-  {
-    "id": "e4ad9155-debd-4b4f-bcf4-c96d805b6640",
-    "type": "Questions",
-    "pillars": [
-      "performanceefficiency"
-    ],
-    "lens": "application",
-    "category": "Performance Testing",
-    "subCategory": "Load Capacity",
-    "title": "Have you completed a stress test on the application?",
-    "context": "A stress test determines the maximum number of users an application can handle at a given time before the application begins to deteriorate. It is important to determine the maximum to understand what kind of load the current environment can adequately support without buckling.",
+    "context": "Understand which SKUs you have selected and ensure that they are the correct size. Additionally, ensure you understand the configuration of those SKUs (e.g. auto-scale settings for Application Gateways and App Services).",
     "recommendation": {
       "title": "",
       "context": "",
