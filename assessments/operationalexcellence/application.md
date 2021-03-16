@@ -20,9 +20,6 @@
     - [Alerting](#Alerting)
   - [Application Performance Management](#Application-Performance-Management)
     - [Data Size/Growth](#Data-SizeGrowth)
-  - [Security &amp; Compliance](#Security--Compliance)
-    - [Control-plane RBAC](#Control-plane-RBAC)
-    - [Security Center](#Security-Center)
   - [Operational Procedures](#Operational-Procedures)
     - [Recovery &amp; Failover](#Recovery--Failover)
     - [Scalability &amp; Capacity Model](#Scalability--Capacity-Model)
@@ -500,25 +497,6 @@ These critical design principles are used as lenses to assess the Operational Ex
 
   _Mitigation plans such as purging or archiving data can help the application to remain available in scenarios where data size exceeds expected limits_
   > Make sure that data size and growth is monitored, proper alerts are configured and develop (automated and codified, if possible) mitigation plans to help the application to remain available - or to recover if needed.
-## Security &amp; Compliance
-    
-### Control-plane RBAC
-            
-* Are Azure AD emergency access accounts and processes defined for recovering from identity failures?
-
-
-  _The impact of no administrative access can be mitigated by creating two or more emergency access accounts ([Emergency Access accounts in Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access))_
-### Security Center
-            
-* Is Azure Security Center Standard tier enabled for all subscriptions and reporting to centralized workspaces? Also, is automatic provisioning enabled for all subscriptions? ([Security Center Data Collection](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection))
-
-
-* Is Azure Security Center's Secure Score being formally reviewed and improved on a regular basis? ([Security Center Secure Score](https://docs.microsoft.com/azure/security-center/secure-score-security-controls))
-
-
-* Are contact details set in security center to the appropriate email distribution list? ([Security Center Contact Details](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details))
-
-
 ## Operational Procedures
     
 ### Recovery &amp; Failover
@@ -924,6 +902,11 @@ These critical design principles are used as lenses to assess the Operational Ex
       _Regular, long-standing write access to production environments by user accounts can pose a security risk and manual intervention is often prone to errors._
 
       > Limit long-standing write access to production environments only to service principals.
+* Does the organization have the appropriate emergency access accounts configured for this workload in case of an emergency?
+
+
+  _While rare, sometimes extreme circumstances arise where all normal means of administrative access are unavailable and for this reason emergency access accounts (also refered to as 'break glass' accounts) should be available. These accounts are strictly controlled in accordance with best practice guidance, and they are closely monitored for unsanctioned use to ensure they are not compromised or used for nefarious purposes. [Emergency Access Acounts](https://docs.microsoft.com/azure/active-directory/roles/security-emergency-access)_
+  > Configure emergency access accounts. The impact of no administrative access can be mitigated by creating two or more emergency access accounts ([Emergency Access accounts in Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access))
 ### Common Engineering Criteria
             
 * Is the choice and desired configuration of Azure services centrally governed or can the developers pick and choose?

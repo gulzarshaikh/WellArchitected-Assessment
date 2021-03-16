@@ -34,7 +34,6 @@
     - [Elasticity](#Elasticity)
   - [Security &amp; Compliance](#Security--Compliance)
     - [Control-plane RBAC](#Control-plane-RBAC)
-    - [Security Center](#Security-Center)
     - [Network Security](#Network-Security)
   - [Operational Procedures](#Operational-Procedures)
     - [Recovery &amp; Failover](#Recovery--Failover)
@@ -44,6 +43,8 @@
     - [Application Code Deployments](#Application-Code-Deployments)
     - [Build Environments](#Build-Environments)
     - [Testing &amp; Validation](#Testing--Validation)
+  - [Operational Model &amp; DevOps](#Operational-Model--DevOps)
+    - [Roles &amp; Responsibilities](#Roles--Responsibilities)
 
 
 # Design Principles
@@ -573,21 +574,6 @@ These critical design principles are used as lenses to assess the Reliability of
 
       _Application code should first try to get tokens silently from a cache before attempting to acquire a token from the identity provider, to optimise performance and maximize availability([Acquire and cache tokens](https://docs.microsoft.com/azure/active-directory/develop/msal-acquire-cache-tokens))_
 
-* Are Azure AD emergency access accounts and processes defined for recovering from identity failures?
-
-
-  _The impact of no administrative access can be mitigated by creating two or more emergency access accounts ([Emergency Access accounts in Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access))_
-### Security Center
-            
-* Is Azure Security Center Standard tier enabled for all subscriptions and reporting to centralized workspaces? Also, is automatic provisioning enabled for all subscriptions? ([Security Center Data Collection](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection))
-
-
-* Is Azure Security Center's Secure Score being formally reviewed and improved on a regular basis? ([Security Center Secure Score](https://docs.microsoft.com/azure/security-center/secure-score-security-controls))
-
-
-* Are contact details set in security center to the appropriate email distribution list? ([Security Center Contact Details](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details))
-
-
 ### Network Security
             
 * Are all external application endpoints secured?
@@ -801,3 +787,12 @@ These critical design principles are used as lenses to assess the Reliability of
 
 
   _Testing should be fully automated where possible and performed as part of the deployment lifecycle to validate the impact of all application changes. Additionally, manual explorative testing may also be conducted_
+## Operational Model &amp; DevOps
+    
+### Roles &amp; Responsibilities
+            
+* Does the organization have the appropriate emergency access accounts configured for this workload in case of an emergency?
+
+
+  _While rare, sometimes extreme circumstances arise where all normal means of administrative access are unavailable and for this reason emergency access accounts (also refered to as 'break glass' accounts) should be available. These accounts are strictly controlled in accordance with best practice guidance, and they are closely monitored for unsanctioned use to ensure they are not compromised or used for nefarious purposes. [Emergency Access Acounts](https://docs.microsoft.com/azure/active-directory/roles/security-emergency-access)_
+  > Configure emergency access accounts. The impact of no administrative access can be mitigated by creating two or more emergency access accounts ([Emergency Access accounts in Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access))

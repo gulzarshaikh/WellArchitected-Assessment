@@ -40,7 +40,6 @@ This reliability assessment has been produced to help the global CE&S community 
     - [Elasticity](./application.md#Elasticity)
   - [Security &amp; Compliance](./application.md#Security--Compliance)
     - [Control-plane RBAC](./application.md#Control-plane-RBAC)
-    - [Security Center](./application.md#Security-Center)
     - [Network Security](./application.md#Network-Security)
   - [Operational Procedures](./application.md#Operational-Procedures)
     - [Recovery &amp; Failover](./application.md#Recovery--Failover)
@@ -50,6 +49,8 @@ This reliability assessment has been produced to help the global CE&S community 
     - [Application Code Deployments](./application.md#Application-Code-Deployments)
     - [Build Environments](./application.md#Build-Environments)
     - [Testing &amp; Validation](./application.md#Testing--Validation)
+  - [Operational Model &amp; DevOps](./application.md#Operational-Model--DevOps)
+    - [Roles &amp; Responsibilities](./application.md#Roles--Responsibilities)
 
 
 ### [Service Reliability](./service.md)

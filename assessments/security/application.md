@@ -913,7 +913,7 @@ These critical design principles are used as lenses to assess the Security of an
 
 
   _While rare, sometimes extreme circumstances arise where all normal means of administrative access are unavailable and for this reason emergency access accounts (also refered to as 'break glass' accounts) should be available. These accounts are strictly controlled in accordance with best practice guidance, and they are closely monitored for unsanctioned use to ensure they are not compromised or used for nefarious purposes. [Emergency Access Acounts](https://docs.microsoft.com/azure/active-directory/roles/security-emergency-access)_
-  > Configure emergency access accounts.
+  > Configure emergency access accounts. The impact of no administrative access can be mitigated by creating two or more emergency access accounts ([Emergency Access accounts in Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access))
 * Has the organization clearly defined lines of responsibility and designated responsible parties for specific functions in Azure?
 
 
