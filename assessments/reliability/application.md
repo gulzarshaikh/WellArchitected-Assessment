@@ -27,8 +27,7 @@
   - [Networking &amp; Connectivity](#Networking--Connectivity)
     - [Connectivity](#Connectivity)
     - [Zone-Aware Services](#Zone-Aware-Services)
-  - [Scalability &amp; Performance](#Scalability--Performance)
-    - [Application Performance](#Application-Performance)
+  - [Application Performance Management](#Application-Performance-Management)
     - [Data Size/Growth](#Data-SizeGrowth)
     - [Data Latency and Throughput](#Data-Latency-and-Throughput)
     - [Network Throughput and Latency](#Network-Throughput-and-Latency)
@@ -42,7 +41,7 @@
     - [Scalability &amp; Capacity Model](#Scalability--Capacity-Model)
     - [Configuration &amp; Secrets Management](#Configuration--Secrets-Management)
   - [Deployment &amp; Testing](#Deployment--Testing)
-    - [Application Deployments](#Application-Deployments)
+    - [Application Code Deployments](#Application-Code-Deployments)
     - [Build Environments](#Build-Environments)
     - [Testing &amp; Validation](#Testing--Validation)
 
@@ -106,6 +105,11 @@ These critical design principles are used as lenses to assess the Reliability of
     
 ### Design
             
+* Is the application implemented with strategies for resiliency and self-healing?
+
+
+  _Strategies for resiliency and self-healing include retrying transient failures and failing over to a secondary instance or even another region (see [Designing resilient Azure applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design))_
+  > Consider implementing strategies and capabilities for resiliency and self-healing needed to achieve workload availability targets. Programming paradigms such as retry patterns, request timeouts, and circuit breaker patterns can improve application resiliency by automatically recovering from transient faults ([Error handling for resilient applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design-error-handling))
 * Is the workload deployed across multiple regions?
 
 
@@ -478,28 +482,14 @@ These critical design principles are used as lenses to assess the Reliability of
 
 
   _Custom health probes should be used to assess overall application health including downstream components and dependent services, such as APIs and datastores, so that traffic is not sent to backend instances that cannot successfully process requests due to dependency failures ([Health Endpoint Monitoring Pattern](https://docs.microsoft.com/azure/architecture/patterns/health-endpoint-monitoring))_
-## Scalability &amp; Performance
+## Application Performance Management
     
-### Application Performance
-            
-* Does the application logic handle exceptions and errors using resiliency patterns?
-
-
-  _Programming paradigms such as retry patterns, request timeouts, and circuit breaker patterns can improve application resiliency by automatically recovering from transient faults ([Error handling for resilient applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design-error-handling))_
-* Does the application require long running TCP connections?
-
-
-  _If an application is initiating many outbound TCP or UDP connections it may exhaust all available ports leading to SNAT port exhaustion and poor application performance. Long-running connections exacerbate this risk by occupying ports for sustained durations. Effort should be taken to ensure that the application can scale within the port limits of the chosen application hosting platform ([Managing SNAT port exhaustion](https://docs.microsoft.com/azure/load-balancer/troubleshoot-outbound-connection#snatexhaust))_
 ### Data Size/Growth
             
 * Do you know the growth rate of your data?
 
 
   _Your solution might work great in the first week or month, but what happens when data just keeps increasing? Will the solution slow down, or will it even break at a particular threshold? Planning for data growth, data retention, and archiving is essential in capacity planning. Without adequately planning capacity for your datastores, performance will be negatively affected._
-* Are target data sizes and associated growth rates calculated per scenario or service?
-
-
-  _Scale limits and recovery options should be assessed in the context of target data sizes and growth rates to ensure suitable capacity exists_
 * Are there any mitigation plans defined in case data size exceeds limits?
 
 
@@ -517,6 +507,10 @@ These critical design principles are used as lenses to assess the Reliability of
   _Throughput targets, which are commonly defined in terms of IOPS, MB/s and Block Size, should be defined and measured for key application scenarios, as well as each individual component, to validate overall application performance and health. Available throughput typically varies based on SKU, so defined targets should be used to inform the use of appropriate SKUs_
 ### Network Throughput and Latency
             
+* Does the application require long running TCP connections?
+
+
+  _If an application is initiating many outbound TCP or UDP connections it may exhaust all available ports leading to SNAT port exhaustion and poor application performance. Long-running connections exacerbate this risk by occupying ports for sustained durations. Effort should be taken to ensure that the application can scale within the port limits of the chosen application hosting platform ([Managing SNAT port exhaustion](https://docs.microsoft.com/azure/load-balancer/troubleshoot-outbound-connection#snatexhaust))_
 * Are there any components/scenarios that are very sensitive to network latency?
 
 
@@ -742,7 +736,7 @@ These critical design principles are used as lenses to assess the Reliability of
   _Sticky session state limits application scalability because it is not possible to balance load. With sticky sessions all requests from a client must be sent to the same compute instance where the session state was initially created, regardless of the load on that compute instance. Externalizing session state allows for traffic to be evenly distributed across multiple compute nodes, with required state retrieved from the external data store ([Avoid session state](https://docs.microsoft.com/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#sessionstate))_
 ## Deployment &amp; Testing
     
-### Application Deployments
+### Application Code Deployments
             
 * Can the application be deployed automatically from scratch without any manual operations?
 

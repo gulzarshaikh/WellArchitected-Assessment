@@ -28,7 +28,8 @@
     - [Patch &amp; Update Process (PNU)](#Patch--Update-Process-PNU)
     - [Incident Response](#Incident-Response)
   - [Deployment &amp; Testing](#Deployment--Testing)
-    - [Application Deployments](#Application-Deployments)
+    - [Application Code Deployments](#Application-Code-Deployments)
+    - [Application Infrastructure Provisioning](#Application-Infrastructure-Provisioning)
     - [Build Environments](#Build-Environments)
     - [Testing &amp; Validation](#Testing--Validation)
   - [Operational Model &amp; DevOps](#Operational-Model--DevOps)
@@ -627,13 +628,24 @@ These critical design principles are used as lenses to assess the Security of an
   > Establish a security operations center (SOC).
 ## Deployment &amp; Testing
     
-### Application Deployments
+### Application Code Deployments
             
 * Can N-1 or N+1 versions be deployed via automated pipelines where N is current deployment version in production?
 
 
   _N-1 and N+1 refer to roll-back and roll-forward. Automated deployment pipelines should allow for quick roll-forward and roll-back deployments to address critical bugs and code updates outside of the normal deployment lifecycle._
   > Automated deployment pipelines should allow for quick roll-forward and roll-back deployments to address critical bugs and code updates outside of the normal deployment lifecycle
+* How does the development team manage application source code, builds, and releases?
+
+
+  _It is important to understand whether there is a systematic approach to the development and release process._
+  > The use of source code control systems, such as Azure Repos or GitHub, and build and release systems, such as Azure Pipelines or GitHub Actions, should be understood, including the corresponding processes to access, review and approve changes
+    - If Git is used for source control, what branching strategy is used?
+
+
+      _While there are various valid ways, a clearly defined strategy should be in place and understood_
+
+      > To optimize for collaboration and ensure developers spend less time managing version control and more time developing code, a clear and simple branching strategy should be used, such as Trunk-Based Development which is employed internally [within Microsoft Engineering](https://docs.microsoft.com/azure/devops/learn/devops-at-microsoft/use-git-microsoft).
 * Are code scanning tools an integrated part of the continuous integration (CI) process for this workload?
 
 
@@ -645,16 +657,13 @@ These critical design principles are used as lenses to assess the Security of an
       _As part of the continuous integration process it is crucial that every release includes a scan of all components in use. Vulnerable dependencies should be flagged and investigated. This can be done in combination with other code scanning tasks (e.g. code churn, test results/coverage)._
 
       > Include code scans into CI/CD process that also covers 3rd party dependencies and framework components.
+### Application Infrastructure Provisioning
+            
 * How are credentials, certificates and other secrets managed in CI/CD pipelines for this workload?
 
 
   _Secrets need to be managed in a secure manner inside of the CI/CD pipeline. Secrets need to be stored either in a secure store inside the pipeline or externally in Azure Key Vault. When deploying application infrastructure (e.g. with Azure Resource Manager or Terraform), credentials and keys should be generated during the process, stored directly in Key Vault and referenced by deployed resources. Hardcoded credentials should be avoided._
   > Store keys and secrets outside of deployment pipeline in Azure Key Vault or in secure store for the pipeline.
-* Are branch policies used in source control management of this workload? How are they configured?
-
-
-  _Branch policies provide additional level of control over the code which is commited to the product. It is a common practice to not allow pushing against the main branch and require pull-request (PR) with code review before merging the changes by at least one reviewer, other than the change author. Different branches can have different purposes and access levels, for example: feature branches are created by developers and are open to push, integration branch requires PR and code-review and production branch requires additional approval from a senior developer before merging._
-  > Implement branch policy strategy to enhance branch security.
 ### Build Environments
             
 * Does the organization apply security controls (e.g. IP firewall restrictions, update management, etc.) to self-hosted build agents for this workload?

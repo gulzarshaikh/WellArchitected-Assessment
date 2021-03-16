@@ -19,9 +19,9 @@
     - [Service SKU](#Service-SKU)
   - [Application Platform Availability](#Application-Platform-Availability)
     - [Compute Availability](#Compute-Availability)
-  - [Scalability &amp; Performance](#Scalability--Performance)
-    - [Application Performance](#Application-Performance)
+  - [Application Performance Management](#Application-Performance-Management)
     - [Data Size/Growth](#Data-SizeGrowth)
+    - [Network Throughput and Latency](#Network-Throughput-and-Latency)
   - [Deployment &amp; Testing](#Deployment--Testing)
     - [Testing &amp; Validation](#Testing--Validation)
   - [Performance Testing](#Performance-Testing)
@@ -47,6 +47,11 @@
     
 ### Design
             
+* Is the application implemented with strategies for resiliency and self-healing?
+
+
+  _Strategies for resiliency and self-healing include retrying transient failures and failing over to a secondary instance or even another region (see [Designing resilient Azure applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design))_
+  > Consider implementing strategies and capabilities for resiliency and self-healing needed to achieve workload availability targets. Programming paradigms such as retry patterns, request timeouts, and circuit breaker patterns can improve application resiliency by automatically recovering from transient faults ([Error handling for resilient applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design-error-handling))
 * Is the workload deployed across multiple regions?
 
 
@@ -298,14 +303,8 @@
 
       _When planning for scale and efficiency, it is important that regions are not only paired, but homogenous in their service offerings. Additionally, you should make sure that, if one region fails, the second region can scale appropriately to sufficiently handle the influx of additional user requests._
 
-## Scalability &amp; Performance
+## Application Performance Management
     
-### Application Performance
-            
-* Does the application logic handle exceptions and errors using resiliency patterns?
-
-
-  _Programming paradigms such as retry patterns, request timeouts, and circuit breaker patterns can improve application resiliency by automatically recovering from transient faults ([Error handling for resilient applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design-error-handling))_
 ### Data Size/Growth
             
 * Do you know the growth rate of your data?
@@ -316,6 +315,12 @@
 
 
   _Scale limits and recovery options should be assessed in the context of target data sizes and growth rates to ensure suitable capacity exists_
+### Network Throughput and Latency
+            
+* Are there any components/scenarios that are very sensitive to network latency?
+
+
+  _Components or scenarios that are sensitive to network latency may indicate a need for co-locality within a single Availability Zone or even closer using Proximity Placement Groups with Accelerated Networking enabled ([Proximity Placement Groups](https://docs.microsoft.com/azure/virtual-machines/windows/co-location#proximity-placement-groups))_
 ## Deployment &amp; Testing
     
 ### Testing &amp; Validation

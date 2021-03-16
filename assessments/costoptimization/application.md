@@ -23,7 +23,7 @@
     - [Scalability &amp; Capacity Model](#Scalability--Capacity-Model)
     - [Operational Lifecycles](#Operational-Lifecycles)
   - [Deployment &amp; Testing](#Deployment--Testing)
-    - [Application Deployments](#Application-Deployments)
+    - [Application Code Deployments](#Application-Code-Deployments)
     - [Build Environments](#Build-Environments)
     - [Testing &amp; Validation](#Testing--Validation)
   - [Operational Model &amp; DevOps](#Operational-Model--DevOps)
@@ -403,7 +403,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
   > Utilize the PaaS pay-as-you-go consumption model where relevant.
 ## Deployment &amp; Testing
     
-### Application Deployments
+### Application Code Deployments
             
 * What is the process to deploy application releases to production?
 

@@ -18,7 +18,7 @@
     - [Data Interpretation &amp; Health Modelling](#Data-Interpretation--Health-Modelling)
     - [Dashboarding](#Dashboarding)
     - [Alerting](#Alerting)
-  - [Scalability &amp; Performance](#Scalability--Performance)
+  - [Application Performance Management](#Application-Performance-Management)
     - [Data Size/Growth](#Data-SizeGrowth)
   - [Security &amp; Compliance](#Security--Compliance)
     - [Identity and Access](#Identity-and-Access)
@@ -30,8 +30,8 @@
     - [Operational Lifecycles](#Operational-Lifecycles)
     - [Patch &amp; Update Process (PNU)](#Patch--Update-Process-PNU)
   - [Deployment &amp; Testing](#Deployment--Testing)
-    - [Application Deployments](#Application-Deployments)
-    - [Application Infrastructure Deployments](#Application-Infrastructure-Deployments)
+    - [Application Code Deployments](#Application-Code-Deployments)
+    - [Application Infrastructure Provisioning](#Application-Infrastructure-Provisioning)
     - [Build Environments](#Build-Environments)
     - [Testing &amp; Validation](#Testing--Validation)
   - [Operational Model &amp; DevOps](#Operational-Model--DevOps)
@@ -106,7 +106,7 @@ These critical design principles are used as lenses to assess the Operational Ex
 
 
   _Strategies for resiliency and self-healing include retrying transient failures and failing over to a secondary instance or even another region (see [Designing resilient Azure applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design))_
-  > Consider implementing strategies and capabilities for resiliency and self-healing needed to achieve workload availability targets.
+  > Consider implementing strategies and capabilities for resiliency and self-healing needed to achieve workload availability targets. Programming paradigms such as retry patterns, request timeouts, and circuit breaker patterns can improve application resiliency by automatically recovering from transient faults ([Error handling for resilient applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design-error-handling))
 * Was the application built natively for the cloud or was an existing on-premises system migrated?
 
 
@@ -483,7 +483,7 @@ These critical design principles are used as lenses to assess the Operational Ex
 
   _Subscription notification emails can contain important service notifications or security alerts. ([Azure account contact information](https://docs.microsoft.com/azure/cost-management-billing/manage/change-azure-account-profile#service-and-marketing-emails))._
   > Make sure that subscription notification emails are routed to the relevant technical stakeholders.
-## Scalability &amp; Performance
+## Application Performance Management
     
 ### Data Size/Growth
             
@@ -703,7 +703,7 @@ These critical design principles are used as lenses to assess the Operational Ex
   > Changing dependencies, such as new versions of packages, updated Docker images, should be factored into operational processes; the application team should be subscribed to release notes of dependent services, tools, and libraries
 ## Deployment &amp; Testing
     
-### Application Deployments
+### Application Code Deployments
             
 * What is the process to deploy application releases to production?
 
@@ -730,6 +730,11 @@ These critical design principles are used as lenses to assess the Operational Ex
       _Without detailed release process documentation, there is a much higher risk of an operator improperly configuring settings for the application_
 
       > Any manual steps that are required in the deployment pipeline must be clearly documented with roles and responsibilities well defined.
+* How long does it take to deploy an entire production environment?
+
+
+  _The time it takes for a full deployment needs to align with recovery targets._
+  > The entire end-to-end deployment process should be understood and align with recovery targets.
 * Can N-1 or N+1 versions be deployed via automated pipelines where N is current deployment version in production?
 
 
@@ -755,7 +760,7 @@ These critical design principles are used as lenses to assess the Operational Ex
       _While there are various valid ways, a clearly defined strategy should be in place and understood_
 
       > To optimize for collaboration and ensure developers spend less time managing version control and more time developing code, a clear and simple branching strategy should be used, such as Trunk-Based Development which is employed internally [within Microsoft Engineering](https://docs.microsoft.com/azure/devops/learn/devops-at-microsoft/use-git-microsoft).
-### Application Infrastructure Deployments
+### Application Infrastructure Provisioning
             
 * Is application infrastructure defined as code?
 

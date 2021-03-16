@@ -33,8 +33,7 @@ This reliability assessment has been produced to help the global CE&S community 
   - [Networking &amp; Connectivity](./application.md#Networking--Connectivity)
     - [Connectivity](./application.md#Connectivity)
     - [Zone-Aware Services](./application.md#Zone-Aware-Services)
-  - [Scalability &amp; Performance](./application.md#Scalability--Performance)
-    - [Application Performance](./application.md#Application-Performance)
+  - [Application Performance Management](./application.md#Application-Performance-Management)
     - [Data Size/Growth](./application.md#Data-SizeGrowth)
     - [Data Latency and Throughput](./application.md#Data-Latency-and-Throughput)
     - [Network Throughput and Latency](./application.md#Network-Throughput-and-Latency)
@@ -48,7 +47,7 @@ This reliability assessment has been produced to help the global CE&S community 
     - [Scalability &amp; Capacity Model](./application.md#Scalability--Capacity-Model)
     - [Configuration &amp; Secrets Management](./application.md#Configuration--Secrets-Management)
   - [Deployment &amp; Testing](./application.md#Deployment--Testing)
-    - [Application Deployments](./application.md#Application-Deployments)
+    - [Application Code Deployments](./application.md#Application-Code-Deployments)
     - [Build Environments](./application.md#Build-Environments)
     - [Testing &amp; Validation](./application.md#Testing--Validation)
 

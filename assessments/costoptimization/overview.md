@@ -29,7 +29,7 @@ This assessment has been produced to help the global CE&S community to optimize 
     - [Scalability &amp; Capacity Model](./application.md#Scalability--Capacity-Model)
     - [Operational Lifecycles](./application.md#Operational-Lifecycles)
   - [Deployment &amp; Testing](./application.md#Deployment--Testing)
-    - [Application Deployments](./application.md#Application-Deployments)
+    - [Application Code Deployments](./application.md#Application-Code-Deployments)
     - [Build Environments](./application.md#Build-Environments)
     - [Testing &amp; Validation](./application.md#Testing--Validation)
   - [Operational Model &amp; DevOps](./application.md#Operational-Model--DevOps)
