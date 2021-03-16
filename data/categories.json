@@ -251,17 +251,9 @@
       },
       {
         "title": "Data"
-      }
-    ]
-  },
-  {
-    "title": "Troubleshooting",
-    "subCategories": [
-      {
-        "title": "Process"
       },
       {
-        "title": "Network"
+        "title": "Troubleshooting"
       }
     ]
   },
