@@ -40,7 +40,6 @@ This reliability assessment has been produced to help the global CE&S community 
     - [Elasticity](./application.md#Elasticity)
   - [Security &amp; Compliance](./application.md#Security--Compliance)
     - [Control-plane RBAC](./application.md#Control-plane-RBAC)
-    - [Network Security](./application.md#Network-Security)
   - [Operational Procedures](./application.md#Operational-Procedures)
     - [Recovery &amp; Failover](./application.md#Recovery--Failover)
     - [Scalability &amp; Capacity Model](./application.md#Scalability--Capacity-Model)
