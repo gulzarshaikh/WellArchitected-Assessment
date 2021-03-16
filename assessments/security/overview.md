@@ -26,6 +26,9 @@ This security assessment has been produced to help the global CE&S community to 
     - [Endpoints](./application.md#Endpoints)
     - [Data flow](./application.md#Data-flow)
   - [Security &amp; Compliance](./application.md#Security--Compliance)
+    - [Separation of duties](./application.md#Separation-of-duties)
+    - [Control-plane RBAC](./application.md#Control-plane-RBAC)
+    - [Authentication and authorization](./application.md#Authentication-and-authorization)
     - [Security Center](./application.md#Security-Center)
     - [Network Security](./application.md#Network-Security)
     - [Encryption](./application.md#Encryption)
@@ -42,10 +45,6 @@ This security assessment has been produced to help the global CE&S community to 
     - [General](./application.md#General)
     - [Roles &amp; Responsibilities](./application.md#Roles--Responsibilities)
     - [Common Engineering Criteria](./application.md#Common-Engineering-Criteria)
-  - [Identity &amp; Access Control](./application.md#Identity--Access-Control)
-    - [Separation of duties](./application.md#Separation-of-duties)
-    - [Control-plane RBAC](./application.md#Control-plane-RBAC)
-    - [Authentication and authorization](./application.md#Authentication-and-authorization)
 
 
 ### [Service Security](./service.md)

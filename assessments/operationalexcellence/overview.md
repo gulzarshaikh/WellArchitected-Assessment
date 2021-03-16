@@ -27,7 +27,7 @@ This operational excellence assessment has been produced to help the global CE&S
   - [Application Performance Management](./application.md#Application-Performance-Management)
     - [Data Size/Growth](./application.md#Data-SizeGrowth)
   - [Security &amp; Compliance](./application.md#Security--Compliance)
-    - [Identity and Access](./application.md#Identity-and-Access)
+    - [Control-plane RBAC](./application.md#Control-plane-RBAC)
     - [Security Center](./application.md#Security-Center)
   - [Operational Procedures](./application.md#Operational-Procedures)
     - [Recovery &amp; Failover](./application.md#Recovery--Failover)

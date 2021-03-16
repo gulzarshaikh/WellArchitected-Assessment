@@ -21,7 +21,7 @@
   - [Application Performance Management](#Application-Performance-Management)
     - [Data Size/Growth](#Data-SizeGrowth)
   - [Security &amp; Compliance](#Security--Compliance)
-    - [Identity and Access](#Identity-and-Access)
+    - [Control-plane RBAC](#Control-plane-RBAC)
     - [Security Center](#Security-Center)
   - [Operational Procedures](#Operational-Procedures)
     - [Recovery &amp; Failover](#Recovery--Failover)
@@ -502,7 +502,7 @@ These critical design principles are used as lenses to assess the Operational Ex
   > Make sure that data size and growth is monitored, proper alerts are configured and develop (automated and codified, if possible) mitigation plans to help the application to remain available - or to recover if needed.
 ## Security &amp; Compliance
     
-### Identity and Access
+### Control-plane RBAC
             
 * Are Azure AD emergency access accounts and processes defined for recovering from identity failures?
 

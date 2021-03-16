@@ -33,7 +33,7 @@
     - [Network Throughput and Latency](#Network-Throughput-and-Latency)
     - [Elasticity](#Elasticity)
   - [Security &amp; Compliance](#Security--Compliance)
-    - [Identity and Access](#Identity-and-Access)
+    - [Control-plane RBAC](#Control-plane-RBAC)
     - [Security Center](#Security-Center)
     - [Network Security](#Network-Security)
   - [Operational Procedures](#Operational-Procedures)
@@ -553,7 +553,7 @@ These critical design principles are used as lenses to assess the Reliability of
 
 ## Security &amp; Compliance
     
-### Identity and Access
+### Control-plane RBAC
             
 * Is the identity provider and associated dependencies highly available?
 
