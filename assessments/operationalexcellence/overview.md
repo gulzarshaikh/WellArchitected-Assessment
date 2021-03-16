@@ -27,6 +27,8 @@ This operational excellence assessment has been produced to help the global CE&S
     - [Monitoring and Measurement](./application.md#Monitoring-and-Measurement)
   - [Application Performance Management](./application.md#Application-Performance-Management)
     - [Data Size/Growth](./application.md#Data-SizeGrowth)
+    - [Data Latency and Throughput](./application.md#Data-Latency-and-Throughput)
+    - [Elasticity](./application.md#Elasticity)
   - [Operational Procedures](./application.md#Operational-Procedures)
     - [Recovery &amp; Failover](./application.md#Recovery--Failover)
     - [Scalability &amp; Capacity Model](./application.md#Scalability--Capacity-Model)

@@ -35,7 +35,6 @@ This reliability assessment has been produced to help the global CE&S community 
     - [Zone-Aware Services](./application.md#Zone-Aware-Services)
   - [Application Performance Management](./application.md#Application-Performance-Management)
     - [Data Size/Growth](./application.md#Data-SizeGrowth)
-    - [Data Latency and Throughput](./application.md#Data-Latency-and-Throughput)
     - [Network Throughput and Latency](./application.md#Network-Throughput-and-Latency)
     - [Elasticity](./application.md#Elasticity)
   - [Security &amp; Compliance](./application.md#Security--Compliance)

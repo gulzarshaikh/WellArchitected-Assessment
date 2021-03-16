@@ -21,6 +21,8 @@
     - [Monitoring and Measurement](#Monitoring-and-Measurement)
   - [Application Performance Management](#Application-Performance-Management)
     - [Data Size/Growth](#Data-SizeGrowth)
+    - [Data Latency and Throughput](#Data-Latency-and-Throughput)
+    - [Elasticity](#Elasticity)
   - [Operational Procedures](#Operational-Procedures)
     - [Recovery &amp; Failover](#Recovery--Failover)
     - [Scalability &amp; Capacity Model](#Scalability--Capacity-Model)
@@ -209,17 +211,26 @@ These critical design principles are used as lenses to assess the Operational Ex
 
   _Understanding customer reliability expectations is vital to reviewing the overall reliability of the application. For instance, if a customer is striving to achieve an application RTO of less than a minute then back-up based and active-passive disaster recovery strategies are unlikely to be appropriate<br />**Recovery time objective (RTO)**: The maximum acceptable time the application is unavailable after a disaster incident<br />**Recovery point objective (RPO)**: The maximum duration of data loss that is acceptable during a disaster event_
   > Recovery targets should be defined in accordance to the required RTO and RPO targets for the workloads.
+* Are you able to predict general application usage?
+
+
+  _It is important to understand application and environment usage. The customer may have an understanding of certain seasons or incidents that increase user load (e.g. a weather service being hit by users facing a storm, an e-commerce site during the holiday season)._
+  > Traffic patterns should be identified by analyzing historical traffic data and the effect of significant external events on the application.
+    - If typical usage is predictable, are your predictions based on time of day, day of week, or season (e.g. holiday shopping season)?
+
+
+      _Dig deeper and document predictable periods. By doing so, you can leverage resources like Azure Automation and Autoscale to proactively scale the application and its underlying environment._
+
+    - Do you understand why your application responds to its typical load in the ways that it does?
+
+
+      _Identifying a typical load helps you determine realistic expectations for performance testing. A "typical load" can be measured in individual users, web requests, user sessions, or transactions. When documenting typical loads, also ensure that all predictable periods have typical loads documented._
+
 * Are there well defined performance requirements for the application and/or key scenarios?
 
 
   _Non-functional performance requirements, such as those relating to end-user experiences (e.g. average and maximum response times) are vital to assessing the overall health of an application, and is a critical lens required for assessing operations_
   > Work with stakeholders to identify sensible non-functional requirements based on business requirements, research and user testing.
-    - Does the application have predictable traffic patterns? Or is load highly volatile?
-
-
-      _Understanding the expected application load and known spikes, such as Black Friday for retail applications, is important when assessing operational effectiveness._
-
-      > Traffic patterns should be identified by analyzing historical traffic data and the effect of significant external events on the application.
     - Are there any targets defined for the time it takes to perform scale operations?
 
 
@@ -519,6 +530,27 @@ These critical design principles are used as lenses to assess the Operational Ex
 
   _Mitigation plans such as purging or archiving data can help the application to remain available in scenarios where data size exceeds expected limits_
   > Make sure that data size and growth is monitored, proper alerts are configured and develop (automated and codified, if possible) mitigation plans to help the application to remain available - or to recover if needed.
+### Data Latency and Throughput
+            
+* Are latency targets defined, tested, and validated for key scenarios?
+
+
+  _Latency targets, which are commonly defined as first byte in to last byte out, should be defined and measured for key application scenarios, as well as each individual component, to validate overall application performance and health_
+* Are throughput targets defined, tested, and validated for key scenarios?
+
+
+  _Throughput targets, which are commonly defined in terms of IOPS, MB/s and Block Size, should be defined and measured for key application scenarios, as well as each individual component, to validate overall application performance and health. Available throughput typically varies based on SKU, so defined targets should be used to inform the use of appropriate SKUs_
+### Elasticity
+            
+* Is autoscaling enabled and integrated within Azure Monitor?
+
+
+  _Autoscaling can be leveraged to address unanticipated peak loads to help prevent application outages caused by overloading_
+    - Has autoscaling been tested under sustained load?
+
+
+      _The scaling on any single component may have an impact on downstream application components and dependencies. Autoscaling should therefore be tested regularly to help inform and validate a capacity model describing when and how application components should scale_
+
 ## Operational Procedures
     
 ### Recovery &amp; Failover
