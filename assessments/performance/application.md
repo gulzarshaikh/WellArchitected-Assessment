@@ -15,13 +15,14 @@
     - [Monitoring and Measurement](#Monitoring-and-Measurement)
     - [Modelling](#Modelling)
   - [Capacity &amp; Service Availability Planning](#Capacity--Service-Availability-Planning)
-    - [Usage Prediction](#Usage-Prediction)
+    - [Capacity](#Capacity)
     - [Service SKU](#Service-SKU)
-  - [Application Platform Availability](#Application-Platform-Availability)
-    - [Compute Availability](#Compute-Availability)
   - [Application Performance Management](#Application-Performance-Management)
     - [Data Size/Growth](#Data-SizeGrowth)
     - [Network Throughput and Latency](#Network-Throughput-and-Latency)
+    - [Elasticity](#Elasticity)
+  - [Operational Procedures](#Operational-Procedures)
+    - [Scalability &amp; Capacity Model](#Scalability--Capacity-Model)
   - [Deployment &amp; Testing](#Deployment--Testing)
     - [Testing &amp; Validation](#Testing--Validation)
   - [Performance Testing](#Performance-Testing)
@@ -56,6 +57,21 @@
 
 
   _Multiple regions should be used for failover purposes in a disaster state, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active strategies. Additional cost needs to be taken into consideration - mostly from compute, data and networking perspective, but also services like Azure Site Recovery (ASR). ([Failover strategies](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones))_
+    - Were regions chosen based on location and proximity to your users or based on resource types that were available?
+
+
+      _Not only is it important to utilize regions close to your audience, but it is equally important to choose regions that offer the SKUs that will support your future growth. Not all regions share the same parity when it comes to product SKUs. Plan your growth, then choose regions that will support those plans._
+
+    - Are paired regions used?
+
+
+      _Paired regions exist within the same geography and provide native replication features for recovery purposes, such as Geo-Redundant Storage (GRS) asynchronous replication. In the event of planned maintenance, updates to a region will be performed sequentially only ([Business continuity with Azure Paired Regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions))_
+
+    - Have you ensured that both (all) regions in use have the same performance and scale SKUs that are currently leveraged in the primary region?
+
+
+      _When planning for scale and efficiency, it is important that regions are not only paired, but homogenous in their service offerings. Additionally, you should make sure that, if one region fails, the second region can scale appropriately to sufficiently handle the influx of additional user requests._
+
 * Within a region is the application architecture designed to use Availability Zones?
 
 
@@ -256,7 +272,7 @@
   _Analytics can and should be performed across long-term operational data to help inform on the history of application performance and detect if there have been any regressions. For instance, if the average response times have been slowly increasing over time and getting closer to maximum target._
 ## Capacity &amp; Service Availability Planning
     
-### Usage Prediction
+### Capacity
             
 * Will your application be exposed to yearly or monthly heavy, peak loads?
 
@@ -280,29 +296,6 @@
 
 
   _Limitless scale requires dedicated design and one of the important design considerations is the limits and quotas of Azure subscriptions. Some services are almost limitless, others require more planning. Some services have 'soft' limits that can be increased by contacting support._
-## Application Platform Availability
-    
-### Compute Availability
-            
-* Is the application platform deployed across multiple regions?
-
-
-  _The ability to respond to disaster scenarios for overall compute platform availability and application resiliency is dependant on the use of multiple regions or other deployment locations. Multi-region deployment is also ideal for performance improvements as your application scales. Additionally, user requests can be directed to their closest region which reduces latency between the user and your service._
-    - Were regions chosen based on location and proximity to your users or based on resource types that were available?
-
-
-      _Not only is it important to utilize regions close to your audience, but it is equally important to choose regions that offer the SKUs that will support your future growth. Not all regions share the same parity when it comes to product SKUs. Plan your growth, then choose regions that will support those plans._
-
-    - Are paired regions used?
-
-
-      _Paired regions exist within the same geography and provide native replication features for recovery purposes, such as Geo-Redundant Storage (GRS) asynchronous replication. In the event of planned maintenance, updates to a region will be performed sequentially only ([Business continuity with Azure Paired Regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions))_
-
-    - Have you ensured that both (all) regions in use have the same performance and scale SKUs that are currently leveraged in the primary region?
-
-
-      _When planning for scale and efficiency, it is important that regions are not only paired, but homogenous in their service offerings. Additionally, you should make sure that, if one region fails, the second region can scale appropriately to sufficiently handle the influx of additional user requests._
-
 ## Application Performance Management
     
 ### Data Size/Growth
@@ -321,6 +314,36 @@
 
 
   _Components or scenarios that are sensitive to network latency may indicate a need for co-locality within a single Availability Zone or even closer using Proximity Placement Groups with Accelerated Networking enabled ([Proximity Placement Groups](https://docs.microsoft.com/azure/virtual-machines/windows/co-location#proximity-placement-groups))_
+### Elasticity
+            
+* Has the time to scale in/out been measured?
+
+
+  _Time to scale-in and scale-out can vary between Azure services and instance sizes and should be assessed to determine if a certain amount of pre-scaling is required to handle scale requirements and expected traffic patterns, such as seasonal load variations_
+* Is autoscaling enabled and integrated within Azure Monitor?
+
+
+  _Autoscaling can be leveraged to address unanticipated peak loads to help prevent application outages caused by overloading_
+    - Has autoscaling been tested under sustained load?
+
+
+      _The scaling on any single component may have an impact on downstream application components and dependencies. Autoscaling should therefore be tested regularly to help inform and validate a capacity model describing when and how application components should scale_
+
+## Operational Procedures
+    
+### Scalability &amp; Capacity Model
+            
+* Is the required capacity (initial and future growth) within Azure service scale limits and quotas?
+
+
+  _Due to physical and logical resource constraints within the platform, Azure must apply [limits and quotas](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) to service scalability, which may be either hard or soft._
+  > The application should take a scale-unit approach to navigate within service limits, and where necessary consider multiple subscriptions which are often the boundary for such limits. It is highly recommended that a structured approach to scale be designed up-front rather than resorting to a 'spill and fill' model.
+    - Is the required capacity (initial and future growth) available within targeted regions?
+
+
+      _While the promise of the cloud is infinite scale, the reality is that there are finite resources available and as a result situations can occur where capacity can be constrained due to overall demand._
+
+      > If the application requires a large amount of capacity or expects a significant increase in capacity then effort should be invested to ensure that desired capacity is attainable within selected region(s). For applications leveraging a recovery or active-passive based disaster recovery strategy, consideration should also be given to ensure suitable capacity exists in the secondary region(s) since a regional outage can lead to a significant increase in demand within a paired region due to other customer workloads also failing over. To help mitigate this, consideration should be given to pre-provisioning resources within the secondary region. ([Azure Capacity](https://aka.ms/AzureCapacity))
 ## Deployment &amp; Testing
     
 ### Testing &amp; Validation
@@ -488,27 +511,6 @@
 
 
   _Once the purchased SKUs have been identified, determine if they purchased resources have the capabilities of supporting anticipated load. For example, if you expect the load to require 30 instances of an App Service, yet you are currently leveraging a Standard App Service Plan SKU (maximum of 10 instances supported), then you will need to upgrade your App Service Plan in order to accommodate the anticipated load._
-* For disaster recovery and failover, should a region become inoperable, does the paired region support the same SKU levels and configurations as the primary region?
-
-
-  _If your paired region does not support the same SKU levels, then either an alternative pair of regions need to be chosen of the application needs to be re-architected for the necessary load. This ensures that if a single region should fail, the operating region is capable of supporting the anticipated, combined load._
-* Should a region fail, have you tested the amount of time it would take for users to fail over to the paired region?
-
-
-  _You should be fully aware of how long it would take for your customers to be re-routed from a failed region. Typically, a planned, test failover can help determine how long would be required to fully scale to support the redirected load. Based on the recovery time (e.g. time required to scale), you can adequately plan for unforeseen outages._
-    - Should a region fail, can the paired region handle the additional load?
-
-
-      _Proper Disaster Recovery planning ensures that the end-user experiences very little, if any, degradation in service. This includes you planning for a percentage of maximum utilization in each region in the case that a single region fails and all load is placed on the remaining available region(s). This means that you should architect a solution that has enough margin to handle some immediate redirection of requests while providing enough runway to scale efficiently._
-
-    - Should a region fail, how long would it take for the secondary region to scale in order to handle the additional load?
-
-
-
-* Have you correctly configured the environment to scale back in for the purpose of saving costs when load is under certain performance thresholds?
-
-
-  _Ensure that a rule has been configured to scale the environment back down once load settles below set thresholds. This will ensure that you are not over provisioning and unnecessarily increasing operational costs._
 ### Load Capacity
             
 * Considering the three types of testing--performance, load, and stress--which have you performed on your application?
@@ -545,7 +547,7 @@
 
 ### Design Efficiency
             
-* Are you using any CDNs?
+* Are you using any Conent Delivery Networks (CDN)?
 
 
   _CDNs store static files in locations that are typically geographically closer to the user than the data center. This increases overall application performance as latency for delivery and downloading these artifacts is reduced._

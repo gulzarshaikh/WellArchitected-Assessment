@@ -24,6 +24,7 @@ This operational excellence assessment has been produced to help the global CE&S
     - [Data Interpretation &amp; Health Modelling](./application.md#Data-Interpretation--Health-Modelling)
     - [Dashboarding](./application.md#Dashboarding)
     - [Alerting](./application.md#Alerting)
+    - [Monitoring and Measurement](./application.md#Monitoring-and-Measurement)
   - [Application Performance Management](./application.md#Application-Performance-Management)
     - [Data Size/Growth](./application.md#Data-SizeGrowth)
   - [Operational Procedures](./application.md#Operational-Procedures)
