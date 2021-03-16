@@ -90,6 +90,11 @@ These critical design principles are used as lenses to assess the Operational Ex
     
 ### Design
             
+* Was the application built natively for the cloud or was an existing on-premises system migrated?
+
+
+  _Understanding if the application is cloud-native or not provides a very useful high level indication about potential technical debt for operability and cost efficiency._
+  > While cloud-native workloads are preferred, migrated or modernized applications are reality and they might not utilize the available cloud functionality like auto-scaling, platform notifications etc. Make sure to understand the limitations and implement workarounds if available.
 * Are there any regulatory or governance requirements for this workload?
 
 
@@ -100,26 +105,6 @@ These critical design principles are used as lenses to assess the Operational Ex
 
   _Hybrid and cross-cloud workloads with components on-premises or on different cloud platforms, such as AWS or GCP, introduce additional operational considerations around achieving a 'single pane of glass' for operations_
   > Make sure that any hybrid or cross cloud relationships and dependencies are well understood.
-* Is the application implemented with strategies for resiliency and self-healing?
-
-
-  _Strategies for resiliency and self-healing include retrying transient failures and failing over to a secondary instance or even another region (see [Designing resilient Azure applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design))_
-  > Consider implementing strategies and capabilities for resiliency and self-healing needed to achieve workload availability targets. Programming paradigms such as retry patterns, request timeouts, and circuit breaker patterns can improve application resiliency by automatically recovering from transient faults ([Error handling for resilient applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design-error-handling))
-* Was the application built natively for the cloud or was an existing on-premises system migrated?
-
-
-  _Understanding if the application is cloud-native or not provides a very useful high level indication about potential technical debt for operability and cost efficiency._
-  > While cloud-native workloads are preferred, migrated or modernized applications are reality and they might not utilize the available cloud functionality like auto-scaling, platform notifications etc. Make sure to understand the limitations and implement workarounds if available.
-* Are Azure Tags used to enrich Azure resources with operational metadata?
-
-
-  _Using tags can help to manage resources and make it easier to find relevant items during operational procedures._
-  > Azure Tags provide the ability to associate critical metadata as a name-value pair, such as billing information (e.g. cost center code), environment information (e.g. environment type), with Azure resources, resource groups, and subscriptions. See [Tagging Strategies](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging) for best practices.
-* Does the application have a well-defined naming standard for Azure resources?
-
-
-  _A well-defined naming convention is important for overall operations to be able to easily determine the usage of certain resources and help understand owners and cost centers responsible for the workload. Naming conventions allow the matching of resource costs to particular workloads._
-  > Having a well-defined naming convention is important for overall operations, particularly for large application platforms where there are numerous resources([Naming Conventions](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging))
 * Is the workload deployed across multiple regions?
 
 
@@ -144,6 +129,21 @@ These critical design principles are used as lenses to assess the Operational Ex
 
   _[Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones) can be used to optimise application availability within a region by providing datacenter level fault tolerance. However, the application architecture must not share dependencies between zones to use them effectively. It is also important to note that Availability Zones may introduce performance and cost considerations for applications which are extremely 'chatty' across zones given the implied physical separation between each zone and inter-zone bandwidth charges. That also means that AZ can be considered to get higher SLA for lower cost. Be aware of [pricing changes](https://azure.microsoft.com/pricing/details/bandwidth/) coming to Availability Zone bandwidth starting February 2021._
   > Use Availability Zones where applicable to improve reliability and optimize costs.
+* Is the application implemented with strategies for resiliency and self-healing?
+
+
+  _Strategies for resiliency and self-healing include retrying transient failures and failing over to a secondary instance or even another region (see [Designing resilient Azure applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design))_
+  > Consider implementing strategies and capabilities for resiliency and self-healing needed to achieve workload availability targets. Programming paradigms such as retry patterns, request timeouts, and circuit breaker patterns can improve application resiliency by automatically recovering from transient faults ([Error handling for resilient applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design-error-handling))
+* Are Azure Tags used to enrich Azure resources with operational metadata?
+
+
+  _Using tags can help to manage resources and make it easier to find relevant items during operational procedures._
+  > Azure Tags provide the ability to associate critical metadata as a name-value pair, such as billing information (e.g. cost center code), environment information (e.g. environment type), with Azure resources, resource groups, and subscriptions. See [Tagging Strategies](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging) for best practices.
+* Does the application have a well-defined naming standard for Azure resources?
+
+
+  _A well-defined naming convention is important for overall operations to be able to easily determine the usage of certain resources and help understand owners and cost centers responsible for the workload. Naming conventions allow the matching of resource costs to particular workloads._
+  > Having a well-defined naming convention is important for overall operations, particularly for large application platforms where there are numerous resources([Naming Conventions](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging))
 * Is the application designed to use managed services?
 
 
