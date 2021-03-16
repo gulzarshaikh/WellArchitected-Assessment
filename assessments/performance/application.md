@@ -34,10 +34,7 @@
     - [Benchmarking](#Benchmarking)
     - [Load Capacity](#Load-Capacity)
     - [Data](#Data)
-  - [Troubleshooting](#Troubleshooting)
-    - [Data](#Data)
-    - [Process](#Process)
-    - [Network](#Network)
+    - [Troubleshooting](#Troubleshooting)
   - [Efficiency and Sizing](#Efficiency-and-Sizing)
     - [SKUs](#SKUs)
 
@@ -584,16 +581,12 @@
       _Available data caching technologies are for example:<br />- Azure Redis Cache<br />- IIS Caching Server<br />- SQL Caching Server<br />- Disk<br />- Other solution_
 
       > Azure Cache for Redis is a preferred solution for data caching as it improves performance by storing data in memory instead of on disk like SQL Server. Certain development frameworks like .NET also have mechanisms for caching data at the server level.
-## Troubleshooting
-    
-### Data
+### Troubleshooting
             
 * Does the application spend a lot of time in the database?
 
 
   _Applications that spend a lot of execution time in the database layers can benefit from a database tuning analysis. This analysis will only focus on the data tier components and may require special resources such as DBA's to tune queries, indexes, execution plans, and more._
-### Process
-            
 * Does the application have high CPU or memory utilization?
 
 
@@ -622,8 +615,6 @@
 
 
   _Application profiling will involve tooling like Visual Studio Performance Profile, AQTime, dotTrace, and others. These tools will give you in-depth analysis of individual code paths._
-### Network
-            
 * Do you profile the network with any traffic capturing tools?
 
 

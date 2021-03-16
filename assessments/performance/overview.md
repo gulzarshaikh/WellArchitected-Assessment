@@ -40,10 +40,7 @@ This assessment has been produced to help the global CE&S community to optimize 
     - [Benchmarking](./application.md#Benchmarking)
     - [Load Capacity](./application.md#Load-Capacity)
     - [Data](./application.md#Data)
-  - [Troubleshooting](./application.md#Troubleshooting)
-    - [Data](./application.md#Data)
-    - [Process](./application.md#Process)
-    - [Network](./application.md#Network)
+    - [Troubleshooting](./application.md#Troubleshooting)
   - [Efficiency and Sizing](./application.md#Efficiency-and-Sizing)
     - [SKUs](./application.md#SKUs)
 
