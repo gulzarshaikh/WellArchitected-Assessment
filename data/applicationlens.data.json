@@ -2463,8 +2463,7 @@
     "id": "e7a16b2a-6ed6-4ec7-8255-63b17f72ed71",
     "type": "Questions",
     "pillars": [
-      "operationalexcellence",
-      "security"
+      "operationalexcellence"
     ],
     "lens": "application",
     "category": "Deployment & Testing",
@@ -6492,6 +6491,29 @@
     "context": "Azure Security Center is the Azure-native solution for securing containers. Security Center can protect virtual machines that are running Docker, Azure Kubernetes Service clusters, Azure Container Registry registries. ASC is able to scan container images and identify security issues, or provide real-time threat detection for containerized environments. [Container Security in Security Center](https://docs.microsoft.com/azure/security-center/container-security)",
     "recommendation": {
       "title": "Scan container workloads for vulnerabilities.",
+      "context": "",
+      "links": [
+        {
+          "title": "",
+          "url": ""
+        }
+      ],
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "66712af8-529b-40f5-a113-65cb36fa5a74",
+    "type": "Questions",
+    "pillars": [
+      "security"
+    ],
+    "lens": "application",
+    "category": "Deployment & Testing",
+    "subCategory": "Application Code Deployments",
+    "title": "Are branch policies used in source control management of this workload? How are they configured?",
+    "context": "Branch policies provide additional level of control over the code which is commited to the product. It is a common practice to not allow pushing against the main branch and require pull-request (PR) with code review before merging the changes by at least one reviewer, other than the change author. Different branches can have different purposes and access levels, for example: feature branches are created by developers and are open to push, integration branch requires PR and code-review and production branch requires additional approval from a senior developer before merging.",
+    "recommendation": {
+      "title": "Implement branch policy strategy to enhance branch security.",
       "context": "",
       "links": [
         {
