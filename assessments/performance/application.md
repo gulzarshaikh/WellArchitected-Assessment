@@ -17,8 +17,11 @@
   - [Capacity &amp; Service Availability Planning](#Capacity--Service-Availability-Planning)
     - [Capacity](#Capacity)
     - [Service SKU](#Service-SKU)
+  - [Networking &amp; Connectivity](#Networking--Connectivity)
+    - [Endpoints](#Endpoints)
   - [Application Performance Management](#Application-Performance-Management)
     - [Data Size/Growth](#Data-SizeGrowth)
+    - [Data Latency and Throughput](#Data-Latency-and-Throughput)
     - [Network Throughput and Latency](#Network-Throughput-and-Latency)
     - [Elasticity](#Elasticity)
   - [Operational Procedures](#Operational-Procedures)
@@ -33,8 +36,6 @@
     - [Performance Planning](#Performance-Planning)
     - [Service SKU](#Service-SKU)
     - [Load Capacity](#Load-Capacity)
-    - [Design Efficiency](#Design-Efficiency)
-    - [DevOps](#DevOps)
     - [Data](#Data)
   - [Troubleshooting](#Troubleshooting)
     - [Data](#Data)
@@ -296,6 +297,23 @@
 
 
   _Limitless scale requires dedicated design and one of the important design considerations is the limits and quotas of Azure subscriptions. Some services are almost limitless, others require more planning. Some services have 'soft' limits that can be increased by contacting support._
+## Networking &amp; Connectivity
+    
+### Endpoints
+            
+* Are you using any Content Delivery Networks (CDN)?
+
+
+  _CDNs store static files in locations that are typically geographically closer to the user than the data center. This increases overall application performance as latency for delivery and downloading these artifacts is reduced. Also, from a security point of view, CDNs can be used to separate the hosting platform from end users. Azure CDN contains a rule engine to remove platform-specific information and headers. The use of Azure CDN or 3rd party CDN will have different cost implications depending on what is chosen for the workload._
+  > Use CDN to speed up delivery performance to users and to separate the hosting platform from the end users / clients.
+* Are you using SSL offloading?
+
+
+  _SSL offloading places the SSL certificate at an appliance that sits in front of the web server, instead of on the web server itself. This is beneficial for two reasons. First, the verification of the SSL certificate is conducted by the appliance instead of the web server, which reduces the taxation on the server. Second, SSL offloading increases operational efficiency as it can often eliminate the need to manage certificates across microservices._
+* Are you using authentication/token verification offloading?
+
+
+  _Like SSL offloading, authentication/token verification offloading on an appliance can reduce taxation on the server. Additionally, authentication verification offloading can greatly reduce development complication as developers no longer need to worry with the complications of SAML or OAuth tokens and, instead, can focus specifically on the business logic._
 ## Application Performance Management
     
 ### Data Size/Growth
@@ -308,6 +326,12 @@
 
 
   _Scale limits and recovery options should be assessed in the context of target data sizes and growth rates to ensure suitable capacity exists_
+### Data Latency and Throughput
+            
+* Are you using database replicas and data partitioning?
+
+
+  _Database replicas and data partitioning can improve application performance by providing multiple copies of the data and/or reducing the taxation of database operations. Both mechanisms involve conversations and planning between developers and database administrators._
 ### Network Throughput and Latency
             
 * Are there any components/scenarios that are very sensitive to network latency?
@@ -481,6 +505,10 @@
 
 
 
+* How do you know when you have reached acceptable efficiency?
+
+
+  _There is almost no limit to how much an application can be performance-tuned. How do you know when you have tuned an application enough? It really comes down to the 80/20 rule--generally, 80% of the application can be optimized by focusing on just 20%. While you can continue optimizing certain elements of the application, after optimizing the initial 20%, a company typically sees a diminishing return on any further optimization. The question the customer must answer is how much of the remaining 80% of the application is worth optimizing for the business. In other words, how much will optimizing the remaining 80% help the business reach its goals (e.g. customer acquisition/retention, sales, etc.)? The business must determine their own realistic definition of "acceptable."_
 ### Performance Planning
             
 * Are you able to predict general application usage?
@@ -545,34 +573,6 @@
 
       _Determine if the environment is rightly configured to scale in order to handle increased loads. (e.g. Does the environment scale effectively at certain times of day or at specific performance counters?) If you have identified specific times in which load increases (e.g. holidays, marketing drives, etc.), then the environment can be configured to proactively scale prior to the actual increase in load._
 
-### Design Efficiency
-            
-* Are you using any Conent Delivery Networks (CDN)?
-
-
-  _CDNs store static files in locations that are typically geographically closer to the user than the data center. This increases overall application performance as latency for delivery and downloading these artifacts is reduced._
-* Are you using SSL offloading?
-
-
-  _SSL offloading places the SSL certificate at an appliance that sits in front of the web server, instead of on the web server itself. This is beneficial for two reasons. First, the verification of the SSL certificate is conducted by the appliance instead of the web server, which reduces the taxation on the server. Second, SSL offloading increases operational efficiency as it can often eliminate the need to manage certificates across microservices._
-* Are you using authentication/token verification offloading?
-
-
-  _Like SSL offloading, authentication/token verification offloading on an appliance can reduce taxation on the server. Additionally, authentication verification offloading can greatly reduce development complication as developers no longer need to worry with the complications of SAML or OAuth tokens and, instead, can focus specifically on the business logic._
-* Are you using database replicas and data partitioning?
-
-
-  _Database replicas and data partitioning can improve application performance by providing multiple copies of the data and/or reducing the taxation of database operations. Both mechanisms involve conversations and planning between developers and database administrators._
-* How do you know when you have reached acceptable efficiency?
-
-
-  _There is almost no limit to how much an application can be performance-tuned. How do you know when you have tuned an application enough? It really comes down to the 80/20 rule--generally, 80% of the application can be optimized by focusing on just 20%. While you can continue optimizing certain elements of the application, after optimizing the initial 20%, a company typically sees a diminishing return on any further optimization. The question the customer must answer is how much of the remaining 80% of the application is worth optimizing for the business. In other words, how much will optimizing the remaining 80% help the business reach its goals (e.g. customer acquisition/retention, sales, etc.)? The business must determine their own realistic definition of "acceptable."_
-### DevOps
-            
-* Do you have performance validation stages in your deploy and build pipelines?
-
-
-  _Do you have performance testing integrated with your CI/CD pipelines? Testing in your pipelines can ensure that performance regressions and adverse affects of new development can be caught as early as possible._
 ### Data
             
 * Has caching and queuing been considered to handle varying load?

@@ -133,12 +133,6 @@ These critical design principles are used as lenses to assess the Security of an
       _Azure API Management and Azure Front Door offers transformation policies that allow to modify HTTP headers and remove sensitive information._
 
       > Remove sensitive information from HTTP headers with Azure API Management or Azure Front Door.
-    - Does this workload use CDN (content delivery network) solutions to separate the hosting platform from the end users / clients?
-
-
-      _Azure CDN can be used to separate the hosting platform from end users. Azure CDN contains a rule engine to remove platform-specific information and headers. The use of Azure CDN or 3rd party CDN will have different cost implications depending on what is chosen for the workload._
-
-      > Use CDN to separate the hosting platform from the end users / clients.
 * Does the organization use cloud native security controls for this workload?
 
 
@@ -441,6 +435,11 @@ These critical design principles are used as lenses to assess the Security of an
 
   _DDoS attacks can be very debilitating and completely block access to your services or even take down the services, depending on the type of DDoS attack._
   > Mitigate DDoS attacks. Use Standard protection for critical workloads where outage would have business impact. Also consider CDN as another layer of protection.
+* Are you using any Content Delivery Networks (CDN)?
+
+
+  _CDNs store static files in locations that are typically geographically closer to the user than the data center. This increases overall application performance as latency for delivery and downloading these artifacts is reduced. Also, from a security point of view, CDNs can be used to separate the hosting platform from end users. Azure CDN contains a rule engine to remove platform-specific information and headers. The use of Azure CDN or 3rd party CDN will have different cost implications depending on what is chosen for the workload._
+  > Use CDN to speed up delivery performance to users and to separate the hosting platform from the end users / clients.
 ### Data flow
             
 * Are there controls in place for this workload to detect and protect from data exfiltration?
