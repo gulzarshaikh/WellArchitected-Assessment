@@ -6608,29 +6608,6 @@
     }
   },
   {
-    "id": "66712af8-529b-40f5-a113-65cb36fa5a74",
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Deployment & Testing",
-    "subCategory": "Application Deployments",
-    "title": "Are branch policies used in source control management of this workload? How are they configured?",
-    "context": "Branch policies provide additional level of control over the code which is commited to the product. It is a common practice to not allow pushing against the main branch and require pull-request (PR) with code review before merging the changes by at least one reviewer, other than the change author. Different branches can have different purposes and access levels, for example: feature branches are created by developers and are open to push, integration branch requires PR and code-review and production branch requires additional approval from a senior developer before merging.",
-    "recommendation": {
-      "title": "Implement branch policy strategy to enhance branch security.",
-      "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
-      "priority": "medium"
-    }
-  },
-  {
     "id": "a3388555-135c-4266-961d-43edcc569072",
     "type": "Questions",
     "pillars": [
