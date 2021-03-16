@@ -2117,7 +2117,7 @@
     ],
     "lens": "application",
     "category": "Deployment & Testing",
-    "subCategory": "Application Deployments",
+    "subCategory": "Application Code Deployments",
     "title": "What is the process to deploy application releases to production?",
     "context": "",
     "recommendation": {
@@ -2158,7 +2158,7 @@
     ],
     "lens": "application",
     "category": "Deployment & Testing",
-    "subCategory": "Application Deployments",
+    "subCategory": "Application Code Deployments",
     "title": "How often are changes deployed to production?",
     "context": "Are numerous releases deployed each day or do releases have a fixed cadence, such as every quarter?",
     "recommendation": {
@@ -2182,7 +2182,7 @@
     ],
     "lens": "application",
     "category": "Deployment & Testing",
-    "subCategory": "Application Deployments",
+    "subCategory": "Application Code Deployments",
     "title": "Can the application be deployed automatically from scratch without any manual operations?",
     "context": "Manual deployment steps introduce significant risks where human error is concerned and also increases overall deployment times.",
     "recommendation": {
@@ -2219,11 +2219,12 @@
     "id": "f2d628f5-015a-4e0c-a74e-af6236d3273a",
     "type": "Questions",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "application",
     "category": "Deployment & Testing",
-    "subCategory": "Application Deployments",
+    "subCategory": "Application Code Deployments",
     "title": "How long does it take to deploy an entire production environment?",
     "context": "The time it takes for a full deployment needs to align with recovery targets.",
     "recommendation": {
@@ -2248,7 +2249,7 @@
     ],
     "lens": "application",
     "category": "Deployment & Testing",
-    "subCategory": "Application Deployments",
+    "subCategory": "Application Code Deployments",
     "title": "Can N-1 or N+1 versions be deployed via automated pipelines where N is current deployment version in production?",
     "context": "N-1 and N+1 refer to roll-back and roll-forward. Automated deployment pipelines should allow for quick roll-forward and roll-back deployments to address critical bugs and code updates outside of the normal deployment lifecycle.",
     "recommendation": {
@@ -2271,7 +2272,7 @@
     ],
     "lens": "application",
     "category": "Deployment & Testing",
-    "subCategory": "Application Deployments",
+    "subCategory": "Application Code Deployments",
     "title": "Is there a defined hotfix process which bypasses normal deployment procedures?",
     "context": "",
     "recommendation": {
@@ -2295,7 +2296,7 @@
     ],
     "lens": "application",
     "category": "Deployment & Testing",
-    "subCategory": "Application Deployments",
+    "subCategory": "Application Code Deployments",
     "title": "Does the application deployment process leverage blue-green deployments and/or canary releases?",
     "context": "Blue/green or canary deployments are a way to gradually release new feature or changes without impacting all users at once.",
     "recommendation": {
@@ -2314,11 +2315,12 @@
     "id": "e7a16b2a-6ed6-4ec7-8255-63b17f72ed71",
     "type": "Questions",
     "pillars": [
-      "operationalexcellence"
+      "operationalexcellence",
+      "security"
     ],
     "lens": "application",
     "category": "Deployment & Testing",
-    "subCategory": "Application Deployments",
+    "subCategory": "Application Code Deployments",
     "title": "How does the development team manage application source code, builds, and releases?",
     "context": "It is important to understand whether there is a systematic approach to the development and release process.",
     "recommendation": {
@@ -2359,7 +2361,7 @@
     ],
     "lens": "application",
     "category": "Deployment & Testing",
-    "subCategory": "Application Infrastructure Deployments",
+    "subCategory": "Application Infrastructure Provisioning",
     "title": "Is application infrastructure defined as code?",
     "context": "[Infrastructure as Code](https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code) (IaC) is the management of infrastructure (networks, virtual machines, load balancers, and connection topology) in a descriptive model, using the same versioning as the team uses for application source code. Like the principle that the same source code generates the same binary, an IaC model generates the same environment every time it is applied.",
     "recommendation": {
@@ -2416,7 +2418,7 @@
     ],
     "lens": "application",
     "category": "Deployment & Testing",
-    "subCategory": "Application Infrastructure Deployments",
+    "subCategory": "Application Infrastructure Provisioning",
     "title": "Is the process to deploy infrastructure automated?",
     "context": "Manual changes via for example the Azure Portal or Azure CLI are difficult to test, document and introduce significant risks where human error is concerned and might also increase the overall deployment and recovery times.",
     "recommendation": {
@@ -6528,7 +6530,7 @@
     ],
     "lens": "application",
     "category": "Deployment & Testing",
-    "subCategory": "Application Deployments",
+    "subCategory": "Application Code Deployments",
     "title": "Are code scanning tools an integrated part of the continuous integration (CI) process for this workload?",
     "context": "Credentials should not be stored in source code or configuration files, because that increases the risk of exposure. Code analyzers (such as Roslyn analyzers for Visual Studio) can prevent from pushing credentials to source code repository and pipeline addons such as CredScan (part of Microsoft Security Code Analysis) help to catch credentials during the build process.",
     "recommendation": {
@@ -6569,7 +6571,7 @@
     ],
     "lens": "application",
     "category": "Deployment & Testing",
-    "subCategory": "Application Deployments",
+    "subCategory": "Application Infrastructure Provisioning",
     "title": "How are credentials, certificates and other secrets managed in CI/CD pipelines for this workload?",
     "context": "Secrets need to be managed in a secure manner inside of the CI/CD pipeline. Secrets need to be stored either in a secure store inside the pipeline or externally in Azure Key Vault. When deploying application infrastructure (e.g. with Azure Resource Manager or Terraform), credentials and keys should be generated during the process, stored directly in Key Vault and referenced by deployed resources. Hardcoded credentials should be avoided.",
     "recommendation": {

@@ -216,10 +216,10 @@
     "title": "Deployment & Testing",
     "subCategories": [
       {
-        "title": "Application Deployments"
+        "title": "Application Code Deployments"
       },
       {
-        "title": "Application Infrastructure Deployments"
+        "title": "Application Infrastructure Provisioning"
       },
       {
         "title": "Build Environments"
