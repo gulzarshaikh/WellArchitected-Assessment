@@ -143,6 +143,15 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
 
   _An availability strategy should capture how the application remains available when in a failure state and should apply across all application components and the application deployment stamp as a whole such as via multi-geo scale-unit deployment approach. There are cost implications as well: More resources need to be provisioned in advance to provide high availability. Active-active setup, while more expensive than single deployment, can balance cost by lowering load on one stamp and reducing the total amount of resources needed._
+* Has a Business Continuity Disaster Recovery (BCDR) strategy been defined for the application and/or its key scenarios?
+
+
+  _A disaster recovery strategy should capture how the application responds to a disaster situation such as a regional outage or the loss of a critical platform service, using either a re-deployment, warm-spare active-passive, or hot-spare active-active approach. To drive cost down consider splitting application components and data into groups. For example: 1) must protect, 2) nice to protect, 3) ephemeral/can be rebuilt/lost, instead of protecting all data with the same policy._
+    - If you have a disaster recovery plan in another region, have you ensured you have the needed capacity quotas allocated?
+
+
+      _Quotas and limits typically apply at the region level and, therefore, the needed capacity should also be planned for the secondary region._
+
 * Is the workload designed to scale independently?
 
 
@@ -208,29 +217,6 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
       _Identifying a typical load helps you determine realistic expectations for performance testing. A "typical load" can be measured in individual users, web requests, user sessions, or transactions. When documenting typical loads, also ensure that all predictable periods have typical loads documented._
 
-* Are there well defined performance requirements for the application and/or key scenarios?
-
-
-  _Non-functional performance requirements, such as those relating to end-user experiences (e.g. average and maximum response times) are vital to assessing the overall health of an application, and is a critical lens required for assessing operations_
-  > Work with stakeholders to identify sensible non-functional requirements based on business requirements, research and user testing.
-    - Are there any targets defined for the time it takes to perform scale operations?
-
-
-      _Scale operations (horizontal - changing the number of identical instances, vertical - switching to more/less powerful instances) can be fast, but usually take time to complete. It's important to understand how this delay affects the application under load and if degraded performance is acceptable._
-
-      > The application should be designed to scale to cope with spikes in load in-line with what is an acceptable duration for degraded performance.
-    - What is the maximum traffic volume the application is expected to serve without performance degradation?
-
-
-      _Scale requirements the application must be able to effectively satisfy, such as the number of concurrent users or requests per second, is a critical lens for assessing operations. From the cost perspective, it's recommended to set a budget for extreme circumstances and indicate upper limit for cost (when it's not worth serving more traffic due to overall costs)._
-
-      > Traffic limits for the application should be defined in quantified and measurable manner.
-    - Are these performance targets monitored and measured across the application and/or key scenarios?
-
-
-      _Monitoring and measuring end-to-end application performance is vital to qualifying overall application health and progress towards defined targets._
-
-      > Automation and specialized tooling (such as Application Insights) should be used to orchestrate and measure application performance.
 ### Key Scenarios
             
 * Have critical system flows through the application been defined for all key business scenarios?
