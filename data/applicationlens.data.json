@@ -1,5 +1,29 @@
 [
   {
+    "id": "f8771403-31f6-4f43-b9d7-2dd4aa9144a1",
+    "type": "Questions",
+    "pillars": [
+      "operationalexcellence",
+      "costoptimization"
+    ],
+    "lens": "application",
+    "category": "Application Design",
+    "subCategory": "Design",
+    "title": "Was the application built natively for the cloud or was an existing on-premises system migrated?",
+    "context": "Understanding if the application is cloud-native or not provides a very useful high level indication about potential technical debt for operability and cost efficiency.",
+    "recommendation": {
+      "title": "While cloud-native workloads are preferred, migrated or modernized applications are reality and they might not utilize the available cloud functionality like auto-scaling, platform notifications etc. Make sure to understand the limitations and implement workarounds if available.",
+      "context": "",
+      "links": [
+        {
+          "title": "",
+          "url": ""
+        }
+      ],
+      "priority": "medium"
+    }
+  },
+  {
     "id": "e29151ac-52d2-40cf-accd-61cf0d98df5a",
     "type": "Questions",
     "pillars": [
@@ -47,6 +71,108 @@
     }
   },
   {
+    "id": "bfa31e14-50d3-4dd7-9bdc-44358ac6a68f",
+    "type": "Questions",
+    "pillars": [
+      "reliability",
+      "operationalexcellence",
+      "costoptimization",
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Application Design",
+    "subCategory": "Design",
+    "title": "Is the workload deployed across multiple regions?",
+    "context": "Multiple regions should be used for failover purposes in a disaster state, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active strategies. Additional cost needs to be taken into consideration - mostly from compute, data and networking perspective, but also services like Azure Site Recovery (ASR). ([Failover strategies](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones))",
+    "recommendation": {
+      "title": "",
+      "context": "",
+      "links": [
+        {
+          "title": "",
+          "url": ""
+        }
+      ],
+      "priority": "medium"
+    },
+    "children": [
+      {
+        "id": "06ec755b-c423-4f8b-92c4-073750567022",
+        "title": "Were regions chosen based on location and proximity to your users or based on resource types that were available?",
+        "context": "Not only is it important to utilize regions close to your audience, but it is equally important to choose regions that offer the SKUs that will support your future growth. Not all regions share the same parity when it comes to product SKUs. Plan your growth, then choose regions that will support those plans.",
+        "recommendation": {
+          "title": "",
+          "context": "",
+          "links": [
+            {
+              "title": "",
+              "url": ""
+            }
+          ],
+          "priority": "medium"
+        }
+      },
+      {
+        "id": "7a12b9a0-b9cd-4971-9af7-838703da94b0",
+        "title": "Are paired regions used?",
+        "context": "Paired regions exist within the same geography and provide native replication features for recovery purposes, such as Geo-Redundant Storage (GRS) asynchronous replication. In the event of planned maintenance, updates to a region will be performed sequentially only ([Business continuity with Azure Paired Regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions))",
+        "recommendation": {
+          "title": "",
+          "context": "",
+          "links": [
+            {
+              "title": "",
+              "url": ""
+            }
+          ],
+          "priority": "medium"
+        }
+      },
+      {
+        "id": "ea0bef13-9c1e-49f1-9d7a-62f23b7698c6",
+        "title": "Have you ensured that both (all) regions in use have the same performance and scale SKUs that are currently leveraged in the primary region?",
+        "context": "When planning for scale and efficiency, it is important that regions are not only paired, but homogenous in their service offerings. Additionally, you should make sure that, if one region fails, the second region can scale appropriately to sufficiently handle the influx of additional user requests.",
+        "recommendation": {
+          "title": "",
+          "context": "",
+          "links": [
+            {
+              "title": "",
+              "url": ""
+            }
+          ],
+          "priority": "medium"
+        }
+      }
+    ]
+  },
+  {
+    "id": "a24d9c7f-0f48-4570-af60-a56e7adc5c7e",
+    "type": "Questions",
+    "pillars": [
+      "reliability",
+      "operationalexcellence",
+      "costoptimization",
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Application Design",
+    "subCategory": "Design",
+    "title": "Within a region is the application architecture designed to use Availability Zones?",
+    "context": "[Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones) can be used to optimise application availability within a region by providing datacenter level fault tolerance. However, the application architecture must not share dependencies between zones to use them effectively. It is also important to note that Availability Zones may introduce performance and cost considerations for applications which are extremely 'chatty' across zones given the implied physical separation between each zone and inter-zone bandwidth charges. That also means that AZ can be considered to get higher SLA for lower cost. Be aware of [pricing changes](https://azure.microsoft.com/pricing/details/bandwidth/) coming to Availability Zone bandwidth starting February 2021.",
+    "recommendation": {
+      "title": "Use Availability Zones where applicable to improve reliability and optimize costs.",
+      "context": "",
+      "links": [
+        {
+          "title": "",
+          "url": ""
+        }
+      ],
+      "priority": "medium"
+    }
+  },
+  {
     "id": "f519f2ea-3183-4d69-9338-b1187a8fb337",
     "type": "Questions",
     "pillars": [
@@ -61,30 +187,6 @@
     "context": "Strategies for resiliency and self-healing include retrying transient failures and failing over to a secondary instance or even another region (see [Designing resilient Azure applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design))",
     "recommendation": {
       "title": "Consider implementing strategies and capabilities for resiliency and self-healing needed to achieve workload availability targets. Programming paradigms such as retry patterns, request timeouts, and circuit breaker patterns can improve application resiliency by automatically recovering from transient faults ([Error handling for resilient applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design-error-handling))",
-      "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
-      "priority": "medium"
-    }
-  },
-  {
-    "id": "f8771403-31f6-4f43-b9d7-2dd4aa9144a1",
-    "type": "Questions",
-    "pillars": [
-      "operationalexcellence",
-      "costoptimization"
-    ],
-    "lens": "application",
-    "category": "Application Design",
-    "subCategory": "Design",
-    "title": "Was the application built natively for the cloud or was an existing on-premises system migrated?",
-    "context": "Understanding if the application is cloud-native or not provides a very useful high level indication about potential technical debt for operability and cost efficiency.",
-    "recommendation": {
-      "title": "While cloud-native workloads are preferred, migrated or modernized applications are reality and they might not utilize the available cloud functionality like auto-scaling, platform notifications etc. Make sure to understand the limitations and implement workarounds if available.",
       "context": "",
       "links": [
         {
@@ -3120,108 +3222,6 @@
     "context": "Policy-as-Code provides the same benefits as Infrastructure-as-Code in regards to versioning, automation, documentation as well as encouraging consistency and reproducibility. Available solutions in the market are [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview) or [HashiCorp Sentinel](https://www.hashicorp.com/resources/introduction-sentinel-compliance-policy-as-code/).",
     "recommendation": {
       "title": "",
-      "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
-      "priority": "medium"
-    }
-  },
-  {
-    "id": "bfa31e14-50d3-4dd7-9bdc-44358ac6a68f",
-    "type": "Questions",
-    "pillars": [
-      "reliability",
-      "operationalexcellence",
-      "costoptimization",
-      "performanceefficiency"
-    ],
-    "lens": "application",
-    "category": "Application Design",
-    "subCategory": "Design",
-    "title": "Is the workload deployed across multiple regions?",
-    "context": "Multiple regions should be used for failover purposes in a disaster state, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active strategies. Additional cost needs to be taken into consideration - mostly from compute, data and networking perspective, but also services like Azure Site Recovery (ASR). ([Failover strategies](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones))",
-    "recommendation": {
-      "title": "",
-      "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
-      "priority": "medium"
-    },
-    "children": [
-      {
-        "id": "06ec755b-c423-4f8b-92c4-073750567022",
-        "title": "Were regions chosen based on location and proximity to your users or based on resource types that were available?",
-        "context": "Not only is it important to utilize regions close to your audience, but it is equally important to choose regions that offer the SKUs that will support your future growth. Not all regions share the same parity when it comes to product SKUs. Plan your growth, then choose regions that will support those plans.",
-        "recommendation": {
-          "title": "",
-          "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
-          "priority": "medium"
-        }
-      },
-      {
-        "id": "7a12b9a0-b9cd-4971-9af7-838703da94b0",
-        "title": "Are paired regions used?",
-        "context": "Paired regions exist within the same geography and provide native replication features for recovery purposes, such as Geo-Redundant Storage (GRS) asynchronous replication. In the event of planned maintenance, updates to a region will be performed sequentially only ([Business continuity with Azure Paired Regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions))",
-        "recommendation": {
-          "title": "",
-          "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
-          "priority": "medium"
-        }
-      },
-      {
-        "id": "ea0bef13-9c1e-49f1-9d7a-62f23b7698c6",
-        "title": "Have you ensured that both (all) regions in use have the same performance and scale SKUs that are currently leveraged in the primary region?",
-        "context": "When planning for scale and efficiency, it is important that regions are not only paired, but homogenous in their service offerings. Additionally, you should make sure that, if one region fails, the second region can scale appropriately to sufficiently handle the influx of additional user requests.",
-        "recommendation": {
-          "title": "",
-          "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
-          "priority": "medium"
-        }
-      }
-    ]
-  },
-  {
-    "id": "a24d9c7f-0f48-4570-af60-a56e7adc5c7e",
-    "type": "Questions",
-    "pillars": [
-      "reliability",
-      "operationalexcellence",
-      "costoptimization",
-      "performanceefficiency"
-    ],
-    "lens": "application",
-    "category": "Application Design",
-    "subCategory": "Design",
-    "title": "Within a region is the application architecture designed to use Availability Zones?",
-    "context": "[Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones) can be used to optimise application availability within a region by providing datacenter level fault tolerance. However, the application architecture must not share dependencies between zones to use them effectively. It is also important to note that Availability Zones may introduce performance and cost considerations for applications which are extremely 'chatty' across zones given the implied physical separation between each zone and inter-zone bandwidth charges. That also means that AZ can be considered to get higher SLA for lower cost. Be aware of [pricing changes](https://azure.microsoft.com/pricing/details/bandwidth/) coming to Availability Zone bandwidth starting February 2021.",
-    "recommendation": {
-      "title": "Use Availability Zones where applicable to improve reliability and optimize costs.",
       "context": "",
       "links": [
         {
