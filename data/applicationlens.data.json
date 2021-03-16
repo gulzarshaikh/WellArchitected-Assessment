@@ -4669,35 +4669,9 @@
     ]
   },
   {
-    "id": "f2efe01d-95b5-4c2c-b8d1-a970f5379819",
-    "type": "Questions",
-    "pillars": [
-      "reliability",
-      "operationalexcellence"
-    ],
-    "lens": "application",
-    "category": "Security & Compliance",
-    "subCategory": "Control-plane RBAC",
-    "title": "Are Azure AD emergency access accounts and processes defined for recovering from identity failures?",
-    "context": "The impact of no administrative access can be mitigated by creating two or more emergency access accounts ([Emergency Access accounts in Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access))",
-    "recommendation": {
-      "title": "",
-      "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
-      "priority": "medium"
-    }
-  },
-  {
     "id": "3675cc29-2b2c-4f9d-9a5f-9e0c9c600f2d",
     "type": "Questions",
     "pillars": [
-      "reliability",
-      "operationalexcellence",
       "security"
     ],
     "lens": "application",
@@ -4720,8 +4694,6 @@
     "id": "54ce29fd-f664-4550-b5c9-dc2aed08c994",
     "type": "Questions",
     "pillars": [
-      "reliability",
-      "operationalexcellence",
       "security"
     ],
     "lens": "application",
@@ -4744,8 +4716,6 @@
     "id": "1c94a8f5-b04d-4d1b-a516-b79309488879",
     "type": "Questions",
     "pillars": [
-      "reliability",
-      "operationalexcellence",
       "security"
     ],
     "lens": "application",
@@ -7410,7 +7380,9 @@
     "id": "30a2a854-1504-423f-90de-86598a07047b",
     "type": "Questions",
     "pillars": [
-      "security"
+      "security",
+      "operationalexcellence",
+      "reliability"
     ],
     "lens": "application",
     "category": "Operational Model & DevOps",
@@ -7418,7 +7390,7 @@
     "title": "Does the organization have the appropriate emergency access accounts configured for this workload in case of an emergency?",
     "context": "While rare, sometimes extreme circumstances arise where all normal means of administrative access are unavailable and for this reason emergency access accounts (also refered to as 'break glass' accounts) should be available. These accounts are strictly controlled in accordance with best practice guidance, and they are closely monitored for unsanctioned use to ensure they are not compromised or used for nefarious purposes. [Emergency Access Acounts](https://docs.microsoft.com/azure/active-directory/roles/security-emergency-access)",
     "recommendation": {
-      "title": "Configure emergency access accounts.",
+      "title": "Configure emergency access accounts. The impact of no administrative access can be mitigated by creating two or more emergency access accounts ([Emergency Access accounts in Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access))",
       "context": "",
       "links": [
         {
