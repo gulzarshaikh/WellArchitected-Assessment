@@ -5365,22 +5365,6 @@
           ],
           "priority": "medium"
         }
-      },
-      {
-        "id": "13031cce-4a36-49d2-8507-45b595156f2c",
-        "title": "Does this workload use CDN (content delivery network) solutions to separate the hosting platform from the end users / clients?",
-        "context": "Azure CDN can be used to separate the hosting platform from end users. Azure CDN contains a rule engine to remove platform-specific information and headers. The use of Azure CDN or 3rd party CDN will have different cost implications depending on what is chosen for the workload.",
-        "recommendation": {
-          "title": "Use CDN to separate the hosting platform from the end users / clients.",
-          "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
-          "priority": "medium"
-        }
       }
     ]
   },
@@ -9916,15 +9900,16 @@
     "id": "1eb43913-50ba-4ac9-aaa5-95de6ea7ce42",
     "type": "Questions",
     "pillars": [
-      "performanceefficiency"
+      "performanceefficiency",
+      "security"
     ],
     "lens": "application",
-    "category": "Performance Testing",
-    "subCategory": "Design Efficiency",
-    "title": "Are you using any Conent Delivery Networks (CDN)?",
-    "context": "CDNs store static files in locations that are typically geographically closer to the user than the data center. This increases overall application performance as latency for delivery and downloading these artifacts is reduced.",
+    "category": "Networking & Connectivity",
+    "subCategory": "Endpoints",
+    "title": "Are you using any Content Delivery Networks (CDN)?",
+    "context": "CDNs store static files in locations that are typically geographically closer to the user than the data center. This increases overall application performance as latency for delivery and downloading these artifacts is reduced. Also, from a security point of view, CDNs can be used to separate the hosting platform from end users. Azure CDN contains a rule engine to remove platform-specific information and headers. The use of Azure CDN or 3rd party CDN will have different cost implications depending on what is chosen for the workload.",
     "recommendation": {
-      "title": "",
+      "title": "Use CDN to speed up delivery performance to users and to separate the hosting platform from the end users / clients.",
       "context": "",
       "links": [
         {
@@ -9942,8 +9927,8 @@
       "performanceefficiency"
     ],
     "lens": "application",
-    "category": "Performance Testing",
-    "subCategory": "Design Efficiency",
+    "category": "Networking & Connectivity",
+    "subCategory": "Endpoints",
     "title": "Are you using SSL offloading?",
     "context": "SSL offloading places the SSL certificate at an appliance that sits in front of the web server, instead of on the web server itself. This is beneficial for two reasons. First, the verification of the SSL certificate is conducted by the appliance instead of the web server, which reduces the taxation on the server. Second, SSL offloading increases operational efficiency as it can often eliminate the need to manage certificates across microservices.",
     "recommendation": {
@@ -9965,8 +9950,8 @@
       "performanceefficiency"
     ],
     "lens": "application",
-    "category": "Performance Testing",
-    "subCategory": "Design Efficiency",
+    "category": "Networking & Connectivity",
+    "subCategory": "Endpoints",
     "title": "Are you using authentication/token verification offloading?",
     "context": "Like SSL offloading, authentication/token verification offloading on an appliance can reduce taxation on the server. Additionally, authentication verification offloading can greatly reduce development complication as developers no longer need to worry with the complications of SAML or OAuth tokens and, instead, can focus specifically on the business logic.",
     "recommendation": {
@@ -9988,8 +9973,8 @@
       "performanceefficiency"
     ],
     "lens": "application",
-    "category": "Performance Testing",
-    "subCategory": "Design Efficiency",
+    "category": "Application Performance Management",
+    "subCategory": "Data Latency and Throughput",
     "title": "Are you using database replicas and data partitioning?",
     "context": "Database replicas and data partitioning can improve application performance by providing multiple copies of the data and/or reducing the taxation of database operations. Both mechanisms involve conversations and planning between developers and database administrators.",
     "recommendation": {
@@ -10012,32 +9997,9 @@
     ],
     "lens": "application",
     "category": "Performance Testing",
-    "subCategory": "Design Efficiency",
+    "subCategory": "Benchmarking",
     "title": "How do you know when you have reached acceptable efficiency?",
     "context": "There is almost no limit to how much an application can be performance-tuned. How do you know when you have tuned an application enough? It really comes down to the 80/20 rule--generally, 80% of the application can be optimized by focusing on just 20%. While you can continue optimizing certain elements of the application, after optimizing the initial 20%, a company typically sees a diminishing return on any further optimization. The question the customer must answer is how much of the remaining 80% of the application is worth optimizing for the business. In other words, how much will optimizing the remaining 80% help the business reach its goals (e.g. customer acquisition/retention, sales, etc.)? The business must determine their own realistic definition of \"acceptable.\"",
-    "recommendation": {
-      "title": "",
-      "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
-      "priority": "medium"
-    }
-  },
-  {
-    "id": "ee20ed82-fa0a-466e-8f31-190f71161d33",
-    "type": "Questions",
-    "pillars": [
-      "performanceefficiency"
-    ],
-    "lens": "application",
-    "category": "Performance Testing",
-    "subCategory": "DevOps",
-    "title": "Do you have performance validation stages in your deploy and build pipelines?",
-    "context": "Do you have performance testing integrated with your CI/CD pipelines? Testing in your pipelines can ensure that performance regressions and adverse affects of new development can be caught as early as possible.",
     "recommendation": {
       "title": "",
       "context": "",
