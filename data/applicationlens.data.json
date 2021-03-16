@@ -1665,7 +1665,8 @@
     "type": "Questions",
     "pillars": [
       "operationalexcellence",
-      "reliability"
+      "reliability",
+      "performanceefficiency"
     ],
     "lens": "application",
     "category": "Operational Procedures",
@@ -3153,7 +3154,57 @@
         }
       ],
       "priority": "medium"
-    }
+    },
+    "children": [
+      {
+        "id": "06ec755b-c423-4f8b-92c4-073750567022",
+        "title": "Were regions chosen based on location and proximity to your users or based on resource types that were available?",
+        "context": "Not only is it important to utilize regions close to your audience, but it is equally important to choose regions that offer the SKUs that will support your future growth. Not all regions share the same parity when it comes to product SKUs. Plan your growth, then choose regions that will support those plans.",
+        "recommendation": {
+          "title": "",
+          "context": "",
+          "links": [
+            {
+              "title": "",
+              "url": ""
+            }
+          ],
+          "priority": "medium"
+        }
+      },
+      {
+        "id": "7a12b9a0-b9cd-4971-9af7-838703da94b0",
+        "title": "Are paired regions used?",
+        "context": "Paired regions exist within the same geography and provide native replication features for recovery purposes, such as Geo-Redundant Storage (GRS) asynchronous replication. In the event of planned maintenance, updates to a region will be performed sequentially only ([Business continuity with Azure Paired Regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions))",
+        "recommendation": {
+          "title": "",
+          "context": "",
+          "links": [
+            {
+              "title": "",
+              "url": ""
+            }
+          ],
+          "priority": "medium"
+        }
+      },
+      {
+        "id": "ea0bef13-9c1e-49f1-9d7a-62f23b7698c6",
+        "title": "Have you ensured that both (all) regions in use have the same performance and scale SKUs that are currently leveraged in the primary region?",
+        "context": "When planning for scale and efficiency, it is important that regions are not only paired, but homogenous in their service offerings. Additionally, you should make sure that, if one region fails, the second region can scale appropriately to sufficiently handle the influx of additional user requests.",
+        "recommendation": {
+          "title": "",
+          "context": "",
+          "links": [
+            {
+              "title": "",
+              "url": ""
+            }
+          ],
+          "priority": "medium"
+        }
+      }
+    ]
   },
   {
     "id": "a24d9c7f-0f48-4570-af60-a56e7adc5c7e",
@@ -3719,80 +3770,6 @@
     }
   },
   {
-    "id": "6200707b-f254-4b0a-b3ed-0d18e56d6283",
-    "type": "Questions",
-    "pillars": [
-      "reliability",
-      "performanceefficiency"
-    ],
-    "lens": "application",
-    "category": "Application Platform Availability",
-    "subCategory": "Compute Availability",
-    "title": "Is the application platform deployed across multiple regions?",
-    "context": "The ability to respond to disaster scenarios for overall compute platform availability and application resiliency is dependant on the use of multiple regions or other deployment locations. Multi-region deployment is also ideal for performance improvements as your application scales. Additionally, user requests can be directed to their closest region which reduces latency between the user and your service.",
-    "recommendation": {
-      "title": "",
-      "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
-      "priority": "medium"
-    },
-    "children": [
-      {
-        "id": "06ec755b-c423-4f8b-92c4-073750567022",
-        "title": "Were regions chosen based on location and proximity to your users or based on resource types that were available?",
-        "context": "Not only is it important to utilize regions close to your audience, but it is equally important to choose regions that offer the SKUs that will support your future growth. Not all regions share the same parity when it comes to product SKUs. Plan your growth, then choose regions that will support those plans.",
-        "recommendation": {
-          "title": "",
-          "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
-          "priority": "medium"
-        }
-      },
-      {
-        "id": "7a12b9a0-b9cd-4971-9af7-838703da94b0",
-        "title": "Are paired regions used?",
-        "context": "Paired regions exist within the same geography and provide native replication features for recovery purposes, such as Geo-Redundant Storage (GRS) asynchronous replication. In the event of planned maintenance, updates to a region will be performed sequentially only ([Business continuity with Azure Paired Regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions))",
-        "recommendation": {
-          "title": "",
-          "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
-          "priority": "medium"
-        }
-      },
-      {
-        "id": "ea0bef13-9c1e-49f1-9d7a-62f23b7698c6",
-        "title": "Have you ensured that both (all) regions in use have the same performance and scale SKUs that are currently leveraged in the primary region?",
-        "context": "When planning for scale and efficiency, it is important that regions are not only paired, but homogenous in their service offerings. Additionally, you should make sure that, if one region fails, the second region can scale appropriately to sufficiently handle the influx of additional user requests.",
-        "recommendation": {
-          "title": "",
-          "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
-          "priority": "medium"
-        }
-      }
-    ]
-  },
-  {
     "id": "607de629-d1ce-4287-9fe1-c5d6f460d341",
     "type": "Questions",
     "pillars": [
@@ -4232,7 +4209,7 @@
     ],
     "lens": "application",
     "category": "Networking & Connectivity",
-    "subCategory": "Zone-Aware Services",
+    "subCategory": "Connectivity",
     "title": "Do health probes assess critical application dependencies?",
     "context": "Custom health probes should be used to assess overall application health including downstream components and dependent services, such as APIs and datastores, so that traffic is not sent to backend instances that cannot successfully process requests due to dependency failures ([Health Endpoint Monitoring Pattern](https://docs.microsoft.com/azure/architecture/patterns/health-endpoint-monitoring))",
     "recommendation": {
@@ -4527,7 +4504,8 @@
     "id": "40df86e9-96ed-4173-be52-2a4d2d18ca6b",
     "type": "Questions",
     "pillars": [
-      "reliability"
+      "reliability",
+      "performanceefficiency"
     ],
     "lens": "application",
     "category": "Application Performance Management",
@@ -4550,7 +4528,8 @@
     "id": "742e39f4-0f7a-4f83-b46d-be422695cac4",
     "type": "Questions",
     "pillars": [
-      "reliability"
+      "reliability",
+      "performanceefficiency"
     ],
     "lens": "application",
     "category": "Application Performance Management",
@@ -9036,7 +9015,7 @@
     ],
     "lens": "application",
     "category": "Capacity & Service Availability Planning",
-    "subCategory": "Usage Prediction",
+    "subCategory": "Capacity",
     "title": "Will your application be exposed to yearly or monthly heavy, peak loads?",
     "context": "Major events like Black Friday, Singles Day, End-of-month reporting or marketing pushes can create abnormal load on your application and require additional resources. Understanding the upticks in demand can help you proactively scale so that customers/users experience little to no performance degradation.",
     "recommendation": {
@@ -9726,86 +9705,6 @@
     }
   },
   {
-    "id": "76453a9f-83e7-4304-8570-1d0a3a32b2f1",
-    "type": "Questions",
-    "pillars": [
-      "performanceefficiency"
-    ],
-    "lens": "application",
-    "category": "Performance Testing",
-    "subCategory": "Service SKU",
-    "title": "For disaster recovery and failover, should a region become inoperable, does the paired region support the same SKU levels and configurations as the primary region?",
-    "context": "If your paired region does not support the same SKU levels, then either an alternative pair of regions need to be chosen of the application needs to be re-architected for the necessary load. This ensures that if a single region should fail, the operating region is capable of supporting the anticipated, combined load.",
-    "recommendation": {
-      "title": "",
-      "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
-      "priority": "medium"
-    }
-  },
-  {
-    "id": "9fe88524-c52d-4bb2-a47a-9201cc72b6e3",
-    "type": "Questions",
-    "pillars": [
-      "performanceefficiency"
-    ],
-    "lens": "application",
-    "category": "Performance Testing",
-    "subCategory": "Service SKU",
-    "title": "Should a region fail, have you tested the amount of time it would take for users to fail over to the paired region?",
-    "context": "You should be fully aware of how long it would take for your customers to be re-routed from a failed region. Typically, a planned, test failover can help determine how long would be required to fully scale to support the redirected load. Based on the recovery time (e.g. time required to scale), you can adequately plan for unforeseen outages.",
-    "recommendation": {
-      "title": "",
-      "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
-      "priority": "medium"
-    },
-    "children": [
-      {
-        "id": "73c491a8-ade3-4def-a58b-40eda1ba098a",
-        "title": "Should a region fail, can the paired region handle the additional load?",
-        "context": "Proper Disaster Recovery planning ensures that the end-user experiences very little, if any, degradation in service. This includes you planning for a percentage of maximum utilization in each region in the case that a single region fails and all load is placed on the remaining available region(s). This means that you should architect a solution that has enough margin to handle some immediate redirection of requests while providing enough runway to scale efficiently.",
-        "recommendation": {
-          "title": "",
-          "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
-          "priority": "medium"
-        }
-      },
-      {
-        "id": "286832c8-3d1e-42b4-a1aa-c95472288139",
-        "title": "Should a region fail, how long would it take for the secondary region to scale in order to handle the additional load?",
-        "context": "",
-        "recommendation": {
-          "title": "",
-          "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
-          "priority": "medium"
-        }
-      }
-    ]
-  },
-  {
     "id": "baea1dea-69db-4803-b5ee-fcd61215e6c6",
     "type": "Questions",
     "pillars": [
@@ -9941,29 +9840,6 @@
     ]
   },
   {
-    "id": "30fd09ed-6dc1-4d77-a424-4c029a5a1502",
-    "type": "Questions",
-    "pillars": [
-      "performanceefficiency"
-    ],
-    "lens": "application",
-    "category": "Performance Testing",
-    "subCategory": "Service SKU",
-    "title": "Have you correctly configured the environment to scale back in for the purpose of saving costs when load is under certain performance thresholds?",
-    "context": "Ensure that a rule has been configured to scale the environment back down once load settles below set thresholds. This will ensure that you are not over provisioning and unnecessarily increasing operational costs.",
-    "recommendation": {
-      "title": "",
-      "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
-      "priority": "medium"
-    }
-  },
-  {
     "id": "ecf65a3d-5f04-4b5a-97a6-e946943a40e8",
     "type": "Questions",
     "pillars": [
@@ -10045,7 +9921,7 @@
     "lens": "application",
     "category": "Performance Testing",
     "subCategory": "Design Efficiency",
-    "title": "Are you using any CDNs?",
+    "title": "Are you using any Conent Delivery Networks (CDN)?",
     "context": "CDNs store static files in locations that are typically geographically closer to the user than the data center. This increases overall application performance as latency for delivery and downloading these artifacts is reduced.",
     "recommendation": {
       "title": "",
@@ -10179,7 +10055,8 @@
     "type": "Questions",
     "pillars": [
       "performanceefficiency",
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "application",
     "category": "Health Modelling & Monitoring",
