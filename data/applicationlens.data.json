@@ -50,7 +50,9 @@
     "id": "f519f2ea-3183-4d69-9338-b1187a8fb337",
     "type": "Questions",
     "pillars": [
-      "operationalexcellence"
+      "operationalexcellence",
+      "reliability",
+      "performanceefficiency"
     ],
     "lens": "application",
     "category": "Application Design",
@@ -58,7 +60,7 @@
     "title": "Is the application implemented with strategies for resiliency and self-healing?",
     "context": "Strategies for resiliency and self-healing include retrying transient failures and failing over to a secondary instance or even another region (see [Designing resilient Azure applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design))",
     "recommendation": {
-      "title": "Consider implementing strategies and capabilities for resiliency and self-healing needed to achieve workload availability targets.",
+      "title": "Consider implementing strategies and capabilities for resiliency and self-healing needed to achieve workload availability targets. Programming paradigms such as retry patterns, request timeouts, and circuit breaker patterns can improve application resiliency by automatically recovering from transient faults ([Error handling for resilient applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design-error-handling))",
       "context": "",
       "links": [
         {
@@ -4245,30 +4247,6 @@
     }
   },
   {
-    "id": "cd174f1c-c0a6-44e8-8d92-84795879f4f8",
-    "type": "Questions",
-    "pillars": [
-      "reliability",
-      "performanceefficiency"
-    ],
-    "lens": "application",
-    "category": "Scalability & Performance",
-    "subCategory": "Application Performance",
-    "title": "Does the application logic handle exceptions and errors using resiliency patterns?",
-    "context": "Programming paradigms such as retry patterns, request timeouts, and circuit breaker patterns can improve application resiliency by automatically recovering from transient faults ([Error handling for resilient applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design-error-handling))",
-    "recommendation": {
-      "title": "",
-      "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
-      "priority": "medium"
-    }
-  },
-  {
     "id": "dbae0514-eeb8-402d-9d82-c4f48407464e",
     "type": "Questions",
     "pillars": [
@@ -4320,7 +4298,6 @@
     "id": "98d022fb-825a-4f4c-9d69-4f82978a14f6",
     "type": "Questions",
     "pillars": [
-      "reliability",
       "performanceefficiency",
       "operationalexcellence"
     ],
