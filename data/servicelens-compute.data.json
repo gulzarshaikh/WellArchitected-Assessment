@@ -1,5 +1,6 @@
 [
   {
+    "id": "54bc260e-e703-4304-85c7-9b13475a817c",
     "type": "Design Considerations",
     "pillars": [
       "reliability",
@@ -11,29 +12,29 @@
     "title": "Microsoft provides the following [SLAs for virtual machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/):",
     "children": [
       {
-        "title": "95% SLA for single instance virtual machines using Standard HDD storage for all OS and Data disks",
-        "id": "a132fba6-27fd-4a6c-8cf8-8ff071239bc9"
+        "id": "a132fba6-27fd-4a6c-8cf8-8ff071239bc9",
+        "title": "95% SLA for single instance virtual machines using Standard HDD storage for all OS and Data disks"
       },
       {
-        "title": "99.5% SLA for single instance virtual machines using Standard SSD storage for all OS and Data disks",
-        "id": "ceb8f4df-bdda-4ee6-bedf-965cfe6cd6ca"
+        "id": "ceb8f4df-bdda-4ee6-bedf-965cfe6cd6ca",
+        "title": "99.5% SLA for single instance virtual machines using Standard SSD storage for all OS and Data disks"
       },
       {
-        "title": "99.9% SLA for single instance virtual machines using Premium storage for all OS and Data disks",
-        "id": "faf49a76-3170-4f16-9f21-59459f480ee0"
+        "id": "faf49a76-3170-4f16-9f21-59459f480ee0",
+        "title": "99.9% SLA for single instance virtual machines using Premium storage for all OS and Data disks"
       },
       {
-        "title": "99.95% SLA for all virtual machines that have two or more instances in the same Availability Set or Dedicated Host Group",
-        "id": "c72a89eb-d625-438e-bd49-d16ec361572c"
+        "id": "c72a89eb-d625-438e-bd49-d16ec361572c",
+        "title": "99.95% SLA for all virtual machines that have two or more instances in the same Availability Set or Dedicated Host Group"
       },
       {
-        "title": "99.99% SLA for all virtual machines that have two or more instances deployed across two or more Availability Zones in the same region",
-        "id": "e1f4e640-78e6-4099-b5be-286ffb00baeb"
+        "id": "e1f4e640-78e6-4099-b5be-286ffb00baeb",
+        "title": "99.99% SLA for all virtual machines that have two or more instances deployed across two or more Availability Zones in the same region"
       }
-    ],
-    "id": "54bc260e-e703-4304-85c7-9b13475a817c"
+    ]
   },
   {
+    "id": "3db682c1-efa8-4914-a000-1f40257d4916",
     "type": "Configuration Recommendations",
     "pillars": [
       "reliability",
@@ -45,31 +46,31 @@
     "title": "For all virtual machines requiring resiliency, it is highly recommended that:",
     "children": [
       {
-        "title": "[Managed Disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#benefits-of-managed-disks) should be used for all virtual machine OS and Data disks to ensure resilience across underlying storage stamps within a datacenter.",
-        "id": "26653ae5-9db5-4e55-ba42-c1a789c5a2fb"
+        "id": "26653ae5-9db5-4e55-ba42-c1a789c5a2fb",
+        "title": "[Managed Disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#benefits-of-managed-disks) should be used for all virtual machine OS and Data disks to ensure resilience across underlying storage stamps within a datacenter."
       },
       {
-        "title": "Singleton workloads should use Premium Managed Disks to enhance resiliency and obtain a 99.9% SLA as well as dedicated performance characteristics.",
-        "id": "7b03fa32-12b0-4e54-8aea-8c844e1d25af"
+        "id": "7b03fa32-12b0-4e54-8aea-8c844e1d25af",
+        "title": "Singleton workloads should use Premium Managed Disks to enhance resiliency and obtain a 99.9% SLA as well as dedicated performance characteristics."
       },
       {
-        "title": "Non-Singleton workloads should consider two or more replica instances with Managed disks (Standard or Premium) that are deployed within an [Availability Set](https://docs.microsoft.com/azure/virtual-machines/manage-availability) to obtain a 99.95% SLA or across [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones) to obtain a 99.99% SLA.",
-        "id": "1d292cf7-5ee3-4146-bd5b-dffe0df15360"
+        "id": "1d292cf7-5ee3-4146-bd5b-dffe0df15360",
+        "title": "Non-Singleton workloads should consider two or more replica instances with Managed disks (Standard or Premium) that are deployed within an [Availability Set](https://docs.microsoft.com/azure/virtual-machines/manage-availability) to obtain a 99.95% SLA or across [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones) to obtain a 99.99% SLA."
       },
       {
+        "id": "f91b1690-f189-47a9-aac0-56e9dde7e884",
         "title": "Where appropriate virtual machines should be deployed across [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones) to maximize resilience within a specific Azure region.",
-        "context": "Availability Zones offer unique physical locations within an Azure region, where each zone is made up of one or more datacenters equipped with independent power, cooling, and networking. See [Datacenter Fault Tolerance](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#use-availability-zones-to-protect-from-datacenter-level-failures) and [High availability and disaster recovery for IaaS apps](https://docs.microsoft.com/azure/architecture/example-scenario/infrastructure/iaas-high-availability-disaster-recovery) for more.",
-        "id": "f91b1690-f189-47a9-aac0-56e9dde7e884"
+        "context": "Availability Zones offer unique physical locations within an Azure region, where each zone is made up of one or more datacenters equipped with independent power, cooling, and networking. See [Datacenter Fault Tolerance](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#use-availability-zones-to-protect-from-datacenter-level-failures) and [High availability and disaster recovery for IaaS apps](https://docs.microsoft.com/azure/architecture/example-scenario/infrastructure/iaas-high-availability-disaster-recovery) for more."
       },
       {
+        "id": "d3eacafd-5675-4e45-9338-a15456042660",
         "title": "Consider using [proximity placement groups](https://azure.microsoft.com/blog/introducing-proximity-placement-groups/) (PPGs) with Availability Zones (AZ) to have redundant in-zone VMs.",
-        "context": "It is not possible to create an Availability Set (AS) inside an Availability Zone (AZ) and it is also not possible to control the distribution of VMs within a single availability zone across different fault domains (FD) and update domains (UD). This means that all VMs within a single availability zone might share a common power source and network switch, and can all be rebooted or affected by an outage or maintenance task at the same time. If you create VMs across different AZs, your VMs are effectively distributed across different FDs and UDs. If you want to achieve redundant in-zone VMs and cross-zone VMs, you should place the in-zone VMs in proximity placement groups within availability sets to ensure they won't all be rebooted at once. Go to [Combine ASs and AZs with PPGs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios#combine-availability-sets-and-availability-zones-with-proximity-placement-groups) for detailed instructions.",
-        "id": "d3eacafd-5675-4e45-9338-a15456042660"
+        "context": "It is not possible to create an Availability Set (AS) inside an Availability Zone (AZ) and it is also not possible to control the distribution of VMs within a single availability zone across different fault domains (FD) and update domains (UD). This means that all VMs within a single availability zone might share a common power source and network switch, and can all be rebooted or affected by an outage or maintenance task at the same time. If you create VMs across different AZs, your VMs are effectively distributed across different FDs and UDs. If you want to achieve redundant in-zone VMs and cross-zone VMs, you should place the in-zone VMs in proximity placement groups within availability sets to ensure they won't all be rebooted at once. Go to [Combine ASs and AZs with PPGs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios#combine-availability-sets-and-availability-zones-with-proximity-placement-groups) for detailed instructions."
       }
-    ],
-    "id": "3db682c1-efa8-4914-a000-1f40257d4916"
+    ]
   },
   {
+    "id": "ed27f3de-ba3f-4ee1-a157-01cae32e7d68",
     "type": "Configuration Recommendations",
     "pillars": [
       "reliability",
@@ -79,10 +80,10 @@
     "category": "Compute",
     "subCategory": "Virtual Machines",
     "title": "Azure Metadata Service Scheduled Events should be used to proactively respond to maintenance events (i.e. reboots) and limit disruption to virtual machines.",
-    "context": "Scheduled Events is an [Azure Metadata Service](https://docs.microsoft.com/azure/virtual-machines/windows/scheduled-events) that gives your application time to prepare for virtual machine (VM) maintenance. It provides information about upcoming maintenance events (for example, reboot) so that your application can prepare for them and limit disruption.",
-    "id": "ed27f3de-ba3f-4ee1-a157-01cae32e7d68"
+    "context": "Scheduled Events is an [Azure Metadata Service](https://docs.microsoft.com/azure/virtual-machines/windows/scheduled-events) that gives your application time to prepare for virtual machine (VM) maintenance. It provides information about upcoming maintenance events (for example, reboot) so that your application can prepare for them and limit disruption."
   },
   {
+    "id": "b9f9cb29-51a1-4b9e-b3e4-c4d07fc13610",
     "type": "Configuration Recommendations",
     "pillars": [
       "reliability",
@@ -94,14 +95,14 @@
     "title": "[Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction) should be used to back-up virtual machines in a Recovery Services Vault, to protect against accidental data loss.",
     "children": [
       {
+        "id": "e07213ee-1756-4a6e-84be-89072b5c7293",
         "title": "Enable Soft Delete for the Recovery Services vault to protect against accidental or malicious deletion of backup data, ensuring the ability to recover.",
-        "context": "With [Azure Backup Soft Delete](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud), even if a malicious actor deletes a backup (or backup data is accidentally deleted), the backup data is retained for 14 additional days, allowing the recovery of that backup item with no data loss. The additional 14 days of retention for backup data in the soft delete state don't incur any cost to you.",
-        "id": "e07213ee-1756-4a6e-84be-89072b5c7293"
+        "context": "With [Azure Backup Soft Delete](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud), even if a malicious actor deletes a backup (or backup data is accidentally deleted), the backup data is retained for 14 additional days, allowing the recovery of that backup item with no data loss. The additional 14 days of retention for backup data in the soft delete state don't incur any cost to you."
       }
-    ],
-    "id": "b9f9cb29-51a1-4b9e-b3e4-c4d07fc13610"
+    ]
   },
   {
+    "id": "3d5a6317-b909-4abd-a785-b0ea3d11aa7c",
     "type": "Configuration Recommendations",
     "pillars": [
       "reliability",
@@ -111,10 +112,10 @@
     "category": "Compute",
     "subCategory": "Virtual Machines",
     "title": "Enable diagnostic logging for all virtual machines to ensure health metrics, boot diagnostics and infrastructure logs are routed to Log Analytics or an alternative log aggregation technology.",
-    "context": "Platform logs provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on. See [Overview of Azure platform logs](https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview) for more.",
-    "id": "3d5a6317-b909-4abd-a785-b0ea3d11aa7c"
+    "context": "Platform logs provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on. See [Overview of Azure platform logs](https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview) for more."
   },
   {
+    "id": "c62477e9-c001-4455-b5c8-ef0aa00345a2",
     "type": "Configuration Recommendations",
     "pillars": [
       "reliability",
@@ -124,10 +125,10 @@
     "category": "Compute",
     "subCategory": "Virtual Machines",
     "title": "Establish virtual machine Resource Health alerts to notify key stakeholders when resource health events occur.",
-    "context": "An appropriate threshold for resource unavailability must be set to minimize signal to noise ratios so that transient faults do not generate an alert. For example, configuring a virtual machine alert with an unavailability threshold of 1 minute before an alert is triggered. See [Resource Health Alerts](https://docs.microsoft.com/azure/service-health/resource-health-alert-arm-template-guide) for more.",
-    "id": "c62477e9-c001-4455-b5c8-ef0aa00345a2"
+    "context": "An appropriate threshold for resource unavailability must be set to minimize signal to noise ratios so that transient faults do not generate an alert. For example, configuring a virtual machine alert with an unavailability threshold of 1 minute before an alert is triggered. See [Resource Health Alerts](https://docs.microsoft.com/azure/service-health/resource-health-alert-arm-template-guide) for more."
   },
   {
+    "id": "ee8fe2a0-cf4a-4e95-8bbe-5bffa15d18b3",
     "type": "Configuration Recommendations",
     "pillars": [
       "reliability",
@@ -136,10 +137,10 @@
     "lens": "service",
     "category": "Compute",
     "subCategory": "Virtual Machines",
-    "title": "To ensure application scalability while navigating within disk sizing thresholds, it is highly recommended that applications be installed on data disks rather than the OS disk.",
-    "id": "ee8fe2a0-cf4a-4e95-8bbe-5bffa15d18b3"
+    "title": "To ensure application scalability while navigating within disk sizing thresholds, it is highly recommended that applications be installed on data disks rather than the OS disk."
   },
   {
+    "id": "eb900a65-7654-4de4-b94a-c15a17bbc5dc",
     "type": "Supporting Source Artifacts",
     "pillars": [
       "reliability",
@@ -148,10 +149,10 @@
     "lens": "service",
     "category": "Compute",
     "subCategory": "Virtual Machines",
-    "title": "To identify resiliency risks to existing compute resources and support continuous compliance for new resources within a customer tenant, it is recommended that Azure Policy and Azure Resource Graph be used to Audit the use of non-resilient deployment configurations.",
-    "id": "eb900a65-7654-4de4-b94a-c15a17bbc5dc"
+    "title": "To identify resiliency risks to existing compute resources and support continuous compliance for new resources within a customer tenant, it is recommended that Azure Policy and Azure Resource Graph be used to Audit the use of non-resilient deployment configurations."
   },
   {
+    "id": "a2149079-2030-42c2-ad52-f8d48a05dbae",
     "type": "Supporting Source Artifacts",
     "pillars": [
       "reliability",
@@ -163,14 +164,14 @@
     "title": "Query to **identify standalone single instance VMs that are not protected by a minimum SLA of at least 99.5%**. It will return all VM instances that are not deployed within an Availability Set or across Availability Zones and are not using either Standard SSD or Premium SSD for both OS and Data disks.",
     "children": [
       {
+        "id": "2eb9fef4-02ea-4ba3-99ee-10342d3bb482",
         "title": "This query can easily be altered to identify all single instance VMs including those using Premium Storage which are protected by a minimum SLA of at least 99.5%; simply remove the trailing where condition.",
-        "code": "Resources\n| where\n    type =~ 'Microsoft.Compute/virtualMachines'\n        and isnull(properties.availabilitySet.id)\n    or type =~ 'Microsoft.Compute/virtualMachineScaleSets'\n        and sku.capacity <= 1\n        or properties.platformFaultDomainCount <= 1\n| where \n    tags != '{\"Skip\":\"\"}'\n| where \n    isnull(zones)\n| where\n\tproperties.storageProfile.osDisk.managedDisk.storageAccountType !in ('Premium_LRS'\n\tor properties.storageProfile.dataDisks.managedDisk.storageAccountType != 'Premium_LRS'\n\t    and array_length(properties.storageProfile.dataDisks) != 0\n",
-        "id": "2eb9fef4-02ea-4ba3-99ee-10342d3bb482"
+        "code": "Resources\n| where\n    type =~ 'Microsoft.Compute/virtualMachines'\n        and isnull(properties.availabilitySet.id)\n    or type =~ 'Microsoft.Compute/virtualMachineScaleSets'\n        and sku.capacity <= 1\n        or properties.platformFaultDomainCount <= 1\n| where \n    tags != '{\"Skip\":\"\"}'\n| where \n    isnull(zones)\n| where\n\tproperties.storageProfile.osDisk.managedDisk.storageAccountType !in ('Premium_LRS'\n\tor properties.storageProfile.dataDisks.managedDisk.storageAccountType != 'Premium_LRS'\n\t    and array_length(properties.storageProfile.dataDisks) != 0\n"
       }
-    ],
-    "id": "a2149079-2030-42c2-ad52-f8d48a05dbae"
+    ]
   },
   {
+    "id": "d32210eb-5593-4063-8874-aa5548abe857",
     "type": "Supporting Source Artifacts",
     "pillars": [
       "reliability",
@@ -180,10 +181,10 @@
     "category": "Compute",
     "subCategory": "Virtual Machines",
     "title": "The following query expands on the identification of standalone instances by **identifying any Availability Sets containing single instance VMs**, which are exposed to the same risks as standalone single instances outside of an Availability Set.",
-    "code": "Resources\n| where \n    type =~ 'Microsoft.Compute/availabilitySets'\n| where \n    tags != '{\"Skip\":\"\"}'\n| where \n\tarray_length(properties.virtualMachines) <= 1\n| where\n\tproperties.platformFaultDomainCount <= 1\n",
-    "id": "d32210eb-5593-4063-8874-aa5548abe857"
+    "code": "Resources\n| where \n    type =~ 'Microsoft.Compute/availabilitySets'\n| where \n    tags != '{\"Skip\":\"\"}'\n| where \n\tarray_length(properties.virtualMachines) <= 1\n| where\n\tproperties.platformFaultDomainCount <= 1\n"
   },
   {
+    "id": "3e7a0387-84b5-462c-9d7f-a65e5004cc5b",
     "type": "Supporting Source Artifacts",
     "pillars": [
       "reliability",
@@ -193,10 +194,10 @@
     "category": "Compute",
     "subCategory": "Virtual Machines",
     "title": "Azure policy definition to **audit standalone single instance VMs that are not protected by a SLA**. It will flag an audit event for all Virtual Machine instances that are not deployed within an Availability Set or across Availability Zones and are not using Premium Storage for both OS and Data disks. It also encompasses both Virtual Machine and Virtual Machine Scale Set resources.",
-    "context": "[Audit VM/VMSS Standalone Instances](../src/compute/policydefinition_Audit-VMStandaloneInstances.json)",
-    "id": "3e7a0387-84b5-462c-9d7f-a65e5004cc5b"
+    "context": "[Audit VM/VMSS Standalone Instances](../src/compute/policydefinition_Audit-VMStandaloneInstances.json)"
   },
   {
+    "id": "49b5740c-4e69-474b-a307-efcce17df647",
     "type": "Supporting Source Artifacts",
     "pillars": [
       "reliability",
@@ -206,10 +207,10 @@
     "category": "Compute",
     "subCategory": "Virtual Machines",
     "title": "Azure policy definition to **audit Availability Sets containing single instance VMs that are not protected by a SLA**. It will flag an audit event for all Availability Sets that does not contain multiple instances.",
-    "context": "[Audit Availability Sets With Single Instances](../src/compute/policydefinition_Audit-AvailabilitySetSingleInstances.json)",
-    "id": "49b5740c-4e69-474b-a307-efcce17df647"
+    "context": "[Audit Availability Sets With Single Instances](../src/compute/policydefinition_Audit-AvailabilitySetSingleInstances.json)"
   },
   {
+    "id": "5af429ed-e587-488c-a3c1-f43601263dcf",
     "type": "Configuration Recommendations",
     "pillars": [
       "reliability",
@@ -221,17 +222,17 @@
     "title": "Utilize the [AKS Uptime SLA](https://docs.microsoft.com/azure/aks/uptime-sla) for production grade clusters. The AKS Uptime SLA guarantees:",
     "children": [
       {
-        "title": "99.95% availability of the Kubernetes API server endpoint for AKS Clusters that use Azure Availability Zones, or",
-        "id": "1281aa61-fddd-4b55-876d-b48afc44eafe"
+        "id": "1281aa61-fddd-4b55-876d-b48afc44eafe",
+        "title": "99.95% availability of the Kubernetes API server endpoint for AKS Clusters that use Azure Availability Zones, or"
       },
       {
-        "title": "99.9% availability for AKS Clusters that not use Azure Availability Zones.",
-        "id": "a6c311df-c726-44b1-9c13-816e51281475"
+        "id": "a6c311df-c726-44b1-9c13-816e51281475",
+        "title": "99.9% availability for AKS Clusters that not use Azure Availability Zones."
       }
-    ],
-    "id": "5af429ed-e587-488c-a3c1-f43601263dcf"
+    ]
   },
   {
+    "id": "56d0df42-f4db-4ff5-8420-b8d286b9fe5a",
     "type": "Configuration Recommendations",
     "pillars": [
       "reliability",
@@ -244,19 +245,19 @@
     "context": "Make sure that you're subscribed to the [public AKS Roadmap Release Notes](https://github.com/azure/aks) on GitHub to stay up-to-date on upcoming changes, improvements and most importantly Kubernetes version releases and the deprecation of old releases.",
     "children": [
       {
+        "id": "2be96a31-b3ad-4196-9bdf-23f249eee80b",
         "title": "Regularly update to the latest version of Kubernetes.",
-        "context": "AKS supports three minor versions of Kubernetes. This means that when a new minor patch version is introduced, the oldest minor version and patch releases supported are retired. Minor updates to Kubernetes happen on a periodic basis. It is important to have a governance process to check and upgrade as needed to not fall out of support. For more information, see [Supported Kubernetes versions AKS](https://docs.microsoft.com/azure/aks/supported-kubernetes-versions).",
-        "id": "2be96a31-b3ad-4196-9bdf-23f249eee80b"
+        "context": "AKS supports three minor versions of Kubernetes. This means that when a new minor patch version is introduced, the oldest minor version and patch releases supported are retired. Minor updates to Kubernetes happen on a periodic basis. It is important to have a governance process to check and upgrade as needed to not fall out of support. For more information, see [Supported Kubernetes versions AKS](https://docs.microsoft.com/azure/aks/supported-kubernetes-versions)."
       },
       {
+        "id": "e0766a4a-fb0f-44a7-b167-30412b54e22f",
         "title": "Regularly process node security and kernel updates and reboots",
-        "context": "AKS supports [upgrading the images](https://docs.microsoft.com/azure/aks/node-image-upgrade) on a node to be up to date with the newest OS and runtime updates without updating the version of Kubernetes. AKS provides one new image per week with the latest updates, including Linux or Windows patches. For Linux-only deployments you can also use [kured](https://docs.microsoft.com/azure/aks/node-updates-kured).",
-        "id": "e0766a4a-fb0f-44a7-b167-30412b54e22f"
+        "context": "AKS supports [upgrading the images](https://docs.microsoft.com/azure/aks/node-image-upgrade) on a node to be up to date with the newest OS and runtime updates without updating the version of Kubernetes. AKS provides one new image per week with the latest updates, including Linux or Windows patches. For Linux-only deployments you can also use [kured](https://docs.microsoft.com/azure/aks/node-updates-kured)."
       }
-    ],
-    "id": "56d0df42-f4db-4ff5-8420-b8d286b9fe5a"
+    ]
   },
   {
+    "id": "7161196a-ca55-4af6-8063-7e4448747365",
     "type": "Configuration Recommendations",
     "pillars": [
       "reliability"
@@ -267,13 +268,13 @@
     "title": "Use [Availability Zones](https://docs.microsoft.com/azure/aks/availability-zones) to maximize resilience within an Azure region by distributing AKS agent nodes across physically separate data centers.",
     "children": [
       {
-        "title": "Where co-locality requirements exist, either a regular VMSS-based AKS deployment into a single zone or [proximity placement groups](https://docs.microsoft.com/azure/aks/reduce-latency-ppg) can be used to minimize inter-node latency.",
-        "id": "e0e7e87d-346e-4301-8ad2-13f94209eab6"
+        "id": "e0e7e87d-346e-4301-8ad2-13f94209eab6",
+        "title": "Where co-locality requirements exist, either a regular VMSS-based AKS deployment into a single zone or [proximity placement groups](https://docs.microsoft.com/azure/aks/reduce-latency-ppg) can be used to minimize inter-node latency."
       }
-    ],
-    "id": "7161196a-ca55-4af6-8063-7e4448747365"
+    ]
   },
   {
+    "id": "a82b005f-9cd9-4116-9a8a-a1782c0dd554",
     "type": "Configuration Recommendations",
     "pillars": [
       "reliability",
@@ -285,33 +286,33 @@
     "title": "Node Pool Design",
     "children": [
       {
-        "title": "Utilize Virtual Machine Scale Set (VMSS) VM set type for AKS node pools.",
-        "id": "4ee7146f-e1b3-4e8d-8566-65edbe8d83a4"
+        "id": "4ee7146f-e1b3-4e8d-8566-65edbe8d83a4",
+        "title": "Utilize Virtual Machine Scale Set (VMSS) VM set type for AKS node pools."
       },
       {
-        "title": "Keep the System node pool isolated from application workloads. System node pools require a VM SKU of at least 2 vCPUs and 4GB memory. See [System and user node pools](https://docs.microsoft.com/azure/aks/use-system-pools#system-and-user-node-pools) for detailed requirements.",
-        "id": "68486811-104c-452d-81ce-c6bcdbb4b147"
+        "id": "68486811-104c-452d-81ce-c6bcdbb4b147",
+        "title": "Keep the System node pool isolated from application workloads. System node pools require a VM SKU of at least 2 vCPUs and 4GB memory. See [System and user node pools](https://docs.microsoft.com/azure/aks/use-system-pools#system-and-user-node-pools) for detailed requirements."
       },
       {
-        "title": "Use dedicated node pools for Infrastructure tools that require high resource utilization (eg - Istio) or have a special scale or load behavior.",
-        "id": "3086c476-d45b-4049-9b29-d8c9bbc66868"
+        "id": "3086c476-d45b-4049-9b29-d8c9bbc66868",
+        "title": "Use dedicated node pools for Infrastructure tools that require high resource utilization (eg - Istio) or have a special scale or load behavior."
       },
       {
-        "title": "Separate applications to dedicated node pools based on specific requirements (eg - GPU, high memory VMs, [scale-to-zero](https://docs.microsoft.com/azure/aks/scale-cluster#scale-user-node-pools-to-0), Spot VMs etc.). Avoid large numbers of node pools to reduce additional management overhead.",
-        "id": "8e8438f5-535d-4ada-8e7e-70da08efb7fb"
+        "id": "8e8438f5-535d-4ada-8e7e-70da08efb7fb",
+        "title": "Separate applications to dedicated node pools based on specific requirements (eg - GPU, high memory VMs, [scale-to-zero](https://docs.microsoft.com/azure/aks/scale-cluster#scale-user-node-pools-to-0), Spot VMs etc.). Avoid large numbers of node pools to reduce additional management overhead."
       },
       {
-        "title": "Use [taints and tolerations](https://docs.microsoft.com/azure/aks/operator-best-practices-advanced-scheduler#provide-dedicated-nodes-using-taints-and-tolerations) to provide dedicated nodes and limit resource intensive applications.",
-        "id": "9fc7a541-2b5b-403b-8f71-640abc67dd3d"
+        "id": "9fc7a541-2b5b-403b-8f71-640abc67dd3d",
+        "title": "Use [taints and tolerations](https://docs.microsoft.com/azure/aks/operator-best-practices-advanced-scheduler#provide-dedicated-nodes-using-taints-and-tolerations) to provide dedicated nodes and limit resource intensive applications."
       },
       {
-        "title": "Consider the use of [Virtual Nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-cli) ([vKubelet](https://github.com/virtual-kubelet/virtual-kubelet)) with ACI for rapid, massive and infinite scale.",
-        "id": "8e7c93c3-5093-4652-a629-c78fa2bb9014"
+        "id": "8e7c93c3-5093-4652-a629-c78fa2bb9014",
+        "title": "Consider the use of [Virtual Nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-cli) ([vKubelet](https://github.com/virtual-kubelet/virtual-kubelet)) with ACI for rapid, massive and infinite scale."
       }
-    ],
-    "id": "a82b005f-9cd9-4116-9a8a-a1782c0dd554"
+    ]
   },
   {
+    "id": "2df1b42d-0571-4dfc-9d0c-544a31bad7e2",
     "type": "Configuration Recommendations",
     "pillars": [
       "reliability",
@@ -320,10 +321,10 @@
     "lens": "service",
     "category": "Compute",
     "subCategory": "Azure Kubernetes Service (AKS)",
-    "title": "Use a template based deployment using ARM, Terraform, Ansible and others only. Make sure that all deployments are repeatable and traceable and stored in a sourcecode repo. Can be combined with GitOps.",
-    "id": "2df1b42d-0571-4dfc-9d0c-544a31bad7e2"
+    "title": "Use a template based deployment using ARM, Terraform, Ansible and others only. Make sure that all deployments are repeatable and traceable and stored in a sourcecode repo. Can be combined with GitOps."
   },
   {
+    "id": "d3210d5b-ca53-4e76-8b66-080df4bf1424",
     "type": "Configuration Recommendations",
     "pillars": [
       "reliability",
@@ -332,10 +333,10 @@
     "lens": "service",
     "category": "Compute",
     "subCategory": "Azure Kubernetes Service (AKS)",
-    "title": "Modifying resources in the [node resource group (ie - 'MC_')](https://docs.microsoft.com/azure/aks/faq#why-are-two-resource-groups-created-with-aks) is not recommended and should only be done at [cluster creation time](https://docs.microsoft.com/azure/aks/faq#can-i-provide-my-own-name-for-the-aks-node-resource-group), or with assistance from Azure Support.",
-    "id": "d3210d5b-ca53-4e76-8b66-080df4bf1424"
+    "title": "Modifying resources in the [node resource group (ie - 'MC_')](https://docs.microsoft.com/azure/aks/faq#why-are-two-resource-groups-created-with-aks) is not recommended and should only be done at [cluster creation time](https://docs.microsoft.com/azure/aks/faq#can-i-provide-my-own-name-for-the-aks-node-resource-group), or with assistance from Azure Support."
   },
   {
+    "id": "fd3a7975-91c0-4520-94db-639db35469f0",
     "type": "Configuration Recommendations",
     "pillars": [
       "reliability",
@@ -349,28 +350,28 @@
     "title": "Scalability",
     "children": [
       {
+        "id": "36a02822-19a3-4f9e-9895-3f3b1891ae23",
         "title": "Enable [cluster autoscaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) to automatically adjust the number of agent nodes in response to resource constraints.",
-        "context": "This ability to automatically scale up or down the number of nodes in your AKS cluster lets you run an efficient, cost-effective cluster.",
-        "id": "36a02822-19a3-4f9e-9895-3f3b1891ae23"
+        "context": "This ability to automatically scale up or down the number of nodes in your AKS cluster lets you run an efficient, cost-effective cluster."
       },
       {
+        "id": "45029e3d-02e9-4bbb-88c7-42a965b8725e",
         "title": "Consider using [Azure Spot VMs](https://docs.microsoft.com/azure/aks/spot-node-pool) for workloads that can handle interruptions, early terminations, or evictions. For example, workloads such as batch processing jobs, development and testing environments, and large compute workloads may be good candidates to be scheduled on a spot node pool.",
-        "context": "Using spot VMs for nodes with your AKS cluster allows you to take advantage of unutilized capacity in Azure at a significant cost savings.",
-        "id": "45029e3d-02e9-4bbb-88c7-42a965b8725e"
+        "context": "Using spot VMs for nodes with your AKS cluster allows you to take advantage of unutilized capacity in Azure at a significant cost savings."
       },
       {
-        "title": "Utilize the [Horizontal pod autoscaler](https://docs.microsoft.com/azure/aks/concepts-scale#horizontal-pod-autoscaler) to adjust the number of pods in a deployment depending on CPU utilization or other select metrics.",
-        "id": "efa32f49-cc48-4cf1-b725-5a8faa72f227"
+        "id": "efa32f49-cc48-4cf1-b725-5a8faa72f227",
+        "title": "Utilize the [Horizontal pod autoscaler](https://docs.microsoft.com/azure/aks/concepts-scale#horizontal-pod-autoscaler) to adjust the number of pods in a deployment depending on CPU utilization or other select metrics."
       },
       {
+        "id": "6a985f79-6f75-4a60-a0ab-9dd80a5f11a3",
         "title": "Separate workloads into different node pools and consider scaling user node pools to zero.",
-        "context": "Unlike System node pools that always require running nodes, User node pools allow you to scale to 0.",
-        "id": "6a985f79-6f75-4a60-a0ab-9dd80a5f11a3"
+        "context": "Unlike System node pools that always require running nodes, User node pools allow you to scale to 0."
       }
-    ],
-    "id": "fd3a7975-91c0-4520-94db-639db35469f0"
+    ]
   },
   {
+    "id": "79a0b7f7-61b4-4c37-9516-da4859e55ec5",
     "type": "Configuration Recommendations",
     "pillars": [
       "reliability",
@@ -383,50 +384,50 @@
     "title": "Security Guidelines",
     "children": [
       {
-        "title": "Use [Managed Identities](https://docs.microsoft.com/azure/aks/use-managed-identity) to avoid having to manage and rotate service principles.",
-        "id": "a2e4bbd1-40ae-447b-bec4-787a05acfae4"
+        "id": "a2e4bbd1-40ae-447b-bec4-787a05acfae4",
+        "title": "Use [Managed Identities](https://docs.microsoft.com/azure/aks/use-managed-identity) to avoid having to manage and rotate service principles."
       },
       {
-        "title": "Utilize [AAD integration](https://docs.microsoft.com/azure/aks/managed-aad) to take advantage of centralized account management and passwords, application access management, and identity protection.",
-        "id": "adf99fd3-3b3a-4898-8841-12f32edb7525"
+        "id": "adf99fd3-3b3a-4898-8841-12f32edb7525",
+        "title": "Utilize [AAD integration](https://docs.microsoft.com/azure/aks/managed-aad) to take advantage of centralized account management and passwords, application access management, and identity protection."
       },
       {
-        "title": "Use Kubernetes RBAC with AAD for [least privilege](https://docs.microsoft.com/azure/aks/azure-ad-rbac) and minimize granting administrator privileges to protect configuration and secrets access.",
-        "id": "e153ad12-5191-4660-a167-aca5765d2dd0"
+        "id": "e153ad12-5191-4660-a167-aca5765d2dd0",
+        "title": "Use Kubernetes RBAC with AAD for [least privilege](https://docs.microsoft.com/azure/aks/azure-ad-rbac) and minimize granting administrator privileges to protect configuration and secrets access."
       },
       {
-        "title": "Limit access to [Kubernetes cluster configuration](https://docs.microsoft.com/azure/aks/control-kubeconfig-access) file with Azure role-based access control.",
-        "id": "c7834127-e661-4f44-aa75-12c9631fcdd4"
+        "id": "c7834127-e661-4f44-aa75-12c9631fcdd4",
+        "title": "Limit access to [Kubernetes cluster configuration](https://docs.microsoft.com/azure/aks/control-kubeconfig-access) file with Azure role-based access control."
       },
       {
-        "title": "Limit access to [actions that containers can perform](https://docs.microsoft.com/azure/aks/developer-best-practices-pod-security#secure-pod-access-to-resources). Provide the least number of permissions, and avoid the use of root / privileged escalation.",
-        "id": "25cca440-2105-430a-90cc-9e792a2d0b14"
+        "id": "25cca440-2105-430a-90cc-9e792a2d0b14",
+        "title": "Limit access to [actions that containers can perform](https://docs.microsoft.com/azure/aks/developer-best-practices-pod-security#secure-pod-access-to-resources). Provide the least number of permissions, and avoid the use of root / privileged escalation."
       },
       {
-        "title": "Evaluate the use of the built-in [AppArmor security module](https://docs.microsoft.com/azure/aks/operator-best-practices-cluster-security#app-armor) to limit actions that containers can perform such as read, write, or execute, or system functions such as mounting filesystems.",
-        "id": "57aa3f55-c5c3-4cc6-9b8b-e60aab337227"
+        "id": "57aa3f55-c5c3-4cc6-9b8b-e60aab337227",
+        "title": "Evaluate the use of the built-in [AppArmor security module](https://docs.microsoft.com/azure/aks/operator-best-practices-cluster-security#app-armor) to limit actions that containers can perform such as read, write, or execute, or system functions such as mounting filesystems."
       },
       {
-        "title": "Evaluate the use of the [seccomp (secure computing)](https://docs.microsoft.com/azure/aks/operator-best-practices-cluster-security#secure-computing). seccomp works at the process level and allows you to limit the process calls that containers can perform.",
-        "id": "508199dc-62d5-47b6-8d25-34e6fe34b70d"
+        "id": "508199dc-62d5-47b6-8d25-34e6fe34b70d",
+        "title": "Evaluate the use of the [seccomp (secure computing)](https://docs.microsoft.com/azure/aks/operator-best-practices-cluster-security#secure-computing). seccomp works at the process level and allows you to limit the process calls that containers can perform."
       },
       {
-        "title": "Use [Pod Identities](https://docs.microsoft.com/azure/aks/operator-best-practices-identity#use-pod-identities) and [Secrets Store CSI Driver](https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage) with Azure Key Vault to protect secrets, certificates, and connection strings.",
-        "id": "297b026b-fd4b-474a-a3c2-044d8f4f1ffc"
+        "id": "297b026b-fd4b-474a-a3c2-044d8f4f1ffc",
+        "title": "Use [Pod Identities](https://docs.microsoft.com/azure/aks/operator-best-practices-identity#use-pod-identities) and [Secrets Store CSI Driver](https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage) with Azure Key Vault to protect secrets, certificates, and connection strings."
       },
       {
-        "title": "Use [Azure Security Center](https://docs.microsoft.com/azure/security-center/defender-for-kubernetes-introduction) to provide AKS recommendations.",
-        "id": "559e216a-de4e-4acd-b732-ac828a255395"
+        "id": "559e216a-de4e-4acd-b732-ac828a255395",
+        "title": "Use [Azure Security Center](https://docs.microsoft.com/azure/security-center/defender-for-kubernetes-introduction) to provide AKS recommendations."
       },
       {
+        "id": "f9e315e0-9c58-4551-a945-995713acac39",
         "title": "Secure clusters and pods with Azure Policy",
-        "context": "[Azure Policy](https://docs.microsoft.com/azure/aks/use-pod-security-on-azure-policy) can help to apply at-scale enforcements and safeguards on your clusters in a centralized, consistent manner. It can also control what functions pods are granted and if anything is running against company policy. This access is defined through built-in policies provided by the [Azure Policy Add-on for AKS](https://docs.microsoft.com/azure/governance/policy/concepts/policy-for-kubernetes). By providing additional control over the security aspects of your pod's specification, like root privileges, enables stricter security adherence and visibility into what is deployed in your cluster. If a pod does not meet conditions specified in the policy, Azure Policy can disallow the pod to start or flag a violation.",
-        "id": "f9e315e0-9c58-4551-a945-995713acac39"
+        "context": "[Azure Policy](https://docs.microsoft.com/azure/aks/use-pod-security-on-azure-policy) can help to apply at-scale enforcements and safeguards on your clusters in a centralized, consistent manner. It can also control what functions pods are granted and if anything is running against company policy. This access is defined through built-in policies provided by the [Azure Policy Add-on for AKS](https://docs.microsoft.com/azure/governance/policy/concepts/policy-for-kubernetes). By providing additional control over the security aspects of your pod's specification, like root privileges, enables stricter security adherence and visibility into what is deployed in your cluster. If a pod does not meet conditions specified in the policy, Azure Policy can disallow the pod to start or flag a violation."
       }
-    ],
-    "id": "79a0b7f7-61b4-4c37-9516-da4859e55ec5"
+    ]
   },
   {
+    "id": "68ac563f-498d-47d2-b1b1-b7373b2bc71b",
     "type": "Configuration Recommendations",
     "pillars": [
       "reliability",
@@ -436,10 +437,10 @@
     "category": "Compute",
     "subCategory": "Azure Kubernetes Service (AKS)",
     "title": "Ensure proper selection of network plugin based on network requirements and cluster sizing.",
-    "context": "Azure CNI is required for specific scenarios like for example Windows-based node pools, specific networking requirements and Kubernetes Network Policies. See [Kubenet vs. Azure CNI](https://docs.microsoft.com/azure/aks/concepts-network#compare-network-models) for more information.",
-    "id": "68ac563f-498d-47d2-b1b1-b7373b2bc71b"
+    "context": "Azure CNI is required for specific scenarios like for example Windows-based node pools, specific networking requirements and Kubernetes Network Policies. See [Kubenet vs. Azure CNI](https://docs.microsoft.com/azure/aks/concepts-network#compare-network-models) for more information."
   },
   {
+    "id": "743db340-c580-4d54-9099-0737f6509540",
     "type": "Configuration Recommendations",
     "pillars": [
       "reliability",
@@ -448,10 +449,10 @@
     "lens": "service",
     "category": "Compute",
     "subCategory": "Azure Kubernetes Service (AKS)",
-    "title": "Use [Azure Network Policies](https://docs.microsoft.com/azure/aks/use-network-policies) or Calico to control traffic between pods. **Requires CNI Network Plug-in.**",
-    "id": "743db340-c580-4d54-9099-0737f6509540"
+    "title": "Use [Azure Network Policies](https://docs.microsoft.com/azure/aks/use-network-policies) or Calico to control traffic between pods. **Requires CNI Network Plug-in.**"
   },
   {
+    "id": "a1d08352-86ee-470e-a6fe-433e7989b377",
     "type": "Configuration Recommendations",
     "pillars": [
       "reliability",
@@ -464,18 +465,18 @@
     "title": "Utilize a central monitoring tool (eg. - [Azure Monitor and App Insights](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview)) to centrally collect metrics, logs, and diagnostics for troubleshooting purposes.",
     "children": [
       {
-        "title": "Enable and review [Kubernetes master node logs](https://docs.microsoft.com/azure/aks/view-master-logs).",
-        "id": "3b65b16f-521d-40cf-b203-07acc6c4ec91"
+        "id": "3b65b16f-521d-40cf-b203-07acc6c4ec91",
+        "title": "Enable and review [Kubernetes master node logs](https://docs.microsoft.com/azure/aks/view-master-logs)."
       },
       {
+        "id": "0b7cb09f-b460-459c-9f30-bb5a930e999e",
         "title": "Configure scraping of Prometheus metrics with Azure Monitor for containers",
-        "context": "Azure Monitor for containers provides a seamless onboarding experience to collect Prometheus metrics. See [Configure scraping of Prometheus metrics with Azure Monitor for containers](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-prometheus-integration) for more.",
-        "id": "0b7cb09f-b460-459c-9f30-bb5a930e999e"
+        "context": "Azure Monitor for containers provides a seamless onboarding experience to collect Prometheus metrics. See [Configure scraping of Prometheus metrics with Azure Monitor for containers](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-prometheus-integration) for more."
       }
-    ],
-    "id": "a1d08352-86ee-470e-a6fe-433e7989b377"
+    ]
   },
   {
+    "id": "1ee847a3-2b5f-4313-8bda-f45d1fe63739",
     "type": "Configuration Recommendations",
     "pillars": [
       "reliability",
@@ -484,10 +485,10 @@
     "lens": "service",
     "category": "Compute",
     "subCategory": "Azure Kubernetes Service (AKS)",
-    "title": "Define [Pod resource requests and limits](https://docs.microsoft.com/azure/aks/developer-best-practices-resource-management#define-pod-resource-requests-and-limits) in application deployment manifests.",
-    "id": "1ee847a3-2b5f-4313-8bda-f45d1fe63739"
+    "title": "Define [Pod resource requests and limits](https://docs.microsoft.com/azure/aks/developer-best-practices-resource-management#define-pod-resource-requests-and-limits) in application deployment manifests."
   },
   {
+    "id": "bccf2355-8573-4ab0-aff8-2e201743b7ae",
     "type": "Configuration Recommendations",
     "pillars": [
       "reliability",
@@ -499,13 +500,13 @@
     "title": "Adopt a [multi-region strategy](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region#plan-for-multiregion-deployment) by deploying AKS clusters deployed across different Azure regions to maximize availability and provide business continuity.",
     "children": [
       {
-        "title": "Internet facing workloads should leverage [Azure Front Door](https://docs.microsoft.com/azure/frontdoor/front-door-overview), [Azure Traffic Manager](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region#use-azure-traffic-manager-to-route-traffic), or a third-party CDN to route traffic globally across AKS clusters.",
-        "id": "88b6c4f1-8dcb-46a6-a3b2-db525a343a24"
+        "id": "88b6c4f1-8dcb-46a6-a3b2-db525a343a24",
+        "title": "Internet facing workloads should leverage [Azure Front Door](https://docs.microsoft.com/azure/frontdoor/front-door-overview), [Azure Traffic Manager](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region#use-azure-traffic-manager-to-route-traffic), or a third-party CDN to route traffic globally across AKS clusters."
       }
-    ],
-    "id": "bccf2355-8573-4ab0-aff8-2e201743b7ae"
+    ]
   },
   {
+    "id": "196a2984-e487-462f-961e-6ebbdf7e539c",
     "type": "Configuration Recommendations",
     "pillars": [
       "reliability",
@@ -517,18 +518,18 @@
     "title": "Store container images within Azure Container Registry and enable [geo-replication](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region#enable-geo-replication-for-container-images) to replicate container images across leveraged AKS regions.",
     "children": [
       {
-        "title": "Enable [Azure Defender for container registries](https://docs.microsoft.com/azure/security-center/defender-for-container-registries-introduction) to enable vulnerability scanning for container images.",
-        "id": "9b9042e1-5c96-4e8c-b226-c7031bc821c1"
+        "id": "9b9042e1-5c96-4e8c-b226-c7031bc821c1",
+        "title": "Enable [Azure Defender for container registries](https://docs.microsoft.com/azure/security-center/defender-for-container-registries-introduction) to enable vulnerability scanning for container images."
       },
       {
+        "id": "b1e9384d-db32-4347-a7c2-f6d1297ae602",
         "title": "Authenticate with Azure AD to Azure Container Registry",
-        "context": "AKS and Azure AD enables authentication with Azure Container Registry without the use of K8s/imagePullSecrets secrets. See [Authenticate with Azure Container Registry from Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/cluster-container-registry-integration) for more.",
-        "id": "b1e9384d-db32-4347-a7c2-f6d1297ae602"
+        "context": "AKS and Azure AD enables authentication with Azure Container Registry without the use of K8s/imagePullSecrets secrets. See [Authenticate with Azure Container Registry from Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/cluster-container-registry-integration) for more."
       }
-    ],
-    "id": "196a2984-e487-462f-961e-6ebbdf7e539c"
+    ]
   },
   {
+    "id": "6bd035d8-9099-42c8-8602-e3c644f94e7c",
     "type": "Supporting Source Artifacts",
     "pillars": [
       "reliability"
@@ -537,10 +538,10 @@
     "category": "Compute",
     "subCategory": "Azure Kubernetes Service (AKS)",
     "title": "Query to identify AKS clusters that are not deployed across **Availability Zones**:",
-    "code": "Resources\n| where type =~ 'Microsoft.ContainerService/managedClusters'\n| where isnull(zones)\n",
-    "id": "6bd035d8-9099-42c8-8602-e3c644f94e7c"
+    "code": "Resources\n| where type =~ 'Microsoft.ContainerService/managedClusters'\n| where isnull(zones)\n"
   },
   {
+    "id": "1b2443fb-42ac-4201-bd77-b8ee45b3a8de",
     "type": "Supporting Source Artifacts",
     "pillars": [
       "reliability"
@@ -549,10 +550,10 @@
     "category": "Compute",
     "subCategory": "Azure Kubernetes Service (AKS)",
     "title": "Query to identify AKS clusters that are deployed using **Availability Sets**:",
-    "code": "Resources\n| where type =~ 'Microsoft.ContainerService/managedClusters'\n| where properties.agentPoolProfiles[0].type != 'VirtualMachineScaleSets'\n| project name, location, resourceGroup, subscriptionId, properties.agentPoolProfiles[0].type\n",
-    "id": "1b2443fb-42ac-4201-bd77-b8ee45b3a8de"
+    "code": "Resources\n| where type =~ 'Microsoft.ContainerService/managedClusters'\n| where properties.agentPoolProfiles[0].type != 'VirtualMachineScaleSets'\n| project name, location, resourceGroup, subscriptionId, properties.agentPoolProfiles[0].type\n"
   },
   {
+    "id": "169d2464-29f0-4c67-9078-af5821c1d3bc",
     "type": "Supporting Source Artifacts",
     "pillars": [
       "reliability"
@@ -561,10 +562,10 @@
     "category": "Compute",
     "subCategory": "Azure Kubernetes Service (AKS)",
     "title": "Query to identify which networking plugin (CNI or Kubenet) is being used by AKS clusters:",
-    "code": "Resources\n| where type =~ 'Microsoft.ContainerService/managedClusters'\n| project name, location, resourceGroup, subscriptionId, properties.networkProfile.networkPlugin\n",
-    "id": "169d2464-29f0-4c67-9078-af5821c1d3bc"
+    "code": "Resources\n| where type =~ 'Microsoft.ContainerService/managedClusters'\n| project name, location, resourceGroup, subscriptionId, properties.networkProfile.networkPlugin\n"
   },
   {
+    "id": "0b794b38-0c3f-485e-92c2-85c27a5c1529",
     "type": "Supporting Source Artifacts",
     "pillars": [
       "reliability",
@@ -574,10 +575,10 @@
     "category": "Compute",
     "subCategory": "Azure Kubernetes Service (AKS)",
     "title": "Query to identify AKS clusters that are not deployed using a **Managed Identity**:",
-    "code": "Resources\n| where type =~ 'Microsoft.ContainerService/managedClusters'\n| where isnull(identity)\n",
-    "id": "0b794b38-0c3f-485e-92c2-85c27a5c1529"
+    "code": "Resources\n| where type =~ 'Microsoft.ContainerService/managedClusters'\n| where isnull(identity)\n"
   },
   {
+    "id": "a4f198dd-ed19-40d9-9358-a76208cb76e5",
     "type": "Supporting Source Artifacts",
     "pillars": [
       "reliability",
@@ -588,10 +589,10 @@
     "category": "Compute",
     "subCategory": "Azure Kubernetes Service (AKS)",
     "title": "Query to identify AKS clusters that are **NOT using RBAC**:",
-    "code": "Resources\n| where type =~ 'Microsoft.ContainerService/managedClusters'\n| where properties.enableRBAC == false\n",
-    "id": "a4f198dd-ed19-40d9-9358-a76208cb76e5"
+    "code": "Resources\n| where type =~ 'Microsoft.ContainerService/managedClusters'\n| where properties.enableRBAC == false\n"
   },
   {
+    "id": "c1d27f4f-1820-422a-9616-00ee95d45d30",
     "type": "Design Considerations",
     "pillars": [
       "reliability",
@@ -601,10 +602,10 @@
     "category": "Compute",
     "subCategory": "Azure App Service",
     "title": "Microsoft guarantees that Apps will be available 99.95% of the time. However, no SLA is provided for Apps using either the Free or Shared tiers.",
-    "context": "[SLA for App Service](https://azure.microsoft.com/support/legal/sla/app-service/v1_4/)",
-    "id": "c1d27f4f-1820-422a-9616-00ee95d45d30"
+    "context": "[SLA for App Service](https://azure.microsoft.com/support/legal/sla/app-service/v1_4/)"
   },
   {
+    "id": "2f442ad4-abbe-47e3-b989-6cc7d50fae5a",
     "type": "Configuration Recommendations",
     "pillars": [
       "reliability",
@@ -616,53 +617,53 @@
     "title": "Azure App Service provides a number of configuration options that are not enabled by default. For all App Services requiring resiliency, it is highly recommended that:",
     "children": [
       {
-        "title": "Use Basic or higher plans with 2 or more worker instances for high availability.",
-        "id": "0adf7502-5888-465c-8250-313bcd6a79f5"
+        "id": "0adf7502-5888-465c-8250-313bcd6a79f5",
+        "title": "Use Basic or higher plans with 2 or more worker instances for high availability."
       },
       {
+        "id": "3066bf4f-0ee1-4956-b7d1-37453f94e995",
         "title": "Evaluate the use of [TCP and SNAT ports](https://docs.microsoft.com/azure/app-service/troubleshoot-intermittent-outbound-connection-errors#cause) to avoid outbound connection errors",
-        "context": "TCP connections are used for all outbound connections whereas SNAT ports are used when making outbound connections to public IP addresses.SNAT port exhaustion is a common failure scenario that can be predicted by load testing while monitoring ports using Azure Diagnostics. If a load test results in SNAT errors, it is necessary to either scale across more/larger workers, or implement coding practices to help preserve and re-use SNAT ports, such as connection pooling and the lazy loading of resources.It is recommended not to exceed 100 simultaneous outbound connections to a public IP Address per worker, and to avoid communicating with downstream services via public IP addresses when a private address (Private Endpoint) or Service Endpoint through vNet Integration could be used.TCP port exhaustion happens when the sum of connection from a given worker exceeds the capacity. The number of available TCP ports depend on the size of the worker. The following table lists the current limits:\n\n    > |  |Small (B1, S1, P1, I1)|Medium (B2, S2, P2, I2)|Large (B3, S3, P3, I3)|\n    > |---------|---------|---------|---------|\n    > |TCP ports|1920|3968|8064|\n\n    > Applications with lots of longstanding connections require ports to be left open for long periods of time, which can lead to TCP Connection exhaustion. TCP Connection limits are fixed based on instance size, so it is necessary to scale up to a larger worker size to increase the allotment of TCP connections, or implement code level mitigations to govern connection usage. Similar to SNAT port exhaustion, Azure Diagnostics can be used to identify if a problem exists with TCP port limits.",
-        "id": "3066bf4f-0ee1-4956-b7d1-37453f94e995"
+        "context": "TCP connections are used for all outbound connections whereas SNAT ports are used when making outbound connections to public IP addresses.SNAT port exhaustion is a common failure scenario that can be predicted by load testing while monitoring ports using Azure Diagnostics. If a load test results in SNAT errors, it is necessary to either scale across more/larger workers, or implement coding practices to help preserve and re-use SNAT ports, such as connection pooling and the lazy loading of resources.It is recommended not to exceed 100 simultaneous outbound connections to a public IP Address per worker, and to avoid communicating with downstream services via public IP addresses when a private address (Private Endpoint) or Service Endpoint through vNet Integration could be used.TCP port exhaustion happens when the sum of connection from a given worker exceeds the capacity. The number of available TCP ports depend on the size of the worker. The following table lists the current limits:\n\n    > |  |Small (B1, S1, P1, I1)|Medium (B2, S2, P2, I2)|Large (B3, S3, P3, I3)|\n    > |---------|---------|---------|---------|\n    > |TCP ports|1920|3968|8064|\n\n    > Applications with lots of longstanding connections require ports to be left open for long periods of time, which can lead to TCP Connection exhaustion. TCP Connection limits are fixed based on instance size, so it is necessary to scale up to a larger worker size to increase the allotment of TCP connections, or implement code level mitigations to govern connection usage. Similar to SNAT port exhaustion, Azure Diagnostics can be used to identify if a problem exists with TCP port limits."
       },
       {
+        "id": "d96a290d-d112-4d45-b186-815b3df1ff6a",
         "title": "Enable [AutoHeal](https://azure.github.io/AppService/2018/09/10/Announcing-the-New-Auto-Healing-Experience-in-App-Service-Diagnostics.html) to automatically recycle unhealthy workers.",
-        "context": "This feature is currently only available to Windows Plans.",
-        "id": "d96a290d-d112-4d45-b186-815b3df1ff6a"
+        "context": "This feature is currently only available to Windows Plans."
       },
       {
+        "id": "55200a64-a863-4638-862a-93c506408709",
         "title": "Enable [Health Check](https://aka.ms/appservicehealthcheck) to identify non-responsive workers.",
-        "context": "Any health check is better than none at all, however, the logic behind endpoint tests should assess all critical downstream dependencies to ensure overall health. It is also recommended practice to track application health and cache status in real time as this removes unnecessary delays before action can be taken.",
-        "id": "55200a64-a863-4638-862a-93c506408709"
+        "context": "Any health check is better than none at all, however, the logic behind endpoint tests should assess all critical downstream dependencies to ensure overall health. It is also recommended practice to track application health and cache status in real time as this removes unnecessary delays before action can be taken."
       },
       {
+        "id": "cefc2f89-ab09-4741-8d76-ac69b43b12fb",
         "title": "Enable [AutoScale](https://docs.microsoft.com/azure/azure-monitor/platform/autoscale-get-started?toc=/azure/app-service/toc.json) to ensure adequate resources are available to service requests.",
-        "context": "The default limit of App Service workers is 30. If the App Service routinely uses 15 or more instances, consider opening a support ticket to increase the maximum number of workers to 2x the instance count required to serve normal peak load.",
-        "id": "cefc2f89-ab09-4741-8d76-ac69b43b12fb"
+        "context": "The default limit of App Service workers is 30. If the App Service routinely uses 15 or more instances, consider opening a support ticket to increase the maximum number of workers to 2x the instance count required to serve normal peak load."
       },
       {
+        "id": "3825fbaf-127c-48e4-a607-9eefe5b99874",
         "title": "Enable [Local Cache](https://docs.microsoft.com/azure/app-service/overview-local-cache) to reduce dependencies on cluster file servers.",
-        "context": "Enabling local cache is not always appropriate because it can lead to slower worker startup times. However, when coupled with Deployment Slots, it can improve resiliency by removing dependencies on file servers and also reduces storage-related recycle events. However, Local cache should not be used with a single worker instance or when shared storage is required.",
-        "id": "3825fbaf-127c-48e4-a607-9eefe5b99874"
+        "context": "Enabling local cache is not always appropriate because it can lead to slower worker startup times. However, when coupled with Deployment Slots, it can improve resiliency by removing dependencies on file servers and also reduces storage-related recycle events. However, Local cache should not be used with a single worker instance or when shared storage is required."
       },
       {
+        "id": "eb399332-0691-4ae4-a822-93c32d85e4eb",
         "title": "Enable [Diagnostic Logging](https://docs.microsoft.com/Azure/app-service/troubleshoot-diagnostic-logs) to provide insight into application behavior.",
-        "context": "Diagnostic logging provides the ability to ingest rich application and platform level logs into either Log Analytics, Azure Storage, or a third party tool via Event Hub.",
-        "id": "eb399332-0691-4ae4-a822-93c32d85e4eb"
+        "context": "Diagnostic logging provides the ability to ingest rich application and platform level logs into either Log Analytics, Azure Storage, or a third party tool via Event Hub."
       },
       {
+        "id": "2248991b-6faa-4c90-b7d9-f08825dc05af",
         "title": "Enable [Application Insights Alerts](https://docs.microsoft.com/Azure/azure-monitor/app/azure-web-apps) to be made aware of fault conditions.",
-        "context": "Application performance monitoring with Application Insights provides deep insights into application performance. For Windows Plans a 'codeless deployment' approach is possible to quickly get insights without changing any code.",
-        "id": "2248991b-6faa-4c90-b7d9-f08825dc05af"
+        "context": "Application performance monitoring with Application Insights provides deep insights into application performance. For Windows Plans a 'codeless deployment' approach is possible to quickly get insights without changing any code."
       },
       {
+        "id": "a10c440a-ea6f-494d-b6d9-799c9ef34b6c",
         "title": "Review [Azure App Service diagnostics](https://docs.microsoft.com/azure/app-service/overview-diagnostics) to ensure common problems are addressed.",
-        "context": "It is a good practice to regularly review service-related diagnostics and recommendations and take action as appropriate.",
-        "id": "a10c440a-ea6f-494d-b6d9-799c9ef34b6c"
+        "context": "It is a good practice to regularly review service-related diagnostics and recommendations and take action as appropriate."
       }
-    ],
-    "id": "2f442ad4-abbe-47e3-b989-6cc7d50fae5a"
+    ]
   },
   {
+    "id": "a5e9a775-1b06-497b-b740-30a74f0b2d2a",
     "type": "Configuration Recommendations",
     "pillars": [
       "reliability"
@@ -671,10 +672,10 @@
     "category": "Compute",
     "subCategory": "Azure App Service",
     "title": "For App Service Environments, ensure ASE is deployed within in [highly available configuration](https://docs.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/ase-high-availability-deployment) across Availability Zones.",
-    "context": "Configuring ASE to use Availability Zones by deploying ASE across specific zones ensures applications can continue to operate even in the event of a data center level failure. This provides excellent redundancy without requiring multiple deployments in different Azure regions.",
-    "id": "a5e9a775-1b06-497b-b740-30a74f0b2d2a"
+    "context": "Configuring ASE to use Availability Zones by deploying ASE across specific zones ensures applications can continue to operate even in the event of a data center level failure. This provides excellent redundancy without requiring multiple deployments in different Azure regions."
   },
   {
+    "id": "fd6cdc57-1446-44fa-b1dd-a666780e9234",
     "type": "Configuration Recommendations",
     "pillars": [
       "reliability",
@@ -684,10 +685,10 @@
     "category": "Compute",
     "subCategory": "Azure App Service",
     "title": "For App Service Environments, ensure the [ASE Network](https://docs.microsoft.com/azure/app-service/environment/network-info) is configured correctly.",
-    "context": "One common ASE pitfall occurs when ASE is deployed into a subnet with an IP Address space that is too small to support future expansion. In such cases, ASE can be left unable to scale without redeploying the entire environment into a larger subnet. It is highly recommended that adequate IP addresses be used to support either the maximum number of workers or the largest number considered workloads will need. A single ASE cluster can scale to 201 instance, which would require a /24 subnet.",
-    "id": "fd6cdc57-1446-44fa-b1dd-a666780e9234"
+    "context": "One common ASE pitfall occurs when ASE is deployed into a subnet with an IP Address space that is too small to support future expansion. In such cases, ASE can be left unable to scale without redeploying the entire environment into a larger subnet. It is highly recommended that adequate IP addresses be used to support either the maximum number of workers or the largest number considered workloads will need. A single ASE cluster can scale to 201 instance, which would require a /24 subnet."
   },
   {
+    "id": "135f6e7d-f3be-43da-b2c9-3649aaac659a",
     "type": "Configuration Recommendations",
     "pillars": [
       "reliability",
@@ -697,10 +698,10 @@
     "category": "Compute",
     "subCategory": "Azure App Service",
     "title": "For App Service Environments, consider configuring [Upgrade Preference](https://docs.microsoft.com/azure/app-service/environment/using-an-ase#upgrade-preference) if multiple environments are used.",
-    "context": "If lower environments are used for staging or testing, consideration should be given to configuring these environments to receive updates sooner than the production environment. This will help to identify any conflicts or problems with an update and provides a window to mitigate issues before they reach the production environment.If multiple load balanced (zonal) production deployments are used, upgrade preference can also be used to protect the broader environment against issues from platform upgrades.",
-    "id": "135f6e7d-f3be-43da-b2c9-3649aaac659a"
+    "context": "If lower environments are used for staging or testing, consideration should be given to configuring these environments to receive updates sooner than the production environment. This will help to identify any conflicts or problems with an update and provides a window to mitigate issues before they reach the production environment.If multiple load balanced (zonal) production deployments are used, upgrade preference can also be used to protect the broader environment against issues from platform upgrades."
   },
   {
+    "id": "df38bfa2-88c4-4822-8f81-eb7ae4d656fd",
     "type": "Configuration Recommendations",
     "pillars": [
       "reliability",
@@ -710,10 +711,10 @@
     "category": "Compute",
     "subCategory": "Azure App Service",
     "title": "For App Service Environments, plan for scaling out the ASE cluster",
-    "context": "Scaling ASE instances vertically or horizontally currently takes 30-60 minutes as new private instances need to be provisioned. It is highly recommended that effort be invested up-front to plan for scaling during spikes in load or transient failure scenarios.",
-    "id": "df38bfa2-88c4-4822-8f81-eb7ae4d656fd"
+    "context": "Scaling ASE instances vertically or horizontally currently takes 30-60 minutes as new private instances need to be provisioned. It is highly recommended that effort be invested up-front to plan for scaling during spikes in load or transient failure scenarios."
   },
   {
+    "id": "d0a55ccb-7ab5-4317-a378-dc61107adea4",
     "type": "Configuration Recommendations",
     "pillars": [
       "reliability",
@@ -725,24 +726,24 @@
     "title": "When deploying application code or configuration, it is highly recommended that:",
     "children": [
       {
+        "id": "577ff70e-0822-492a-9b64-fe27cd01a1d0",
         "title": "Use [Deployment Slots](https://docs.microsoft.com/azure/app-service/deploy-staging-slots) for resilient code deployments.",
-        "context": "Deployment Slots allow for code to be deployed to instances that are warmed-up before serving production traffic.[Azure Friday](https://www.youtube.com/watch?v=MP8fXgxq6xo)[blog post](https://ruslany.net/2019/06/azure-app-service-deployment-slots-tips-and-tricks/)",
-        "id": "577ff70e-0822-492a-9b64-fe27cd01a1d0"
+        "context": "Deployment Slots allow for code to be deployed to instances that are warmed-up before serving production traffic.[Azure Friday](https://www.youtube.com/watch?v=MP8fXgxq6xo)[blog post](https://ruslany.net/2019/06/azure-app-service-deployment-slots-tips-and-tricks/)"
       },
       {
+        "id": "087c1bf1-b5ca-45d0-a35e-82d3d478dd2c",
         "title": "Avoid Unnecessary Worker restarts",
-        "context": "There are a number of events that can lead App Service workers to restart, such as content deployment, App Settings changes, and VNet integration configuration changes. It is best practice to make changes in a deployment slot other than the slot currently configured to accept production traffic. After workers are recycled and warmed up, a \"swap\" can be performed without unnecessary down time.",
-        "id": "087c1bf1-b5ca-45d0-a35e-82d3d478dd2c"
+        "context": "There are a number of events that can lead App Service workers to restart, such as content deployment, App Settings changes, and VNet integration configuration changes. It is best practice to make changes in a deployment slot other than the slot currently configured to accept production traffic. After workers are recycled and warmed up, a \"swap\" can be performed without unnecessary down time."
       },
       {
+        "id": "d7a2822c-65a0-49c7-a8f5-eb19ff2be7c2",
         "title": "Use [\"Run From Package\"](https://docs.microsoft.com/azure/app-service/deploy-run-package) to avoid deployment conflicts",
-        "context": "Run from Package provides several advantages:Eliminates file lock conflicts between deployment and runtime.Ensures only full-deployed apps are running at any time.May reduce cold-start times, particularly for JavaScript functions with large npm package trees.",
-        "id": "d7a2822c-65a0-49c7-a8f5-eb19ff2be7c2"
+        "context": "Run from Package provides several advantages:Eliminates file lock conflicts between deployment and runtime.Ensures only full-deployed apps are running at any time.May reduce cold-start times, particularly for JavaScript functions with large npm package trees."
       }
-    ],
-    "id": "d0a55ccb-7ab5-4317-a378-dc61107adea4"
+    ]
   },
   {
+    "id": "8dad4bde-290d-468c-96ce-a768db044590",
     "type": "Supporting Source Artifacts",
     "pillars": [
       "reliability",
@@ -752,10 +753,10 @@
     "category": "Compute",
     "subCategory": "Azure App Service",
     "title": "Query to identify App Service Plans with **only 1 instance**:",
-    "code": "Resources\n| where type == \"microsoft.web/serverfarms\" and properties.computeMode == 'Dedicated'\n| where sku.capacity == 1\n",
-    "id": "8dad4bde-290d-468c-96ce-a768db044590"
+    "code": "Resources\n| where type == \"microsoft.web/serverfarms\" and properties.computeMode == 'Dedicated'\n| where sku.capacity == 1\n"
   },
   {
+    "id": "b25732b8-65ff-437a-8656-3d030d6e73d5",
     "type": "Supporting Source Artifacts",
     "pillars": [
       "reliability",
@@ -764,10 +765,10 @@
     "lens": "service",
     "category": "Compute",
     "subCategory": "Azure App Service",
-    "title": "[The Ultimate Guide to Running Healthy Apps in the Cloud](https://azure.github.io/AppService/2020/05/15/Robust-Apps-for-the-cloud.html)",
-    "id": "b25732b8-65ff-437a-8656-3d030d6e73d5"
+    "title": "[The Ultimate Guide to Running Healthy Apps in the Cloud](https://azure.github.io/AppService/2020/05/15/Robust-Apps-for-the-cloud.html)"
   },
   {
+    "id": "6d098ed1-da6d-419e-86ce-c709da627b6e",
     "type": "Design Considerations",
     "pillars": [
       "reliability"
@@ -775,10 +776,10 @@
     "lens": "service",
     "category": "Compute",
     "subCategory": "Service Fabric",
-    "title": "Azure Service Fabric does not provide its own SLA. The availability of Service Fabric clusters is based on the underlying Virtual Machine and Storage resources used.",
-    "id": "6d098ed1-da6d-419e-86ce-c709da627b6e"
+    "title": "Azure Service Fabric does not provide its own SLA. The availability of Service Fabric clusters is based on the underlying Virtual Machine and Storage resources used."
   },
   {
+    "id": "f36dc197-3550-4ef4-a70a-b5ef8153f75a",
     "type": "Design Considerations",
     "pillars": [
       "reliability"
@@ -787,10 +788,10 @@
     "category": "Compute",
     "subCategory": "Service Fabric",
     "title": "Virtual Machine Scale Sets also do not have an SLA, since the SLA for Virtual Machines applies here. If the Virtual Machine Scale Set includes Virtual Machines in at least 2 Fault Domains, the availability of the underlying Virtual Machines SLA for two or more instances applies. If the scale set contains a single Virtual Machine, the availability for a Single Instance Virtual Machine applies.",
-    "context": "[Service Fabric](https://azure.microsoft.com/support/legal/sla/service-fabric/v1_0/)[Virtual Machine Scale Set](https://azure.microsoft.com/support/legal/sla/virtual-machine-scale-sets/v1_1/)",
-    "id": "f36dc197-3550-4ef4-a70a-b5ef8153f75a"
+    "context": "[Service Fabric](https://azure.microsoft.com/support/legal/sla/service-fabric/v1_0/)[Virtual Machine Scale Set](https://azure.microsoft.com/support/legal/sla/virtual-machine-scale-sets/v1_1/)"
   },
   {
+    "id": "6e3950db-6aa4-43c7-ba2a-e55f74e5634b",
     "type": "Configuration Recommendations",
     "pillars": [
       "reliability",
@@ -799,10 +800,10 @@
     "lens": "service",
     "category": "Compute",
     "subCategory": "Service Fabric",
-    "title": "Review the [Service Fabric production readiness checklist](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist)",
-    "id": "6e3950db-6aa4-43c7-ba2a-e55f74e5634b"
+    "title": "Review the [Service Fabric production readiness checklist](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist)"
   },
   {
+    "id": "552edd84-c3c9-424a-b3c3-d9f927f99cd1",
     "type": "Configuration Recommendations",
     "pillars": [
       "reliability",
@@ -812,10 +813,10 @@
     "category": "Compute",
     "subCategory": "Service Fabric",
     "title": "Use durability level Silver (5 VMs) or higher for production scenarios.",
-    "context": "This will ensure the Azure infrastructure communicates with the Service Fabric controller on scheduling reboots, etc.",
-    "id": "552edd84-c3c9-424a-b3c3-d9f927f99cd1"
+    "context": "This will ensure the Azure infrastructure communicates with the Service Fabric controller on scheduling reboots, etc."
   },
   {
+    "id": "e3a59859-1569-4514-a41a-5ff58b73ae10",
     "type": "Configuration Recommendations",
     "pillars": [
       "reliability",
@@ -825,10 +826,10 @@
     "category": "Compute",
     "subCategory": "Service Fabric",
     "title": "For critical workloads, consider using Availability Zones for your Service Fabric clusters.",
-    "context": "This means deploying a primary NodeType (and by extension a VM ScaleSet) to each AZ. This will ensure that the Service Fabric system services are spread across zones.",
-    "id": "e3a59859-1569-4514-a41a-5ff58b73ae10"
+    "context": "This means deploying a primary NodeType (and by extension a VM ScaleSet) to each AZ. This will ensure that the Service Fabric system services are spread across zones."
   },
   {
+    "id": "e3b1d5c5-1454-4fa5-9684-ee35be20e1a1",
     "type": "Configuration Recommendations",
     "pillars": [
       "reliability"
@@ -837,10 +838,10 @@
     "category": "Compute",
     "subCategory": "Service Fabric",
     "title": "To expose services on the Service Fabric cluster, use a reverse proxy such as the Service Fabric reverse proxy or Traefik. When exposing APIs hosted on the cluster, consider using Azure API Management.",
-    "context": "API Management can [integrate](https://docs.microsoft.com/azure/service-fabric/service-fabric-api-management-overview) with Service Fabric directly.",
-    "id": "e3b1d5c5-1454-4fa5-9684-ee35be20e1a1"
+    "context": "API Management can [integrate](https://docs.microsoft.com/azure/service-fabric/service-fabric-api-management-overview) with Service Fabric directly."
   },
   {
+    "id": "2d03a956-1655-4bf4-99d6-cce0658363b6",
     "type": "Configuration Recommendations",
     "pillars": [
       "reliability",
@@ -849,10 +850,10 @@
     "lens": "service",
     "category": "Compute",
     "subCategory": "Service Fabric",
-    "title": "For production scenarios, use the Standard tier load balancer. The Basic SKU is free, but does not have an SLA.",
-    "id": "2d03a956-1655-4bf4-99d6-cce0658363b6"
+    "title": "For production scenarios, use the Standard tier load balancer. The Basic SKU is free, but does not have an SLA."
   },
   {
+    "id": "f2d0794d-4b30-44aa-b26e-59d0c2423275",
     "type": "Configuration Recommendations",
     "pillars": [
       "reliability",
@@ -861,10 +862,10 @@
     "lens": "service",
     "category": "Compute",
     "subCategory": "Service Fabric",
-    "title": "Keep the different node types and gateway services on different subnets.",
-    "id": "f2d0794d-4b30-44aa-b26e-59d0c2423275"
+    "title": "Keep the different node types and gateway services on different subnets."
   },
   {
+    "id": "2e8b9298-cd09-49e2-83a0-be8363ee2866",
     "type": "Configuration Recommendations",
     "pillars": [
       "reliability",
@@ -875,10 +876,10 @@
     "category": "Compute",
     "subCategory": "Service Fabric",
     "title": "Apply Network Security Groups (NSG) to restrict traffic flow between subnets/node types. Ensure that the [correct ports](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-networking#cluster-networking) are opened for managing the cluster.",
-    "context": "For example, you may have an API Management instance (one subnet), a frontend subnet (exposing a website directly) and a backend subnet (accessible only to frontend), each implemented on a different VM Scale Set.",
-    "id": "2e8b9298-cd09-49e2-83a0-be8363ee2866"
+    "context": "For example, you may have an API Management instance (one subnet), a frontend subnet (exposing a website directly) and a backend subnet (accessible only to frontend), each implemented on a different VM Scale Set."
   },
   {
+    "id": "fa0d4cc3-8f9b-4f0b-9a63-8e24dc7b8f25",
     "type": "Configuration Recommendations",
     "pillars": [
       "reliability",
@@ -887,10 +888,10 @@
     "lens": "service",
     "category": "Compute",
     "subCategory": "Service Fabric",
-    "title": "When using secrets (connection strings, passwords) in SF services, either retrieve them directly from Key Vault at runtime or use the [Service Fabric Secrets Store](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-store)",
-    "id": "fa0d4cc3-8f9b-4f0b-9a63-8e24dc7b8f25"
+    "title": "When using secrets (connection strings, passwords) in SF services, either retrieve them directly from Key Vault at runtime or use the [Service Fabric Secrets Store](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-store)"
   },
   {
+    "id": "0d709a25-b057-42e3-8823-2b6e84514baa",
     "type": "Configuration Recommendations",
     "pillars": [
       "reliability",
@@ -900,10 +901,10 @@
     "category": "Compute",
     "subCategory": "Service Fabric",
     "title": "When using the Service Fabric Secret Store to distribute secrets, use a separate data encipherment certificate to encrypt the values.",
-    "context": "This certificate is deployed to the VM scaleset nodes to decrypt the secret values. When using this approach, ensure that secrets are inserted and encrypted at release time. Using this approach means that changing the secrets requires a deployment. Make sure your key-rotation process is fully automated to do this without downtime.",
-    "id": "0d709a25-b057-42e3-8823-2b6e84514baa"
+    "context": "This certificate is deployed to the VM scaleset nodes to decrypt the secret values. When using this approach, ensure that secrets are inserted and encrypted at release time. Using this approach means that changing the secrets requires a deployment. Make sure your key-rotation process is fully automated to do this without downtime."
   },
   {
+    "id": "3f52749e-84d3-49a1-8741-e0444ef5ceed",
     "type": "Configuration Recommendations",
     "pillars": [
       "reliability",
@@ -912,10 +913,10 @@
     "lens": "service",
     "category": "Compute",
     "subCategory": "Service Fabric",
-    "title": "Do not use self-signed certificates for production scenarios. Either provision a certificate through your PKI or use a public certificate authority.",
-    "id": "3f52749e-84d3-49a1-8741-e0444ef5ceed"
+    "title": "Do not use self-signed certificates for production scenarios. Either provision a certificate through your PKI or use a public certificate authority."
   },
   {
+    "id": "b6a3c08a-3b4f-46cc-8590-1bbb799e0e84",
     "type": "Configuration Recommendations",
     "pillars": [
       "reliability",
@@ -924,10 +925,10 @@
     "lens": "service",
     "category": "Compute",
     "subCategory": "Service Fabric",
-    "title": "Deploy certificates by adding them to Azure Keyvault and referencing the URI in your deployment.",
-    "id": "b6a3c08a-3b4f-46cc-8590-1bbb799e0e84"
+    "title": "Deploy certificates by adding them to Azure Keyvault and referencing the URI in your deployment."
   },
   {
+    "id": "0c153a9a-07cd-4c3c-9003-274bba1322ae",
     "type": "Configuration Recommendations",
     "pillars": [
       "reliability",
@@ -937,10 +938,10 @@
     "category": "Compute",
     "subCategory": "Service Fabric",
     "title": "Have a process in place for monitoring the expiration date of certificates.",
-    "context": "For example, Key Vault offers a feature that sends an email when x% of the certificate's lifespan has elapsed.",
-    "id": "0c153a9a-07cd-4c3c-9003-274bba1322ae"
+    "context": "For example, Key Vault offers a feature that sends an email when x% of the certificate's lifespan has elapsed."
   },
   {
+    "id": "400ab4ef-85de-45d0-b59e-0dfc912219b0",
     "type": "Configuration Recommendations",
     "pillars": [
       "reliability",
@@ -949,10 +950,10 @@
     "lens": "service",
     "category": "Compute",
     "subCategory": "Service Fabric",
-    "title": "Enable Azure Active Directory integration for your cluster to ensure users can access Service Fabric Explorer using their AAD credentials. Do not distribute the cluster certificate among users to access Explorer. ",
-    "id": "400ab4ef-85de-45d0-b59e-0dfc912219b0"
+    "title": "Enable Azure Active Directory integration for your cluster to ensure users can access Service Fabric Explorer using their AAD credentials. Do not distribute the cluster certificate among users to access Explorer. "
   },
   {
+    "id": "2a534a68-03bf-4a81-8790-131b7db44931",
     "type": "Configuration Recommendations",
     "pillars": [
       "reliability",
@@ -963,10 +964,10 @@
     "category": "Compute",
     "subCategory": "Service Fabric",
     "title": "Exclude the Service Fabric processes from Windows Defender to improve performance.",
-    "context": "By default, Windows Defender antivirus is installed on Windows Server 2016 and 2019. To reduce any performance impact and resource consumption overhead incurred by Windows Defender, and if your security policies allow you to exclude processes and paths for open-source software, you can [exclude](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-security#windows-defender) the Service Fabric executables from Defender scans.",
-    "id": "2a534a68-03bf-4a81-8790-131b7db44931"
+    "context": "By default, Windows Defender antivirus is installed on Windows Server 2016 and 2019. To reduce any performance impact and resource consumption overhead incurred by Windows Defender, and if your security policies allow you to exclude processes and paths for open-source software, you can [exclude](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-security#windows-defender) the Service Fabric executables from Defender scans."
   },
   {
+    "id": "da1d85e3-0548-4df8-8fb0-1095dd1c9f5e",
     "type": "Configuration Recommendations",
     "pillars": [
       "costoptimization"
@@ -975,10 +976,10 @@
     "category": "Compute",
     "subCategory": "Azure App Service",
     "title": "Consider the cost savings of using App Service Premium v3 plan over the Premium v2 plan.",
-    "context": "The App Service Premium (v3) Plan has a 20% discount versus comparable Pv2 configurations. Reserved Instance commitment (1Y, 3Y, Dev/Test) discounts are available for App Services running in the Premium v3 plan.",
-    "id": "da1d85e3-0548-4df8-8fb0-1095dd1c9f5e"
+    "context": "The App Service Premium (v3) Plan has a 20% discount versus comparable Pv2 configurations. Reserved Instance commitment (1Y, 3Y, Dev/Test) discounts are available for App Services running in the Premium v3 plan."
   },
   {
+    "id": "6c63c516-41be-48fa-a880-3f2ee48edb82",
     "type": "Configuration Recommendations",
     "pillars": [
       "costoptimization"
@@ -987,10 +988,10 @@
     "category": "Compute",
     "subCategory": "Virtual Machines",
     "title": "Perform a review of SKUs that could benefit from Reserved Instances for 1 or 3 years or more.",
-    "context": "Purchasing reserved instances is a way to reduce Azure costs for workloads with stable usage. You have to manage utilization: if it’s too low then you are paying for resources that are not being used. One advice is to keep RI instances simple and not trying to have too much management overhead that has to be factored in as well as part of the cost.",
-    "id": "6c63c516-41be-48fa-a880-3f2ee48edb82"
+    "context": "Purchasing reserved instances is a way to reduce Azure costs for workloads with stable usage. You have to manage utilization: if it’s too low then you are paying for resources that are not being used. One advice is to keep RI instances simple and not trying to have too much management overhead that has to be factored in as well as part of the cost."
   },
   {
+    "id": "414a95d2-c631-408c-a88d-15ab728f9640",
     "type": "Configuration Recommendations",
     "pillars": [
       "costoptimization"
@@ -999,10 +1000,10 @@
     "category": "Compute",
     "subCategory": "Virtual Machines",
     "title": "Consider using Burstable (B) series VM sizes for VMs that are idle most of the time and have high usage for a certain period of time.",
-    "context": "The B-series VMs are ideal for workloads that do not need the full performance of the CPU continuously (like web servers, proof of concepts, small databases and development build environments).",
-    "id": "414a95d2-c631-408c-a88d-15ab728f9640"
+    "context": "The B-series VMs are ideal for workloads that do not need the full performance of the CPU continuously (like web servers, proof of concepts, small databases and development build environments)."
   },
   {
+    "id": "bfbea384-42b4-4edf-8baa-4f806c00b85b",
     "type": "Configuration Recommendations",
     "pillars": [
       "costoptimization"
@@ -1011,10 +1012,10 @@
     "category": "Compute",
     "subCategory": "Virtual Machines",
     "title": "Shut down VM instances which are not in use.",
-    "context": "Use the Start/Stop VMs during off-hours feature of virtual machines to minimize waste. There are many configuration options to schedule start the stop times. The feature is suitable as a low-cost automation option. Azure Advisor evaluates virtual machines based on CPU and network utilization over a time period and recommends actions like shut down or resize instances.",
-    "id": "bfbea384-42b4-4edf-8baa-4f806c00b85b"
+    "context": "Use the Start/Stop VMs during off-hours feature of virtual machines to minimize waste. There are many configuration options to schedule start the stop times. The feature is suitable as a low-cost automation option. Azure Advisor evaluates virtual machines based on CPU and network utilization over a time period and recommends actions like shut down or resize instances."
   },
   {
+    "id": "117961fd-2a98-472c-a4f5-69967447e440",
     "type": "Configuration Recommendations",
     "pillars": [
       "costoptimization"
@@ -1023,10 +1024,10 @@
     "category": "Compute",
     "subCategory": "Virtual Machines",
     "title": "Use Spot VMs when appropriate.",
-    "context": "Spot VMs are ideal for workloads that can be interrupted, such as highly parallel batch processing jobs. These VMs take advantage of the surplus capacity in Azure at a lower cost. They're also well suited for experimenting, development and testing of large-scale solutions.",
-    "id": "117961fd-2a98-472c-a4f5-69967447e440"
+    "context": "Spot VMs are ideal for workloads that can be interrupted, such as highly parallel batch processing jobs. These VMs take advantage of the surplus capacity in Azure at a lower cost. They're also well suited for experimenting, development and testing of large-scale solutions."
   },
   {
+    "id": "02e60cdc-dd3d-4c96-997d-ff14dda201e1",
     "type": "Configuration Recommendations",
     "pillars": [
       "costoptimization"
@@ -1035,10 +1036,10 @@
     "category": "Compute",
     "subCategory": "Virtual Machines",
     "title": "Consider PaaS as an alternative to virtual machines.",
-    "context": "When you use the PaaS model, operational and maintenance costs are included in the pricing and in some cases can be cheaper than managing VMs on your own.",
-    "id": "02e60cdc-dd3d-4c96-997d-ff14dda201e1"
+    "context": "When you use the PaaS model, operational and maintenance costs are included in the pricing and in some cases can be cheaper than managing VMs on your own."
   },
   {
+    "id": "78e97b23-894b-4b55-a21e-7154976923a1",
     "type": "Configuration Recommendations",
     "pillars": [
       "costoptimization"
@@ -1047,10 +1048,10 @@
     "category": "Compute",
     "subCategory": "Virtual Machines",
     "title": "Use Zone to Zone disaster recovery for virtual machines.",
-    "context": "(in preview as of 11/2020) Replicate, failover and failback your business-critical virtual machines within the same region with zones. Ideal for those that have complicated networking infrastructure and want to avoid the cost and complexity of recreating it in a secondary region.",
-    "id": "78e97b23-894b-4b55-a21e-7154976923a1"
+    "context": "(in preview as of 11/2020) Replicate, failover and failback your business-critical virtual machines within the same region with zones. Ideal for those that have complicated networking infrastructure and want to avoid the cost and complexity of recreating it in a secondary region."
   },
   {
+    "id": "814f9737-b177-46cc-966e-77674d2033e0",
     "type": "Configuration Recommendations",
     "pillars": [
       "costoptimization"
@@ -1059,7 +1060,6 @@
     "category": "Compute",
     "subCategory": "Azure Kubernetes Service (AKS)",
     "title": "Use the Start/Stop feature in Azure Kubernetes Services (AKS).",
-    "context": "(in preview as of 11/2020) The AKS Stop/Start cluster feature now in public preview allows AKS customers to completely pause an AKS cluster, saving time and cost. The stop/start feature keeps cluster configurations in place and customers can pick up where they left off without reconfiguring the clusters.",
-    "id": "814f9737-b177-46cc-966e-77674d2033e0"
+    "context": "(in preview as of 11/2020) The AKS Stop/Start cluster feature now in public preview allows AKS customers to completely pause an AKS cluster, saving time and cost. The stop/start feature keeps cluster configurations in place and customers can pick up where they left off without reconfiguring the clusters."
   }
 ]
