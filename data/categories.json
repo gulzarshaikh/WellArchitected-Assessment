@@ -238,6 +238,62 @@
     ]
   },
   {
+    "title": "Performance Testing",
+    "subCategories": [
+      {
+        "title": "Tools & Planning"
+      },
+      {
+        "title": "Benchmarking"
+      },
+      {
+        "title": "Load Capacity"
+      },
+      {
+        "title": "Data"
+      }
+    ]
+  },
+  {
+    "title": "Troubleshooting",
+    "subCategories": [
+      {
+        "title": "Process"
+      },
+      {
+        "title": "Network"
+      }
+    ]
+  },
+  {
+    "title": "Efficiency and Sizing",
+    "subCategories": [
+      {
+        "title": "Architecture"
+      },
+      {
+        "title": "SKUs"
+      },
+      {
+        "title": "Tools"
+      }
+    ]
+  },
+  {
+    "title": "Governance",
+    "subCategories": [
+      {
+        "title": "Financial Management & Cost Models"
+      },
+      {
+        "title": "Culture & Dynamics"
+      },
+      {
+        "title": "Licensing"
+      }
+    ]
+  },
+  {
     "title": "Compute",
     "subCategories": [
       {
@@ -289,7 +345,7 @@
         "title": "Storage Accounts"
       },
       {
-          "title": "Disks"
+        "title": "Disks"
       }
     ]
   },
@@ -353,47 +409,10 @@
         "title": "Traffic Manager"
       },
       {
-          "title": "API Management"
+        "title": "API Management"
       },
       {
-          "title": "IP Addresses"
-      }
-    ]
-  },
-  {
-    "title": "Identity & Access Control",
-    "subCategories": [
-
-    ]
-  },
-  {
-    "title": "Performance Testing",
-    "subCategories": [
-      {
-        "title": "Tools & Planning"
-      },
-      {
-        "title": "Benchmarking"
-      },
-      {
-        "title": "Load Capacity"
-      },
-      {
-        "title": "Data"
-      }
-    ]
-  },
-  {
-    "title": "Troubleshooting",
-    "subCategories": [
-      {
-        "title": "Data"
-      },
-      {
-        "title": "Process"
-      },
-      {
-        "title": "Network"
+        "title": "IP Addresses"
       }
     ]
   },
@@ -407,33 +426,5 @@
         "title": "Platform support"
       }
     ]
-  },
-  {
-      "title": "Efficiency and Sizing",
-      "subCategories": [
-        {
-          "title": "Architecture"
-        },
-        {
-          "title": "SKUs"
-        },
-        {
-          "title": "Tools"
-        }
-      ]
-  },
-  {
-      "title": "Governance",
-      "subCategories": [
-          {
-              "title": "Financial Management & Cost Models"
-          },
-          {
-              "title": "Culture & Dynamics"
-          },
-          {
-              "title": "Licensing"
-          }
-      ]
   }
 ]
