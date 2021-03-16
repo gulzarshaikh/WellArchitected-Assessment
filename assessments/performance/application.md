@@ -4,6 +4,7 @@
 - [Application Assessment Checklist](#Application-Assessment-Checklist)
   - [Application Design](#Application-Design)
     - [Design](#Design)
+    - [Targets &amp; Non Functional Requirements](#Targets--Non-Functional-Requirements)
     - [Design Patterns](#Design-Patterns)
     - [Transactional](#Transactional)
   - [Health Modelling &amp; Monitoring](#Health-Modelling--Monitoring)
@@ -29,18 +30,16 @@
   - [Deployment &amp; Testing](#Deployment--Testing)
     - [Testing &amp; Validation](#Testing--Validation)
   - [Performance Testing](#Performance-Testing)
-    - [Resource Planning](#Resource-Planning)
-    - [Tooling](#Tooling)
-    - [Test Coverage](#Test-Coverage)
+    - [Tools &amp; Planning](#Tools--Planning)
     - [Benchmarking](#Benchmarking)
-    - [Performance Planning](#Performance-Planning)
-    - [Service SKU](#Service-SKU)
     - [Load Capacity](#Load-Capacity)
     - [Data](#Data)
   - [Troubleshooting](#Troubleshooting)
     - [Data](#Data)
     - [Process](#Process)
     - [Network](#Network)
+  - [Efficiency and Sizing](#Efficiency-and-Sizing)
+    - [SKUs](#SKUs)
 
 
 
@@ -92,14 +91,22 @@
 
   _Azure provides elastic scalability, however, applications must leverage a scale-unit approach to navigate service and subscription limits to ensure that individual components and the application as a whole can scale horizontally. Don't forget about scale in as well, as this is important to drive cost down. For example, scale in and out for App Service is done via rules. Often customers write scale out rule and never write scale in rule, this leaves the App Service more expensive._
   > [Design to scale out](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out).
-* Has a Business Continuity Disaster Recovery (BCDR) strategy been defined for the application and/or its key scenarios?
+### Targets &amp; Non Functional Requirements
+            
+* Are you able to predict general application usage?
 
 
-  _A disaster recovery strategy should capture how the application responds to a disaster situation such as a regional outage or the loss of a critical platform service, using either a re-deployment, warm-spare active-passive, or hot-spare active-active approach. To drive cost down consider splitting application components and data into groups. For example: 1) must protect, 2) nice to protect, 3) ephemeral/can be rebuilt/lost, instead of protecting all data with the same policy._
-    - If you have a disaster recovery plan in another region, have you ensured you have the needed capacity quotas allocated?
+  _It is important to understand application and environment usage. The customer may have an understanding of certain seasons or incidents that increase user load (e.g. a weather service being hit by users facing a storm, an e-commerce site during the holiday season)._
+  > Traffic patterns should be identified by analyzing historical traffic data and the effect of significant external events on the application.
+    - If typical usage is predictable, are your predictions based on time of day, day of week, or season (e.g. holiday shopping season)?
 
 
-      _Quotas and limits typically apply at the region level and, therefore, the needed capacity should also be planned for the secondary region._
+      _Dig deeper and document predictable periods. By doing so, you can leverage resources like Azure Automation and Autoscale to proactively scale the application and its underlying environment._
+
+    - Do you understand why your application responds to its typical load in the ways that it does?
+
+
+      _Identifying a typical load helps you determine realistic expectations for performance testing. A "typical load" can be measured in individual users, web requests, user sessions, or transactions. When documenting typical loads, also ensure that all predictable periods have typical loads documented._
 
 ### Design Patterns
             
@@ -328,6 +335,14 @@
   _Scale limits and recovery options should be assessed in the context of target data sizes and growth rates to ensure suitable capacity exists_
 ### Data Latency and Throughput
             
+* Are latency targets defined, tested, and validated for key scenarios?
+
+
+  _Latency targets, which are commonly defined as first byte in to last byte out, should be defined and measured for key application scenarios, as well as each individual component, to validate overall application performance and health_
+* Are throughput targets defined, tested, and validated for key scenarios?
+
+
+  _Throughput targets, which are commonly defined in terms of IOPS, MB/s and Block Size, should be defined and measured for key application scenarios, as well as each individual component, to validate overall application performance and health. Available throughput typically varies based on SKU, so defined targets should be used to inform the use of appropriate SKUs_
 * Are you using database replicas and data partitioning?
 
 
@@ -338,12 +353,16 @@
 
 
   _Components or scenarios that are sensitive to network latency may indicate a need for co-locality within a single Availability Zone or even closer using Proximity Placement Groups with Accelerated Networking enabled ([Proximity Placement Groups](https://docs.microsoft.com/azure/virtual-machines/windows/co-location#proximity-placement-groups))_
+* Does the application require dedicated bandwidth?
+
+
+  _Applications with stringent throughput requirements may require dedicated bandwidth to remove the risks associated with noisy neighbor scenarios_
 ### Elasticity
             
-* Has the time to scale in/out been measured?
+* Can the application scale horizontally in response to changing load?
 
 
-  _Time to scale-in and scale-out can vary between Azure services and instance sizes and should be assessed to determine if a certain amount of pre-scaling is required to handle scale requirements and expected traffic patterns, such as seasonal load variations_
+  _A scale-unit approach should be taken to ensure that each application component and the application as a whole can scale effectively in response to changing demand. A robust capacity model should be used to define when and how the application should scale_
 * Is autoscaling enabled and integrated within Azure Monitor?
 
 
@@ -353,6 +372,10 @@
 
       _The scaling on any single component may have an impact on downstream application components and dependencies. Autoscaling should therefore be tested regularly to help inform and validate a capacity model describing when and how application components should scale_
 
+* Has the time to scale in/out been measured?
+
+
+  _Time to scale-in and scale-out can vary between Azure services and instance sizes and should be assessed to determine if a certain amount of pre-scaling is required to handle scale requirements and expected traffic patterns, such as seasonal load variations_
 ## Operational Procedures
     
 ### Scalability &amp; Capacity Model
@@ -398,14 +421,12 @@
 
 ## Performance Testing
     
-### Resource Planning
+### Tools &amp; Planning
             
 * Have you identified the required human and environment resources needed to create performance tests?
 
 
   _Successfully implementing meaningful performance tests requires a number of resources. If is not just a single developer or QA Analyst running some tests on their local machine. Instead, performance tests need a test environment (also known as a test bed) that tests can be executed against without interfering with production environments and data. Performance testing requires input and commitment from developers, architects, database administrators, and network administrators. In short, solid performance testing is a team responsibility.<br />Additionally, to run scaled tests, a machine with enough resources (e.g. memory, processors, network connections, etc.) needs to be made available. While this machine can be located within a data center or on-premises, it is often advantageous to perform performance testing from instances located from multiple geographies. This better simulates what an end-user can expect._
-### Tooling
-            
 * Are you currently using tools for conducting performance testing?
 
 
@@ -424,12 +445,10 @@
 
 
 
-### Test Coverage
-            
-* How much of the application is involved in serving an immediate, single request?
+* Have you identified all services being utilized in Azure (and on-prem) that need to be measured?
 
 
-  _When understanding load and demands on the application, it is necessary to understand how the application is architected--whether monolithic, n-Tier, or microservice-based--and then understand how load is distributed across the application. This is crucial for focusing on the testing of individual components and identifying bottlenecks._
+  _Your assessment may already be complete, but it helps to identify some currently utilized systems to being measuring load capacity. Once these environments have been identified, created benchmarks should include these systems._
 ### Benchmarking
             
 * Have you identified goals or baselines for application performance?
@@ -509,46 +528,16 @@
 
 
   _There is almost no limit to how much an application can be performance-tuned. How do you know when you have tuned an application enough? It really comes down to the 80/20 rule--generally, 80% of the application can be optimized by focusing on just 20%. While you can continue optimizing certain elements of the application, after optimizing the initial 20%, a company typically sees a diminishing return on any further optimization. The question the customer must answer is how much of the remaining 80% of the application is worth optimizing for the business. In other words, how much will optimizing the remaining 80% help the business reach its goals (e.g. customer acquisition/retention, sales, etc.)? The business must determine their own realistic definition of "acceptable."_
-### Performance Planning
+### Load Capacity
             
-* Are you able to predict general application usage?
+* How much of the application is involved in serving an immediate, single request?
 
 
-  _It is important to understand application and environment usage. The customer may have an understanding of certain seasons or incidents that increase user load (e.g. a weather service being hit by users facing a storm, an e-commerce site during the holiday season)._
-    - If typical usage is predictable, are your predictions based on time of day, day of week, or season (e.g. holiday shopping season)?
-
-
-      _Dig deeper and document predictable periods. By doing so, you can leverage resources like Azure Automation and Autoscale to proactively scale the application and its underlying environment._
-
-    - Do you understand why your application responds to its typical load in the ways that it does?
-
-
-      _Identifying a typical load helps you determine realistic expectations for performance testing. A "typical load" can be measured in individual users, web requests, user sessions, or transactions. When documenting typical loads, also ensure that all predictable periods have typical loads documented._
-
-### Service SKU
-            
-* Have you identified all services being utilized in Azure (and on-prem) that need to be measured?
-
-
-  _Your assessment may already be complete, but it helps to identify some currently utilized systems to being measuring load capacity. Once these environments have been identified, created benchmarks should include these systems._
+  _When understanding load and demands on the application, it is necessary to understand how the application is architected--whether monolithic, n-Tier, or microservice-based--and then understand how load is distributed across the application. This is crucial for focusing on the testing of individual components and identifying bottlenecks._
 * Are you confident that the correct SKUs and configurations have been applied to the services in order to support your anticipated loads?
 
 
-  _Understand which SKUs you have purchased and ensure that they are the correct size. Additionally, ensure you understand the configuration of those SKUs (e.g. auto-scale settings for Application Gateways and App Services)._
-* Based on the previous the previous group of questions (expected application and environment usage), do the purchased SKUs and the current configuration support expected usage?
-
-
-  _Once the purchased SKUs have been identified, determine if they purchased resources have the capabilities of supporting anticipated load. For example, if you expect the load to require 30 instances of an App Service, yet you are currently leveraging a Standard App Service Plan SKU (maximum of 10 instances supported), then you will need to upgrade your App Service Plan in order to accommodate the anticipated load._
-### Load Capacity
-            
-* Considering the three types of testing--performance, load, and stress--which have you performed on your application?
-
-
-  _In general, the concept of "performance testing" includes three smaller, definitive categories--performance testing, load testing, and stress testing. Most customers, however, equate load testing to performance testing. It is important to understand the differences and being able to articulate them._
-* Have you completed a stress test on the application?
-
-
-  _A stress test determines the maximum number of users an application can handle at a given time before the application begins to deteriorate. It is important to determine the maximum to understand what kind of load the current environment can adequately support without buckling._
+  _Understand which SKUs you have selected and ensure that they are the correct size. Additionally, ensure you understand the configuration of those SKUs (e.g. auto-scale settings for Application Gateways and App Services)._
 * Have you determined an acceptable operational margin between your peak utilization and the applications maximum load?
 
 
@@ -639,3 +628,12 @@
 
 
   _Network capture tooling can capture the network traffic and dive deeper into the interactions at the network layer that may affect your application due to network configuration and/or other network traffic issues._
+## Efficiency and Sizing
+    
+### SKUs
+            
+* Are the right sizes and SKUs used for workload services?
+
+
+  _The required performance and infrastructure utilization are key factors which define the 'size' of Azure resources to be used, but there can be hidden aspects that affect cost too. Watch for cost variations between different SKUs - for example App Service Plans S3 cost the same as P2v2, but have worse performance characteristics. Once the purchased SKUs have been identified, determine if they purchased resources have the capabilities of supporting anticipated load. For example, if you expect the load to require 30 instances of an App Service, yet you are currently leveraging a Standard App Service Plan SKU (maximum of 10 instances supported), then you will need to upgrade your App Service Plan in order to accommodate the anticipated load._
+  > Make sure the optimal service SKUs are used for this workload.

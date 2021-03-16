@@ -29,7 +29,6 @@
     - [Zone-Aware Services](#Zone-Aware-Services)
   - [Application Performance Management](#Application-Performance-Management)
     - [Data Size/Growth](#Data-SizeGrowth)
-    - [Data Latency and Throughput](#Data-Latency-and-Throughput)
     - [Network Throughput and Latency](#Network-Throughput-and-Latency)
     - [Elasticity](#Elasticity)
   - [Security &amp; Compliance](#Security--Compliance)
@@ -491,16 +490,6 @@ These critical design principles are used as lenses to assess the Reliability of
 
   _Mitigation plans such as purging or archiving data can help the application to remain available in scenarios where data size exceeds expected limits_
   > Make sure that data size and growth is monitored, proper alerts are configured and develop (automated and codified, if possible) mitigation plans to help the application to remain available - or to recover if needed.
-### Data Latency and Throughput
-            
-* Are latency targets defined, tested, and validated for key scenarios?
-
-
-  _Latency targets, which are commonly defined as first byte in to last byte out, should be defined and measured for key application scenarios, as well as each individual component, to validate overall application performance and health_
-* Are throughput targets defined, tested, and validated for key scenarios?
-
-
-  _Throughput targets, which are commonly defined in terms of IOPS, MB/s and Block Size, should be defined and measured for key application scenarios, as well as each individual component, to validate overall application performance and health. Available throughput typically varies based on SKU, so defined targets should be used to inform the use of appropriate SKUs_
 ### Network Throughput and Latency
             
 * Does the application require long running TCP connections?
@@ -538,15 +527,6 @@ These critical design principles are used as lenses to assess the Reliability of
 
 
   _Time to scale-in and scale-out can vary between Azure services and instance sizes and should be assessed to determine if a certain amount of pre-scaling is required to handle scale requirements and expected traffic patterns, such as seasonal load variations_
-* Is autoscaling enabled and integrated within Azure Monitor?
-
-
-  _Autoscaling can be leveraged to address unanticipated peak loads to help prevent application outages caused by overloading_
-    - Has autoscaling been tested under sustained load?
-
-
-      _The scaling on any single component may have an impact on downstream application components and dependencies. Autoscaling should therefore be tested regularly to help inform and validate a capacity model describing when and how application components should scale_
-
 ## Security &amp; Compliance
     
 ### Control-plane RBAC
