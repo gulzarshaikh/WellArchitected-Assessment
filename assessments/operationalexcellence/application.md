@@ -799,18 +799,17 @@ These critical design principles are used as lenses to assess the Operational Ex
 
   _[Infrastructure as Code](https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code) (IaC) is the management of infrastructure (networks, virtual machines, load balancers, and connection topology) in a descriptive model, using the same versioning as the team uses for application source code. Like the principle that the same source code generates the same binary, an IaC model generates the same environment every time it is applied._
   > It is highly recommended to describe the entire infrastructure as code, using either ARM Templates, Terraform, or other tools. This allows for proper versioning and configuration management, encouraging consistency and reproducibility across environments.
-    - Are any operational changes performed outside of IaC?
-
-
-      _Are any resources provisioned or operationally configured manually through the Azure Portal or via Azure CLI?_
-
-      > It is recommended that even small operational changes and modifications be implemented as-code to track changes and ensure they are fully reproduceable and revertible. No infrastructure changes should be done manually outside of IaC.
     - How does the application track and address configuration drift?
 
 
       _Configuration drift occurs when changes are applied outside of IaC processes such as manual changes._
 
       > Tools like Terraform offer a 'plan' command that helps to identify changes and monitor configuration drift, with Azure as the ultimate source of truth.
+* Is direct write access to the infrastrucure possible and are any resources provisioned or configured outside of IaC processes?
+
+
+  _Are any resources provisioned or operationally configured manually through user tools such as the Azure Portal or via Azure CLI?_
+  > It is recommended that even small operational changes and modifications be implemented as-code to track changes and ensure they are fully reproduceable and revertible. No infrastructure changes should be done manually outside of IaC.
 * Is the process to deploy infrastructure automated?
 
 
