@@ -951,8 +951,8 @@
     "type": "Questions",
     "pillars": [
       "operationalexcellence",
-      "costoptimization",
-      "performanceefficiency"
+      "performanceefficiency",
+      "costoptimization"
     ],
     "lens": "application",
     "category": "Health Modelling & Monitoring",
