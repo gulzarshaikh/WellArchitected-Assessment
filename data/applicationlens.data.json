@@ -2543,6 +2543,7 @@
   },
   {
     "id": "8a2e1f59-f9f9-4936-81cc-d657908ffa57",
+    "type": "Questions",
     "pillars": [
       "operationalexcellence",
       "security"
