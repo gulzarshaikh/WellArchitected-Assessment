@@ -2549,6 +2549,7 @@
     ],
     "lens": "application",
     "category": "Deployment & Testing",
+    "subCategory": "Application Infrastructure Provisioning",
     "title": "Is direct write access to the infrastrucure possible and are any resources provisioned or configured outside of IaC processes?",
     "context": "Are any resources provisioned or operationally configured manually through user tools such as the Azure Portal or via Azure CLI?",
     "recommendation": {
