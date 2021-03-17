@@ -7813,8 +7813,8 @@
       "costoptimization"
     ],
     "lens": "application",
-    "category": "Efficiency and Sizing",
-    "subCategory": "Tools",
+    "category": "Capacity & Service Availability Planning",
+    "subCategory": "Service SKU",
     "title": "Is Azure Advisor being used to optimize SKUs discovered in this workload?",
     "context": "Azure Advisor helps to optimize and improve efficiency of the workload by identifying idle and underutilized resources. It analyzes your configurations and usage telemetry and consolidates it into personalized, actionable recommendations to help you optimise your resources.",
     "recommendation": {
@@ -7854,8 +7854,8 @@
       "costoptimization"
     ],
     "lens": "application",
-    "category": "Efficiency and Sizing",
-    "subCategory": "Tools",
+    "category": "Health Modelling & Monitoring",
+    "subCategory": "Dashboarding",
     "title": "Is there a dashboard showing cost related KPIs for this workload which gives a transparent view of the current situation?",
     "context": "Single pane of glass which can be shown during weekly ops meetings and instills accountability within everyone whilst also allowing you to understand where you are in terms of budget through every stage.",
     "recommendation": {
@@ -7877,8 +7877,8 @@
       "costoptimization"
     ],
     "lens": "application",
-    "category": "Efficiency and Sizing",
-    "subCategory": "Architecture",
+    "category": "Deployment & Testing",
+    "subCategory": "Build Environments",
     "title": "Is the application deployed to multiple environments with different configurations?",
     "context": "Understand the scope of the solution and distinguish between SKUs used in production and non-production environments. To drive down cost, it might be possible to for example consolidate environments for applications that are not as critical to the business and don't need the same testing.",
     "recommendation": {
@@ -7934,8 +7934,8 @@
       "costoptimization"
     ],
     "lens": "application",
-    "category": "Efficiency and Sizing",
-    "subCategory": "Tools",
+    "category": "Health Modelling & Monitoring",
+    "subCategory": "Dashboarding",
     "title": "Are you using Azure Cost Management (ACM) to track spending in this workload?",
     "context": "In order to track spending an ACM tool can help with understanding how much is spent, where and when. This helps to make better decisions about how and if cost can be reduced.",
     "recommendation": {
@@ -7957,8 +7957,8 @@
       "costoptimization"
     ],
     "lens": "application",
-    "category": "Efficiency and Sizing",
-    "subCategory": "Architecture",
+    "category": "Capacity & Service Availability Planning",
+    "subCategory": "Efficiency",
     "title": "Are cost-effective regions considered as part of the deployment selection?",
     "context": "Is there a technical/legal reason for deploying in a particular region? If not, it might be worth looking at another region to decrease cost. Also depending on the workload and data processing model, choosing a cheaper region might make more financial sense.",
     "recommendation": {
@@ -7980,8 +7980,8 @@
       "costoptimization"
     ],
     "lens": "application",
-    "category": "Efficiency and Sizing",
-    "subCategory": "Architecture",
+    "category": "Capacity & Service Availability Planning",
+    "subCategory": "Efficiency",
     "title": "Is the price model of this workload clear? Do the consumers understand why they are paying the price per month?",
     "context": "As part of driving a good behavior it's important that the consumer has understood why they are paying the price for a service and also that the cost is transparent and fair to the user of the service or else it can drive wrong behavior.",
     "recommendation": {
@@ -8003,8 +8003,8 @@
       "costoptimization"
     ],
     "lens": "application",
-    "category": "Efficiency and Sizing",
-    "subCategory": "Architecture",
+    "category": "Capacity & Service Availability Planning",
+    "subCategory": "Efficiency",
     "title": "Is the distribution of the cost done in accordance with the usage of the service?",
     "context": "In order to drive down cost it can be advised to incentivize the user of driving the use of a service that helps put less burden on the platform and via this drive down cost as it falls back on the user if a good behavior is followed in order to drive down the price.",
     "recommendation": {
@@ -8026,8 +8026,8 @@
       "costoptimization"
     ],
     "lens": "application",
-    "category": "Application Design",
-    "subCategory": "Application Composition",
+    "category": "Capacity & Service Availability Planning",
+    "subCategory": "Efficiency",
     "title": "Is it possible to benefit from higher density in this workload?",
     "context": "When running multiple applications (typically in multi-tenant or microservices scenarios) density can be increased by deploying them on shared infrastructure and utilizing it more. For example: Containerization and moving to Kubernetes (Azure Kubernetes Services) enables pod-based deployment which can utilize underlying nodes efficiently. Similar approach can be taken with App Service Plans. To prevent the 'noisy neighbour' situation, proper monitoring must be in place and performance analysis must be done (if possible).",
     "recommendation": {
@@ -8050,8 +8050,8 @@
       "performanceefficiency"
     ],
     "lens": "application",
-    "category": "Efficiency and Sizing",
-    "subCategory": "SKUs",
+    "category": "Capacity & Service Availability Planning",
+    "subCategory": "Efficiency",
     "title": "Are the right sizes and SKUs used for workload services?",
     "context": "The required performance and infrastructure utilization are key factors which define the 'size' of Azure resources to be used, but there can be hidden aspects that affect cost too. Watch for cost variations between different SKUs - for example App Service Plans S3 cost the same as P2v2, but have worse performance characteristics. Once the purchased SKUs have been identified, determine if they purchased resources have the capabilities of supporting anticipated load. For example, if you expect the load to require 30 instances of an App Service, yet you are currently leveraging a Standard App Service Plan SKU (maximum of 10 instances supported), then you will need to upgrade your App Service Plan in order to accommodate the anticipated load.",
     "recommendation": {
@@ -8073,8 +8073,8 @@
       "costoptimization"
     ],
     "lens": "application",
-    "category": "Efficiency and Sizing",
-    "subCategory": "Architecture",
+    "category": "Capacity & Service Availability Planning",
+    "subCategory": "Efficiency",
     "title": "Is the workload using the right operating system for its servers?",
     "context": "Analyze the technology stack and identify which workloads are capable of running on Linux and which require Windows. Linux-based VMs and App Services are significantly cheaper, but require the app to run on supported stack (.NET Core, Node.js etc.).",
     "recommendation": {
@@ -8096,8 +8096,8 @@
       "costoptimization"
     ],
     "lens": "application",
-    "category": "Efficiency and Sizing",
-    "subCategory": "Architecture",
+    "category": "Capacity & Service Availability Planning",
+    "subCategory": "Service SKU",
     "title": "Have you deployed a Hub and Spoke Design or Virtual WAN?",
     "context": "Virtual WAN has costs that are different in hub and spoke design. The cost of the peering network or other service routing has to be included. If Private Link is deployed, peering is not billed - only private link.",
     "recommendation": {

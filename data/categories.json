@@ -98,6 +98,9 @@
       },
       {
         "title": "Service SKU"
+      },
+      {
+        "title": "Efficiency"
       }
     ]
   },
@@ -254,20 +257,6 @@
       },
       {
         "title": "Troubleshooting"
-      }
-    ]
-  },
-  {
-    "title": "Efficiency and Sizing",
-    "subCategories": [
-      {
-        "title": "Architecture"
-      },
-      {
-        "title": "SKUs"
-      },
-      {
-        "title": "Tools"
       }
     ]
   },
