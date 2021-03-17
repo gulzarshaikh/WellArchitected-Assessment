@@ -2504,8 +2504,7 @@
     "id": "6714b538-53f6-494c-94c9-b9965d23a0a4",
     "type": "Questions",
     "pillars": [
-      "operationalexcellence",
-      "security"
+      "operationalexcellence"
     ],
     "lens": "application",
     "category": "Deployment & Testing",
@@ -2525,22 +2524,6 @@
     },
     "children": [
       {
-        "id": "8a2e1f59-f9f9-4936-81cc-d657908ffa57",
-        "title": "Are any operational changes performed outside of IaC?",
-        "context": "Are any resources provisioned or operationally configured manually through the Azure Portal or via Azure CLI?",
-        "recommendation": {
-          "title": "It is recommended that even small operational changes and modifications be implemented as-code to track changes and ensure they are fully reproduceable and revertible. No infrastructure changes should be done manually outside of IaC.",
-          "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
-          "priority": "medium"
-        }
-      },
-      {
         "id": "d8f8d40f-c0db-433d-aebc-3216a1b5c9f6",
         "title": "How does the application track and address configuration drift?",
         "context": "Configuration drift occurs when changes are applied outside of IaC processes such as manual changes.",
@@ -2557,6 +2540,28 @@
         }
       }
     ]
+  },
+  {
+    "id": "8a2e1f59-f9f9-4936-81cc-d657908ffa57",
+    "pillars": [
+      "operationalexcellence",
+      "security"
+    ],
+    "lens": "application",
+    "category": "Deployment & Testing",
+    "title": "Is direct write access to the infrastrucure possible and are any resources provisioned or configured outside of IaC processes?",
+    "context": "Are any resources provisioned or operationally configured manually through user tools such as the Azure Portal or via Azure CLI?",
+    "recommendation": {
+      "title": "It is recommended that even small operational changes and modifications be implemented as-code to track changes and ensure they are fully reproduceable and revertible. No infrastructure changes should be done manually outside of IaC.",
+      "context": "",
+      "links": [
+        {
+          "title": "",
+          "url": ""
+        }
+      ],
+      "priority": "medium"
+    }
   },
   {
     "id": "548d645a-de28-46db-ae42-658ce8529848",
