@@ -24,6 +24,7 @@ This assessment has been produced to help the global CE&S community to optimize 
   - [Capacity &amp; Service Availability Planning](./application.md#Capacity--Service-Availability-Planning)
     - [Capacity](./application.md#Capacity)
     - [Service SKU](./application.md#Service-SKU)
+    - [Efficiency](./application.md#Efficiency)
   - [Networking &amp; Connectivity](./application.md#Networking--Connectivity)
     - [Endpoints](./application.md#Endpoints)
   - [Application Performance Management](./application.md#Application-Performance-Management)
@@ -41,8 +42,6 @@ This assessment has been produced to help the global CE&S community to optimize 
     - [Load Capacity](./application.md#Load-Capacity)
     - [Data](./application.md#Data)
     - [Troubleshooting](./application.md#Troubleshooting)
-  - [Efficiency and Sizing](./application.md#Efficiency-and-Sizing)
-    - [SKUs](./application.md#SKUs)
 
 
 ### [Service Performance Efficiency](./service.md)

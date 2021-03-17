@@ -18,6 +18,7 @@
   - [Capacity &amp; Service Availability Planning](#Capacity--Service-Availability-Planning)
     - [Capacity](#Capacity)
     - [Service SKU](#Service-SKU)
+    - [Efficiency](#Efficiency)
   - [Networking &amp; Connectivity](#Networking--Connectivity)
     - [Endpoints](#Endpoints)
   - [Application Performance Management](#Application-Performance-Management)
@@ -35,8 +36,6 @@
     - [Load Capacity](#Load-Capacity)
     - [Data](#Data)
     - [Troubleshooting](#Troubleshooting)
-  - [Efficiency and Sizing](#Efficiency-and-Sizing)
-    - [SKUs](#SKUs)
 
 
 
@@ -324,6 +323,13 @@
 
 
   _Limitless scale requires dedicated design and one of the important design considerations is the limits and quotas of Azure subscriptions. Some services are almost limitless, others require more planning. Some services have 'soft' limits that can be increased by contacting support._
+### Efficiency
+            
+* Are the right sizes and SKUs used for workload services?
+
+
+  _The required performance and infrastructure utilization are key factors which define the 'size' of Azure resources to be used, but there can be hidden aspects that affect cost too. Watch for cost variations between different SKUs - for example App Service Plans S3 cost the same as P2v2, but have worse performance characteristics. Once the purchased SKUs have been identified, determine if they purchased resources have the capabilities of supporting anticipated load. For example, if you expect the load to require 30 instances of an App Service, yet you are currently leveraging a Standard App Service Plan SKU (maximum of 10 instances supported), then you will need to upgrade your App Service Plan in order to accommodate the anticipated load._
+  > Make sure the optimal service SKUs are used for this workload.
 ## Networking &amp; Connectivity
     
 ### Endpoints
@@ -642,12 +648,3 @@
 
 
   _Network capture tooling can capture the network traffic and dive deeper into the interactions at the network layer that may affect your application due to network configuration and/or other network traffic issues._
-## Efficiency and Sizing
-    
-### SKUs
-            
-* Are the right sizes and SKUs used for workload services?
-
-
-  _The required performance and infrastructure utilization are key factors which define the 'size' of Azure resources to be used, but there can be hidden aspects that affect cost too. Watch for cost variations between different SKUs - for example App Service Plans S3 cost the same as P2v2, but have worse performance characteristics. Once the purchased SKUs have been identified, determine if they purchased resources have the capabilities of supporting anticipated load. For example, if you expect the load to require 30 instances of an App Service, yet you are currently leveraging a Standard App Service Plan SKU (maximum of 10 instances supported), then you will need to upgrade your App Service Plan in order to accommodate the anticipated load._
-  > Make sure the optimal service SKUs are used for this workload.

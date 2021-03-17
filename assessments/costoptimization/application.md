@@ -15,6 +15,9 @@
     - [Logging](#Logging)
     - [Dashboarding](#Dashboarding)
     - [Alerting](#Alerting)
+  - [Capacity &amp; Service Availability Planning](#Capacity--Service-Availability-Planning)
+    - [Service SKU](#Service-SKU)
+    - [Efficiency](#Efficiency)
   - [Networking &amp; Connectivity](#Networking--Connectivity)
     - [Connectivity](#Connectivity)
     - [Endpoints](#Endpoints)
@@ -28,10 +31,6 @@
     - [Testing &amp; Validation](#Testing--Validation)
   - [Operational Model &amp; DevOps](#Operational-Model--DevOps)
     - [Roles &amp; Responsibilities](#Roles--Responsibilities)
-  - [Efficiency and Sizing](#Efficiency-and-Sizing)
-    - [Architecture](#Architecture)
-    - [SKUs](#SKUs)
-    - [Tools](#Tools)
   - [Governance](#Governance)
     - [Financial Management &amp; Cost Models](#Financial-Management--Cost-Models)
     - [Culture &amp; Dynamics](#Culture--Dynamics)
@@ -283,10 +282,6 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
   _Do application components leverage shared data platforms, such as a central data lake, or application hosting platforms, such as a centrally managed AKS or ASE cluster? Shared platforms drive down cost, but the workload needs to maintain the expected performance._
   > Make sure you understand the design decisions and implications of using shared hosting platforms.
-* Is it possible to benefit from higher density in this workload?
-
-
-  _When running multiple applications (typically in multi-tenant or microservices scenarios) density can be increased by deploying them on shared infrastructure and utilizing it more. For example: Containerization and moving to Kubernetes (Azure Kubernetes Services) enables pod-based deployment which can utilize underlying nodes efficiently. Similar approach can be taken with App Service Plans. To prevent the 'noisy neighbour' situation, proper monitoring must be in place and performance analysis must be done (if possible)._
 * How do you ensure that cloud resources are appropriately provisioned?
 
 
@@ -315,6 +310,15 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
   _Are the dashboards openly available in your organization or do you limit access based on roles etc.? For example: developers usually don't need to know the overall cost of Azure for the company, but it might be good for them to be able to watch a particular workload._
   > Access to operational and financial data should be tightly controlled to align with segregation of duties, while making sure that it doesn't hinder operational effectiveness; i.e. scenarios where developers have to raise an ITSM ticket to access logs should be avoided
+* Is there a dashboard showing cost related KPIs for this workload which gives a transparent view of the current situation?
+
+
+  _Single pane of glass which can be shown during weekly ops meetings and instills accountability within everyone whilst also allowing you to understand where you are in terms of budget through every stage._
+* Are you using Azure Cost Management (ACM) to track spending in this workload?
+
+
+  _In order to track spending an ACM tool can help with understanding how much is spent, where and when. This helps to make better decisions about how and if cost can be reduced._
+  > Use ACM or other cost management tools to understand if savings are possible.
 ### Alerting
             
 * What technology is used for alerting?
@@ -337,6 +341,55 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
   _This is to ensure that if any budget is close to threshold, the cost owner gets notified to take appropriate actions on the change._
   > Set up alerts for cost limits and thresholds.
+## Capacity &amp; Service Availability Planning
+    
+### Service SKU
+            
+* Is Azure Advisor being used to optimize SKUs discovered in this workload?
+
+
+  _Azure Advisor helps to optimize and improve efficiency of the workload by identifying idle and underutilized resources. It analyzes your configurations and usage telemetry and consolidates it into personalized, actionable recommendations to help you optimise your resources._
+  > Use Azure Advisor to identify SKUs for optimization.
+    - Are the Advisor recommendations being reviewed weekly or bi-weekly for optimization?
+
+
+      _Your underutilised resources need to be reviewed often in order to be identified and dealt with accordingly, in addition to ensuring that your actionable recommendations are up-to-date and fully optimised. For example, Azure Advisor monitors your virtual machine (VM) usage for 7 days and then identifies low-utilization VMs._
+
+      > Review Azure Advisor recommendation periodically.
+* Have you deployed a Hub and Spoke Design or Virtual WAN?
+
+
+  _Virtual WAN has costs that are different in hub and spoke design. The cost of the peering network or other service routing has to be included. If Private Link is deployed, peering is not billed - only private link._
+  > Consider whether to deploy Hub and Spoke or Virtual WAN for this workload.
+### Efficiency
+            
+* Are cost-effective regions considered as part of the deployment selection?
+
+
+  _Is there a technical/legal reason for deploying in a particular region? If not, it might be worth looking at another region to decrease cost. Also depending on the workload and data processing model, choosing a cheaper region might make more financial sense._
+  > Choose appropriate region for workload deployment to optimize cost.
+* Is the price model of this workload clear? Do the consumers understand why they are paying the price per month?
+
+
+  _As part of driving a good behavior it's important that the consumer has understood why they are paying the price for a service and also that the cost is transparent and fair to the user of the service or else it can drive wrong behavior._
+* Is the distribution of the cost done in accordance with the usage of the service?
+
+
+  _In order to drive down cost it can be advised to incentivize the user of driving the use of a service that helps put less burden on the platform and via this drive down cost as it falls back on the user if a good behavior is followed in order to drive down the price._
+* Is it possible to benefit from higher density in this workload?
+
+
+  _When running multiple applications (typically in multi-tenant or microservices scenarios) density can be increased by deploying them on shared infrastructure and utilizing it more. For example: Containerization and moving to Kubernetes (Azure Kubernetes Services) enables pod-based deployment which can utilize underlying nodes efficiently. Similar approach can be taken with App Service Plans. To prevent the 'noisy neighbour' situation, proper monitoring must be in place and performance analysis must be done (if possible)._
+* Are the right sizes and SKUs used for workload services?
+
+
+  _The required performance and infrastructure utilization are key factors which define the 'size' of Azure resources to be used, but there can be hidden aspects that affect cost too. Watch for cost variations between different SKUs - for example App Service Plans S3 cost the same as P2v2, but have worse performance characteristics. Once the purchased SKUs have been identified, determine if they purchased resources have the capabilities of supporting anticipated load. For example, if you expect the load to require 30 instances of an App Service, yet you are currently leveraging a Standard App Service Plan SKU (maximum of 10 instances supported), then you will need to upgrade your App Service Plan in order to accommodate the anticipated load._
+  > Make sure the optimal service SKUs are used for this workload.
+* Is the workload using the right operating system for its servers?
+
+
+  _Analyze the technology stack and identify which workloads are capable of running on Linux and which require Windows. Linux-based VMs and App Services are significantly cheaper, but require the app to run on supported stack (.NET Core, Node.js etc.)._
+  > Make sure the optimal operating systems are used for this workload.
 ## Networking &amp; Connectivity
     
 ### Connectivity
@@ -423,6 +476,20 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
   _Deploying to other environments and verifying changes before going into production can prevent bugs getting in front of end users._
   > It is recommended to have a staged deployment process which requires changes to have been validated in test environments first before they can hit production.
+* Is the application deployed to multiple environments with different configurations?
+
+
+  _Understand the scope of the solution and distinguish between SKUs used in production and non-production environments. To drive down cost, it might be possible to for example consolidate environments for applications that are not as critical to the business and don't need the same testing._
+    - What is the ratio of cost of production and non-production environments for this workload?
+
+
+      _When the customer is spending more money on testing than production, it usually means they have too many non-production environments. Consider ratio of non-production to production environments and if ratio is substantially higher you should consider merging testing environments or re-visit why the cost is so much higher._
+
+    - How many production vs. non-production environments do you have?
+
+
+      _Provisioning non-production environments (like development, test, integration...) each on a separate infrastructure is not always necessary. E.g. using shared App Service Plans and consolidating Web Apps for development and testing environments can save costs._
+
 ### Testing &amp; Validation
             
 * Are Dev/Test offerings used correctly for the workload?
@@ -448,76 +515,6 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
 
   _Transparency and traceability when it comes to cost in order to ensure that any discrepancies are able to be followed back to the source and be dealt with accordingly._
-## Efficiency and Sizing
-    
-### Architecture
-            
-* Is the application deployed to multiple environments with different configurations?
-
-
-  _Understand the scope of the solution and distinguish between SKUs used in production and non-production environments. To drive down cost, it might be possible to for example consolidate environments for applications that are not as critical to the business and don't need the same testing._
-    - What is the ratio of cost of production and non-production environments for this workload?
-
-
-      _When the customer is spending more money on testing than production, it usually means they have too many non-production environments. Consider ratio of non-production to production environments and if ratio is substantially higher you should consider merging testing environments or re-visit why the cost is so much higher._
-
-    - How many production vs. non-production environments do you have?
-
-
-      _Provisioning non-production environments (like development, test, integration...) each on a separate infrastructure is not always necessary. E.g. using shared App Service Plans and consolidating Web Apps for development and testing environments can save costs._
-
-* Are cost-effective regions considered as part of the deployment selection?
-
-
-  _Is there a technical/legal reason for deploying in a particular region? If not, it might be worth looking at another region to decrease cost. Also depending on the workload and data processing model, choosing a cheaper region might make more financial sense._
-  > Choose appropriate region for workload deployment to optimize cost.
-* Is the price model of this workload clear? Do the consumers understand why they are paying the price per month?
-
-
-  _As part of driving a good behavior it's important that the consumer has understood why they are paying the price for a service and also that the cost is transparent and fair to the user of the service or else it can drive wrong behavior._
-* Is the distribution of the cost done in accordance with the usage of the service?
-
-
-  _In order to drive down cost it can be advised to incentivize the user of driving the use of a service that helps put less burden on the platform and via this drive down cost as it falls back on the user if a good behavior is followed in order to drive down the price._
-* Is the workload using the right operating system for its servers?
-
-
-  _Analyze the technology stack and identify which workloads are capable of running on Linux and which require Windows. Linux-based VMs and App Services are significantly cheaper, but require the app to run on supported stack (.NET Core, Node.js etc.)._
-  > Make sure the optimal operating systems are used for this workload.
-* Have you deployed a Hub and Spoke Design or Virtual WAN?
-
-
-  _Virtual WAN has costs that are different in hub and spoke design. The cost of the peering network or other service routing has to be included. If Private Link is deployed, peering is not billed - only private link._
-  > Consider whether to deploy Hub and Spoke or Virtual WAN for this workload.
-### SKUs
-            
-* Are the right sizes and SKUs used for workload services?
-
-
-  _The required performance and infrastructure utilization are key factors which define the 'size' of Azure resources to be used, but there can be hidden aspects that affect cost too. Watch for cost variations between different SKUs - for example App Service Plans S3 cost the same as P2v2, but have worse performance characteristics. Once the purchased SKUs have been identified, determine if they purchased resources have the capabilities of supporting anticipated load. For example, if you expect the load to require 30 instances of an App Service, yet you are currently leveraging a Standard App Service Plan SKU (maximum of 10 instances supported), then you will need to upgrade your App Service Plan in order to accommodate the anticipated load._
-  > Make sure the optimal service SKUs are used for this workload.
-### Tools
-            
-* Is Azure Advisor being used to optimize SKUs discovered in this workload?
-
-
-  _Azure Advisor helps to optimize and improve efficiency of the workload by identifying idle and underutilized resources. It analyzes your configurations and usage telemetry and consolidates it into personalized, actionable recommendations to help you optimise your resources._
-  > Use Azure Advisor to identify SKUs for optimization.
-    - Are the Advisor recommendations being reviewed weekly or bi-weekly for optimization?
-
-
-      _Your underutilised resources need to be reviewed often in order to be identified and dealt with accordingly, in addition to ensuring that your actionable recommendations are up-to-date and fully optimised. For example, Azure Advisor monitors your virtual machine (VM) usage for 7 days and then identifies low-utilization VMs._
-
-      > Review Azure Advisor recommendation periodically.
-* Is there a dashboard showing cost related KPIs for this workload which gives a transparent view of the current situation?
-
-
-  _Single pane of glass which can be shown during weekly ops meetings and instills accountability within everyone whilst also allowing you to understand where you are in terms of budget through every stage._
-* Are you using Azure Cost Management (ACM) to track spending in this workload?
-
-
-  _In order to track spending an ACM tool can help with understanding how much is spent, where and when. This helps to make better decisions about how and if cost can be reduced._
-  > Use ACM or other cost management tools to understand if savings are possible.
 ## Governance
     
 ### Financial Management &amp; Cost Models
