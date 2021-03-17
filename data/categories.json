@@ -97,16 +97,10 @@
         "title": "Capacity"
       },
       {
-        "title": "Usage Prediction"
-      },
-      {
         "title": "Service SKU"
       },
       {
-        "title": "Disaster Recovery"
-      },
-      {
-        "title": "Data"
+        "title": "Efficiency"
       }
     ]
   },
@@ -153,11 +147,8 @@
     ]
   },
   {
-    "title": "Scalability & Performance",
+    "title": "Application Performance Management",
     "subCategories": [
-      {
-        "title": "Application Performance"
-      },
       {
         "title": "Data Size/Growth"
       },
@@ -176,7 +167,13 @@
     "title": "Security & Compliance",
     "subCategories": [
       {
-        "title": "Identity and Access"
+        "title": "Separation of duties"
+      },
+      {
+        "title": "Control-plane RBAC"
+      },
+      {
+        "title": "Authentication and authorization"
       },
       {
         "title": "Security Center"
@@ -216,10 +213,10 @@
     "title": "Deployment & Testing",
     "subCategories": [
       {
-        "title": "Application Deployments"
+        "title": "Application Code Deployments"
       },
       {
-        "title": "Application Infrastructure Deployments"
+        "title": "Application Infrastructure Provisioning"
       },
       {
         "title": "Build Environments"
@@ -240,6 +237,40 @@
       },
       {
         "title": "Common Engineering Criteria"
+      }
+    ]
+  },
+  {
+    "title": "Performance Testing",
+    "subCategories": [
+      {
+        "title": "Tools & Planning"
+      },
+      {
+        "title": "Benchmarking"
+      },
+      {
+        "title": "Load Capacity"
+      },
+      {
+        "title": "Data"
+      },
+      {
+        "title": "Troubleshooting"
+      }
+    ]
+  },
+  {
+    "title": "Governance",
+    "subCategories": [
+      {
+        "title": "Financial Management & Cost Models"
+      },
+      {
+        "title": "Culture & Dynamics"
+      },
+      {
+        "title": "Licensing"
       }
     ]
   },
@@ -295,7 +326,7 @@
         "title": "Storage Accounts"
       },
       {
-          "title": "Disks"
+        "title": "Disks"
       }
     ]
   },
@@ -359,73 +390,10 @@
         "title": "Traffic Manager"
       },
       {
-          "title": "API Management"
+        "title": "API Management"
       },
       {
-          "title": "IP Addresses"
-      }
-    ]
-  },
-  {
-    "title": "Identity & Access Control",
-    "subCategories": [
-      {
-        "title": "Separation of duties"
-      },
-      {
-        "title": "Control-plane RBAC"
-      },
-      {
-        "title": "Authentication and authorization"
-      }
-    ]
-  },
-  {
-    "title": "Performance Testing",
-    "subCategories": [
-      {
-        "title": "Resource Planning"
-      },
-      {
-        "title": "Tooling"
-      },
-      {
-        "title": "Test Coverage"
-      },
-      {
-        "title": "Benchmarking"
-      },
-      {
-        "title": "Performance Planning"
-      },
-      {
-        "title": "Service SKU"
-      },
-      {
-        "title": "Load Capacity"
-      },
-      {
-        "title": "Design Efficiency"
-      },
-      {
-        "title": "DevOps"
-      },
-      {
-        "title": "Data"
-      }
-    ]
-  },
-  {
-    "title": "Troubleshooting",
-    "subCategories": [
-      {
-        "title": "Data"
-      },
-      {
-        "title": "Process"
-      },
-      {
-        "title": "Network"
+        "title": "IP Addresses"
       }
     ]
   },
@@ -439,33 +407,5 @@
         "title": "Platform support"
       }
     ]
-  },
-  {
-      "title": "Efficiency and Sizing",
-      "subCategories": [
-        {
-          "title": "Architecture"
-        },
-        {
-          "title": "SKUs"
-        },
-        {
-          "title": "Tools"
-        }
-      ]
-  },
-  {
-      "title": "Governance",
-      "subCategories": [
-          {
-              "title": "Financial Management & Cost Models"
-          },
-          {
-              "title": "Culture & Dynamics"
-          },
-          {
-              "title": "Licensing"
-          }
-      ]
   }
 ]

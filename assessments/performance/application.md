@@ -4,6 +4,7 @@
 - [Application Assessment Checklist](#Application-Assessment-Checklist)
   - [Application Design](#Application-Design)
     - [Design](#Design)
+    - [Targets &amp; Non Functional Requirements](#Targets--Non-Functional-Requirements)
     - [Design Patterns](#Design-Patterns)
     - [Transactional](#Transactional)
   - [Health Modelling &amp; Monitoring](#Health-Modelling--Monitoring)
@@ -15,30 +16,26 @@
     - [Monitoring and Measurement](#Monitoring-and-Measurement)
     - [Modelling](#Modelling)
   - [Capacity &amp; Service Availability Planning](#Capacity--Service-Availability-Planning)
-    - [Usage Prediction](#Usage-Prediction)
+    - [Capacity](#Capacity)
     - [Service SKU](#Service-SKU)
-  - [Application Platform Availability](#Application-Platform-Availability)
-    - [Compute Availability](#Compute-Availability)
-  - [Scalability &amp; Performance](#Scalability--Performance)
-    - [Application Performance](#Application-Performance)
+    - [Efficiency](#Efficiency)
+  - [Networking &amp; Connectivity](#Networking--Connectivity)
+    - [Endpoints](#Endpoints)
+  - [Application Performance Management](#Application-Performance-Management)
     - [Data Size/Growth](#Data-SizeGrowth)
+    - [Data Latency and Throughput](#Data-Latency-and-Throughput)
+    - [Network Throughput and Latency](#Network-Throughput-and-Latency)
+    - [Elasticity](#Elasticity)
+  - [Operational Procedures](#Operational-Procedures)
+    - [Scalability &amp; Capacity Model](#Scalability--Capacity-Model)
   - [Deployment &amp; Testing](#Deployment--Testing)
     - [Testing &amp; Validation](#Testing--Validation)
   - [Performance Testing](#Performance-Testing)
-    - [Resource Planning](#Resource-Planning)
-    - [Tooling](#Tooling)
-    - [Test Coverage](#Test-Coverage)
+    - [Tools &amp; Planning](#Tools--Planning)
     - [Benchmarking](#Benchmarking)
-    - [Performance Planning](#Performance-Planning)
-    - [Service SKU](#Service-SKU)
     - [Load Capacity](#Load-Capacity)
-    - [Design Efficiency](#Design-Efficiency)
-    - [DevOps](#DevOps)
     - [Data](#Data)
-  - [Troubleshooting](#Troubleshooting)
-    - [Data](#Data)
-    - [Process](#Process)
-    - [Network](#Network)
+    - [Troubleshooting](#Troubleshooting)
 
 
 
@@ -51,11 +48,31 @@
 
 
   _Multiple regions should be used for failover purposes in a disaster state, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active strategies. Additional cost needs to be taken into consideration - mostly from compute, data and networking perspective, but also services like Azure Site Recovery (ASR). ([Failover strategies](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones))_
+    - Were regions chosen based on location and proximity to your users or based on resource types that were available?
+
+
+      _Not only is it important to utilize regions close to your audience, but it is equally important to choose regions that offer the SKUs that will support your future growth. Not all regions share the same parity when it comes to product SKUs. Plan your growth, then choose regions that will support those plans._
+
+    - Are paired regions used?
+
+
+      _Paired regions exist within the same geography and provide native replication features for recovery purposes, such as Geo-Redundant Storage (GRS) asynchronous replication. In the event of planned maintenance, updates to a region will be performed sequentially only ([Business continuity with Azure Paired Regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions))_
+
+    - Have you ensured that both (all) regions in use have the same performance and scale SKUs that are currently leveraged in the primary region?
+
+
+      _When planning for scale and efficiency, it is important that regions are not only paired, but homogenous in their service offerings. Additionally, you should make sure that, if one region fails, the second region can scale appropriately to sufficiently handle the influx of additional user requests._
+
 * Within a region is the application architecture designed to use Availability Zones?
 
 
   _[Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones) can be used to optimise application availability within a region by providing datacenter level fault tolerance. However, the application architecture must not share dependencies between zones to use them effectively. It is also important to note that Availability Zones may introduce performance and cost considerations for applications which are extremely 'chatty' across zones given the implied physical separation between each zone and inter-zone bandwidth charges. That also means that AZ can be considered to get higher SLA for lower cost. Be aware of [pricing changes](https://azure.microsoft.com/pricing/details/bandwidth/) coming to Availability Zone bandwidth starting February 2021._
   > Use Availability Zones where applicable to improve reliability and optimize costs.
+* Is the application implemented with strategies for resiliency and self-healing?
+
+
+  _Strategies for resiliency and self-healing include retrying transient failures and failing over to a secondary instance or even another region (see [Designing resilient Azure applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design))_
+  > Consider implementing strategies and capabilities for resiliency and self-healing needed to achieve workload availability targets. Programming paradigms such as retry patterns, request timeouts, and circuit breaker patterns can improve application resiliency by automatically recovering from transient faults ([Error handling for resilient applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design-error-handling))
 * Is component proximity required for application performance reasons?
 
 
@@ -70,15 +87,46 @@
 
   _Azure provides elastic scalability, however, applications must leverage a scale-unit approach to navigate service and subscription limits to ensure that individual components and the application as a whole can scale horizontally. Don't forget about scale in as well, as this is important to drive cost down. For example, scale in and out for App Service is done via rules. Often customers write scale out rule and never write scale in rule, this leaves the App Service more expensive._
   > [Design to scale out](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out).
-* Has a Business Continuity Disaster Recovery (BCDR) strategy been defined for the application and/or its key scenarios?
+### Targets &amp; Non Functional Requirements
+            
+* Are you able to predict general application usage?
 
 
-  _A disaster recovery strategy should capture how the application responds to a disaster situation such as a regional outage or the loss of a critical platform service, using either a re-deployment, warm-spare active-passive, or hot-spare active-active approach. To drive cost down consider splitting application components and data into groups. For example: 1) must protect, 2) nice to protect, 3) ephemeral/can be rebuilt/lost, instead of protecting all data with the same policy._
-    - If you have a disaster recovery plan in another region, have you ensured you have the needed capacity quotas allocated?
+  _It is important to understand application and environment usage. The customer may have an understanding of certain seasons or incidents that increase user load (e.g. a weather service being hit by users facing a storm, an e-commerce site during the holiday season)._
+  > Traffic patterns should be identified by analyzing historical traffic data and the effect of significant external events on the application.
+    - If typical usage is predictable, are your predictions based on time of day, day of week, or season (e.g. holiday shopping season)?
 
 
-      _Quotas and limits typically apply at the region level and, therefore, the needed capacity should also be planned for the secondary region._
+      _Dig deeper and document predictable periods. By doing so, you can leverage resources like Azure Automation and Autoscale to proactively scale the application and its underlying environment._
 
+    - Do you understand why your application responds to its typical load in the ways that it does?
+
+
+      _Identifying a typical load helps you determine realistic expectations for performance testing. A "typical load" can be measured in individual users, web requests, user sessions, or transactions. When documenting typical loads, also ensure that all predictable periods have typical loads documented._
+
+* Are there well defined performance requirements for the application and/or key scenarios?
+
+
+  _Non-functional performance requirements, such as those relating to end-user experiences (e.g. average and maximum response times) are vital to assessing the overall health of an application, and is a critical lens required for assessing operations_
+  > Work with stakeholders to identify sensible non-functional requirements based on business requirements, research and user testing.
+    - Are there any targets defined for the time it takes to perform scale operations?
+
+
+      _Scale operations (horizontal - changing the number of identical instances, vertical - switching to more/less powerful instances) can be fast, but usually take time to complete. It's important to understand how this delay affects the application under load and if degraded performance is acceptable._
+
+      > The application should be designed to scale to cope with spikes in load in-line with what is an acceptable duration for degraded performance.
+    - What is the maximum traffic volume the application is expected to serve without performance degradation?
+
+
+      _Scale requirements the application must be able to effectively satisfy, such as the number of concurrent users or requests per second, is a critical lens for assessing operations. From the cost perspective, it's recommended to set a budget for extreme circumstances and indicate upper limit for cost (when it's not worth serving more traffic due to overall costs)._
+
+      > Traffic limits for the application should be defined in quantified and measurable manner.
+    - Are these performance targets monitored and measured across the application and/or key scenarios?
+
+
+      _Monitoring and measuring end-to-end application performance is vital to qualifying overall application health and progress towards defined targets._
+
+      > Automation and specialized tooling (such as Application Insights) should be used to orchestrate and measure application performance.
 ### Design Patterns
             
 * Was your application architected based on prescribed architecture from the Azure Architecture Center or a Cloud Design Pattern?
@@ -251,7 +299,7 @@
   _Analytics can and should be performed across long-term operational data to help inform on the history of application performance and detect if there have been any regressions. For instance, if the average response times have been slowly increasing over time and getting closer to maximum target._
 ## Capacity &amp; Service Availability Planning
     
-### Usage Prediction
+### Capacity
             
 * Will your application be exposed to yearly or monthly heavy, peak loads?
 
@@ -275,37 +323,32 @@
 
 
   _Limitless scale requires dedicated design and one of the important design considerations is the limits and quotas of Azure subscriptions. Some services are almost limitless, others require more planning. Some services have 'soft' limits that can be increased by contacting support._
-## Application Platform Availability
-    
-### Compute Availability
+### Efficiency
             
-* Is the application platform deployed across multiple regions?
+* Are the right sizes and SKUs used for workload services?
 
 
-  _The ability to respond to disaster scenarios for overall compute platform availability and application resiliency is dependant on the use of multiple regions or other deployment locations. Multi-region deployment is also ideal for performance improvements as your application scales. Additionally, user requests can be directed to their closest region which reduces latency between the user and your service._
-    - Were regions chosen based on location and proximity to your users or based on resource types that were available?
-
-
-      _Not only is it important to utilize regions close to your audience, but it is equally important to choose regions that offer the SKUs that will support your future growth. Not all regions share the same parity when it comes to product SKUs. Plan your growth, then choose regions that will support those plans._
-
-    - Are paired regions used?
-
-
-      _Paired regions exist within the same geography and provide native replication features for recovery purposes, such as Geo-Redundant Storage (GRS) asynchronous replication. In the event of planned maintenance, updates to a region will be performed sequentially only ([Business continuity with Azure Paired Regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions))_
-
-    - Have you ensured that both (all) regions in use have the same performance and scale SKUs that are currently leveraged in the primary region?
-
-
-      _When planning for scale and efficiency, it is important that regions are not only paired, but homogenous in their service offerings. Additionally, you should make sure that, if one region fails, the second region can scale appropriately to sufficiently handle the influx of additional user requests._
-
-## Scalability &amp; Performance
+  _The required performance and infrastructure utilization are key factors which define the 'size' of Azure resources to be used, but there can be hidden aspects that affect cost too. Watch for cost variations between different SKUs - for example App Service Plans S3 cost the same as P2v2, but have worse performance characteristics. Once the purchased SKUs have been identified, determine if they purchased resources have the capabilities of supporting anticipated load. For example, if you expect the load to require 30 instances of an App Service, yet you are currently leveraging a Standard App Service Plan SKU (maximum of 10 instances supported), then you will need to upgrade your App Service Plan in order to accommodate the anticipated load._
+  > Make sure the optimal service SKUs are used for this workload.
+## Networking &amp; Connectivity
     
-### Application Performance
+### Endpoints
             
-* Does the application logic handle exceptions and errors using resiliency patterns?
+* Are you using any Content Delivery Networks (CDN)?
 
 
-  _Programming paradigms such as retry patterns, request timeouts, and circuit breaker patterns can improve application resiliency by automatically recovering from transient faults ([Error handling for resilient applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design-error-handling))_
+  _CDNs store static files in locations that are typically geographically closer to the user than the data center. This increases overall application performance as latency for delivery and downloading these artifacts is reduced. Also, from a security point of view, CDNs can be used to separate the hosting platform from end users. Azure CDN contains a rule engine to remove platform-specific information and headers. The use of Azure CDN or 3rd party CDN will have different cost implications depending on what is chosen for the workload._
+  > Use CDN to speed up delivery performance to users and to separate the hosting platform from the end users / clients.
+* Are you using SSL offloading?
+
+
+  _SSL offloading places the SSL certificate at an appliance that sits in front of the web server, instead of on the web server itself. This is beneficial for two reasons. First, the verification of the SSL certificate is conducted by the appliance instead of the web server, which reduces the taxation on the server. Second, SSL offloading increases operational efficiency as it can often eliminate the need to manage certificates across microservices._
+* Are you using authentication/token verification offloading?
+
+
+  _Like SSL offloading, authentication/token verification offloading on an appliance can reduce taxation on the server. Additionally, authentication verification offloading can greatly reduce development complication as developers no longer need to worry with the complications of SAML or OAuth tokens and, instead, can focus specifically on the business logic._
+## Application Performance Management
+    
 ### Data Size/Growth
             
 * Do you know the growth rate of your data?
@@ -316,6 +359,64 @@
 
 
   _Scale limits and recovery options should be assessed in the context of target data sizes and growth rates to ensure suitable capacity exists_
+### Data Latency and Throughput
+            
+* Are latency targets defined, tested, and validated for key scenarios?
+
+
+  _Latency targets, which are commonly defined as first byte in to last byte out, should be defined and measured for key application scenarios, as well as each individual component, to validate overall application performance and health_
+* Are throughput targets defined, tested, and validated for key scenarios?
+
+
+  _Throughput targets, which are commonly defined in terms of IOPS, MB/s and Block Size, should be defined and measured for key application scenarios, as well as each individual component, to validate overall application performance and health. Available throughput typically varies based on SKU, so defined targets should be used to inform the use of appropriate SKUs_
+* Are you using database replicas and data partitioning?
+
+
+  _Database replicas and data partitioning can improve application performance by providing multiple copies of the data and/or reducing the taxation of database operations. Both mechanisms involve conversations and planning between developers and database administrators._
+### Network Throughput and Latency
+            
+* Are there any components/scenarios that are very sensitive to network latency?
+
+
+  _Components or scenarios that are sensitive to network latency may indicate a need for co-locality within a single Availability Zone or even closer using Proximity Placement Groups with Accelerated Networking enabled ([Proximity Placement Groups](https://docs.microsoft.com/azure/virtual-machines/windows/co-location#proximity-placement-groups))_
+* Does the application require dedicated bandwidth?
+
+
+  _Applications with stringent throughput requirements may require dedicated bandwidth to remove the risks associated with noisy neighbor scenarios_
+### Elasticity
+            
+* Can the application scale horizontally in response to changing load?
+
+
+  _A scale-unit approach should be taken to ensure that each application component and the application as a whole can scale effectively in response to changing demand. A robust capacity model should be used to define when and how the application should scale_
+* Is autoscaling enabled and integrated within Azure Monitor?
+
+
+  _Autoscaling can be leveraged to address unanticipated peak loads to help prevent application outages caused by overloading_
+    - Has autoscaling been tested under sustained load?
+
+
+      _The scaling on any single component may have an impact on downstream application components and dependencies. Autoscaling should therefore be tested regularly to help inform and validate a capacity model describing when and how application components should scale_
+
+* Has the time to scale in/out been measured?
+
+
+  _Time to scale-in and scale-out can vary between Azure services and instance sizes and should be assessed to determine if a certain amount of pre-scaling is required to handle scale requirements and expected traffic patterns, such as seasonal load variations_
+## Operational Procedures
+    
+### Scalability &amp; Capacity Model
+            
+* Is the required capacity (initial and future growth) within Azure service scale limits and quotas?
+
+
+  _Due to physical and logical resource constraints within the platform, Azure must apply [limits and quotas](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) to service scalability, which may be either hard or soft._
+  > The application should take a scale-unit approach to navigate within service limits, and where necessary consider multiple subscriptions which are often the boundary for such limits. It is highly recommended that a structured approach to scale be designed up-front rather than resorting to a 'spill and fill' model.
+    - Is the required capacity (initial and future growth) available within targeted regions?
+
+
+      _While the promise of the cloud is infinite scale, the reality is that there are finite resources available and as a result situations can occur where capacity can be constrained due to overall demand._
+
+      > If the application requires a large amount of capacity or expects a significant increase in capacity then effort should be invested to ensure that desired capacity is attainable within selected region(s). For applications leveraging a recovery or active-passive based disaster recovery strategy, consideration should also be given to ensure suitable capacity exists in the secondary region(s) since a regional outage can lead to a significant increase in demand within a paired region due to other customer workloads also failing over. To help mitigate this, consideration should be given to pre-provisioning resources within the secondary region. ([Azure Capacity](https://aka.ms/AzureCapacity))
 ## Deployment &amp; Testing
     
 ### Testing &amp; Validation
@@ -346,14 +447,12 @@
 
 ## Performance Testing
     
-### Resource Planning
+### Tools &amp; Planning
             
 * Have you identified the required human and environment resources needed to create performance tests?
 
 
   _Successfully implementing meaningful performance tests requires a number of resources. If is not just a single developer or QA Analyst running some tests on their local machine. Instead, performance tests need a test environment (also known as a test bed) that tests can be executed against without interfering with production environments and data. Performance testing requires input and commitment from developers, architects, database administrators, and network administrators. In short, solid performance testing is a team responsibility.<br />Additionally, to run scaled tests, a machine with enough resources (e.g. memory, processors, network connections, etc.) needs to be made available. While this machine can be located within a data center or on-premises, it is often advantageous to perform performance testing from instances located from multiple geographies. This better simulates what an end-user can expect._
-### Tooling
-            
 * Are you currently using tools for conducting performance testing?
 
 
@@ -372,12 +471,10 @@
 
 
 
-### Test Coverage
-            
-* How much of the application is involved in serving an immediate, single request?
+* Have you identified all services being utilized in Azure (and on-prem) that need to be measured?
 
 
-  _When understanding load and demands on the application, it is necessary to understand how the application is architected--whether monolithic, n-Tier, or microservice-based--and then understand how load is distributed across the application. This is crucial for focusing on the testing of individual components and identifying bottlenecks._
+  _Your assessment may already be complete, but it helps to identify some currently utilized systems to being measuring load capacity. Once these environments have been identified, created benchmarks should include these systems._
 ### Benchmarking
             
 * Have you identified goals or baselines for application performance?
@@ -453,67 +550,20 @@
 
 
 
-### Performance Planning
+* How do you know when you have reached acceptable efficiency?
+
+
+  _There is almost no limit to how much an application can be performance-tuned. How do you know when you have tuned an application enough? It really comes down to the 80/20 rule--generally, 80% of the application can be optimized by focusing on just 20%. While you can continue optimizing certain elements of the application, after optimizing the initial 20%, a company typically sees a diminishing return on any further optimization. The question the customer must answer is how much of the remaining 80% of the application is worth optimizing for the business. In other words, how much will optimizing the remaining 80% help the business reach its goals (e.g. customer acquisition/retention, sales, etc.)? The business must determine their own realistic definition of "acceptable."_
+### Load Capacity
             
-* Are you able to predict general application usage?
+* How much of the application is involved in serving an immediate, single request?
 
 
-  _It is important to understand application and environment usage. The customer may have an understanding of certain seasons or incidents that increase user load (e.g. a weather service being hit by users facing a storm, an e-commerce site during the holiday season)._
-    - If typical usage is predictable, are your predictions based on time of day, day of week, or season (e.g. holiday shopping season)?
-
-
-      _Dig deeper and document predictable periods. By doing so, you can leverage resources like Azure Automation and Autoscale to proactively scale the application and its underlying environment._
-
-    - Do you understand why your application responds to its typical load in the ways that it does?
-
-
-      _Identifying a typical load helps you determine realistic expectations for performance testing. A "typical load" can be measured in individual users, web requests, user sessions, or transactions. When documenting typical loads, also ensure that all predictable periods have typical loads documented._
-
-### Service SKU
-            
-* Have you identified all services being utilized in Azure (and on-prem) that need to be measured?
-
-
-  _Your assessment may already be complete, but it helps to identify some currently utilized systems to being measuring load capacity. Once these environments have been identified, created benchmarks should include these systems._
+  _When understanding load and demands on the application, it is necessary to understand how the application is architected--whether monolithic, n-Tier, or microservice-based--and then understand how load is distributed across the application. This is crucial for focusing on the testing of individual components and identifying bottlenecks._
 * Are you confident that the correct SKUs and configurations have been applied to the services in order to support your anticipated loads?
 
 
-  _Understand which SKUs you have purchased and ensure that they are the correct size. Additionally, ensure you understand the configuration of those SKUs (e.g. auto-scale settings for Application Gateways and App Services)._
-* Based on the previous the previous group of questions (expected application and environment usage), do the purchased SKUs and the current configuration support expected usage?
-
-
-  _Once the purchased SKUs have been identified, determine if they purchased resources have the capabilities of supporting anticipated load. For example, if you expect the load to require 30 instances of an App Service, yet you are currently leveraging a Standard App Service Plan SKU (maximum of 10 instances supported), then you will need to upgrade your App Service Plan in order to accommodate the anticipated load._
-* For disaster recovery and failover, should a region become inoperable, does the paired region support the same SKU levels and configurations as the primary region?
-
-
-  _If your paired region does not support the same SKU levels, then either an alternative pair of regions need to be chosen of the application needs to be re-architected for the necessary load. This ensures that if a single region should fail, the operating region is capable of supporting the anticipated, combined load._
-* Should a region fail, have you tested the amount of time it would take for users to fail over to the paired region?
-
-
-  _You should be fully aware of how long it would take for your customers to be re-routed from a failed region. Typically, a planned, test failover can help determine how long would be required to fully scale to support the redirected load. Based on the recovery time (e.g. time required to scale), you can adequately plan for unforeseen outages._
-    - Should a region fail, can the paired region handle the additional load?
-
-
-      _Proper Disaster Recovery planning ensures that the end-user experiences very little, if any, degradation in service. This includes you planning for a percentage of maximum utilization in each region in the case that a single region fails and all load is placed on the remaining available region(s). This means that you should architect a solution that has enough margin to handle some immediate redirection of requests while providing enough runway to scale efficiently._
-
-    - Should a region fail, how long would it take for the secondary region to scale in order to handle the additional load?
-
-
-
-* Have you correctly configured the environment to scale back in for the purpose of saving costs when load is under certain performance thresholds?
-
-
-  _Ensure that a rule has been configured to scale the environment back down once load settles below set thresholds. This will ensure that you are not over provisioning and unnecessarily increasing operational costs._
-### Load Capacity
-            
-* Considering the three types of testing--performance, load, and stress--which have you performed on your application?
-
-
-  _In general, the concept of "performance testing" includes three smaller, definitive categories--performance testing, load testing, and stress testing. Most customers, however, equate load testing to performance testing. It is important to understand the differences and being able to articulate them._
-* Have you completed a stress test on the application?
-
-
-  _A stress test determines the maximum number of users an application can handle at a given time before the application begins to deteriorate. It is important to determine the maximum to understand what kind of load the current environment can adequately support without buckling._
+  _Understand which SKUs you have selected and ensure that they are the correct size. Additionally, ensure you understand the configuration of those SKUs (e.g. auto-scale settings for Application Gateways and App Services)._
 * Have you determined an acceptable operational margin between your peak utilization and the applications maximum load?
 
 
@@ -538,34 +588,6 @@
 
       _Determine if the environment is rightly configured to scale in order to handle increased loads. (e.g. Does the environment scale effectively at certain times of day or at specific performance counters?) If you have identified specific times in which load increases (e.g. holidays, marketing drives, etc.), then the environment can be configured to proactively scale prior to the actual increase in load._
 
-### Design Efficiency
-            
-* Are you using any CDNs?
-
-
-  _CDNs store static files in locations that are typically geographically closer to the user than the data center. This increases overall application performance as latency for delivery and downloading these artifacts is reduced._
-* Are you using SSL offloading?
-
-
-  _SSL offloading places the SSL certificate at an appliance that sits in front of the web server, instead of on the web server itself. This is beneficial for two reasons. First, the verification of the SSL certificate is conducted by the appliance instead of the web server, which reduces the taxation on the server. Second, SSL offloading increases operational efficiency as it can often eliminate the need to manage certificates across microservices._
-* Are you using authentication/token verification offloading?
-
-
-  _Like SSL offloading, authentication/token verification offloading on an appliance can reduce taxation on the server. Additionally, authentication verification offloading can greatly reduce development complication as developers no longer need to worry with the complications of SAML or OAuth tokens and, instead, can focus specifically on the business logic._
-* Are you using database replicas and data partitioning?
-
-
-  _Database replicas and data partitioning can improve application performance by providing multiple copies of the data and/or reducing the taxation of database operations. Both mechanisms involve conversations and planning between developers and database administrators._
-* How do you know when you have reached acceptable efficiency?
-
-
-  _There is almost no limit to how much an application can be performance-tuned. How do you know when you have tuned an application enough? It really comes down to the 80/20 rule--generally, 80% of the application can be optimized by focusing on just 20%. While you can continue optimizing certain elements of the application, after optimizing the initial 20%, a company typically sees a diminishing return on any further optimization. The question the customer must answer is how much of the remaining 80% of the application is worth optimizing for the business. In other words, how much will optimizing the remaining 80% help the business reach its goals (e.g. customer acquisition/retention, sales, etc.)? The business must determine their own realistic definition of "acceptable."_
-### DevOps
-            
-* Do you have performance validation stages in your deploy and build pipelines?
-
-
-  _Do you have performance testing integrated with your CI/CD pipelines? Testing in your pipelines can ensure that performance regressions and adverse affects of new development can be caught as early as possible._
 ### Data
             
 * Has caching and queuing been considered to handle varying load?
@@ -588,16 +610,12 @@
       _Available data caching technologies are for example:<br />- Azure Redis Cache<br />- IIS Caching Server<br />- SQL Caching Server<br />- Disk<br />- Other solution_
 
       > Azure Cache for Redis is a preferred solution for data caching as it improves performance by storing data in memory instead of on disk like SQL Server. Certain development frameworks like .NET also have mechanisms for caching data at the server level.
-## Troubleshooting
-    
-### Data
+### Troubleshooting
             
 * Does the application spend a lot of time in the database?
 
 
   _Applications that spend a lot of execution time in the database layers can benefit from a database tuning analysis. This analysis will only focus on the data tier components and may require special resources such as DBA's to tune queries, indexes, execution plans, and more._
-### Process
-            
 * Does the application have high CPU or memory utilization?
 
 
@@ -626,8 +644,6 @@
 
 
   _Application profiling will involve tooling like Visual Studio Performance Profile, AQTime, dotTrace, and others. These tools will give you in-depth analysis of individual code paths._
-### Network
-            
 * Do you profile the network with any traffic capturing tools?
 
 

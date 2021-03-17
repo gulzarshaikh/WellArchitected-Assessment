@@ -18,11 +18,11 @@
     - [Data Interpretation &amp; Health Modelling](#Data-Interpretation--Health-Modelling)
     - [Dashboarding](#Dashboarding)
     - [Alerting](#Alerting)
-  - [Scalability &amp; Performance](#Scalability--Performance)
+    - [Monitoring and Measurement](#Monitoring-and-Measurement)
+  - [Application Performance Management](#Application-Performance-Management)
     - [Data Size/Growth](#Data-SizeGrowth)
-  - [Security &amp; Compliance](#Security--Compliance)
-    - [Identity and Access](#Identity-and-Access)
-    - [Security Center](#Security-Center)
+    - [Data Latency and Throughput](#Data-Latency-and-Throughput)
+    - [Elasticity](#Elasticity)
   - [Operational Procedures](#Operational-Procedures)
     - [Recovery &amp; Failover](#Recovery--Failover)
     - [Scalability &amp; Capacity Model](#Scalability--Capacity-Model)
@@ -30,8 +30,8 @@
     - [Operational Lifecycles](#Operational-Lifecycles)
     - [Patch &amp; Update Process (PNU)](#Patch--Update-Process-PNU)
   - [Deployment &amp; Testing](#Deployment--Testing)
-    - [Application Deployments](#Application-Deployments)
-    - [Application Infrastructure Deployments](#Application-Infrastructure-Deployments)
+    - [Application Code Deployments](#Application-Code-Deployments)
+    - [Application Infrastructure Provisioning](#Application-Infrastructure-Provisioning)
     - [Build Environments](#Build-Environments)
     - [Testing &amp; Validation](#Testing--Validation)
   - [Operational Model &amp; DevOps](#Operational-Model--DevOps)
@@ -92,6 +92,11 @@ These critical design principles are used as lenses to assess the Operational Ex
     
 ### Design
             
+* Was the application built natively for the cloud or was an existing on-premises system migrated?
+
+
+  _Understanding if the application is cloud-native or not provides a very useful high level indication about potential technical debt for operability and cost efficiency._
+  > While cloud-native workloads are preferred, migrated or modernized applications are reality and they might not utilize the available cloud functionality like auto-scaling, platform notifications etc. Make sure to understand the limitations and implement workarounds if available.
 * Are there any regulatory or governance requirements for this workload?
 
 
@@ -102,16 +107,35 @@ These critical design principles are used as lenses to assess the Operational Ex
 
   _Hybrid and cross-cloud workloads with components on-premises or on different cloud platforms, such as AWS or GCP, introduce additional operational considerations around achieving a 'single pane of glass' for operations_
   > Make sure that any hybrid or cross cloud relationships and dependencies are well understood.
+* Is the workload deployed across multiple regions?
+
+
+  _Multiple regions should be used for failover purposes in a disaster state, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active strategies. Additional cost needs to be taken into consideration - mostly from compute, data and networking perspective, but also services like Azure Site Recovery (ASR). ([Failover strategies](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones))_
+    - Were regions chosen based on location and proximity to your users or based on resource types that were available?
+
+
+      _Not only is it important to utilize regions close to your audience, but it is equally important to choose regions that offer the SKUs that will support your future growth. Not all regions share the same parity when it comes to product SKUs. Plan your growth, then choose regions that will support those plans._
+
+    - Are paired regions used?
+
+
+      _Paired regions exist within the same geography and provide native replication features for recovery purposes, such as Geo-Redundant Storage (GRS) asynchronous replication. In the event of planned maintenance, updates to a region will be performed sequentially only ([Business continuity with Azure Paired Regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions))_
+
+    - Have you ensured that both (all) regions in use have the same performance and scale SKUs that are currently leveraged in the primary region?
+
+
+      _When planning for scale and efficiency, it is important that regions are not only paired, but homogenous in their service offerings. Additionally, you should make sure that, if one region fails, the second region can scale appropriately to sufficiently handle the influx of additional user requests._
+
+* Within a region is the application architecture designed to use Availability Zones?
+
+
+  _[Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones) can be used to optimise application availability within a region by providing datacenter level fault tolerance. However, the application architecture must not share dependencies between zones to use them effectively. It is also important to note that Availability Zones may introduce performance and cost considerations for applications which are extremely 'chatty' across zones given the implied physical separation between each zone and inter-zone bandwidth charges. That also means that AZ can be considered to get higher SLA for lower cost. Be aware of [pricing changes](https://azure.microsoft.com/pricing/details/bandwidth/) coming to Availability Zone bandwidth starting February 2021._
+  > Use Availability Zones where applicable to improve reliability and optimize costs.
 * Is the application implemented with strategies for resiliency and self-healing?
 
 
   _Strategies for resiliency and self-healing include retrying transient failures and failing over to a secondary instance or even another region (see [Designing resilient Azure applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design))_
-  > Consider implementing strategies and capabilities for resiliency and self-healing needed to achieve workload availability targets.
-* Was the application built natively for the cloud or was an existing on-premises system migrated?
-
-
-  _Understanding if the application is cloud-native or not provides a very useful high level indication about potential technical debt for operability and cost efficiency._
-  > While cloud-native workloads are preferred, migrated or modernized applications are reality and they might not utilize the available cloud functionality like auto-scaling, platform notifications etc. Make sure to understand the limitations and implement workarounds if available.
+  > Consider implementing strategies and capabilities for resiliency and self-healing needed to achieve workload availability targets. Programming paradigms such as retry patterns, request timeouts, and circuit breaker patterns can improve application resiliency by automatically recovering from transient faults ([Error handling for resilient applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design-error-handling))
 * Are Azure Tags used to enrich Azure resources with operational metadata?
 
 
@@ -122,15 +146,6 @@ These critical design principles are used as lenses to assess the Operational Ex
 
   _A well-defined naming convention is important for overall operations to be able to easily determine the usage of certain resources and help understand owners and cost centers responsible for the workload. Naming conventions allow the matching of resource costs to particular workloads._
   > Having a well-defined naming convention is important for overall operations, particularly for large application platforms where there are numerous resources([Naming Conventions](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging))
-* Is the workload deployed across multiple regions?
-
-
-  _Multiple regions should be used for failover purposes in a disaster state, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active strategies. Additional cost needs to be taken into consideration - mostly from compute, data and networking perspective, but also services like Azure Site Recovery (ASR). ([Failover strategies](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones))_
-* Within a region is the application architecture designed to use Availability Zones?
-
-
-  _[Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones) can be used to optimise application availability within a region by providing datacenter level fault tolerance. However, the application architecture must not share dependencies between zones to use them effectively. It is also important to note that Availability Zones may introduce performance and cost considerations for applications which are extremely 'chatty' across zones given the implied physical separation between each zone and inter-zone bandwidth charges. That also means that AZ can be considered to get higher SLA for lower cost. Be aware of [pricing changes](https://azure.microsoft.com/pricing/details/bandwidth/) coming to Availability Zone bandwidth starting February 2021._
-  > Use Availability Zones where applicable to improve reliability and optimize costs.
 * Is the application designed to use managed services?
 
 
@@ -196,17 +211,26 @@ These critical design principles are used as lenses to assess the Operational Ex
 
   _Understanding customer reliability expectations is vital to reviewing the overall reliability of the application. For instance, if a customer is striving to achieve an application RTO of less than a minute then back-up based and active-passive disaster recovery strategies are unlikely to be appropriate<br />**Recovery time objective (RTO)**: The maximum acceptable time the application is unavailable after a disaster incident<br />**Recovery point objective (RPO)**: The maximum duration of data loss that is acceptable during a disaster event_
   > Recovery targets should be defined in accordance to the required RTO and RPO targets for the workloads.
+* Are you able to predict general application usage?
+
+
+  _It is important to understand application and environment usage. The customer may have an understanding of certain seasons or incidents that increase user load (e.g. a weather service being hit by users facing a storm, an e-commerce site during the holiday season)._
+  > Traffic patterns should be identified by analyzing historical traffic data and the effect of significant external events on the application.
+    - If typical usage is predictable, are your predictions based on time of day, day of week, or season (e.g. holiday shopping season)?
+
+
+      _Dig deeper and document predictable periods. By doing so, you can leverage resources like Azure Automation and Autoscale to proactively scale the application and its underlying environment._
+
+    - Do you understand why your application responds to its typical load in the ways that it does?
+
+
+      _Identifying a typical load helps you determine realistic expectations for performance testing. A "typical load" can be measured in individual users, web requests, user sessions, or transactions. When documenting typical loads, also ensure that all predictable periods have typical loads documented._
+
 * Are there well defined performance requirements for the application and/or key scenarios?
 
 
   _Non-functional performance requirements, such as those relating to end-user experiences (e.g. average and maximum response times) are vital to assessing the overall health of an application, and is a critical lens required for assessing operations_
   > Work with stakeholders to identify sensible non-functional requirements based on business requirements, research and user testing.
-    - Does the application have predictable traffic patterns? Or is load highly volatile?
-
-
-      _Understanding the expected application load and known spikes, such as Black Friday for retail applications, is important when assessing operational effectiveness._
-
-      > Traffic patterns should be identified by analyzing historical traffic data and the effect of significant external events on the application.
     - Are there any targets defined for the time it takes to perform scale operations?
 
 
@@ -483,7 +507,13 @@ These critical design principles are used as lenses to assess the Operational Ex
 
   _Subscription notification emails can contain important service notifications or security alerts. ([Azure account contact information](https://docs.microsoft.com/azure/cost-management-billing/manage/change-azure-account-profile#service-and-marketing-emails))._
   > Make sure that subscription notification emails are routed to the relevant technical stakeholders.
-## Scalability &amp; Performance
+### Monitoring and Measurement
+            
+* Do you have detailed instrumentation in the application code?
+
+
+  _Instrumentation of your code allows precise detection of underperforming pieces when load or stress tests are applied. It is critical to have this data available to improve and identify performance opportunities in the application code. Application Performance Monitoring (APM) tools, such as Application Insights, should be used to manage the performance and availability of the application, along with aggregating application level logs and events for subsequent interpretation._
+## Application Performance Management
     
 ### Data Size/Growth
             
@@ -500,24 +530,26 @@ These critical design principles are used as lenses to assess the Operational Ex
 
   _Mitigation plans such as purging or archiving data can help the application to remain available in scenarios where data size exceeds expected limits_
   > Make sure that data size and growth is monitored, proper alerts are configured and develop (automated and codified, if possible) mitigation plans to help the application to remain available - or to recover if needed.
-## Security &amp; Compliance
-    
-### Identity and Access
+### Data Latency and Throughput
             
-* Are Azure AD emergency access accounts and processes defined for recovering from identity failures?
+* Are latency targets defined, tested, and validated for key scenarios?
 
 
-  _The impact of no administrative access can be mitigated by creating two or more emergency access accounts ([Emergency Access accounts in Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access))_
-### Security Center
+  _Latency targets, which are commonly defined as first byte in to last byte out, should be defined and measured for key application scenarios, as well as each individual component, to validate overall application performance and health_
+* Are throughput targets defined, tested, and validated for key scenarios?
+
+
+  _Throughput targets, which are commonly defined in terms of IOPS, MB/s and Block Size, should be defined and measured for key application scenarios, as well as each individual component, to validate overall application performance and health. Available throughput typically varies based on SKU, so defined targets should be used to inform the use of appropriate SKUs_
+### Elasticity
             
-* Is Azure Security Center Standard tier enabled for all subscriptions and reporting to centralized workspaces? Also, is automatic provisioning enabled for all subscriptions? ([Security Center Data Collection](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection))
+* Is autoscaling enabled and integrated within Azure Monitor?
 
 
-* Is Azure Security Center's Secure Score being formally reviewed and improved on a regular basis? ([Security Center Secure Score](https://docs.microsoft.com/azure/security-center/secure-score-security-controls))
+  _Autoscaling can be leveraged to address unanticipated peak loads to help prevent application outages caused by overloading_
+    - Has autoscaling been tested under sustained load?
 
 
-* Are contact details set in security center to the appropriate email distribution list? ([Security Center Contact Details](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details))
-
+      _The scaling on any single component may have an impact on downstream application components and dependencies. Autoscaling should therefore be tested regularly to help inform and validate a capacity model describing when and how application components should scale_
 
 ## Operational Procedures
     
@@ -703,7 +735,7 @@ These critical design principles are used as lenses to assess the Operational Ex
   > Changing dependencies, such as new versions of packages, updated Docker images, should be factored into operational processes; the application team should be subscribed to release notes of dependent services, tools, and libraries
 ## Deployment &amp; Testing
     
-### Application Deployments
+### Application Code Deployments
             
 * What is the process to deploy application releases to production?
 
@@ -730,6 +762,11 @@ These critical design principles are used as lenses to assess the Operational Ex
       _Without detailed release process documentation, there is a much higher risk of an operator improperly configuring settings for the application_
 
       > Any manual steps that are required in the deployment pipeline must be clearly documented with roles and responsibilities well defined.
+* How long does it take to deploy an entire production environment?
+
+
+  _The time it takes for a full deployment needs to align with recovery targets._
+  > The entire end-to-end deployment process should be understood and align with recovery targets.
 * Can N-1 or N+1 versions be deployed via automated pipelines where N is current deployment version in production?
 
 
@@ -755,25 +792,24 @@ These critical design principles are used as lenses to assess the Operational Ex
       _While there are various valid ways, a clearly defined strategy should be in place and understood_
 
       > To optimize for collaboration and ensure developers spend less time managing version control and more time developing code, a clear and simple branching strategy should be used, such as Trunk-Based Development which is employed internally [within Microsoft Engineering](https://docs.microsoft.com/azure/devops/learn/devops-at-microsoft/use-git-microsoft).
-### Application Infrastructure Deployments
+### Application Infrastructure Provisioning
             
 * Is application infrastructure defined as code?
 
 
   _[Infrastructure as Code](https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code) (IaC) is the management of infrastructure (networks, virtual machines, load balancers, and connection topology) in a descriptive model, using the same versioning as the team uses for application source code. Like the principle that the same source code generates the same binary, an IaC model generates the same environment every time it is applied._
   > It is highly recommended to describe the entire infrastructure as code, using either ARM Templates, Terraform, or other tools. This allows for proper versioning and configuration management, encouraging consistency and reproducibility across environments.
-    - Are any operational changes performed outside of IaC?
-
-
-      _Are any resources provisioned or operationally configured manually through the Azure Portal or via Azure CLI?_
-
-      > It is recommended that even small operational changes and modifications be implemented as-code to track changes and ensure they are fully reproduceable and revertible. No infrastructure changes should be done manually outside of IaC.
     - How does the application track and address configuration drift?
 
 
       _Configuration drift occurs when changes are applied outside of IaC processes such as manual changes._
 
       > Tools like Terraform offer a 'plan' command that helps to identify changes and monitor configuration drift, with Azure as the ultimate source of truth.
+* Is direct write access to the infrastrucure possible and are any resources provisioned or configured outside of IaC processes?
+
+
+  _Are any resources provisioned or operationally configured manually through user tools such as the Azure Portal or via Azure CLI?_
+  > It is recommended that even small operational changes and modifications be implemented as-code to track changes and ensure they are fully reproduceable and revertible. No infrastructure changes should be done manually outside of IaC.
 * Is the process to deploy infrastructure automated?
 
 
@@ -919,6 +955,11 @@ These critical design principles are used as lenses to assess the Operational Ex
       _Regular, long-standing write access to production environments by user accounts can pose a security risk and manual intervention is often prone to errors._
 
       > Limit long-standing write access to production environments only to service principals.
+* Does the organization have the appropriate emergency access accounts configured for this workload in case of an emergency?
+
+
+  _While rare, sometimes extreme circumstances arise where all normal means of administrative access are unavailable and for this reason emergency access accounts (also refered to as 'break glass' accounts) should be available. These accounts are strictly controlled in accordance with best practice guidance, and they are closely monitored for unsanctioned use to ensure they are not compromised or used for nefarious purposes. [Emergency Access Acounts](https://docs.microsoft.com/azure/active-directory/roles/security-emergency-access)_
+  > Configure emergency access accounts. The impact of no administrative access can be mitigated by creating two or more emergency access accounts ([Emergency Access accounts in Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access))
 ### Common Engineering Criteria
             
 * Is the choice and desired configuration of Azure services centrally governed or can the developers pick and choose?
