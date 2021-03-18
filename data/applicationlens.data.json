@@ -591,7 +591,7 @@
     "title": "Are all internal and external dependencies identified and categorized as either weak or strong?",
     "context": "Internal dependencies describe components within the application scope which are required for the application to fully operate, while external dependencies captures required components outside the scope of the application, such as another application or third-party service.",
     "recommendation": {
-      "title": "Dependencies may be categorized as either strong or weak based on whether or not the application is able to continue operating in a degraded fashion in their absence. ([Twelve-Factor App: Dependencies](https://12factor.net/dependencies))",
+      "title": "Dependencies may be categorized as either strong or weak based on whether or not the application is able to continue operating in a degraded fashion in their absence.",
       "context": "",
       "links": [
         {
@@ -802,7 +802,7 @@
     "title": "Is an Application Performance Management (APM) tool used collect application level logs?",
     "context": "In order to successfully maintain the application it's important to 'turn the lights on' and have clear visibility of important metrics both in real-time and historically.",
     "recommendation": {
-      "title": "An APM technology, such as Application Insights, should be used to manage the performance and availability of the application, aggregating application level logs and events for subsequent interpretation. It should be considered what is the appropriate level of logging, because too much can incur significant costs. ([Log Analytics pricing](https://azure.microsoft.com/pricing/details/monitor/))",
+      "title": "An APM technology, such as Application Insights, should be used to manage the performance and availability of the application, aggregating application level logs and events for subsequent interpretation. It should be considered what is the appropriate level of logging, because too much can incur significant costs.",
       "context": "",
       "links": [
         {
@@ -2456,7 +2456,7 @@
     "title": "Does the application deployment process leverage blue-green deployments and/or canary releases?",
     "context": "Blue/green or canary deployments are a way to gradually release new feature or changes without impacting all users at once.",
     "recommendation": {
-      "title": "Blue-green deployments and/or canary releases can be used to deploy updates in a controlled manner that helps to minimize disruption from unanticipated deployment issues. For example, Azure uses canary regions to test and validate new services and capabilities before they are more broadly rolled out to other Azure regions. Where appropriate the application can also use canary environments to validate changes before wider production rollout. Moreover, certain large application platforms may also derive benefit from leveraging Azure canary regions as a basis for validating the potential impact of Azure platform changes on the application. See ([Stage your workloads](https://docs.microsoft.com/azure/architecture/framework/devops/deployment#stage-your-workloads)).",
+      "title": "Blue-green deployments and/or canary releases can be used to deploy updates in a controlled manner that helps to minimize disruption from unanticipated deployment issues. For example, Azure uses canary regions to test and validate new services and capabilities before they are more broadly rolled out to other Azure regions. Where appropriate the application can also use canary environments to validate changes before wider production rollout. Moreover, certain large application platforms may also derive benefit from leveraging Azure canary regions as a basis for validating the potential impact of Azure platform changes on the application. See [Stage your workloads](https://docs.microsoft.com/azure/architecture/framework/devops/deployment#stage-your-workloads).",
       "context": "",
       "links": [
         {
@@ -4294,14 +4294,14 @@
     "category": "Application Performance Management",
     "subCategory": "Network Throughput and Latency",
     "title": "Does the application require long running TCP connections?",
-    "context": "If an application is initiating many outbound TCP or UDP connections it may exhaust all available ports leading to SNAT port exhaustion and poor application performance. Long-running connections exacerbate this risk by occupying ports for sustained durations. Effort should be taken to ensure that the application can scale within the port limits of the chosen application hosting platform ([Managing SNAT port exhaustion](https://docs.microsoft.com/azure/load-balancer/troubleshoot-outbound-connection#snatexhaust))",
+    "context": "If an application is initiating many outbound TCP or UDP connections it may exhaust all available ports leading to [SNAT port exhaustion](https://docs.microsoft.com/azure/load-balancer/troubleshoot-outbound-connection#snatexhaust) and poor application performance. Long-running connections exacerbate this risk by occupying ports for sustained durations. Effort should be taken to ensure that the application can scale within the port limits of the chosen application hosting platform.",
     "recommendation": {
       "title": "",
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Managing SNAT port exhaustion",
+          "url": "https://docs.microsoft.com/azure/load-balancer/troubleshoot-outbound-connection#snatexhaust"
         }
       ],
       "priority": "medium"
@@ -4439,14 +4439,14 @@
     "category": "Application Performance Management",
     "subCategory": "Network Throughput and Latency",
     "title": "Are there any components/scenarios that are very sensitive to network latency?",
-    "context": "Components or scenarios that are sensitive to network latency may indicate a need for co-locality within a single Availability Zone or even closer using Proximity Placement Groups with Accelerated Networking enabled ([Proximity Placement Groups](https://docs.microsoft.com/azure/virtual-machines/windows/co-location#proximity-placement-groups))",
+    "context": "Components or scenarios that are sensitive to network latency may indicate a need for co-locality within a single Availability Zone or even closer using [Proximity Placement Groups](https://docs.microsoft.com/azure/virtual-machines/windows/co-location#proximity-placement-groups) with Accelerated Networking enabled.",
     "recommendation": {
       "title": "",
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Proximity Placement Groups",
+          "url": "https://docs.microsoft.com/azure/virtual-machines/windows/co-location#proximity-placement-groups"
         }
       ],
       "priority": "medium"
