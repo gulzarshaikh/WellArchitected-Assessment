@@ -110,7 +110,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
   
       Additional resources:
   
-        [Business continuity with Azure Paired Regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)
+        - [Business continuity with Azure Paired Regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)
     - Have you ensured that both (all) regions in use have the same performance and scale SKUs that are currently leveraged in the primary region?
 
       _When planning for scale and efficiency, it is important that regions are not only paired, but homogenous in their service offerings. Additionally, you should make sure that, if one region fails, the second region can scale appropriately to sufficiently handle the influx of additional user requests._
@@ -119,7 +119,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
   
     Additional resources:
   
-    [Failover strategies](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones)
+    - [Failover strategies](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones)
 * Within a region is the application architecture designed to use Availability Zones?
 
   _[Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones) can be used to optimise application availability within a region by providing datacenter level fault tolerance. However, the application architecture must not share dependencies between zones to use them effectively. It is also important to note that Availability Zones may introduce performance and cost considerations for applications which are extremely 'chatty' across zones given the implied physical separation between each zone and inter-zone bandwidth charges. That also means that AZ can be considered to get higher SLA for lower cost. Be aware of [pricing changes](https://azure.microsoft.com/pricing/details/bandwidth/) coming to Availability Zone bandwidth starting February 2021._
@@ -139,7 +139,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
   
     Additional resources:
   
-    [Design to scale out](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out)
+    - [Design to scale out](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out)
 * Is an availability strategy defined? i.e. multi-geo, full/partial
 
   _An availability strategy should capture how the application remains available when in a failure state and should apply across all application components and the application deployment stamp as a whole such as via multi-geo scale-unit deployment approach. There are cost implications as well: More resources need to be provisioned in advance to provide high availability. Active-active setup, while more expensive than single deployment, can balance cost by lowering load on one stamp and reducing the total amount of resources needed._
@@ -184,7 +184,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
   
       Additional resources:
   
-        [Composite SLA](https://docs.microsoft.com/azure/architecture/framework/resiliency/business-metrics#understand-service-level-agreements)
+        - [Composite SLA](https://docs.microsoft.com/azure/architecture/framework/resiliency/business-metrics#understand-service-level-agreements)
     - Are availability targets considered while the system is running in disaster recovery mode?
 
       _The above defined targets might or might not be applied when running in DR mode. This depends from application to application._
@@ -198,7 +198,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
   
       Additional resources:
   
-        [Mean Time Between Failures](https://en.wikipedia.org/wiki/Mean_time_between_failures)
+        - [Mean Time Between Failures](https://en.wikipedia.org/wiki/Mean_time_between_failures)
     - What are the consequences if availability targets are not satisfied?
 
       _Are there any penalties, such as financial charges, associated with failing to meet SLA commitments? Additional measures can be used to prevent penalties, but that also brings additional cost to operate the infrastructure. This has to be factored in and evaluated._
@@ -214,7 +214,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
   
     Additional resources:
   
-    [Protect and recover in cloud management](https://docs.microsoft.com/azure/cloud-adoption-framework/manage/considerations/protect)
+    - [Protect and recover in cloud management](https://docs.microsoft.com/azure/cloud-adoption-framework/manage/considerations/protect)
 * Are you able to predict general application usage?
 
   _It is important to understand application and environment usage. The customer may have an understanding of certain seasons or incidents that increase user load (e.g. a weather service being hit by users facing a storm, an e-commerce site during the holiday season)._
@@ -280,7 +280,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
   
     Additional resources:
   
-    [Twelve-Factor App: Dependencies](https://12factor.net/dependencies)
+    - [Twelve-Factor App: Dependencies](https://12factor.net/dependencies)
 * Are SLAs and support agreements in place for all critical dependencies?
 
   _Service Level Agreement (SLA) represents a commitment around performance and availability of the application. Understanding the SLA of individual components within the system is essential in order to define reliability targets. Knowing the SLA of dependencies will also provide a justifications for additional spend when making the dependencies highly available and with proper support contracts._
@@ -306,10 +306,10 @@ These critical design principles are used as lenses to assess the Cost Optimizat
   
       Additional resources:
   
-        [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/)
+        - [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/)
   
   
-        [NPM audit](https://docs.npmjs.com/cli/audit)
+        - [NPM audit](https://docs.npmjs.com/cli/audit)
   
   
 * Are components hosted on shared application or data platforms which are used by other applications?
@@ -335,7 +335,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
   
     Additional resources:
   
-    [Log Analytics pricing](https://azure.microsoft.com/pricing/details/monitor/)
+    - [Log Analytics pricing](https://azure.microsoft.com/pricing/details/monitor/)
 ### Resource and Infrastructure Level Monitoring
             
 * Which log aggregation technology is used to collect logs and metrics from Azure resources?
@@ -400,7 +400,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
   
     Additional resources:
   
-    [Performance Efficiency - Capacity](https://docs.microsoft.com/azure/architecture/framework/scalability/capacity)
+    - [Performance Efficiency - Capacity](https://docs.microsoft.com/azure/architecture/framework/scalability/capacity)
 * Is capacity utilization monitored and used to forecast future growth?
 
   _Predicting future growth and capacity demands can prevent outages due to insufficient provisioned capacity over time._
@@ -408,7 +408,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
   
     Additional resources:
   
-    [Supported metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported)
+    - [Supported metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported)
 ### Service SKU
             
 * Is Azure Advisor being used to optimize SKUs discovered in this workload?
@@ -600,11 +600,14 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 * Are Azure Tags used to enrich Azure resources with operational metadata?
 
   _Using tags can help to manage resources and make it easier to find relevant items during operational procedures._
-  > Azure Tags provide the ability to associate critical metadata as a name-value pair, such as billing information (e.g. cost center code), environment information (e.g. environment type), with Azure resources, resource groups, and subscriptions. See [Tagging Strategies](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging) for best practices.
+  > [Azure Tags](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources) provide the ability to associate critical metadata as a name-value pair, such as billing information (e.g. cost center code), environment information (e.g. environment type), with Azure resources, resource groups, and subscriptions. See [Tagging Strategies](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging) for best practices.
   
     Additional resources:
   
-    [Tagging Strategies](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging)
+    - [Use tags to organize your Azure resources and management hierarchy](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources)
+  
+  
+    - [Tagging Strategies](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging)
 * Does the application have a well-defined naming standard for Azure resources?
 
   _A well-defined naming convention is important for overall operations to be able to easily determine the usage of certain resources and help understand owners and cost centers responsible for the workload. Naming conventions allow the matching of resource costs to particular workloads._
@@ -612,7 +615,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
   
     Additional resources:
   
-    [Naming Conventions](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)
+    - [Naming Conventions](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)
 ### Financial Management &amp; Cost Models
             
 * How is your organization modeling cloud costs for this workload?

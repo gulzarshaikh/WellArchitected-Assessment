@@ -113,7 +113,7 @@ These critical design principles are used as lenses to assess the Security of an
   
     Additional resources:
   
-    [Microsoft Trust Center](https://www.microsoft.com/trust-center)
+    - [Microsoft Trust Center](https://www.microsoft.com/trust-center)
 * Does the workload hide detailed error messages / verbose information from the end user / client?
 
   _Providing unnecessary information to end users in case of application failure should be avoided. Revealing detailed error information (call stack, SQL queries, out of range errors...) can provide attackers with valuable information about the internals of the application. Error handlers should make the application fail gracefully and log the error._
@@ -153,13 +153,13 @@ These critical design principles are used as lenses to assess the Security of an
   
     Additional resources:
   
-    [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/)
+    - [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/)
   
   
-    [NPM audit](https://docs.npmjs.com/cli/v6/commands/npm-audit)
+    - [NPM audit](https://docs.npmjs.com/cli/v6/commands/npm-audit)
   
   
-    [WhiteSource Bolt](https://www.whitesourcesoftware.com/free-developer-tools/bolt/)
+    - [WhiteSource Bolt](https://www.whitesourcesoftware.com/free-developer-tools/bolt/)
 * Are frameworks and library updates included into the workload lifecycle?
 
   _Application frameworks are frequently provided with updates (e.g. security), released by the vendor or communities. Critical and important security patches need to be prioritized._
@@ -197,10 +197,10 @@ These critical design principles are used as lenses to assess the Security of an
   
       Additional resources:
   
-        [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/)
+        - [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/)
   
   
-        [NPM audit](https://docs.npmjs.com/cli/audit)
+        - [NPM audit](https://docs.npmjs.com/cli/audit)
   
   
 ### Threat Analysis
@@ -236,10 +236,10 @@ These critical design principles are used as lenses to assess the Security of an
   
     Additional resources:
   
-    [STRIDE](https://docs.microsoft.com/azure/security/develop/threat-modeling-tool-threats)
+    - [STRIDE](https://docs.microsoft.com/azure/security/develop/threat-modeling-tool-threats)
   
   
-    [Microsoft Threat Modeling Tool](https://docs.microsoft.com/azure/security/develop/threat-modeling-tool-getting-started)
+    - [Microsoft Threat Modeling Tool](https://docs.microsoft.com/azure/security/develop/threat-modeling-tool-getting-started)
 * How are threats addressed once found?
 
   _The threat modeling tool will produce a report of all the threats identified. This report is typically uploaded into a tracking tool or work items that can be validated and addressed by the developers. Cyber security teams can also use the report to determine attack vectors during a penetration test.  As new features are added to the solution, the threat model should be updated and integrated into the code management process.  If a security issue is found, there should be a process to triage the issue into the next release cycle or a faster release, depending on the severity._
@@ -370,7 +370,7 @@ These critical design principles are used as lenses to assess the Security of an
   
     Additional resources:
   
-    [Cognitive Search PII detection](https://docs.microsoft.com/azure/search/cognitive-search-skill-pii-detection)
+    - [Cognitive Search PII detection](https://docs.microsoft.com/azure/search/cognitive-search-skill-pii-detection)
 * Does the organization have a central SecOps teams which monitors security related telemetry data for this workload?
 
   _Organization is monitoring the security posture across workloads and central SecOps team is monitoring security-related telemetry data and investigating security breaches._
@@ -563,18 +563,18 @@ These critical design principles are used as lenses to assess the Security of an
   
       Additional resources:
   
-        [Azure AD Architecture](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-architecture)
+        - [Azure AD Architecture](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-architecture)
     - Are authentication tokens cached and encrypted for sharing across web servers?
 
       _Application code should first try to get tokens silently from a cache before attempting to acquire a token from the identity provider, to optimise performance and maximize availability._
   
       Additional resources:
   
-        [Acquire and cache tokens](https://docs.microsoft.com/azure/active-directory/develop/msal-acquire-cache-tokens)
+        - [Acquire and cache tokens](https://docs.microsoft.com/azure/active-directory/develop/msal-acquire-cache-tokens)
   
     Additional resources:
   
-    [Role-based and resource-based authorization](https://docs.microsoft.com/azure/architecture/multitenant-identity/authorize)
+    - [Role-based and resource-based authorization](https://docs.microsoft.com/azure/architecture/multitenant-identity/authorize)
 * Does the organization conduct periodic & automated access reviews of the workload to make sure only authorized people have access?
 
   _As people in the organization and on the project change, it is crucial to make sure that only the right people have access to the application infrastructure. Auditing and reviewing access reduces the attack vector to the application. Azure control plane depends on Azure AD and access reviews are often centrally performed often as part of internal or external audit activities. For the application specific access it is recommended to do the same at least twice a year._
@@ -632,7 +632,7 @@ These critical design principles are used as lenses to assess the Security of an
   
     Additional resources:
   
-    [Acquire and cache tokens](https://docs.microsoft.com/azure/active-directory/develop/msal-acquire-cache-tokens)
+    - [Acquire and cache tokens](https://docs.microsoft.com/azure/active-directory/develop/msal-acquire-cache-tokens)
 * How is the workload authenticated when communicating with Azure platform services?
 
   _Try to avoid authentication with keys (connection strings, API keys etc.) and always prefer Managed Identities (formerly also known as Managed Service Identity, MSI). Managed identities enable Azure Services to authenticate to each other without presenting explicit credentials via code. Typical use case is a Web App accessing Key Vault credentials or a Virtual Machine accessing SQL Database. [Managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/)_
@@ -700,27 +700,27 @@ These critical design principles are used as lenses to assess the Security of an
   
     Additional resources:
   
-    [What is Azure Security Center?](https://docs.microsoft.com/azure/security-center/security-center-introduction)
+    - [What is Azure Security Center?](https://docs.microsoft.com/azure/security-center/security-center-introduction)
   
   
-    [Configure auto provisioning for agents and extensions from Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection)
+    - [Configure auto provisioning for agents and extensions from Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection)
   
   
-    [Security Center Data Collection](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection)
+    - [Security Center Data Collection](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection)
 * Is Azure Security Center's [Secure Score](https://docs.microsoft.com/azure/security-center/secure-score-security-controls)) being formally reviewed and improved on a regular basis?
 
   > Formally review Azure Security Center's Secure Score on a regular basis and take actions out of it.
   
     Additional resources:
   
-    [Security Center Secure Score](https://docs.microsoft.com/azure/security-center/secure-score-security-controls)
+    - [Security Center Secure Score](https://docs.microsoft.com/azure/security-center/secure-score-security-controls)
 * Are contact details set in security center to the appropriate email distribution list?
 
   > Set correct contact details in Azure Security Center to appropriate email distribution lists and review them on a regular basis.
   
     Additional resources:
   
-    [Security Center Contact Details](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
+    - [Security Center Contact Details](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
 * Does the organization use tools to discover and remediate common risks within Azure tenants?
 
   _Identifying and remediating common security hygiene risks significantly reduces overall risk to the organization by increasing cost to attackers. [Azure Secure Score](https://docs.microsoft.com/azure/security-center/security-center-secure-score) in Azure Security Center monitors the security posture of machines, networks, storage and data services, and applications to discover potential security issues (internet connected VMs, or missing security updates, missing endpoint protection or encryption, deviations from baseline security configurations, missing Web Application Firewall (WAF), and more)._
@@ -736,7 +736,7 @@ These critical design principles are used as lenses to assess the Security of an
   
     Additional resources:
   
-    [Azure DDoS Protection](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview)
+    - [Azure DDoS Protection](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview)
 * Is communication to Azure PaaS services secured using VNet Service Endpoints or Private Link?
 
   _Service Endpoints and Private Link can be leveraged to restrict access to PaaS endpoints from only authorized virtual networks, effectively mitigating data intrusion risks and associated impact to application availability. Service Endpoints provide service level access to a PaaS service, while Private Link provides direct access to a specific PaaS resource to mitigate data exfiltration risks (e.g. malicious admin scenarios)_
@@ -748,7 +748,7 @@ These critical design principles are used as lenses to assess the Security of an
   
     Additional resources:
   
-    [Azure Firewall](https://docs.microsoft.com/azure/firewall/features)
+    - [Azure Firewall](https://docs.microsoft.com/azure/firewall/features)
 * Are Network Security Groups (NSGs) being used?
 
   _If NSGs are being used to isolate and protect the application, the rule set should be reviewed to confirm that required services are not unintentionally blocked._
@@ -759,14 +759,14 @@ These critical design principles are used as lenses to assess the Security of an
   
       Additional resources:
   
-        [Network security groups](https://docs.microsoft.com/en-gb/azure/virtual-network/network-security-groups-overview)
+        - [Network security groups](https://docs.microsoft.com/en-gb/azure/virtual-network/network-security-groups-overview)
   
   
-        [Why use NSG flow logs](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview#why-use-flow-logs)
+        - [Why use NSG flow logs](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview#why-use-flow-logs)
   
     Additional resources:
   
-    [Azure Platform Considerations for NSGs](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations)
+    - [Azure Platform Considerations for NSGs](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations)
 * Does the organization have a designated group responsible for centralized network management and security of this workload?
 
   _Centralizing network management and security can reduce the potential for inconsistent strategies that create potential attacker exploitable security risks. Because all divisions of the IT and development organizations do not have the same level of network management and security knowledge and sophistication, organizations benefit from leveraging a centralized network team’s expertise and tooling._
@@ -882,7 +882,7 @@ These critical design principles are used as lenses to assess the Security of an
   
     Additional resources:
   
-    [HashiCorp Vault](https://www.vaultproject.io/)
+    - [HashiCorp Vault](https://www.vaultproject.io/)
 * Do you have procedures in place for secret rotation?
 
   _In the situation where a key or secret becomes compromised, it is important to be able to quickly act and generate new versions. Key rotation reduces the attack vectors and should be automated and executed without any human interactions._
@@ -896,7 +896,7 @@ These critical design principles are used as lenses to assess the Security of an
   
     Additional resources:
   
-    [Managed Identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+    - [Managed Identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 * Are the expiry dates of SSL/TLS certificates monitored and are processes in place to renew them?
 
   _Expired SSL/TLS certificates are one of the most common yet avoidable causes of application outages; even Azure and more recently Microsoft Teams have experienced outages due to expired certificates._
@@ -930,7 +930,7 @@ These critical design principles are used as lenses to assess the Security of an
   
     Additional resources:
   
-    [Develop Secure Applications on Azure whitepaper](https://azure.microsoft.com/resources/develop-secure-applications-on-azure/)
+    - [Develop Secure Applications on Azure whitepaper](https://azure.microsoft.com/resources/develop-secure-applications-on-azure/)
 * Does the organization have a formal policy for this workload to apply security updates to VMs in a timely manner, and do strong passwords exist on those VMs for any local administrative accounts that may be in use?
 
   _Attackers constantly scan public cloud IP ranges for open management ports and attempt “easy” attacks like common passwords and unpatched vulnerabilities._
@@ -1088,7 +1088,7 @@ These critical design principles are used as lenses to assess the Security of an
   
     Additional resources:
   
-    [Emergency Access Accounts](https://docs.microsoft.com/azure/active-directory/roles/security-emergency-access)
+    - [Emergency Access Accounts](https://docs.microsoft.com/azure/active-directory/roles/security-emergency-access)
 * Has the organization clearly defined lines of responsibility and designated responsible parties for specific functions in Azure?
 
   _Clearly documenting and sharing the contacts responsible for each of these functions will create consistency and facilitate communication. Examples of such contact groups include network security, network management, server endpoint security, incident response, policy management, identity..._
@@ -1102,11 +1102,14 @@ These critical design principles are used as lenses to assess the Security of an
 * Are Azure Tags used to enrich Azure resources with operational metadata?
 
   _Using tags can help to manage resources and make it easier to find relevant items during operational procedures._
-  > Azure Tags provide the ability to associate critical metadata as a name-value pair, such as billing information (e.g. cost center code), environment information (e.g. environment type), with Azure resources, resource groups, and subscriptions. See [Tagging Strategies](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging) for best practices.
+  > [Azure Tags](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources) provide the ability to associate critical metadata as a name-value pair, such as billing information (e.g. cost center code), environment information (e.g. environment type), with Azure resources, resource groups, and subscriptions. See [Tagging Strategies](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging) for best practices.
   
     Additional resources:
   
-    [Tagging Strategies](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging)
+    - [Use tags to organize your Azure resources and management hierarchy](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources)
+  
+  
+    - [Tagging Strategies](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging)
 * Has the organization implemented or considered implementing elevated security capabilities such as dedicated Hardware Security Modules (HSMs) or the use of [Confidential Computing](https://azure.microsoft.com/solutions/confidential-compute/)?
 
   _Careful consideration is necessary on whether to utilize specialized security capabilities in an organization’s enterprise architecture._

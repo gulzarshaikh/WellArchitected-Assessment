@@ -107,7 +107,7 @@ These critical design principles are used as lenses to assess the Operational Ex
   
     Additional resources:
   
-    [Microsoft Trust Center](https://www.microsoft.com/trust-center)
+    - [Microsoft Trust Center](https://www.microsoft.com/trust-center)
 * Does the application have components on-premises or in another cloud platform?
 
   _Hybrid and cross-cloud workloads with components on-premises or on different cloud platforms, such as AWS or GCP, introduce additional operational considerations around achieving a 'single pane of glass' for operations_
@@ -128,7 +128,7 @@ These critical design principles are used as lenses to assess the Operational Ex
   
       Additional resources:
   
-        [Business continuity with Azure Paired Regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)
+        - [Business continuity with Azure Paired Regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)
     - Have you ensured that both (all) regions in use have the same performance and scale SKUs that are currently leveraged in the primary region?
 
       _When planning for scale and efficiency, it is important that regions are not only paired, but homogenous in their service offerings. Additionally, you should make sure that, if one region fails, the second region can scale appropriately to sufficiently handle the influx of additional user requests._
@@ -137,7 +137,7 @@ These critical design principles are used as lenses to assess the Operational Ex
   
     Additional resources:
   
-    [Failover strategies](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones)
+    - [Failover strategies](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones)
 * Within a region is the application architecture designed to use Availability Zones?
 
   _[Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones) can be used to optimise application availability within a region by providing datacenter level fault tolerance. However, the application architecture must not share dependencies between zones to use them effectively. It is also important to note that Availability Zones may introduce performance and cost considerations for applications which are extremely 'chatty' across zones given the implied physical separation between each zone and inter-zone bandwidth charges. That also means that AZ can be considered to get higher SLA for lower cost. Be aware of [pricing changes](https://azure.microsoft.com/pricing/details/bandwidth/) coming to Availability Zone bandwidth starting February 2021._
@@ -151,10 +151,10 @@ These critical design principles are used as lenses to assess the Operational Ex
   
     Additional resources:
   
-    [Designing resilient Azure applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design)
+    - [Designing resilient Azure applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design)
   
   
-    [Error handling for resilient applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design-error-handling)
+    - [Error handling for resilient applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design-error-handling)
 * Is the application designed to use managed services?
 
   _Platform-as-a-Service (PaaS) services provide native resiliency capabilities to support overall application reliability and native capabilities for scalability, monitoring and disaster recovery._
@@ -162,10 +162,10 @@ These critical design principles are used as lenses to assess the Operational Ex
   
     Additional resources:
   
-    [Use managed services](https://docs.microsoft.com/azure/architecture/guide/design-principles/managed-services)
+    - [Use managed services](https://docs.microsoft.com/azure/architecture/guide/design-principles/managed-services)
   
   
-    [What is PaaS?](https://azure.microsoft.com/overview/what-is-paas/)
+    - [What is PaaS?](https://azure.microsoft.com/overview/what-is-paas/)
 * Has the application been designed to scale-out?
 
   _Azure provides elastic scalability, however, applications must leverage a scale-unit approach to navigate service and subscription limits to ensure that individual components and the application as a whole can scale horizontally. Don't forget about scale in as well, as this is important to drive cost down. For example, scale in and out for App Service is done via rules. Often customers write scale out rule and never write scale in rule, this leaves the App Service more expensive._
@@ -173,7 +173,7 @@ These critical design principles are used as lenses to assess the Operational Ex
   
     Additional resources:
   
-    [Design to scale out](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out)
+    - [Design to scale out](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out)
 * Is the application deployed across multiple Azure subscriptions?
 
   _Understanding the subscription landscape of the application and how components are organized within or across subscriptions is important when analyzing if relevant subscription limits or quotas can be navigated._
@@ -208,7 +208,7 @@ These critical design principles are used as lenses to assess the Operational Ex
   
       Additional resources:
   
-        [Composite SLA](https://docs.microsoft.com/azure/architecture/framework/resiliency/business-metrics#understand-service-level-agreements)
+        - [Composite SLA](https://docs.microsoft.com/azure/architecture/framework/resiliency/business-metrics#understand-service-level-agreements)
     - Are availability targets considered while the system is running in disaster recovery mode?
 
       _The above defined targets might or might not be applied when running in DR mode. This depends from application to application._
@@ -222,7 +222,7 @@ These critical design principles are used as lenses to assess the Operational Ex
   
       Additional resources:
   
-        [Mean Time Between Failures](https://en.wikipedia.org/wiki/Mean_time_between_failures)
+        - [Mean Time Between Failures](https://en.wikipedia.org/wiki/Mean_time_between_failures)
     - What are the consequences if availability targets are not satisfied?
 
       _Are there any penalties, such as financial charges, associated with failing to meet SLA commitments? Additional measures can be used to prevent penalties, but that also brings additional cost to operate the infrastructure. This has to be factored in and evaluated._
@@ -238,7 +238,7 @@ These critical design principles are used as lenses to assess the Operational Ex
   
     Additional resources:
   
-    [Protect and recover in cloud management](https://docs.microsoft.com/azure/cloud-adoption-framework/manage/considerations/protect)
+    - [Protect and recover in cloud management](https://docs.microsoft.com/azure/cloud-adoption-framework/manage/considerations/protect)
 * Are you able to predict general application usage?
 
   _It is important to understand application and environment usage. The customer may have an understanding of certain seasons or incidents that increase user load (e.g. a weather service being hit by users facing a storm, an e-commerce site during the holiday season)._
@@ -328,7 +328,7 @@ These critical design principles are used as lenses to assess the Operational Ex
   
     Additional resources:
   
-    [Twelve-Factor App: Dependencies](https://12factor.net/dependencies)
+    - [Twelve-Factor App: Dependencies](https://12factor.net/dependencies)
 * Are SLAs and support agreements in place for all critical dependencies?
 
   _Service Level Agreement (SLA) represents a commitment around performance and availability of the application. Understanding the SLA of individual components within the system is essential in order to define reliability targets. Knowing the SLA of dependencies will also provide a justifications for additional spend when making the dependencies highly available and with proper support contracts._
@@ -364,10 +364,10 @@ These critical design principles are used as lenses to assess the Operational Ex
   
       Additional resources:
   
-        [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/)
+        - [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/)
   
   
-        [NPM audit](https://docs.npmjs.com/cli/audit)
+        - [NPM audit](https://docs.npmjs.com/cli/audit)
   
   
 * Are components hosted on shared application or data platforms which are used by other applications?
@@ -399,7 +399,7 @@ These critical design principles are used as lenses to assess the Operational Ex
   
     Additional resources:
   
-    [Log Analytics pricing](https://azure.microsoft.com/pricing/details/monitor/)
+    - [Log Analytics pricing](https://azure.microsoft.com/pricing/details/monitor/)
 * Are application logs collected from different application environments?
 
   _Application logs support the end-to-end application lifecycle. Logging is essential in understanding how the application operates in various environments and what events occur and under which conditions._
@@ -425,7 +425,7 @@ These critical design principles are used as lenses to assess the Operational Ex
   
     Additional resources:
   
-    [Distributed tracing](https://docs.microsoft.com/azure/architecture/microservices/logging-monitoring#distributed-tracing)
+    - [Distributed tracing](https://docs.microsoft.com/azure/architecture/microservices/logging-monitoring#distributed-tracing)
 * Is it possible to evaluate critical application performance targets and non-functional requirements (NFRs)?
 
   > Application level metrics should include end-to-end transaction times of key technical functions, such as database queries, response times for external API calls, failure rates of processing steps, etc.
@@ -476,24 +476,24 @@ These critical design principles are used as lenses to assess the Operational Ex
   
     Additional resources:
   
-    [Instrumenting an application with Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)
+    - [Instrumenting an application with Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)
 * Is the application instrumented to measure the customer experience?
 
   _Effective instrumentation is vital to detecting and resolving performance anomalies that can impact customer experience and application availability._
   
     Additional resources:
   
-    [Monitor performance](https://docs.microsoft.com/azure/azure-monitor/app/web-monitor-performance)
+    - [Monitor performance](https://docs.microsoft.com/azure/azure-monitor/app/web-monitor-performance)
 * Is black-box monitoring used to measure platform services and the resulting customer experience?
 
   _Black-box monitoring tests externally visible application behavior without knowledge of the internals of the system. This is a common approach to measuring customer-centric SLIs/SLOs/SLAs._
   
     Additional resources:
   
-    [Azure Monitor Reference](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability)
+    - [Azure Monitor Reference](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability)
 * Are there known gaps in application observability that led to missed incidents and/or false positives?
 
-  _What you cannot see, you cannot measure. What you cannot measure, you cannot improve_
+  _What you cannot see, you cannot measure. What you cannot measure, you cannot improve._
   
   
 * Are error budgets used to track service reliability?
@@ -520,7 +520,7 @@ These critical design principles are used as lenses to assess the Operational Ex
   
     Additional resources:
   
-    [Dependency tracking](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-dependencies)
+    - [Dependency tracking](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-dependencies)
 ### Data Interpretation &amp; Health Modelling
             
 * Are application and resource level logs aggregated in a single data sink, or is it possible to cross-query events at both levels?
@@ -535,7 +535,7 @@ These critical design principles are used as lenses to assess the Operational Ex
   
     Additional resources:
   
-    [Telemetry correlation](https://docs.microsoft.com/azure/azure-monitor/app/correlation)
+    - [Telemetry correlation](https://docs.microsoft.com/azure/azure-monitor/app/correlation)
 * Is the transaction flow data used to generate application/service maps?
 
   _Is there a correlation between events in different services and are those visualized?_
@@ -543,7 +543,7 @@ These critical design principles are used as lenses to assess the Operational Ex
   
     Additional resources:
   
-    [Application Map](https://docs.microsoft.com/azure/azure-monitor/app/app-map?tabs=net)
+    - [Application Map](https://docs.microsoft.com/azure/azure-monitor/app/app-map?tabs=net)
 * Is a health model used to qualify what 'healthy' and 'unhealthy' states represent for the application?
 
   > A holistic application health model should be used to quantify what 'healthy' and 'unhealthy' states represent across all application components. It is highly recommended that a 'traffic light' model be used to indicate a green/healthy state when key non-functional requirements and targets are fully satisfied and resources are optimally utilized, e.g. 95% of requests are processed in <= 500ms with AKS node utilization at x% etc. Once established, this health model should inform critical monitoring metrics across system components and operational sub-system composition. It is important to note that the health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state.
@@ -585,10 +585,10 @@ These critical design principles are used as lenses to assess the Operational Ex
   
     Additional resources:
   
-    [Azure Monitor overview](https://docs.microsoft.com/azure/azure-monitor/overview)
+    - [Azure Monitor overview](https://docs.microsoft.com/azure/azure-monitor/overview)
   
   
-    [Grafana](https://grafana.com/)
+    - [Grafana](https://grafana.com/)
 * Are dashboards tailored to a specific audience?
 
   _Is there just one big dashboard or do you build individualized solutions for different teams (e.g. networking teams might have a different interest focus than the security team)._
@@ -639,7 +639,7 @@ These critical design principles are used as lenses to assess the Operational Ex
   
     Additional resources:
   
-    [Azure Service Health](https://docs.microsoft.com/azure/service-health/overview)
+    - [Azure Service Health](https://docs.microsoft.com/azure/service-health/overview)
 * Have Azure Resource Health alerts been created to respond to Resource-level events?
 
   _Azure Resource Health provides information about the health of individual resources such as a specific virtual machine, and is highly useful when diagnosing unavailable resources._
@@ -653,7 +653,7 @@ These critical design principles are used as lenses to assess the Operational Ex
   
     Additional resources:
   
-    [Azure account contact information](https://docs.microsoft.com/azure/cost-management-billing/manage/change-azure-account-profile#service-and-marketing-emails)
+    - [Azure account contact information](https://docs.microsoft.com/azure/cost-management-billing/manage/change-azure-account-profile#service-and-marketing-emails)
 ## Capacity &amp; Service Availability Planning
     
 ### Scalability &amp; Capacity Model
@@ -665,7 +665,7 @@ These critical design principles are used as lenses to assess the Operational Ex
   
     Additional resources:
   
-    [Performance Efficiency - Capacity](https://docs.microsoft.com/azure/architecture/framework/scalability/capacity)
+    - [Performance Efficiency - Capacity](https://docs.microsoft.com/azure/architecture/framework/scalability/capacity)
 * Is auto-scaling enabled for supporting PaaS and IaaS services?
 
   _Are built-in capabilities for automatic scale being used vs. scaling being always a manual decision?_
@@ -695,11 +695,11 @@ These critical design principles are used as lenses to assess the Operational Ex
   
       Additional resources:
   
-        [Azure Capacity (internal)](https://aka.ms/AzureCapacity)
+        - [Azure Capacity (internal)](https://aka.ms/AzureCapacity)
   
     Additional resources:
   
-    [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)
+    - [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)
 * Is capacity utilization monitored and used to forecast future growth?
 
   _Predicting future growth and capacity demands can prevent outages due to insufficient provisioned capacity over time._
@@ -707,7 +707,7 @@ These critical design principles are used as lenses to assess the Operational Ex
   
     Additional resources:
   
-    [Supported metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported)
+    - [Supported metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported)
 ### Service Availability
             
 * Is the required capacity (initial and future growth) available within targeted regions?
@@ -716,7 +716,7 @@ These critical design principles are used as lenses to assess the Operational Ex
   
     Additional resources:
   
-    [Azure Capacity (internal)](https://aka.ms/AzureCapacity)
+    - [Azure Capacity (internal)](https://aka.ms/AzureCapacity)
 ## Application Performance Management
     
 ### Data Size/Growth
@@ -843,7 +843,7 @@ These critical design principles are used as lenses to assess the Operational Ex
   
     Additional resources:
   
-    [HashiCorp Vault](https://www.vaultproject.io/)
+    - [HashiCorp Vault](https://www.vaultproject.io/)
 * Do you have procedures in place for secret rotation?
 
   _In the situation where a key or secret becomes compromised, it is important to be able to quickly act and generate new versions. Key rotation reduces the attack vectors and should be automated and executed without any human interactions._
@@ -857,7 +857,7 @@ These critical design principles are used as lenses to assess the Operational Ex
   
     Additional resources:
   
-    [Managed Identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+    - [Managed Identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 * Are keys and secrets backed-up to geo-redundant storage?
 
   _Keys and secrets must still be available in a failover case._
@@ -870,7 +870,7 @@ These critical design principles are used as lenses to assess the Operational Ex
   
     Additional resources:
   
-    [Azure Key Vault availability and reliability](https://docs.microsoft.com/azure/key-vault/general/disaster-recovery-guidance)
+    - [Azure Key Vault availability and reliability](https://docs.microsoft.com/azure/key-vault/general/disaster-recovery-guidance)
 * Is Soft-Delete enabled for Key Vaults and Key Vault objects?
 
   _The [Soft-Delete feature](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete) retains resources for a given retention period after a DELETE operation has been performed, while giving the appearance that the object is deleted. It helps to mitigate scenarios where resources are unintentionally, maliciously or incorrectly deleted._
@@ -878,7 +878,7 @@ These critical design principles are used as lenses to assess the Operational Ex
   
     Additional resources:
   
-    [Azure Key Vault Soft-Delete](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete)
+    - [Azure Key Vault Soft-Delete](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete)
 * Are the expiry dates of SSL/TLS certificates monitored and are processes in place to renew them?
 
   _Expired SSL/TLS certificates are one of the most common yet avoidable causes of application outages; even Azure and more recently Microsoft Teams have experienced outages due to expired certificates._
@@ -963,7 +963,7 @@ These critical design principles are used as lenses to assess the Operational Ex
   
     Additional resources:
   
-    [Deployment considerations for DevOps](https://docs.microsoft.com/azure/architecture/framework/devops/deployment)
+    - [Deployment considerations for DevOps](https://docs.microsoft.com/azure/architecture/framework/devops/deployment)
 * How long does it take to deploy an entire production environment?
 
   _The time it takes for a full deployment needs to align with recovery targets._
@@ -988,7 +988,7 @@ These critical design principles are used as lenses to assess the Operational Ex
   
     Additional resources:
   
-    [Stage your workloads](https://docs.microsoft.com/azure/architecture/framework/devops/deployment#stage-your-workloads)
+    - [Stage your workloads](https://docs.microsoft.com/azure/architecture/framework/devops/deployment#stage-your-workloads)
 * How does the development team manage application source code, builds, and releases?
 
   _It is important to understand whether there is a systematic approach to the development and release process._
@@ -1016,7 +1016,7 @@ These critical design principles are used as lenses to assess the Operational Ex
   
     Additional resources:
   
-    [What is Infrastructure as Code?](https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code)
+    - [What is Infrastructure as Code?](https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code)
 * Is direct write access to the infrastrucure possible and are any resources provisioned or configured outside of IaC processes?
 
   _Are any resources provisioned or operationally configured manually through user tools such as the Azure Portal or via Azure CLI?_
@@ -1055,7 +1055,7 @@ These critical design principles are used as lenses to assess the Operational Ex
   
     Additional resources:
   
-    [Feature Flags](https://docs.microsoft.com/azure/architecture/framework/devops/development#feature-flags)
+    - [Feature Flags](https://docs.microsoft.com/azure/architecture/framework/devops/development#feature-flags)
 ### Testing &amp; Validation
             
 * Is the application tested for performance, scalability, and resiliency?
@@ -1084,28 +1084,28 @@ These critical design principles are used as lenses to assess the Operational Ex
   
     Additional resources:
   
-    [Performance testing](https://docs.microsoft.com/azure/architecture/checklist/dev-ops#testing)
+    - [Performance testing](https://docs.microsoft.com/azure/architecture/checklist/dev-ops#testing)
 * Are smoke tests performed during application deployments?
 
   _[Smoke tests](https://docs.microsoft.com/azure/architecture/framework/devops/testing#smoke-testing) are a lightweight way to perform high-level validation of changes. For instance, performing a ping test immediately after a deployment._
   
     Additional resources:
   
-    [Smoke Testing](https://docs.microsoft.com/azure/architecture/framework/devops/testing#smoke-testing)
+    - [Smoke Testing](https://docs.microsoft.com/azure/architecture/framework/devops/testing#smoke-testing)
 * When is integration testing performed?
 
   _[Integration tests](https://docs.microsoft.com/azure/architecture/framework/devops/testing#integration-testing) should be applied as part of the application deployment process, to ensure that different application components  interact with each other as they should. Integration tests typically take longer than smoke testing, and as a consequence occur at a latter stage of the deployment process so they are executed less frequently._
   
     Additional resources:
   
-    [Integration Testing](https://docs.microsoft.com/azure/architecture/framework/devops/testing#integration-testing)
+    - [Integration Testing](https://docs.microsoft.com/azure/architecture/framework/devops/testing#integration-testing)
 * Is unit testing performed to validate application functionality?
 
   _[Unit tests](https://docs.microsoft.com/azure/architecture/framework/devops/testing#unit-testing) are typically run by each new version of code committed into version control. Unit Tests should be extensive and quick to verify things like syntax correctness of application code, Resource Manager templates or Terraform configurations, that the code is following best practices, or that they produce the expected results when provided certain inputs._
   
     Additional resources:
   
-    [Unit Testing](https://docs.microsoft.com/azure/architecture/framework/devops/testing#unit-testing)
+    - [Unit Testing](https://docs.microsoft.com/azure/architecture/framework/devops/testing#unit-testing)
 * Are these tests automated and carried out periodically or on-demand?
 
   _Testing should be fully automated where possible and performed as part of the deployment lifecycle to validate the impact of all application changes. Additionally, manual explorative testing may also be conducted_
@@ -1137,14 +1137,21 @@ These critical design principles are used as lenses to assess the Operational Ex
             
 * Are specific methodologies, like DevOps, used to structure the development and operations process?
 
-  _The contraction of “Dev” and “Ops” refers to replacing siloed Development and Operations to create multidisciplinary teams that now work together with shared and efficient practices and tools. Essential DevOps practices include agile planning, continuous integration, continuous delivery, and monitoring of applications (from [docs.microsoft.com](https://docs.microsoft.com/azure/devops/learn/what-is-devops))._
+  _The contraction of “Dev” and “Ops” refers to replacing siloed Development and Operations to create multidisciplinary teams that now work together with shared and efficient practices and tools. [Essential DevOps practices](https://docs.microsoft.com/azure/devops/learn/what-is-devops) include agile planning, continuous integration, continuous delivery, and monitoring of applications._
   
+    Additional resources:
   
+    - [What is DevOps?](https://docs.microsoft.com/azure/devops/learn/what-is-devops)
 * Is the current development and operations process connected to a Service Management framework like ISO or ITIL?
 
   _[ITIL](https://en.wikipedia.org/wiki/ITIL) is a set of detailed [IT service management (ITSM)](https://en.wikipedia.org/wiki/IT_service_management) practices that can complement DevOps by providing support for products and services built and deployed using DevOps practices._
   
+    Additional resources:
   
+    - [ITIL](https://en.wikipedia.org/wiki/ITIL)
+  
+  
+    - [IT service management (ITSM)](https://en.wikipedia.org/wiki/IT_service_management)
 ### Roles &amp; Responsibilities
             
 * Has the application been built and maintained in-house or by an external partner?
@@ -1172,7 +1179,7 @@ These critical design principles are used as lenses to assess the Operational Ex
   
       Additional resources:
   
-        [Workload isolation](https://docs.microsoft.com/azure/architecture/framework/devops/app-design#workload-isolation)
+        - [Workload isolation](https://docs.microsoft.com/azure/architecture/framework/devops/app-design#workload-isolation)
   
   
 * Are any broader teams responsible for operational aspects of the application?
@@ -1209,7 +1216,7 @@ These critical design principles are used as lenses to assess the Operational Ex
   
     Additional resources:
   
-    [Emergency Access Accounts](https://docs.microsoft.com/azure/active-directory/roles/security-emergency-access)
+    - [Emergency Access Accounts](https://docs.microsoft.com/azure/active-directory/roles/security-emergency-access)
 ## Governance
     
 ### Standards
@@ -1217,11 +1224,14 @@ These critical design principles are used as lenses to assess the Operational Ex
 * Are Azure Tags used to enrich Azure resources with operational metadata?
 
   _Using tags can help to manage resources and make it easier to find relevant items during operational procedures._
-  > Azure Tags provide the ability to associate critical metadata as a name-value pair, such as billing information (e.g. cost center code), environment information (e.g. environment type), with Azure resources, resource groups, and subscriptions. See [Tagging Strategies](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging) for best practices.
+  > [Azure Tags](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources) provide the ability to associate critical metadata as a name-value pair, such as billing information (e.g. cost center code), environment information (e.g. environment type), with Azure resources, resource groups, and subscriptions. See [Tagging Strategies](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging) for best practices.
   
     Additional resources:
   
-    [Tagging Strategies](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging)
+    - [Use tags to organize your Azure resources and management hierarchy](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources)
+  
+  
+    - [Tagging Strategies](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging)
 * Does the application have a well-defined naming standard for Azure resources?
 
   _A well-defined naming convention is important for overall operations to be able to easily determine the usage of certain resources and help understand owners and cost centers responsible for the workload. Naming conventions allow the matching of resource costs to particular workloads._
@@ -1229,7 +1239,7 @@ These critical design principles are used as lenses to assess the Operational Ex
   
     Additional resources:
   
-    [Naming Conventions](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)
+    - [Naming Conventions](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)
 * Is the choice and desired configuration of Azure services centrally governed or can the developers pick and choose?
 
   _Many customers govern service configuration through a catalogue of allowed services that developers and application owners must pick from_
@@ -1244,4 +1254,9 @@ These critical design principles are used as lenses to assess the Operational Ex
 
   _Policy-as-Code provides the same benefits as Infrastructure-as-Code in regards to versioning, automation, documentation as well as encouraging consistency and reproducibility. Available solutions in the market are [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview) or [HashiCorp Sentinel](https://www.hashicorp.com/resources/introduction-sentinel-compliance-policy-as-code/)._
   
+    Additional resources:
   
+    - [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview)
+  
+  
+    - [HashiCorp Sentinel](https://www.hashicorp.com/resources/introduction-sentinel-compliance-policy-as-code/)
