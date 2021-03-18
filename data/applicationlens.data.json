@@ -5048,7 +5048,7 @@
     "category": "Health Modelling & Monitoring",
     "subCategory": "Monitoring and Measurement",
     "title": "Are there known gaps in application observability that led to missed incidents and/or false positives?",
-    "context": "What you cannot see, you cannot measure. What you cannot measure, you cannot improve",
+    "context": "What you cannot see, you cannot measure. What you cannot measure, you cannot improve.",
     "recommendation": {
       "title": "",
       "context": "",
