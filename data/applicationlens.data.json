@@ -4730,7 +4730,7 @@
       {
         "id": "ea7535ed-a35d-43f5-b6ce-6768b8df22d6",
         "title": "Are authentication tokens cached and encrypted for sharing across web servers?",
-        "context": "Application code should first try to get tokens silently from a cache before attempting to acquire a token from the identity provider, to optimise performance and maximize availability ([Acquire and cache tokens](https://docs.microsoft.com/azure/active-directory/develop/msal-acquire-cache-tokens))",
+        "context": "Application code should first try to get tokens silently from a cache before attempting to acquire a token from the identity provider, to optimise performance and maximize availability.",
         "recommendation": {
           "title": "",
           "context": "",
@@ -4875,7 +4875,7 @@
     "category": "Security & Compliance",
     "subCategory": "Network Security",
     "title": "If data exfiltration concerns exist for services where Private Link is not yet supported, is filtering via Azure Firewall or an NVA being used?",
-    "context": "NVA solutions and Azure Firewall (for supported protocols) can be leveraged as a reverse proxy to restrict access to only authorized PaaS services for services where Private Link is not yet supported ([Azure Firewall](https://docs.microsoft.com/azure/firewall/features))",
+    "context": "NVA solutions and [Azure Firewall](https://docs.microsoft.com/azure/firewall/features) (for supported protocols) can be leveraged as a reverse proxy to restrict access to only authorized PaaS services for services where Private Link is not yet supported.",
     "recommendation": {
       "title": "",
       "context": "",
@@ -4898,14 +4898,14 @@
     "category": "Security & Compliance",
     "subCategory": "Network Security",
     "title": "Are Network Security Groups (NSGs) being used?",
-    "context": "If NSGs are being used to isolate and protect the application, the rule set should be reviewed to confirm that required services are not unintentionally blocked([Azure Platform Considerations for NSGs](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations))",
+    "context": "If NSGs are being used to isolate and protect the application, the rule set should be reviewed to confirm that required services are not unintentionally blocked.",
     "recommendation": {
       "title": "",
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Azure Platform Considerations for NSGs",
+          "url": "https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations"
         }
       ],
       "priority": "medium"
