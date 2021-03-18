@@ -560,7 +560,7 @@ These critical design principles are used as lenses to assess the Operational Ex
   
 * Are Azure notifications sent to subscriptions owners received and if necessary properly routed to relevant technical stakeholders?
 
-  _Subscription notification emails can contain important service notifications or security alerts. ([Azure account contact information](https://docs.microsoft.com/azure/cost-management-billing/manage/change-azure-account-profile#service-and-marketing-emails))._
+  _Subscription notification emails can contain important service notifications or security alerts._
   > Make sure that subscription notification emails are routed to the relevant technical stakeholders.
   
     Additional resources:
@@ -572,7 +572,7 @@ These critical design principles are used as lenses to assess the Operational Ex
 * Is there a capacity model for the application?
 
   _A capacity model should describe the relationships between the utilization of various components as a ratio, to capture when and how application components should scale-out._
-  > A capacity model should describe the relationships between the utilization of various components as a ratio, to capture when and how application components should scale-out. For instance, scaling the number of Application Gateway v2 instances may put excess pressure on downstream components unless also scaled to a degree. When modelling capacity for critical system components it is therefore recommended that an N+1 model be applied to ensure complete tolerance to transient faults, where N describes the capacity required to satisfy performance and availability requirements. This also prevents cost-related surprises when scaling out and realizing that multiple services need to be scaled at the same time. ([Performance Efficiency - Capacity](https://docs.microsoft.com/azure/architecture/framework/scalability/capacity))
+  > A capacity model should describe the relationships between the utilization of various components as a ratio, to capture when and how application components should scale-out. For instance, scaling the number of Application Gateway v2 instances may put excess pressure on downstream components unless also scaled to a degree. When modelling capacity for critical system components it is therefore recommended that an N+1 model be applied to ensure complete tolerance to transient faults, where N describes the capacity required to satisfy performance and availability requirements. This also prevents cost-related surprises when scaling out and realizing that multiple services need to be scaled at the same time.
   
     Additional resources:
     - [Performance Efficiency - Capacity](https://docs.microsoft.com/azure/architecture/framework/scalability/capacity)
@@ -598,17 +598,17 @@ These critical design principles are used as lenses to assess the Operational Ex
     - Is the required capacity (initial and future growth) available within targeted regions?
 
       _While the promise of the cloud is infinite scale, the reality is that there are finite resources available and as a result situations can occur where capacity can be constrained due to overall demand._
-      > If the application requires a large amount of capacity or expects a significant increase in capacity then effort should be invested to ensure that desired capacity is attainable within selected region(s). For applications leveraging a recovery or active-passive based disaster recovery strategy, consideration should also be given to ensure suitable capacity exists in the secondary region(s) since a regional outage can lead to a significant increase in demand within a paired region due to other customer workloads also failing over. To help mitigate this, consideration should be given to pre-provisioning resources within the secondary region. ([Azure Capacity](https://aka.ms/AzureCapacity))
+      > If the application requires a large amount of capacity or expects a significant increase in capacity then effort should be invested to ensure that desired capacity is attainable within selected region(s). For applications leveraging a recovery or active-passive based disaster recovery strategy, consideration should also be given to ensure suitable capacity exists in the secondary region(s) since a regional outage can lead to a significant increase in demand within a paired region due to other customer workloads also failing over. To help mitigate this, consideration should be given to pre-provisioning resources within the secondary region.
   
       Additional resources:
-        - [Azure Capacity](https://aka.ms/AzureCapacity)
+        - [Azure Capacity (internal)](https://aka.ms/AzureCapacity)
   
     Additional resources:
     - [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)
 * Is capacity utilization monitored and used to forecast future growth?
 
   _Predicting future growth and capacity demands can prevent outages due to insufficient provisioned capacity over time._
-  > Especially when demand is fluctuating, it is useful to monitor historical capacity utilization to derive predictions about future growth. Azure Monitor provides the ability to collect utilization metrics for Azure services so that they can be operationalized in the context of a defined capacity model. The Azure Portal can also be used to inspect current subscription usage and quota status. ([Supported metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported))
+  > Especially when demand is fluctuating, it is useful to monitor historical capacity utilization to derive predictions about future growth. Azure Monitor provides the ability to collect utilization metrics for Azure services so that they can be operationalized in the context of a defined capacity model. The Azure Portal can also be used to inspect current subscription usage and quota status.
   
     Additional resources:
     - [Supported metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported)
@@ -619,7 +619,7 @@ These critical design principles are used as lenses to assess the Operational Ex
   _While the promise of the cloud is infinite scale, the reality is that there are finite resources available and as a result situations can occur where capacity can be constrained due to overall demand. If the application requires a large amount of capacity or expects a significant increase in capacity then effort should be invested to ensure that desired capacity is attainable within selected region(s). For applications leveraging a recovery or active-passive based disaster recovery strategy, consideration should also be given to ensure suitable capacity exists in the secondary region(s) since a regional outage can lead to a significant increase in demand within a paired region due to other customer workloads also failing over. To help mitigate this, consideration should be given to pre-provisioning resources within the secondary region._
   
     Additional resources:
-    - [Azure Capacity](https://aka.ms/AzureCapacity)
+    - [Azure Capacity (internal)](https://aka.ms/AzureCapacity)
 ## Application Performance Management
     
 ### Data Size/Growth
@@ -902,7 +902,7 @@ These critical design principles are used as lenses to assess the Operational Ex
   
 * Are feature flags used to test features before rolling them out to everyone?
 
-  > To test new features quickly and without bigger risk, Feature flags are a technique to help frequently integrate code into a shared repository, even if incomplete. It allows for deployment decisions to be separated from release decisions ([Feature Flags](https://docs.microsoft.com/azure/architecture/framework/devops/development#feature-flags))
+  > To test new features quickly and without bigger risk, [Feature flags](https://docs.microsoft.com/azure/architecture/framework/devops/development#feature-flags) are a technique to help frequently integrate code into a shared repository, even if incomplete. It allows for deployment decisions to be separated from release decisions.
   
     Additional resources:
     - [Feature Flags](https://docs.microsoft.com/azure/architecture/framework/devops/development#feature-flags)
@@ -910,7 +910,7 @@ These critical design principles are used as lenses to assess the Operational Ex
             
 * Is the application tested for performance, scalability, and resiliency?
 
-  _Performance Testing: Performance testing is the superset of both load and stress testing. The primary goal of performance testing is to validate benchmark behavior for the application ([Performance Testing](https://docs.microsoft.com/azure/architecture/checklist/dev-ops#testing))<br />**Load Testing**: Load testing validates application scalability by rapidly and/or gradually increasing the load on the application until it reaches a threshold/limit<br />**Stress Testing**: *Stress testing is a type of negative testing which involves various activities to overload existing resources and remove components to understand overall resiliency and how the application responds to issues_
+  _Performance Testing: [Performance testing](https://docs.microsoft.com/azure/architecture/checklist/dev-ops#testing) is the superset of both load and stress testing. The primary goal of performance testing is to validate benchmark behavior for the application:<br />**Load Testing**: Load testing validates application scalability by rapidly and/or gradually increasing the load on the application until it reaches a threshold/limit<br />**Stress Testing**: *Stress testing is a type of negative testing which involves various activities to overload existing resources and remove components to understand overall resiliency and how the application responds to issues_
     - How does your team perceive the importance of performance testing?
 
       _It is critical that your team understands the importance of performance testing. Additionally, the team should be committed to providing the necessary time and resources for adequately executing performance testing proven practices._
@@ -928,18 +928,26 @@ These critical design principles are used as lenses to assess the Operational Ex
       _It is a common "chaos monkey" practice to verify the effectiveness of operational procedures using artificial faults. For example, taking dependencies offline (stopping API apps, shutting down VMs, etc.), restricting access (enabling firewall rules, changing connection strings, etc.) or forcing failover (database level, Front Door, etc.) is a good way to validate that the application is able to handle faults gracefully_
   
   
+    Additional resources:
+    - [Performance testing](https://docs.microsoft.com/azure/architecture/checklist/dev-ops#testing)
 * Are smoke tests performed during application deployments?
 
-  _Smoke tests are a lightweight way to perform high-level validation of changes. For instance, performing a ping test immediately after a deployment ([Smoke Testing](https://docs.microsoft.com/azure/architecture/framework/devops/testing#smoke-testing))_
+  _[Smoke tests](https://docs.microsoft.com/azure/architecture/framework/devops/testing#smoke-testing) are a lightweight way to perform high-level validation of changes. For instance, performing a ping test immediately after a deployment._
   
+    Additional resources:
+    - [Smoke Testing](https://docs.microsoft.com/azure/architecture/framework/devops/testing#smoke-testing)
 * When is integration testing performed?
 
-  _Integration tests should be applied as part of the application deployment process, to ensure that different application components  interact with each other as they should. Integration tests typically take longer than smoke testing, and as a consequence occur at a latter stage of the deployment process so they are executed less frequently ([Integration Testing](https://docs.microsoft.com/azure/architecture/framework/devops/testing#integration-testing)_
+  _[Integration tests](https://docs.microsoft.com/azure/architecture/framework/devops/testing#integration-testing) should be applied as part of the application deployment process, to ensure that different application components  interact with each other as they should. Integration tests typically take longer than smoke testing, and as a consequence occur at a latter stage of the deployment process so they are executed less frequently._
   
+    Additional resources:
+    - [Integration Testing](https://docs.microsoft.com/azure/architecture/framework/devops/testing#integration-testing)
 * Is unit testing performed to validate application functionality?
 
-  _Unit tests are typically run by each new version of code committed into version control. Unit Tests should be extensive and quick to verify things like syntax correctness of application code, Resource Manager templates or Terraform configurations, that the code is following best practices, or that they produce the expected results when provided certain inputs ([Unit Testing](https://docs.microsoft.com/azure/architecture/framework/devops/testing#unit-testing))_
+  _[Unit tests](https://docs.microsoft.com/azure/architecture/framework/devops/testing#unit-testing) are typically run by each new version of code committed into version control. Unit Tests should be extensive and quick to verify things like syntax correctness of application code, Resource Manager templates or Terraform configurations, that the code is following best practices, or that they produce the expected results when provided certain inputs._
   
+    Additional resources:
+    - [Unit Testing](https://docs.microsoft.com/azure/architecture/framework/devops/testing#unit-testing)
 * Are these tests automated and carried out periodically or on-demand?
 
   _Testing should be fully automated where possible and performed as part of the deployment lifecycle to validate the impact of all application changes. Additionally, manual explorative testing may also be conducted_
@@ -992,8 +1000,10 @@ These critical design principles are used as lenses to assess the Operational Ex
   
     - Is the workload isolated to a single operations team?
 
-      _The goal of workload isolation is to associate an application's specific resources to a team, so that the team can independently manage all aspects of those resources ([Workload isolation](https://docs.microsoft.com/azure/architecture/framework/devops/app-design#workload-isolation))_
+      _The goal of [workload isolation](https://docs.microsoft.com/azure/architecture/framework/devops/app-design#workload-isolation) is to associate an application's specific resources to a team, so that the team can independently manage all aspects of those resources._
   
+      Additional resources:
+        - [Workload isolation](https://docs.microsoft.com/azure/architecture/framework/devops/app-design#workload-isolation)
   
 * Are any broader teams responsible for operational aspects of the application?
 
@@ -1020,7 +1030,7 @@ These critical design principles are used as lenses to assess the Operational Ex
 * Does the organization have the appropriate emergency access accounts configured for this workload in case of an emergency?
 
   _While rare, sometimes extreme circumstances arise where all normal means of administrative access are unavailable and for this reason [emergency access accounts](https://docs.microsoft.com/azure/active-directory/roles/security-emergency-access) (also refered to as 'break glass' accounts) should be available. These accounts are strictly controlled in accordance with best practice guidance, and they are closely monitored for unsanctioned use to ensure they are not compromised or used for nefarious purposes._
-  > Configure emergency access accounts. The impact of no administrative access can be mitigated by creating two or more emergency access accounts ([Emergency Access accounts in Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access))
+  > Configure emergency access accounts. The impact of no administrative access can be mitigated by creating two or more [emergency access accounts](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access) in Azure AD.
   
     Additional resources:
     - [Emergency Access Accounts](https://docs.microsoft.com/azure/active-directory/roles/security-emergency-access)
