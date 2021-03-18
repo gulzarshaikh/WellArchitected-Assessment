@@ -10,11 +10,9 @@
     - [Application Composition](#Application-Composition)
     - [Threat Analysis](#Threat-Analysis)
     - [Security Criteria &amp; Data Classification](#Security-Criteria--Data-Classification)
-    - [Dependencies, frameworks and libraries](#Dependencies-frameworks-and-libraries)
   - [Health Modelling &amp; Monitoring](#Health-Modelling--Monitoring)
     - [Application Level Monitoring](#Application-Level-Monitoring)
     - [Resource and Infrastructure Level Monitoring](#Resource-and-Infrastructure-Level-Monitoring)
-    - [Auditing](#Auditing)
   - [Networking &amp; Connectivity](#Networking--Connectivity)
     - [Connectivity](#Connectivity)
     - [Endpoints](#Endpoints)
@@ -38,7 +36,8 @@
   - [Operational Model &amp; DevOps](#Operational-Model--DevOps)
     - [General](#General)
     - [Roles &amp; Responsibilities](#Roles--Responsibilities)
-    - [Common Engineering Criteria](#Common-Engineering-Criteria)
+  - [Governance](#Governance)
+    - [Standards](#Standards)
 
 
 # Design Principles
@@ -112,11 +111,6 @@ These critical design principles are used as lenses to assess the Security of an
 
   _Regulatory requirements may mandate that operational data, such as application logs and metrics, remain within a certain geo-political region. This has obvious implications for how the application should be operationalized._
   > Make sure that all regulatory requirements are known and well understood. Create processes for obtaining attestations and be familiar with the [Microsoft Trust Center](https://www.microsoft.com/trust-center). Regulatory requirements like data sovereignty and others might affect the overall architecture as well as the selection and configuration of specific PaaS and SaaS services.
-* Are Azure Tags used to enrich Azure resources with operational metadata?
-
-
-  _Using tags can help to manage resources and make it easier to find relevant items during operational procedures._
-  > Azure Tags provide the ability to associate critical metadata as a name-value pair, such as billing information (e.g. cost center code), environment information (e.g. environment type), with Azure resources, resource groups, and subscriptions. See [Tagging Strategies](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging) for best practices.
 * Does the workload hide detailed error messages / verbose information from the end user / client?
 
 
@@ -145,6 +139,16 @@ These critical design principles are used as lenses to assess the Security of an
   > Use services available from a cloud provider for well-established functions like databases, encryption, identity directory, and authentication.
 ### Dependencies
             
+* Does the application team maintain a list frameworks and libraries used by this workload?
+
+
+  _As part of the workload inventory the application team should maintain a framework and library list, along with versions in use. Understanding of the frameworks and libraries (custom, OSS, 3rd party, etc.) used by the application and the resulting vulnerabilities is important. There are automated solutions on the market that can help with this assessment: [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/), [NPM audit](https://docs.npmjs.com/cli/v6/commands/npm-audit) or [WhiteSource Bolt](https://www.whitesourcesoftware.com/free-developer-tools/bolt/)._
+  > Conduct inventory of used frameworks and libraries.
+* Are frameworks and library updates included into the workload lifecycle?
+
+
+  _Application frameworks are frequently provided with updates (e.g. security), released by the vendor or communities. Critical and important security patches need to be prioritized._
+  > Include framework & library updates into workload lifecycle.
 * Is the organization using a Landing Zone concept for this workload and how was it implemented?
 
 
@@ -300,18 +304,6 @@ These critical design principles are used as lenses to assess the Security of an
 
   _The actual security risk for an organization is heavily influenced by how much access an adversary can or does obtain to valuable systems and data. For example, when each user only has a focused scope of permissions assigned to them, the impact of compromising an account will be limited._
   > Implement security strategy to contain attacker access.
-### Dependencies, frameworks and libraries
-            
-* Does the application team maintain a list frameworks and libraries used by this workload?
-
-
-  _As part of the workload inventory the application team should maintain a framework and library list, along with versions in use. Understanding of the frameworks and libraries (custom, OSS, 3rd party, etc.) used by the application and the resulting vulnerabilities is important. There are automated solutions on the market that can help with this assessment: [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/), [NPM audit](https://docs.npmjs.com/cli/v6/commands/npm-audit) or [WhiteSource Bolt](https://www.whitesourcesoftware.com/free-developer-tools/bolt/)._
-  > Conduct inventory of used frameworks and libraries.
-* Are frameworks and library updates included into the workload lifecycle?
-
-
-  _Application frameworks are frequently provided with updates (e.g. security), released by the vendor or communities. Critical and important security patches need to be prioritized._
-  > Include framework & library updates into workload lifecycle.
 ## Health Modelling &amp; Monitoring
     
 ### Application Level Monitoring
@@ -348,13 +340,6 @@ These critical design principles are used as lenses to assess the Security of an
 
   _Ensure the security organization is aware of all enrollments and associated subscriptions connected to the existing environment and is able to monitor those resources as part of the overall enterprise security posture._
   > Ensure all Azure environments that connect to your production environment/network apply your organization’s policy and IT governance controls for security.
-### Auditing
-            
-* Does the organization conduct periodic & automated access reviews of the workload to make sure only authorized people have access?
-
-
-  _As people in the organization and on the project change, it is crucial to make sure that only the right people have access to the application infrastructure. Auditing and reviewing access reduces the attack vector to the application. Azure control plane depends on Azure AD and access reviews are often centrally performed often as part of internal or external audit activities. For the application specific access it is recommended to do the same at least twice a year._
-  > Conduct periodic access reviews for the workload.
 ## Networking &amp; Connectivity
     
 ### Connectivity
@@ -513,6 +498,11 @@ These critical design principles are used as lenses to assess the Security of an
 
       _Application code should first try to get tokens silently from a cache before attempting to acquire a token from the identity provider, to optimise performance and maximize availability([Acquire and cache tokens](https://docs.microsoft.com/azure/active-directory/develop/msal-acquire-cache-tokens))_
 
+* Does the organization conduct periodic & automated access reviews of the workload to make sure only authorized people have access?
+
+
+  _As people in the organization and on the project change, it is crucial to make sure that only the right people have access to the application infrastructure. Auditing and reviewing access reduces the attack vector to the application. Azure control plane depends on Azure AD and access reviews are often centrally performed often as part of internal or external audit activities. For the application specific access it is recommended to do the same at least twice a year._
+  > Conduct periodic access reviews for the workload.
 * Does the organization leverage resource locks in this workload to protect critical infrastructure?
 
 
@@ -921,8 +911,15 @@ These critical design principles are used as lenses to assess the Security of an
 
   _Clearly documenting and sharing the contacts responsible for each of these functions will create consistency and facilitate communication. Examples of such contact groups include network security, network management, server endpoint security, incident response, policy management, identity..._
   > Designate the parties responsible for specific functions in Azure.
-### Common Engineering Criteria
+## Governance
+    
+### Standards
             
+* Are Azure Tags used to enrich Azure resources with operational metadata?
+
+
+  _Using tags can help to manage resources and make it easier to find relevant items during operational procedures._
+  > Azure Tags provide the ability to associate critical metadata as a name-value pair, such as billing information (e.g. cost center code), environment information (e.g. environment type), with Azure resources, resource groups, and subscriptions. See [Tagging Strategies](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging) for best practices.
 * Has the organization implemented or considered implementing elevated security capabilities such as dedicated Hardware Security Modules (HSMs) or the use of [Confidential Computing](https://azure.microsoft.com/solutions/confidential-compute/)?
 
 

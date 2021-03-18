@@ -12,10 +12,11 @@
     - [Application Composition](#Application-Composition)
   - [Health Modelling &amp; Monitoring](#Health-Modelling--Monitoring)
     - [Application Level Monitoring](#Application-Level-Monitoring)
-    - [Logging](#Logging)
+    - [Resource and Infrastructure Level Monitoring](#Resource-and-Infrastructure-Level-Monitoring)
     - [Dashboarding](#Dashboarding)
     - [Alerting](#Alerting)
   - [Capacity &amp; Service Availability Planning](#Capacity--Service-Availability-Planning)
+    - [Scalability &amp; Capacity Model](#Scalability--Capacity-Model)
     - [Service SKU](#Service-SKU)
     - [Efficiency](#Efficiency)
   - [Networking &amp; Connectivity](#Networking--Connectivity)
@@ -23,7 +24,6 @@
     - [Endpoints](#Endpoints)
     - [Data flow](#Data-flow)
   - [Operational Procedures](#Operational-Procedures)
-    - [Scalability &amp; Capacity Model](#Scalability--Capacity-Model)
     - [Operational Lifecycles](#Operational-Lifecycles)
   - [Deployment &amp; Testing](#Deployment--Testing)
     - [Application Code Deployments](#Application-Code-Deployments)
@@ -32,6 +32,7 @@
   - [Operational Model &amp; DevOps](#Operational-Model--DevOps)
     - [Roles &amp; Responsibilities](#Roles--Responsibilities)
   - [Governance](#Governance)
+    - [Standards](#Standards)
     - [Financial Management &amp; Cost Models](#Financial-Management--Cost-Models)
     - [Culture &amp; Dynamics](#Culture--Dynamics)
     - [Licensing](#Licensing)
@@ -118,16 +119,6 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
   _[Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones) can be used to optimise application availability within a region by providing datacenter level fault tolerance. However, the application architecture must not share dependencies between zones to use them effectively. It is also important to note that Availability Zones may introduce performance and cost considerations for applications which are extremely 'chatty' across zones given the implied physical separation between each zone and inter-zone bandwidth charges. That also means that AZ can be considered to get higher SLA for lower cost. Be aware of [pricing changes](https://azure.microsoft.com/pricing/details/bandwidth/) coming to Availability Zone bandwidth starting February 2021._
   > Use Availability Zones where applicable to improve reliability and optimize costs.
-* Are Azure Tags used to enrich Azure resources with operational metadata?
-
-
-  _Using tags can help to manage resources and make it easier to find relevant items during operational procedures._
-  > Azure Tags provide the ability to associate critical metadata as a name-value pair, such as billing information (e.g. cost center code), environment information (e.g. environment type), with Azure resources, resource groups, and subscriptions. See [Tagging Strategies](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging) for best practices.
-* Does the application have a well-defined naming standard for Azure resources?
-
-
-  _A well-defined naming convention is important for overall operations to be able to easily determine the usage of certain resources and help understand owners and cost centers responsible for the workload. Naming conventions allow the matching of resource costs to particular workloads._
-  > Having a well-defined naming convention is important for overall operations, particularly for large application platforms where there are numerous resources([Naming Conventions](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging))
 * Is component proximity required for application performance reasons?
 
 
@@ -216,6 +207,14 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
       _Identifying a typical load helps you determine realistic expectations for performance testing. A "typical load" can be measured in individual users, web requests, user sessions, or transactions. When documenting typical loads, also ensure that all predictable periods have typical loads documented._
 
+    - Are you able to reasonably predict when these peaks will occur?
+
+
+
+    - Are you able to accurately predict the amount of load your application will experience during these peaks?
+
+
+
 ### Key Scenarios
             
 * Have critical system flows through the application been defined for all key business scenarios?
@@ -296,7 +295,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
   _In order to successfully maintain the application it's important to 'turn the lights on' and have clear visibility of important metrics both in real-time and historically._
   > An APM technology, such as Application Insights, should be used to manage the performance and availability of the application, aggregating application level logs and events for subsequent interpretation. It should be considered what is the appropriate level of logging, because too much can incur significant costs. ([Log Analytics pricing](https://azure.microsoft.com/pricing/details/monitor/))
-### Logging
+### Resource and Infrastructure Level Monitoring
             
 * Which log aggregation technology is used to collect logs and metrics from Azure resources?
 
@@ -343,6 +342,18 @@ These critical design principles are used as lenses to assess the Cost Optimizat
   > Set up alerts for cost limits and thresholds.
 ## Capacity &amp; Service Availability Planning
     
+### Scalability &amp; Capacity Model
+            
+* Is there a capacity model for the application?
+
+
+  _A capacity model should describe the relationships between the utilization of various components as a ratio, to capture when and how application components should scale-out._
+  > A capacity model should describe the relationships between the utilization of various components as a ratio, to capture when and how application components should scale-out. For instance, scaling the number of Application Gateway v2 instances may put excess pressure on downstream components unless also scaled to a degree. When modelling capacity for critical system components it is therefore recommended that an N+1 model be applied to ensure complete tolerance to transient faults, where N describes the capacity required to satisfy performance and availability requirements. This also prevents cost-related surprises when scaling out and realizing that multiple services need to be scaled at the same time. ([Performance Efficiency - Capacity](https://docs.microsoft.com/azure/architecture/framework/scalability/capacity))
+* Is capacity utilization monitored and used to forecast future growth?
+
+
+  _Predicting future growth and capacity demands can prevent outages due to insufficient provisioned capacity over time._
+  > Especially when demand is fluctuating, it is useful to monitor historical capacity utilization to derive predictions about future growth. Azure Monitor provides the ability to collect utilization metrics for Azure services so that they can be operationalized in the context of a defined capacity model. The Azure Portal can also be used to inspect current subscription usage and quota status. ([Supported metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported))
 ### Service SKU
             
 * Is Azure Advisor being used to optimize SKUs discovered in this workload?
@@ -432,18 +443,6 @@ These critical design principles are used as lenses to assess the Cost Optimizat
   _Tunnelling internet traffic through on-premises can add extra cost as data has to go back to local network before it reaches the internet, this cost should be acknowledged._
 ## Operational Procedures
     
-### Scalability &amp; Capacity Model
-            
-* Is there a capacity model for the application?
-
-
-  _A capacity model should describe the relationships between the utilization of various components as a ratio, to capture when and how application components should scale-out._
-  > A capacity model should describe the relationships between the utilization of various components as a ratio, to capture when and how application components should scale-out. For instance, scaling the number of Application Gateway v2 instances may put excess pressure on downstream components unless also scaled to a degree. When modelling capacity for critical system components it is therefore recommended that an N+1 model be applied to ensure complete tolerance to transient faults, where N describes the capacity required to satisfy performance and availability requirements. This also prevents cost-related surprises when scaling out and realizing that multiple services need to be scaled at the same time. ([Performance Efficiency - Capacity](https://docs.microsoft.com/azure/architecture/framework/scalability/capacity))
-* Is capacity utilization monitored and used to forecast future growth?
-
-
-  _Predicting future growth and capacity demands can prevent outages due to insufficient provisioned capacity over time._
-  > Especially when demand is fluctuating, it is useful to monitor historical capacity utilization to derive predictions about future growth. Azure Monitor provides the ability to collect utilization metrics for Azure services so that they can be operationalized in the context of a defined capacity model. The Azure Portal can also be used to inspect current subscription usage and quota status. ([Supported metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported))
 ### Operational Lifecycles
             
 * Does every environment have a target end date?
@@ -517,6 +516,18 @@ These critical design principles are used as lenses to assess the Cost Optimizat
   _Transparency and traceability when it comes to cost in order to ensure that any discrepancies are able to be followed back to the source and be dealt with accordingly._
 ## Governance
     
+### Standards
+            
+* Are Azure Tags used to enrich Azure resources with operational metadata?
+
+
+  _Using tags can help to manage resources and make it easier to find relevant items during operational procedures._
+  > Azure Tags provide the ability to associate critical metadata as a name-value pair, such as billing information (e.g. cost center code), environment information (e.g. environment type), with Azure resources, resource groups, and subscriptions. See [Tagging Strategies](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging) for best practices.
+* Does the application have a well-defined naming standard for Azure resources?
+
+
+  _A well-defined naming convention is important for overall operations to be able to easily determine the usage of certain resources and help understand owners and cost centers responsible for the workload. Naming conventions allow the matching of resource costs to particular workloads._
+  > Having a well-defined naming convention is important for overall operations, particularly for large application platforms where there are numerous resources([Naming Conventions](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging))
 ### Financial Management &amp; Cost Models
             
 * How is your organization modeling cloud costs for this workload?
