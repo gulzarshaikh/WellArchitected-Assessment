@@ -98,7 +98,6 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 * Is the workload deployed across multiple regions?
 
   _Multiple regions should be used for failover purposes in a disaster state, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active strategies. Additional cost needs to be taken into consideration - mostly from compute, data and networking perspective, but also services like Azure Site Recovery (ASR). ([Failover strategies](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones))_
-  
     - Were regions chosen based on location and proximity to your users or based on resource types that were available?
 
       _Not only is it important to utilize regions close to your audience, but it is equally important to choose regions that offer the SKUs that will support your future growth. Not all regions share the same parity when it comes to product SKUs. Plan your growth, then choose regions that will support those plans._
@@ -110,6 +109,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
     - Have you ensured that both (all) regions in use have the same performance and scale SKUs that are currently leveraged in the primary region?
 
       _When planning for scale and efficiency, it is important that regions are not only paired, but homogenous in their service offerings. Additionally, you should make sure that, if one region fails, the second region can scale appropriately to sufficiently handle the influx of additional user requests._
+  
   
 * Within a region is the application architecture designed to use Availability Zones?
 
@@ -135,10 +135,10 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 * Has a Business Continuity Disaster Recovery (BCDR) strategy been defined for the application and/or its key scenarios?
 
   _A disaster recovery strategy should capture how the application responds to a disaster situation such as a regional outage or the loss of a critical platform service, using either a re-deployment, warm-spare active-passive, or hot-spare active-active approach. To drive cost down consider splitting application components and data into groups. For example: 1) must protect, 2) nice to protect, 3) ephemeral/can be rebuilt/lost, instead of protecting all data with the same policy._
-  
     - If you have a disaster recovery plan in another region, have you ensured you have the needed capacity quotas allocated?
 
       _Quotas and limits typically apply at the region level and, therefore, the needed capacity should also be planned for the secondary region._
+  
   
 * Is the workload designed to scale independently?
 
@@ -154,7 +154,6 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
   _Understanding customer availability expectations is vital to reviewing overall operations for the application. For instance, if a customer is striving to achieve an application SLO of 99.999%, the level of inherent operational actionality required by the application is going to far greater than if an SLO of 99.9% was the aspiration_
   > Having clearly defined availability targets is crucial in order to have a goal to work and measure against. This will also determine which services an application can leverage vs. those which do not qualify in terms of the SLA they offer.
-  
     - Are SLAs/SLOs/SLIs for all leveraged dependencies understood?
 
       _Availability targets for any dependencies leveraged by the application should be understood and ideally align with application targets_
@@ -165,7 +164,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
       _A [composite SLA](https://docs.microsoft.com/azure/architecture/framework/resiliency/business-metrics#understand-service-level-agreements) captures the end-to-end SLA across all application components and dependencies. It is calculated using the individual SLAs of Azure services housing application components and provides an important indicator of designed availability in relation to customer expectations and targets._
       > Make sure the composite SLA of all components and dependencies on the critical paths are understood.
   
-      - Additional resources:
+      Additional resources:
         - [Composite SLA](https://docs.microsoft.com/azure/architecture/framework/resiliency/business-metrics#understand-service-level-agreements)
     - Are availability targets considered while the system is running in disaster recovery mode?
 
@@ -177,12 +176,13 @@ These critical design principles are used as lenses to assess the Cost Optimizat
       _Monitoring and measuring application availability is vital to qualifying overall application health and progress towards defined targets._
       > Make sure you measure and monitor key targets such as **Mean Time Between Failures (MTBF)** which denotes the average time between failures of a particular component.
   
-      - Additional resources:
+      Additional resources:
         - [Mean Time Between Failures](https://en.wikipedia.org/wiki/Mean_time_between_failures)
     - What are the consequences if availability targets are not satisfied?
 
       _Are there any penalties, such as financial charges, associated with failing to meet SLA commitments? Additional measures can be used to prevent penalties, but that also brings additional cost to operate the infrastructure. This has to be factored in and evaluated._
       > It should be fully understood what are the consequences if availability targets are not satisfied. This will also inform when to initiate a failover case.
+  
   
 * Are recovery targets such as Recovery Time Objective (RTO) and Recovery Point Objective (RPO) defined for the application and/or key scenarios?
 
@@ -195,7 +195,6 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
   _It is important to understand application and environment usage. The customer may have an understanding of certain seasons or incidents that increase user load (e.g. a weather service being hit by users facing a storm, an e-commerce site during the holiday season)._
   > Traffic patterns should be identified by analyzing historical traffic data and the effect of significant external events on the application.
-  
     - If typical usage is predictable, are your predictions based on time of day, day of week, or season (e.g. holiday shopping season)?
 
       _Dig deeper and document predictable periods. By doing so, you can leverage resources like Azure Automation and Autoscale to proactively scale the application and its underlying environment._
@@ -210,17 +209,18 @@ These critical design principles are used as lenses to assess the Cost Optimizat
     - Are you able to accurately predict the amount of load your application will experience during these peaks?
 
   
+  
 ### Key Scenarios
             
 * Have critical system flows through the application been defined for all key business scenarios?
 
   _Understanding critical system flows is vital to assessing overall operational effectiveness, and should be used to inform a health model for the application. It can also tell if areas of the application are over or under utilized and should be adjusted to better meet business needs and cost goals._
   > Path-wise analysis should be used to define critical system flows for key business scenarios, such as the checkout process for an eCommerce application.
-  
     - Do these critical system flows have distinct availability, performance, or recovery targets?
 
       _Critical sub-systems or paths through the application may have higher expectations around availability, recovery, and performance due to the criticality of associated business scenarios and functionality. This also helps to understand if cost will be affected due to these higher needs._
       > Targets should be specific and measurable.
+  
   
 * Are there any application components which are less critical and have lower availability or performance requirements?
 
@@ -233,9 +233,6 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
   _Internal dependencies describe components within the application scope which are required for the application to fully operate, while external dependencies captures required components outside the scope of the application, such as another application or third-party service._
   > Dependencies may be categorized as either strong or weak based on whether or not the application is able to continue operating in a degraded fashion in their absence.
-  
-    Additional resources:
-    - [Twelve-Factor App: Dependencies](https://12factor.net/dependencies)
     - Do you maintain a complete list of application dependencies?
 
       _Examples of typical dependencies include platform dependencies outside the remit of the application, such as Azure Active Directory, Express Route, or a central NVA (Network Virtual Appliance), as well as application dependencies such as APIs which may be in-house or externally owned by a third-party. For cost it’s important to  understand the price for these services and how they are being charged, this makes it easier to understanding an all up cost. For more details see cost models._
@@ -246,6 +243,9 @@ These critical design principles are used as lenses to assess the Cost Optimizat
       _Strong dependencies play a critical role in application function and availability meaning their absence will have a significant impact, while the absence of weak dependencies may only impact specific features and not affect overall availability. For cost this reflects the cost that is needed to maintain the HA relationship between the service and it’s dependencies. It would explain why certain measures needs to be maintained in order to hold a given SLA._
       > Classify dependencies either as strong or weak. This will help identify which components are essential to the application.
   
+  
+    Additional resources:
+    - [Twelve-Factor App: Dependencies](https://12factor.net/dependencies)
 * Are SLAs and support agreements in place for all critical dependencies?
 
   _Service Level Agreement (SLA) represents a commitment around performance and availability of the application. Understanding the SLA of individual components within the system is essential in order to define reliability targets. Knowing the SLA of dependencies will also provide a justifications for additional spend when making the dependencies highly available and with proper support contracts._
@@ -257,7 +257,6 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
   _It is important to understand what Azure services, such as App Services and Event Hubs, are used by the application platform to host both application code and data. In a discussion around cost, this can drive decisions towards the right replacements (e.g. moving from Virtual Machines to containers to increase efficiency, or migrating to .NET Core to use cheaper SKUs etc.)._
   > All Azure services in use should be identified.
-  
     - What operational features/capabilities are used for leveraged services?
 
       _Operational capabilities, such as auto-scale and auto-heal for App Services, can reduce management overheads, support operational effectiveness and reduce cost._
@@ -268,10 +267,11 @@ These critical design principles are used as lenses to assess the Cost Optimizat
       _It is important to understand what technologies are used by the application and must be managed, such as .NET Core , Spring, or Node.js._
       > All technologies and frameworks should be identified. Vulnerabilities of these dependencies must be understood (there are automated solutions on the market that can help: [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/) or [NPM audit](https://docs.npmjs.com/cli/audit)).
   
-      - Additional resources:
+      Additional resources:
         - [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/)
   
         - [NPM audit](https://docs.npmjs.com/cli/audit)
+  
 * Are components hosted on shared application or data platforms which are used by other applications?
 
   _Do application components leverage shared data platforms, such as a central data lake, or application hosting platforms, such as a centrally managed AKS or ASE cluster? Shared platforms drive down cost, but the workload needs to maintain the expected performance._
@@ -362,11 +362,11 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
   _Azure Advisor helps to optimize and improve efficiency of the workload by identifying idle and underutilized resources. It analyzes your configurations and usage telemetry and consolidates it into personalized, actionable recommendations to help you optimise your resources._
   > Use Azure Advisor to identify SKUs for optimization.
-  
     - Are the Advisor recommendations being reviewed weekly or bi-weekly for optimization?
 
       _Your underutilised resources need to be reviewed often in order to be identified and dealt with accordingly, in addition to ensuring that your actionable recommendations are up-to-date and fully optimised. For example, Azure Advisor monitors your virtual machine (VM) usage for 7 days and then identifies low-utilization VMs._
       > Review Azure Advisor recommendation periodically.
+  
   
 * Have you deployed a Hub and Spoke Design or Virtual WAN?
 
@@ -462,11 +462,11 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 * What is the process to deploy application releases to production?
 
   > The entire end-to-end CI/CD deployment process should be understood.
-  
     - How long does it take to deploy an entire production environment?
 
       _The time it takes to perform a complete environment deployment should align with recovery targets. Automation and agility also lead to cost savings due to the reduction of manual labor and errors._
       > The time it takes to perform a complete environment deployment should be fully understood as it needs to align with the recovery targets
+  
   
 ### Build Environments
             
@@ -478,7 +478,6 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 * Is the application deployed to multiple environments with different configurations?
 
   _Understand the scope of the solution and distinguish between SKUs used in production and non-production environments. To drive down cost, it might be possible to for example consolidate environments for applications that are not as critical to the business and don't need the same testing._
-  
     - What is the ratio of cost of production and non-production environments for this workload?
 
       _When the customer is spending more money on testing than production, it usually means they have too many non-production environments. Consider ratio of non-production to production environments and if ratio is substantially higher you should consider merging testing environments or re-visit why the cost is so much higher._
@@ -486,6 +485,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
     - How many production vs. non-production environments do you have?
 
       _Provisioning non-production environments (like development, test, integration...) each on a separate infrastructure is not always necessary. E.g. using shared App Service Plans and consolidating Web Apps for development and testing environments can save costs._
+  
   
 ### Testing &amp; Validation
             
