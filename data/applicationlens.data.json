@@ -5134,14 +5134,18 @@
     "category": "Application Design",
     "subCategory": "Threat Analysis",
     "title": "Has the workload been threat modeled?",
-    "context": "Threat modeling is an engineering technique which can be used to help identify threats, attacks, vulnerabilities and countermeasures that could affect an application. Threat modeling consists of: defining security requirements, identifying threats, mitigating threats, validating threat mitigation. Microsoft uses [STRIDE](https://docs.microsoft.com/azure/security/develop/threat-modeling-tool-threats) for threat modeling.  This might be the right time to talk through the STRIDE methodology and then the tools available to help them with Threat Modeling.  There are tools like [Microsoft Threat Modeling Tool](https://docs.microsoft.com/azure/security/develop/threat-modeling-tool-getting-started) which can help.",
+    "context": "Threat modeling is an engineering technique which can be used to help identify threats, attacks, vulnerabilities and countermeasures that could affect an application. Threat modeling consists of: defining security requirements, identifying threats, mitigating threats, validating threat mitigation. Microsoft uses [STRIDE](https://docs.microsoft.com/azure/security/develop/threat-modeling-tool-threats) for threat modeling.  This might be the right time to talk through the STRIDE methodology and then the tools available to help them with Threat Modeling. There are tools like [Microsoft Threat Modeling Tool](https://docs.microsoft.com/azure/security/develop/threat-modeling-tool-getting-started) which can help.",
     "recommendation": {
       "title": "Adopt threat modeling processes.",
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "STRIDE",
+          "url": "https://docs.microsoft.com/azure/security/develop/threat-modeling-tool-threats"
+        },
+        {
+          "title": "Microsoft Threat Modeling Tool",
+          "url": "https://docs.microsoft.com/azure/security/develop/threat-modeling-tool-getting-started"
         }
       ],
       "priority": "medium"
@@ -5391,8 +5395,16 @@
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "OWASP Dependency-Check",
+          "url": "https://owasp.org/www-project-dependency-check/"
+        },
+        {
+          "title": "NPM audit",
+          "url": "https://docs.npmjs.com/cli/v6/commands/npm-audit"
+        },
+        {
+          "title": "WhiteSource Bolt",
+          "url": "https://www.whitesourcesoftware.com/free-developer-tools/bolt/"
         }
       ],
       "priority": "medium"
@@ -5547,8 +5559,8 @@
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Cognitive Search PII detection",
+          "url": "https://docs.microsoft.com/azure/search/cognitive-search-skill-pii-detection"
         }
       ],
       "priority": "medium"
@@ -5587,14 +5599,14 @@
     "category": "Operational Procedures",
     "subCategory": "Patch & Update Process (PNU)",
     "title": "Does the organization reduce the count and potential severity of security vulnerabilities for this workload by implementing security practices and tools during the development lifecycle?",
-    "context": "Security vulnerabilities can result in an application disclosing confidential data, allowing criminals to alter data/records, or the data/application becoming unavailable for use by customers and employees. Applications will almost always contain logic errors, so it is important to discover, evaluate, and correct them to avoid damage to the organization’s reputation, revenue, or margins. This is made easier by discovering these vulnerabilities in the early stages of the development cycle. [Develop Secure Applications on Azure whitepaper](https://azure.microsoft.com/resources/develop-secure-applications-on-azure/)",
+    "context": "Security vulnerabilities can result in an application disclosing confidential data, allowing criminals to alter data/records, or the data/application becoming unavailable for use by customers and employees. Applications will almost always contain logic errors, so it is important to discover, evaluate, and correct them to avoid damage to the organization’s reputation, revenue, or margins. This is made easier by discovering these vulnerabilities in the early stages of the development cycle.",
     "recommendation": {
       "title": "Implement security practices and tools during development lifecycle.",
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Develop Secure Applications on Azure whitepaper",
+          "url": "https://azure.microsoft.com/resources/develop-secure-applications-on-azure/"
         }
       ],
       "priority": "medium"
@@ -5679,14 +5691,14 @@
     "category": "Security & Compliance",
     "subCategory": "Authentication and authorization",
     "title": "Are authentication tokens cached securely and encrypted when sharing across web servers in this workload?",
-    "context": "OAuth tokens are usually cached after they've been acquired. Application code should first try to get tokens silently from a cache before attempting to acquire a token from the identity provider, to optimise performance and maximize availability. Tokens should be stored securely and handled as any other credentials. When there's a need to share tokens across application servers (instead of each server acquiring and caching their own) encryption should be used. [Acquire and cache tokens](https://docs.microsoft.com/azure/active-directory/develop/msal-acquire-cache-tokens)",
+    "context": "OAuth tokens are usually cached after they've been acquired. Application code should first try to get tokens silently from a cache before attempting to acquire a token from the identity provider, to optimise performance and maximize availability. Tokens should be stored securely and handled as any other credentials. When there's a need to share tokens across application servers (instead of each server acquiring and caching their own) encryption should be used.",
     "recommendation": {
       "title": "Configure web apps to reuse authentication tokens securely and handle them like other credentials.",
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Acquire and cache tokens",
+          "url": "https://docs.microsoft.com/azure/active-directory/develop/msal-acquire-cache-tokens"
         }
       ],
       "priority": "medium"
