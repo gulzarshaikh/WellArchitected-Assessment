@@ -36,12 +36,6 @@
         "title": "Security Criteria & Data Classification"
       },
       {
-        "title": "Dependencies, frameworks and libraries"
-      },
-      {
-        "title": "Design Patterns"
-      },
-      {
         "title": "Transactional"
       },
       {
@@ -59,7 +53,7 @@
         "title": "Resource and Infrastructure Level Monitoring"
       },
       {
-        "title": "Logging"
+        "title": "Monitoring and Measurement"
       },
       {
         "title": "Dependencies"
@@ -74,16 +68,7 @@
         "title": "Alerting"
       },
       {
-        "title": "Monitoring and Measurement"
-      },
-      {
-        "title": "Auditing"
-      },
-      {
         "title": "Performance Targets"
-      },
-      {
-        "title": "Modelling"
       }
     ]
   },
@@ -91,10 +76,10 @@
     "title": "Capacity & Service Availability Planning",
     "subCategories": [
       {
-        "title": "Service Availability"
+        "title": "Scalability & Capacity Model"
       },
       {
-        "title": "Capacity"
+        "title": "Service Availability"
       },
       {
         "title": "Service SKU"
@@ -193,9 +178,6 @@
         "title": "Recovery & Failover"
       },
       {
-        "title": "Scalability & Capacity Model"
-      },
-      {
         "title": "Configuration & Secrets Management"
       },
       {
@@ -234,9 +216,6 @@
       },
       {
         "title": "Roles & Responsibilities"
-      },
-      {
-        "title": "Common Engineering Criteria"
       }
     ]
   },
@@ -253,9 +232,6 @@
         "title": "Load Capacity"
       },
       {
-        "title": "Data"
-      },
-      {
         "title": "Troubleshooting"
       }
     ]
@@ -263,6 +239,9 @@
   {
     "title": "Governance",
     "subCategories": [
+      {
+        "title": "Standards"
+      },
       {
         "title": "Financial Management & Cost Models"
       },
