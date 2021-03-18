@@ -113,20 +113,24 @@ These critical design principles are used as lenses to assess the Operational Ex
   
 * Is the workload deployed across multiple regions?
 
-  _Multiple regions should be used for failover purposes in a disaster state, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active strategies. Additional cost needs to be taken into consideration - mostly from compute, data and networking perspective, but also services like Azure Site Recovery (ASR). ([Failover strategies](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones))_
+  _Multiple regions should be used for failover purposes in a disaster state, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active strategies. Additional cost needs to be taken into consideration - mostly from compute, data and networking perspective, but also services like Azure Site Recovery (ASR)._
     - Were regions chosen based on location and proximity to your users or based on resource types that were available?
 
       _Not only is it important to utilize regions close to your audience, but it is equally important to choose regions that offer the SKUs that will support your future growth. Not all regions share the same parity when it comes to product SKUs. Plan your growth, then choose regions that will support those plans._
   
     - Are paired regions used?
 
-      _Paired regions exist within the same geography and provide native replication features for recovery purposes, such as Geo-Redundant Storage (GRS) asynchronous replication. In the event of planned maintenance, updates to a region will be performed sequentially only ([Business continuity with Azure Paired Regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions))_
+      _[Paired regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) exist within the same geography and provide native replication features for recovery purposes, such as Geo-Redundant Storage (GRS) asynchronous replication. In the event of planned maintenance, updates to a region will be performed sequentially only._
   
+      Additional resources:
+        - [Business continuity with Azure Paired Regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)
     - Have you ensured that both (all) regions in use have the same performance and scale SKUs that are currently leveraged in the primary region?
 
       _When planning for scale and efficiency, it is important that regions are not only paired, but homogenous in their service offerings. Additionally, you should make sure that, if one region fails, the second region can scale appropriately to sufficiently handle the influx of additional user requests._
   
   
+    Additional resources:
+    - [Failover strategies](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones)
 * Within a region is the application architecture designed to use Availability Zones?
 
   _[Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones) can be used to optimise application availability within a region by providing datacenter level fault tolerance. However, the application architecture must not share dependencies between zones to use them effectively. It is also important to note that Availability Zones may introduce performance and cost considerations for applications which are extremely 'chatty' across zones given the implied physical separation between each zone and inter-zone bandwidth charges. That also means that AZ can be considered to get higher SLA for lower cost. Be aware of [pricing changes](https://azure.microsoft.com/pricing/details/bandwidth/) coming to Availability Zone bandwidth starting February 2021._
@@ -134,15 +138,17 @@ These critical design principles are used as lenses to assess the Operational Ex
   
 * Is the application implemented with strategies for resiliency and self-healing?
 
-  _Strategies for resiliency and self-healing include retrying transient failures and failing over to a secondary instance or even another region (see [Designing resilient Azure applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design))_
-  > Consider implementing strategies and capabilities for resiliency and self-healing needed to achieve workload availability targets. Programming paradigms such as retry patterns, request timeouts, and circuit breaker patterns can improve application resiliency by automatically recovering from transient faults ([Error handling for resilient applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design-error-handling))
+  _Strategies for resiliency and self-healing include retrying transient failures and failing over to a secondary instance or even another region._
+  > Consider implementing strategies and capabilities for resiliency and self-healing needed to achieve workload availability targets. Programming paradigms such as retry patterns, request timeouts, and circuit breaker patterns can improve application resiliency by automatically recovering from transient faults.
   
     Additional resources:
+    - [Designing resilient Azure applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design)
+  
     - [Error handling for resilient applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design-error-handling)
 * Is the application designed to use managed services?
 
   _Platform-as-a-Service (PaaS) services provide native resiliency capabilities to support overall application reliability and native capabilities for scalability, monitoring and disaster recovery._
-  > Where possible prefer Platform-as-a-Service (PaaS) offerings to leverage their advanced capabilities and to avoid managing the underlying infrastructure. (see [Use managed services](https://docs.microsoft.com/azure/architecture/guide/design-principles/managed-services) and [What is PaaS?](https://azure.microsoft.com/overview/what-is-paas/))
+  > Where possible prefer Platform-as-a-Service (PaaS) offerings to leverage their advanced capabilities and to avoid managing the underlying infrastructure.
   
     Additional resources:
     - [Use managed services](https://docs.microsoft.com/azure/architecture/guide/design-principles/managed-services)
@@ -456,8 +462,10 @@ These critical design principles are used as lenses to assess the Operational Ex
   
 * Are application level events automatically correlated with resource level metrics to quantify the current application state?
 
-  _The overall health state can be impacted by both application-level issues as well as resource-level failures. Telemetry correlation should be used to ensure transactions can be mapped through the end-to-end application and critical system flows, as this is vital to root cause analysis for failures. Platform-level metrics and logs such as CPU percentage, network in/out, and disk operations/sec should be collected from the application to inform a health model and detect/predict issues ([Telemetry correlation](https://docs.microsoft.com/azure/azure-monitor/app/correlation)). This can also help to distinguish between transient and non-transient faults._
+  _The overall health state can be impacted by both application-level issues as well as resource-level failures. [Telemetry correlation](https://docs.microsoft.com/azure/azure-monitor/app/correlation) should be used to ensure transactions can be mapped through the end-to-end application and critical system flows, as this is vital to root cause analysis for failures. Platform-level metrics and logs such as CPU percentage, network in/out, and disk operations/sec should be collected from the application to inform a health model and detect/predict issues. This can also help to distinguish between transient and non-transient faults._
   
+    Additional resources:
+    - [Telemetry correlation](https://docs.microsoft.com/azure/azure-monitor/app/correlation)
 * Is the transaction flow data used to generate application/service maps?
 
   _Is there a correlation between events in different services and are those visualized?_
@@ -734,7 +742,7 @@ These critical design principles are used as lenses to assess the Operational Ex
 * Are keys and secrets backed-up to geo-redundant storage?
 
   _Keys and secrets must still be available in a failover case._
-  > Keys and secrets should be backed up to geo-redundant storage so that they can be accessed in the event of a regional failure and support recovery objectives. In the event of a regional outage, the Key Vault service will automatically be failed over to the secondary region in a read-only state. ([Azure Key Vault availability and reliability](https://docs.microsoft.com/azure/key-vault/general/disaster-recovery-guidance))
+  > Keys and secrets should be backed up to geo-redundant storage so that they can be accessed in the event of a regional failure and support recovery objectives. In the event of a regional outage, the Key Vault service will automatically be failed over to the secondary region in a read-only state.
     - Are certificate/key backups and data backups stored in different geo-redundant storage accounts?
 
       > Encryption keys and data should be backed up separately to optimise the security of underlying data
@@ -811,7 +819,7 @@ These critical design principles are used as lenses to assess the Operational Ex
 * Can the application be deployed automatically from scratch without any manual operations?
 
   _Manual deployment steps introduce significant risks where human error is concerned and also increases overall deployment times._
-  > Automated end-to-end deployments, with manual approval gates where necessary, should be used to ensure a consistent and efficient deployment process. See ([Deployment considerations for DevOps](https://docs.microsoft.com/azure/architecture/framework/devops/deployment)).
+  > Automated end-to-end deployments, with manual approval gates where necessary, should be used to ensure a consistent and efficient deployment process.
     - Is there a documented process for any portions of the deployment that require manual intervention?
 
       _Without detailed release process documentation, there is a much higher risk of an operator improperly configuring settings for the application_
@@ -1011,9 +1019,11 @@ These critical design principles are used as lenses to assess the Operational Ex
   
 * Does the organization have the appropriate emergency access accounts configured for this workload in case of an emergency?
 
-  _While rare, sometimes extreme circumstances arise where all normal means of administrative access are unavailable and for this reason emergency access accounts (also refered to as 'break glass' accounts) should be available. These accounts are strictly controlled in accordance with best practice guidance, and they are closely monitored for unsanctioned use to ensure they are not compromised or used for nefarious purposes. [Emergency Access Acounts](https://docs.microsoft.com/azure/active-directory/roles/security-emergency-access)_
+  _While rare, sometimes extreme circumstances arise where all normal means of administrative access are unavailable and for this reason [emergency access accounts](https://docs.microsoft.com/azure/active-directory/roles/security-emergency-access) (also refered to as 'break glass' accounts) should be available. These accounts are strictly controlled in accordance with best practice guidance, and they are closely monitored for unsanctioned use to ensure they are not compromised or used for nefarious purposes._
   > Configure emergency access accounts. The impact of no administrative access can be mitigated by creating two or more emergency access accounts ([Emergency Access accounts in Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access))
   
+    Additional resources:
+    - [Emergency Access Accounts](https://docs.microsoft.com/azure/active-directory/roles/security-emergency-access)
 ## Governance
     
 ### Standards

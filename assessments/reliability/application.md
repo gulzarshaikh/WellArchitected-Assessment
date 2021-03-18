@@ -107,20 +107,24 @@ These critical design principles are used as lenses to assess the Reliability of
             
 * Is the workload deployed across multiple regions?
 
-  _Multiple regions should be used for failover purposes in a disaster state, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active strategies. Additional cost needs to be taken into consideration - mostly from compute, data and networking perspective, but also services like Azure Site Recovery (ASR). ([Failover strategies](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones))_
+  _Multiple regions should be used for failover purposes in a disaster state, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active strategies. Additional cost needs to be taken into consideration - mostly from compute, data and networking perspective, but also services like Azure Site Recovery (ASR)._
     - Were regions chosen based on location and proximity to your users or based on resource types that were available?
 
       _Not only is it important to utilize regions close to your audience, but it is equally important to choose regions that offer the SKUs that will support your future growth. Not all regions share the same parity when it comes to product SKUs. Plan your growth, then choose regions that will support those plans._
   
     - Are paired regions used?
 
-      _Paired regions exist within the same geography and provide native replication features for recovery purposes, such as Geo-Redundant Storage (GRS) asynchronous replication. In the event of planned maintenance, updates to a region will be performed sequentially only ([Business continuity with Azure Paired Regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions))_
+      _[Paired regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) exist within the same geography and provide native replication features for recovery purposes, such as Geo-Redundant Storage (GRS) asynchronous replication. In the event of planned maintenance, updates to a region will be performed sequentially only._
   
+      Additional resources:
+        - [Business continuity with Azure Paired Regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)
     - Have you ensured that both (all) regions in use have the same performance and scale SKUs that are currently leveraged in the primary region?
 
       _When planning for scale and efficiency, it is important that regions are not only paired, but homogenous in their service offerings. Additionally, you should make sure that, if one region fails, the second region can scale appropriately to sufficiently handle the influx of additional user requests._
   
   
+    Additional resources:
+    - [Failover strategies](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones)
 * Within a region is the application architecture designed to use Availability Zones?
 
   _[Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones) can be used to optimise application availability within a region by providing datacenter level fault tolerance. However, the application architecture must not share dependencies between zones to use them effectively. It is also important to note that Availability Zones may introduce performance and cost considerations for applications which are extremely 'chatty' across zones given the implied physical separation between each zone and inter-zone bandwidth charges. That also means that AZ can be considered to get higher SLA for lower cost. Be aware of [pricing changes](https://azure.microsoft.com/pricing/details/bandwidth/) coming to Availability Zone bandwidth starting February 2021._
@@ -128,10 +132,12 @@ These critical design principles are used as lenses to assess the Reliability of
   
 * Is the application implemented with strategies for resiliency and self-healing?
 
-  _Strategies for resiliency and self-healing include retrying transient failures and failing over to a secondary instance or even another region (see [Designing resilient Azure applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design))_
-  > Consider implementing strategies and capabilities for resiliency and self-healing needed to achieve workload availability targets. Programming paradigms such as retry patterns, request timeouts, and circuit breaker patterns can improve application resiliency by automatically recovering from transient faults ([Error handling for resilient applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design-error-handling))
+  _Strategies for resiliency and self-healing include retrying transient failures and failing over to a secondary instance or even another region._
+  > Consider implementing strategies and capabilities for resiliency and self-healing needed to achieve workload availability targets. Programming paradigms such as retry patterns, request timeouts, and circuit breaker patterns can improve application resiliency by automatically recovering from transient faults.
   
     Additional resources:
+    - [Designing resilient Azure applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design)
+  
     - [Error handling for resilient applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design-error-handling)
 * Can the application operate with reduced functionality or degraded performance in the presence of an outage?
 
@@ -140,7 +146,7 @@ These critical design principles are used as lenses to assess the Reliability of
 * Is the application designed to use managed services?
 
   _Platform-as-a-Service (PaaS) services provide native resiliency capabilities to support overall application reliability and native capabilities for scalability, monitoring and disaster recovery._
-  > Where possible prefer Platform-as-a-Service (PaaS) offerings to leverage their advanced capabilities and to avoid managing the underlying infrastructure. (see [Use managed services](https://docs.microsoft.com/azure/architecture/guide/design-principles/managed-services) and [What is PaaS?](https://azure.microsoft.com/overview/what-is-paas/))
+  > Where possible prefer Platform-as-a-Service (PaaS) offerings to leverage their advanced capabilities and to avoid managing the underlying infrastructure.
   
     Additional resources:
     - [Use managed services](https://docs.microsoft.com/azure/architecture/guide/design-principles/managed-services)
@@ -181,9 +187,11 @@ These critical design principles are used as lenses to assess the Reliability of
   
 * Have all single points of failure been eliminated?
 
-  _A single point of failure describes a specific fault-point which if it where to fail would bring down the entire application. Single points of failure introduce significant risk since any failure of this component will cause an application outage ([Make all things redundant](https://docs.microsoft.com/azure/architecture/guide/design-principles/redundancy))_
+  _A single point of failure describes a specific fault-point which if it where to fail would bring down the entire application. Single points of failure introduce significant risk since any failure of this component will cause an application outage._
   > Make sure that all single points of failure are identified and wherever possible eliminated. Single point of failures that cannot be avoided need special attention during operations and with regards to resiliency.
   
+    Additional resources:
+    - [Make all things redundant](https://docs.microsoft.com/azure/architecture/guide/design-principles/redundancy)
 * Have all 'singletons' been eliminated?
 
   _A 'singleton' describes a logical component within an application for which there can only ever be a single instance. It can apply to stateful architectural components or application code constructs. Ultimately, singletons introduce a significant risk by creating single points of failure within the application design_
@@ -328,8 +336,10 @@ These critical design principles are used as lenses to assess the Reliability of
             
 * Are application level events automatically correlated with resource level metrics to quantify the current application state?
 
-  _The overall health state can be impacted by both application-level issues as well as resource-level failures. Telemetry correlation should be used to ensure transactions can be mapped through the end-to-end application and critical system flows, as this is vital to root cause analysis for failures. Platform-level metrics and logs such as CPU percentage, network in/out, and disk operations/sec should be collected from the application to inform a health model and detect/predict issues ([Telemetry correlation](https://docs.microsoft.com/azure/azure-monitor/app/correlation)). This can also help to distinguish between transient and non-transient faults._
+  _The overall health state can be impacted by both application-level issues as well as resource-level failures. [Telemetry correlation](https://docs.microsoft.com/azure/azure-monitor/app/correlation) should be used to ensure transactions can be mapped through the end-to-end application and critical system flows, as this is vital to root cause analysis for failures. Platform-level metrics and logs such as CPU percentage, network in/out, and disk operations/sec should be collected from the application to inform a health model and detect/predict issues. This can also help to distinguish between transient and non-transient faults._
   
+    Additional resources:
+    - [Telemetry correlation](https://docs.microsoft.com/azure/azure-monitor/app/correlation)
 * Is a health model used to qualify what 'healthy' and 'unhealthy' states represent for the application?
 
   > A holistic application health model should be used to quantify what 'healthy' and 'unhealthy' states represent across all application components. It is highly recommended that a 'traffic light' model be used to indicate a green/healthy state when key non-functional requirements and targets are fully satisfied and resources are optimally utilized, e.g. 95% of requests are processed in <= 500ms with AKS node utilization at x% etc. Once established, this health model should inform critical monitoring metrics across system components and operational sub-system composition. It is important to note that the health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state.
@@ -444,7 +454,7 @@ These critical design principles are used as lenses to assess the Reliability of
             
 * Is the underlying application platform service Availability Zone aware?
 
-  _Platform services that can leverage Availability Zones are deployed in either a zonal manner within a particular zone, or in a zone-redundant configuration across multiple zones ([Building solutions for high availability using Availability Zones](https://docs.microsoft.com/azure/architecture/high-availability/building-solutions-for-high-availability))_
+  _Platform services that can leverage Availability Zones are deployed in either a zonal manner within a particular zone, or in a zone-redundant configuration across multiple zones._
   
     Additional resources:
     - [Building solutions for high availability using Availability Zones](https://docs.microsoft.com/azure/architecture/high-availability/building-solutions-for-high-availability)
@@ -462,7 +472,7 @@ These critical design principles are used as lenses to assess the Reliability of
     - [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/)
 * How is the client traffic routed to the application in the case of region, zone or network outage?
 
-  _In the event of a major outage, client traffic should be routable to application deployments which remain available across other regions or zones. This is ultimately where cross-premises connectivity and global load balancing should be used, depending on whether the application is internal and/or external facing. Services such as Azure Front Door, Azure Traffic Manager, or third-party CDNs can route traffic across regions based on application health solicited via health probes ([Traffic Manager endpoint monitoring](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring))_
+  _In the event of a major outage, client traffic should be routable to application deployments which remain available across other regions or zones. This is ultimately where cross-premises connectivity and global load balancing should be used, depending on whether the application is internal and/or external facing. Services such as Azure Front Door, Azure Traffic Manager, or third-party CDNs can route traffic across regions based on application health solicited via health probes._
   
     Additional resources:
     - [Traffic Manager endpoint monitoring](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring)
@@ -478,8 +488,10 @@ These critical design principles are used as lenses to assess the Reliability of
             
 * How does CAP theorem apply to the data platform and key application scenarios?
 
-  _CAP theorem proves that it is impossible for a distributed data store to simultaneously provide more than two guarantees across 1) Consistency (every read receives the most recent write or an error), 2) Availability (very request receives a non-error response, without the guarantee that it contains the most recent write), and 3) Partition tolerance (a system continues to operate despite an arbitrary number of transactions being dropped or delayed by the network between nodes). Determining which of these guarantees are most important in the context of application requirements is critical_
+  _[CAP theorem](https://en.wikipedia.org/wiki/CAP_theorem) proves that it is impossible for a distributed data store to simultaneously provide more than two guarantees across 1) Consistency (every read receives the most recent write or an error), 2) Availability (very request receives a non-error response, without the guarantee that it contains the most recent write), and 3) Partition tolerance (a system continues to operate despite an arbitrary number of transactions being dropped or delayed by the network between nodes). Determining which of these guarantees are most important in the context of application requirements is critical_
   
+    Additional resources:
+    - [CAP theorem](https://en.wikipedia.org/wiki/CAP_theorem)
 * Are data types categorized by data consistency requirements?
 
   _Data consistency requirements, such as strong or eventual consistency, should be understood for all data types and used to inform data grouping and categorization, as well as what data replication/synchronization strategies can be considered to meet application reliability targets_
@@ -588,7 +600,7 @@ These critical design principles are used as lenses to assess the Reliability of
 * Have gateways (ExpressRoute or VPN) been sized accordingly to the expected cross-premises network throughput?
 
   _Azure Virtual Network Gateways throughput varies based on SKU._
-  > Consider sizing gateways according to required throughput ([VPN Gateway SKUs](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku))
+  > Consider sizing gateways according to required throughput based on the available [VPN Gateway SKUs](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku).
   
     Additional resources:
     - [VPN Gateway SKUs](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku)
@@ -707,7 +719,7 @@ These critical design principles are used as lenses to assess the Reliability of
 * Are keys and secrets backed-up to geo-redundant storage?
 
   _Keys and secrets must still be available in a failover case._
-  > Keys and secrets should be backed up to geo-redundant storage so that they can be accessed in the event of a regional failure and support recovery objectives. In the event of a regional outage, the Key Vault service will automatically be failed over to the secondary region in a read-only state. ([Azure Key Vault availability and reliability](https://docs.microsoft.com/azure/key-vault/general/disaster-recovery-guidance))
+  > Keys and secrets should be backed up to geo-redundant storage so that they can be accessed in the event of a regional failure and support recovery objectives. In the event of a regional outage, the Key Vault service will automatically be failed over to the secondary region in a read-only state.
     - Are certificate/key backups and data backups stored in different geo-redundant storage accounts?
 
       > Encryption keys and data should be backed up separately to optimise the security of underlying data
@@ -731,8 +743,10 @@ These critical design principles are used as lenses to assess the Reliability of
     - [Stateless web services](https://docs.microsoft.com/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices)
 * Is the session state (if any) non-sticky and externalized to a data store?
 
-  _Sticky session state limits application scalability because it is not possible to balance load. With sticky sessions all requests from a client must be sent to the same compute instance where the session state was initially created, regardless of the load on that compute instance. Externalizing session state allows for traffic to be evenly distributed across multiple compute nodes, with required state retrieved from the external data store ([Avoid session state](https://docs.microsoft.com/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#sessionstate))_
+  _Sticky session state limits application scalability because it is not possible to balance load. With sticky sessions all requests from a client must be sent to the same compute instance where the session state was initially created, regardless of the load on that compute instance. Externalizing session state allows for traffic to be evenly distributed across multiple compute nodes, with required state retrieved from the external data store._
   
+    Additional resources:
+    - [Avoid session state](https://docs.microsoft.com/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#sessionstate)
 ## Deployment &amp; Testing
     
 ### Application Code Deployments
@@ -740,7 +754,7 @@ These critical design principles are used as lenses to assess the Reliability of
 * Can the application be deployed automatically from scratch without any manual operations?
 
   _Manual deployment steps introduce significant risks where human error is concerned and also increases overall deployment times._
-  > Automated end-to-end deployments, with manual approval gates where necessary, should be used to ensure a consistent and efficient deployment process. See ([Deployment considerations for DevOps](https://docs.microsoft.com/azure/architecture/framework/devops/deployment)).
+  > Automated end-to-end deployments, with manual approval gates where necessary, should be used to ensure a consistent and efficient deployment process.
     - Is there a documented process for any portions of the deployment that require manual intervention?
 
       _Without detailed release process documentation, there is a much higher risk of an operator improperly configuring settings for the application_
@@ -805,6 +819,8 @@ These critical design principles are used as lenses to assess the Reliability of
             
 * Does the organization have the appropriate emergency access accounts configured for this workload in case of an emergency?
 
-  _While rare, sometimes extreme circumstances arise where all normal means of administrative access are unavailable and for this reason emergency access accounts (also refered to as 'break glass' accounts) should be available. These accounts are strictly controlled in accordance with best practice guidance, and they are closely monitored for unsanctioned use to ensure they are not compromised or used for nefarious purposes. [Emergency Access Acounts](https://docs.microsoft.com/azure/active-directory/roles/security-emergency-access)_
+  _While rare, sometimes extreme circumstances arise where all normal means of administrative access are unavailable and for this reason [emergency access accounts](https://docs.microsoft.com/azure/active-directory/roles/security-emergency-access) (also refered to as 'break glass' accounts) should be available. These accounts are strictly controlled in accordance with best practice guidance, and they are closely monitored for unsanctioned use to ensure they are not compromised or used for nefarious purposes._
   > Configure emergency access accounts. The impact of no administrative access can be mitigated by creating two or more emergency access accounts ([Emergency Access accounts in Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access))
   
+    Additional resources:
+    - [Emergency Access Accounts](https://docs.microsoft.com/azure/active-directory/roles/security-emergency-access)
