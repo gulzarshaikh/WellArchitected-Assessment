@@ -3016,14 +3016,14 @@
     "category": "Operational Model & DevOps",
     "subCategory": "General",
     "title": "Are specific methodologies, like DevOps, used to structure the development and operations process?",
-    "context": "The contraction of “Dev” and “Ops” refers to replacing siloed Development and Operations to create multidisciplinary teams that now work together with shared and efficient practices and tools. Essential DevOps practices include agile planning, continuous integration, continuous delivery, and monitoring of applications (from [docs.microsoft.com](https://docs.microsoft.com/azure/devops/learn/what-is-devops)).",
+    "context": "The contraction of “Dev” and “Ops” refers to replacing siloed Development and Operations to create multidisciplinary teams that now work together with shared and efficient practices and tools. [Essential DevOps practices](https://docs.microsoft.com/azure/devops/learn/what-is-devops) include agile planning, continuous integration, continuous delivery, and monitoring of applications.",
     "recommendation": {
       "title": "",
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "What is DevOps?",
+          "url": "https://docs.microsoft.com/azure/devops/learn/what-is-devops"
         }
       ],
       "priority": "medium"
@@ -3045,8 +3045,12 @@
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "ITIL",
+          "url": "https://en.wikipedia.org/wiki/ITIL"
+        },        
+        {
+          "title": "IT service management (ITSM)",
+          "url": "https://en.wikipedia.org/wiki/IT_service_management"
         }
       ],
       "priority": "medium"
@@ -3322,8 +3326,12 @@
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Azure Policy",
+          "url": "https://docs.microsoft.com/azure/governance/policy/overview"
+        },        
+        {
+          "title": "HashiCorp Sentinel",
+          "url": "https://www.hashicorp.com/resources/introduction-sentinel-compliance-policy-as-code/"
         }
       ],
       "priority": "medium"
