@@ -163,7 +163,7 @@ These critical design principles are used as lenses to assess the Operational Ex
       _A [composite SLA](https://docs.microsoft.com/azure/architecture/framework/resiliency/business-metrics#understand-service-level-agreements) captures the end-to-end SLA across all application components and dependencies. It is calculated using the individual SLAs of Azure services housing application components and provides an important indicator of designed availability in relation to customer expectations and targets._
       > Make sure the composite SLA of all components and dependencies on the critical paths are understood.
   
-    **Additional resources:**
+    - Additional resources:
       - [Composite SLA](https://docs.microsoft.com/azure/architecture/framework/resiliency/business-metrics#understand-service-level-agreements)
     - Are availability targets considered while the system is running in disaster recovery mode?
 
@@ -175,7 +175,7 @@ These critical design principles are used as lenses to assess the Operational Ex
       _Monitoring and measuring application availability is vital to qualifying overall application health and progress towards defined targets._
       > Make sure you measure and monitor key targets such as **Mean Time Between Failures (MTBF)** which denotes the average time between failures of a particular component.
   
-    **Additional resources:**
+    - Additional resources:
       - [Mean Time Between Failures](https://en.wikipedia.org/wiki/Mean_time_between_failures)
     - What are the consequences if availability targets are not satisfied?
 
@@ -280,7 +280,7 @@ These critical design principles are used as lenses to assess the Operational Ex
       _It is important to understand what technologies are used by the application and must be managed, such as .NET Core , Spring, or Node.js._
       > All technologies and frameworks should be identified. Vulnerabilities of these dependencies must be understood (there are automated solutions on the market that can help: [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/) or [NPM audit](https://docs.npmjs.com/cli/audit)).
   
-    **Additional resources:**
+    - Additional resources:
       - [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/)
   
       - [NPM audit](https://docs.npmjs.com/cli/audit)
@@ -491,7 +491,7 @@ These critical design principles are used as lenses to assess the Operational Ex
       _While the promise of the cloud is infinite scale, the reality is that there are finite resources available and as a result situations can occur where capacity can be constrained due to overall demand._
       > If the application requires a large amount of capacity or expects a significant increase in capacity then effort should be invested to ensure that desired capacity is attainable within selected region(s). For applications leveraging a recovery or active-passive based disaster recovery strategy, consideration should also be given to ensure suitable capacity exists in the secondary region(s) since a regional outage can lead to a significant increase in demand within a paired region due to other customer workloads also failing over. To help mitigate this, consideration should be given to pre-provisioning resources within the secondary region. ([Azure Capacity](https://aka.ms/AzureCapacity))
   
-    **Additional resources:**
+    - Additional resources:
       - [Azure Capacity](https://aka.ms/AzureCapacity)
 * Is capacity utilization monitored and used to forecast future growth?
 

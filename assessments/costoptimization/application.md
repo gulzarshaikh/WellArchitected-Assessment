@@ -153,7 +153,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
       _A [composite SLA](https://docs.microsoft.com/azure/architecture/framework/resiliency/business-metrics#understand-service-level-agreements) captures the end-to-end SLA across all application components and dependencies. It is calculated using the individual SLAs of Azure services housing application components and provides an important indicator of designed availability in relation to customer expectations and targets._
       > Make sure the composite SLA of all components and dependencies on the critical paths are understood.
   
-    **Additional resources:**
+    - Additional resources:
       - [Composite SLA](https://docs.microsoft.com/azure/architecture/framework/resiliency/business-metrics#understand-service-level-agreements)
     - Are availability targets considered while the system is running in disaster recovery mode?
 
@@ -165,7 +165,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
       _Monitoring and measuring application availability is vital to qualifying overall application health and progress towards defined targets._
       > Make sure you measure and monitor key targets such as **Mean Time Between Failures (MTBF)** which denotes the average time between failures of a particular component.
   
-    **Additional resources:**
+    - Additional resources:
       - [Mean Time Between Failures](https://en.wikipedia.org/wiki/Mean_time_between_failures)
     - What are the consequences if availability targets are not satisfied?
 
@@ -245,7 +245,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
       _It is important to understand what technologies are used by the application and must be managed, such as .NET Core , Spring, or Node.js._
       > All technologies and frameworks should be identified. Vulnerabilities of these dependencies must be understood (there are automated solutions on the market that can help: [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/) or [NPM audit](https://docs.npmjs.com/cli/audit)).
   
-    **Additional resources:**
+    - Additional resources:
       - [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/)
   
       - [NPM audit](https://docs.npmjs.com/cli/audit)
