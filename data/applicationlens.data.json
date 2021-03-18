@@ -2492,7 +2492,7 @@
     "title": "Does the application deployment process leverage blue-green deployments and/or canary releases?",
     "context": "Blue/green or canary deployments are a way to gradually release new feature or changes without impacting all users at once.",
     "recommendation": {
-      "title": "Blue-green deployments and/or canary releases can be used to deploy updates in a controlled manner that helps to minimize disruption from unanticipated deployment issues. For example, Azure uses canary regions to test and validate new services and capabilities before they are more broadly rolled out to other Azure regions. Where appropriate the application can also use canary environments to validate changes before wider production rollout. Moreover, certain large application platforms may also derive benefit from leveraging Azure canary regions as a basis for validating the potential impact of Azure platform changes on the application. See [Stage your workloads](https://docs.microsoft.com/azure/architecture/framework/devops/deployment#stage-your-workloads).",
+      "title": "Blue-green deployments and/or canary releases can be used to deploy updates in a controlled manner that helps to minimize disruption from unanticipated deployment issues. For example, Azure uses canary regions to test and validate new services and capabilities before they are more broadly rolled out to other Azure regions. Where appropriate the application can also use canary environments to validate changes before wider production rollout. Moreover, certain large application platforms may also derive benefit from leveraging Azure canary regions as a basis for validating the potential impact of Azure platform changes on the application.",
       "context": "",
       "links": [
         {
@@ -4944,14 +4944,14 @@
     "category": "Health Modelling & Monitoring",
     "subCategory": "Monitoring and Measurement",
     "title": "Is white-box monitoring used to instrument the application with semantic logs and metrics?",
-    "context": "Application level metrics and logs, such as current memory consumption or request latency, should be collected from the application to inform a health model and detect/predict issues([Instrumenting an application with Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview))",
+    "context": "Application level metrics and logs, such as current memory consumption or request latency, should be collected from the application to inform a health model and detect/predict issues.",
     "recommendation": {
       "title": "",
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Instrumenting an application with Application Insights",
+          "url": "https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview"
         }
       ],
       "priority": "medium"
@@ -4968,14 +4968,14 @@
     "category": "Health Modelling & Monitoring",
     "subCategory": "Monitoring and Measurement",
     "title": "Is the application instrumented to measure the customer experience?",
-    "context": "Effective instrumentation is vital to detecting and resolving performance anomalies that can impact customer experience and application availability ([Monitor performance](https://docs.microsoft.com/azure/azure-monitor/app/web-monitor-performance))",
+    "context": "Effective instrumentation is vital to detecting and resolving performance anomalies that can impact customer experience and application availability.",
     "recommendation": {
       "title": "",
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Monitor performance",
+          "url": "https://docs.microsoft.com/azure/azure-monitor/app/web-monitor-performance"
         }
       ],
       "priority": "medium"
@@ -4992,14 +4992,14 @@
     "category": "Health Modelling & Monitoring",
     "subCategory": "Dependencies",
     "title": "Is the application instrumented to track calls to dependent services?",
-    "context": "Dependency tracking and measuring the duration/status of dependency calls is vital to measuring overall application health and should be used to inform a health model for the application([Dependency Tracking](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-dependencies))",
+    "context": "[Dependency tracking](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-dependencies) and measuring the duration/status of dependency calls is vital to measuring overall application health and should be used to inform a health model for the application",
     "recommendation": {
       "title": "",
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Dependency tracking",
+          "url": "https://docs.microsoft.com/azure/azure-monitor/app/asp-net-dependencies"
         }
       ],
       "priority": "medium"
@@ -5016,14 +5016,14 @@
     "category": "Health Modelling & Monitoring",
     "subCategory": "Monitoring and Measurement",
     "title": "Is black-box monitoring used to measure platform services and the resulting customer experience?",
-    "context": "Black-box monitoring tests externally visible application behavior without knowledge of the internals of the system. This is a common approach to measuring customer-centric SLIs/SLOs/SLAs([Azure Monitor Reference](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability))",
+    "context": "Black-box monitoring tests externally visible application behavior without knowledge of the internals of the system. This is a common approach to measuring customer-centric SLIs/SLOs/SLAs.",
     "recommendation": {
       "title": "",
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Azure Monitor Reference",
+          "url": "https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability"
         }
       ],
       "priority": "medium"
