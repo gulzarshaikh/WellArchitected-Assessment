@@ -52,10 +52,10 @@ These critical design principles are used as lenses to assess the {{ .pillarDisp
 {{- end }}
 {{ if (and ($child.recommendation) ($child.recommendation.title)) }}
       > {{ safeHTML (trim $child.recommendation.title " ") }}
-  {{ range $link := $child.recommendation.links }}
-  {{ if (and (index $link.title 1) ($link.title) ($link.url)) }}
+  {{ range $index, $link := $child.recommendation.links }}
+  {{ if (and (eq $index 0) ($link.title) ($link.url)) }}
       **Additional resources:**
-    {{- end -}}
+  {{- end -}}
   {{ if (and ($link.title) ($link.url)) }}
         - [{{ safeHTML (trim $link.title " ")}}]({{ $link.url }})
   {{- end -}}
