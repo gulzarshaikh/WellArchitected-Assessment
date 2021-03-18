@@ -118,7 +118,9 @@ These critical design principles are used as lenses to assess the Security of an
 
   _Information revealing the application platform, such as HTTP banners containing framework information ("`X-Powered-By`", "`X-ASPNET-VERSION`"), are commonly used by malicious actors when mapping attack vectors of the application. HTTP headers, error messages, website footers etc. should not contain information about the application platform. Azure CDN or Cloudflare can be used to separate the hosting platform from end users, Azure API Management offers [transformation policies](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies) that allow to modify HTTP headers and remove sensitive information._
   > Remove platform-specific information from HTTP headers, error messages, web site content (e.g. page footer).
-    - Does the workload use API Management or Azure Front Door to modify HTTP headers and remove sensitive information?_Azure API Management and Azure Front Door offers transformation policies that allow to modify HTTP headers and remove sensitive information._
+    - Does the workload use API Management or Azure Front Door to modify HTTP headers and remove sensitive information?
+
+      _Azure API Management and Azure Front Door offers transformation policies that allow to modify HTTP headers and remove sensitive information._
       > Remove sensitive information from HTTP headers with Azure API Management or Azure Front Door.
 * Does the organization use cloud native security controls for this workload?
 
@@ -142,7 +144,9 @@ These critical design principles are used as lenses to assess the Security of an
 
   _Landing Zone refers to components that are already defined and in place before the workloads are getting deployed by the workload owners, e.g. network topology with Hub/Spoke concept. The purpose of the “Landing Zone” is to ensure that when a workload lands on Azure, the required “plumbing” is already in place, providing greater agility and compliance with enterprise security and governance requirements. This is crucial, that a Landing Zone will be handed over to the workload owner with the security guardrails deployed._
   > Implement a landing zone concept with Azure Blueprints and Azure Policies.
-    - Does the organization use Azure Blueprints to consistently deploy environments of this workload that comply with organizational policies?_Automation of deployment and maintenance tasks reduces security and compliance risk by limiting opportunity to introduce human errors during manual tasks._
+    - Does the organization use Azure Blueprints to consistently deploy environments of this workload that comply with organizational policies?
+
+      _Automation of deployment and maintenance tasks reduces security and compliance risk by limiting opportunity to introduce human errors during manual tasks._
       > Use Azure Blueprints to consistently deploy environments that comply with organizational policies.
 ### Application Composition
             
@@ -150,9 +154,13 @@ These critical design principles are used as lenses to assess the Security of an
 
   _It is important to understand what Azure services, such as App Services and Event Hubs, are used by the application platform to host both application code and data. In a discussion around cost, this can drive decisions towards the right replacements (e.g. moving from Virtual Machines to containers to increase efficiency, or migrating to .NET Core to use cheaper SKUs etc.)._
   > All Azure services in use should be identified.
-    - What operational features/capabilities are used for leveraged services?_Operational capabilities, such as auto-scale and auto-heal for App Services, can reduce management overheads, support operational effectiveness and reduce cost._
+    - What operational features/capabilities are used for leveraged services?
+
+      _Operational capabilities, such as auto-scale and auto-heal for App Services, can reduce management overheads, support operational effectiveness and reduce cost._
       > Make sure you understand the operational features/capabilities available and how they can be used in the solution.
-    - What technologies and frameworks are used by the application?_It is important to understand what technologies are used by the application and must be managed, such as .NET Core , Spring, or Node.js._
+    - What technologies and frameworks are used by the application?
+
+      _It is important to understand what technologies are used by the application and must be managed, such as .NET Core , Spring, or Node.js._
       > All technologies and frameworks should be identified. Vulnerabilities of these dependencies must be understood (there are automated solutions on the market that can help: [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/) or [NPM audit](https://docs.npmjs.com/cli/audit)).
     **Additional resources:**
       - [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/)
@@ -163,13 +171,21 @@ These critical design principles are used as lenses to assess the Security of an
 
   _Threat modeling is an engineering technique which can be used to help identify threats, attacks, vulnerabilities and countermeasures that could affect an application. Threat modeling consists of: defining security requirements, identifying threats, mitigating threats, validating threat mitigation. Microsoft uses [STRIDE](https://docs.microsoft.com/azure/security/develop/threat-modeling-tool-threats) for threat modeling.  This might be the right time to talk through the STRIDE methodology and then the tools available to help them with Threat Modeling. There are tools like [Microsoft Threat Modeling Tool](https://docs.microsoft.com/azure/security/develop/threat-modeling-tool-getting-started) which can help._
   > Adopt threat modeling processes.
-    - Are identified threats ranked based on organizational impact?_Ranked threats improves the understanding of risks associated with security issues._
+    - Are identified threats ranked based on organizational impact?
+
+      _Ranked threats improves the understanding of risks associated with security issues._
       > Rank identified threats based on organizational impact.
-    - Does the organization track threat modeling or vulnerability scan results with a management system?_Effectively tracking and prioritizing discovered application threats is a vital component of vulnerability management._
+    - Does the organization track threat modeling or vulnerability scan results with a management system?
+
+      _Effectively tracking and prioritizing discovered application threats is a vital component of vulnerability management._
       > Centralize threat modeling results.
-    - Are identified threats mapped to mitigations?_Mitigations are controls to help protect, detect and respond to a certain type of threat._
+    - Are identified threats mapped to mitigations?
+
+      _Mitigations are controls to help protect, detect and respond to a certain type of threat._
       > Map threats to mitigations.
-    - Are identified threats communicated to stakeholders? E.g., business, IT, application users_After defining and analyzing the risks, identify risk owners which are the roles that are responsible for mitigating the risk. They need to be aware of the risks so that they can start the mitigation process by allocating resources (e.g. financial or people)_
+    - Are identified threats communicated to stakeholders? E.g., business, IT, application users
+
+      _After defining and analyzing the risks, identify risk owners which are the roles that are responsible for mitigating the risk. They need to be aware of the risks so that they can start the mitigation process by allocating resources (e.g. financial or people)_
       > Establish communication processes for identified threats.
 * How are threats addressed once found?
 
@@ -179,7 +195,9 @@ These critical design principles are used as lenses to assess the Security of an
 
   _Fixing identified vulnerabilities in a timely manner helps staying secure and preventing additional attack vectors._
   > Develop or implement established processes and timelines to deploy mitigations for identified threats.
-    - How long does it typically take to deploy a security fix into production?_It's important to understand how the customer is updating when a security vulnerability is discovered in their workload: the process and tools, approvals, who is made aware and if there's executive sponsorship to bypass lengthy processes when it comes to security._
+    - How long does it typically take to deploy a security fix into production?
+
+      _It's important to understand how the customer is updating when a security vulnerability is discovered in their workload: the process and tools, approvals, who is made aware and if there's executive sponsorship to bypass lengthy processes when it comes to security._
 * Does the organization have a defined set of security requirements for this workload?
 
   _Azure resources should be blocked that do not meet the proper security requirements defined during service enablement._
@@ -201,15 +219,21 @@ These critical design principles are used as lenses to assess the Security of an
 * How do you monitor and maintain your compliance of this workload?
 
   _Find out how they make sure they maintain compliance as the Azure Platform evolves and they update their application. Are there things preventing them from adopting new features in the platform because it will knock them out of compliance?_
-    - Does the organization have a process for regulatory or governance compliance attestation for this workload?_Knowing whether your cloud resources are in compliance with standards mandated by governments or industry organizations is essential in today's globalized world (e.g. GDPR)._
+    - Does the organization have a process for regulatory or governance compliance attestation for this workload?
+
+      _Knowing whether your cloud resources are in compliance with standards mandated by governments or industry organizations is essential in today's globalized world (e.g. GDPR)._
       > Perform regulatory compliance attestation.
-    - Has the organization established a monitoring and assessment solution for compliance?_Continuously monitoring and assessing the workload increases the overall security and compliance of your workload in Azure. For example Azure Security Center provides a regulatory compliance dashboard._
+    - Has the organization established a monitoring and assessment solution for compliance?
+
+      _Continuously monitoring and assessing the workload increases the overall security and compliance of your workload in Azure. For example Azure Security Center provides a regulatory compliance dashboard._
       > Continuously assess and monitor compliance.
 * Does the organization periodically perform external and/or internal workload audits?
 
   _Compliance is important for several reasons. Aside from signifying levels of standards, like ISO 27001 and others, noncompliance with regulatory guidelines may bring sanctions and penalties._
   > Periodically perform external and/or internal workload security audits.
-    - How often do you have internal and external audits of this workload?_Determine the process the customer uses for auditing the solution. Is it done internally, external, or both. How are findings reflected back to the application? Is everyone aware of the audit and involved or is it done in a silo. This will help reduce the firefighting mentality when there is a finding and stress of performing updates._
+    - How often do you have internal and external audits of this workload?
+
+      _Determine the process the customer uses for auditing the solution. Is it done internally, external, or both. How are findings reflected back to the application? Is everyone aware of the audit and involved or is it done in a silo. This will help reduce the firefighting mentality when there is a finding and stress of performing updates._
       > Perform regular internal and external compliance audits.
 * Are Azure policies used to enforce security, compliance and organizational standards of this workload?
 
@@ -254,7 +278,9 @@ These critical design principles are used as lenses to assess the Security of an
 
   _Organization is monitoring the security posture across workloads and central SecOps team is monitoring security-related telemetry data and investigating security breaches._
   > Establish a SecOps team and monitor security related events.
-    - Does the organization have an established process for communication, investigation &amp; hunting activities that is aligned with the workload team?_Development team needs to be aware of those activities to align their security improvement  activities with the outcome of those activities._
+    - Does the organization have an established process for communication, investigation &amp; hunting activities that is aligned with the workload team?
+
+      _Development team needs to be aware of those activities to align their security improvement  activities with the outcome of those activities._
       > Define a process for aligning communication, investigation & hunting activities with the application team.
 ### Resource and Infrastructure Level Monitoring
             
@@ -282,7 +308,9 @@ These critical design principles are used as lenses to assess the Security of an
 
   _If NSGs are being used to isolate and protect the application, the rule set should be reviewed to confirm that required services are not unintentionally blocked._
   > Use NSG or Azure Firewall to protect and control traffic within the VNet
-    - Does the organization have configured NSG flow logs to get insights about incoming and outgoing traffic of this workload?_NSG flow logs should be captured and analyzed to monitor performance and security. The NSG flow logs enables Traffic Analytics to gain insights into internal and external traffic flows of the application._
+    - Does the organization have configured NSG flow logs to get insights about incoming and outgoing traffic of this workload?
+
+      _NSG flow logs should be captured and analyzed to monitor performance and security. The NSG flow logs enables Traffic Analytics to gain insights into internal and external traffic flows of the application._
       > Configure and collect network traffic logs.
 * Does the organization restrict access to the workload backend infrastructure (APIs, databases, etc.) by only a minimal set of public IP addresses - only those who really need it?
 
@@ -292,7 +320,9 @@ These critical design principles are used as lenses to assess the Security of an
 
   _A unified [enterprise segmentation strategy](https://docs.microsoft.com/azure/architecture/framework/Security/governance#enterprise-segmentation-strategy) will guide all technical teams to consistently segment access using networking, applications, identity, and any other access controls._
   > Establish a unified enterprise segmentation strategy.
-    - Does the organization align the cloud network segmentation strategy with the enterprise segmentation model?_Aligning cloud network segmentation strategy with the enterprise segmentation model reduces confusion and resulting challenges with different technical teams (networking, identity, applications, etc.) each developing their own segmentation and delegation models that don’t align with each other._
+    - Does the organization align the cloud network segmentation strategy with the enterprise segmentation model?
+
+      _Aligning cloud network segmentation strategy with the enterprise segmentation model reduces confusion and resulting challenges with different technical teams (networking, identity, applications, etc.) each developing their own segmentation and delegation models that don’t align with each other._
       > Align cloud network segmentation strategy with the enterprise segmentation model.
 ### Endpoints
             
@@ -300,13 +330,17 @@ These critical design principles are used as lenses to assess the Security of an
 
   _External application endpoints should be protected against common attack vectors, such as Denial of Service (DoS) attacks like Slowloris, to prevent potential application downtime due to malicious intent. Azure-native technologies such as Azure Firewall, Application Gateway/Azure Front Door WAF, and DDoS Protection Standard Plan can be used to achieve requisite protection._
   > Protect all public endpoints with appropriate solutions, e.g. Azure Front Door, Application Gateway, Azure Firewall, Azure DDOS Protection or any 3rd party solution.
-    - Are public endpoints of this workload protected with firewall or WAF (Web Application Firewall)?_[Azure Firewall](https://docs.microsoft.com/azure/firewall/features) is a managed, cloud-based network security service that protects Azure Virtual Network resources. [Web Application Firewall](https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview) (WAF) mitigates the risk of an attacker being able to exploit commonly known security application vulnerabilities like cross-site scripting or SQL injection._
+    - Are public endpoints of this workload protected with firewall or WAF (Web Application Firewall)?
+
+      _[Azure Firewall](https://docs.microsoft.com/azure/firewall/features) is a managed, cloud-based network security service that protects Azure Virtual Network resources. [Web Application Firewall](https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview) (WAF) mitigates the risk of an attacker being able to exploit commonly known security application vulnerabilities like cross-site scripting or SQL injection._
       > Use web application firewall.
 * Does the organization protect publishing methods for the workload (e.g FTP, Web Deploy)?
 
   _Application resources allowing multiple methods to publish app content (e.g FTP, Web Deploy) should have the unused endpoints disabled. For Azure Web Apps SCM is the recommended endpoint and it can be protected separately with network restrictions for sensitive scenarios._
   > Protect workload publishing methods and restrict those not in use.
-    - Does the organization have an CI/CD process for publishing code in this workload?_Developers shouldn't publish their code directly to app servers - automated and gated CI/CD process should manage this._
+    - Does the organization have an CI/CD process for publishing code in this workload?
+
+      _Developers shouldn't publish their code directly to app servers - automated and gated CI/CD process should manage this._
       > Implement an automated and gated CD/CD deployment process.
 * Do workload virtual machines running on premises or in the cloud have direct internet connectivity for users that may perform interactive logins, or by applications running on virtual machines?
 
@@ -349,9 +383,13 @@ These critical design principles are used as lenses to assess the Security of an
 
   _A compromise of an account in a role that is assigned privileges with a business-critical impact can be detrimental to organizational information systems and should therefore be closely monitored including a lifecycle process._
   > Establish lifecycle management policy for critical accounts.
-    - Does the organization regularly review access from accounts that have privileges to this workload?_It is important to monitor the usage of high privilege accounts and set up a recurring review pattern to ensure that accounts are removed from permissions as roles change._
+    - Does the organization regularly review access from accounts that have privileges to this workload?
+
+      _It is important to monitor the usage of high privilege accounts and set up a recurring review pattern to ensure that accounts are removed from permissions as roles change._
       > Regularly review access for critical roles.
-    - Are all roles (critical and non-critical) assigned only to accounts which really need them and reviewed regularly?_All access should be assigned only when really needed. Even the Reader role, especially with wide scope (subscription, resource group level), can provide an attack vector, because if attacker compromises such user account or service principal, they get access to information such as source code of Azure Automation runbooks, Azure Logic Apps definitions, virtual network structure and other configuration properties of various services._
+    - Are all roles (critical and non-critical) assigned only to accounts which really need them and reviewed regularly?
+
+      _All access should be assigned only when really needed. Even the Reader role, especially with wide scope (subscription, resource group level), can provide an attack vector, because if attacker compromises such user account or service principal, they get access to information such as source code of Azure Automation runbooks, Azure Logic Apps definitions, virtual network structure and other configuration properties of various services._
       > Assign all roles only as needed and review access periodically.
 * Has a designated point of contact been assigned for this workload to receive Azure incident notifications from Microsoft?
 
@@ -366,10 +404,14 @@ These critical design principles are used as lenses to assess the Security of an
 * Has role-based and/or resource-based authorization been configured within Azure AD?
 
   _Role-based and resource-based authorization are common approaches to authorize users based on required permission scopes ([Role-based and resource-based authorization](https://docs.microsoft.com/azure/architecture/multitenant-identity/authorize))_
-    - Does the application write-back to Azure AD?_The Azure AD SLA includes authentication, read, write, and administrative actions.  In many cases, applications only require authentication and read access to Azure AD, which aligns with a much higher operational availability due to geographically distributed read replicas ([Azure AD Architecture](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-architecture))_
+    - Does the application write-back to Azure AD?
+
+      _The Azure AD SLA includes authentication, read, write, and administrative actions.  In many cases, applications only require authentication and read access to Azure AD, which aligns with a much higher operational availability due to geographically distributed read replicas ([Azure AD Architecture](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-architecture))_
     **Additional resources:**
       - [Azure AD Architecture](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-architecture)
-    - Are authentication tokens cached and encrypted for sharing across web servers?_Application code should first try to get tokens silently from a cache before attempting to acquire a token from the identity provider, to optimise performance and maximize availability ([Acquire and cache tokens](https://docs.microsoft.com/azure/active-directory/develop/msal-acquire-cache-tokens))_
+    - Are authentication tokens cached and encrypted for sharing across web servers?
+
+      _Application code should first try to get tokens silently from a cache before attempting to acquire a token from the identity provider, to optimise performance and maximize availability ([Acquire and cache tokens](https://docs.microsoft.com/azure/active-directory/develop/msal-acquire-cache-tokens))_
     **Additional resources:**
       - [Acquire and cache tokens](https://docs.microsoft.com/azure/active-directory/develop/msal-acquire-cache-tokens)
 * Does the organization conduct periodic & automated access reviews of the workload to make sure only authorized people have access?
@@ -406,7 +448,9 @@ These critical design principles are used as lenses to assess the Security of an
 
   _OAuth tokens are usually cached after they've been acquired. Application code should first try to get tokens silently from a cache before attempting to acquire a token from the identity provider, to optimise performance and maximize availability. Tokens should be stored securely and handled as any other credentials. When there's a need to share tokens across application servers (instead of each server acquiring and caching their own) encryption should be used._
   > Configure web apps to reuse authentication tokens securely and handle them like other credentials.
-    - Is trusted state information protected when stored on untrusted client (such as cookie in a web browser)?_State data can contain not just session identifier, but also account and claims information, which can get exploited by the client. In a situation where the application needs to round-trip trusted state via an untrusted client (which can be session cookie in a web browser), it has to ensure that the information isn't tampered with. See [ASP.NET Core Data Protection](https://docs.microsoft.com/aspnet/core/security/data-protection/introduction?view=aspnetcore-5.0) for more details on how to use .NET APIs._
+    - Is trusted state information protected when stored on untrusted client (such as cookie in a web browser)?
+
+      _State data can contain not just session identifier, but also account and claims information, which can get exploited by the client. In a situation where the application needs to round-trip trusted state via an untrusted client (which can be session cookie in a web browser), it has to ensure that the information isn't tampered with. See [ASP.NET Core Data Protection](https://docs.microsoft.com/aspnet/core/security/data-protection/introduction?view=aspnetcore-5.0) for more details on how to use .NET APIs._
       > Implement Data Protection for trusted state information.
 * How is the workload authenticated when communicating with Azure platform services?
 
@@ -416,7 +460,9 @@ These critical design principles are used as lenses to assess the Security of an
 
   _API URLs used by client applications are exposed to attackers (JavaScript code on a website can be viewed, mobile application can be decompiled and inspected) and should be protected. For internal APIs, requiring authentication can increase the difficulty of lateral movement if an attacker obtains network access. Typical mechanisms include API keys, authorization tokens, IP restrictions or Azure Managed identities._
   > Require API authentication for all workloads.
-    - Does this workload leverage modern (OAuth 2.0, OpenID) authentication protocols?_Modern authentication protocols support strong controls such as MFA and should be used instead of legacy._
+    - Does this workload leverage modern (OAuth 2.0, OpenID) authentication protocols?
+
+      _Modern authentication protocols support strong controls such as MFA and should be used instead of legacy._
       > Standardize on modern authentication protocols.
 * How is user authentication handled in this workload?
 
@@ -425,7 +471,9 @@ These critical design principles are used as lenses to assess the Security of an
 
   _Modern cloud-based applications are often accessible over the internet and location-based networking restrictions don't make much sense, but it needs to be mapped and understood what kind of restrictions are required. Multi-factor Authentication (MFA) is a necessity for remote access, IP-based filtering can be used to enable ad-hoc debugging, but VPNs are preferred._
   > Implement Conditional Access Policies.
-    - Does the organization enforce password less or multi-factor authentication for users of this workload?_Attack methods have evolved to the point where passwords alone cannot reliably protect an account.  Modern authentication solutions including password-less and multi-factor authentication increase security posture through strong authentication._
+    - Does the organization enforce password less or multi-factor authentication for users of this workload?
+
+      _Attack methods have evolved to the point where passwords alone cannot reliably protect an account.  Modern authentication solutions including password-less and multi-factor authentication increase security posture through strong authentication._
       > Enforce password-less or MFA.
 * Does the organization prioritize authentication via identity services for this workload vs. cryptographic keys?
 
@@ -434,9 +482,13 @@ These critical design principles are used as lenses to assess the Security of an
 
   _Consistency of identities across cloud and on-premises will reduce human errors and resulting security risk. Teams managing resources in both environments need a consistent authoritative source to achieve security assurances._
   > Synchronize on-premise directory with Azure AD
-    - Does the organization synchronize on-premises admin accounts to Azure Active Directory, or to another cloud identity provider?_Synchronizing on-premises admin accounts to Azure Active Directory creates a pivot point that allows an on-premsise compromise to impact Azure workloads._
+    - Does the organization synchronize on-premises admin accounts to Azure Active Directory, or to another cloud identity provider?
+
+      _Synchronizing on-premises admin accounts to Azure Active Directory creates a pivot point that allows an on-premsise compromise to impact Azure workloads._
       > Avoid synching on-premises admin accounts to AAD.
-    - Does the organization use cloud provider identity services designed to host non-employee rather than including vendors, partners, and customers into a corporate directory?_Using a cloud identity provider reduces risk by granting the appropriate level of access to external entities instead of the full default permissions given to full-time employees. This least privilege approach and clear differentiation of external accounts from company staff makes it easier to prevent and detect attacks coming in from these vectors._
+    - Does the organization use cloud provider identity services designed to host non-employee rather than including vendors, partners, and customers into a corporate directory?
+
+      _Using a cloud identity provider reduces risk by granting the appropriate level of access to external entities instead of the full default permissions given to full-time employees. This least privilege approach and clear differentiation of external accounts from company staff makes it easier to prevent and detect attacks coming in from these vectors._
       > Use cloud provider identity services for non-employees.
 ### Security Center
             
@@ -469,7 +521,9 @@ These critical design principles are used as lenses to assess the Security of an
 * Are Network Security Groups (NSGs) being used?
 
   _If NSGs are being used to isolate and protect the application, the rule set should be reviewed to confirm that required services are not unintentionally blocked([Azure Platform Considerations for NSGs](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations))_
-    - Are NSG flow logs being collected?_Network Security Group (NSG) flow logs is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through an NSG. Flow data is sent to Azure Storage accounts from where you can access it as well as export it to any visualization tool, SIEM, or IDS of your choice._
+    - Are NSG flow logs being collected?
+
+      _Network Security Group (NSG) flow logs is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through an NSG. Flow data is sent to Azure Storage accounts from where you can access it as well as export it to any visualization tool, SIEM, or IDS of your choice._
       > Capture and analyze NSG flow logs to monitor performance and security.
     **Additional resources:**
       - [Network security groups](https://docs.microsoft.com/en-gb/azure/virtual-network/network-security-groups-overview)
@@ -520,7 +574,9 @@ These critical design principles are used as lenses to assess the Security of an
 
   _Keys must be stored in a secure location with identity-based access control and audit policies. Data encryption keys are often encrypted with a key encryption key in Azure Key Vault to further limit access._
   > Store customer managed keys in Azure Key Vault
-    - Does the organization protect customer managed keys in this workload with an additional key encryption key (KEK)?_More than one encryption key should be used in an encryption at rest implementation. Storing an encryption key in Azure Key Vault ensures secure key access and central management of keys._
+    - Does the organization protect customer managed keys in this workload with an additional key encryption key (KEK)?
+
+      _More than one encryption key should be used in an encryption at rest implementation. Storing an encryption key in Azure Key Vault ensures secure key access and central management of keys._
       > Use an additional key encryption key (KEK) to protect your data encryption key (DEK).
 * How is data at rest protected in this workload?
 
@@ -610,7 +666,9 @@ These critical design principles are used as lenses to assess the Security of an
 
   _Credentials should not be stored in source code or configuration files, because that increases the risk of exposure. Code analyzers (such as Roslyn analyzers for Visual Studio) can prevent from pushing credentials to source code repository and pipeline addons such as CredScan (part of Microsoft Security Code Analysis) help to catch credentials during the build process._
   > Integrate code scanning tools within CI/CD pipeline.
-    - Are dependencies and framework components included in the code scanning process of this workload?_As part of the continuous integration process it is crucial that every release includes a scan of all components in use. Vulnerable dependencies should be flagged and investigated. This can be done in combination with other code scanning tasks (e.g. code churn, test results/coverage)._
+    - Are dependencies and framework components included in the code scanning process of this workload?
+
+      _As part of the continuous integration process it is crucial that every release includes a scan of all components in use. Vulnerable dependencies should be flagged and investigated. This can be done in combination with other code scanning tasks (e.g. code churn, test results/coverage)._
       > Include code scans into CI/CD process that also covers 3rd party dependencies and framework components.
 * Are branch policies used in source control management of this workload? How are they configured?
 
@@ -664,7 +722,9 @@ These critical design principles are used as lenses to assess the Security of an
 
   _Minimizing the number of people who have access to secure information or resources reduces the chance of a malicious actor gaining access or an authorized user inadvertently impacting a sensitive resource. For example, Azure AD [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) provides time-based and approval-based role activation to mitigate the risks of excessive, unnecessary, or misused access permissions on resources that you care about._
   > Implement just-in-time privileged access management.
-    - Does anyone have long-standing write-access to production environments?_Regular, long-standing write access to production environments by user accounts can pose a security risk and manual intervention is often prone to errors._
+    - Does anyone have long-standing write-access to production environments?
+
+      _Regular, long-standing write access to production environments by user accounts can pose a security risk and manual intervention is often prone to errors._
       > Limit long-standing write access to production environments only to service principals.
 * Does the organization clearly define CI/CD roles and permissions for this workload?
 
