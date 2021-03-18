@@ -1,0 +1,278 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "http://waf/assessment-platform.schema.json",
+  "type": "array",
+  "title": "Questions",
+  "description": "List of questions with choices.",
+  "additionalItems": true,
+  "items": {
+      "anyOf": [
+          {
+              "type": "object",
+              "description": "A question object, which is injected by the assessment platform.",
+              "required": [
+                  "id",
+                  "type",
+                  "category",
+                  "title",
+                  "context",
+                  "choices"
+              ],
+              "properties": {
+                  "type": {
+                      "type": "string",
+                      "description": "For assessment platform this will be 'PnP Questions'.",
+                      "default": "PnP Questions",
+                      "examples": [
+                          "PnP Questions"
+                      ]
+                  },
+                  "category": {
+                      "type": "string",
+                      "enum": [
+                        "costoptimization",
+                        "golive",
+                        "operationalexcellence",
+                        "performanceefficiency",
+                        "reliability",
+                        "security"
+                      ],
+                      "description": "The pillar into which this question belongs.",
+                      "examples": [
+                          "reliability"
+                      ]
+                  },
+                  "title": {
+                      "type": "string",
+                      "description": "Represents the high-level question, for which the user selects choices.",
+                      "examples": [
+                          "What reliability targets and metrics have you defined for your application?"
+                      ]
+                  },
+                  "context": {
+                      "type": "string",
+                      "description": "Context explains the question and provides relevant information which can help in understanding the purpose and broader setting.",
+                      "examples": [
+                          "Availability targets, such as Service Level Agreements (SLA) and Service Level Objectives (SLO), and Recovery targets, such as Recovery Time Objectives (RTO) and Recovery Point Objectives (RPO), should be defined and tested to ensure application reliability aligns with business requirements."
+                      ]
+                  },
+                  "id": {
+                      "type": "string",
+                      "description": "Unique identifier of this question. Can be used for further reference.",
+                      "examples": [
+                          "pnp_question_reliability1"
+                      ]
+                  },
+                  "video": {
+                      "type": "object",
+                      "description": "Link to additional video content to be embedded on the page.",
+                      "examples": [
+                          {
+                              "title": "What reliability targets and metrics have you defined for your application?",
+                              "url": "https://www.microsoft.com/en-us/videoplayer/embed/RE4yYLM"
+                          }
+                      ],
+                      "required": [
+                          "title",
+                          "url"
+                      ],
+                      "properties": {
+                          "title": {
+                              "type": "string",
+                              "description": "Link title, will be used on the page.",
+                              "examples": [
+                                  "What reliability targets and metrics have you defined for your application?"
+                              ]
+                          },
+                          "url": {
+                              "type": "string",
+                              "description": "The actual link to the video - usually direct embed, which can be used on the page.",
+                              "examples": [
+                                  "https://www.microsoft.com/en-us/videoplayer/embed/RE4yYLM"
+                              ]
+                          }
+                      },
+                      "additionalProperties": false
+                  },
+                  "choices": {
+                      "type": "array",
+                      "description": "List of choices for this question. Will be rendered as checkboxes on the page.",
+                      "additionalItems": false,
+                      "items": {
+                          "anyOf": [
+                              {
+                                  "type": "object",
+                                  "description": "Each choice is represented as statement with checkbox and tooltip.",
+                                  "required": [
+                                      "title",
+                                      "context",
+                                      "recommendations",
+                                      "score"
+                                  ],
+                                  "properties": {
+                                      "waf_github_content_id": {
+                                          "type": "string",
+                                          "description": "Reference back to the original GitHub question which was used to generate this choice.",
+                                          "examples": [
+                                              "app_design_recovery_targets"
+                                          ]
+                                      },
+                                      "title": {
+                                          "type": "string",
+                                          "description": "Statement text, which would be rendered on the page with a checkbox. It should be a proper sentence and shouldn't be a question. By selecting it the user states that they do something.",
+                                          "examples": [
+                                              "Recovery targets are in place to identify how long the workload can be unavailable (Recovery Time Objective) and how much data is acceptable to lose during a disaster (Recovery Point Objective)."
+                                          ]
+                                      },
+                                      "context": {
+                                          "type": "string",
+                                          "description": "Description of the choice which will be rendered as a tooltip. It should explain to the user in more detail what this choice represents. It has to be single-line and not contain any formatting.",
+                                          "examples": [
+                                              "Understanding customer reliability expectations is vital to reviewing the overall reliability of the application. For instance, if a customer is striving to achieve an application RTO of less than a minute then back-up based and active-passive disaster recovery strategies are unlikely to be appropriate."
+                                          ]
+                                      },
+                                      "recommendations": {
+                                          "type": "array",
+                                          "description": "List of recommendations to be shown for this particular choice.",
+                                          "additionalItems": true,
+                                          "items": {
+                                              "anyOf": [
+                                                  {
+                                                      "type": "object",
+                                                      "description": "Recommendation to be shown for this particular choice.",
+                                                      "required": [
+                                                          "title",
+                                                          "context",
+                                                          "links",
+                                                          "nextSteps",
+                                                          "metadata"
+                                                      ],
+                                                      "properties": {
+                                                          "title": {
+                                                              "type": "string",
+                                                              "description": "Short title which will be used as introduction to this recommendation. Doesn't have to be a proper sentence.",
+                                                              "examples": [
+                                                                  "Define recovery targets (RTO, RPO)"
+                                                              ]
+                                                          },
+                                                          "context": {
+                                                              "type": "string",
+                                                              "description": "Description of this recommendation. It should explain what is it about.",
+                                                              "examples": [
+                                                                  "Recovery targets should be defined in accordance to the required RTO and RPO targets for the workload."
+                                                              ]
+                                                          },
+                                                          "links": {
+                                                              "type": "array",
+                                                              "description": "One or more hyperlinks",
+                                                              "additionalItems": false,
+                                                              "items": {
+                                                                  "anyOf": [
+                                                                      {
+                                                                          "type": "object",
+                                                                          "description": "Recommendation link",
+                                                                          "required": [
+                                                                              "title",
+                                                                              "url"
+                                                                          ],
+                                                                          "properties": {
+                                                                              "title": {
+                                                                                  "type": "string",
+                                                                                  "description": "Short title which will be used as hyperlink text."
+                                                                              },
+                                                                              "url": {
+                                                                                  "type": "string",
+                                                                                  "description": "Actual URL of the link."
+                                                                              }
+                                                                          },
+                                                                          "additionalProperties": false
+                                                                      }
+                                                                  ]
+                                                              }
+                                                          },
+                                                          "nextSteps": {
+                                                              "type": "string",
+                                                              "description": "Indicates the position of this recommendation in the next steps list."
+                                                          },
+                                                          "metadata": {
+                                                              "type": "object",
+                                                              "description": "Additional metadata for a receiving system. Generated from the question data.",
+                                                              "required": [
+                                                                  "priority",
+                                                                  "category",
+                                                                  "sub-category",
+                                                                  "description-long"
+                                                              ],
+                                                              "properties": {
+                                                                  "priority": {
+                                                                      "type": "string"
+                                                                  },
+                                                                  "category": {
+                                                                      "type": "string"
+                                                                  },
+                                                                  "sub-category": {
+                                                                      "type": "string"
+                                                                  },
+                                                                  "description-long": {
+                                                                      "type": "string"
+                                                                  }
+                                                              },
+                                                              "additionalProperties": false
+                                                          }
+                                                      },
+                                                      "additionalProperties": true
+                                                  }
+                                              ]
+                                          }
+                                      },
+                                      "score": {
+                                          "type": "integer",
+                                          "description": "Weight of the choice. Score is used to calculate overall evaluation of the assessment.",
+                                          "default": 0,
+                                          "examples": [
+                                              20
+                                          ]
+                                      }
+                                  },
+                                  "additionalProperties": true
+                              },
+                              {
+                                  "type": "object",
+                                  "description": "Usually the last choice in the list, which is not tied to a particular question content.",
+                                  "examples": [
+                                      {
+                                          "title": "None of the above",
+                                          "score": 0
+                                      }
+                                  ],
+                                  "required": [
+                                      "title",
+                                      "score"
+                                  ],
+                                  "properties": {
+                                      "title": {
+                                          "type": "string",
+                                          "description": "Text to be displayed.",
+                                          "examples": [
+                                              "None of the above"
+                                          ]
+                                      },
+                                      "score": {
+                                          "type": "integer",
+                                          "default": 0,
+                                          "examples": [
+                                              0
+                                          ]
+                                      }
+                                  },
+                                  "additionalProperties": false
+                              }
+                          ]
+                      }
+                  }
+              },
+              "additionalProperties": true
+          }
+      ]
+  }
+}

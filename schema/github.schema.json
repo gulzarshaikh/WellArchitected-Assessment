@@ -1,0 +1,185 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://waf/1.0/github.schema.json",
+  "title": "Assessment content",
+  "type": "array",
+  "items": {
+    "anyOf": [
+      {
+        "title": "Assessment item",
+        "description": "Single item within an assessment. Can be a question, recommendation, consideration etc.",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique GUID to identify items and refer to them. This field is automatically set via a GitHub workflow."
+          },
+          "type": {
+            "type": "string",
+            "description": "Type determines what kind of content this artifact represents and in which output the artifact will be used. Questions are used for assessments (application lens) while the others are used in more specific guidance (Service and Scenario lenses).",
+            "enum": [
+              "Questions",
+              "Design Principles",
+              "Design Considerations",
+              "Design Recommendations",
+              "Configuration Recommendations",
+              "Supporting Source Artifacts"
+            ]
+          },
+          "pillars": {
+            "type": "array",
+            "description": "An array that indicates for which pillars (one or more) this artifact is applicable. There is often an overlap between the different WAF pillars, so when adding new content, think about which pillars this could be useful for.",
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "description": "WAF pillar into which this item belongs.",
+                  "examples": [
+                    "costoptimization",
+                    "scenario/sap"
+                  ]
+                }
+              ]
+            }
+          },
+          "lens": {
+            "type": "string",
+            "description": "Lens defines how is this content intended to be consumed. It can affect rendering and transformations to various formats. Each lens has it's own JSON files.",
+            "enum": [
+              "application",
+              "service",
+              "scenario"
+            ]
+          },
+          "category": {
+            "type": "string",
+            "description": "Categories are predefined in the categories.json file. They will be rendered as headers in the MD output."
+          },
+          "subCategory": {
+            "type": "string",
+            "description": "Subcategories are predefined in the categories.json file, under corresponding categories. They will be rendered as subheaders in the MD output."
+          },
+          "title": {
+            "type": "string",
+            "description": "Main part of the content that gets rendered. In the case of a Question, this is the question itself. For design considerations and configuration recommendations, this is the guidance text.",
+            "examples": [
+              "Are SLAs/SLOs/SLIs for all leveraged dependencies understood?"
+            ]
+          },
+          "context": {
+            "type": "string",
+            "description": "Detailed explanation of this item. Provides context to the reader - what is this question aiming at, details of the solution and general context."
+          },
+          "statement": {
+            "type": "string",
+            "description": "If this item is a question, the statement field should reflect title, but reworded into a statement format.",
+            "examples": [
+              "SLAs for all internal and external dependencies are understood."
+            ]
+          },
+          "recommendation": {
+            "type": "object",
+            "description": "",
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "context": {
+                "type": "string"
+              },
+              "links": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "type": "string"
+                    },
+                    "url": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "priority": {
+                "type": "string"
+              }
+            }
+          },
+          "code": {
+            "type": "string",
+            "description": "Source code to provide sample implementation for this item."
+          },
+          "children": {
+            "type": "array",
+            "description": "Optional array of artifacts that will be rendered as sub-elements of the artifact. They share all the attributes like type and category with their parents so those do not need to be specified again.",
+            "items": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "description": "An item which is contextually related to the parent. It will share its category, subcategory and pillar.",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "Unique identifier of this item."
+                    },
+                    "title": {
+                      "type": "string",
+                      "description": "Title of the item - can be a question, recommendation, consideration etc."
+                    },
+                    "context": {
+                      "type": "string",
+                      "description": "Detailed explanation of this item. Provides context to the reader - what is this question aiming at, details of the solution and general context."
+                    },
+                    "recommendation": {
+                      "type": "object",
+                      "description": "",
+                      "properties": {
+                        "title": {
+                          "type": "string"
+                        },
+                        "context": {
+                          "type": "string"
+                        },
+                        "links": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "title": {
+                                "type": "string"
+                              },
+                              "url": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        },
+                        "priority": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "Source code to provide sample implementation for this item."
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "required": [
+          "id",
+          "type",
+          "pillars",
+          "lens",
+          "category",
+          "subCategory",
+          "title"
+        ]
+      }
+    ]
+  }
+}
