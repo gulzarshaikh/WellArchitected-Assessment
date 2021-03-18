@@ -183,7 +183,7 @@ These critical design principles are used as lenses to assess the Operational Ex
 
       > Make sure SLAs/SLOs/SLIs for all leveraged dependencies are understood
 
-
+  
     - Has a composite Service-Level Agreement (SLA) been calculated for the application and/or key scenarios using Azure SLAs?
 
 
@@ -191,7 +191,7 @@ These critical design principles are used as lenses to assess the Operational Ex
 
       > Make sure the composite SLA of all components and dependencies on the critical paths are understood.
 
-
+  
     - Are availability targets considered while the system is running in disaster recovery mode?
 
 
@@ -199,7 +199,7 @@ These critical design principles are used as lenses to assess the Operational Ex
 
       > If targets must also apply in a failure state then an N+1 model should be used to achieve greater availability and resiliency, where N is the capacity needed to deliver required availability. There's also a cost implication, because more resilient infrastructure usually means more expensive. This has to be accepted by business.
 
-
+  
     - Are these availability targets monitored and measured?
 
 
@@ -207,7 +207,7 @@ These critical design principles are used as lenses to assess the Operational Ex
 
       > Make sure you measure and monitor key targets such as **Mean Time Between Failures (MTBF)** which denotes the average time between failures of a particular component.
 
-
+  
     - What are the consequences if availability targets are not satisfied?
 
 
@@ -215,7 +215,7 @@ These critical design principles are used as lenses to assess the Operational Ex
 
       > It should be fully understood what are the consequences if availability targets are not satisfied. This will also inform when to initiate a failover case.
 
-
+  
 * Are recovery targets such as Recovery Time Objective (RTO) and Recovery Point Objective (RPO) defined for the application and/or key scenarios?
 
 
@@ -248,7 +248,7 @@ These critical design principles are used as lenses to assess the Operational Ex
 
       > The application should be designed to scale to cope with spikes in load in-line with what is an acceptable duration for degraded performance.
 
-
+  
     - What is the maximum traffic volume the application is expected to serve without performance degradation?
 
 
@@ -256,7 +256,7 @@ These critical design principles are used as lenses to assess the Operational Ex
 
       > Traffic limits for the application should be defined in quantified and measurable manner.
 
-
+  
     - Are these performance targets monitored and measured across the application and/or key scenarios?
 
 
@@ -264,7 +264,7 @@ These critical design principles are used as lenses to assess the Operational Ex
 
       > Automation and specialized tooling (such as Application Insights) should be used to orchestrate and measure application performance.
 
-
+  
 ### Key Scenarios
             
 * Have critical system flows through the application been defined for all key business scenarios?
@@ -279,7 +279,7 @@ These critical design principles are used as lenses to assess the Operational Ex
 
       > Targets should be specific and measurable.
 
-
+  
 * Are there any application components which are less critical and have lower availability or performance requirements?
 
 
@@ -299,7 +299,7 @@ These critical design principles are used as lenses to assess the Operational Ex
 
       > Map application dependencies either as a simple list or a document (usually this is part of a design document or reference architecture).
 
-
+  
     - Is the impact of an outage with each dependency well understood?
 
 
@@ -307,7 +307,7 @@ These critical design principles are used as lenses to assess the Operational Ex
 
       > Classify dependencies either as strong or weak. This will help identify which components are essential to the application.
 
-
+  
 * Are SLAs and support agreements in place for all critical dependencies?
 
 
@@ -335,7 +335,7 @@ These critical design principles are used as lenses to assess the Operational Ex
 
       > Make sure you understand the operational features/capabilities available and how they can be used in the solution.
 
-
+  
     - What technologies and frameworks are used by the application?
 
 
@@ -343,7 +343,7 @@ These critical design principles are used as lenses to assess the Operational Ex
 
       > All technologies and frameworks should be identified. Vulnerabilities of these dependencies must be understood (there are automated solutions on the market that can help: [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/) or [NPM audit](https://docs.npmjs.com/cli/audit)).
 
-
+  
 * Are components hosted on shared application or data platforms which are used by other applications?
 
 
@@ -361,7 +361,7 @@ These critical design principles are used as lenses to assess the Operational Ex
 
       > Use announcement subscriptions to stay up to date.
 
-
+  
 ## Health Modelling &amp; Monitoring
     
 ### Application Level Monitoring
@@ -387,7 +387,7 @@ These critical design principles are used as lenses to assess the Operational Ex
 
       > Correlate application log events across critical system flows, such as user login.
 
-
+  
 ### Resource and Infrastructure Level Monitoring
             
 * Are you collecting Azure Activity Logs within the log aggregation tool?
@@ -460,7 +460,7 @@ These critical design principles are used as lenses to assess the Operational Ex
 
       > The health model should be able to surface the respective health of critical system flows or key subsystems to ensure appropriate operational prioritization is applied. For example, the health model should be able to represent the current state of the user login transaction flow
 
-
+  
     - Can the health model distinguish between transient and non-transient faults?
 
 
@@ -468,7 +468,7 @@ These critical design principles are used as lenses to assess the Operational Ex
 
       > The health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state
 
-
+  
     - Can the health model determine if the application is performing at expected performance targets?
 
 
@@ -601,7 +601,7 @@ These critical design principles are used as lenses to assess the Operational Ex
 
       > The precise steps required to failover and failback the application must be tested to validate the effectiveness of the defined disaster recovery approach. Testing of the disaster recovery strategy should occur according to a reasonably regular cadence, such as annually, to ensure that operational application changes do not impact the applicability of the selected approach
 
-
+  
     - How is a failover decided and initiated?
 
 
@@ -609,7 +609,7 @@ These critical design principles are used as lenses to assess the Operational Ex
 
       > Regional failovers are significant operational activity and may incur some downtime, degraded functionality, or data loss depending on the recovery strategy used. Hence, the decision process as to what constitutes a failover should be clearly understood
 
-
+  
     - Is the health model being used to classify failover situations?
 
 
@@ -617,7 +617,7 @@ These critical design principles are used as lenses to assess the Operational Ex
 
       > A platform service outage in a specific region will likely require a failover to another region, whereas the accidental change of an firewall rule can be mitigated by a recovery process. The health model and all underlying data should be used to interpret which operational procedures should be triggered
 
-
+  
     - Does the playbook or disaster recovery plan consider every process, component and every category of data that can&#39;t afford unlimited loss or downtime?
 
 
@@ -625,7 +625,7 @@ These critical design principles are used as lenses to assess the Operational Ex
 
       > When a disaster that affects multiple application components occurs, it's critical that the recovery plan can be used to take a complete inventory of what needs attention and how to prioritize each item. Each major process or workload that's implemented by an app should have separate RPO and RTO values. Each one should be generated through a separate analysis that examines disaster scenario risks and potential recovery strategies for each respective process.
 
-
+  
     - Can individual processes and components of the application failover independently?
 
 
@@ -633,7 +633,7 @@ These critical design principles are used as lenses to assess the Operational Ex
 
       > Ideally failover can happen on a component-level instead of needing to failover the entire system together, when, for instance, only one service experiences an outage.
 
-
+  
 * Are automated recovery procedures in place for common failure event?
 
 
@@ -645,7 +645,7 @@ These critical design principles are used as lenses to assess the Operational Ex
 
       > Automated operational responses should be tested frequently as part of the normal application lifecycle to ensure operational effectiveness
 
-
+  
 * Are critical manual processes defined and documented for manual failure responses?
 
 
@@ -657,7 +657,7 @@ These critical design principles are used as lenses to assess the Operational Ex
 
       > Manual operational runbooks should be tested frequently as part of the normal application lifecycle to ensure appropriateness and efficiency
 
-
+  
 ### Scalability &amp; Capacity Model
             
 * Is there a capacity model for the application?
@@ -692,7 +692,7 @@ These critical design principles are used as lenses to assess the Operational Ex
 
       > If the application requires a large amount of capacity or expects a significant increase in capacity then effort should be invested to ensure that desired capacity is attainable within selected region(s). For applications leveraging a recovery or active-passive based disaster recovery strategy, consideration should also be given to ensure suitable capacity exists in the secondary region(s) since a regional outage can lead to a significant increase in demand within a paired region due to other customer workloads also failing over. To help mitigate this, consideration should be given to pre-provisioning resources within the secondary region. ([Azure Capacity](https://aka.ms/AzureCapacity))
 
-
+  
 * Is capacity utilization monitored and used to forecast future growth?
 
 
@@ -735,7 +735,7 @@ These critical design principles are used as lenses to assess the Operational Ex
 
       > Encryption keys and data should be backed up separately to optimise the security of underlying data
 
-
+  
 * Is Soft-Delete enabled for Key Vaults and Key Vault objects?
 
 
@@ -769,14 +769,14 @@ These critical design principles are used as lenses to assess the Operational Ex
 
       > Ideally the PNU process should be fully or partially automated to optimize response times for new updates and also to reduce the risks associated with manual intervention
 
-
+  
     - Are Patch &amp; Update Process (PNU) operations performed &#39;as-code&#39;?
 
 
 
       > Performing operations should be defined 'as-code' since it helps to minimize human error and increase consistency
 
-
+  
 * How are patches rolled back?
 
 
@@ -804,7 +804,7 @@ These critical design principles are used as lenses to assess the Operational Ex
 
       > The time it takes to perform a complete environment deployment should be fully understood as it needs to align with the recovery targets
 
-
+  
 * How often are changes deployed to production?
 
 
@@ -821,7 +821,7 @@ These critical design principles are used as lenses to assess the Operational Ex
 
       > Any manual steps that are required in the deployment pipeline must be clearly documented with roles and responsibilities well defined.
 
-
+  
 * How long does it take to deploy an entire production environment?
 
 
@@ -853,7 +853,7 @@ These critical design principles are used as lenses to assess the Operational Ex
 
       > To optimize for collaboration and ensure developers spend less time managing version control and more time developing code, a clear and simple branching strategy should be used, such as Trunk-Based Development which is employed internally [within Microsoft Engineering](https://docs.microsoft.com/azure/devops/learn/devops-at-microsoft/use-git-microsoft).
 
-
+  
 ### Application Infrastructure Provisioning
             
 * Is application infrastructure defined as code?
@@ -868,7 +868,7 @@ These critical design principles are used as lenses to assess the Operational Ex
 
       > Tools like Terraform offer a 'plan' command that helps to identify changes and monitor configuration drift, with Azure as the ultimate source of truth.
 
-
+  
 * Is direct write access to the infrastrucure possible and are any resources provisioned or configured outside of IaC processes?
 
 
@@ -1020,7 +1020,7 @@ These critical design principles are used as lenses to assess the Operational Ex
 
       > Limit long-standing write access to production environments only to service principals.
 
-
+  
 * Does the organization have the appropriate emergency access accounts configured for this workload in case of an emergency?
 
 
