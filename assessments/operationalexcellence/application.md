@@ -145,7 +145,7 @@ These critical design principles are used as lenses to assess the Operational Ex
 
 
   _A well-defined naming convention is important for overall operations to be able to easily determine the usage of certain resources and help understand owners and cost centers responsible for the workload. Naming conventions allow the matching of resource costs to particular workloads._
-  > Having a well-defined naming convention is important for overall operations, particularly for large application platforms where there are numerous resources ([Naming Conventions](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging))
+  > Having a well-defined [naming convention](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging) is important for overall operations, particularly for large application platforms where there are numerous resources.
 * Is the application designed to use managed services?
 
 
