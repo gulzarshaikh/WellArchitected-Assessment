@@ -54,7 +54,7 @@
   
       Additional resources:
   
-        [Business continuity with Azure Paired Regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)
+        - [Business continuity with Azure Paired Regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)
     - Have you ensured that both (all) regions in use have the same performance and scale SKUs that are currently leveraged in the primary region?
 
       _When planning for scale and efficiency, it is important that regions are not only paired, but homogenous in their service offerings. Additionally, you should make sure that, if one region fails, the second region can scale appropriately to sufficiently handle the influx of additional user requests._
@@ -63,7 +63,7 @@
   
     Additional resources:
   
-    [Failover strategies](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones)
+    - [Failover strategies](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones)
 * Within a region is the application architecture designed to use Availability Zones?
 
   _[Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones) can be used to optimise application availability within a region by providing datacenter level fault tolerance. However, the application architecture must not share dependencies between zones to use them effectively. It is also important to note that Availability Zones may introduce performance and cost considerations for applications which are extremely 'chatty' across zones given the implied physical separation between each zone and inter-zone bandwidth charges. That also means that AZ can be considered to get higher SLA for lower cost. Be aware of [pricing changes](https://azure.microsoft.com/pricing/details/bandwidth/) coming to Availability Zone bandwidth starting February 2021._
@@ -77,10 +77,10 @@
   
     Additional resources:
   
-    [Designing resilient Azure applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design)
+    - [Designing resilient Azure applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design)
   
   
-    [Error handling for resilient applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design-error-handling)
+    - [Error handling for resilient applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design-error-handling)
 * Is component proximity required for application performance reasons?
 
   _If all or part of the application is highly sensitive to latency it may mandate component co-locality which can limit the applicability of multi-region and multi-zone strategies_
@@ -99,7 +99,7 @@
   
     Additional resources:
   
-    [Design to scale out](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out)
+    - [Design to scale out](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out)
 * Was your application architected based on prescribed architecture from the Azure Architecture Center or a Cloud Design Pattern?
 
   _Starting with a prescribed, proven architecture may help with alleviating some basic performance issues. It is suggested to check out the Azure Architecture Center and Cloud Design Patterns to determine if the application's architecture is similar._
@@ -238,7 +238,7 @@
   
     Additional resources:
   
-    [Distributed tracing](https://docs.microsoft.com/azure/architecture/microservices/logging-monitoring#distributed-tracing)
+    - [Distributed tracing](https://docs.microsoft.com/azure/architecture/microservices/logging-monitoring#distributed-tracing)
 * Is it possible to evaluate critical application performance targets and non-functional requirements (NFRs)?
 
   > Application level metrics should include end-to-end transaction times of key technical functions, such as database queries, response times for external API calls, failure rates of processing steps, etc.
@@ -339,7 +339,7 @@
   
     Additional resources:
   
-    [Performance Efficiency - Capacity](https://docs.microsoft.com/azure/architecture/framework/scalability/capacity)
+    - [Performance Efficiency - Capacity](https://docs.microsoft.com/azure/architecture/framework/scalability/capacity)
 * Is auto-scaling enabled for supporting PaaS and IaaS services?
 
   _Are built-in capabilities for automatic scale being used vs. scaling being always a manual decision?_
@@ -363,11 +363,11 @@
   
       Additional resources:
   
-        [Azure Capacity (internal)](https://aka.ms/AzureCapacity)
+        - [Azure Capacity (internal)](https://aka.ms/AzureCapacity)
   
     Additional resources:
   
-    [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)
+    - [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)
 * Is capacity utilization monitored and used to forecast future growth?
 
   _Predicting future growth and capacity demands can prevent outages due to insufficient provisioned capacity over time._
@@ -375,7 +375,7 @@
   
     Additional resources:
   
-    [Supported metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported)
+    - [Supported metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported)
 * Are you confident that the correct SKUs and configurations have been applied to the services in order to support your anticipated loads?
 
   _Understand which SKUs you have selected and ensure that they are the correct size. Additionally, ensure you understand the configuration of those SKUs (e.g. auto-scale settings for Application Gateways and App Services)._
@@ -389,7 +389,7 @@
   
     Additional resources:
   
-    [Azure Capacity (internal)](https://aka.ms/AzureCapacity)
+    - [Azure Capacity (internal)](https://aka.ms/AzureCapacity)
 ### Service SKU
             
 * Do you know your scale limits and what is most likely to be your bottleneck?
@@ -469,7 +469,7 @@
   
     Additional resources:
   
-    [Proximity Placement Groups](https://docs.microsoft.com/azure/virtual-machines/windows/co-location#proximity-placement-groups)
+    - [Proximity Placement Groups](https://docs.microsoft.com/azure/virtual-machines/windows/co-location#proximity-placement-groups)
 * Does the application require dedicated bandwidth?
 
   _Applications with stringent throughput requirements may require dedicated bandwidth to remove the risks associated with noisy neighbor scenarios_
@@ -508,7 +508,7 @@
   
     Additional resources:
   
-    [Stateless web services](https://docs.microsoft.com/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices)
+    - [Stateless web services](https://docs.microsoft.com/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices)
 ## Deployment &amp; Testing
     
 ### Testing &amp; Validation
@@ -539,7 +539,7 @@
   
     Additional resources:
   
-    [Performance testing](https://docs.microsoft.com/azure/architecture/checklist/dev-ops#testing)
+    - [Performance testing](https://docs.microsoft.com/azure/architecture/checklist/dev-ops#testing)
 ## Performance Testing
     
 ### Tools &amp; Planning
