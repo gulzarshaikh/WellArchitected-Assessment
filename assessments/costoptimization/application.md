@@ -172,7 +172,8 @@ These critical design principles are used as lenses to assess the Cost Optimizat
       _Availability targets for any dependencies leveraged by the application should be understood and ideally align with application targets_
 
       > Make sure SLAs/SLOs/SLIs for all leveraged dependencies are understood
-
+  
+      **Additional resources:**
   
   
     - Has a composite Service-Level Agreement (SLA) been calculated for the application and/or key scenarios using Azure SLAs?
@@ -181,10 +182,10 @@ These critical design principles are used as lenses to assess the Cost Optimizat
       _A [composite SLA](https://docs.microsoft.com/azure/architecture/framework/resiliency/business-metrics#understand-service-level-agreements) captures the end-to-end SLA across all application components and dependencies. It is calculated using the individual SLAs of Azure services housing application components and provides an important indicator of designed availability in relation to customer expectations and targets._
 
       > Make sure the composite SLA of all components and dependencies on the critical paths are understood.
-
+  
+      **Additional resources:**
   
   
-        - Composite SLA
         - [Composite SLA](https://docs.microsoft.com/azure/architecture/framework/resiliency/business-metrics#understand-service-level-agreements)
     - Are availability targets considered while the system is running in disaster recovery mode?
 
@@ -192,7 +193,8 @@ These critical design principles are used as lenses to assess the Cost Optimizat
       _The above defined targets might or might not be applied when running in DR mode. This depends from application to application._
 
       > If targets must also apply in a failure state then an N+1 model should be used to achieve greater availability and resiliency, where N is the capacity needed to deliver required availability. There's also a cost implication, because more resilient infrastructure usually means more expensive. This has to be accepted by business.
-
+  
+      **Additional resources:**
   
   
     - Are these availability targets monitored and measured?
@@ -201,10 +203,10 @@ These critical design principles are used as lenses to assess the Cost Optimizat
       _Monitoring and measuring application availability is vital to qualifying overall application health and progress towards defined targets._
 
       > Make sure you measure and monitor key targets such as **Mean Time Between Failures (MTBF)** which denotes the average time between failures of a particular component.
-
+  
+      **Additional resources:**
   
   
-        - Mean Time Between Failures
         - [Mean Time Between Failures](https://en.wikipedia.org/wiki/Mean_time_between_failures)
     - What are the consequences if availability targets are not satisfied?
 
@@ -212,7 +214,8 @@ These critical design principles are used as lenses to assess the Cost Optimizat
       _Are there any penalties, such as financial charges, associated with failing to meet SLA commitments? Additional measures can be used to prevent penalties, but that also brings additional cost to operate the infrastructure. This has to be factored in and evaluated._
 
       > It should be fully understood what are the consequences if availability targets are not satisfied. This will also inform when to initiate a failover case.
-
+  
+      **Additional resources:**
   
   
 * Are recovery targets such as Recovery Time Objective (RTO) and Recovery Point Objective (RPO) defined for the application and/or key scenarios?
@@ -248,7 +251,8 @@ These critical design principles are used as lenses to assess the Cost Optimizat
       _Critical sub-systems or paths through the application may have higher expectations around availability, recovery, and performance due to the criticality of associated business scenarios and functionality. This also helps to understand if cost will be affected due to these higher needs._
 
       > Targets should be specific and measurable.
-
+  
+      **Additional resources:**
   
   
 * Are there any application components which are less critical and have lower availability or performance requirements?
@@ -269,7 +273,8 @@ These critical design principles are used as lenses to assess the Cost Optimizat
       _Examples of typical dependencies include platform dependencies outside the remit of the application, such as Azure Active Directory, Express Route, or a central NVA (Network Virtual Appliance), as well as application dependencies such as APIs which may be in-house or externally owned by a third-party. For cost it’s important to  understand the price for these services and how they are being charged, this makes it easier to understanding an all up cost. For more details see cost models._
 
       > Map application dependencies either as a simple list or a document (usually this is part of a design document or reference architecture).
-
+  
+      **Additional resources:**
   
   
     - Is the impact of an outage with each dependency well understood?
@@ -278,7 +283,8 @@ These critical design principles are used as lenses to assess the Cost Optimizat
       _Strong dependencies play a critical role in application function and availability meaning their absence will have a significant impact, while the absence of weak dependencies may only impact specific features and not affect overall availability. For cost this reflects the cost that is needed to maintain the HA relationship between the service and it’s dependencies. It would explain why certain measures needs to be maintained in order to hold a given SLA._
 
       > Classify dependencies either as strong or weak. This will help identify which components are essential to the application.
-
+  
+      **Additional resources:**
   
   
 * Are SLAs and support agreements in place for all critical dependencies?
@@ -299,7 +305,8 @@ These critical design principles are used as lenses to assess the Cost Optimizat
       _Operational capabilities, such as auto-scale and auto-heal for App Services, can reduce management overheads, support operational effectiveness and reduce cost._
 
       > Make sure you understand the operational features/capabilities available and how they can be used in the solution.
-
+  
+      **Additional resources:**
   
   
     - What technologies and frameworks are used by the application?
@@ -308,13 +315,12 @@ These critical design principles are used as lenses to assess the Cost Optimizat
       _It is important to understand what technologies are used by the application and must be managed, such as .NET Core , Spring, or Node.js._
 
       > All technologies and frameworks should be identified. Vulnerabilities of these dependencies must be understood (there are automated solutions on the market that can help: [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/) or [NPM audit](https://docs.npmjs.com/cli/audit)).
-
+  
+      **Additional resources:**
   
   
-        - OWASP Dependency-Check
         - [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/)
   
-        - NPM audit
         - [NPM audit](https://docs.npmjs.com/cli/audit)
 * Are components hosted on shared application or data platforms which are used by other applications?
 
@@ -395,7 +401,8 @@ These critical design principles are used as lenses to assess the Cost Optimizat
       _Your underutilised resources need to be reviewed often in order to be identified and dealt with accordingly, in addition to ensuring that your actionable recommendations are up-to-date and fully optimised. For example, Azure Advisor monitors your virtual machine (VM) usage for 7 days and then identifies low-utilization VMs._
 
       > Review Azure Advisor recommendation periodically.
-
+  
+      **Additional resources:**
   
   
 * Have you deployed a Hub and Spoke Design or Virtual WAN?
@@ -511,7 +518,8 @@ These critical design principles are used as lenses to assess the Cost Optimizat
       _The time it takes to perform a complete environment deployment should align with recovery targets. Automation and agility also lead to cost savings due to the reduction of manual labor and errors._
 
       > The time it takes to perform a complete environment deployment should be fully understood as it needs to align with the recovery targets
-
+  
+      **Additional resources:**
   
   
 ### Build Environments
