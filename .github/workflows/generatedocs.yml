@@ -18,6 +18,7 @@ jobs:
         run: |
           # Define the names of content directories, for use in the rest of the workflow         
           echo 'DATADIR=data' >> $GITHUB_ENV
+          echo 'SCHEMADIR=schema' >> $GITHUB_ENV
           echo 'TEMPLATEDIR=templates' >> $GITHUB_ENV
           echo 'OUTPUTDIR=assessments' >> $GITHUB_ENV
           echo 'GENERATOR_ROOT=generator' >> $GITHUB_ENV
@@ -102,11 +103,10 @@ jobs:
               Copy-Item -Path $_.FullName -Destination $env:GENERATOR_ROOT/data
           }
 
-      - name: Validate JSON schema
+      - name: Validate data with JSON schema
         shell: pwsh
         run: |
-          jsonschema -i $env:GENERATOR_ROOT/data/input.json schema/github.schema.json
-
+          jsonschema -i $env:GENERATOR_ROOT/data/input.json $env:SCHEMADIR/github.schema.json
 
       - name: Check categories, types and IDs
         shell: pwsh
