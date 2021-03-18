@@ -38,7 +38,6 @@ These critical design principles are used as lenses to assess the {{ .pillarDisp
 ### {{ $subCategory.title }}
             {{ range $question := $questionsInSubCategory }}
 * {{ safeHTML $question.title }}
-
 {{ if $question.context }}
   _{{ safeHTML (trim $question.context " ") }}_
 {{- end -}}
