@@ -76,12 +76,6 @@ jobs:
               $content | ConvertTo-Json -depth 16 | set-content $file
             }
 
-      - name: Validate JSON schema
-        shell: pwsh
-        run: |
-          pip install jsonschema
-          jsonschema -i $env:DATADIR/applicationlens.data.json schema/github.schema.json
-
       - name: Merge data files
         shell: pwsh
         run: |
@@ -107,6 +101,12 @@ jobs:
           Get-ChildItem -Path $env:DATADIR | where { $_.Name -notmatch ".data.json$" } | % {
               Copy-Item -Path $_.FullName -Destination $env:GENERATOR_ROOT/data
           }
+
+      - name: Validate JSON schema
+        shell: pwsh
+        run: |
+          jsonschema -i $env:GENERATOR_ROOT/data/input.json schema/github.schema.json
+
 
       - name: Check categories, types and IDs
         shell: pwsh
