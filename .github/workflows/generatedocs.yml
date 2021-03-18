@@ -18,6 +18,7 @@ jobs:
         run: |
           # Define the names of content directories, for use in the rest of the workflow         
           echo 'DATADIR=data' >> $GITHUB_ENV
+          echo 'SCHEMADIR=schema' >> $GITHUB_ENV
           echo 'TEMPLATEDIR=templates' >> $GITHUB_ENV
           echo 'OUTPUTDIR=assessments' >> $GITHUB_ENV
           echo 'GENERATOR_ROOT=generator' >> $GITHUB_ENV
@@ -102,22 +103,25 @@ jobs:
               Copy-Item -Path $_.FullName -Destination $env:GENERATOR_ROOT/data
           }
 
-      - name: Check categories, types and IDs
+      - name: Validate data with JSON schema
+        shell: pwsh
+        run: |
+          jsonschema -i $env:GENERATOR_ROOT/data/input.json $env:SCHEMADIR/github.schema.json
+
+      - name: Check categories and IDs
         shell: pwsh
         run: |
           # This will check whether 
           # - only (sub)categories from the categories.json are used 
-          # - only types from types.json are used
           # - all used IDs are unique
 
           $foundIssues = $false
           $validCategories = Get-Content -Path $env:GENERATOR_ROOT/data/categories.json | ConvertFrom-Json
-          $validTypes = Get-Content -Path $env:GENERATOR_ROOT/data/types.json | ConvertFrom-Json
 
           $AllItems = Get-Content -Path $env:GENERATOR_ROOT/data/input.json | ConvertFrom-Json
 
           # Get all used categories from the input.json and filter to unique
-          $allCategories = $AllItems | Select-Object -Property category,subcategory,type,title | Sort-Object -Property category,subcategory,type | Get-Unique -AsString
+          $allCategories = $AllItems | Select-Object -Property category,subcategory,title | Sort-Object -Property category,subcategory | Get-Unique -AsString
 
           foreach($item in $allCategories) 
           {
@@ -135,12 +139,6 @@ jobs:
                       $foundIssues = $true
                   }
               }
-
-              if($item.type -NotIn $validTypes.title)
-              {
-                  Write-Warning "Type '$($item.type)' does not exist in types.json. Item: '$($item.title)'"
-                  $foundIssues = $true
-              }
           }
 
           # Check for duplicate IDs. For now we filter out all items which have no ID yet. Those should become mandatory at some point.
@@ -153,11 +151,11 @@ jobs:
 
           if($foundIssues) 
           {
-              Write-Error "Please fix duplicate IDs and/or mismatch in categories or types."
+              Write-Error "Please fix duplicate IDs and/or mismatch in categories."
           }
           else
           {
-              Write-Host "All good! All used categories exist in the categories.json and all used types are in types.json."
+              Write-Host "All good! All used categories exist in the categories.json."
           }
 
       - name: Move files into the Hugo directories
