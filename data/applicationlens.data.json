@@ -4190,14 +4190,14 @@
     "category": "Networking & Connectivity",
     "subCategory": "Connectivity",
     "title": "Have all single points of failure been eliminated from the data path (on-premises and Azure)?",
-    "context": "Single-instance Network Virtual Appliances (NVAs), whether deployed in Azure or within an on-premises datacenter, introduce significant connectivity risk ([Deploy highly available network virtual appliances](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha)",
+    "context": "Single-instance Network Virtual Appliances (NVAs), whether deployed in Azure or within an on-premises datacenter, introduce significant connectivity risk and should be deployed [highly available](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha).",
     "recommendation": {
       "title": "",
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Deploy highly available network virtual appliances",
+          "url": "https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha"
         }
       ],
       "priority": "medium"
@@ -4212,15 +4212,15 @@
     "lens": "application",
     "category": "Networking & Connectivity",
     "subCategory": "Zone-Aware Services",
-    "title": "Are ExpressRoute/VPN zone-redundant Virtual Network Gateways used?",
-    "context": "Zone-redundant virtual network gateways distribute gateway instances across Availability Zones to improve reliability and ensure availability during failure scenarios impacting a datacenter within a region([Zone-redundant Virtual Network Gateways](https://docs.microsoft.com/azure/vpn-gateway/about-zone-redundant-vnet-gateways))",
+    "title": "Are zone-redundant ExpressRoute/VPN Gateways used?",
+    "context": "[Zone-redundant virtual network gateways](https://docs.microsoft.com/azure/vpn-gateway/about-zone-redundant-vnet-gateways) distribute gateway instances across Availability Zones to improve reliability and ensure availability during failure scenarios impacting a datacenter within a region.",
     "recommendation": {
       "title": "",
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Zone-redundant Virtual Network Gateways",
+          "url": "https://docs.microsoft.com/azure/vpn-gateway/about-zone-redundant-vnet-gateways"
         }
       ],
       "priority": "medium"
@@ -4236,14 +4236,14 @@
     "category": "Networking & Connectivity",
     "subCategory": "Zone-Aware Services",
     "title": "If used, is Azure Application Gateway v2 deployed in a zone-redundant configuration?",
-    "context": "Azure Application Gateway v2 can be deployed in a zone-redundant configuration to deploy gateway instances across zones for improved reliability and availability during failure scenarios impacting a datacenter within a region([Zone-redundant Application Gateway v2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant))",
+    "context": "Azure Application Gateway v2 can be deployed in a [zone-redundant configuration](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant) to deploy gateway instances across zones for improved reliability and availability during failure scenarios impacting a datacenter within a region.",
     "recommendation": {
       "title": "",
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Zone-redundant Application Gateway v2",
+          "url": "https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant"
         }
       ],
       "priority": "medium"
@@ -4282,14 +4282,14 @@
     "category": "Networking & Connectivity",
     "subCategory": "Zone-Aware Services",
     "title": "Are health probes configured for Azure Load Balancer(s)/Azure Application Gateway(s)?",
-    "context": "Health probes allow Azure Load Balancers to assess the health of backend endpoints to prevent traffic from being sent to unhealthy instances([Load Balancer health probes](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview))",
+    "context": "[Health probes](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview) allow Azure Load Balancers to assess the health of backend endpoints to prevent traffic from being sent to unhealthy instances.",
     "recommendation": {
       "title": "",
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Load Balancer health probes",
+          "url": "https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview"
         }
       ],
       "priority": "medium"
@@ -4311,8 +4311,8 @@
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Health Endpoint Monitoring Pattern",
+          "url": "https://docs.microsoft.com/azure/architecture/patterns/health-endpoint-monitoring"
         }
       ],
       "priority": "medium"
@@ -4714,7 +4714,7 @@
       {
         "id": "bd349b5a-d395-4bce-95e8-711c3e609a56",
         "title": "Does the application write-back to Azure AD?",
-        "context": "The Azure AD SLA includes authentication, read, write, and administrative actions.  In many cases, applications only require authentication and read access to Azure AD, which aligns with a much higher operational availability due to geographically distributed read replicas ([Azure AD Architecture](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-architecture))",
+        "context": "The Azure AD SLA includes authentication, read, write, and administrative actions.  In many cases, applications only require authentication and read access to Azure AD, which aligns with a much higher operational availability due to geographically distributed read replicas.",
         "recommendation": {
           "title": "",
           "context": "",
