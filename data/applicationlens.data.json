@@ -190,8 +190,8 @@
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Error handling for resilient applications",
+          "url": "https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design-error-handling"
         }
       ],
       "priority": "medium"
@@ -215,8 +215,8 @@
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Tagging Strategies",
+          "url": "https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging"
         }
       ],
       "priority": "medium"
@@ -235,7 +235,7 @@
     "title": "Does the application have a well-defined naming standard for Azure resources?",
     "context": "A well-defined naming convention is important for overall operations to be able to easily determine the usage of certain resources and help understand owners and cost centers responsible for the workload. Naming conventions allow the matching of resource costs to particular workloads.",
     "recommendation": {
-      "title": "Having a well-defined naming convention is important for overall operations, particularly for large application platforms where there are numerous resources ([Naming Conventions](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging))",
+      "title": "Having a well-defined [naming convention](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging) is important for overall operations, particularly for large application platforms where there are numerous resources.",
       "context": "",
       "links": [
         {
