@@ -2061,8 +2061,8 @@
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Azure Key Vault Soft-Delete",
+          "url": "https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete"
         }
       ],
       "priority": "medium"
@@ -2346,8 +2346,8 @@
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Deployment considerations for DevOps",
+          "url": "https://docs.microsoft.com/azure/architecture/framework/devops/deployment"
         }
       ],
       "priority": "medium"
@@ -2460,8 +2460,8 @@
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Stage your workloads",
+          "url": "https://docs.microsoft.com/azure/architecture/framework/devops/deployment#stage-your-workloads"
         }
       ],
       "priority": "medium"
@@ -2524,8 +2524,8 @@
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "What is Infrastructure as Code?",
+          "url": "https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code"
         }
       ],
       "priority": "medium"
@@ -2683,8 +2683,8 @@
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Feature Flags",
+          "url": "https://docs.microsoft.com/azure/architecture/framework/devops/development#feature-flags"
         }
       ],
       "priority": "medium"
@@ -3354,8 +3354,12 @@
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Use managed services",
+          "url": "https://docs.microsoft.com/azure/architecture/guide/design-principles/managed-services"
+        },
+        {
+          "title": "What is PaaS?",
+          "url": "https://azure.microsoft.com/overview/what-is-paas/"
         }
       ],
       "priority": "medium"
@@ -3376,12 +3380,12 @@
     "title": "Has the application been designed to scale-out?",
     "context": "Azure provides elastic scalability, however, applications must leverage a scale-unit approach to navigate service and subscription limits to ensure that individual components and the application as a whole can scale horizontally. Don't forget about scale in as well, as this is important to drive cost down. For example, scale in and out for App Service is done via rules. Often customers write scale out rule and never write scale in rule, this leaves the App Service more expensive.",
     "recommendation": {
-      "title": "[Design to scale out](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out).",
+      "title": "Design your solution with scalability in mind, leverage PaaS capabilities to [scale out](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out) and in by adding additional intances when needed.",
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Design to scale out",
+          "url": "https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out"
         }
       ],
       "priority": "medium"
@@ -3743,7 +3747,7 @@
     "category": "Capacity & Service Availability Planning",
     "subCategory": "Capacity",
     "title": "Is the required capacity (initial and future growth) available within targeted regions?",
-    "context": "While the promise of the cloud is infinite scale, the reality is that there are finite resources available and as a result situations can occur where capacity can be constrained due to overall demand. If the application requires a large amount of capacity or expects a significant increase in capacity then effort should be invested to ensure that desired capacity is attainable within selected region(s). For applications leveraging a recovery or active-passive based disaster recovery strategy, consideration should also be given to ensure suitable capacity exists in the secondary region(s) since a regional outage can lead to a significant increase in demand within a paired region due to other customer workloads also failing over. To help mitigate this, consideration should be given to pre-provisioning resources within the secondary region([Azure Capacity](https://aka.ms/AzureCapacity))",
+    "context": "While the promise of the cloud is infinite scale, the reality is that there are finite resources available and as a result situations can occur where capacity can be constrained due to overall demand. If the application requires a large amount of capacity or expects a significant increase in capacity then effort should be invested to ensure that desired capacity is attainable within selected region(s). For applications leveraging a recovery or active-passive based disaster recovery strategy, consideration should also be given to ensure suitable capacity exists in the secondary region(s) since a regional outage can lead to a significant increase in demand within a paired region due to other customer workloads also failing over. To help mitigate this, consideration should be given to pre-provisioning resources within the secondary region ([Azure Capacity](https://aka.ms/AzureCapacity))",
     "recommendation": {
       "title": "",
       "context": "",
@@ -3899,7 +3903,7 @@
     "category": "Application Platform Availability",
     "subCategory": "Compute Availability",
     "title": "How is the client traffic routed to the application in the case of region, zone or network outage?",
-    "context": "In the event of a major outage, client traffic should be routable to application deployments which remain available across other regions or zones. This is ultimately where cross-premises connectivity and global load balancing should be used, depending on whether the application is internal and/or external facing. Services such as Azure Front Door, Azure Traffic Manager, or third-party CDNs can route traffic across regions based on application health solicited via health probes([Traffic Manager endpoint monitoring](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring))",
+    "context": "In the event of a major outage, client traffic should be routable to application deployments which remain available across other regions or zones. This is ultimately where cross-premises connectivity and global load balancing should be used, depending on whether the application is internal and/or external facing. Services such as Azure Front Door, Azure Traffic Manager, or third-party CDNs can route traffic across regions based on application health solicited via health probes ([Traffic Manager endpoint monitoring](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring))",
     "recommendation": {
       "title": "",
       "context": "",
@@ -4083,7 +4087,7 @@
     "category": "Networking & Connectivity",
     "subCategory": "Connectivity",
     "title": "Is a global load balancer used to distribute traffic and/or failover across regions?",
-    "context": "Azure Front Door, Azure Traffic Manager, or third-party CDN services can be used to direct inbound requests to external-facing application endpoints deployed across multiple regions. It is important to note that Traffic Manager is a DNS based load balancer, so failover must wait for DNS propagation to occur. A sufficiently low TTL (Time To Live) value should be used for DNS records, though not all ISPs may honor this. For application scenarios requiring transparent failover, Azure Front Door should be used([Disaster Recovery using Azure Traffic Manager](https://docs.microsoft.com/azure/networking/disaster-recovery-dns-traffic-manager))([Azure Frontdoor routing architecture](https://docs.microsoft.com/azure/frontdoor/front-door-routing-architecture))",
+    "context": "Azure Front Door, Azure Traffic Manager, or third-party CDN services can be used to direct inbound requests to external-facing application endpoints deployed across multiple regions. It is important to note that Traffic Manager is a DNS based load balancer, so failover must wait for DNS propagation to occur. A sufficiently low TTL (Time To Live) value should be used for DNS records, though not all ISPs may honor this. For application scenarios requiring transparent failover, Azure Front Door should be used ([Disaster Recovery using Azure Traffic Manager](https://docs.microsoft.com/azure/networking/disaster-recovery-dns-traffic-manager))([Azure Frontdoor routing architecture](https://docs.microsoft.com/azure/frontdoor/front-door-routing-architecture))",
     "recommendation": {
       "title": "",
       "context": "",
@@ -4458,14 +4462,14 @@
     "category": "Application Performance Management",
     "subCategory": "Network Throughput and Latency",
     "title": "Have gateways (ExpressRoute or VPN) been sized accordingly to the expected cross-premises network throughput?",
-    "context": "Azure Virtual Network Gateways throughput varies based on SKU. Gateways should therefore be sized according to required throughput ([VPN Gateway SKUs](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku))",
+    "context": "Azure Virtual Network Gateways throughput varies based on SKU.",
     "recommendation": {
-      "title": "",
+      "title": "Consider sizing gateways according to required throughput ([VPN Gateway SKUs](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku))",
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "VPN Gateway SKUs",
+          "url": "https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku"
         }
       ],
       "priority": "medium"
@@ -4547,7 +4551,7 @@
     "category": "Application Performance Management",
     "subCategory": "Elasticity",
     "title": "Can the application scale horizontally in response to changing load?",
-    "context": "A scale-unit approach should be taken to ensure that each application component and the application as a whole can scale effectively in response to changing demand. A robust capacity model should be used to define when and how the application should scale",
+    "context": "A scale-unit approach should be taken to ensure that each application component and the application as a whole can scale effectively in response to changing demand. A robust capacity model should be used to define when and how the application should scale.",
     "recommendation": {
       "title": "",
       "context": "",
@@ -4660,14 +4664,14 @@
     "category": "Security & Compliance",
     "subCategory": "Control-plane RBAC",
     "title": "Has role-based and/or resource-based authorization been configured within Azure AD?",
-    "context": "Role-based and resource-based authorization are common approaches to authorize users based on required permission scopes([Role-based and resource-based authorization](https://docs.microsoft.com/azure/architecture/multitenant-identity/authorize))",
+    "context": "Role-based and resource-based authorization are common approaches to authorize users based on required permission scopes ([Role-based and resource-based authorization](https://docs.microsoft.com/azure/architecture/multitenant-identity/authorize))",
     "recommendation": {
       "title": "",
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Role-based and resource-based authorization",
+          "url": "https://docs.microsoft.com/azure/architecture/multitenant-identity/authorize"
         }
       ],
       "priority": "medium"
@@ -4676,14 +4680,14 @@
       {
         "id": "bd349b5a-d395-4bce-95e8-711c3e609a56",
         "title": "Does the application write-back to Azure AD?",
-        "context": "The Azure AD SLA includes authentication, read, write, and administrative actions.  In many cases, applications only require authentication and read access to Azure AD, which aligns with a much higher operational availability due to geographically distributed read replicas([Azure AD Architecture](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-architecture))",
+        "context": "The Azure AD SLA includes authentication, read, write, and administrative actions.  In many cases, applications only require authentication and read access to Azure AD, which aligns with a much higher operational availability due to geographically distributed read replicas ([Azure AD Architecture](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-architecture))",
         "recommendation": {
           "title": "",
           "context": "",
           "links": [
             {
-              "title": "",
-              "url": ""
+              "title": "Azure AD Architecture",
+              "url": "https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-architecture"
             }
           ],
           "priority": "medium"
@@ -4692,14 +4696,14 @@
       {
         "id": "ea7535ed-a35d-43f5-b6ce-6768b8df22d6",
         "title": "Are authentication tokens cached and encrypted for sharing across web servers?",
-        "context": "Application code should first try to get tokens silently from a cache before attempting to acquire a token from the identity provider, to optimise performance and maximize availability([Acquire and cache tokens](https://docs.microsoft.com/azure/active-directory/develop/msal-acquire-cache-tokens))",
+        "context": "Application code should first try to get tokens silently from a cache before attempting to acquire a token from the identity provider, to optimise performance and maximize availability ([Acquire and cache tokens](https://docs.microsoft.com/azure/active-directory/develop/msal-acquire-cache-tokens))",
         "recommendation": {
           "title": "",
           "context": "",
           "links": [
             {
-              "title": "",
-              "url": ""
+              "title": "Acquire and cache tokens",
+              "url": "https://docs.microsoft.com/azure/active-directory/develop/msal-acquire-cache-tokens"
             }
           ],
           "priority": "medium"
@@ -4716,18 +4720,39 @@
     "lens": "application",
     "category": "Security & Compliance",
     "subCategory": "Security Center",
-    "title": "Is Azure Security Center Standard tier enabled for all subscriptions and reporting to centralized workspaces? Also, is automatic provisioning enabled for all subscriptions? ([Security Center Data Collection](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection))",
-    "recommendation": {
-      "title": "",
-      "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
-      "priority": "medium"
-    }
+    "title": "Is Azure Defender enabled for all subscriptions and reporting to centralized workspaces?",
+    "context": "Azure Security Center is a unified infrastructure security management system that strengthens the security posture of your data centers, and provides advanced threat protection across your workloads. It has two offerings Azure Security Center free and Azure Defender.",
+    "recommendation": [
+      {
+        "title": "Use Azure Defender and configure reporting to centralized workspaces.",
+        "context": "",
+        "links": [
+          {
+            "title": "What is Azure Security Center?",
+            "url": "https://docs.microsoft.com/azure/security-center/security-center-introduction"
+          },
+          {
+            "title": "Security Center Data Collection",
+            "url": "https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection"
+          }
+        ]
+      },
+      {
+        "title": "Use automatic provisioning for all subscriptions.",
+        "context": "",
+        "links": [
+          {
+            "title": "Configure auto provisioning for agents and extensions from Azure Security Center",
+            "url": "https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection"
+          },
+          {
+            "title": "Security Center Data Collection",
+            "url": "https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection"
+          }
+        ],
+        "priority": "medium"
+      }
+    ]
   },
   {
     "id": "54ce29fd-f664-4550-b5c9-dc2aed08c994",
@@ -4738,14 +4763,14 @@
     "lens": "application",
     "category": "Security & Compliance",
     "subCategory": "Security Center",
-    "title": "Is Azure Security Center's Secure Score being formally reviewed and improved on a regular basis? ([Security Center Secure Score](https://docs.microsoft.com/azure/security-center/secure-score-security-controls))",
+    "title": "Is Azure Security Center's [Secure Score](https://docs.microsoft.com/azure/security-center/secure-score-security-controls)) being formally reviewed and improved on a regular basis?",
     "recommendation": {
-      "title": "",
+      "title": "Formally review Azure Security Center's Secure Score on a regular basis and take actions out of it.",
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Security Center Secure Score",
+          "url": "https://docs.microsoft.com/azure/security-center/secure-score-security-controls"
         }
       ],
       "priority": "medium"
@@ -4760,14 +4785,14 @@
     "lens": "application",
     "category": "Security & Compliance",
     "subCategory": "Security Center",
-    "title": "Are contact details set in security center to the appropriate email distribution list? ([Security Center Contact Details](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details))",
+    "title": "Are contact details set in security center to the appropriate email distribution list?",
     "recommendation": {
-      "title": "",
+      "title": "Set correct contact details in Azure Security Center to appropriate email distribution lists and review them on a regular basis.",
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Security Center Contact Details",
+          "url": "https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details"
         }
       ],
       "priority": "medium"
@@ -4783,14 +4808,14 @@
     "category": "Security & Compliance",
     "subCategory": "Network Security",
     "title": "Are all external application endpoints secured?",
-    "context": "External application endpoints should be protected against common attack vectors, such as Denial of Service (DoS) attacks like Slowloris, to prevent potential application downtime due to malicious intent. Azure native technologies such as Azure Firewall, Application Gateway/Azure Front Door WAF, and DDoS Protection Standard Plan can be used to achieve requisite protection ([Azure DDoS Protection](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview))",
+    "context": "External application endpoints should be protected against common attack vectors, such as Denial of Service (DoS) attacks like Slowloris, to prevent potential application downtime due to malicious intent. Azure native technologies such as Azure Firewall, Application Gateway/Azure Front Door WAF, and DDoS Protection Standard Plan can be used to achieve requisite protection.",
     "recommendation": {
-      "title": "",
+      "title": "Consider using Azure DDoS Protection to protect endpoints agains DDoS attacks.",
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Azure DDoS Protection",
+          "url": "https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview"
         }
       ],
       "priority": "medium"
@@ -4829,14 +4854,14 @@
     "category": "Security & Compliance",
     "subCategory": "Network Security",
     "title": "If data exfiltration concerns exist for services where Private Link is not yet supported, is filtering via Azure Firewall or an NVA being used?",
-    "context": "NVA solutions and Azure Firewall (for supported protocols) can be leveraged as a reverse proxy to restrict access to only authorized PaaS services for services where Private Link is not yet supported([Azure Firewall](https://docs.microsoft.com/azure/firewall/features))",
+    "context": "NVA solutions and Azure Firewall (for supported protocols) can be leveraged as a reverse proxy to restrict access to only authorized PaaS services for services where Private Link is not yet supported ([Azure Firewall](https://docs.microsoft.com/azure/firewall/features))",
     "recommendation": {
       "title": "",
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Azure Firewall",
+          "url": "https://docs.microsoft.com/azure/firewall/features"
         }
       ],
       "priority": "medium"
@@ -4868,14 +4893,18 @@
       {
         "id": "23a1815d-1393-4ebc-838b-b42afe43e3b0",
         "title": "Are NSG flow logs being collected?",
-        "context": "NSG flow logs should be captured and analyzed to monitor performance and security([Why use NSG flow logs](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview#why-use-flow-logs))",
+        "context": "Network Security Group (NSG) flow logs is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through an NSG. Flow data is sent to Azure Storage accounts from where you can access it as well as export it to any visualization tool, SIEM, or IDS of your choice.",
         "recommendation": {
-          "title": "",
+          "title": "Capture and analyze NSG flow logs to monitor performance and security.",
           "context": "",
           "links": [
             {
-              "title": "",
-              "url": ""
+              "title": "Network security groups",
+              "url": "https://docs.microsoft.com/en-gb/azure/virtual-network/network-security-groups-overview"
+            },
+            {
+              "title": "Why use NSG flow logs",
+              "url": "https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview#why-use-flow-logs"
             }
           ],
           "priority": "medium"
