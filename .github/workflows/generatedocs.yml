@@ -47,6 +47,12 @@ jobs:
               }
           }
 
+      - name: Validate JSON schema
+        shell: pwsh
+        run: |
+          pip install jsonschema
+          jsonschema -i $env:DATADIR/applicationlens.data.json schema/github.schema.json
+
       - name: Merge data files
         shell: pwsh
         run: |
