@@ -146,7 +146,7 @@ These critical design principles are used as lenses to assess the Reliability of
 
 
   _Azure provides elastic scalability, however, applications must leverage a scale-unit approach to navigate service and subscription limits to ensure that individual components and the application as a whole can scale horizontally. Don't forget about scale in as well, as this is important to drive cost down. For example, scale in and out for App Service is done via rules. Often customers write scale out rule and never write scale in rule, this leaves the App Service more expensive._
-  > [Design to scale out](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out).
+  > Design your solution with scalability in mind, leverage PaaS capabilities to [scale out](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out) and in by adding additional intances when needed.
 * Is the application deployed across multiple Azure subscriptions?
 
 
@@ -371,7 +371,7 @@ These critical design principles are used as lenses to assess the Reliability of
 * Is the required capacity (initial and future growth) available within targeted regions?
 
 
-  _While the promise of the cloud is infinite scale, the reality is that there are finite resources available and as a result situations can occur where capacity can be constrained due to overall demand. If the application requires a large amount of capacity or expects a significant increase in capacity then effort should be invested to ensure that desired capacity is attainable within selected region(s). For applications leveraging a recovery or active-passive based disaster recovery strategy, consideration should also be given to ensure suitable capacity exists in the secondary region(s) since a regional outage can lead to a significant increase in demand within a paired region due to other customer workloads also failing over. To help mitigate this, consideration should be given to pre-provisioning resources within the secondary region([Azure Capacity](https://aka.ms/AzureCapacity))_
+  _While the promise of the cloud is infinite scale, the reality is that there are finite resources available and as a result situations can occur where capacity can be constrained due to overall demand. If the application requires a large amount of capacity or expects a significant increase in capacity then effort should be invested to ensure that desired capacity is attainable within selected region(s). For applications leveraging a recovery or active-passive based disaster recovery strategy, consideration should also be given to ensure suitable capacity exists in the secondary region(s) since a regional outage can lead to a significant increase in demand within a paired region due to other customer workloads also failing over. To help mitigate this, consideration should be given to pre-provisioning resources within the secondary region ([Azure Capacity](https://aka.ms/AzureCapacity))_
 ## Application Platform Availability
     
 ### Service SKU
@@ -398,7 +398,7 @@ These critical design principles are used as lenses to assess the Reliability of
 * How is the client traffic routed to the application in the case of region, zone or network outage?
 
 
-  _In the event of a major outage, client traffic should be routable to application deployments which remain available across other regions or zones. This is ultimately where cross-premises connectivity and global load balancing should be used, depending on whether the application is internal and/or external facing. Services such as Azure Front Door, Azure Traffic Manager, or third-party CDNs can route traffic across regions based on application health solicited via health probes([Traffic Manager endpoint monitoring](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring))_
+  _In the event of a major outage, client traffic should be routable to application deployments which remain available across other regions or zones. This is ultimately where cross-premises connectivity and global load balancing should be used, depending on whether the application is internal and/or external facing. Services such as Azure Front Door, Azure Traffic Manager, or third-party CDNs can route traffic across regions based on application health solicited via health probes ([Traffic Manager endpoint monitoring](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring))_
 ## Data Platform Availability
     
 ### Service SKU
@@ -442,7 +442,7 @@ These critical design principles are used as lenses to assess the Reliability of
 * Is a global load balancer used to distribute traffic and/or failover across regions?
 
 
-  _Azure Front Door, Azure Traffic Manager, or third-party CDN services can be used to direct inbound requests to external-facing application endpoints deployed across multiple regions. It is important to note that Traffic Manager is a DNS based load balancer, so failover must wait for DNS propagation to occur. A sufficiently low TTL (Time To Live) value should be used for DNS records, though not all ISPs may honor this. For application scenarios requiring transparent failover, Azure Front Door should be used([Disaster Recovery using Azure Traffic Manager](https://docs.microsoft.com/azure/networking/disaster-recovery-dns-traffic-manager))([Azure Frontdoor routing architecture](https://docs.microsoft.com/azure/frontdoor/front-door-routing-architecture))_
+  _Azure Front Door, Azure Traffic Manager, or third-party CDN services can be used to direct inbound requests to external-facing application endpoints deployed across multiple regions. It is important to note that Traffic Manager is a DNS based load balancer, so failover must wait for DNS propagation to occur. A sufficiently low TTL (Time To Live) value should be used for DNS records, though not all ISPs may honor this. For application scenarios requiring transparent failover, Azure Front Door should be used ([Disaster Recovery using Azure Traffic Manager](https://docs.microsoft.com/azure/networking/disaster-recovery-dns-traffic-manager))([Azure Frontdoor routing architecture](https://docs.microsoft.com/azure/frontdoor/front-door-routing-architecture))_
 * For cross-premises connectivity (ExpressRoute or VPN) are there redundant connections from different locations?
 
 
@@ -503,7 +503,8 @@ These critical design principles are used as lenses to assess the Reliability of
 * Have gateways (ExpressRoute or VPN) been sized accordingly to the expected cross-premises network throughput?
 
 
-  _Azure Virtual Network Gateways throughput varies based on SKU. Gateways should therefore be sized according to required throughput ([VPN Gateway SKUs](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku))_
+  _Azure Virtual Network Gateways throughput varies based on SKU._
+  > Consider sizing gateways according to required throughput ([VPN Gateway SKUs](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku))
 * Does the application require dedicated bandwidth?
 
 
@@ -522,7 +523,7 @@ These critical design principles are used as lenses to assess the Reliability of
 * Can the application scale horizontally in response to changing load?
 
 
-  _A scale-unit approach should be taken to ensure that each application component and the application as a whole can scale effectively in response to changing demand. A robust capacity model should be used to define when and how the application should scale_
+  _A scale-unit approach should be taken to ensure that each application component and the application as a whole can scale effectively in response to changing demand. A robust capacity model should be used to define when and how the application should scale._
 * Has the time to scale in/out been measured?
 
 
@@ -538,16 +539,16 @@ These critical design principles are used as lenses to assess the Reliability of
 * Has role-based and/or resource-based authorization been configured within Azure AD?
 
 
-  _Role-based and resource-based authorization are common approaches to authorize users based on required permission scopes([Role-based and resource-based authorization](https://docs.microsoft.com/azure/architecture/multitenant-identity/authorize))_
+  _Role-based and resource-based authorization are common approaches to authorize users based on required permission scopes ([Role-based and resource-based authorization](https://docs.microsoft.com/azure/architecture/multitenant-identity/authorize))_
     - Does the application write-back to Azure AD?
 
 
-      _The Azure AD SLA includes authentication, read, write, and administrative actions.  In many cases, applications only require authentication and read access to Azure AD, which aligns with a much higher operational availability due to geographically distributed read replicas([Azure AD Architecture](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-architecture))_
+      _The Azure AD SLA includes authentication, read, write, and administrative actions.  In many cases, applications only require authentication and read access to Azure AD, which aligns with a much higher operational availability due to geographically distributed read replicas ([Azure AD Architecture](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-architecture))_
 
     - Are authentication tokens cached and encrypted for sharing across web servers?
 
 
-      _Application code should first try to get tokens silently from a cache before attempting to acquire a token from the identity provider, to optimise performance and maximize availability([Acquire and cache tokens](https://docs.microsoft.com/azure/active-directory/develop/msal-acquire-cache-tokens))_
+      _Application code should first try to get tokens silently from a cache before attempting to acquire a token from the identity provider, to optimise performance and maximize availability ([Acquire and cache tokens](https://docs.microsoft.com/azure/active-directory/develop/msal-acquire-cache-tokens))_
 
 ## Operational Procedures
     

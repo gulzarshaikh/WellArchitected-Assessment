@@ -86,7 +86,7 @@
 
 
   _Azure provides elastic scalability, however, applications must leverage a scale-unit approach to navigate service and subscription limits to ensure that individual components and the application as a whole can scale horizontally. Don't forget about scale in as well, as this is important to drive cost down. For example, scale in and out for App Service is done via rules. Often customers write scale out rule and never write scale in rule, this leaves the App Service more expensive._
-  > [Design to scale out](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out).
+  > Design your solution with scalability in mind, leverage PaaS capabilities to [scale out](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out) and in by adding additional intances when needed.
 ### Targets &amp; Non Functional Requirements
             
 * Are you able to predict general application usage?
@@ -388,7 +388,7 @@
 * Can the application scale horizontally in response to changing load?
 
 
-  _A scale-unit approach should be taken to ensure that each application component and the application as a whole can scale effectively in response to changing demand. A robust capacity model should be used to define when and how the application should scale_
+  _A scale-unit approach should be taken to ensure that each application component and the application as a whole can scale effectively in response to changing demand. A robust capacity model should be used to define when and how the application should scale._
 * Is autoscaling enabled and integrated within Azure Monitor?
 
 

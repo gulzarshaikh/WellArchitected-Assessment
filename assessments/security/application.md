@@ -502,16 +502,16 @@ These critical design principles are used as lenses to assess the Security of an
 * Has role-based and/or resource-based authorization been configured within Azure AD?
 
 
-  _Role-based and resource-based authorization are common approaches to authorize users based on required permission scopes([Role-based and resource-based authorization](https://docs.microsoft.com/azure/architecture/multitenant-identity/authorize))_
+  _Role-based and resource-based authorization are common approaches to authorize users based on required permission scopes ([Role-based and resource-based authorization](https://docs.microsoft.com/azure/architecture/multitenant-identity/authorize))_
     - Does the application write-back to Azure AD?
 
 
-      _The Azure AD SLA includes authentication, read, write, and administrative actions.  In many cases, applications only require authentication and read access to Azure AD, which aligns with a much higher operational availability due to geographically distributed read replicas([Azure AD Architecture](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-architecture))_
+      _The Azure AD SLA includes authentication, read, write, and administrative actions.  In many cases, applications only require authentication and read access to Azure AD, which aligns with a much higher operational availability due to geographically distributed read replicas ([Azure AD Architecture](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-architecture))_
 
     - Are authentication tokens cached and encrypted for sharing across web servers?
 
 
-      _Application code should first try to get tokens silently from a cache before attempting to acquire a token from the identity provider, to optimise performance and maximize availability([Acquire and cache tokens](https://docs.microsoft.com/azure/active-directory/develop/msal-acquire-cache-tokens))_
+      _Application code should first try to get tokens silently from a cache before attempting to acquire a token from the identity provider, to optimise performance and maximize availability ([Acquire and cache tokens](https://docs.microsoft.com/azure/active-directory/develop/msal-acquire-cache-tokens))_
 
 * Does the organization leverage resource locks in this workload to protect critical infrastructure?
 
@@ -610,15 +610,19 @@ These critical design principles are used as lenses to assess the Security of an
       > Use cloud provider identity services for non-employees.
 ### Security Center
             
-* Is Azure Security Center Standard tier enabled for all subscriptions and reporting to centralized workspaces? Also, is automatic provisioning enabled for all subscriptions? ([Security Center Data Collection](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection))
+* Is Azure Defender enabled for all subscriptions and reporting to centralized workspaces?
 
 
-* Is Azure Security Center's Secure Score being formally reviewed and improved on a regular basis? ([Security Center Secure Score](https://docs.microsoft.com/azure/security-center/secure-score-security-controls))
+  _Azure Security Center is a unified infrastructure security management system that strengthens the security posture of your data centers, and provides advanced threat protection across your workloads. It has two offerings Azure Security Center free and Azure Defender._
+  > Use Azure Defender with automatic provisioning for all subscriptions and configure reporting to centralized workspaces.
+* Is Azure Security Center's [Secure Score](https://docs.microsoft.com/azure/security-center/secure-score-security-controls)) being formally reviewed and improved on a regular basis?
 
 
-* Are contact details set in security center to the appropriate email distribution list? ([Security Center Contact Details](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details))
+  > Formally review Azure Security Center's Secure Score on a regular basis and take actions out of it.
+* Are contact details set in security center to the appropriate email distribution list?
 
 
+  > Set correct contact details in Azure Security Center to appropriate email distribution lists and review them on a regular basis.
 * Does the organization use tools to discover and remediate common risks within Azure tenants?
 
 
@@ -629,7 +633,8 @@ These critical design principles are used as lenses to assess the Security of an
 * Are all external application endpoints secured?
 
 
-  _External application endpoints should be protected against common attack vectors, such as Denial of Service (DoS) attacks like Slowloris, to prevent potential application downtime due to malicious intent. Azure native technologies such as Azure Firewall, Application Gateway/Azure Front Door WAF, and DDoS Protection Standard Plan can be used to achieve requisite protection ([Azure DDoS Protection](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview))_
+  _External application endpoints should be protected against common attack vectors, such as Denial of Service (DoS) attacks like Slowloris, to prevent potential application downtime due to malicious intent. Azure native technologies such as Azure Firewall, Application Gateway/Azure Front Door WAF, and DDoS Protection Standard Plan can be used to achieve requisite protection._
+  > Consider using Azure DDoS Protection to protect endpoints agains DDoS attacks.
 * Is communication to Azure PaaS services secured using VNet Service Endpoints or Private Link?
 
 
@@ -637,7 +642,7 @@ These critical design principles are used as lenses to assess the Security of an
 * If data exfiltration concerns exist for services where Private Link is not yet supported, is filtering via Azure Firewall or an NVA being used?
 
 
-  _NVA solutions and Azure Firewall (for supported protocols) can be leveraged as a reverse proxy to restrict access to only authorized PaaS services for services where Private Link is not yet supported([Azure Firewall](https://docs.microsoft.com/azure/firewall/features))_
+  _NVA solutions and Azure Firewall (for supported protocols) can be leveraged as a reverse proxy to restrict access to only authorized PaaS services for services where Private Link is not yet supported ([Azure Firewall](https://docs.microsoft.com/azure/firewall/features))_
 * Are Network Security Groups (NSGs) being used?
 
 
@@ -645,8 +650,9 @@ These critical design principles are used as lenses to assess the Security of an
     - Are NSG flow logs being collected?
 
 
-      _NSG flow logs should be captured and analyzed to monitor performance and security([Why use NSG flow logs](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview#why-use-flow-logs))_
+      _Network Security Group (NSG) flow logs is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through an NSG. Flow data is sent to Azure Storage accounts from where you can access it as well as export it to any visualization tool, SIEM, or IDS of your choice._
 
+      > Capture and analyze NSG flow logs to monitor performance and security.
 * Does the organization have a designated group responsible for centralized network management and security of this workload?
 
 
