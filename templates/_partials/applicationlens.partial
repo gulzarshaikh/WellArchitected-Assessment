@@ -44,14 +44,6 @@ These critical design principles are used as lenses to assess the {{ .pillarDisp
 {{ if (and ($question.recommendation) ($question.recommendation.title)) }}
   > {{ safeHTML (trim $question.recommendation.title " ") }}
 {{- end -}}
-  {{ range $index, $link := $question.recommendation.links }}
-  {{ if (and (eq $index 0) ($link.title) ($link.url)) }}
-    Additional resources:
-  {{- end -}}
-  {{ if (and ($link.title) ($link.url)) }}
-    - [{{ safeHTML (trim $link.title " ")}}]({{ $link.url }})
-  {{- end -}}
-  {{- end -}}
 {{ range $child := $question.children }}
     - {{ $child.title }}
 {{ if $child.context }}
@@ -62,13 +54,21 @@ These critical design principles are used as lenses to assess the {{ .pillarDisp
 {{- end -}}
   {{ range $index, $link := $child.recommendation.links }}
   {{ if (and (eq $index 0) ($link.title) ($link.url)) }}
-      - Additional resources:
+      Additional resources:
   {{- end -}}
   {{ if (and ($link.title) ($link.url)) }}
         - [{{ safeHTML (trim $link.title " ")}}]({{ $link.url }})
   {{- end -}}
   {{- end -}}
 {{- end -}}
+  {{ range $index, $link := $question.recommendation.links }}
+  {{ if (and (eq $index 0) ($link.title) ($link.url)) }}
+    Additional resources:
+  {{- end -}}
+  {{ if (and ($link.title) ($link.url)) }}
+    - [{{ safeHTML (trim $link.title " ")}}]({{ $link.url }})
+  {{- end -}}
+  {{- end -}}
             {{- end -}}
         {{- end -}}
     {{- end }}

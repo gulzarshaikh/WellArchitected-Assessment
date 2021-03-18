@@ -4121,14 +4121,18 @@
     "category": "Networking & Connectivity",
     "subCategory": "Connectivity",
     "title": "Is a global load balancer used to distribute traffic and/or failover across regions?",
-    "context": "Azure Front Door, Azure Traffic Manager, or third-party CDN services can be used to direct inbound requests to external-facing application endpoints deployed across multiple regions. It is important to note that Traffic Manager is a DNS based load balancer, so failover must wait for DNS propagation to occur. A sufficiently low TTL (Time To Live) value should be used for DNS records, though not all ISPs may honor this. For application scenarios requiring transparent failover, Azure Front Door should be used ([Disaster Recovery using Azure Traffic Manager](https://docs.microsoft.com/azure/networking/disaster-recovery-dns-traffic-manager))([Azure Frontdoor routing architecture](https://docs.microsoft.com/azure/frontdoor/front-door-routing-architecture))",
+    "context": "Azure Front Door, Azure Traffic Manager, or third-party CDN services can be used to direct inbound requests to external-facing application endpoints deployed across multiple regions. It is important to note that Traffic Manager is a DNS based load balancer, so failover must wait for DNS propagation to occur. A sufficiently low TTL (Time To Live) value should be used for DNS records, though not all ISPs may honor this. For application scenarios requiring transparent failover, Azure Front Door should be used.",
     "recommendation": {
       "title": "",
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Disaster Recovery using Azure Traffic Manager",
+          "url": "https://docs.microsoft.com/azure/networking/disaster-recovery-dns-traffic-manager"
+        },
+        {
+          "title": "Azure Frontdoor routing architecture",
+          "url": "https://docs.microsoft.com/azure/frontdoor/front-door-routing-architecture"
         }
       ],
       "priority": "medium"
@@ -4144,7 +4148,7 @@
     "category": "Networking & Connectivity",
     "subCategory": "Connectivity",
     "title": "For cross-premises connectivity (ExpressRoute or VPN) are there redundant connections from different locations?",
-    "context": "At least two redundant connections should be established across two or more Azure regions and peering locations to ensure there are no single points of failure. An active/active load-shared configuration provides path diversity and promotes availability of network connection paths. ([Cross-network connectivity](https://docs.microsoft.com/azure/expressroute/cross-network-connectivity))",
+    "context": "At least two redundant connections should be established across two or more Azure regions and peering locations to ensure there are no single points of failure. An active/active load-shared configuration provides path diversity and promotes availability of network connection paths.",
     "recommendation": {
       "title": "",
       "context": "",
@@ -4305,7 +4309,7 @@
     "category": "Networking & Connectivity",
     "subCategory": "Connectivity",
     "title": "Do health probes assess critical application dependencies?",
-    "context": "Custom health probes should be used to assess overall application health including downstream components and dependent services, such as APIs and datastores, so that traffic is not sent to backend instances that cannot successfully process requests due to dependency failures ([Health Endpoint Monitoring Pattern](https://docs.microsoft.com/azure/architecture/patterns/health-endpoint-monitoring))",
+    "context": "Custom health probes should be used to assess overall application health including downstream components and dependent services, such as APIs and datastores, so that traffic is not sent to backend instances that cannot successfully process requests due to dependency failures.",
     "recommendation": {
       "title": "",
       "context": "",
