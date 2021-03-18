@@ -174,6 +174,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
       > Make sure SLAs/SLOs/SLIs for all leveraged dependencies are understood
 
   
+  
     - Has a composite Service-Level Agreement (SLA) been calculated for the application and/or key scenarios using Azure SLAs?
 
 
@@ -182,6 +183,9 @@ These critical design principles are used as lenses to assess the Cost Optimizat
       > Make sure the composite SLA of all components and dependencies on the critical paths are understood.
 
   
+  
+        - Composite SLA
+        - [Composite SLA](https://docs.microsoft.com/azure/architecture/framework/resiliency/business-metrics#understand-service-level-agreements)
     - Are availability targets considered while the system is running in disaster recovery mode?
 
 
@@ -189,6 +193,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
       > If targets must also apply in a failure state then an N+1 model should be used to achieve greater availability and resiliency, where N is the capacity needed to deliver required availability. There's also a cost implication, because more resilient infrastructure usually means more expensive. This has to be accepted by business.
 
+  
   
     - Are these availability targets monitored and measured?
 
@@ -198,6 +203,9 @@ These critical design principles are used as lenses to assess the Cost Optimizat
       > Make sure you measure and monitor key targets such as **Mean Time Between Failures (MTBF)** which denotes the average time between failures of a particular component.
 
   
+  
+        - Mean Time Between Failures
+        - [Mean Time Between Failures](https://en.wikipedia.org/wiki/Mean_time_between_failures)
     - What are the consequences if availability targets are not satisfied?
 
 
@@ -205,6 +213,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
       > It should be fully understood what are the consequences if availability targets are not satisfied. This will also inform when to initiate a failover case.
 
+  
   
 * Are recovery targets such as Recovery Time Objective (RTO) and Recovery Point Objective (RPO) defined for the application and/or key scenarios?
 
@@ -241,6 +250,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
       > Targets should be specific and measurable.
 
   
+  
 * Are there any application components which are less critical and have lower availability or performance requirements?
 
 
@@ -261,6 +271,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
       > Map application dependencies either as a simple list or a document (usually this is part of a design document or reference architecture).
 
   
+  
     - Is the impact of an outage with each dependency well understood?
 
 
@@ -268,6 +279,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
       > Classify dependencies either as strong or weak. This will help identify which components are essential to the application.
 
+  
   
 * Are SLAs and support agreements in place for all critical dependencies?
 
@@ -289,6 +301,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
       > Make sure you understand the operational features/capabilities available and how they can be used in the solution.
 
   
+  
     - What technologies and frameworks are used by the application?
 
 
@@ -297,6 +310,12 @@ These critical design principles are used as lenses to assess the Cost Optimizat
       > All technologies and frameworks should be identified. Vulnerabilities of these dependencies must be understood (there are automated solutions on the market that can help: [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/) or [NPM audit](https://docs.npmjs.com/cli/audit)).
 
   
+  
+        - OWASP Dependency-Check
+        - [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/)
+  
+        - NPM audit
+        - [NPM audit](https://docs.npmjs.com/cli/audit)
 * Are components hosted on shared application or data platforms which are used by other applications?
 
 
@@ -377,6 +396,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
       > Review Azure Advisor recommendation periodically.
 
+  
   
 * Have you deployed a Hub and Spoke Design or Virtual WAN?
 
@@ -492,6 +512,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
       > The time it takes to perform a complete environment deployment should be fully understood as it needs to align with the recovery targets
 
+  
   
 ### Build Environments
             
