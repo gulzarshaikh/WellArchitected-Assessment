@@ -191,8 +191,10 @@ These critical design principles are used as lenses to assess the Security of an
       **Additional resources:**
   
   
+      **Additional resources:**
         - [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/)
   
+      **Additional resources:**
         - [NPM audit](https://docs.npmjs.com/cli/audit)
 ### Threat Analysis
             
@@ -715,8 +717,10 @@ These critical design principles are used as lenses to assess the Security of an
       **Additional resources:**
   
   
+      **Additional resources:**
         - [Network security groups](https://docs.microsoft.com/en-gb/azure/virtual-network/network-security-groups-overview)
   
+      **Additional resources:**
         - [Why use NSG flow logs](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview#why-use-flow-logs)
 * Does the organization have a designated group responsible for centralized network management and security of this workload?
 
