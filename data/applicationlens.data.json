@@ -4722,25 +4722,14 @@
     "subCategory": "Security Center",
     "title": "Is Azure Defender enabled for all subscriptions and reporting to centralized workspaces?",
     "context": "Azure Security Center is a unified infrastructure security management system that strengthens the security posture of your data centers, and provides advanced threat protection across your workloads. It has two offerings Azure Security Center free and Azure Defender.",
-    "recommendation": [
-      {
-        "title": "Use Azure Defender and configure reporting to centralized workspaces.",
+    "recommendation": {
+        "title": "Use Azure Defender with automatic provisioning for all subscriptions and configure reporting to centralized workspaces.",
         "context": "",
         "links": [
           {
             "title": "What is Azure Security Center?",
             "url": "https://docs.microsoft.com/azure/security-center/security-center-introduction"
           },
-          {
-            "title": "Security Center Data Collection",
-            "url": "https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection"
-          }
-        ]
-      },
-      {
-        "title": "Use automatic provisioning for all subscriptions.",
-        "context": "",
-        "links": [
           {
             "title": "Configure auto provisioning for agents and extensions from Azure Security Center",
             "url": "https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection"
@@ -4749,10 +4738,8 @@
             "title": "Security Center Data Collection",
             "url": "https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection"
           }
-        ],
-        "priority": "medium"
+        ]
       }
-    ]
   },
   {
     "id": "54ce29fd-f664-4550-b5c9-dc2aed08c994",
