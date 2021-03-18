@@ -3577,14 +3577,14 @@
     "category": "Application Design",
     "subCategory": "Dependencies",
     "title": "Can the application operate in the absence of its dependencies?",
-    "context": "If the application has strong dependencies which it cannot operate in the absence of, then the availability and recovery targets of these dependencies should align with that of the application itself. Effort should be taken to minimize dependencies to achieve control over application reliability ([Minimize dependencies](https://docs.microsoft.com/azure/architecture/guide/design-principles/minimize-coordination))",
+    "context": "If the application has strong dependencies which it cannot operate in the absence of, then the availability and recovery targets of these dependencies should align with that of the application itself. Effort should be taken to [minimize dependencies](https://docs.microsoft.com/azure/architecture/guide/design-principles/minimize-coordination) to achieve control over application reliability.",
     "recommendation": {
       "title": "",
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Minimize dependencies",
+          "url": "https://docs.microsoft.com/azure/architecture/guide/design-principles/minimize-coordination"
         }
       ],
       "priority": "medium"
@@ -3697,8 +3697,8 @@
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Azure Products by Region",
+          "url": "https://azure.microsoft.com/global-infrastructure/services/"
         }
       ],
       "priority": "medium"
@@ -3714,14 +3714,14 @@
     "category": "Capacity & Service Availability Planning",
     "subCategory": "Service Availability",
     "title": "Are Azure Availability Zones available in the required regions?",
-    "context": "Not all regions support Availability Zones today, so when assessing the suitability of availability strategy in relation to targets it is important to confirm if targeted regions also provide zonal support. All net new Azure regions will conform to the 3 + 0 datacenter design, and where possible existing regions will expand to provide support for Availability Zones ([Regions that support Availability Zones in Azure](https://docs.microsoft.com/azure/availability-zones/az-region))",
+    "context": "Not all regions support Availability Zones today, so when assessing the suitability of availability strategy in relation to targets it is important to confirm if targeted regions also provide zonal support. All net new Azure regions will conform to the 3 + 0 datacenter design, and where possible existing regions will expand to provide support for [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-region).",
     "recommendation": {
       "title": "",
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Regions that support Availability Zones in Azure",
+          "url": "https://docs.microsoft.com/azure/availability-zones/az-region"
         }
       ],
       "priority": "medium"
@@ -3785,14 +3785,14 @@
     "category": "Capacity & Service Availability Planning",
     "subCategory": "Service Availability",
     "title": "Is the required capacity (initial and future growth) available within targeted regions?",
-    "context": "While the promise of the cloud is infinite scale, the reality is that there are finite resources available and as a result situations can occur where capacity can be constrained due to overall demand. If the application requires a large amount of capacity or expects a significant increase in capacity then effort should be invested to ensure that desired capacity is attainable within selected region(s). For applications leveraging a recovery or active-passive based disaster recovery strategy, consideration should also be given to ensure suitable capacity exists in the secondary region(s) since a regional outage can lead to a significant increase in demand within a paired region due to other customer workloads also failing over. To help mitigate this, consideration should be given to pre-provisioning resources within the secondary region ([Azure Capacity](https://aka.ms/AzureCapacity))",
+    "context": "While the promise of the cloud is infinite scale, the reality is that there are finite resources available and as a result situations can occur where capacity can be constrained due to overall demand. If the application requires a large amount of capacity or expects a significant increase in capacity then effort should be invested to ensure that desired capacity is attainable within selected region(s). For applications leveraging a recovery or active-passive based disaster recovery strategy, consideration should also be given to ensure suitable capacity exists in the secondary region(s) since a regional outage can lead to a significant increase in demand within a paired region due to other customer workloads also failing over. To help mitigate this, consideration should be given to pre-provisioning resources within the secondary region.",
     "recommendation": {
       "title": "",
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Azure Capacity",
+          "url": "https://aka.ms/AzureCapacity"
         }
       ],
       "priority": "medium"
@@ -3815,8 +3815,8 @@
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Stateless web services",
+          "url": "https://docs.microsoft.com/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices"
         }
       ],
       "priority": "medium",
@@ -3873,14 +3873,14 @@
     "category": "Application Platform Availability",
     "subCategory": "Service SKU",
     "title": "Are all application platform services running in a HA configuration/SKU?",
-    "context": "Azure application platform services offer resiliency features to support application reliability, though they may only be applicable at a certain SKU. For instance, Service Bus Premium SKU provides predictable latency and throughput to mitigate noisy neighbor scenarios, as well as the ability to automatically scale and replicate metadata to another Service Bus instance for failover purposes ([Azure Service Bus Premium SKU](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging)",
+    "context": "Azure application platform services offer resiliency features to support application reliability, though they may only be applicable at a certain SKU. For instance, [Service Bus Premium SKU](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging) provides predictable latency and throughput to mitigate noisy neighbor scenarios, as well as the ability to automatically scale and replicate metadata to another Service Bus instance for failover purposes.",
     "recommendation": {
       "title": "",
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Azure Service Bus Premium SKU",
+          "url": "https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging"
         }
       ],
       "priority": "medium"
@@ -3902,8 +3902,8 @@
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Building solutions for high availability using Availability Zones",
+          "url": "https://docs.microsoft.com/azure/architecture/high-availability/building-solutions-for-high-availability"
         }
       ],
       "priority": "medium"
@@ -3919,14 +3919,14 @@
     "category": "Application Platform Availability",
     "subCategory": "Compute Availability",
     "title": "Is the application hosted across 2 or more application platform nodes?",
-    "context": "To ensure application platform reliability, it is vital that the application be hosted across at least two nodes to ensure there are no single points of failure. Ideally An n+1 model should be applied for compute availability where n is the number of instances required to support application availability and performance requirements. It is important to note that the higher SLAs provided for virtual machines and associated related platform services, require at least two replica nodes deployed to either an Availability Set or across two or more Availability Zones([SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/))",
+    "context": "To ensure application platform reliability, it is vital that the application be hosted across at least two nodes to ensure there are no single points of failure. Ideally An n+1 model should be applied for compute availability where n is the number of instances required to support application availability and performance requirements. It is important to note that the higher [SLAs provided for virtual machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/) and associated related platform services, require at least two replica nodes deployed to either an Availability Set or across two or more Availability Zones.",
     "recommendation": {
       "title": "",
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "SLA for Virtual Machines",
+          "url": "https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/"
         }
       ],
       "priority": "medium"
@@ -3935,14 +3935,14 @@
       {
         "id": "a13c94ba-a40d-4b2d-982d-6af090629703",
         "title": "Does the application platform use Availability Zones or Availability Sets?",
-        "context": "An Availability Set (AS) is a logical construct to inform Azure that it should distribute contained virtual machine instances across multiple fault and update domains within an Azure region. Availability Zones (AZ) elevate the fault level for virtual machines to a physical datacenter by allowing replica instances to be deployed across multiple datacenters within an Azure region. While zones provide greater resiliency than sets, there are performance and cost considerations where applications are extremely 'chatty' across zones given the implied physical separation and inter-zone bandwidth charges. Ultimately, Azure Virtual Machines and Azure PaaS services, such as Service Fabric and Azure Kubernetes Service (AKS) which use virtual machines underneath, can leverage either AZs or an AS to provide application resiliency within a region([Business continuity with data resiliency](https://azurecomcdn.azureedge.net/cvt-27012b3bd03d67c9fa81a9e2f53f7d081c94f3a68c13cdeb7958edf43b7771e8/mediahandler/files/resourcefiles/azure-resiliency-infographic/Azure_resiliency_infographic.pdf))",
+        "context": "An **Availability Set (AS)** is a logical construct to inform Azure that it should distribute contained virtual machine instances across multiple fault and update domains within an Azure region. **Availability Zones (AZ)** elevate the fault level for virtual machines to a physical datacenter by allowing replica instances to be deployed across multiple datacenters within an Azure region. While zones provide greater resiliency than sets, there are performance and cost considerations where applications are extremely 'chatty' across zones given the implied physical separation and inter-zone bandwidth charges. Ultimately, Azure Virtual Machines and Azure PaaS services, such as Service Fabric and Azure Kubernetes Service (AKS) which use virtual machines underneath, can leverage either AZs or an AS to provide application resiliency within a region.",
         "recommendation": {
           "title": "",
           "context": "",
           "links": [
             {
-              "title": "",
-              "url": ""
+              "title": "Business continuity with data resiliency",
+              "url": "https://azurecomcdn.azureedge.net/cvt-27012b3bd03d67c9fa81a9e2f53f7d081c94f3a68c13cdeb7958edf43b7771e8/mediahandler/files/resourcefiles/azure-resiliency-infographic/Azure_resiliency_infographic.pdf"
             }
           ],
           "priority": "medium"
@@ -3966,8 +3966,8 @@
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Traffic Manager endpoint monitoring",
+          "url": "https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring"
         }
       ],
       "priority": "medium"
@@ -4150,8 +4150,8 @@
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Cross-network connectivity",
+          "url": "https://docs.microsoft.com/azure/expressroute/cross-network-connectivity"
         }
       ],
       "priority": "medium"
@@ -4167,14 +4167,14 @@
     "category": "Networking & Connectivity",
     "subCategory": "Connectivity",
     "title": "Has a failure path been simulated to ensure connectivity is available over alternative paths?",
-    "context": "The failure of a connection path onto other connection paths should be tested to validate connectivity and operational effectiveness. Using Site-to-Site VPN connectivity as a backup path for ExpressRoute provides an additional layer of network resiliency for cross-premises connectivity ([Using site-to-site VPN as a backup for ExpressRoute private peering](https://docs.microsoft.com/azure/expressroute/use-s2s-vpn-as-backup-for-expressroute-privatepeering))",
+    "context": "The failure of a connection path onto other connection paths should be tested to validate connectivity and operational effectiveness. Using [Site-to-Site VPN connectivity as a backup path for ExpressRoute](https://docs.microsoft.com/azure/expressroute/use-s2s-vpn-as-backup-for-expressroute-privatepeering) provides an additional layer of network resiliency for cross-premises connectivity.",
     "recommendation": {
       "title": "",
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Using site-to-site VPN as a backup for ExpressRoute private peering",
+          "url": "https://docs.microsoft.com/azure/expressroute/use-s2s-vpn-as-backup-for-expressroute-privatepeering"
         }
       ],
       "priority": "medium"
