@@ -58,7 +58,7 @@ These critical design principles are used as lenses to assess the {{ .pillarDisp
   {{- end -}}
   {{ if (and ($link.title) ($link.url)) }}
       - [{{ safeHTML (trim $link.title " ")}}]({{ $link.url }})
-  {{- end }}
+  {{- end -}}
   {{- end -}}
 {{- end -}}
             {{- end -}}
