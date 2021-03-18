@@ -747,7 +747,7 @@
         "title": "What technologies and frameworks are used by the application?",
         "context": "It is important to understand what technologies are used by the application and must be managed, such as .NET Core , Spring, or Node.js.",
         "recommendation": {
-          "title": "All technologies and frameworks should be identified. Vulnerabilities of these dependencies must be understood (there are automated solutions on the market that can help: [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/) or [NPM audit](https://docs.npmjs.com/cli/audit)).",
+          "title": "All technologies and frameworks should be identified. Vulnerabilities of these dependencies must be understood (there are automated solutions on the market that can help: [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/) or [NPM audit](https://docs.npmjs.com/cli/audit).",
           "context": "",
           "links": [
             {
@@ -6459,14 +6459,14 @@
     "category": "Operational Model & DevOps",
     "subCategory": "General",
     "title": "Does the organization leverage DevOps security guidance based on industry lessons-learned, and available automation tools (OWASP guidance, Microsoft toolkit for Secure DevOps etc.)?",
-    "context": "Organizations should leverage a control framework such as NIST, CIS or ASB [(Azure Security Benchmarks)](https://docs.microsoft.com/azure/security/benchmarks/) for securing applications on the cloud rather than starting from zero.",
+    "context": "Organizations should leverage a control framework such as NIST, CIS or [Azure Security Benchmarks (ASB)](https://docs.microsoft.com/azure/security/benchmarks/) for securing applications on the cloud rather than starting from zero.",
     "recommendation": {
       "title": "Follow DevOps security guidance and automation for securing applications.",
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Azure Security Benchmarks",
+          "url": "https://docs.microsoft.com/azure/security/benchmarks/"
         }
       ],
       "priority": "medium"
