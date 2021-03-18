@@ -330,7 +330,6 @@ These critical design principles are used as lenses to assess the Operational Ex
       **Additional resources:**
         - [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/)
   
-      **Additional resources:**
         - [NPM audit](https://docs.npmjs.com/cli/audit)
 * Are components hosted on shared application or data platforms which are used by other applications?
 
