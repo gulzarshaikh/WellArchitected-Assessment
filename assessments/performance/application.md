@@ -50,16 +50,13 @@
   _Multiple regions should be used for failover purposes in a disaster state, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active strategies. Additional cost needs to be taken into consideration - mostly from compute, data and networking perspective, but also services like Azure Site Recovery (ASR). ([Failover strategies](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones))_
     - Were regions chosen based on location and proximity to your users or based on resource types that were available?
 
-
       _Not only is it important to utilize regions close to your audience, but it is equally important to choose regions that offer the SKUs that will support your future growth. Not all regions share the same parity when it comes to product SKUs. Plan your growth, then choose regions that will support those plans._
 
     - Are paired regions used?
 
-
       _Paired regions exist within the same geography and provide native replication features for recovery purposes, such as Geo-Redundant Storage (GRS) asynchronous replication. In the event of planned maintenance, updates to a region will be performed sequentially only ([Business continuity with Azure Paired Regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions))_
 
     - Have you ensured that both (all) regions in use have the same performance and scale SKUs that are currently leveraged in the primary region?
-
 
       _When planning for scale and efficiency, it is important that regions are not only paired, but homogenous in their service offerings. Additionally, you should make sure that, if one region fails, the second region can scale appropriately to sufficiently handle the influx of additional user requests._
 
@@ -96,11 +93,9 @@
   > Traffic patterns should be identified by analyzing historical traffic data and the effect of significant external events on the application.
     - If typical usage is predictable, are your predictions based on time of day, day of week, or season (e.g. holiday shopping season)?
 
-
       _Dig deeper and document predictable periods. By doing so, you can leverage resources like Azure Automation and Autoscale to proactively scale the application and its underlying environment._
 
     - Do you understand why your application responds to its typical load in the ways that it does?
-
 
       _Identifying a typical load helps you determine realistic expectations for performance testing. A "typical load" can be measured in individual users, web requests, user sessions, or transactions. When documenting typical loads, also ensure that all predictable periods have typical loads documented._
 
@@ -111,7 +106,6 @@
   > Work with stakeholders to identify sensible non-functional requirements based on business requirements, research and user testing.
     - Are there any targets defined for the time it takes to perform scale operations?
 
-
       _Scale operations (horizontal - changing the number of identical instances, vertical - switching to more/less powerful instances) can be fast, but usually take time to complete. It's important to understand how this delay affects the application under load and if degraded performance is acceptable._
 
       > The application should be designed to scale to cope with spikes in load in-line with what is an acceptable duration for degraded performance.
@@ -121,7 +115,6 @@
   
     - What is the maximum traffic volume the application is expected to serve without performance degradation?
 
-
       _Scale requirements the application must be able to effectively satisfy, such as the number of concurrent users or requests per second, is a critical lens for assessing operations. From the cost perspective, it's recommended to set a budget for extreme circumstances and indicate upper limit for cost (when it's not worth serving more traffic due to overall costs)._
 
       > Traffic limits for the application should be defined in quantified and measurable manner.
@@ -130,7 +123,6 @@
   
   
     - Are these performance targets monitored and measured across the application and/or key scenarios?
-
 
       _Monitoring and measuring end-to-end application performance is vital to qualifying overall application health and progress towards defined targets._
 
@@ -155,7 +147,6 @@
   _Your application will most likely require more than one type of datastore depending on business requirements. Choosing the right mix and correct implementation is extremely important for optimizing application performance._
     - What datasources are you using?
 
-
       _Your application will most likely require more than one type of datastore depending on business requirements. Choosing the right mix and correct implementation is extremely important for optimizing application performance._
 
 * Would you consider the application design to be a microservice architecture?
@@ -164,11 +155,9 @@
   _As compared to a monolithic architecture--an application that is tightly coupled with synchronous communication and often a single datastore--microservices leverage concepts such as asynchronous communication, service discovery, various resiliency strategies, and each service has its own datastore._
     - Are your microservices using independent datastores or sharing the same datastore (e.g. a single database server that has multiple databases/tables is still considered a single datastore)?
 
-
       _One of the fundamental concepts of a microservice is that it uses its own datastore. Not only does this help with resiliency, but can also improve performance by reducing load on a single source, thus eliminating bottlenecks due to long-running queries._
 
     - Are the datastores&#39; access restricted only to their respective service or can multiple microservices access the datastores directly?
-
 
 
 ### Transactional
@@ -182,7 +171,6 @@
 
   _If the application is stateful, meaning that data or state will be stored locally in the instance of the application, it may increase performance by enabling session affinity. When session affinity is enabled, subsequent requests to the application will be directed to the same server that processed the initial request. If session affinity is not enabled, subsequent requests would be directed to the next available server depending on the load balancing rules, and the subsequent server would be required to reload all applicable data._
     - If the application was to fail or recycle, could the data be refreshed for the user with minimal effort and/or time?
-
 
 
 * Is the application code written using asynchronous patterns?
@@ -199,11 +187,9 @@
   _You can offload a long-running task or a multi-step workflow process to a separate, dedicated workers instead of using the application's resources to handle it. To handle this scenario, you can add tasks (messages) to a queue and have a dedicated worker listening to the queue to pick up a message and process it._
     - Where possible, have tasks been configured to execute in parallel?
 
-
       _There are many ways to handle long-running tasks. The common way is to use parallel execution threads and leverage WaitAll or WaitAny process waits. However, using these methods introduce blocking on threads and can have large, detrimental performance hits on applications, especially distributed applications. Additionally, the blocks can prevent the execution of other tasks that may not have a dependency on the data at the current code position. Instead, it is better to follow asynchronous models and leverage message queuing for long-running tasks. In this pattern, tasks publish and subscribe to data on the queue and tasks can execute as soon as the data is made available._
 
     - Are long-running tasks and workflows leveraging durable functions?
-
 
 
 ## Health Modelling &amp; Monitoring
@@ -220,7 +206,6 @@
 
   > Application level metrics should include end-to-end transaction times of key technical functions, such as database queries, response times for external API calls, failure rates of processing steps, etc.
     - Is the end-to-end performance of critical system flows monitored?
-
 
       _To fully assess the health of key scenarios in the context of targets and NFRs, application log events across critical system flows should be correlated._
 
@@ -284,14 +269,12 @@
     - Are critical system flows used to inform the health model?
 
 
-
       > The health model should be able to surface the respective health of critical system flows or key subsystems to ensure appropriate operational prioritization is applied. For example, the health model should be able to represent the current state of the user login transaction flow
   
       **Additional resources:**
   
   
     - Can the health model distinguish between transient and non-transient faults?
-
 
       _Is the health model treating all failures the same?_
 
@@ -301,7 +284,6 @@
   
   
     - Can the health model determine if the application is performing at expected performance targets?
-
 
       _The health model should have the ability to evaluate application performance as a part of the application's overall health state._
 
@@ -332,9 +314,7 @@
     - Are you able to reasonably predict when these peaks will occur?
 
 
-
     - Are you able to accurately predict the amount of load your application will experience during these peaks?
-
 
 
 ### Service SKU
@@ -402,7 +382,7 @@
 * Are there any components/scenarios that are very sensitive to network latency?
 
 
-  _Components or scenarios that are sensitive to network latency may indicate a need for co-locality within a single Availability Zone or even closer using Proximity Placement Groups with Accelerated Networking enabled ([Proximity Placement Groups](https://docs.microsoft.com/azure/virtual-machines/windows/co-location#proximity-placement-groups))_
+  _Components or scenarios that are sensitive to network latency may indicate a need for co-locality within a single Availability Zone or even closer using [Proximity Placement Groups](https://docs.microsoft.com/azure/virtual-machines/windows/co-location#proximity-placement-groups) with Accelerated Networking enabled._
 * Does the application require dedicated bandwidth?
 
 
@@ -418,7 +398,6 @@
 
   _Autoscaling can be leveraged to address unanticipated peak loads to help prevent application outages caused by overloading_
     - Has autoscaling been tested under sustained load?
-
 
       _The scaling on any single component may have an impact on downstream application components and dependencies. Autoscaling should therefore be tested regularly to help inform and validate a capacity model describing when and how application components should scale_
 
@@ -436,7 +415,6 @@
   _Due to physical and logical resource constraints within the platform, Azure must apply [limits and quotas](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) to service scalability, which may be either hard or soft._
   > The application should take a scale-unit approach to navigate within service limits, and where necessary consider multiple subscriptions which are often the boundary for such limits. It is highly recommended that a structured approach to scale be designed up-front rather than resorting to a 'spill and fill' model.
     - Is the required capacity (initial and future growth) available within targeted regions?
-
 
       _While the promise of the cloud is infinite scale, the reality is that there are finite resources available and as a result situations can occur where capacity can be constrained due to overall demand._
 
@@ -456,21 +434,17 @@
   _Performance Testing: Performance testing is the superset of both load and stress testing. The primary goal of performance testing is to validate benchmark behavior for the application ([Performance Testing](https://docs.microsoft.com/azure/architecture/checklist/dev-ops#testing))<br />**Load Testing**: Load testing validates application scalability by rapidly and/or gradually increasing the load on the application until it reaches a threshold/limit<br />**Stress Testing**: *Stress testing is a type of negative testing which involves various activities to overload existing resources and remove components to understand overall resiliency and how the application responds to issues_
     - How does your team perceive the importance of performance testing?
 
-
       _It is critical that your team understands the importance of performance testing. Additionally, the team should be committed to providing the necessary time and resources for adequately executing performance testing proven practices._
 
     - When do you do test for performance, scalability, and resiliency?
-
 
       _Regular testing should be performed as part of each major change and if possible on a regular basis to validate existing thresholds, targets and assumptions, as well as ensuring the validity of the health model, capacity model and operational procedures_
 
     - Are any tests performed in production?
 
-
       _While the majority of testing should be performed within the testing and staging environments, it is often beneficial to also run a subset of tests against the production system_
 
     - Is the application tested with injected faults?
-
 
       _It is a common "chaos monkey" practice to verify the effectiveness of operational procedures using artificial faults. For example, taking dependencies offline (stopping API apps, shutting down VMs, etc.), restricting access (enabling firewall rules, changing connection strings, etc.) or forcing failover (database level, Front Door, etc.) is a good way to validate that the application is able to handle faults gracefully_
 
@@ -488,16 +462,13 @@
   _There are various performance testing tools available for DevOps. Some tools like JMeter only perform testing against endpoints and tests HTTP statuses. Other tools like K6 and Selenium can perform tests that also check data quality and variations. Application Insights, while not necessarily designed to test server load, can test the performance of an application within the user's browser. When determining what testing tools you will implement, it is always important to remember what type of performance testing you are attempting to execute._
     - What types of performance testing are you currently executing (or looking to execute) against your application?
 
-
       _Most people think of load testing as the only form of performance testing. However, there are different types of performance testing--load testing, stress testing, API testing, client-side/browser testing, etc. It is important that you understand and are able to articulate the different types of tests, along with their pro's and con's. With a solid understanding shared amongst your team members, you can identify a path forward to leveraging existing tests or the creation of new tests._
 
     - How much of your application is currently tested for performance?
 
-
       _Performance testing can be initiated within the client's browser, full integration testing (e.g. testing the response of multiple endpoints required to comprise the data of a single page), or testing the performance of a single API endpoint. As stated under the previous question, having a clear vision of the areas you are attempting to test will help identify the tools you will need._
 
     - Considering the three major application layers of frontend, services, and database, what parts of the application are being tested for performance?
-
 
 
 * Have you identified all services being utilized in Azure (and on-prem) that need to be measured?
@@ -512,7 +483,6 @@
   _There are many types of goals when determining baselines for application performance. Perhaps baselines center around a certain number of visitors within a given time period, the time it takes to render a page, type  required for executing a stored procedure, or a desired number of transactions if your site conducts some type of e-commerce. It is important to identify and maintain a shared understanding of these baselines so that you can architect a system that meets them.<br />Baselines can vary based on types of connections or platforms that a user may leverage for accessing the application. It may be important to establish baselines that address the diversity of connections, platforms, and other elements (like time of day, or weekday versus weekend)._
     - Are your goals based on device and/or connectivity type, or are they considered the same across the board?
 
-
       _It is important to identify how users are connecting to your application. Are they primarily connecting via a wired connection, wireless, or by using a mobile device? Additionally, you should seek to understand the targeted device types, whether that a mobile device, a tablet or laptop/desktop PC. All of these factors play a major role in performance as it relates to data transmission (e.g. sending data to and receiving data from a remote service) and processing (e.g. displaying that data to a user via a graph, table, etc.). For example, if the site has a large amount of widgets, it may be advantageous to create an experience that is optimized for mobile devices since these devices tend to have smaller processors and less memory._
 
 * Do you have goals defined for establishing an initial connection to a service?
@@ -526,9 +496,7 @@
     - What are your goals for a completed page load?
 
 
-
     - How often are you achieving your page load goals?
-
 
 
 * Do you have goals defined for an API (service) endpoint complete response?
@@ -538,9 +506,7 @@
     - What are your goals for a complete response from a given API?
 
 
-
     - How often are you achieving your API response goals?
-
 
 
 * Do you have goals defined for server response times?
@@ -550,9 +516,7 @@
     - What are your goals for a full server response?
 
 
-
     - How often are you achieving your server response goals?
-
 
 
 * Do you have goals for latency between systems/microservices?
@@ -562,9 +526,7 @@
     - What are your goals for a complete response from a given microservice?
 
 
-
     - How often are you achieving your microservice response goals?
-
 
 
 * Do you have goals for database queries?
@@ -574,9 +536,7 @@
     - What are your goals for an individual database query execution and response?
 
 
-
     - How often are you achieving your goals for database query execution?
-
 
 
 * How do you know when you have reached acceptable efficiency?
@@ -599,21 +559,17 @@
   _What is the maximum taxation you wish to place on resources? Factors such as memory, CPU, and disk IOPS should all be considered. Once a stress test has been performed resulting in the maximum supported load and an operational margin has been chosen, it is best to determine an operational threshold. Then, environment scaling (automatic or manual) can be performed once the threshold has been reached._
     - What are the metrics of a performance test under standard loads?
 
-
       _A true performance test measures how the application performs under a standard load. It is critical to understand how your application operates--including CPU utilization and memory consumption--under a standard load. First, this will help you plan accordingly as you anticipate future user growth. Second, this gives you a baseline for performance regression testing._
 
     - Given your determination of acceptable operational margin and response under standard levels of load, has the environment been configured adequately?
-
 
       _Determine if the environment is rightly configured to handle "standard" loads. (e.g. Are the correct SKUs selected based on desired margins?) Over allocation can unnecessarily increase costs and maintenance; under allocation can result in poor user experience._
 
     - How well does the application respond under fluctuating increased levels of loads?
 
-
       _Typically, there is a stair step model to determining load capacity. The stair step model considers various levels of users for various time periods. Running a load test helps to determine how well the application scales as load increases on the application._
 
     - Given your determination of acceptable operational margin and response under increased levels of load, have you configured the environment to scale out to sustain performance efficiency?
-
 
       _Determine if the environment is rightly configured to scale in order to handle increased loads. (e.g. Does the environment scale effectively at certain times of day or at specific performance counters?) If you have identified specific times in which load increases (e.g. holidays, marketing drives, etc.), then the environment can be configured to proactively scale prior to the actual increase in load._
 
@@ -625,16 +581,13 @@
   _Caching and queuing offers ways to handle heavy load in read and write scenarios, respectively. However, their usage must be carefully considered as this may mean that data is not fresh and writes to not happen instantly. This could create a scenario of eventual consistency and stale data._
     - Are you using any caching mechanisms?
 
-
       _Use caching whenever possible, whether it is client-side caching, view caching, or data caching. Caching can also be configured on the browser, the server, or on an appliance in-between (e.g. Azure Frontdoor). Incorporating caching can help reduce latency and server taxation by eliminating repetitive class to microservices, APIs, and data stores._
 
     - Are you using static or page caching mechanisms?
 
-
       _Available static and page caching mechanisms are for example:<br />- Browser<br />- Azure CDN<br />- Azure Front Door<br />- Other<br />There are various types of caching mechanisms that can be configured with a web page and its components. Such examples include expiry dates, tags, modification dates, content, or other variances like IP addresses or encoding types._
 
     - What technology are you using for data caching?
-
 
       _Available data caching technologies are for example:<br />- Azure Redis Cache<br />- IIS Caching Server<br />- SQL Caching Server<br />- Disk<br />- Other solution_
 
@@ -656,9 +609,7 @@
     - Have you identified the length of time it takes before CPU or memory increases?
 
 
-
     - How long does it take for system resources to return to &#34;normal?&#34;
-
 
 
 * Does the application response times increase while not using all the CPU or memory allocated to the system regardless of the load?
@@ -668,9 +619,7 @@
     - Have you identified the length of time it takes before response times increase?
 
 
-
     - How long does it take for response times to return to &#34;normal?&#34;
-
 
 
 * Do you profile the application code with any profiling tools?
