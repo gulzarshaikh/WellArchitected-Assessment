@@ -12,9 +12,12 @@
     - [Application Composition](#Application-Composition)
   - [Health Modelling &amp; Monitoring](#Health-Modelling--Monitoring)
     - [Application Level Monitoring](#Application-Level-Monitoring)
-    - [Resource/Infrastructure Level Monitoring](#ResourceInfrastructure-Level-Monitoring)
+    - [Logging](#Logging)
     - [Dashboarding](#Dashboarding)
     - [Alerting](#Alerting)
+  - [Capacity &amp; Service Availability Planning](#Capacity--Service-Availability-Planning)
+    - [Service SKU](#Service-SKU)
+    - [Efficiency](#Efficiency)
   - [Networking &amp; Connectivity](#Networking--Connectivity)
     - [Connectivity](#Connectivity)
     - [Endpoints](#Endpoints)
@@ -23,16 +26,11 @@
     - [Scalability &amp; Capacity Model](#Scalability--Capacity-Model)
     - [Operational Lifecycles](#Operational-Lifecycles)
   - [Deployment &amp; Testing](#Deployment--Testing)
-    - [Application Deployments](#Application-Deployments)
-    - [Application Infrastructure Deployments &amp; Infrastructure as Code (IaC)](#Application-Infrastructure-Deployments--Infrastructure-as-Code-IaC)
+    - [Application Code Deployments](#Application-Code-Deployments)
     - [Build Environments](#Build-Environments)
     - [Testing &amp; Validation](#Testing--Validation)
   - [Operational Model &amp; DevOps](#Operational-Model--DevOps)
     - [Roles &amp; Responsibilities](#Roles--Responsibilities)
-  - [Efficiency and Sizing](#Efficiency-and-Sizing)
-    - [Architecture](#Architecture)
-    - [SKUs](#SKUs)
-    - [Tools](#Tools)
   - [Governance](#Governance)
     - [Financial Management &amp; Cost Models](#Financial-Management--Cost-Models)
     - [Culture &amp; Dynamics](#Culture--Dynamics)
@@ -96,6 +94,30 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
   _Understanding if the application is cloud-native or not provides a very useful high level indication about potential technical debt for operability and cost efficiency._
   > While cloud-native workloads are preferred, migrated or modernized applications are reality and they might not utilize the available cloud functionality like auto-scaling, platform notifications etc. Make sure to understand the limitations and implement workarounds if available.
+* Is the workload deployed across multiple regions?
+
+
+  _Multiple regions should be used for failover purposes in a disaster state, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active strategies. Additional cost needs to be taken into consideration - mostly from compute, data and networking perspective, but also services like Azure Site Recovery (ASR). ([Failover strategies](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones))_
+    - Were regions chosen based on location and proximity to your users or based on resource types that were available?
+
+
+      _Not only is it important to utilize regions close to your audience, but it is equally important to choose regions that offer the SKUs that will support your future growth. Not all regions share the same parity when it comes to product SKUs. Plan your growth, then choose regions that will support those plans._
+
+    - Are paired regions used?
+
+
+      _Paired regions exist within the same geography and provide native replication features for recovery purposes, such as Geo-Redundant Storage (GRS) asynchronous replication. In the event of planned maintenance, updates to a region will be performed sequentially only ([Business continuity with Azure Paired Regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions))_
+
+    - Have you ensured that both (all) regions in use have the same performance and scale SKUs that are currently leveraged in the primary region?
+
+
+      _When planning for scale and efficiency, it is important that regions are not only paired, but homogenous in their service offerings. Additionally, you should make sure that, if one region fails, the second region can scale appropriately to sufficiently handle the influx of additional user requests._
+
+* Within a region is the application architecture designed to use Availability Zones?
+
+
+  _[Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones) can be used to optimise application availability within a region by providing datacenter level fault tolerance. However, the application architecture must not share dependencies between zones to use them effectively. It is also important to note that Availability Zones may introduce performance and cost considerations for applications which are extremely 'chatty' across zones given the implied physical separation between each zone and inter-zone bandwidth charges. That also means that AZ can be considered to get higher SLA for lower cost. Be aware of [pricing changes](https://azure.microsoft.com/pricing/details/bandwidth/) coming to Availability Zone bandwidth starting February 2021._
+  > Use Availability Zones where applicable to improve reliability and optimize costs.
 * Are Azure Tags used to enrich Azure resources with operational metadata?
 
 
@@ -106,15 +128,11 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
   _A well-defined naming convention is important for overall operations to be able to easily determine the usage of certain resources and help understand owners and cost centers responsible for the workload. Naming conventions allow the matching of resource costs to particular workloads._
   > Having a well-defined naming convention is important for overall operations, particularly for large application platforms where there are numerous resources([Naming Conventions](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging))
-* Does the workload support multi-region deployments?
+* Is component proximity required for application performance reasons?
 
 
-  _Multiple regions should be used for failover purposes in a disaster state, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active strategies. Additional cost needs to be taken into consideration - mostly from compute, data and networking perspectivce, but also services like Azure Site Recovery (ASR). ([Failover strategies](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones))_
-* Within a region is the application architecture designed to use Availability Zones?
-
-
-  _[Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones) can be used to optimise application availability within a region by providing datacenter level fault tolerance. However, the application architecture must not share dependencies between zones to use them effectively. It is also important to note that Availability Zones may introduce performance and cost considerations for applications which are extremely 'chatty' across zones given the implied physical separation between each zone and inter-zone bandwidth charges. That also means that AZ can be considered to get higher SLA for lower cost. Be aware of [pricing changes](https://azure.microsoft.com/pricing/details/bandwidth/) coming to Availability Zone bandwidth starting February 2021._
-  > Use Availability Zones where applicable to improve reliability and optimize costs.
+  _If all or part of the application is highly sensitive to latency it may mandate component co-locality which can limit the applicability of multi-region and multi-zone strategies_
+  > Consider using the same datacenter region, Availability Zone and [Proximity Placement Groups](https://azure.microsoft.com/blog/announcing-the-general-availability-of-proximity-placement-groups/) and other options to bring latency sensitive components closer together. Keep also in mind that additional charges may apply when chatty workloads are spread across zones and region.
 * Has the application been designed to scale-out?
 
 
@@ -128,6 +146,11 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
 
   _A disaster recovery strategy should capture how the application responds to a disaster situation such as a regional outage or the loss of a critical platform service, using either a re-deployment, warm-spare active-passive, or hot-spare active-active approach. To drive cost down consider splitting application components and data into groups. For example: 1) must protect, 2) nice to protect, 3) ephemeral/can be rebuilt/lost, instead of protecting all data with the same policy._
+    - If you have a disaster recovery plan in another region, have you ensured you have the needed capacity quotas allocated?
+
+
+      _Quotas and limits typically apply at the region level and, therefore, the needed capacity should also be planned for the secondary region._
+
 * Is the workload designed to scale independently?
 
 
@@ -149,10 +172,10 @@ These critical design principles are used as lenses to assess the Cost Optimizat
       _Availability targets for any dependencies leveraged by the application should be understood and ideally align with application targets_
 
       > Make sure SLAs/SLOs/SLIs for all leveraged dependencies are understood
-    - Has a composite SLA been calculated for the application and/or key scenarios using Azure SLAs?
+    - Has a composite Service-Level Agreement (SLA) been calculated for the application and/or key scenarios using Azure SLAs?
 
 
-      _A composite SLA captures the end-to-end SLA across all application components and dependencies. It is calculated using the individual SLAs of Azure services housing application components and provides an important indicator of designed availability in relation to customer expectations and targets([Composite SLAs](https://docs.microsoft.com/azure/architecture/framework/resiliency/business-metrics#understand-service-level-agreements))_
+      _A [composite SLA](https://docs.microsoft.com/azure/architecture/framework/resiliency/business-metrics#understand-service-level-agreements) captures the end-to-end SLA across all application components and dependencies. It is calculated using the individual SLAs of Azure services housing application components and provides an important indicator of designed availability in relation to customer expectations and targets._
 
       > Make sure the composite SLA of all components and dependencies on the critical paths are understood.
     - Are availability targets considered while the system is running in disaster recovery mode?
@@ -166,9 +189,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
       _Monitoring and measuring application availability is vital to qualifying overall application health and progress towards defined targets._
 
-      > Make sure you measure and monitor key targets such as
-- **Mean Time Between Failures (MTBF)**: The average time between failures of a particular component
-- **Mean Time Between Failures (MTBF)**: The average time between failures of a particular component
+      > Make sure you measure and monitor key targets such as<br />- **Mean Time Between Failures (MTBF)**: The average time between failures of a particular component<br />- **Mean Time Between Failures (MTBF)**: The average time between failures of a particular component
     - What are the consequences if availability targets are not satisfied?
 
 
@@ -178,39 +199,23 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 * Are recovery targets such as Recovery Time Objective (RTO) and Recovery Point Objective (RPO) defined for the application and/or key scenarios?
 
 
-  _Understanding customer reliability expectations is vital to reviewing the overall reliability of the application. For instance, if a customer is striving to achieve an application RTO of less than a minute then back-up based and active-passive disaster recovery strategies are unlikely to be appropriate 
-Recovery time objective (RTO): The maximum acceptable time the application is unavailable after a disaster incident 
-Recovery point objective (RPO): The maximum duration of data loss that is acceptable during a disaster event_
+  _Understanding customer reliability expectations is vital to reviewing the overall reliability of the application. For instance, if a customer is striving to achieve an application RTO of less than a minute then back-up based and active-passive disaster recovery strategies are unlikely to be appropriate<br />**Recovery time objective (RTO)**: The maximum acceptable time the application is unavailable after a disaster incident<br />**Recovery point objective (RPO)**: The maximum duration of data loss that is acceptable during a disaster event_
   > Recovery targets should be defined in accordance to the required RTO and RPO targets for the workloads.
-* Are there well defined performance requirements for the application and/or key scenarios?
+* Are you able to predict general application usage?
 
 
-  _Non-functional performance requirements, such as those relating to end-user experiences (e.g. average and maximum response times) are vital to assessing the overall health of an application, and is a critical lens required for assessing operations_
-  > Work with stakeholders to identify sensible non-functional requirements based on business requirements, research and user testing.
-    - Does the application have predictable traffic patterns? Or is load highly volatile?
+  _It is important to understand application and environment usage. The customer may have an understanding of certain seasons or incidents that increase user load (e.g. a weather service being hit by users facing a storm, an e-commerce site during the holiday season)._
+  > Traffic patterns should be identified by analyzing historical traffic data and the effect of significant external events on the application.
+    - If typical usage is predictable, are your predictions based on time of day, day of week, or season (e.g. holiday shopping season)?
 
 
-      _Understanding the expected application load and known spikes, such as Black Friday for retail applications, is important when assessing operational effectiveness._
+      _Dig deeper and document predictable periods. By doing so, you can leverage resources like Azure Automation and Autoscale to proactively scale the application and its underlying environment._
 
-      > Traffic patterns should be identified by analyzing historical traffic data and the effect of significant external events on the application.
-    - Are there any targets defined for the time it takes to perform scale operations?
-
-
-      _Scale operations (horizontal - changing the number of identical instances, vertical - switching to more/less powerful instances) can be fast, but usually take time to complete. It's important to understand how this delay affects the application under load and if degraded performance is acceptable._
-
-      > The application should be designed to scale to cope with spikes in load in-line with what is an acceptable duration for degraded performance.
-    - What is the maximum traffic volume the application is expected to serve without performance degradation?
+    - Do you understand why your application responds to its typical load in the ways that it does?
 
 
-      _Scale requirements the application must be able to effectively satisfy, such as the number of concurrent users or requests per second, is a critical lens for assessing operations. From the cost perspective, it's recommended to set a budget for extreme circumstances and indicate upper limit for cost (when it's not worth serving more traffic due to overall costs)._
+      _Identifying a typical load helps you determine realistic expectations for performance testing. A "typical load" can be measured in individual users, web requests, user sessions, or transactions. When documenting typical loads, also ensure that all predictable periods have typical loads documented._
 
-      > Traffic limits for the application should be defined in quantified and measurable manner.
-    - Are these performance targets monitored and measured across the application and/or key scenarios?
-
-
-      _Monitoring and measuring end-to-end application performance is vital to qualifying overall application health and progress towards defined targets._
-
-      > Automation and specialized tooling (such as Application Insights) should be used to orchestrate and measure application performance.
 ### Key Scenarios
             
 * Have critical system flows through the application been defined for all key business scenarios?
@@ -277,10 +282,6 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
   _Do application components leverage shared data platforms, such as a central data lake, or application hosting platforms, such as a centrally managed AKS or ASE cluster? Shared platforms drive down cost, but the workload needs to maintain the expected performance._
   > Make sure you understand the design decisions and implications of using shared hosting platforms.
-* Is it possible to benefit from higher density in this workload?
-
-
-  _When running multiple applications (typically in multi-tenant or microservices scenarios) density can be increased by deploying them on shared infrastructure and utilizing it more. For example: Containerization and moving to Kubernetes (Azure Kubernetes Services) enables pod-based deployment which can utilize underlying nodes efficiently. Similar approach can be taken with App Service Plans. To prevent the 'noisy neighbour' situation, proper monitoring must be in place and performance analysis must be done (if possible)._
 * How do you ensure that cloud resources are appropriately provisioned?
 
 
@@ -294,8 +295,8 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
 
   _In order to successfully maintain the application it's important to 'turn the lights on' and have clear visibility of important metrics both in real-time and historically._
-  > An APM technology, such as Application Insights, should be used to manage the performance and availability of the application, aggregating application level logs and events for subsequent interpretation. It should be considered what is the appropriate level of logging, because too much can incur significant costs. ([Log Analytics pricing](https://azure.microsoft.com/pricing/details/monitor/)
-### Resource/Infrastructure Level Monitoring
+  > An APM technology, such as Application Insights, should be used to manage the performance and availability of the application, aggregating application level logs and events for subsequent interpretation. It should be considered what is the appropriate level of logging, because too much can incur significant costs. ([Log Analytics pricing](https://azure.microsoft.com/pricing/details/monitor/))
+### Logging
             
 * Which log aggregation technology is used to collect logs and metrics from Azure resources?
 
@@ -309,6 +310,15 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
   _Are the dashboards openly available in your organization or do you limit access based on roles etc.? For example: developers usually don't need to know the overall cost of Azure for the company, but it might be good for them to be able to watch a particular workload._
   > Access to operational and financial data should be tightly controlled to align with segregation of duties, while making sure that it doesn't hinder operational effectiveness; i.e. scenarios where developers have to raise an ITSM ticket to access logs should be avoided
+* Is there a dashboard showing cost related KPIs for this workload which gives a transparent view of the current situation?
+
+
+  _Single pane of glass which can be shown during weekly ops meetings and instills accountability within everyone whilst also allowing you to understand where you are in terms of budget through every stage._
+* Are you using Azure Cost Management (ACM) to track spending in this workload?
+
+
+  _In order to track spending an ACM tool can help with understanding how much is spent, where and when. This helps to make better decisions about how and if cost can be reduced._
+  > Use ACM or other cost management tools to understand if savings are possible.
 ### Alerting
             
 * What technology is used for alerting?
@@ -331,6 +341,55 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
   _This is to ensure that if any budget is close to threshold, the cost owner gets notified to take appropriate actions on the change._
   > Set up alerts for cost limits and thresholds.
+## Capacity &amp; Service Availability Planning
+    
+### Service SKU
+            
+* Is Azure Advisor being used to optimize SKUs discovered in this workload?
+
+
+  _Azure Advisor helps to optimize and improve efficiency of the workload by identifying idle and underutilized resources. It analyzes your configurations and usage telemetry and consolidates it into personalized, actionable recommendations to help you optimise your resources._
+  > Use Azure Advisor to identify SKUs for optimization.
+    - Are the Advisor recommendations being reviewed weekly or bi-weekly for optimization?
+
+
+      _Your underutilised resources need to be reviewed often in order to be identified and dealt with accordingly, in addition to ensuring that your actionable recommendations are up-to-date and fully optimised. For example, Azure Advisor monitors your virtual machine (VM) usage for 7 days and then identifies low-utilization VMs._
+
+      > Review Azure Advisor recommendation periodically.
+* Have you deployed a Hub and Spoke Design or Virtual WAN?
+
+
+  _Virtual WAN has costs that are different in hub and spoke design. The cost of the peering network or other service routing has to be included. If Private Link is deployed, peering is not billed - only private link._
+  > Consider whether to deploy Hub and Spoke or Virtual WAN for this workload.
+### Efficiency
+            
+* Are cost-effective regions considered as part of the deployment selection?
+
+
+  _Is there a technical/legal reason for deploying in a particular region? If not, it might be worth looking at another region to decrease cost. Also depending on the workload and data processing model, choosing a cheaper region might make more financial sense._
+  > Choose appropriate region for workload deployment to optimize cost.
+* Is the price model of this workload clear? Do the consumers understand why they are paying the price per month?
+
+
+  _As part of driving a good behavior it's important that the consumer has understood why they are paying the price for a service and also that the cost is transparent and fair to the user of the service or else it can drive wrong behavior._
+* Is the distribution of the cost done in accordance with the usage of the service?
+
+
+  _In order to drive down cost it can be advised to incentivize the user of driving the use of a service that helps put less burden on the platform and via this drive down cost as it falls back on the user if a good behavior is followed in order to drive down the price._
+* Is it possible to benefit from higher density in this workload?
+
+
+  _When running multiple applications (typically in multi-tenant or microservices scenarios) density can be increased by deploying them on shared infrastructure and utilizing it more. For example: Containerization and moving to Kubernetes (Azure Kubernetes Services) enables pod-based deployment which can utilize underlying nodes efficiently. Similar approach can be taken with App Service Plans. To prevent the 'noisy neighbour' situation, proper monitoring must be in place and performance analysis must be done (if possible)._
+* Are the right sizes and SKUs used for workload services?
+
+
+  _The required performance and infrastructure utilization are key factors which define the 'size' of Azure resources to be used, but there can be hidden aspects that affect cost too. Watch for cost variations between different SKUs - for example App Service Plans S3 cost the same as P2v2, but have worse performance characteristics. Once the purchased SKUs have been identified, determine if they purchased resources have the capabilities of supporting anticipated load. For example, if you expect the load to require 30 instances of an App Service, yet you are currently leveraging a Standard App Service Plan SKU (maximum of 10 instances supported), then you will need to upgrade your App Service Plan in order to accommodate the anticipated load._
+  > Make sure the optimal service SKUs are used for this workload.
+* Is the workload using the right operating system for its servers?
+
+
+  _Analyze the technology stack and identify which workloads are capable of running on Linux and which require Windows. Linux-based VMs and App Services are significantly cheaper, but require the app to run on supported stack (.NET Core, Node.js etc.)._
+  > Make sure the optimal operating systems are used for this workload.
 ## Networking &amp; Connectivity
     
 ### Connectivity
@@ -398,25 +457,18 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
   > Utilize the PaaS pay-as-you-go consumption model where relevant.
 ## Deployment &amp; Testing
     
-### Application Deployments
+### Application Code Deployments
             
 * What is the process to deploy application releases to production?
 
 
-  > The entire end-to-end CI/CD deployment process should be understood
+  > The entire end-to-end CI/CD deployment process should be understood.
     - How long does it take to deploy an entire production environment?
 
 
       _The time it takes to perform a complete environment deployment should align with recovery targets. Automation and agility also lead to cost savings due to the reduction of manual labor and errors._
 
       > The time it takes to perform a complete environment deployment should be fully understood as it needs to align with the recovery targets
-### Application Infrastructure Deployments &amp; Infrastructure as Code (IaC)
-            
-* Are test-environments deployed automatically and deleted after use? Use of tagging for end date?
-
-
-  _Automating test cases reduces time, cost and helps inefficient resource utilization. It also provides a structured approach to testing with test scripts. Test environments can quickly become overhead if not monitored properly, therefore stopping these resources when they are not in use enables cost saving. In order to drive down cost a good place to look is test environments that might not be used anymore. Implementing a process can help by tagging all test environments with an end date and an owner and after this date follow up with the owner if the environment is still needed and if so set a new end-of-life date._
-  > Make sure to delete/deallocate resources used in test environments.
 ### Build Environments
             
 * Are releases to production gated by having it successfully deployed and tested in other environments?
@@ -424,30 +476,6 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
   _Deploying to other environments and verifying changes before going into production can prevent bugs getting in front of end users._
   > It is recommended to have a staged deployment process which requires changes to have been validated in test environments first before they can hit production.
-### Testing &amp; Validation
-            
-* Are Dev/Test offerings used correctly for the workload?
-
-
-  _Special SKUs and subscription offers for development and testing purposes can save costs, but have to be used properly. Dev SKUs are not meant for production deployments._
-  > Use developer SKUs for dev/test purposes.
-## Operational Model &amp; DevOps
-    
-### Roles &amp; Responsibilities
-            
-* Has the application been built and maintained in-house or by an external partner?
-
-
-  _Exploring where technical delivery capabilities reside helps to qualify operational model boundaries and estimate the cost of operating the application as well as defining a budget and cost model._
-  > Explore where technical delivery capabilites reside.
-* Are Billing account names and structure consistent with reference to or use of Departments or Services, or Organization?
-
-
-  _Transparency and traceability when it comes to cost in order to ensure that any discrepancies are able to be followed back to the source and be dealt with accordingly._
-## Efficiency and Sizing
-    
-### Architecture
-            
 * Is the application deployed to multiple environments with different configurations?
 
 
@@ -462,58 +490,31 @@ Recovery point objective (RPO): The maximum duration of data loss that is accept
 
       _Provisioning non-production environments (like development, test, integration...) each on a separate infrastructure is not always necessary. E.g. using shared App Service Plans and consolidating Web Apps for development and testing environments can save costs._
 
-* Are cost-effective regions considered as part of the deployment selection?
-
-
-  _Is there a technical/legal reason for deploying in a particular region? If not, it might be worth looking at another region to decrease cost. Also depending on the workload and data processing model, choosing a cheaper region might make more financial sense._
-  > Choose appropriate region for workload deployment to optimize cost.
-* Is the price model of this workload clear? Do the consumers understand why they are paying the price per month?
-
-
-  _As part of driving a good behavior it's important that the consumer has understood why they are paying the price for a service and also that the cost is transparent and fair to the user of the service or else it can drive wrong behavior._
-* Is the distribution of the cost done in accordance with the usage of the service?
-
-
-  _In order to drive down cost it can be advised to incentivize the user of driving the use of a service that helps put less burden on the platform and via this drive down cost as it falls back on the user if a good behavior is followed in order to drive down the price._
-* Is the workload using the right operating system for its servers?
-
-
-  _Analyze the technology stack and identify which workloads are capable of running on Linux and which require Windows. Linux-based VMs and App Services are significantly cheaper, but require the app to run on supported stack (.NET Core, Node.js etc.)._
-  > Make sure the optimal operating systems are used for this workload.
-* Have you deployed a Hub and Spoke Design or Virtual WAN?
-
-
-  _Virtual WAN has costs that are different in hub and spoke design. The cost of the peering network or other service routing has to be included. If Private Link is deployed, peering is not billed - only private link._
-  > Consider whether to deploy Hub and Spoke or Virtual WAN for this workload.
-### SKUs
+### Testing &amp; Validation
             
-* Are the right sizes and SKUs used for workload services?
+* Are Dev/Test offerings used correctly for the workload?
 
 
-  _The required performance and infrastructure utilization are key factors which define the 'size' of Azure resources to be used, but there can be hidden aspects that affect cost too. Watch for cost variations between different SKUs - for example App Service Plans S3 cost the same as P2v2, but have worse performance characteristics._
-  > Make sure the optimal service SKUs are used for this workload.
-### Tools
+  _Special SKUs and subscription offers for development and testing purposes can save costs, but have to be used properly. Dev SKUs are not meant for production deployments._
+  > Use developer SKUs for dev/test purposes.
+* Are test-environments deployed automatically and deleted after use? Use of tagging for end date?
+
+
+  _Automating test cases reduces time, cost and helps inefficient resource utilization. It also provides a structured approach to testing with test scripts. Test environments can quickly become overhead if not monitored properly, therefore stopping these resources when they are not in use enables cost saving. In order to drive down cost a good place to look is test environments that might not be used anymore. Implementing a process can help by tagging all test environments with an end date and an owner and after this date follow up with the owner if the environment is still needed and if so set a new end-of-life date._
+  > Make sure to delete/deallocate resources used in test environments.
+## Operational Model &amp; DevOps
+    
+### Roles &amp; Responsibilities
             
-* Is Azure Advisor being used to optimize SKUs discovered in this workload?
+* Has the application been built and maintained in-house or by an external partner?
 
 
-  _Azure Advisor helps to optimize and improve efficiency of the workload by identifying idle and underutilized resources. It analyzes your configurations and usage telemetry and consolidates it into personalized, actionable recommendations to help you optimise your resources._
-  > Use Azure Advisor to identify SKUs for optimization.
-    - Are the Advisor recommendations being reviewed weekly or bi-weekly for optimization?
+  _Exploring where technical delivery capabilities reside helps to qualify operational model boundaries and estimate the cost of operating the application as well as defining a budget and cost model._
+  > Explore where technical delivery capabilities reside.
+* Are Billing account names and structure consistent with reference to or use of Departments or Services, or Organization?
 
 
-      _Your underutilised resources need to be reviewed often in order to be identified and dealt with accordingly, in addition to ensuring that your actionable recommendations are up-to-date and fully optimised. For example, Azure Advisor monitors your virtual machine (VM) usage for 7 days and then identifies low-utilization VMs._
-
-      > Review Azure Advisor recommendation periodically.
-* Is there a dashboard showing cost related KPIs for this workload which gives a transparent view of the current situation?
-
-
-  _Single pane of glass which can be shown during weekly ops meetings and instills accountability within everyone whilst also allowing you to understand where you are in terms of budget through every stage._
-* Are you using Azure Cost Management (ACM) to track spending in this workload?
-
-
-  _In order to track spending an ACM tool can help with understanding how much is spent, where and when. This helps to make better decisions about how and if cost can be reduced._
-  > Use ACM or other cost management tools to understand if savings are possible.
+  _Transparency and traceability when it comes to cost in order to ensure that any discrepancies are able to be followed back to the source and be dealt with accordingly._
 ## Governance
     
 ### Financial Management &amp; Cost Models

@@ -4,6 +4,6 @@ This assessment has been produced to help the global CE&S community to optimize 
 
 > Please note it is assumed users of this guidance have familiarity with the application architecture in question, as well as key scenarios and non-functional requirements.
 
-{{- $pillars := slice "performance" -}}
+{{- $pillars := slice "performanceefficiency" -}}
 
 {{ partial "overview-navigation.partial" (dict "input" $.Site.Data.input "pillars" $pillars "categories" $.Site.Data.categories "pillarDisplayName" "Performance Efficiency") }}

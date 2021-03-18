@@ -41,7 +41,7 @@ This directory contains all the raw assessment content within a JSON format. New
 A directory that contains the templates for rendering data files into ready-to-consume formats for end-users.
 
 * **assessments**:
-This directory contains the Well-Architected assessment scopes. This is where all of the best-practice guidance is presented to end-users. Do not attempt to modify these files directly since they are auto-generated.
+This directory contains the Well-Architected assessment scopes. This is where all of the best-practice guidance is presented to end-users. **Do not attempt to modify these files directly since they are auto-generated.**
 
 # Contributing
 
