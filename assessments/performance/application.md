@@ -115,18 +115,24 @@
       _Scale operations (horizontal - changing the number of identical instances, vertical - switching to more/less powerful instances) can be fast, but usually take time to complete. It's important to understand how this delay affects the application under load and if degraded performance is acceptable._
 
       > The application should be designed to scale to cope with spikes in load in-line with what is an acceptable duration for degraded performance.
+
+
     - What is the maximum traffic volume the application is expected to serve without performance degradation?
 
 
       _Scale requirements the application must be able to effectively satisfy, such as the number of concurrent users or requests per second, is a critical lens for assessing operations. From the cost perspective, it's recommended to set a budget for extreme circumstances and indicate upper limit for cost (when it's not worth serving more traffic due to overall costs)._
 
       > Traffic limits for the application should be defined in quantified and measurable manner.
+
+
     - Are these performance targets monitored and measured across the application and/or key scenarios?
 
 
       _Monitoring and measuring end-to-end application performance is vital to qualifying overall application health and progress towards defined targets._
 
       > Automation and specialized tooling (such as Application Insights) should be used to orchestrate and measure application performance.
+
+
 ### Design Patterns
             
 * Was your application architected based on prescribed architecture from the Azure Architecture Center or a Cloud Design Pattern?
@@ -213,6 +219,8 @@
       _To fully assess the health of key scenarios in the context of targets and NFRs, application log events across critical system flows should be correlated._
 
       > Correlate application log events across critical system flows, such as user login.
+
+
 ### Resource and Infrastructure Level Monitoring
             
 * Are you collecting Azure Activity Logs within the log aggregation tool?
@@ -270,12 +278,16 @@
 
 
       > The health model should be able to surface the respective health of critical system flows or key subsystems to ensure appropriate operational prioritization is applied. For example, the health model should be able to represent the current state of the user login transaction flow
+
+
     - Can the health model distinguish between transient and non-transient faults?
 
 
       _Is the health model treating all failures the same?_
 
       > The health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state
+
+
     - Can the health model determine if the application is performing at expected performance targets?
 
 
@@ -417,6 +429,8 @@
       _While the promise of the cloud is infinite scale, the reality is that there are finite resources available and as a result situations can occur where capacity can be constrained due to overall demand._
 
       > If the application requires a large amount of capacity or expects a significant increase in capacity then effort should be invested to ensure that desired capacity is attainable within selected region(s). For applications leveraging a recovery or active-passive based disaster recovery strategy, consideration should also be given to ensure suitable capacity exists in the secondary region(s) since a regional outage can lead to a significant increase in demand within a paired region due to other customer workloads also failing over. To help mitigate this, consideration should be given to pre-provisioning resources within the secondary region. ([Azure Capacity](https://aka.ms/AzureCapacity))
+
+
 ## Deployment &amp; Testing
     
 ### Testing &amp; Validation
@@ -610,6 +624,8 @@
       _Available data caching technologies are for example:<br />- Azure Redis Cache<br />- IIS Caching Server<br />- SQL Caching Server<br />- Disk<br />- Other solution_
 
       > Azure Cache for Redis is a preferred solution for data caching as it improves performance by storing data in memory instead of on disk like SQL Server. Certain development frameworks like .NET also have mechanisms for caching data at the server level.
+
+
 ### Troubleshooting
             
 * Does the application spend a lot of time in the database?

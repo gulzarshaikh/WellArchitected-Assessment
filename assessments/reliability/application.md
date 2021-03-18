@@ -196,30 +196,40 @@ These critical design principles are used as lenses to assess the Reliability of
       _Availability targets for any dependencies leveraged by the application should be understood and ideally align with application targets_
 
       > Make sure SLAs/SLOs/SLIs for all leveraged dependencies are understood
+
+
     - Has a composite Service-Level Agreement (SLA) been calculated for the application and/or key scenarios using Azure SLAs?
 
 
       _A [composite SLA](https://docs.microsoft.com/azure/architecture/framework/resiliency/business-metrics#understand-service-level-agreements) captures the end-to-end SLA across all application components and dependencies. It is calculated using the individual SLAs of Azure services housing application components and provides an important indicator of designed availability in relation to customer expectations and targets._
 
       > Make sure the composite SLA of all components and dependencies on the critical paths are understood.
+
+
     - Are availability targets considered while the system is running in disaster recovery mode?
 
 
       _The above defined targets might or might not be applied when running in DR mode. This depends from application to application._
 
       > If targets must also apply in a failure state then an N+1 model should be used to achieve greater availability and resiliency, where N is the capacity needed to deliver required availability. There's also a cost implication, because more resilient infrastructure usually means more expensive. This has to be accepted by business.
+
+
     - Are these availability targets monitored and measured?
 
 
       _Monitoring and measuring application availability is vital to qualifying overall application health and progress towards defined targets._
 
       > Make sure you measure and monitor key targets such as **Mean Time Between Failures (MTBF)** which denotes the average time between failures of a particular component.
+
+
     - What are the consequences if availability targets are not satisfied?
 
 
       _Are there any penalties, such as financial charges, associated with failing to meet SLA commitments? Additional measures can be used to prevent penalties, but that also brings additional cost to operate the infrastructure. This has to be factored in and evaluated._
 
       > It should be fully understood what are the consequences if availability targets are not satisfied. This will also inform when to initiate a failover case.
+
+
 * Are recovery targets such as Recovery Time Objective (RTO) and Recovery Point Objective (RPO) defined for the application and/or key scenarios?
 
 
@@ -238,12 +248,16 @@ These critical design principles are used as lenses to assess the Reliability of
       _Examples of typical dependencies include platform dependencies outside the remit of the application, such as Azure Active Directory, Express Route, or a central NVA (Network Virtual Appliance), as well as application dependencies such as APIs which may be in-house or externally owned by a third-party. For cost it’s important to  understand the price for these services and how they are being charged, this makes it easier to understanding an all up cost. For more details see cost models._
 
       > Map application dependencies either as a simple list or a document (usually this is part of a design document or reference architecture).
+
+
     - Is the impact of an outage with each dependency well understood?
 
 
       _Strong dependencies play a critical role in application function and availability meaning their absence will have a significant impact, while the absence of weak dependencies may only impact specific features and not affect overall availability. For cost this reflects the cost that is needed to maintain the HA relationship between the service and it’s dependencies. It would explain why certain measures needs to be maintained in order to hold a given SLA._
 
       > Classify dependencies either as strong or weak. This will help identify which components are essential to the application.
+
+
 * Are SLAs and support agreements in place for all critical dependencies?
 
 
@@ -285,12 +299,16 @@ These critical design principles are used as lenses to assess the Reliability of
 
 
       > The health model should be able to surface the respective health of critical system flows or key subsystems to ensure appropriate operational prioritization is applied. For example, the health model should be able to represent the current state of the user login transaction flow
+
+
     - Can the health model distinguish between transient and non-transient faults?
 
 
       _Is the health model treating all failures the same?_
 
       > The health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state
+
+
     - Can the health model determine if the application is performing at expected performance targets?
 
 
@@ -565,30 +583,40 @@ These critical design principles are used as lenses to assess the Reliability of
       _Only plans and playbooks that have been executed successfully at least once can be considered working._
 
       > The precise steps required to failover and failback the application must be tested to validate the effectiveness of the defined disaster recovery approach. Testing of the disaster recovery strategy should occur according to a reasonably regular cadence, such as annually, to ensure that operational application changes do not impact the applicability of the selected approach
+
+
     - How is a failover decided and initiated?
 
 
       _Is this fully automated or, if not, is the decision process clearly documented?_
 
       > Regional failovers are significant operational activity and may incur some downtime, degraded functionality, or data loss depending on the recovery strategy used. Hence, the decision process as to what constitutes a failover should be clearly understood
+
+
     - Is the health model being used to classify failover situations?
 
 
       _It is important to know if a formal procedure is used to classify failover situations._
 
       > A platform service outage in a specific region will likely require a failover to another region, whereas the accidental change of an firewall rule can be mitigated by a recovery process. The health model and all underlying data should be used to interpret which operational procedures should be triggered
+
+
     - Does the playbook or disaster recovery plan consider every process, component and every category of data that can&#39;t afford unlimited loss or downtime?
 
 
       _Different components of an application might have different priorities and impact and therefore different priorities in case of a disaster._
 
       > When a disaster that affects multiple application components occurs, it's critical that the recovery plan can be used to take a complete inventory of what needs attention and how to prioritize each item. Each major process or workload that's implemented by an app should have separate RPO and RTO values. Each one should be generated through a separate analysis that examines disaster scenario risks and potential recovery strategies for each respective process.
+
+
     - Can individual processes and components of the application failover independently?
 
 
       _For example, is it possible to failover the compute cluster to a secondary region while keeping the database running in the primary region?_
 
       > Ideally failover can happen on a component-level instead of needing to failover the entire system together, when, for instance, only one service experiences an outage.
+
+
 * Are automated recovery procedures in place for common failure event?
 
 
@@ -599,6 +627,8 @@ These critical design principles are used as lenses to assess the Reliability of
 
 
       > Automated operational responses should be tested frequently as part of the normal application lifecycle to ensure operational effectiveness
+
+
 * Are critical manual processes defined and documented for manual failure responses?
 
 
@@ -609,6 +639,8 @@ These critical design principles are used as lenses to assess the Reliability of
 
 
       > Manual operational runbooks should be tested frequently as part of the normal application lifecycle to ensure appropriateness and efficiency
+
+
 ### Scalability &amp; Capacity Model
             
 * Is there a capacity model for the application?
@@ -632,6 +664,8 @@ These critical design principles are used as lenses to assess the Reliability of
       _While the promise of the cloud is infinite scale, the reality is that there are finite resources available and as a result situations can occur where capacity can be constrained due to overall demand._
 
       > If the application requires a large amount of capacity or expects a significant increase in capacity then effort should be invested to ensure that desired capacity is attainable within selected region(s). For applications leveraging a recovery or active-passive based disaster recovery strategy, consideration should also be given to ensure suitable capacity exists in the secondary region(s) since a regional outage can lead to a significant increase in demand within a paired region due to other customer workloads also failing over. To help mitigate this, consideration should be given to pre-provisioning resources within the secondary region. ([Azure Capacity](https://aka.ms/AzureCapacity))
+
+
 * Is capacity utilization monitored and used to forecast future growth?
 
 
@@ -659,6 +693,8 @@ These critical design principles are used as lenses to assess the Reliability of
 
 
       > Encryption keys and data should be backed up separately to optimise the security of underlying data
+
+
 * Is Soft-Delete enabled for Key Vaults and Key Vault objects?
 
 
@@ -688,6 +724,8 @@ These critical design principles are used as lenses to assess the Reliability of
       _Without detailed release process documentation, there is a much higher risk of an operator improperly configuring settings for the application_
 
       > Any manual steps that are required in the deployment pipeline must be clearly documented with roles and responsibilities well defined.
+
+
 * How long does it take to deploy an entire production environment?
 
 
