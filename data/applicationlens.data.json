@@ -206,8 +206,8 @@
       "costoptimization"
     ],
     "lens": "application",
-    "category": "Application Design",
-    "subCategory": "Design",
+    "category": "Governance",
+    "subCategory": "Standards",
     "title": "Are Azure Tags used to enrich Azure resources with operational metadata?",
     "context": "Using tags can help to manage resources and make it easier to find relevant items during operational procedures.",
     "recommendation": {
@@ -230,8 +230,8 @@
       "costoptimization"
     ],
     "lens": "application",
-    "category": "Application Design",
-    "subCategory": "Design",
+    "category": "Governance",
+    "subCategory": "Standards",
     "title": "Does the application have a well-defined naming standard for Azure resources?",
     "context": "A well-defined naming convention is important for overall operations to be able to easily determine the usage of certain resources and help understand owners and cost centers responsible for the workload. Naming conventions allow the matching of resource costs to particular workloads.",
     "recommendation": {
@@ -423,6 +423,38 @@
         "id": "3e8145b6-2c3b-4385-90da-732bad7eed80",
         "title": "Do you understand why your application responds to its typical load in the ways that it does?",
         "context": "Identifying a typical load helps you determine realistic expectations for performance testing. A \"typical load\" can be measured in individual users, web requests, user sessions, or transactions. When documenting typical loads, also ensure that all predictable periods have typical loads documented.",
+        "recommendation": {
+          "title": "",
+          "context": "",
+          "links": [
+            {
+              "title": "",
+              "url": ""
+            }
+          ],
+          "priority": "medium"
+        }
+      },
+      {
+        "id": "2b7c608a-7453-4feb-94bd-3e47ef4f8d46",
+        "title": "Are you able to reasonably predict when these peaks will occur?",
+        "context": "",
+        "recommendation": {
+          "title": "",
+          "context": "",
+          "links": [
+            {
+              "title": "",
+              "url": ""
+            }
+          ],
+          "priority": "medium"
+        }
+      },
+      {
+        "id": "ff75660f-9625-4afa-a59d-af8b1bcc85d5",
+        "title": "Are you able to accurately predict the amount of load your application will experience during these peaks?",
+        "context": "",
         "recommendation": {
           "title": "",
           "context": "",
@@ -818,7 +850,7 @@
     ],
     "lens": "application",
     "category": "Health Modelling & Monitoring",
-    "subCategory": "Logging",
+    "subCategory": "Application Level Monitoring",
     "title": "Are application logs collected from different application environments?",
     "context": "Application logs support the end-to-end application lifecycle. Logging is essential in understanding how the application operates in various environments and what events occur and under which conditions.",
     "recommendation": {
@@ -842,7 +874,7 @@
     ],
     "lens": "application",
     "category": "Health Modelling & Monitoring",
-    "subCategory": "Logging",
+    "subCategory": "Application Level Monitoring",
     "title": "Are log messages captured in a structured format?",
     "context": "Structured format, following well-known schema can help in parsing and analyzing logs.",
     "recommendation": {
@@ -865,7 +897,7 @@
     ],
     "lens": "application",
     "category": "Health Modelling & Monitoring",
-    "subCategory": "Logging",
+    "subCategory": "Application Level Monitoring",
     "title": "Are log levels used to capture different types of application events?",
     "context": "Different log levels, such as INFO, WARNING, ERROR, and DEBUG can be used across environments (such as DEBUG for development environment).",
     "recommendation": {
@@ -956,7 +988,7 @@
     ],
     "lens": "application",
     "category": "Health Modelling & Monitoring",
-    "subCategory": "Logging",
+    "subCategory": "Resource and Infrastructure Level Monitoring",
     "title": "Which log aggregation technology is used to collect logs and metrics from Azure resources?",
     "context": "Log aggregation technologies, such as Azure Log Analytics or Splunk, should be used to collate logs and metrics across all application components for subsequent evaluation. Resources may include Azure IaaS and PaaS services as well as 3rd-party appliances such as firewalls or anti-malware solutions used in the application. For instance, if Azure Event Hub is used, the [Diagnostic Settings](https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs) should be configured to push logs and metrics to the data sink. Understanding usage helps with right-sizing of the workload, but additional cost for logging needs to be accepted and included in the cost model.",
     "recommendation": {
@@ -1029,7 +1061,7 @@
     ],
     "lens": "application",
     "category": "Health Modelling & Monitoring",
-    "subCategory": "Logging",
+    "subCategory": "Resource and Infrastructure Level Monitoring",
     "title": "Are logs and metrics available for critical internal dependencies?",
     "context": "To be able to build a robust application health model it is vital that visibility into the operational state of critical internal dependencies, such as a shared NVA or Express Route connection, be achieved.",
     "recommendation": {
@@ -1077,7 +1109,7 @@
     ],
     "lens": "application",
     "category": "Health Modelling & Monitoring",
-    "subCategory": "Logging",
+    "subCategory": "Data Interpretation & Health Modelling",
     "title": "Are application and resource level logs aggregated in a single data sink, or is it possible to cross-query events at both levels?",
     "context": "To build a robust application health model it is vital that application and resource level data be correlated and evaluated together to optimize the detection of issues and troubleshooting of detected issues.",
     "recommendation": {
@@ -1716,10 +1748,11 @@
     "pillars": [
       "operationalexcellence",
       "costoptimization",
-      "reliability"
+      "reliability",
+      "performanceefficiency"
     ],
     "lens": "application",
-    "category": "Operational Procedures",
+    "category": "Capacity & Service Availability Planning",
     "subCategory": "Scalability & Capacity Model",
     "title": "Is there a capacity model for the application?",
     "context": "A capacity model should describe the relationships between the utilization of various components as a ratio, to capture when and how application components should scale-out.",
@@ -1739,10 +1772,11 @@
     "id": "28471adf-d53f-41e6-a1e6-ccb808f49705",
     "type": "Questions",
     "pillars": [
-      "operationalexcellence"
+      "operationalexcellence",
+      "performanceefficiency"
     ],
     "lens": "application",
-    "category": "Operational Procedures",
+    "category": "Capacity & Service Availability Planning",
     "subCategory": "Scalability & Capacity Model",
     "title": "Is auto-scaling enabled for supporting PaaS and IaaS services?",
     "context": "Are built-in capabilities for automatic scale being used vs. scaling being always a manual decision?",
@@ -1763,10 +1797,11 @@
     "type": "Questions",
     "pillars": [
       "operationalexcellence",
-      "reliability"
+      "reliability",
+      "performanceefficiency"
     ],
     "lens": "application",
-    "category": "Operational Procedures",
+    "category": "Capacity & Service Availability Planning",
     "subCategory": "Scalability & Capacity Model",
     "title": "Is the process to provision and deprovision capacity codified?",
     "context": "Codifying and automating the process helps to avoid human error, varying results and to speed up the overall process.",
@@ -1789,7 +1824,7 @@
       "operationalexcellence"
     ],
     "lens": "application",
-    "category": "Operational Procedures",
+    "category": "Capacity & Service Availability Planning",
     "subCategory": "Scalability & Capacity Model",
     "title": "Is the impact of changes in application health on capacity fully understood?",
     "context": "For example, if an outage in an external API is mitigated by writing messages into a retry queue, this queue will get sudden spikes in load which it will need to be able to handle.",
@@ -1814,7 +1849,7 @@
       "performanceefficiency"
     ],
     "lens": "application",
-    "category": "Operational Procedures",
+    "category": "Capacity & Service Availability Planning",
     "subCategory": "Scalability & Capacity Model",
     "title": "Is the required capacity (initial and future growth) within Azure service scale limits and quotas?",
     "context": "Due to physical and logical resource constraints within the platform, Azure must apply [limits and quotas](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) to service scalability, which may be either hard or soft.",
@@ -1854,10 +1889,11 @@
     "pillars": [
       "operationalexcellence",
       "reliability",
-      "costoptimization"
+      "costoptimization",
+      "performanceefficiency"
     ],
     "lens": "application",
-    "category": "Operational Procedures",
+    "category": "Capacity & Service Availability Planning",
     "subCategory": "Scalability & Capacity Model",
     "title": "Is capacity utilization monitored and used to forecast future growth?",
     "context": "Predicting future growth and capacity demands can prevent outages due to insufficient provisioned capacity over time.",
@@ -3219,8 +3255,8 @@
       "operationalexcellence"
     ],
     "lens": "application",
-    "category": "Operational Model & DevOps",
-    "subCategory": "Common Engineering Criteria",
+    "category": "Governance",
+    "subCategory": "Standards",
     "title": "Is the choice and desired configuration of Azure services centrally governed or can the developers pick and choose?",
     "context": "Many customers govern service configuration through a catalogue of allowed services that developers and application owners must pick from",
     "recommendation": {
@@ -3242,8 +3278,8 @@
       "operationalexcellence"
     ],
     "lens": "application",
-    "category": "Operational Model & DevOps",
-    "subCategory": "Common Engineering Criteria",
+    "category": "Governance",
+    "subCategory": "Standards",
     "title": "Are tools and processes in place to govern available services, enforce mandatory operational functionality and ensure compliance?",
     "context": "Proper standards for naming, tagging, the deployment of specific configurations such as diagnostic logging, and the available set of services and regions is important to drive consistency and ensure compliance. Solutions like [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview) can help to enforce and assess compliance at-scale.",
     "recommendation": {
@@ -3265,8 +3301,8 @@
       "operationalexcellence"
     ],
     "lens": "application",
-    "category": "Operational Model & DevOps",
-    "subCategory": "Common Engineering Criteria",
+    "category": "Governance",
+    "subCategory": "Standards",
     "title": "Are standards, policies, restrictions and best practices defined as code?",
     "context": "Policy-as-Code provides the same benefits as Infrastructure-as-Code in regards to versioning, automation, documentation as well as encouraging consistency and reproducibility. Available solutions in the market are [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview) or [HashiCorp Sentinel](https://www.hashicorp.com/resources/introduction-sentinel-compliance-policy-as-code/).",
     "recommendation": {
@@ -3729,11 +3765,13 @@
     "id": "03e4391f-ea9a-4c15-babf-d215947e859f",
     "type": "Questions",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence",
+      "performanceefficiency"
     ],
     "lens": "application",
     "category": "Capacity & Service Availability Planning",
-    "subCategory": "Capacity",
+    "subCategory": "Service Availability",
     "title": "Is the required capacity (initial and future growth) available within targeted regions?",
     "context": "While the promise of the cloud is infinite scale, the reality is that there are finite resources available and as a result situations can occur where capacity can be constrained due to overall demand. If the application requires a large amount of capacity or expects a significant increase in capacity then effort should be invested to ensure that desired capacity is attainable within selected region(s). For applications leveraging a recovery or active-passive based disaster recovery strategy, consideration should also be given to ensure suitable capacity exists in the secondary region(s) since a regional outage can lead to a significant increase in demand within a paired region due to other customer workloads also failing over. To help mitigate this, consideration should be given to pre-provisioning resources within the secondary region([Azure Capacity](https://aka.ms/AzureCapacity))",
     "recommendation": {
@@ -3752,7 +3790,8 @@
     "id": "ef82b932-0bfa-48d7-ae04-af6be7c3606a",
     "type": "Questions",
     "pillars": [
-      "reliability"
+      "reliability",
+      "performanceefficiency"
     ],
     "lens": "application",
     "category": "Operational Procedures",
@@ -3768,7 +3807,25 @@
           "url": ""
         }
       ],
-      "priority": "medium"
+      "priority": "medium",
+      "children": [
+        {
+          "id": "2e674bd4-b36f-450a-ae07-18efe64f7374",
+          "title": "If the application was to fail or recycle, could the data be refreshed for the user with minimal effort and/or time?",
+          "context": "",
+          "recommendation": {
+            "title": "",
+            "context": "",
+            "links": [
+              {
+                "title": "",
+                "url": ""
+              }
+            ],
+            "priority": "medium"
+          }
+        }
+      ]
     }
   },
   {
@@ -3984,29 +4041,6 @@
     "subCategory": "Replication and Redundancy",
     "title": "Is data replicated across paired regions and/or Availability Zones",
     "context": "Replicating data across zones or paired regions supports application availability objectives to limit the impact of failure scenarios",
-    "recommendation": {
-      "title": "",
-      "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
-      "priority": "medium"
-    }
-  },
-  {
-    "id": "179a04c4-74d2-4b38-8ef3-a582bb35fb9a",
-    "type": "Questions",
-    "pillars": [
-      "reliability"
-    ],
-    "lens": "application",
-    "category": "Data Platform Availability",
-    "subCategory": "Replication and Redundancy",
-    "title": "Is data backed-up to zone-redundant or geo-redundant storage?",
-    "context": "The ability to restore data from a backup is essential when recovering from data corruption situations as well as failure scenarios. To ensure sufficient redundancy and availability for zonal and regional failure scenarios, such backups should be stored across zones and/or regions",
     "recommendation": {
       "title": "",
       "context": "",
@@ -4879,7 +4913,8 @@
     "id": "4a51287f-a087-493b-962a-9807ff919423",
     "type": "Questions",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "application",
     "category": "Health Modelling & Monitoring",
@@ -4902,7 +4937,8 @@
     "id": "3296abab-8581-4dce-a592-820258109bb2",
     "type": "Questions",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "application",
     "category": "Health Modelling & Monitoring",
@@ -4925,11 +4961,12 @@
     "id": "47129dc5-6bc4-4238-9fe9-b7402200dcb7",
     "type": "Questions",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "application",
     "category": "Health Modelling & Monitoring",
-    "subCategory": "Monitoring and Measurement",
+    "subCategory": "Dependencies",
     "title": "Is the application instrumented to track calls to dependent services?",
     "context": "Dependency tracking and measuring the duration/status of dependency calls is vital to measuring overall application health and should be used to inform a health model for the application([Dependency Tracking](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-dependencies))",
     "recommendation": {
@@ -4948,7 +4985,8 @@
     "id": "bbc5ca83-fa70-4db8-ae04-bfd099acf347",
     "type": "Questions",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "application",
     "category": "Health Modelling & Monitoring",
@@ -4971,7 +5009,8 @@
     "id": "3287115e-8e5a-4391-9f8f-75776684e030",
     "type": "Questions",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "application",
     "category": "Health Modelling & Monitoring",
@@ -4994,7 +5033,8 @@
     "id": "63074932-570c-40bf-9347-ac0b662c8753",
     "type": "Questions",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "application",
     "category": "Health Modelling & Monitoring",
@@ -5017,7 +5057,8 @@
     "id": "57ac4b78-8cbb-4864-8fee-d827c7fb44c7",
     "type": "Questions",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "application",
     "category": "Health Modelling & Monitoring",
@@ -5318,7 +5359,7 @@
     ],
     "lens": "application",
     "category": "Application Design",
-    "subCategory": "Dependencies, frameworks and libraries",
+    "subCategory": "Dependencies",
     "title": "Does the application team maintain a list frameworks and libraries used by this workload?",
     "context": "As part of the workload inventory the application team should maintain a framework and library list, along with versions in use. Understanding of the frameworks and libraries (custom, OSS, 3rd party, etc.) used by the application and the resulting vulnerabilities is important. There are automated solutions on the market that can help with this assessment: [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/), [NPM audit](https://docs.npmjs.com/cli/v6/commands/npm-audit) or [WhiteSource Bolt](https://www.whitesourcesoftware.com/free-developer-tools/bolt/).",
     "recommendation": {
@@ -5341,7 +5382,7 @@
     ],
     "lens": "application",
     "category": "Application Design",
-    "subCategory": "Dependencies, frameworks and libraries",
+    "subCategory": "Dependencies",
     "title": "Are frameworks and library updates included into the workload lifecycle?",
     "context": "Application frameworks are frequently provided with updates (e.g. security), released by the vendor or communities. Critical and important security patches need to be prioritized.",
     "recommendation": {
@@ -5496,8 +5537,8 @@
       "security"
     ],
     "lens": "application",
-    "category": "Health Modelling & Monitoring",
-    "subCategory": "Auditing",
+    "category": "Security & Compliance",
+    "subCategory": "Control-plane RBAC",
     "title": "Does the organization conduct periodic & automated access reviews of the workload to make sure only authorized people have access?",
     "context": "As people in the organization and on the project change, it is crucial to make sure that only the right people have access to the application infrastructure. Auditing and reviewing access reduces the attack vector to the application. Azure control plane depends on Azure AD and access reviews are often centrally performed often as part of internal or external audit activities. For the application specific access it is recommended to do the same at least twice a year.",
     "recommendation": {
@@ -7469,8 +7510,8 @@
       "security"
     ],
     "lens": "application",
-    "category": "Operational Model & DevOps",
-    "subCategory": "Common Engineering Criteria",
+    "category": "Governance",
+    "subCategory": "Standards",
     "title": "Has the organization implemented or considered implementing elevated security capabilities such as dedicated Hardware Security Modules (HSMs) or the use of [Confidential Computing](https://azure.microsoft.com/solutions/confidential-compute/)?",
     "context": "Careful consideration is necessary on whether to utilize specialized security capabilities in an organization’s enterprise architecture.",
     "recommendation": {
@@ -8764,7 +8805,7 @@
     ],
     "lens": "application",
     "category": "Application Design",
-    "subCategory": "Design Patterns",
+    "subCategory": "Design",
     "title": "Was your application architected based on prescribed architecture from the Azure Architecture Center or a Cloud Design Pattern?",
     "context": "Starting with a prescribed, proven architecture may help with alleviating some basic performance issues. It is suggested to check out the Azure Architecture Center and Cloud Design Patterns to determine if the application's architecture is similar.",
     "recommendation": {
@@ -8787,7 +8828,7 @@
     ],
     "lens": "application",
     "category": "Application Design",
-    "subCategory": "Design Patterns",
+    "subCategory": "Design",
     "title": "When designing the application, which of the following design considerations were considered? (Latency between layers, Request time, Payload sizes, High Availability)",
     "context": "When designing a new application or reviewing and existing one, there are three concepts to think about: 1) reducing latency; 2) reducing total request time; and, 3) reducing overall payload sizes. Implementing any combination of these concepts can dramatically improve overall application performance.",
     "recommendation": {
@@ -8810,7 +8851,7 @@
     ],
     "lens": "application",
     "category": "Application Design",
-    "subCategory": "Design Patterns",
+    "subCategory": "Design",
     "title": "When designing the application, were you able to choose the data source during the design phase?",
     "context": "Your application will most likely require more than one type of datastore depending on business requirements. Choosing the right mix and correct implementation is extremely important for optimizing application performance.",
     "recommendation": {
@@ -8851,7 +8892,7 @@
     ],
     "lens": "application",
     "category": "Application Design",
-    "subCategory": "Design Patterns",
+    "subCategory": "Design",
     "title": "Would you consider the application design to be a microservice architecture?",
     "context": "As compared to a monolithic architecture--an application that is tightly coupled with synchronous communication and often a single datastore--microservices leverage concepts such as asynchronous communication, service discovery, various resiliency strategies, and each service has its own datastore.",
     "recommendation": {
@@ -8922,47 +8963,6 @@
       ],
       "priority": "medium"
     }
-  },
-  {
-    "id": "03e0ceab-26ae-4871-9bea-d10cd735efe9",
-    "type": "Questions",
-    "pillars": [
-      "performanceefficiency"
-    ],
-    "lens": "application",
-    "category": "Application Design",
-    "subCategory": "Transactional",
-    "title": "Is the application stateless?",
-    "context": "If the application is stateful, meaning that data or state will be stored locally in the instance of the application, it may increase performance by enabling session affinity. When session affinity is enabled, subsequent requests to the application will be directed to the same server that processed the initial request. If session affinity is not enabled, subsequent requests would be directed to the next available server depending on the load balancing rules, and the subsequent server would be required to reload all applicable data.",
-    "recommendation": {
-      "title": "",
-      "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
-      "priority": "medium"
-    },
-    "children": [
-      {
-        "id": "2e674bd4-b36f-450a-ae07-18efe64f7374",
-        "title": "If the application was to fail or recycle, could the data be refreshed for the user with minimal effort and/or time?",
-        "context": "",
-        "recommendation": {
-          "title": "",
-          "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
-          "priority": "medium"
-        }
-      }
-    ]
   },
   {
     "id": "cfade9bc-0879-4262-bb84-d39d2ca16592",
@@ -9052,63 +9052,6 @@
       {
         "id": "d714e22b-57cf-4ff8-8471-c000b973b05e",
         "title": "Are long-running tasks and workflows leveraging durable functions?",
-        "context": "",
-        "recommendation": {
-          "title": "",
-          "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
-          "priority": "medium"
-        }
-      }
-    ]
-  },
-  {
-    "id": "ca061487-20c3-43f6-8e59-fd5f1f8d78e3",
-    "type": "Questions",
-    "pillars": [
-      "performanceefficiency"
-    ],
-    "lens": "application",
-    "category": "Capacity & Service Availability Planning",
-    "subCategory": "Capacity",
-    "title": "Will your application be exposed to yearly or monthly heavy, peak loads?",
-    "context": "Major events like Black Friday, Singles Day, End-of-month reporting or marketing pushes can create abnormal load on your application and require additional resources. Understanding the upticks in demand can help you proactively scale so that customers/users experience little to no performance degradation.",
-    "recommendation": {
-      "title": "",
-      "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
-      "priority": "medium"
-    },
-    "children": [
-      {
-        "id": "2b7c608a-7453-4feb-94bd-3e47ef4f8d46",
-        "title": "Are you able to reasonably predict when these peaks will occur?",
-        "context": "",
-        "recommendation": {
-          "title": "",
-          "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
-          "priority": "medium"
-        }
-      },
-      {
-        "id": "ff75660f-9625-4afa-a59d-af8b1bcc85d5",
-        "title": "Are you able to accurately predict the amount of load your application will experience during these peaks?",
         "context": "",
         "recommendation": {
           "title": "",
@@ -9668,8 +9611,8 @@
       "performanceefficiency"
     ],
     "lens": "application",
-    "category": "Performance Testing",
-    "subCategory": "Load Capacity",
+    "category": "Capacity & Service Availability Planning",
+    "subCategory": "Scalability & Capacity Model",
     "title": "Are you confident that the correct SKUs and configurations have been applied to the services in order to support your anticipated loads?",
     "context": "Understand which SKUs you have selected and ensure that they are the correct size. Additionally, ensure you understand the configuration of those SKUs (e.g. auto-scale settings for Application Gateways and App Services).",
     "recommendation": {
@@ -9781,7 +9724,7 @@
     ],
     "lens": "application",
     "category": "Performance Testing",
-    "subCategory": "Data",
+    "subCategory": "Load Capacity",
     "title": "Has caching and queuing been considered to handle varying load?",
     "context": "Caching and queuing offers ways to handle heavy load in read and write scenarios, respectively. However, their usage must be carefully considered as this may mean that data is not fresh and writes to not happen instantly. This could create a scenario of eventual consistency and stale data.",
     "recommendation": {
@@ -9972,7 +9915,7 @@
     ],
     "lens": "application",
     "category": "Health Modelling & Monitoring",
-    "subCategory": "Monitoring and Measurement",
+    "subCategory": "Application Level Monitoring",
     "title": "Do you have detailed instrumentation in the application code?",
     "context": "Instrumentation of your code allows precise detection of underperforming pieces when load or stress tests are applied. It is critical to have this data available to improve and identify performance opportunities in the application code. Application Performance Monitoring (APM) tools, such as Application Insights, should be used to manage the performance and availability of the application, along with aggregating application level logs and events for subsequent interpretation.",
     "recommendation": {
@@ -9995,7 +9938,7 @@
     ],
     "lens": "application",
     "category": "Health Modelling & Monitoring",
-    "subCategory": "Modelling",
+    "subCategory": "Data Interpretation & Health Modelling",
     "title": "Are long-term trends analyzed to predict performance issues before they occur?",
     "context": "Analytics can and should be performed across long-term operational data to help inform on the history of application performance and detect if there have been any regressions. For instance, if the average response times have been slowly increasing over time and getting closer to maximum target.",
     "recommendation": {
