@@ -1551,7 +1551,7 @@
     "category": "Health Modelling & Monitoring",
     "subCategory": "Alerting",
     "title": "Are Azure notifications sent to subscriptions owners received and if necessary properly routed to relevant technical stakeholders?",
-    "context": "Subscription notification emails can contain important service notifications or security alerts. ([Azure account contact information](https://docs.microsoft.com/azure/cost-management-billing/manage/change-azure-account-profile#service-and-marketing-emails)).",
+    "context": "Subscription notification emails can contain important service notifications or security alerts.",
     "recommendation": {
       "title": "Make sure that subscription notification emails are routed to the relevant technical stakeholders.",
       "context": "",
@@ -2719,7 +2719,7 @@
     "title": "Are feature flags used to test features before rolling them out to everyone?",
     "context": "",
     "recommendation": {
-      "title": "To test new features quickly and without bigger risk, Feature flags are a technique to help frequently integrate code into a shared repository, even if incomplete. It allows for deployment decisions to be separated from release decisions ([Feature Flags](https://docs.microsoft.com/azure/architecture/framework/devops/development#feature-flags))",
+      "title": "To test new features quickly and without bigger risk, [Feature flags](https://docs.microsoft.com/azure/architecture/framework/devops/development#feature-flags) are a technique to help frequently integrate code into a shared repository, even if incomplete. It allows for deployment decisions to be separated from release decisions.",
       "context": "",
       "links": [
         {
@@ -2831,14 +2831,14 @@
     "category": "Deployment & Testing",
     "subCategory": "Testing & Validation",
     "title": "Are smoke tests performed during application deployments?",
-    "context": "Smoke tests are a lightweight way to perform high-level validation of changes. For instance, performing a ping test immediately after a deployment ([Smoke Testing](https://docs.microsoft.com/azure/architecture/framework/devops/testing#smoke-testing))",
+    "context": "[Smoke tests](https://docs.microsoft.com/azure/architecture/framework/devops/testing#smoke-testing) are a lightweight way to perform high-level validation of changes. For instance, performing a ping test immediately after a deployment.",
     "recommendation": {
       "title": "",
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Smoke Testing",
+          "url": "https://docs.microsoft.com/azure/architecture/framework/devops/testing#smoke-testing"
         }
       ],
       "priority": "medium"
@@ -2854,14 +2854,14 @@
     "category": "Deployment & Testing",
     "subCategory": "Testing & Validation",
     "title": "When is integration testing performed?",
-    "context": "Integration tests should be applied as part of the application deployment process, to ensure that different application components  interact with each other as they should. Integration tests typically take longer than smoke testing, and as a consequence occur at a latter stage of the deployment process so they are executed less frequently ([Integration Testing](https://docs.microsoft.com/azure/architecture/framework/devops/testing#integration-testing)",
+    "context": "[Integration tests](https://docs.microsoft.com/azure/architecture/framework/devops/testing#integration-testing) should be applied as part of the application deployment process, to ensure that different application components  interact with each other as they should. Integration tests typically take longer than smoke testing, and as a consequence occur at a latter stage of the deployment process so they are executed less frequently.",
     "recommendation": {
       "title": "",
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Integration Testing",
+          "url": "https://docs.microsoft.com/azure/architecture/framework/devops/testing#integration-testing"
         }
       ],
       "priority": "medium"
@@ -2877,14 +2877,14 @@
     "category": "Deployment & Testing",
     "subCategory": "Testing & Validation",
     "title": "Is unit testing performed to validate application functionality?",
-    "context": "Unit tests are typically run by each new version of code committed into version control. Unit Tests should be extensive and quick to verify things like syntax correctness of application code, Resource Manager templates or Terraform configurations, that the code is following best practices, or that they produce the expected results when provided certain inputs ([Unit Testing](https://docs.microsoft.com/azure/architecture/framework/devops/testing#unit-testing))",
+    "context": "[Unit tests](https://docs.microsoft.com/azure/architecture/framework/devops/testing#unit-testing) are typically run by each new version of code committed into version control. Unit Tests should be extensive and quick to verify things like syntax correctness of application code, Resource Manager templates or Terraform configurations, that the code is following best practices, or that they produce the expected results when provided certain inputs.",
     "recommendation": {
       "title": "",
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Unit Testing",
+          "url": "https://docs.microsoft.com/azure/architecture/framework/devops/testing#unit-testing"
         }
       ],
       "priority": "medium"
@@ -3134,14 +3134,14 @@
       {
         "id": "ac2da964-f113-43a9-8d69-49a80b2ea136",
         "title": "Is the workload isolated to a single operations team?",
-        "context": "The goal of workload isolation is to associate an application's specific resources to a team, so that the team can independently manage all aspects of those resources ([Workload isolation](https://docs.microsoft.com/azure/architecture/framework/devops/app-design#workload-isolation))",
+        "context": "The goal of [workload isolation](https://docs.microsoft.com/azure/architecture/framework/devops/app-design#workload-isolation) is to associate an application's specific resources to a team, so that the team can independently manage all aspects of those resources.",
         "recommendation": {
           "title": "",
           "context": "",
           "links": [
             {
-              "title": "",
-              "url": ""
+              "title": "Workload isolation",
+              "url": "https://docs.microsoft.com/azure/architecture/framework/devops/app-design#workload-isolation"
             }
           ],
           "priority": "medium"
@@ -3695,7 +3695,7 @@
     "category": "Capacity & Service Availability Planning",
     "subCategory": "Service Availability",
     "title": "Are Azure services available in the required regions?",
-    "context": "All Azure services and SKUs are not available within every Azure region, so it is important to understand if the selected regions for the application offer all of the required capabilities. Service availability also varies across sovereign clouds, such as China (\"Mooncake\") or USGov, USNat, and USSec clouds. In situations where capabilities are missing, steps should be taken to ascertain if a roadmap exists to deliver required services ([Azure Products by Region](https://azure.microsoft.com/global-infrastructure/services/)).",
+    "context": "All Azure services and SKUs are not available within every Azure region, so it is important to understand if the selected regions for the application offer all of the required capabilities. Service availability also varies across sovereign clouds, such as China (\"Mooncake\") or USGov, USNat, and USSec clouds. In situations where capabilities are missing, steps should be taken to ascertain if a roadmap exists to deliver required services.",
     "recommendation": {
       "title": "",
       "context": "",
@@ -4706,7 +4706,7 @@
     "category": "Security & Compliance",
     "subCategory": "Control-plane RBAC",
     "title": "Has role-based and/or resource-based authorization been configured within Azure AD?",
-    "context": "Role-based and resource-based authorization are common approaches to authorize users based on required permission scopes ([Role-based and resource-based authorization](https://docs.microsoft.com/azure/architecture/multitenant-identity/authorize))",
+    "context": "[Role-based and resource-based authorization](https://docs.microsoft.com/azure/architecture/multitenant-identity/authorize) are common approaches to authorize users based on required permission scopes.",
     "recommendation": {
       "title": "",
       "context": "",
