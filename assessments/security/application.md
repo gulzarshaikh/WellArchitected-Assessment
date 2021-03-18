@@ -127,8 +127,6 @@ These critical design principles are used as lenses to assess the Security of an
 
       > Remove sensitive information from HTTP headers with Azure API Management or Azure Front Door.
   
-      **Additional resources:**
-  
   
 * Does the organization use cloud native security controls for this workload?
 
@@ -163,8 +161,6 @@ These critical design principles are used as lenses to assess the Security of an
 
       > Use Azure Blueprints to consistently deploy environments that comply with organizational policies.
   
-      **Additional resources:**
-  
   
 ### Application Composition
             
@@ -179,16 +175,12 @@ These critical design principles are used as lenses to assess the Security of an
 
       > Make sure you understand the operational features/capabilities available and how they can be used in the solution.
   
-      **Additional resources:**
-  
   
     - What technologies and frameworks are used by the application?
 
       _It is important to understand what technologies are used by the application and must be managed, such as .NET Core , Spring, or Node.js._
 
       > All technologies and frameworks should be identified. Vulnerabilities of these dependencies must be understood (there are automated solutions on the market that can help: [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/) or [NPM audit](https://docs.npmjs.com/cli/audit)).
-  
-      **Additional resources:**
   
   
       **Additional resources:**
@@ -209,16 +201,12 @@ These critical design principles are used as lenses to assess the Security of an
 
       > Rank identified threats based on organizational impact.
   
-      **Additional resources:**
-  
   
     - Does the organization track threat modeling or vulnerability scan results with a management system?
 
       _Effectively tracking and prioritizing discovered application threats is a vital component of vulnerability management._
 
       > Centralize threat modeling results.
-  
-      **Additional resources:**
   
   
     - Are identified threats mapped to mitigations?
@@ -227,16 +215,12 @@ These critical design principles are used as lenses to assess the Security of an
 
       > Map threats to mitigations.
   
-      **Additional resources:**
-  
   
     - Are identified threats communicated to stakeholders? E.g., business, IT, application users
 
       _After defining and analyzing the risks, identify risk owners which are the roles that are responsible for mitigating the risk. They need to be aware of the risks so that they can start the mitigation process by allocating resources (e.g. financial or people)_
 
       > Establish communication processes for identified threats.
-  
-      **Additional resources:**
   
   
 * How are threats addressed once found?
@@ -285,16 +269,12 @@ These critical design principles are used as lenses to assess the Security of an
 
       > Perform regulatory compliance attestation.
   
-      **Additional resources:**
-  
   
     - Has the organization established a monitoring and assessment solution for compliance?
 
       _Continuously monitoring and assessing the workload increases the overall security and compliance of your workload in Azure. For example Azure Security Center provides a regulatory compliance dashboard._
 
       > Continuously assess and monitor compliance.
-  
-      **Additional resources:**
   
   
 * Does the organization periodically perform external and/or internal workload audits?
@@ -307,8 +287,6 @@ These critical design principles are used as lenses to assess the Security of an
       _Determine the process the customer uses for auditing the solution. Is it done internally, external, or both. How are findings reflected back to the application? Is everyone aware of the audit and involved or is it done in a silo. This will help reduce the firefighting mentality when there is a finding and stress of performing updates._
 
       > Perform regular internal and external compliance audits.
-  
-      **Additional resources:**
   
   
 * Are Azure policies used to enforce security, compliance and organizational standards of this workload?
@@ -370,8 +348,6 @@ These critical design principles are used as lenses to assess the Security of an
 
       > Define a process for aligning communication, investigation & hunting activities with the application team.
   
-      **Additional resources:**
-  
   
 ### Resource and Infrastructure Level Monitoring
             
@@ -410,8 +386,6 @@ These critical design principles are used as lenses to assess the Security of an
 
       > Configure and collect network traffic logs.
   
-      **Additional resources:**
-  
   
 * Does the organization restrict access to the workload backend infrastructure (APIs, databases, etc.) by only a minimal set of public IP addresses - only those who really need it?
 
@@ -429,8 +403,6 @@ These critical design principles are used as lenses to assess the Security of an
 
       > Align cloud network segmentation strategy with the enterprise segmentation model.
   
-      **Additional resources:**
-  
   
 ### Endpoints
             
@@ -445,8 +417,6 @@ These critical design principles are used as lenses to assess the Security of an
 
       > Use web application firewall.
   
-      **Additional resources:**
-  
   
 * Does the organization protect publishing methods for the workload (e.g FTP, Web Deploy)?
 
@@ -458,8 +428,6 @@ These critical design principles are used as lenses to assess the Security of an
       _Developers shouldn't publish their code directly to app servers - automated and gated CI/CD process should manage this._
 
       > Implement an automated and gated CD/CD deployment process.
-  
-      **Additional resources:**
   
   
 * Do workload virtual machines running on premises or in the cloud have direct internet connectivity for users that may perform interactive logins, or by applications running on virtual machines?
@@ -518,16 +486,12 @@ These critical design principles are used as lenses to assess the Security of an
 
       > Regularly review access for critical roles.
   
-      **Additional resources:**
-  
   
     - Are all roles (critical and non-critical) assigned only to accounts which really need them and reviewed regularly?
 
       _All access should be assigned only when really needed. Even the Reader role, especially with wide scope (subscription, resource group level), can provide an attack vector, because if attacker compromises such user account or service principal, they get access to information such as source code of Azure Automation runbooks, Azure Logic Apps definitions, virtual network structure and other configuration properties of various services._
 
       > Assign all roles only as needed and review access periodically.
-  
-      **Additional resources:**
   
   
 * Has a designated point of contact been assigned for this workload to receive Azure incident notifications from Microsoft?
@@ -602,8 +566,6 @@ These critical design principles are used as lenses to assess the Security of an
 
       > Implement Data Protection for trusted state information.
   
-      **Additional resources:**
-  
   
 * How is the workload authenticated when communicating with Azure platform services?
 
@@ -621,8 +583,6 @@ These critical design principles are used as lenses to assess the Security of an
 
       > Standardize on modern authentication protocols.
   
-      **Additional resources:**
-  
   
 * How is user authentication handled in this workload?
 
@@ -638,8 +598,6 @@ These critical design principles are used as lenses to assess the Security of an
       _Attack methods have evolved to the point where passwords alone cannot reliably protect an account.  Modern authentication solutions including password-less and multi-factor authentication increase security posture through strong authentication._
 
       > Enforce password-less or MFA.
-  
-      **Additional resources:**
   
   
 * Does the organization prioritize authentication via identity services for this workload vs. cryptographic keys?
@@ -657,16 +615,12 @@ These critical design principles are used as lenses to assess the Security of an
 
       > Avoid synching on-premises admin accounts to AAD.
   
-      **Additional resources:**
-  
   
     - Does the organization use cloud provider identity services designed to host non-employee rather than including vendors, partners, and customers into a corporate directory?
 
       _Using a cloud identity provider reduces risk by granting the appropriate level of access to external entities instead of the full default permissions given to full-time employees. This least privilege approach and clear differentiation of external accounts from company staff makes it easier to prevent and detect attacks coming in from these vectors._
 
       > Use cloud provider identity services for non-employees.
-  
-      **Additional resources:**
   
   
 ### Security Center
@@ -713,8 +667,6 @@ These critical design principles are used as lenses to assess the Security of an
       _Network Security Group (NSG) flow logs is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through an NSG. Flow data is sent to Azure Storage accounts from where you can access it as well as export it to any visualization tool, SIEM, or IDS of your choice._
 
       > Capture and analyze NSG flow logs to monitor performance and security.
-  
-      **Additional resources:**
   
   
       **Additional resources:**
@@ -784,8 +736,6 @@ These critical design principles are used as lenses to assess the Security of an
       _More than one encryption key should be used in an encryption at rest implementation. Storing an encryption key in Azure Key Vault ensures secure key access and central management of keys._
 
       > Use an additional key encryption key (KEK) to protect your data encryption key (DEK).
-  
-      **Additional resources:**
   
   
 * How is data at rest protected in this workload?
@@ -901,8 +851,6 @@ These critical design principles are used as lenses to assess the Security of an
 
       > Include code scans into CI/CD process that also covers 3rd party dependencies and framework components.
   
-      **Additional resources:**
-  
   
 * Are branch policies used in source control management of this workload? How are they configured?
 
@@ -971,8 +919,6 @@ These critical design principles are used as lenses to assess the Security of an
       _Regular, long-standing write access to production environments by user accounts can pose a security risk and manual intervention is often prone to errors._
 
       > Limit long-standing write access to production environments only to service principals.
-  
-      **Additional resources:**
   
   
 * Does the organization clearly define CI/CD roles and permissions for this workload?

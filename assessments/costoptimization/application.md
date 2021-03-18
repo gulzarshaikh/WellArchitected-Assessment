@@ -159,16 +159,12 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
       > Make sure SLAs/SLOs/SLIs for all leveraged dependencies are understood
   
-      **Additional resources:**
-  
   
     - Has a composite Service-Level Agreement (SLA) been calculated for the application and/or key scenarios using Azure SLAs?
 
       _A [composite SLA](https://docs.microsoft.com/azure/architecture/framework/resiliency/business-metrics#understand-service-level-agreements) captures the end-to-end SLA across all application components and dependencies. It is calculated using the individual SLAs of Azure services housing application components and provides an important indicator of designed availability in relation to customer expectations and targets._
 
       > Make sure the composite SLA of all components and dependencies on the critical paths are understood.
-  
-      **Additional resources:**
   
   
       **Additional resources:**
@@ -179,16 +175,12 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
       > If targets must also apply in a failure state then an N+1 model should be used to achieve greater availability and resiliency, where N is the capacity needed to deliver required availability. There's also a cost implication, because more resilient infrastructure usually means more expensive. This has to be accepted by business.
   
-      **Additional resources:**
-  
   
     - Are these availability targets monitored and measured?
 
       _Monitoring and measuring application availability is vital to qualifying overall application health and progress towards defined targets._
 
       > Make sure you measure and monitor key targets such as **Mean Time Between Failures (MTBF)** which denotes the average time between failures of a particular component.
-  
-      **Additional resources:**
   
   
       **Additional resources:**
@@ -198,8 +190,6 @@ These critical design principles are used as lenses to assess the Cost Optimizat
       _Are there any penalties, such as financial charges, associated with failing to meet SLA commitments? Additional measures can be used to prevent penalties, but that also brings additional cost to operate the infrastructure. This has to be factored in and evaluated._
 
       > It should be fully understood what are the consequences if availability targets are not satisfied. This will also inform when to initiate a failover case.
-  
-      **Additional resources:**
   
   
 * Are recovery targets such as Recovery Time Objective (RTO) and Recovery Point Objective (RPO) defined for the application and/or key scenarios?
@@ -239,8 +229,6 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
       > Targets should be specific and measurable.
   
-      **Additional resources:**
-  
   
 * Are there any application components which are less critical and have lower availability or performance requirements?
 
@@ -260,16 +248,12 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
       > Map application dependencies either as a simple list or a document (usually this is part of a design document or reference architecture).
   
-      **Additional resources:**
-  
   
     - Is the impact of an outage with each dependency well understood?
 
       _Strong dependencies play a critical role in application function and availability meaning their absence will have a significant impact, while the absence of weak dependencies may only impact specific features and not affect overall availability. For cost this reflects the cost that is needed to maintain the HA relationship between the service and it’s dependencies. It would explain why certain measures needs to be maintained in order to hold a given SLA._
 
       > Classify dependencies either as strong or weak. This will help identify which components are essential to the application.
-  
-      **Additional resources:**
   
   
 * Are SLAs and support agreements in place for all critical dependencies?
@@ -290,16 +274,12 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
       > Make sure you understand the operational features/capabilities available and how they can be used in the solution.
   
-      **Additional resources:**
-  
   
     - What technologies and frameworks are used by the application?
 
       _It is important to understand what technologies are used by the application and must be managed, such as .NET Core , Spring, or Node.js._
 
       > All technologies and frameworks should be identified. Vulnerabilities of these dependencies must be understood (there are automated solutions on the market that can help: [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/) or [NPM audit](https://docs.npmjs.com/cli/audit)).
-  
-      **Additional resources:**
   
   
       **Additional resources:**
@@ -397,8 +377,6 @@ These critical design principles are used as lenses to assess the Cost Optimizat
       _Your underutilised resources need to be reviewed often in order to be identified and dealt with accordingly, in addition to ensuring that your actionable recommendations are up-to-date and fully optimised. For example, Azure Advisor monitors your virtual machine (VM) usage for 7 days and then identifies low-utilization VMs._
 
       > Review Azure Advisor recommendation periodically.
-  
-      **Additional resources:**
   
   
 * Have you deployed a Hub and Spoke Design or Virtual WAN?
@@ -501,8 +479,6 @@ These critical design principles are used as lenses to assess the Cost Optimizat
       _The time it takes to perform a complete environment deployment should align with recovery targets. Automation and agility also lead to cost savings due to the reduction of manual labor and errors._
 
       > The time it takes to perform a complete environment deployment should be fully understood as it needs to align with the recovery targets
-  
-      **Additional resources:**
   
   
 ### Build Environments
