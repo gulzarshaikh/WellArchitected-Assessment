@@ -183,7 +183,7 @@ These critical design principles are used as lenses to assess the Reliability of
       _A [composite SLA](https://docs.microsoft.com/azure/architecture/framework/resiliency/business-metrics#understand-service-level-agreements) captures the end-to-end SLA across all application components and dependencies. It is calculated using the individual SLAs of Azure services housing application components and provides an important indicator of designed availability in relation to customer expectations and targets._
       > Make sure the composite SLA of all components and dependencies on the critical paths are understood.
   
-    **Additional resources:**
+    - Additional resources:
       - [Composite SLA](https://docs.microsoft.com/azure/architecture/framework/resiliency/business-metrics#understand-service-level-agreements)
     - Are availability targets considered while the system is running in disaster recovery mode?
 
@@ -195,7 +195,7 @@ These critical design principles are used as lenses to assess the Reliability of
       _Monitoring and measuring application availability is vital to qualifying overall application health and progress towards defined targets._
       > Make sure you measure and monitor key targets such as **Mean Time Between Failures (MTBF)** which denotes the average time between failures of a particular component.
   
-    **Additional resources:**
+    - Additional resources:
       - [Mean Time Between Failures](https://en.wikipedia.org/wiki/Mean_time_between_failures)
     - What are the consequences if availability targets are not satisfied?
 
@@ -328,7 +328,7 @@ These critical design principles are used as lenses to assess the Reliability of
       _While the promise of the cloud is infinite scale, the reality is that there are finite resources available and as a result situations can occur where capacity can be constrained due to overall demand._
       > If the application requires a large amount of capacity or expects a significant increase in capacity then effort should be invested to ensure that desired capacity is attainable within selected region(s). For applications leveraging a recovery or active-passive based disaster recovery strategy, consideration should also be given to ensure suitable capacity exists in the secondary region(s) since a regional outage can lead to a significant increase in demand within a paired region due to other customer workloads also failing over. To help mitigate this, consideration should be given to pre-provisioning resources within the secondary region. ([Azure Capacity](https://aka.ms/AzureCapacity))
   
-    **Additional resources:**
+    - Additional resources:
       - [Azure Capacity](https://aka.ms/AzureCapacity)
 * Is capacity utilization monitored and used to forecast future growth?
 
@@ -370,7 +370,7 @@ These critical design principles are used as lenses to assess the Reliability of
 
       _An **Availability Set (AS)** is a logical construct to inform Azure that it should distribute contained virtual machine instances across multiple fault and update domains within an Azure region. **Availability Zones (AZ)** elevate the fault level for virtual machines to a physical datacenter by allowing replica instances to be deployed across multiple datacenters within an Azure region. While zones provide greater resiliency than sets, there are performance and cost considerations where applications are extremely 'chatty' across zones given the implied physical separation and inter-zone bandwidth charges. Ultimately, Azure Virtual Machines and Azure PaaS services, such as Service Fabric and Azure Kubernetes Service (AKS) which use virtual machines underneath, can leverage either AZs or an AS to provide application resiliency within a region._
   
-    **Additional resources:**
+    - Additional resources:
       - [Business continuity with data resiliency](https://azurecomcdn.azureedge.net/cvt-27012b3bd03d67c9fa81a9e2f53f7d081c94f3a68c13cdeb7958edf43b7771e8/mediahandler/files/resourcefiles/azure-resiliency-infographic/Azure_resiliency_infographic.pdf)
 * How is the client traffic routed to the application in the case of region, zone or network outage?
 
@@ -489,13 +489,13 @@ These critical design principles are used as lenses to assess the Reliability of
 
       _The Azure AD SLA includes authentication, read, write, and administrative actions.  In many cases, applications only require authentication and read access to Azure AD, which aligns with a much higher operational availability due to geographically distributed read replicas ([Azure AD Architecture](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-architecture))_
   
-    **Additional resources:**
+    - Additional resources:
       - [Azure AD Architecture](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-architecture)
     - Are authentication tokens cached and encrypted for sharing across web servers?
 
       _Application code should first try to get tokens silently from a cache before attempting to acquire a token from the identity provider, to optimise performance and maximize availability ([Acquire and cache tokens](https://docs.microsoft.com/azure/active-directory/develop/msal-acquire-cache-tokens))_
   
-    **Additional resources:**
+    - Additional resources:
       - [Acquire and cache tokens](https://docs.microsoft.com/azure/active-directory/develop/msal-acquire-cache-tokens)
 ## Operational Procedures
     

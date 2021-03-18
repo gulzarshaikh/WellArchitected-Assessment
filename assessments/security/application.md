@@ -166,7 +166,7 @@ These critical design principles are used as lenses to assess the Security of an
       _It is important to understand what technologies are used by the application and must be managed, such as .NET Core , Spring, or Node.js._
       > All technologies and frameworks should be identified. Vulnerabilities of these dependencies must be understood (there are automated solutions on the market that can help: [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/) or [NPM audit](https://docs.npmjs.com/cli/audit)).
   
-    **Additional resources:**
+    - Additional resources:
       - [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/)
   
       - [NPM audit](https://docs.npmjs.com/cli/audit)
@@ -428,13 +428,13 @@ These critical design principles are used as lenses to assess the Security of an
 
       _The Azure AD SLA includes authentication, read, write, and administrative actions.  In many cases, applications only require authentication and read access to Azure AD, which aligns with a much higher operational availability due to geographically distributed read replicas ([Azure AD Architecture](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-architecture))_
   
-    **Additional resources:**
+    - Additional resources:
       - [Azure AD Architecture](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-architecture)
     - Are authentication tokens cached and encrypted for sharing across web servers?
 
       _Application code should first try to get tokens silently from a cache before attempting to acquire a token from the identity provider, to optimise performance and maximize availability ([Acquire and cache tokens](https://docs.microsoft.com/azure/active-directory/develop/msal-acquire-cache-tokens))_
   
-    **Additional resources:**
+    - Additional resources:
       - [Acquire and cache tokens](https://docs.microsoft.com/azure/active-directory/develop/msal-acquire-cache-tokens)
 * Does the organization conduct periodic & automated access reviews of the workload to make sure only authorized people have access?
 
@@ -553,7 +553,7 @@ These critical design principles are used as lenses to assess the Security of an
       _Network Security Group (NSG) flow logs is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through an NSG. Flow data is sent to Azure Storage accounts from where you can access it as well as export it to any visualization tool, SIEM, or IDS of your choice._
       > Capture and analyze NSG flow logs to monitor performance and security.
   
-    **Additional resources:**
+    - Additional resources:
       - [Network security groups](https://docs.microsoft.com/en-gb/azure/virtual-network/network-security-groups-overview)
   
       - [Why use NSG flow logs](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview#why-use-flow-logs)
