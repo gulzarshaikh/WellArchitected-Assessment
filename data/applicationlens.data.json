@@ -235,12 +235,12 @@
     "title": "Does the application have a well-defined naming standard for Azure resources?",
     "context": "A well-defined naming convention is important for overall operations to be able to easily determine the usage of certain resources and help understand owners and cost centers responsible for the workload. Naming conventions allow the matching of resource costs to particular workloads.",
     "recommendation": {
-      "title": "Having a well-defined naming convention is important for overall operations, particularly for large application platforms where there are numerous resources([Naming Conventions](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging))",
+      "title": "Having a well-defined naming convention is important for overall operations, particularly for large application platforms where there are numerous resources ([Naming Conventions](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging))",
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Naming Conventions",
+          "url": "https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging"
         }
       ],
       "priority": "medium"
@@ -296,8 +296,8 @@
           "context": "",
           "links": [
             {
-              "title": "",
-              "url": ""
+              "title": "Composite SLA",
+              "url": "https://docs.microsoft.com/azure/architecture/framework/resiliency/business-metrics#understand-service-level-agreements"
             }
           ],
           "priority": "medium"
@@ -324,12 +324,12 @@
         "title": "Are these availability targets monitored and measured?",
         "context": "Monitoring and measuring application availability is vital to qualifying overall application health and progress towards defined targets.",
         "recommendation": {
-          "title": "Make sure you measure and monitor key targets such as<br />- **Mean Time Between Failures (MTBF)**: The average time between failures of a particular component<br />- **Mean Time Between Failures (MTBF)**: The average time between failures of a particular component",
+          "title": "Make sure you measure and monitor key targets such as **Mean Time Between Failures (MTBF)** which denotes the average time between failures of a particular component.",
           "context": "",
           "links": [
             {
-              "title": "",
-              "url": ""
+              "title": "Mean Time Between Failures",
+              "url": "https://en.wikipedia.org/wiki/Mean_time_between_failures"
             }
           ],
           "priority": "medium"
@@ -371,8 +371,8 @@
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Protect and recover in cloud management",
+          "url": "https://docs.microsoft.com/azure/cloud-adoption-framework/manage/considerations/protect"
         }
       ],
       "priority": "medium"
@@ -595,8 +595,8 @@
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Twelve-Factor App: Dependencies",
+          "url": "https://12factor.net/dependencies"
         }
       ],
       "priority": "medium"
@@ -711,8 +711,12 @@
           "context": "",
           "links": [
             {
-              "title": "",
-              "url": ""
+              "title": "OWASP Dependency-Check",
+              "url": "https://owasp.org/www-project-dependency-check/"
+            },
+            {
+              "title": "NPM audit",
+              "url": "https://docs.npmjs.com/cli/audit"
             }
           ],
           "priority": "medium"
@@ -802,8 +806,8 @@
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Log Analytics pricing",
+          "url": "https://azure.microsoft.com/pricing/details/monitor/"
         }
       ],
       "priority": "medium"
@@ -897,8 +901,8 @@
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Distributed tracing",
+          "url": "https://docs.microsoft.com/azure/architecture/microservices/logging-monitoring#distributed-tracing"
         }
       ],
       "priority": "medium"
@@ -1132,8 +1136,8 @@
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Application Map",
+          "url": "https://docs.microsoft.com/azure/azure-monitor/app/app-map?tabs=net"
         }
       ],
       "priority": "medium"
@@ -1277,8 +1281,12 @@
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Azure Monitor overview",
+          "url": "https://docs.microsoft.com/azure/azure-monitor/overview"
+        },
+        {
+          "title": "Grafana",
+          "url": "https://grafana.com/"
         }
       ],
       "priority": "medium"
@@ -1466,8 +1474,8 @@
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Azure Service Health",
+          "url": "https://docs.microsoft.com/azure/service-health/overview"
         }
       ],
       "priority": "medium"
@@ -1513,8 +1521,8 @@
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Azure account contact information",
+          "url": "https://docs.microsoft.com/azure/cost-management-billing/manage/change-azure-account-profile#service-and-marketing-emails"
         }
       ],
       "priority": "medium"
@@ -1728,8 +1736,8 @@
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Performance Efficiency - Capacity",
+          "url": "https://docs.microsoft.com/azure/architecture/framework/scalability/capacity"
         }
       ],
       "priority": "medium"
@@ -1823,8 +1831,8 @@
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Azure subscription and service limits, quotas, and constraints",
+          "url": "https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits"
         }
       ],
       "priority": "medium"
@@ -1839,8 +1847,8 @@
           "context": "",
           "links": [
             {
-              "title": "",
-              "url": ""
+              "title": "Azure Capacity",
+              "url": "https://aka.ms/AzureCapacity"
             }
           ],
           "priority": "medium"
@@ -1866,8 +1874,8 @@
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Supported metrics with Azure Monitor",
+          "url": "https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported"
         }
       ],
       "priority": "medium"
@@ -1938,8 +1946,8 @@
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "HashiCorp Vault",
+          "url": "https://www.vaultproject.io/"
         }
       ],
       "priority": "medium"
@@ -1987,8 +1995,8 @@
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Managed Identities",
+          "url": "https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview"
         }
       ],
       "priority": "medium"
@@ -2011,8 +2019,8 @@
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Azure Key Vault availability and reliability",
+          "url": "https://docs.microsoft.com/azure/key-vault/general/disaster-recovery-guidance"
         }
       ],
       "priority": "medium"
