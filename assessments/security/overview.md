@@ -16,11 +16,9 @@ This security assessment has been produced to help the global CE&S community to 
     - [Application Composition](./application.md#Application-Composition)
     - [Threat Analysis](./application.md#Threat-Analysis)
     - [Security Criteria &amp; Data Classification](./application.md#Security-Criteria--Data-Classification)
-    - [Dependencies, frameworks and libraries](./application.md#Dependencies-frameworks-and-libraries)
   - [Health Modelling &amp; Monitoring](./application.md#Health-Modelling--Monitoring)
     - [Application Level Monitoring](./application.md#Application-Level-Monitoring)
     - [Resource and Infrastructure Level Monitoring](./application.md#Resource-and-Infrastructure-Level-Monitoring)
-    - [Auditing](./application.md#Auditing)
   - [Networking &amp; Connectivity](./application.md#Networking--Connectivity)
     - [Connectivity](./application.md#Connectivity)
     - [Endpoints](./application.md#Endpoints)
@@ -44,7 +42,8 @@ This security assessment has been produced to help the global CE&S community to 
   - [Operational Model &amp; DevOps](./application.md#Operational-Model--DevOps)
     - [General](./application.md#General)
     - [Roles &amp; Responsibilities](./application.md#Roles--Responsibilities)
-    - [Common Engineering Criteria](./application.md#Common-Engineering-Criteria)
+  - [Governance](./application.md#Governance)
+    - [Standards](./application.md#Standards)
 
 
 ### [Service Security](./service.md)
