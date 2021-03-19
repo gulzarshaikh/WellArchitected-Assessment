@@ -107,11 +107,14 @@ These critical design principles are used as lenses to assess the Reliability of
             
 * Is the workload deployed across multiple regions?
 
-  _Multiple regions should be used for failover purposes in a disaster state, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active strategies. Additional cost needs to be taken into consideration - mostly from compute, data and networking perspective, but also services like Azure Site Recovery (ASR)._
+  _Multiple regions should be used for failover purposes in a disaster state, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active strategies. Additional cost needs to be taken into consideration - mostly from compute, data and networking perspective, but also services like [Azure Site Recovery (ASR)](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)._
     - Were regions chosen based on location and proximity to your users or based on resource types that were available?
 
-      _Not only is it important to utilize regions close to your audience, but it is equally important to choose regions that offer the SKUs that will support your future growth. Not all regions share the same parity when it comes to product SKUs. Plan your growth, then choose regions that will support those plans._
+      _Not only is it important to utilize regions close to your audience, but it is equally important to choose regions that offer the SKUs that will support your future growth. Not all regions share the same parity when it comes to product SKUs._
+      > Plan your growth, then choose regions that will support those plans.
   
+      Additional resources:
+        - [Products available by region](https://azure.microsoft.com/global-infrastructure/services/)
     - Are paired regions used?
 
       _[Paired regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) exist within the same geography and provide native replication features for recovery purposes, such as Geo-Redundant Storage (GRS) asynchronous replication. In the event of planned maintenance, updates to a region will be performed sequentially only._
@@ -122,14 +125,20 @@ These critical design principles are used as lenses to assess the Reliability of
 
       _When planning for scale and efficiency, it is important that regions are not only paired, but homogenous in their service offerings. Additionally, you should make sure that, if one region fails, the second region can scale appropriately to sufficiently handle the influx of additional user requests._
   
+      Additional resources:
+        - [Products available by region](https://azure.microsoft.com/en-us/global-infrastructure/services/)
   
     Additional resources:
     - [Failover strategies](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones)
+  
+    - [About Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)
 * Within a region is the application architecture designed to use Availability Zones?
 
   _[Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones) can be used to optimise application availability within a region by providing datacenter level fault tolerance. However, the application architecture must not share dependencies between zones to use them effectively. It is also important to note that Availability Zones may introduce performance and cost considerations for applications which are extremely 'chatty' across zones given the implied physical separation between each zone and inter-zone bandwidth charges. That also means that AZ can be considered to get higher SLA for lower cost. Be aware of [pricing changes](https://azure.microsoft.com/pricing/details/bandwidth/) coming to Availability Zone bandwidth starting February 2021._
   > Use Availability Zones where applicable to improve reliability and optimize costs.
   
+    Additional resources:
+    - [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones)
 * Is the application implemented with strategies for resiliency and self-healing?
 
   _Strategies for resiliency and self-healing include retrying transient failures and failing over to a secondary instance or even another region._
@@ -424,7 +433,7 @@ These critical design principles are used as lenses to assess the Reliability of
     - [Azure Products by Region](https://azure.microsoft.com/global-infrastructure/services/)
 * Are Azure Availability Zones available in the required regions?
 
-  _Not all regions support Availability Zones today, so when assessing the suitability of availability strategy in relation to targets it is important to confirm if targeted regions also provide zonal support. All net new Azure regions will conform to the 3 + 0 datacenter design, and where possible existing regions will expand to provide support for [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-region)._
+  _Not all regions support [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones) today, so when assessing the suitability of availability strategy in relation to targets it is important to confirm if targeted regions also provide zonal support. All net new Azure regions will conform to the 3 + 0 datacenter design, and where possible existing regions will expand to provide support for [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-region)._
   
     Additional resources:
     - [Regions that support Availability Zones in Azure](https://docs.microsoft.com/azure/availability-zones/az-region)
@@ -462,7 +471,7 @@ These critical design principles are used as lenses to assess the Reliability of
     - [Building solutions for high availability using Availability Zones](https://docs.microsoft.com/azure/architecture/high-availability/building-solutions-for-high-availability)
 * Is the application hosted across 2 or more application platform nodes?
 
-  _To ensure application platform reliability, it is vital that the application be hosted across at least two nodes to ensure there are no single points of failure. Ideally An n+1 model should be applied for compute availability where n is the number of instances required to support application availability and performance requirements. It is important to note that the higher [SLAs provided for virtual machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/) and associated related platform services, require at least two replica nodes deployed to either an Availability Set or across two or more Availability Zones._
+  _To ensure application platform reliability, it is vital that the application be hosted across at least two nodes to ensure there are no single points of failure. Ideally An n+1 model should be applied for compute availability where n is the number of instances required to support application availability and performance requirements. It is important to note that the higher [SLAs provided for virtual machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/) and associated related platform services, require at least two replica nodes deployed to either an Availability Set or across two or more [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones)._
     - Does the application platform use Availability Zones or Availability Sets?
 
       _An **Availability Set (AS)** is a logical construct to inform Azure that it should distribute contained virtual machine instances across multiple fault and update domains within an Azure region. **Availability Zones (AZ)** elevate the fault level for virtual machines to a physical datacenter by allowing replica instances to be deployed across multiple datacenters within an Azure region. While zones provide greater resiliency than sets, there are performance and cost considerations where applications are extremely 'chatty' across zones given the implied physical separation and inter-zone bandwidth charges. Ultimately, Azure Virtual Machines and Azure PaaS services, such as Service Fabric and Azure Kubernetes Service (AKS) which use virtual machines underneath, can leverage either AZs or an AS to provide application resiliency within a region._
@@ -552,10 +561,12 @@ These critical design principles are used as lenses to assess the Reliability of
             
 * Are zone-redundant ExpressRoute/VPN Gateways used?
 
-  _[Zone-redundant virtual network gateways](https://docs.microsoft.com/azure/vpn-gateway/about-zone-redundant-vnet-gateways) distribute gateway instances across Availability Zones to improve reliability and ensure availability during failure scenarios impacting a datacenter within a region._
+  _[Zone-redundant virtual network gateways](https://docs.microsoft.com/azure/vpn-gateway/about-zone-redundant-vnet-gateways) distribute gateway instances across [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones) to improve reliability and ensure availability during failure scenarios impacting a datacenter within a region._
   
     Additional resources:
     - [Zone-redundant Virtual Network Gateways](https://docs.microsoft.com/azure/vpn-gateway/about-zone-redundant-vnet-gateways)
+  
+    - [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones)
 * If used, is Azure Application Gateway v2 deployed in a zone-redundant configuration?
 
   _Azure Application Gateway v2 can be deployed in a [zone-redundant configuration](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant) to deploy gateway instances across zones for improved reliability and availability during failure scenarios impacting a datacenter within a region._
@@ -564,7 +575,7 @@ These critical design principles are used as lenses to assess the Reliability of
     - [Zone-redundant Application Gateway v2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
 * Is Azure Load Balancer Standard being used to load-balance traffic across Availability Zones?
 
-  _Azure Load Balancer Standard is zone-aware to distribute traffic across Availability Zones and [can also be configured in a zone-redundant configuration](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) to improve reliability and ensure availability during failure scenarios impacting a datacenter within a region._
+  _Azure Load Balancer Standard is zone-aware to distribute traffic across [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones) and [can also be configured in a zone-redundant configuration](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) to improve reliability and ensure availability during failure scenarios impacting a datacenter within a region._
   
     Additional resources:
     - [Standard Load Balancer and Availability Zones](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones)

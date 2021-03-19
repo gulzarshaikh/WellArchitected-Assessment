@@ -113,11 +113,14 @@ These critical design principles are used as lenses to assess the Operational Ex
   
 * Is the workload deployed across multiple regions?
 
-  _Multiple regions should be used for failover purposes in a disaster state, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active strategies. Additional cost needs to be taken into consideration - mostly from compute, data and networking perspective, but also services like Azure Site Recovery (ASR)._
+  _Multiple regions should be used for failover purposes in a disaster state, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active strategies. Additional cost needs to be taken into consideration - mostly from compute, data and networking perspective, but also services like [Azure Site Recovery (ASR)](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)._
     - Were regions chosen based on location and proximity to your users or based on resource types that were available?
 
-      _Not only is it important to utilize regions close to your audience, but it is equally important to choose regions that offer the SKUs that will support your future growth. Not all regions share the same parity when it comes to product SKUs. Plan your growth, then choose regions that will support those plans._
+      _Not only is it important to utilize regions close to your audience, but it is equally important to choose regions that offer the SKUs that will support your future growth. Not all regions share the same parity when it comes to product SKUs._
+      > Plan your growth, then choose regions that will support those plans.
   
+      Additional resources:
+        - [Products available by region](https://azure.microsoft.com/global-infrastructure/services/)
     - Are paired regions used?
 
       _[Paired regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) exist within the same geography and provide native replication features for recovery purposes, such as Geo-Redundant Storage (GRS) asynchronous replication. In the event of planned maintenance, updates to a region will be performed sequentially only._
@@ -128,14 +131,20 @@ These critical design principles are used as lenses to assess the Operational Ex
 
       _When planning for scale and efficiency, it is important that regions are not only paired, but homogenous in their service offerings. Additionally, you should make sure that, if one region fails, the second region can scale appropriately to sufficiently handle the influx of additional user requests._
   
+      Additional resources:
+        - [Products available by region](https://azure.microsoft.com/en-us/global-infrastructure/services/)
   
     Additional resources:
     - [Failover strategies](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones)
+  
+    - [About Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)
 * Within a region is the application architecture designed to use Availability Zones?
 
   _[Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones) can be used to optimise application availability within a region by providing datacenter level fault tolerance. However, the application architecture must not share dependencies between zones to use them effectively. It is also important to note that Availability Zones may introduce performance and cost considerations for applications which are extremely 'chatty' across zones given the implied physical separation between each zone and inter-zone bandwidth charges. That also means that AZ can be considered to get higher SLA for lower cost. Be aware of [pricing changes](https://azure.microsoft.com/pricing/details/bandwidth/) coming to Availability Zone bandwidth starting February 2021._
   > Use Availability Zones where applicable to improve reliability and optimize costs.
   
+    Additional resources:
+    - [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones)
 * Is the application implemented with strategies for resiliency and self-healing?
 
   _Strategies for resiliency and self-healing include retrying transient failures and failing over to a secondary instance or even another region._
