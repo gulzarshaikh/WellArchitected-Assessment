@@ -919,7 +919,7 @@ These critical design principles are used as lenses to assess the Operational Ex
             
 * Is the application tested for performance, scalability, and resiliency?
 
-  _**[Performance testing](https://docs.microsoft.com/azure/architecture/checklist/dev-ops#testing)** is the superset of both load and stress testing. The primary goal of performance testing is to validate benchmark behavior for the application:<br />**Load Testing** validates application scalability by rapidly and/or gradually increasing the load on the application until it reaches a threshold/limit<br />**Stress Testing** is a type of negative testing which involves various activities to overload existing resources and remove components to understand overall resiliency and how the application responds to issues_
+  _**Performance testing** is the superset of both load and stress testing. The primary goal of performance testing is to validate benchmark behavior for the application:<br />**Load Testing** validates application scalability by rapidly and/or gradually increasing the load on the application until it reaches a threshold/limit<br />**Stress Testing** is a type of negative testing which involves various activities to overload existing resources and remove components to understand overall resiliency and how the application responds to issues_
     - How does your team perceive the importance of performance testing?
 
       _It is critical that your team understands the importance of performance testing. Additionally, the team should be committed to providing the necessary time and resources for adequately executing performance testing proven practices._
@@ -938,7 +938,7 @@ These critical design principles are used as lenses to assess the Operational Ex
   
   
     Additional resources:
-    - [Performance testing](https://docs.microsoft.com/azure/architecture/checklist/dev-ops#testing)
+    - [Testing strategies](https://docs.microsoft.com/azure/architecture/checklist/dev-ops#testing)
 * Are smoke tests performed during application deployments?
 
   _[Smoke tests](https://docs.microsoft.com/azure/architecture/framework/devops/testing#smoke-testing) are a lightweight way to perform high-level validation of changes. For instance, performing a ping test immediately after a deployment._
