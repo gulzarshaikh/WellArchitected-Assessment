@@ -83,7 +83,7 @@
     "category": "Application Design",
     "subCategory": "Design",
     "title": "Is the workload deployed across multiple regions?",
-    "context": "Multiple regions should be used for failover purposes in a disaster state, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active strategies. Additional cost needs to be taken into consideration - mostly from compute, data and networking perspective, but also services like Azure Site Recovery (ASR).",
+    "context": "Multiple regions should be used for failover purposes in a disaster state, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active strategies. Additional cost needs to be taken into consideration - mostly from compute, data and networking perspective, but also services like [Azure Site Recovery (ASR)](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview).",
     "recommendation": {
       "title": "",
       "context": "",
@@ -91,6 +91,10 @@
         {
           "title": "Failover strategies",
           "url": "https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones"
+        },
+        {
+          "title":"About Site Recovery",
+          "url": "https://docs.microsoft.com/azure/site-recovery/site-recovery-overview"
         }
       ],
       "priority": "medium"
@@ -99,14 +103,14 @@
       {
         "id": "06ec755b-c423-4f8b-92c4-073750567022",
         "title": "Were regions chosen based on location and proximity to your users or based on resource types that were available?",
-        "context": "Not only is it important to utilize regions close to your audience, but it is equally important to choose regions that offer the SKUs that will support your future growth. Not all regions share the same parity when it comes to product SKUs. Plan your growth, then choose regions that will support those plans.",
+        "context": "Not only is it important to utilize regions close to your audience, but it is equally important to choose regions that offer the SKUs that will support your future growth. Not all regions share the same parity when it comes to product SKUs.",
         "recommendation": {
-          "title": "",
+          "title": "Plan your growth, then choose regions that will support those plans.",
           "context": "",
           "links": [
             {
-              "title": "",
-              "url": ""
+              "title": "Products available by region",
+              "url": "https://azure.microsoft.com/global-infrastructure/services/"
             }
           ],
           "priority": "medium"
@@ -137,8 +141,8 @@
           "context": "",
           "links": [
             {
-              "title": "",
-              "url": ""
+              "title": "Products available by region",
+              "url": "https://azure.microsoft.com/en-us/global-infrastructure/services/"
             }
           ],
           "priority": "medium"
@@ -165,8 +169,8 @@
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Availability Zones",
+          "url": "https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones"
         }
       ],
       "priority": "medium"
@@ -3730,7 +3734,7 @@
     "category": "Capacity & Service Availability Planning",
     "subCategory": "Service Availability",
     "title": "Are Azure Availability Zones available in the required regions?",
-    "context": "Not all regions support Availability Zones today, so when assessing the suitability of availability strategy in relation to targets it is important to confirm if targeted regions also provide zonal support. All net new Azure regions will conform to the 3 + 0 datacenter design, and where possible existing regions will expand to provide support for [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-region).",
+    "context": "Not all regions support [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones) today, so when assessing the suitability of availability strategy in relation to targets it is important to confirm if targeted regions also provide zonal support. All net new Azure regions will conform to the 3 + 0 datacenter design, and where possible existing regions will expand to provide support for [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-region).",
     "recommendation": {
       "title": "",
       "context": "",
@@ -3935,7 +3939,7 @@
     "category": "Application Platform Availability",
     "subCategory": "Compute Availability",
     "title": "Is the application hosted across 2 or more application platform nodes?",
-    "context": "To ensure application platform reliability, it is vital that the application be hosted across at least two nodes to ensure there are no single points of failure. Ideally An n+1 model should be applied for compute availability where n is the number of instances required to support application availability and performance requirements. It is important to note that the higher [SLAs provided for virtual machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/) and associated related platform services, require at least two replica nodes deployed to either an Availability Set or across two or more Availability Zones.",
+    "context": "To ensure application platform reliability, it is vital that the application be hosted across at least two nodes to ensure there are no single points of failure. Ideally An n+1 model should be applied for compute availability where n is the number of instances required to support application availability and performance requirements. It is important to note that the higher [SLAs provided for virtual machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/) and associated related platform services, require at least two replica nodes deployed to either an Availability Set or across two or more [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones).",
     "recommendation": {
       "title": "",
       "context": "",
@@ -4233,7 +4237,7 @@
     "category": "Networking & Connectivity",
     "subCategory": "Zone-Aware Services",
     "title": "Are zone-redundant ExpressRoute/VPN Gateways used?",
-    "context": "[Zone-redundant virtual network gateways](https://docs.microsoft.com/azure/vpn-gateway/about-zone-redundant-vnet-gateways) distribute gateway instances across Availability Zones to improve reliability and ensure availability during failure scenarios impacting a datacenter within a region.",
+    "context": "[Zone-redundant virtual network gateways](https://docs.microsoft.com/azure/vpn-gateway/about-zone-redundant-vnet-gateways) distribute gateway instances across [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones) to improve reliability and ensure availability during failure scenarios impacting a datacenter within a region.",
     "recommendation": {
       "title": "",
       "context": "",
@@ -4241,6 +4245,10 @@
         {
           "title": "Zone-redundant Virtual Network Gateways",
           "url": "https://docs.microsoft.com/azure/vpn-gateway/about-zone-redundant-vnet-gateways"
+        },
+        {
+          "title": "Availability Zones",
+          "url": "https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones"
         }
       ],
       "priority": "medium"
@@ -4279,7 +4287,7 @@
     "category": "Networking & Connectivity",
     "subCategory": "Zone-Aware Services",
     "title": "Is Azure Load Balancer Standard being used to load-balance traffic across Availability Zones?",
-    "context": "Azure Load Balancer Standard is zone-aware to distribute traffic across Availability Zones and [can also be configured in a zone-redundant configuration](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) to improve reliability and ensure availability during failure scenarios impacting a datacenter within a region.",
+    "context": "Azure Load Balancer Standard is zone-aware to distribute traffic across [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones) and [can also be configured in a zone-redundant configuration](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) to improve reliability and ensure availability during failure scenarios impacting a datacenter within a region.",
     "recommendation": {
       "title": "",
       "context": "",
