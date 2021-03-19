@@ -740,7 +740,7 @@ These critical design principles are used as lenses to assess the Security of an
   > Implement branch policy strategy to enhance branch security.
 ### Application Infrastructure Provisioning
             
-* Is direct write access to the infrastrucure possible and are any resources provisioned or configured outside of IaC processes?
+* Is direct write access to the infrastructure possible and are any resources provisioned or configured outside of IaC processes?
 
   _Are any resources provisioned or operationally configured manually through user tools such as the Azure Portal or via Azure CLI?_
   > It is recommended that even small operational changes and modifications be implemented as-code to track changes and ensure they are fully reproduceable and revertible. No infrastructure changes should be done manually outside of IaC.

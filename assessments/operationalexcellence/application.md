@@ -764,11 +764,14 @@ These critical design principles are used as lenses to assess the Operational Ex
 * How does the development team manage application source code, builds, and releases?
 
   _It is important to understand whether there is a systematic approach to the development and release process._
-  > The use of source code control systems, such as Azure Repos or GitHub, and build and release systems, such as Azure Pipelines or GitHub Actions, should be understood, including the corresponding processes to access, review and approve changes
+  > The use of source code control systems, such as [Azure Repos](https://azure.microsoft.com/services/devops/) or GitHub, and build and release systems, such as Azure Pipelines or GitHub Actions, should be understood, including the corresponding processes to access, review and approve changes
     - If Git is used for source control, what branching strategy is used?
 
       _While there are various valid ways, a clearly defined strategy should be in place and understood_
       > To optimize for collaboration and ensure developers spend less time managing version control and more time developing code, a clear and simple branching strategy should be used, such as Trunk-Based Development which is employed internally [within Microsoft Engineering](https://docs.microsoft.com/azure/devops/learn/devops-at-microsoft/use-git-microsoft).
+  
+    Additional resources:
+    - [Azure DevOps](https://azure.microsoft.com/services/devops/)
 ### Application Infrastructure Provisioning
             
 * Is application infrastructure defined as code?
@@ -782,7 +785,7 @@ These critical design principles are used as lenses to assess the Operational Ex
   
     Additional resources:
     - [What is Infrastructure as Code?](https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code)
-* Is direct write access to the infrastrucure possible and are any resources provisioned or configured outside of IaC processes?
+* Is direct write access to the infrastructure possible and are any resources provisioned or configured outside of IaC processes?
 
   _Are any resources provisioned or operationally configured manually through user tools such as the Azure Portal or via Azure CLI?_
   > It is recommended that even small operational changes and modifications be implemented as-code to track changes and ensure they are fully reproduceable and revertible. No infrastructure changes should be done manually outside of IaC.
