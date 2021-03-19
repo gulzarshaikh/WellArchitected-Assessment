@@ -3980,7 +3980,7 @@
     "category": "Application Platform Availability",
     "subCategory": "Compute Availability",
     "title": "How is the client traffic routed to the application in the case of region, zone or network outage?",
-    "context": "In the event of a major outage, client traffic should be routable to application deployments which remain available across other regions or zones. This is ultimately where cross-premises connectivity and global load balancing should be used, depending on whether the application is internal and/or external facing. Services such as Azure Front Door, Azure Traffic Manager, or third-party CDNs can route traffic across regions based on application health solicited via health probes.",
+    "context": "In the event of a major outage, client traffic should be routable to application deployments which remain available across other regions or zones. This is ultimately where cross-premises connectivity and global load balancing should be used, depending on whether the application is internal and/or external facing. Services such as [Azure Front Door](https://docs.microsoft.com/azure/frontdoor/front-door-overview), [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview), or third-party CDNs can route traffic across regions based on application health solicited via health probes.",
     "recommendation": {
       "title": "",
       "context": "",
@@ -4003,14 +4003,18 @@
     "category": "Data Platform Availability",
     "subCategory": "Service SKU",
     "title": "Are all data and storage services running in a HA configuration/SKU?",
-    "context": "Azure data platform services offer resiliency features to support application reliability, though they may only be applicable at a certain SKU. For instance, Azure SQL Database Business Critical SKUs, or Azure Storage Zone Redundant Storage (ZRS) with three synchronous replicas spread across AZs",
+    "context": "Azure data platform services offer resiliency features to support application reliability, though they may only be applicable at a certain SKU. For instance, [Azure SQL Database Business Critical SKUs](https://docs.microsoft.com/azure/azure-sql/database/service-tier-business-critical), or [Azure Storage Zone Redundant Storage (ZRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy) with three synchronous replicas spread across Availability Zones.",
     "recommendation": {
       "title": "",
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Business Critical tier - Azure SQL Database and Azure SQL Managed Instance",
+          "url": "https://docs.microsoft.com/azure/azure-sql/database/service-tier-business-critical"
+        },
+        {
+          "title": "Azure Storage redundancy", 
+          "url": "https://docs.microsoft.com/azure/storage/common/storage-redundancy"
         }
       ],
       "priority": "medium"
@@ -4078,8 +4082,9 @@
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Azure Storage redundancy
+          ",
+          "url": "https://docs.microsoft.com/azure/storage/common/storage-redundancy"
         }
       ],
       "priority": "medium"
