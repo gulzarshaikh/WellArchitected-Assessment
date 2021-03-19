@@ -93,7 +93,7 @@
           "url": "https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones"
         },
         {
-          "title":"About Site Recovery",
+          "title": "About Site Recovery",
           "url": "https://docs.microsoft.com/azure/site-recovery/site-recovery-overview"
         }
       ],
