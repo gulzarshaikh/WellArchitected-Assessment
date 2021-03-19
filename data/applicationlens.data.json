@@ -2019,8 +2019,8 @@
       "context": "",
       "links": [
         {
-          "title": "",
-          "url": ""
+          "title": "Secret rotation process tutorial",
+          "url": "https://docs.microsoft.com/azure/key-vault/secrets/tutorial-rotation-dual"
         }
       ],
       "priority": "medium"
