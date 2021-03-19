@@ -846,12 +846,12 @@
     "title": "Is an Application Performance Management (APM) tool used collect application level logs?",
     "context": "In order to successfully maintain the application it's important to 'turn the lights on' and have clear visibility of important metrics both in real-time and historically.",
     "recommendation": {
-      "title": "An APM technology, such as Application Insights, should be used to manage the performance and availability of the application, aggregating application level logs and events for subsequent interpretation. It should be considered what is the appropriate level of logging, because too much can incur significant costs.",
+      "title": "An APM technology, such as [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview), should be used to manage the performance and availability of the application, aggregating application level logs and events for subsequent interpretation. It should be considered what is the appropriate level of logging, because too much can incur significant costs.",
       "context": "",
       "links": [
         {
-          "title": "Log Analytics pricing",
-          "url": "https://azure.microsoft.com/pricing/details/monitor/"
+          "title": "What is Application Insights?",
+          "url": "https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview"
         }
       ],
       "priority": "medium"
