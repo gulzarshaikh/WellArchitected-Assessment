@@ -2182,7 +2182,7 @@
     "lens": "application",
     "category": "Deployment & Testing",
     "subCategory": "Application Infrastructure Provisioning",
-    "title": "Is direct write access to the infrastrucure possible and are any resources provisioned or configured outside of IaC processes?",
+    "title": "Is direct write access to the infrastructure possible and are any resources provisioned or configured outside of IaC processes?",
     "context": "Are any resources provisioned or operationally configured manually through user tools such as the Azure Portal or via Azure CLI?",
     "recommendation": {
       "title": "It is recommended that even small operational changes and modifications be implemented as-code to track changes and ensure they are fully reproduceable and revertible. No infrastructure changes should be done manually outside of IaC.",
