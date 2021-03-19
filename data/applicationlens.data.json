@@ -2112,9 +2112,14 @@
     "title": "How does the development team manage application source code, builds, and releases?",
     "context": "It is important to understand whether there is a systematic approach to the development and release process.",
     "recommendation": {
-      "title": "The use of source code control systems, such as Azure Repos or GitHub, and build and release systems, such as Azure Pipelines or GitHub Actions, should be understood, including the corresponding processes to access, review and approve changes",
+      "title": "The use of source code control systems, such as [Azure Repos](https://azure.microsoft.com/services/devops/) or GitHub, and build and release systems, such as Azure Pipelines or GitHub Actions, should be understood, including the corresponding processes to access, review and approve changes",
       "context": "",
-      "links": [],
+      "links": [
+        {
+          "title": "Azure DevOps", 
+          "url": "https://azure.microsoft.com/services/devops/"
+        }
+      ],
       "priority": "medium"
     },
     "children": [
