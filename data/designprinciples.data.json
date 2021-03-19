@@ -19,7 +19,7 @@
     "lens": "application",
     "category": "General",
     "subCategory": "Unassigned",
-    "title": "Monitor entire system and understand operational health",
+    "title": "Understand operational health through focused and assertive monitoring",
     "context": "Implement systems and processes to monitor build and release processes, infrastructure health, and application health. Telemetry is critical to understanding the health of a workload and whether the service is meeting the business goals.",
     "id": "5d8b647b-6ff6-42f4-bd59-77a090b735be"
   },
@@ -43,7 +43,7 @@
     "lens": "application",
     "category": "General",
     "subCategory": "Unassigned",
-    "title": "Embrace operational improvement",
+    "title": "Embrace continuous operational improvement",
     "context": "Continuously evaluate and refine operational procedures and tasks, while striving to reduce complexity and ambiguity. This approach enables an organization to evolve processes over time, optimizing inefficiencies and learning from failures.",
     "id": "4cca294d-c9cd-43f9-bb16-e9392ff416b3"
   },

@@ -56,7 +56,7 @@ These critical design principles are used as lenses to assess the Operational Ex
 
 
 
-## Monitor entire system and understand operational health
+## Understand operational health through focused and assertive monitoring
 
 
   Implement systems and processes to monitor build and release processes, infrastructure health, and application health. Telemetry is critical to understanding the health of a workload and whether the service is meeting the business goals.
@@ -70,7 +70,7 @@ These critical design principles are used as lenses to assess the Operational Ex
 
 
 
-## Embrace operational improvement
+## Embrace continuous operational improvement
 
 
   Continuously evaluate and refine operational procedures and tasks, while striving to reduce complexity and ambiguity. This approach enables an organization to evolve processes over time, optimizing inefficiencies and learning from failures.
