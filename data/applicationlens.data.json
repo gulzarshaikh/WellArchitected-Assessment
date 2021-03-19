@@ -14,12 +14,7 @@
     "recommendation": {
       "title": "While cloud-native workloads are preferred, migrated or modernized applications are reality and they might not utilize the available cloud functionality like auto-scaling, platform notifications etc. Make sure to understand the limitations and implement workarounds if available.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -61,12 +56,7 @@
     "recommendation": {
       "title": "Make sure that any hybrid or cross cloud relationships and dependencies are well understood.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -274,12 +264,7 @@
     "recommendation": {
       "title": "Having clearly defined availability targets is crucial in order to have a goal to work and measure against. This will also determine which services an application can leverage vs. those which do not qualify in terms of the SLA they offer.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     },
     "children": [
@@ -290,12 +275,7 @@
         "recommendation": {
           "title": "Make sure SLAs/SLOs/SLIs for all leveraged dependencies are understood",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       },
@@ -322,12 +302,7 @@
         "recommendation": {
           "title": "If targets must also apply in a failure state then an N+1 model should be used to achieve greater availability and resiliency, where N is the capacity needed to deliver required availability. There's also a cost implication, because more resilient infrastructure usually means more expensive. This has to be accepted by business.",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       },
@@ -354,12 +329,7 @@
         "recommendation": {
           "title": "It should be fully understood what are the consequences if availability targets are not satisfied. This will also inform when to initiate a failover case.",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       }
@@ -406,12 +376,7 @@
     "recommendation": {
       "title": "Traffic patterns should be identified by analyzing historical traffic data and the effect of significant external events on the application.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     },
     "children": [
@@ -422,12 +387,7 @@
         "recommendation": {
           "title": "",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       },
@@ -438,12 +398,7 @@
         "recommendation": {
           "title": "",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       },
@@ -454,12 +409,7 @@
         "recommendation": {
           "title": "",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       },
@@ -470,12 +420,7 @@
         "recommendation": {
           "title": "",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       }
@@ -496,12 +441,7 @@
     "recommendation": {
       "title": "Work with stakeholders to identify sensible non-functional requirements based on business requirements, research and user testing.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     },
     "children": [
@@ -512,12 +452,7 @@
         "recommendation": {
           "title": "The application should be designed to scale to cope with spikes in load in-line with what is an acceptable duration for degraded performance.",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       },
@@ -528,12 +463,7 @@
         "recommendation": {
           "title": "Traffic limits for the application should be defined in quantified and measurable manner.",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       },
@@ -544,12 +474,7 @@
         "recommendation": {
           "title": "Automation and specialized tooling (such as Application Insights) should be used to orchestrate and measure application performance.",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       }
@@ -570,12 +495,7 @@
     "recommendation": {
       "title": "Path-wise analysis should be used to define critical system flows for key business scenarios, such as the checkout process for an eCommerce application.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     },
     "children": [
@@ -586,12 +506,7 @@
         "recommendation": {
           "title": "Targets should be specific and measurable.",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       }
@@ -612,12 +527,7 @@
     "recommendation": {
       "title": "Identify if there are components with more relaxed performance requirements.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -653,12 +563,7 @@
         "recommendation": {
           "title": "Map application dependencies either as a simple list or a document (usually this is part of a design document or reference architecture).",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       },
@@ -669,12 +574,7 @@
         "recommendation": {
           "title": "Classify dependencies either as strong or weak. This will help identify which components are essential to the application.",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       }
@@ -696,12 +596,7 @@
     "recommendation": {
       "title": "The operational commitments of all external and internal dependencies should be understood to inform the broader application operations and health model.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -721,12 +616,7 @@
     "recommendation": {
       "title": "All Azure services in use should be identified.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     },
     "children": [
@@ -737,12 +627,7 @@
         "recommendation": {
           "title": "Make sure you understand the operational features/capabilities available and how they can be used in the solution.",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       },
@@ -783,12 +668,7 @@
     "recommendation": {
       "title": "Make sure you understand the design decisions and implications of using shared hosting platforms.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -806,12 +686,7 @@
     "recommendation": {
       "title": "Keep up to date on newest developments and feature updates, at least for services most relevant to your application.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     },
     "children": [
@@ -822,12 +697,7 @@
         "recommendation": {
           "title": "Use announcement subscriptions to stay up to date.",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       }
@@ -872,12 +742,7 @@
     "recommendation": {
       "title": "Application logs and events should be collected across all major environments. Sufficient degree of separation and filtering should be in place to ensure non-critical environments do not convolute production log interpretation. Furthermore, corresponding log entries across the application should capture a correlation ID for their respective transactions.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -896,12 +761,7 @@
     "recommendation": {
       "title": "Application events should be captured as a structured data type with machine-readable data points rather than unstructured string types. Structured data can easily be indexed and searched, and reporting can be greatly simplified.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -919,12 +779,7 @@
     "recommendation": {
       "title": "Different log levels, such as INFO, WARNING, ERROR, and DEBUG should be pre-configured and applied within relevant environments. The approach to change log levels should be simple configuration change to support operational scenarios where it is necessary to elevate the log level within an environment.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -967,12 +822,7 @@
     "recommendation": {
       "title": "Application level metrics should include end-to-end transaction times of key technical functions, such as database queries, response times for external API calls, failure rates of processing steps, etc.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     },
     "children": [
@@ -983,12 +833,7 @@
         "recommendation": {
           "title": "Correlate application log events across critical system flows, such as user login.",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       }
@@ -1010,12 +855,7 @@
     "recommendation": {
       "title": "Use log aggregation technology, such as Azure Log Analytics or Splunk, to gather information across all application components.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -1034,12 +874,7 @@
     "recommendation": {
       "title": "Azure Activity Logs should be collected and aggregated.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -1059,12 +894,7 @@
     "recommendation": {
       "title": "All application resources should be configured to route diagnostic logs and metrics to the chosen log aggregation technology. Azure Policy should also be used as a device to ensure the consistent use of diagnostic settings across the application, to enforce the desired configuration for each Azure service.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -1083,12 +913,7 @@
     "recommendation": {
       "title": "Make sure logs and key metrics of critical components are collected and stored.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -1107,12 +932,7 @@
     "recommendation": {
       "title": "Critical external dependencies, such as an API service, should be monitored to ensure operational visibility of dependency health. For instance, a probe could be used to measure the availability and latency of an external API.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -1131,12 +951,7 @@
     "recommendation": {
       "title": "Implement a unified solution to aggregate and query application and resource level logs, such as Azure Log Analytics.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -1203,12 +1018,7 @@
     "recommendation": {
       "title": "A holistic application health model should be used to quantify what 'healthy' and 'unhealthy' states represent across all application components. It is highly recommended that a 'traffic light' model be used to indicate a green/healthy state when key non-functional requirements and targets are fully satisfied and resources are optimally utilized, e.g. 95% of requests are processed in <= 500ms with AKS node utilization at x% etc. Once established, this health model should inform critical monitoring metrics across system components and operational sub-system composition. It is important to note that the health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     },
     "children": [
@@ -1219,12 +1029,7 @@
         "recommendation": {
           "title": "The health model should be able to surface the respective health of critical system flows or key subsystems to ensure appropriate operational prioritization is applied. For example, the health model should be able to represent the current state of the user login transaction flow",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       },
@@ -1235,12 +1040,7 @@
         "recommendation": {
           "title": "The health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       },
@@ -1251,12 +1051,7 @@
         "recommendation": {
           "title": "",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       }
@@ -1276,12 +1071,7 @@
     "recommendation": {
       "title": "Analytics can and should be performed across long-term operational data to help inform operational strategies and also to predict what operational issues are likely to occur and when. For instance, if the average response times have been slowly increasing over time and getting closer to the maximum target",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -1300,12 +1090,7 @@
     "recommendation": {
       "title": "Clear retention times should be defined to allow for suitable historic analysis but also control storage costs. Suitable housekeeping tasks should also be used to archive data to cheaper storage or aggregate data for long-term trend analysis",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -1350,12 +1135,7 @@
     "recommendation": {
       "title": "Dashboards should be customized to represent the precise lens of interest of the end-user. For example, the areas of interest when evaluating the current state will differ greatly between developers, security and networking. Tailored dashboards makes interpretation easier and accelerates time to detection and action",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -1374,12 +1154,7 @@
     "recommendation": {
       "title": "Access to operational and financial data should be tightly controlled to align with segregation of duties, while making sure that it doesn't hinder operational effectiveness; i.e. scenarios where developers have to raise an ITSM ticket to access logs should be avoided",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -1398,12 +1173,7 @@
     "recommendation": {
       "title": "You should not rely on people to actively look for issues. Instead an alerting solution should be in place that can push notifications to relevant teams. For example by email, SMS or into an mobile app.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -1422,12 +1192,7 @@
     "recommendation": {
       "title": "Instead of treating all alerts the same, there should be a well-defined process which determines what teams are responsible to react to which alert type.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -1445,12 +1210,7 @@
     "recommendation": {
       "title": "Tagging events with a specific severity or urgency helps operational teams priorities in cases where multiple events require intervention at the same time. For example, alerts concerning critical system flows might require special attention",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -1469,12 +1229,7 @@
     "recommendation": {
       "title": "It is important that alert owners get reliably notified of alerts, which could use many communication channels such as text messages, emails or push notifications to a mobile app",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -1492,12 +1247,7 @@
     "recommendation": {
       "title": "ITSM systems, such as ServiceNow, can help to document issues, notify and assign responsible parties, and track issues. For example,  operational alerts from the application could for be integrated to automatically create new tickets to track resolution",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -1540,12 +1290,7 @@
     "recommendation": {
       "title": "Azure Resource Health Alerts should be configured for specific resource groups and resource types, and should be adjusted to maximize signal to noise ratios, i.e. only distribute a notification when a resource becomes unhealthy according to the application health model or due to an Azure platform initiated event. It is therefore important to consider transient issues when setting an appropriate threshold for resource unavailability, such as configuring an alert for a virtual machine with a threshold of 1 minute for unavailability before an alert is triggered",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -1587,12 +1332,7 @@
     "recommendation": {
       "title": "The steps required to recover or fail over the application to a secondary Azure region in failure situations should be codified, preferably in an automated manner, to ensure capabilities exist to effectively respond to an outage in a way that limits impact. Similar codified steps should also exist to capture the process required to failback the application to the primary region once a failover triggering issue has been addressed",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     },
     "children": [
@@ -1603,12 +1343,7 @@
         "recommendation": {
           "title": "The precise steps required to failover and failback the application must be tested to validate the effectiveness of the defined disaster recovery approach. Testing of the disaster recovery strategy should occur according to a reasonably regular cadence, such as annually, to ensure that operational application changes do not impact the applicability of the selected approach",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       },
@@ -1619,12 +1354,7 @@
         "recommendation": {
           "title": "Regional failovers are significant operational activity and may incur some downtime, degraded functionality, or data loss depending on the recovery strategy used. Hence, the decision process as to what constitutes a failover should be clearly understood",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       },
@@ -1635,12 +1365,7 @@
         "recommendation": {
           "title": "A platform service outage in a specific region will likely require a failover to another region, whereas the accidental change of an firewall rule can be mitigated by a recovery process. The health model and all underlying data should be used to interpret which operational procedures should be triggered",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       },
@@ -1651,12 +1376,7 @@
         "recommendation": {
           "title": "When a disaster that affects multiple application components occurs, it's critical that the recovery plan can be used to take a complete inventory of what needs attention and how to prioritize each item. Each major process or workload that's implemented by an app should have separate RPO and RTO values. Each one should be generated through a separate analysis that examines disaster scenario risks and potential recovery strategies for each respective process.",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       },
@@ -1667,12 +1387,7 @@
         "recommendation": {
           "title": "Ideally failover can happen on a component-level instead of needing to failover the entire system together, when, for instance, only one service experiences an outage.",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       }
@@ -1693,12 +1408,7 @@
     "recommendation": {
       "title": "Automated responses to specific events help to reduce response times and limit errors associated with manual processes. Thus, wherever possible, it is recommended to have automation in place instead of relying on manual intervention.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     },
     "children": [
@@ -1709,12 +1419,7 @@
         "recommendation": {
           "title": "Automated operational responses should be tested frequently as part of the normal application lifecycle to ensure operational effectiveness",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       }
@@ -1735,12 +1440,7 @@
     "recommendation": {
       "title": "Operational runbooks should be defined to codify the procedures and relevant information needed for operations staff to respond to failures and maintain operational health",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     },
     "children": [
@@ -1751,12 +1451,7 @@
         "recommendation": {
           "title": "Manual operational runbooks should be tested frequently as part of the normal application lifecycle to ensure appropriateness and efficiency",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       }
@@ -1803,12 +1498,7 @@
     "recommendation": {
       "title": "Leveraging built-in Auto-scaling capabilities can help to maintain system reliability in times of increased demand while not needing to overprovision resources up-front, by letting a service automatically scale within a pre-configured range of resources. It greatly simplifies management and operational burdens. However, it must take into account the capacity model, else automated scaling of one component can impact downstream services if those are not also automatically scaled accordingly.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -1828,12 +1518,7 @@
     "recommendation": {
       "title": "Fluctuation in application traffic is typically expected. To ensure optimal operation is maintained, such variations should be met by automated scalability. The significance of automated capacity responses underpinned by a robust capacity model was highlighted by the COVID-19 crisis where many applications experienced severe traffic variations. While Auto-scaling enables a PaaS or IaaS service to scale within a pre-configured (and often times limited) range of resources, is provisioning or de-provisioning capacity a more advanced and complex process of for example adding additional scale units like additional clusters, instances or deployments. The process should be codified, automated and the effects of adding/removing capacity should be well understood.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -1851,12 +1536,7 @@
     "recommendation": {
       "title": "Any change in the health state of application components can influence the capacity demands on other components. Those impacts need to be fully understood and measures such as auto-scaling need to be in place to handle those.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -1945,12 +1625,7 @@
     "recommendation": {
       "title": "Preferably configuration information is stored using a dedicated configuration management system like Azure App Configuration or Azure Key Vault so that it can be updated independently of the application code.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -1968,12 +1643,7 @@
     "recommendation": {
       "title": "Application code and configuration should not share the same lifecycle to enable operational activities that change and update specific configurations without developer involvement or redeployment",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -2081,12 +1751,7 @@
         "recommendation": {
           "title": "Encryption keys and data should be backed up separately to optimise the security of underlying data",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       }
@@ -2131,12 +1796,7 @@
     "recommendation": {
       "title": "Tracking expiry dates of SSL/TLS certificates and renewing them in due time is therefore highly critical. Ideally the process should be automated, although this often depends on leveraged CA. If not automated, sufficient alerting should be applied to ensure expiry dates do not go unnoticed",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -2154,12 +1814,7 @@
     "recommendation": {
       "title": "The PNU process should be fully defined and understood for all relevant application components",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     },
     "children": [
@@ -2170,12 +1825,7 @@
         "recommendation": {
           "title": "Ideally the PNU process should be fully or partially automated to optimize response times for new updates and also to reduce the risks associated with manual intervention",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       },
@@ -2186,12 +1836,7 @@
         "recommendation": {
           "title": "Performing operations should be defined 'as-code' since it helps to minimize human error and increase consistency",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       }
@@ -2211,12 +1856,7 @@
     "recommendation": {
       "title": "It is recommended to have a defined strategy in place to rollback patches in case of an error or unexpected side effects",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -2234,12 +1874,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -2257,12 +1892,7 @@
     "recommendation": {
       "title": "Changing dependencies, such as new versions of packages, updated Docker images, should be factored into operational processes; the application team should be subscribed to release notes of dependent services, tools, and libraries",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -2280,12 +1910,7 @@
     "recommendation": {
       "title": "Reviewing operational incidents where the response and remediation to issues either failed or could have been optimized is vital to improving overall operational effectiveness. Failures provide a valuable learning opportunity and in some cases these learnings can also be shared across the entire organization",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -2303,12 +1928,7 @@
     "recommendation": {
       "title": "Operational procedures should be updated based on outcomes from frequent testing.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -2327,12 +1947,7 @@
     "recommendation": {
       "title": "The entire end-to-end CI/CD deployment process should be understood.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     },
     "children": [
@@ -2343,12 +1958,7 @@
         "recommendation": {
           "title": "The time it takes to perform a complete environment deployment should be fully understood as it needs to align with the recovery targets",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       }
@@ -2368,12 +1978,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -2408,12 +2013,7 @@
         "recommendation": {
           "title": "Any manual steps that are required in the deployment pipeline must be clearly documented with roles and responsibilities well defined.",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       }
@@ -2434,12 +2034,7 @@
     "recommendation": {
       "title": "The entire end-to-end deployment process should be understood and align with recovery targets.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -2459,12 +2054,7 @@
     "recommendation": {
       "title": "Automated deployment pipelines should allow for quick roll-forward and roll-back deployments to address critical bugs and code updates outside of the normal deployment lifecycle",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -2482,12 +2072,7 @@
     "recommendation": {
       "title": "In some scenarios there is an operational need to rapidly deploy changes, such as critical security updates. Having a defined process for how such changes can be safely and effectively performed helps greatly to prevent 'heat of the moment' issues.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -2529,12 +2114,7 @@
     "recommendation": {
       "title": "The use of source code control systems, such as Azure Repos or GitHub, and build and release systems, such as Azure Pipelines or GitHub Actions, should be understood, including the corresponding processes to access, review and approve changes",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     },
     "children": [
@@ -2545,12 +2125,7 @@
         "recommendation": {
           "title": "To optimize for collaboration and ensure developers spend less time managing version control and more time developing code, a clear and simple branching strategy should be used, such as Trunk-Based Development which is employed internally [within Microsoft Engineering](https://docs.microsoft.com/azure/devops/learn/devops-at-microsoft/use-git-microsoft).",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       }
@@ -2586,12 +2161,7 @@
         "recommendation": {
           "title": "Tools like Terraform offer a 'plan' command that helps to identify changes and monitor configuration drift, with Azure as the ultimate source of truth.",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       }
@@ -2612,12 +2182,7 @@
     "recommendation": {
       "title": "It is recommended that even small operational changes and modifications be implemented as-code to track changes and ensure they are fully reproduceable and revertible. No infrastructure changes should be done manually outside of IaC.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -2635,12 +2200,7 @@
     "recommendation": {
       "title": "It is recommended to define infrastructure deployments and changes as code and to use build and release tools to develop automated pipelines for their deployment.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -2659,12 +2219,7 @@
     "recommendation": {
       "title": "To completely validate the suitability of application changes, all changes should be tested in an environment that is fully reflective of production, to ensure there is no potential impact from environment deltas",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -2682,12 +2237,7 @@
     "recommendation": {
       "title": "The use of dependent services should be appropriately reflected in test environments",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -2706,12 +2256,7 @@
     "recommendation": {
       "title": "It is recommended to have a staged deployment process which requires changes to have been validated in test environments first before they can hit production.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -2770,12 +2315,7 @@
         "recommendation": {
           "title": "",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       },
@@ -2786,12 +2326,7 @@
         "recommendation": {
           "title": "",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       },
@@ -2802,12 +2337,7 @@
         "recommendation": {
           "title": "",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       },
@@ -2818,12 +2348,7 @@
         "recommendation": {
           "title": "",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       }
@@ -2913,12 +2438,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -2936,12 +2456,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -2959,12 +2474,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -2982,12 +2492,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -3005,12 +2510,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -3079,12 +2579,7 @@
     "recommendation": {
       "title": "Explore where technical delivery capabilities reside.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -3102,12 +2597,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     },
     "children": [
@@ -3118,12 +2608,7 @@
         "recommendation": {
           "title": "",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       },
@@ -3134,12 +2619,7 @@
         "recommendation": {
           "title": "",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       },
@@ -3175,12 +2655,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -3198,12 +2673,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -3221,12 +2691,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -3245,12 +2710,7 @@
     "recommendation": {
       "title": "Implement just-in-time privileged access management.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     },
     "children": [
@@ -3261,12 +2721,7 @@
         "recommendation": {
           "title": "Limit long-standing write access to production environments only to service principals.",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       }
@@ -3286,12 +2741,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -3309,12 +2759,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -3360,12 +2805,7 @@
     "recommendation": {
       "title": "Consider using the same datacenter region, Availability Zone and [Proximity Placement Groups](https://azure.microsoft.com/blog/announcing-the-general-availability-of-proximity-placement-groups/) and other options to bring latency sensitive components closer together. Keep also in mind that additional charges may apply when chatty workloads are spread across zones and region.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -3384,12 +2824,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -3462,12 +2897,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -3485,12 +2915,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -3554,12 +2979,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -3578,12 +2998,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -3625,12 +3040,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -3649,12 +3059,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -3674,12 +3079,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     },
     "children": [
@@ -3690,12 +3090,7 @@
         "recommendation": {
           "title": "",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       }
@@ -3761,12 +3156,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -3784,12 +3174,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -4057,12 +3442,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -4103,12 +3483,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -4126,12 +3501,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -4389,12 +3759,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -4413,12 +3778,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -4437,12 +3797,7 @@
     "recommendation": {
       "title": "Make sure that data size and growth is monitored, proper alerts are configured and develop (automated and codified, if possible) mitigation plans to help the application to remain available - or to recover if needed.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -4461,12 +3816,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -4485,12 +3835,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -4556,12 +3901,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -4579,12 +3919,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     },
     "children": [
@@ -4595,12 +3930,7 @@
         "recommendation": {
           "title": "",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       }
@@ -4621,12 +3951,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -4645,12 +3970,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     },
     "children": [
@@ -4661,12 +3981,7 @@
         "recommendation": {
           "title": "",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       }
@@ -4687,12 +4002,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -4710,12 +4020,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -4888,12 +4193,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -5076,12 +4376,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -5100,12 +4395,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -5124,12 +4414,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -5147,12 +4432,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -5190,12 +4470,7 @@
         "recommendation": {
           "title": "Rank identified threats based on organizational impact.",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       },
@@ -5206,12 +4481,7 @@
         "recommendation": {
           "title": "Centralize threat modeling results.",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       },
@@ -5222,12 +4492,7 @@
         "recommendation": {
           "title": "Map threats to mitigations.",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       },
@@ -5238,12 +4503,7 @@
         "recommendation": {
           "title": "Establish communication processes for identified threats.",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       }
@@ -5263,12 +4523,7 @@
     "recommendation": {
       "title": "Develop and implement a process to track, triage, and address threats into the application development lifecycle.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -5286,12 +4541,7 @@
     "recommendation": {
       "title": "Develop or implement established processes and timelines to deploy mitigations for identified threats.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     },
     "children": [
@@ -5302,12 +4552,7 @@
         "recommendation": {
           "title": "",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       }
@@ -5327,12 +4572,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     },
     "children": [
@@ -5343,12 +4583,7 @@
         "recommendation": {
           "title": "Perform regulatory compliance attestation.",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       },
@@ -5359,12 +4594,7 @@
         "recommendation": {
           "title": "Continuously assess and monitor compliance.",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       }
@@ -5384,12 +4614,7 @@
     "recommendation": {
       "title": "Periodically perform external and/or internal workload security audits.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     },
     "children": [
@@ -5400,12 +4625,7 @@
         "recommendation": {
           "title": "Perform regular internal and external compliance audits.",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       }
@@ -5456,12 +4676,7 @@
     "recommendation": {
       "title": "Include framework & library updates into workload lifecycle.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -5479,12 +4694,7 @@
     "recommendation": {
       "title": "Do not expose security details in error messages. Handle exceptions and failures gracefully (with retry logic) and log them for further inspection.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -5502,12 +4712,7 @@
     "recommendation": {
       "title": "Remove platform-specific information from HTTP headers, error messages, web site content (e.g. page footer).",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     },
     "children": [
@@ -5518,12 +4723,7 @@
         "recommendation": {
           "title": "Remove sensitive information from HTTP headers with Azure API Management or Azure Front Door.",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       }
@@ -5543,12 +4743,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -5566,12 +4761,7 @@
     "recommendation": {
       "title": "Establish detection and response strategy for identity risks.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -5612,12 +4802,7 @@
     "recommendation": {
       "title": "Conduct periodic access reviews for the workload.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -5658,12 +4843,7 @@
     "recommendation": {
       "title": "Establish an incident response plan and perform periodically a simulated execution.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -5681,12 +4861,7 @@
     "recommendation": {
       "title": "Define security playbooks which help to understand, investigte and respond to security incidents. It is recommended to automate as many steps of those procedures as you can. Automation reduces overhead. It can also improve your security by ensuring the process steps are done quickly, consistently, and according to your predefined requirements.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -5704,12 +4879,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -5743,12 +4913,7 @@
         "recommendation": {
           "title": "Implement Data Protection for trusted state information.",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       }
@@ -5768,12 +4933,7 @@
     "recommendation": {
       "title": "Establish processes and use tools to manage priviliged access.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -5791,12 +4951,7 @@
     "recommendation": {
       "title": "Implement resource locks to protect critical infrastructure.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -5814,12 +4969,7 @@
     "recommendation": {
       "title": "Clearly define CI/CD roles and permissions.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -5837,12 +4987,7 @@
     "recommendation": {
       "title": "Use managed identites for authentication to other Azure platform services.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -5860,12 +5005,7 @@
     "recommendation": {
       "title": "Require API authentication for all workloads.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     },
     "children": [
@@ -5876,12 +5016,7 @@
         "recommendation": {
           "title": "Standardize on modern authentication protocols.",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       }
@@ -5901,12 +5036,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -5924,12 +5054,7 @@
     "recommendation": {
       "title": "Implement Conditional Access Policies.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     },
     "children": [
@@ -5940,12 +5065,7 @@
         "recommendation": {
           "title": "Enforce password-less or MFA.",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       }
@@ -5965,12 +5085,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -5988,12 +5103,7 @@
     "recommendation": {
       "title": "Define an access model for keys and secrets. Use Azure Key Vault as the secure store and protect the keys/secrets with Azure RBAC.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -6011,12 +5121,7 @@
     "recommendation": {
       "title": "Provide guidance for either platform managed keys (PMK) or customer managed keys (CMK), based on security or compliance requirements of this workload.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -6034,12 +5139,7 @@
     "recommendation": {
       "title": "Protect all public endpoints with appropriate solutions, e.g. Azure Front Door, Application Gateway, Azure Firewall, Azure DDOS Protection or any 3rd party solution.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     },
     "children": [
@@ -6050,12 +5150,7 @@
         "recommendation": {
           "title": "Use web application firewall.",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       }
@@ -6075,12 +5170,7 @@
     "recommendation": {
       "title": "Protect non-public accessible services with network restrictions / IP firewall.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -6098,12 +5188,7 @@
     "recommendation": {
       "title": "Protect workload publishing methods and restrict those not in use.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     },
     "children": [
@@ -6114,12 +5199,7 @@
         "recommendation": {
           "title": "Implement an automated and gated CD/CD deployment process.",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       }
@@ -6140,12 +5220,7 @@
     "recommendation": {
       "title": "Use service endpoints and private links where appropriate.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -6163,12 +5238,7 @@
     "recommendation": {
       "title": "Use Azure Firewall or a 3rd party next generation firewall to protect against data exfiltration concerns.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -6186,12 +5256,7 @@
     "recommendation": {
       "title": "Use NSG or Azure Firewall to protect and control traffic within the VNet",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     },
     "children": [
@@ -6202,12 +5267,7 @@
         "recommendation": {
           "title": "Configure and collect network traffic logs.",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       }
@@ -6227,12 +5287,7 @@
     "recommendation": {
       "title": "Apply a layered defense in depth / zero trust approach, e.g. use Azure Security Center to detect data exfiltration attempts.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -6250,12 +5305,7 @@
     "recommendation": {
       "title": "Control network traffic between subnets (east/west) and application tiers (north/south).",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -6273,12 +5323,7 @@
     "recommendation": {
       "title": "Use standard and recommended encryption algorithms.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -6296,12 +5341,7 @@
     "recommendation": {
       "title": "Use encrypted network channels (TLS / HTTPS) for all client/server communication.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -6319,12 +5359,7 @@
     "recommendation": {
       "title": "Use TLS 1.2 by default on Azure. Prefer TLS 1.3 where possible.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -6342,12 +5377,7 @@
     "recommendation": {
       "title": "Use only secure hash algorithms (SHA-2 family).",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -6365,12 +5395,7 @@
     "recommendation": {
       "title": "Store customer managed keys in Azure Key Vault",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     },
     "children": [
@@ -6381,12 +5406,7 @@
         "recommendation": {
           "title": "Use an additional key encryption key (KEK) to protect your data encryption key (DEK).",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       }
@@ -6406,12 +5426,7 @@
     "recommendation": {
       "title": "Classify your data at rest and use encryption.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -6429,12 +5444,7 @@
     "recommendation": {
       "title": "Data in transit should be encrypted at all points to ensure data integrity.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -6452,12 +5462,7 @@
     "recommendation": {
       "title": "Adopt a formal DevSecOps approach to building and maintaining software.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -6498,12 +5503,7 @@
     "recommendation": {
       "title": "Configure quality gate approvals in DevOps release process.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -6521,12 +5521,7 @@
     "recommendation": {
       "title": "Involve security team into development process.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -6544,12 +5539,7 @@
     "recommendation": {
       "title": "Integrate code scanning tools within CI/CD pipeline.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     },
     "children": [
@@ -6560,12 +5550,7 @@
         "recommendation": {
           "title": "Include code scans into CI/CD process that also covers 3rd party dependencies and framework components.",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       }
@@ -6585,12 +5570,7 @@
     "recommendation": {
       "title": "Store keys and secrets outside of deployment pipeline in Azure Key Vault or in secure store for the pipeline.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -6608,12 +5588,7 @@
     "recommendation": {
       "title": "Scan container workloads for vulnerabilities.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -6631,12 +5606,7 @@
     "recommendation": {
       "title": "Implement branch policy strategy to enhance branch security.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -6654,12 +5624,7 @@
     "recommendation": {
       "title": "Apply security controls to self-hosted build agents in the same manner as with other Azure IaaS VMs.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -6677,12 +5642,7 @@
     "recommendation": {
       "title": "Use penetration testing and red team exercises to validate security defenses for this workload.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -6700,12 +5660,7 @@
     "recommendation": {
       "title": "Implement a landing zone concept with Azure Blueprints and Azure Policies.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     },
     "children": [
@@ -6716,12 +5671,7 @@
         "recommendation": {
           "title": "Use Azure Blueprints to consistently deploy environments that comply with organizational policies.",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       }
@@ -6741,12 +5691,7 @@
     "recommendation": {
       "title": "Define a set of Azure Policies which enforce organizational standards and are aligned with the governance team.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -6764,12 +5709,7 @@
     "recommendation": {
       "title": "Use native security capabilities in application services.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -6787,12 +5727,7 @@
     "recommendation": {
       "title": "Use services available from a cloud provider for well-established functions like databases, encryption, identity directory, and authentication.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -6810,12 +5745,7 @@
     "recommendation": {
       "title": "Define security requirements for the workload.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -6833,12 +5763,7 @@
     "recommendation": {
       "title": "Implement threat protection for the workload.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -6856,12 +5781,7 @@
     "recommendation": {
       "title": "Identify and classify business critical applications.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -6879,12 +5799,7 @@
     "recommendation": {
       "title": "Develop a security plan.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -6902,12 +5817,7 @@
     "recommendation": {
       "title": "Review, prioritize, and proactively apply security best practices to cloud resources.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -6925,12 +5835,7 @@
     "recommendation": {
       "title": "Implement holistic security resilience strategy.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -6948,12 +5853,7 @@
     "recommendation": {
       "title": "Implement defenses that detect and prevent easy and cheap attack methods.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -6971,12 +5871,7 @@
     "recommendation": {
       "title": "Implement security strategy to contain attacker access.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -6994,12 +5889,7 @@
     "recommendation": {
       "title": "Establish a SecOps team and monitor security related events.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     },
     "children": [
@@ -7010,12 +5900,7 @@
         "recommendation": {
           "title": "Define a process for aligning communication, investigation & hunting activities with the application team.",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       }
@@ -7035,12 +5920,7 @@
     "recommendation": {
       "title": "Ensure all Azure environments that connect to your production environment/network apply your organization’s policy and IT governance controls for security.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -7058,12 +5938,7 @@
     "recommendation": {
       "title": "Restrict access to backend services to a minimal set of public IP addresses, only those who really need it.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -7081,12 +5956,7 @@
     "recommendation": {
       "title": "Establish a unified enterprise segmentation strategy.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     },
     "children": [
@@ -7097,12 +5967,7 @@
         "recommendation": {
           "title": "Align cloud network segmentation strategy with the enterprise segmentation model.",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       }
@@ -7122,12 +5987,7 @@
     "recommendation": {
       "title": "Develop process and procedures to prevent direct Internet access of virtual machines (such as proxy or firewall) with logging and monitoring to enforce policies.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -7145,12 +6005,7 @@
     "recommendation": {
       "title": "Leverage a cloud application security broker (CASB).",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -7168,12 +6023,7 @@
     "recommendation": {
       "title": "Discover and remediate common risks to improve Secure Score in Azure Security Center.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -7191,12 +6041,7 @@
     "recommendation": {
       "title": "Establish designated group responsible for central network management.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -7214,12 +6059,7 @@
     "recommendation": {
       "title": "Evolve security beyond network controls.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -7237,12 +6077,7 @@
     "recommendation": {
       "title": "Deprecate legacy network security controls.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -7260,12 +6095,7 @@
     "recommendation": {
       "title": "Integrate network logs into a SIEM.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -7284,12 +6114,7 @@
     "recommendation": {
       "title": "Mitigate DDoS attacks. Use Standard protection for critical workloads where outage would have business impact. Also consider CDN as another layer of protection.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -7307,12 +6132,7 @@
     "recommendation": {
       "title": "Design virtual networks for growth.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -7330,12 +6150,7 @@
     "recommendation": {
       "title": "Build a security containment strategy.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -7353,12 +6168,7 @@
     "recommendation": {
       "title": "Implement identity-based storage access controls.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -7376,12 +6186,7 @@
     "recommendation": {
       "title": "Use tools like Azure Disk Encryption, BitLocker or DM-Crypt to encrypt virtual disks.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -7399,12 +6204,7 @@
     "recommendation": {
       "title": "Define a role & responsibility concept for managing keys and secrets.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -7422,12 +6222,7 @@
     "recommendation": {
       "title": "Put a solution in place that ensures all VMs are patched in a timely manner and that ensures strong local administrative password management.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -7445,12 +6240,7 @@
     "recommendation": {
       "title": "Establish a security operations center (SOC).",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -7468,12 +6258,7 @@
     "recommendation": {
       "title": "Simulate attack against users and critical accounts. Ensure proper follow-up to educate users about the various means that an attacker may use.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -7491,12 +6276,7 @@
     "recommendation": {
       "title": "Establish security benchmarking using [Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview) to align with industry standards.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -7514,12 +6294,7 @@
     "recommendation": {
       "title": "Develop security training program.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -7562,12 +6337,7 @@
     "recommendation": {
       "title": "Designate the parties responsible for specific functions in Azure.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -7585,12 +6355,7 @@
     "recommendation": {
       "title": "Review and consider elevated security capabilities for Azure workloads.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -7608,12 +6373,7 @@
     "recommendation": {
       "title": "Establish lifecycle management policy for critical accounts.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     },
     "children": [
@@ -7624,12 +6384,7 @@
         "recommendation": {
           "title": "Regularly review access for critical roles.",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       },
@@ -7640,12 +6395,7 @@
         "recommendation": {
           "title": "Assign all roles only as needed and review access periodically.",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       }
@@ -7665,12 +6415,7 @@
     "recommendation": {
       "title": "Establish a designated point of contact to receive Azure incident notifications from Microsoft.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -7688,12 +6433,7 @@
     "recommendation": {
       "title": "Document and implement a privileged access strategy sourced from Microsoft core services reference models.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -7711,12 +6451,7 @@
     "recommendation": {
       "title": "Synchronize on-premise directory with Azure AD",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     },
     "children": [
@@ -7727,12 +6462,7 @@
         "recommendation": {
           "title": "Avoid synching on-premises admin accounts to AAD.",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       },
@@ -7743,12 +6473,7 @@
         "recommendation": {
           "title": "Use cloud provider identity services for non-employees.",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       }
@@ -7768,12 +6493,7 @@
     "recommendation": {
       "title": "Use single identity provider for cross-platform IDM.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -7791,12 +6511,7 @@
     "recommendation": {
       "title": "Implement a well-defined identity strategy.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -7814,12 +6529,7 @@
     "recommendation": {
       "title": "Assign permissions based on management or resource groups.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -7837,12 +6547,7 @@
     "recommendation": {
       "title": "Ensure security team has \"Security Readers\" or equivalent on cloud resources in their purview.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -7860,12 +6565,7 @@
     "recommendation": {
       "title": "Add planning, testing, and validation rigor to the use of the root management group.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -7883,12 +6583,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -7906,12 +6601,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -7929,12 +6619,7 @@
     "recommendation": {
       "title": "Use Azure Advisor to identify SKUs for optimization.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     },
     "children": [
@@ -7945,12 +6630,7 @@
         "recommendation": {
           "title": "Review Azure Advisor recommendation periodically.",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       }
@@ -7970,12 +6650,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -7993,12 +6668,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     },
     "children": [
@@ -8009,12 +6679,7 @@
         "recommendation": {
           "title": "",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       },
@@ -8025,12 +6690,7 @@
         "recommendation": {
           "title": "",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       }
@@ -8050,12 +6710,7 @@
     "recommendation": {
       "title": "Use ACM or other cost management tools to understand if savings are possible.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -8073,12 +6728,7 @@
     "recommendation": {
       "title": "Choose appropriate region for workload deployment to optimize cost.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -8096,12 +6746,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -8119,12 +6764,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -8142,12 +6782,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -8166,12 +6801,7 @@
     "recommendation": {
       "title": "Make sure the optimal service SKUs are used for this workload.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -8189,12 +6819,7 @@
     "recommendation": {
       "title": "Make sure the optimal operating systems are used for this workload.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -8212,12 +6837,7 @@
     "recommendation": {
       "title": "Consider whether to deploy Hub and Spoke or Virtual WAN for this workload.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -8235,12 +6855,7 @@
     "recommendation": {
       "title": "Consider if the cost of data transfer is acceptable.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -8258,12 +6873,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -8281,12 +6891,7 @@
     "recommendation": {
       "title": "Set up alerts for cost limits and thresholds.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -8304,12 +6909,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -8327,12 +6927,7 @@
     "recommendation": {
       "title": "Utilize the PaaS pay-as-you-go consumption model where relevant.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -8350,12 +6945,7 @@
     "recommendation": {
       "title": "Use developer SKUs for dev/test purposes.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -8373,12 +6963,7 @@
     "recommendation": {
       "title": "Make sure to delete/deallocate resources used in test environments.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -8396,12 +6981,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -8419,12 +6999,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -8442,12 +7017,7 @@
     "recommendation": {
       "title": "Perform regular reviews focused on cost and spending for this workload.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -8465,12 +7035,7 @@
     "recommendation": {
       "title": "Assign a budget and spend limit to the workload.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -8488,12 +7053,7 @@
     "recommendation": {
       "title": "Establish a cost owner for each service used by the workload.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -8511,12 +7071,7 @@
     "recommendation": {
       "title": "Use cost forcasting as a tool to estimate if the workload is aligned with budget.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -8534,12 +7089,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -8557,12 +7107,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -8580,12 +7125,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -8603,12 +7143,7 @@
     "recommendation": {
       "title": "Revisit key Azure services to see if there were any updates which could reduce the spend.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -8626,12 +7161,7 @@
     "recommendation": {
       "title": "Understand how is the budget defined.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -8649,12 +7179,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -8672,12 +7197,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -8695,12 +7215,7 @@
     "recommendation": {
       "title": "See if you can use the hybrid use benefit to reuse licensing.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -8718,12 +7233,7 @@
     "recommendation": {
       "title": "Learn if there are any discounts available for the services already in use.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -8741,12 +7251,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -8764,12 +7269,7 @@
     "recommendation": {
       "title": "Make sure the workload works with cross-region peering efficiently and be aware of additional costs.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -8787,12 +7287,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -8810,12 +7305,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -8833,12 +7323,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -8856,12 +7341,7 @@
     "recommendation": {
       "title": "Automate based on the application lifespan, use DevOps and deployment automation, configure auto-scale policies for the workload (both in and out), select the right resource offering size (VM, disk, database), choose appropriate services that match business requirements.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -8879,12 +7359,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -8902,12 +7377,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -8925,12 +7395,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     },
     "children": [
@@ -8941,12 +7406,7 @@
         "recommendation": {
           "title": "",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       }
@@ -8966,12 +7426,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     },
     "children": [
@@ -8982,12 +7437,7 @@
         "recommendation": {
           "title": "",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       },
@@ -8998,12 +7448,7 @@
         "recommendation": {
           "title": "",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       }
@@ -9023,12 +7468,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -9046,12 +7486,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -9069,12 +7504,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -9092,12 +7522,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     },
     "children": [
@@ -9108,12 +7533,7 @@
         "recommendation": {
           "title": "",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       },
@@ -9124,12 +7544,7 @@
         "recommendation": {
           "title": "",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       }
@@ -9149,12 +7564,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -9172,12 +7582,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -9195,12 +7600,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -9218,12 +7618,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     },
     "children": [
@@ -9234,12 +7629,7 @@
         "recommendation": {
           "title": "",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       },
@@ -9250,12 +7640,7 @@
         "recommendation": {
           "title": "",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       },
@@ -9266,12 +7651,7 @@
         "recommendation": {
           "title": "",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       }
@@ -9291,12 +7671,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     },
     "children": [
@@ -9307,12 +7682,7 @@
         "recommendation": {
           "title": "",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       }
@@ -9332,12 +7702,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -9355,12 +7720,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     },
     "children": [
@@ -9371,12 +7731,7 @@
         "recommendation": {
           "title": "",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       },
@@ -9387,12 +7742,7 @@
         "recommendation": {
           "title": "",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       }
@@ -9412,12 +7762,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     },
     "children": [
@@ -9428,12 +7773,7 @@
         "recommendation": {
           "title": "",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       },
@@ -9444,12 +7784,7 @@
         "recommendation": {
           "title": "",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       }
@@ -9469,12 +7804,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     },
     "children": [
@@ -9485,12 +7815,7 @@
         "recommendation": {
           "title": "",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       },
@@ -9501,12 +7826,7 @@
         "recommendation": {
           "title": "",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       }
@@ -9526,12 +7846,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     },
     "children": [
@@ -9542,12 +7857,7 @@
         "recommendation": {
           "title": "",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       },
@@ -9558,12 +7868,7 @@
         "recommendation": {
           "title": "",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       }
@@ -9583,12 +7888,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     },
     "children": [
@@ -9599,12 +7899,7 @@
         "recommendation": {
           "title": "",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       },
@@ -9615,12 +7910,7 @@
         "recommendation": {
           "title": "",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       }
@@ -9640,12 +7930,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -9663,12 +7948,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -9686,12 +7966,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -9709,12 +7984,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     },
     "children": [
@@ -9725,12 +7995,7 @@
         "recommendation": {
           "title": "",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       },
@@ -9741,12 +8006,7 @@
         "recommendation": {
           "title": "",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       },
@@ -9757,12 +8017,7 @@
         "recommendation": {
           "title": "",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       },
@@ -9773,12 +8028,7 @@
         "recommendation": {
           "title": "",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       }
@@ -9798,12 +8048,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     },
     "children": [
@@ -9814,12 +8059,7 @@
         "recommendation": {
           "title": "",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       },
@@ -9830,12 +8070,7 @@
         "recommendation": {
           "title": "",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       },
@@ -9846,12 +8081,7 @@
         "recommendation": {
           "title": "Azure Cache for Redis is a preferred solution for data caching as it improves performance by storing data in memory instead of on disk like SQL Server. Certain development frameworks like .NET also have mechanisms for caching data at the server level.",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       }
@@ -9872,12 +8102,7 @@
     "recommendation": {
       "title": "Use CDN to speed up delivery performance to users and to separate the hosting platform from the end users / clients.",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -9895,12 +8120,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -9918,12 +8138,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -9941,12 +8156,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -9964,12 +8174,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -9989,12 +8194,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -10012,12 +8212,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -10035,12 +8230,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -10058,12 +8248,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     },
     "children": [
@@ -10074,12 +8259,7 @@
         "recommendation": {
           "title": "",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       },
@@ -10090,12 +8270,7 @@
         "recommendation": {
           "title": "",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       }
@@ -10115,12 +8290,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     },
     "children": [
@@ -10131,12 +8301,7 @@
         "recommendation": {
           "title": "",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       },
@@ -10147,12 +8312,7 @@
         "recommendation": {
           "title": "",
           "context": "",
-          "links": [
-            {
-              "title": "",
-              "url": ""
-            }
-          ],
+          "links": [],
           "priority": "medium"
         }
       }
@@ -10172,12 +8332,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   },
@@ -10195,12 +8350,7 @@
     "recommendation": {
       "title": "",
       "context": "",
-      "links": [
-        {
-          "title": "",
-          "url": ""
-        }
-      ],
+      "links": [],
       "priority": "medium"
     }
   }
