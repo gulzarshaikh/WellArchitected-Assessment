@@ -302,10 +302,10 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 * Is an Application Performance Management (APM) tool used collect application level logs?
 
   _In order to successfully maintain the application it's important to 'turn the lights on' and have clear visibility of important metrics both in real-time and historically._
-  > An APM technology, such as Application Insights, should be used to manage the performance and availability of the application, aggregating application level logs and events for subsequent interpretation. It should be considered what is the appropriate level of logging, because too much can incur significant costs.
+  > An APM technology, such as [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview), should be used to manage the performance and availability of the application, aggregating application level logs and events for subsequent interpretation. It should be considered what is the appropriate level of logging, because too much can incur significant costs.
   
     Additional resources:
-    - [Log Analytics pricing](https://azure.microsoft.com/pricing/details/monitor/)
+    - [What is Application Insights?](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)
 ### Resource and Infrastructure Level Monitoring
             
 * Which log aggregation technology is used to collect logs and metrics from Azure resources?
