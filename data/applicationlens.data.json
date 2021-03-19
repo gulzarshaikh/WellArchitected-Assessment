@@ -4013,7 +4013,7 @@
           "url": "https://docs.microsoft.com/azure/azure-sql/database/service-tier-business-critical"
         },
         {
-          "title": "Azure Storage redundancy", 
+          "title": "Azure Storage redundancy",
           "url": "https://docs.microsoft.com/azure/storage/common/storage-redundancy"
         }
       ],
@@ -4082,8 +4082,7 @@
       "context": "",
       "links": [
         {
-          "title": "Azure Storage redundancy
-          ",
+          "title": "Azure Storage redundancy\n          ",
           "url": "https://docs.microsoft.com/azure/storage/common/storage-redundancy"
         }
       ],

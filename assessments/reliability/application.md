@@ -483,7 +483,7 @@ These critical design principles are used as lenses to assess the Reliability of
     - [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/)
 * How is the client traffic routed to the application in the case of region, zone or network outage?
 
-  _In the event of a major outage, client traffic should be routable to application deployments which remain available across other regions or zones. This is ultimately where cross-premises connectivity and global load balancing should be used, depending on whether the application is internal and/or external facing. Services such as Azure Front Door, Azure Traffic Manager, or third-party CDNs can route traffic across regions based on application health solicited via health probes._
+  _In the event of a major outage, client traffic should be routable to application deployments which remain available across other regions or zones. This is ultimately where cross-premises connectivity and global load balancing should be used, depending on whether the application is internal and/or external facing. Services such as [Azure Front Door](https://docs.microsoft.com/azure/frontdoor/front-door-overview), [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview), or third-party CDNs can route traffic across regions based on application health solicited via health probes._
   
     Additional resources:
     - [Traffic Manager endpoint monitoring](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring)
@@ -493,8 +493,12 @@ These critical design principles are used as lenses to assess the Reliability of
             
 * Are all data and storage services running in a HA configuration/SKU?
 
-  _Azure data platform services offer resiliency features to support application reliability, though they may only be applicable at a certain SKU. For instance, Azure SQL Database Business Critical SKUs, or Azure Storage Zone Redundant Storage (ZRS) with three synchronous replicas spread across AZs_
+  _Azure data platform services offer resiliency features to support application reliability, though they may only be applicable at a certain SKU. For instance, [Azure SQL Database Business Critical SKUs](https://docs.microsoft.com/azure/azure-sql/database/service-tier-business-critical), or [Azure Storage Zone Redundant Storage (ZRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy) with three synchronous replicas spread across Availability Zones._
   
+    Additional resources:
+    - [Business Critical tier - Azure SQL Database and Azure SQL Managed Instance](https://docs.microsoft.com/azure/azure-sql/database/service-tier-business-critical)
+  
+    - [Azure Storage redundancy](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
 ### Consistency
             
 * How does CAP theorem apply to the data platform and key application scenarios?
@@ -513,6 +517,9 @@ These critical design principles are used as lenses to assess the Reliability of
 
   _Replicating data across zones or paired regions supports application availability objectives to limit the impact of failure scenarios_
   
+    Additional resources:
+    - [Azure Storage redundancy
+](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
 * Has a data restore process been defined and tested to ensure a consistent application state?
 
   _Regular testing of the data restore process promotes operational excellence and confidence in the ability to recover data in alignment with defined recovery objectives for the application_
