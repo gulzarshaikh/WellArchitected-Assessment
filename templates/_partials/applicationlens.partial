@@ -38,26 +38,39 @@ These critical design principles are used as lenses to assess the {{ .pillarDisp
 ### {{ $subCategory.title }}
             {{ range $question := $questionsInSubCategory }}
 * {{ safeHTML $question.title }}
-
 {{ if $question.context }}
   _{{ safeHTML (trim $question.context " ") }}_
 {{- end -}}
-
 {{ if (and ($question.recommendation) ($question.recommendation.title)) }}
   > {{ safeHTML (trim $question.recommendation.title " ") }}
 {{- end -}}
 {{ range $child := $question.children }}
     - {{ $child.title }}
-
 {{ if $child.context }}
       _{{ safeHTML (trim $child.context " ") }}_
-{{- end }}
+{{- end -}}
 {{ if (and ($child.recommendation) ($child.recommendation.title)) }}
       > {{ safeHTML (trim $child.recommendation.title " ") }}
 {{- end -}}
+  {{ range $index, $link := $child.recommendation.links }}
+  {{ if (and (eq $index 0) ($link.title) ($link.url)) }}
+      Additional resources:
+  {{- end -}}
+  {{ if (and ($link.title) ($link.url)) }}
+        - [{{ safeHTML (trim $link.title " ")}}]({{ $link.url }})
+  {{- end -}}
+  {{- end -}}
 {{- end -}}
+  {{ range $index, $link := $question.recommendation.links }}
+  {{ if (and (eq $index 0) ($link.title) ($link.url)) }}
+    Additional resources:
+  {{- end -}}
+  {{ if (and ($link.title) ($link.url)) }}
+    - [{{ safeHTML (trim $link.title " ")}}]({{ $link.url }})
+  {{- end -}}
+  {{- end -}}
             {{- end -}}
         {{- end -}}
     {{- end }}
     {{- end }}
-{{- end -}}
+{{- end }}
