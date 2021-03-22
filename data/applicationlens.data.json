@@ -2310,8 +2310,8 @@
     "title": "Is the application tested for performance, scalability, and resiliency?",
     "context": "**Performance testing** is the superset of both load and stress testing. The primary goal of performance testing is to validate benchmark behavior for the application.<br />**Load Testing** validates application scalability by rapidly and/or gradually increasing the load on the application until it reaches a threshold/limit.<br />**Stress Testing** is a type of negative testing which involves various activities to overload existing resources and remove components to understand overall resiliency and how the application responds to issues.",
     "recommendation": {
-      
-      "context": "Define a testing strategy.",
+      "title": "Define a testing strategy.",
+      "context": "",
       "links": [
         {
           "title": "Testing strategies",
