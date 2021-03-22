@@ -106,10 +106,9 @@
               }
             },
             "dependencies": {
-              "$comment": "If context property is present, then title property is required and has to contain some text.",
               "context": {
                 "properties": {
-                  "title": { "minLength": 1 }
+                  "title": { "minLength": 0 }
                 },
                 "required": ["title"]
               }
