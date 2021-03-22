@@ -260,10 +260,10 @@
     "category": "Application Design",
     "subCategory": "Targets & Non Functional Requirements",
     "title": "Are availability targets such as Service Level Agreements (SLAs), Service Level Indicators (SLIs), and Service Level Objectives (SLOs) defined for the application and/or key scenarios?",
-    "context": "Understanding customer availability expectations is vital to reviewing overall operations for the application. For instance, if a customer is striving to achieve an application SLO of 99.999%, the level of inherent operational actionality required by the application is going to far greater than if an SLO of 99.9% was the aspiration",
+    "context": "Understanding customer availability expectations is vital to reviewing overall operations for the application. For instance, if a customer is striving to achieve an application SLO of 99.999%, the level of inherent operational actionality required by the application is going to far greater than if an SLO of 99.9% was the aspiration.",
     "recommendation": {
-      "title": "Having clearly defined availability targets is crucial in order to have a goal to work and measure against. This will also determine which services an application can leverage vs. those which do not qualify in terms of the SLA they offer.",
-      "context": "",
+      "title": "Have clearly defined availability targets.",
+      "context": "Having clearly defined availability targets is crucial in order to have a goal to work and measure against. This will also determine which services an application can leverage vs. those which do not qualify in terms of the SLA they offer.",
       "links": [],
       "priority": "medium"
     },
@@ -271,9 +271,9 @@
       {
         "id": "c13f33bd-ae2e-4481-812b-617bae0b6703",
         "title": "Are SLAs/SLOs/SLIs for all leveraged dependencies understood?",
-        "context": "Availability targets for any dependencies leveraged by the application should be understood and ideally align with application targets",
+        "context": "If the application is depending on external services, their availability targets/commitments should be understood and ideally aligned with application targets.",
         "recommendation": {
-          "title": "Make sure SLAs/SLOs/SLIs for all leveraged dependencies are understood",
+          "title": "Make sure SLAs/SLOs/SLIs for all leveraged dependencies are understood.",
           "context": "",
           "links": [],
           "priority": "medium"
@@ -6355,8 +6355,8 @@
     "lens": "application",
     "category": "Governance",
     "subCategory": "Standards",
-    "title": "Has the organization implemented or considered implementing elevated security capabilities such as dedicated Hardware Security Modules (HSMs) or the use of [Confidential Computing](https://azure.microsoft.com/solutions/confidential-compute/)?",
-    "context": "Careful consideration is necessary on whether to utilize specialized security capabilities in an organization’s enterprise architecture.",
+    "title": "Has the organization implemented or considered implementing elevated security capabilities such as dedicated Hardware Security Modules (HSMs) or the use of Confidential Computing?",
+    "context": "Careful consideration is necessary on whether to utilize specialized security capabilities in the workload architecture. These capabilities include dedicated [Hardware Security Modules](https://docs.microsoft.com/azure/key-vault/managed-hsm/overview) and [Confidential Computing](https://azure.microsoft.com/solutions/confidential-compute/).",
     "recommendation": {
       "title": "Review and consider elevated security capabilities for Azure workloads.",
       "context": "",
