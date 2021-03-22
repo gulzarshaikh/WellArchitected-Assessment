@@ -104,6 +104,15 @@
               "priority": {
                 "type": "string"
               }
+            },
+            "dependencies": {
+              "$comment": "If context property is present, then title property is required and has to contain some text.",
+              "context": {
+                "properties": {
+                  "title": { "minLength": 1 }
+                },
+                "required": ["title"]
+              }
             }
           },
           "code": {
@@ -158,6 +167,9 @@
                         "priority": {
                           "type": "string"
                         }
+                      },
+                      "dependencies": {
+                        "context": { "required": ["title"]}
                       }
                     },
                     "code": {
