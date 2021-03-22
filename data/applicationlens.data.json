@@ -1359,10 +1359,10 @@
       {
         "id": "c1285732-71c4-4be6-a1ed-d1ff41e95d69",
         "title": "How is a failover decided and initiated?",
-        "context": "Regional failovers are significant operational activity and may incur some downtime, degraded functionality, or data loss depending on the recovery strategy used. The failover process should be fully automated and tested, or at least the process should be clearly documented.",
+        "context": "Regional failovers are significant operational activities and may incur some downtime, degraded functionality, or data loss depending on the recovery strategy used. The failover process should be fully automated and tested, or at least the process should be clearly documented.",
         "recommendation": {
-          "title": "Document and uderstand the failover process ",
-          "context": "Regional failovers are significant operational activity and may incur some downtime, degraded functionality, or data loss depending on the recovery strategy used. Hence, the process itself and also the decision process as to what constitutes a failover should be clearly understood.",
+          "title": "Document and understand the failover process ",
+          "context": "Regional failovers are significant operational activities and may incur some downtime, degraded functionality, or data loss depending on the recovery strategy used. Hence, the process itself and also the decision process as to what constitutes a failover should be clearly understood.",
           "links": [],
           "priority": "medium"
         }
