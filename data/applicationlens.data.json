@@ -7404,27 +7404,14 @@
     "lens": "application",
     "category": "Application Design",
     "subCategory": "Design",
-    "title": "When designing the application, were you able to choose the data source during the design phase?",
+    "title": "What datasources are you using? Were you able to choose the data source during the design phase?",
     "context": "Your application will most likely require more than one type of datastore depending on business requirements. Choosing the right mix and correct implementation is extremely important for optimizing application performance.",
     "recommendation": {
       "title": "",
       "context": "",
       "links": [],
       "priority": "medium"
-    },
-    "children": [
-      {
-        "id": "12498685-561c-4036-8bfd-aa8b0e8333d2",
-        "title": "What datasources are you using?",
-        "context": "Your application will most likely require more than one type of datastore depending on business requirements. Choosing the right mix and correct implementation is extremely important for optimizing application performance.",
-        "recommendation": {
-          "title": "",
-          "context": "",
-          "links": [],
-          "priority": "medium"
-        }
-      }
-    ]
+    }
   },
   {
     "id": "9483630e-5fb4-4529-af59-36cdf017ab10",
