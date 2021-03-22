@@ -76,7 +76,7 @@
     "context": "Multiple regions should be used for failover purposes in a disaster state, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active strategies. Additional cost needs to be taken into consideration - mostly from compute, data and networking perspective, but also services like [Azure Site Recovery (ASR)](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview).",
     "recommendation": {
       "title": "Deploy across multiple regions for higher availability.",
-      "context": "",
+      "context": "The ultimate goal is to set up the infrastructure in a way that it's able to react to regional disasters. While active-active configuration would be the north star, not every workload requires two regions running simultaneously at all times. Depending on the availability, performance and cost requirements, passive or warm standby can be viable alternatives too.",
       "links": [
         {
           "title": "Failover strategies",
