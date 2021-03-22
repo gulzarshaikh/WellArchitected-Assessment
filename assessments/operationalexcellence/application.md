@@ -116,7 +116,7 @@ These critical design principles are used as lenses to assess the Operational Ex
     - Were regions chosen based on location and proximity to your users or based on resource types that were available?
 
       _Not only is it important to utilize regions close to your audience, but it is equally important to choose regions that offer the SKUs that will support your future growth. Not all regions share the same parity when it comes to product SKUs._
-      > Plan your growth, then choose regions that will support those plans.  The ultimate goal is to set up the infrastructure in a way that it's able to automatically react to regional disasters. While active-active configuration would be the north star, not every workload requires two regions running simultaneously at all times, some don't even support it due to technical limitations. Depending on the availability, performance and cost requirements, passive or warm standby can be viable alternatives too.
+      > Plan your growth, then choose regions that will support those plans. 
   
       Additional resources:
         - [Products available by region](https://azure.microsoft.com/global-infrastructure/services/)
@@ -187,29 +187,29 @@ These critical design principles are used as lenses to assess the Operational Ex
     - Are SLAs/SLOs/SLIs for all leveraged dependencies understood?
 
       _If the application is depending on external services, their availability targets/commitments should be understood and ideally aligned with application targets._
-      > Make sure SLAs/SLOs/SLIs for all leveraged dependencies are understood.  Having clearly defined availability targets is crucial in order to have a goal to work and measure against. This will also determine which services an application can leverage vs. those which do not qualify in terms of the SLA they offer.
+      > Make sure SLAs/SLOs/SLIs for all leveraged dependencies are understood. 
     - Has a composite Service-Level Agreement (SLA) been calculated for the application and/or key scenarios using Azure SLAs?
 
       _A [composite SLA](https://docs.microsoft.com/azure/architecture/framework/resiliency/business-metrics#understand-service-level-agreements) captures the end-to-end SLA across all application components and dependencies. It is calculated using the individual SLAs of Azure services housing application components and provides an important indicator of designed availability in relation to customer expectations and targets._
-      > Make sure the composite SLA of all components and dependencies on the critical paths are understood.  Having clearly defined availability targets is crucial in order to have a goal to work and measure against. This will also determine which services an application can leverage vs. those which do not qualify in terms of the SLA they offer.
+      > Make sure the composite SLA of all components and dependencies on the critical paths are understood. 
   
       Additional resources:
         - [Composite SLA](https://docs.microsoft.com/azure/architecture/framework/resiliency/business-metrics#understand-service-level-agreements)
     - Are availability targets considered while the system is running in disaster recovery mode?
 
       _The above defined targets might or might not be applied when running in DR mode. This depends from application to application._
-      > Consider availability targets for disaster recovery mode.  Having clearly defined availability targets is crucial in order to have a goal to work and measure against. This will also determine which services an application can leverage vs. those which do not qualify in terms of the SLA they offer.
+      > Consider availability targets for disaster recovery mode.  If targets must also apply in a failure state then an N+1 model should be used to achieve greater availability and resiliency, where N is the capacity needed to deliver required availability. There's also a cost implication, because more resilient infrastructure usually means more expensive. This has to be accepted by business.
     - Are availability targets monitored and measured?
 
       _Monitoring and measuring application availability is vital to qualifying overall application health and progress towards defined targets._
-      > Measure and monitor key availability targets.  Having clearly defined availability targets is crucial in order to have a goal to work and measure against. This will also determine which services an application can leverage vs. those which do not qualify in terms of the SLA they offer.
+      > Measure and monitor key availability targets.  Make sure you measure and monitor key targets such as **Mean Time Between Failures (MTBF)** which denotes the average time between failures of a particular component.
   
       Additional resources:
         - [Mean Time Between Failures](https://en.wikipedia.org/wiki/Mean_time_between_failures)
     - What are the consequences if availability targets are not satisfied?
 
       _Are there any penalties, such as financial charges, associated with failing to meet SLA commitments? Additional measures can be used to prevent penalties, but that also brings additional cost to operate the infrastructure. This has to be factored in and evaluated._
-      > Understand the consequences of missing availability targets.  Having clearly defined availability targets is crucial in order to have a goal to work and measure against. This will also determine which services an application can leverage vs. those which do not qualify in terms of the SLA they offer.
+      > Understand the consequences of missing availability targets.  It should be fully understood what are the consequences if availability targets are not satisfied. This will also inform when to initiate a failover case.
 * Are recovery targets such as Recovery Time Objective (RTO) and Recovery Point Objective (RPO) defined for the application and/or key scenarios?
 
   _Understanding customer reliability expectations is vital to reviewing the overall reliability of the application. For instance, if a customer is striving to achieve an application RTO of less than a minute then back-up based and active-passive disaster recovery strategies are unlikely to be appropriate<br />**Recovery time objective (RTO)**: The maximum acceptable time the application is unavailable after a disaster incident<br />**Recovery point objective (RPO)**: The maximum duration of data loss that is acceptable during a disaster event_
@@ -238,15 +238,15 @@ These critical design principles are used as lenses to assess the Operational Ex
     - Are there any targets defined for the time it takes to perform scale operations?
 
       _Scale operations (horizontal - changing the number of identical instances, vertical - switching to more/less powerful instances) can be fast, but usually take time to complete. It's important to understand how this delay affects the application under load and if degraded performance is acceptable._
-      > The application should be designed to scale to cope with spikes in load in-line with what is an acceptable duration for degraded performance.  Work with stakeholders to identify sensible non-functional requirements based on business requirements, research and user testing.
+      > The application should be designed to scale to cope with spikes in load in-line with what is an acceptable duration for degraded performance. 
     - What is the maximum traffic volume the application is expected to serve without performance degradation?
 
       _Scale requirements the application must be able to effectively satisfy, such as the number of concurrent users or requests per second, is a critical lens for assessing operations. From the cost perspective, it's recommended to set a budget for extreme circumstances and indicate upper limit for cost (when it's not worth serving more traffic due to overall costs)._
-      > Traffic limits for the application should be defined in quantified and measurable manner.  Work with stakeholders to identify sensible non-functional requirements based on business requirements, research and user testing.
+      > Traffic limits for the application should be defined in quantified and measurable manner. 
     - Are these performance targets monitored and measured across the application and/or key scenarios?
 
       _Monitoring and measuring end-to-end application performance is vital to qualifying overall application health and progress towards defined targets._
-      > Automation and specialized tooling (such as Application Insights) should be used to orchestrate and measure application performance.  Work with stakeholders to identify sensible non-functional requirements based on business requirements, research and user testing.
+      > Automation and specialized tooling (such as Application Insights) should be used to orchestrate and measure application performance. 
 ### Key Scenarios
             
 * Have critical system flows through the application been defined for all key business scenarios?
@@ -270,11 +270,11 @@ These critical design principles are used as lenses to assess the Operational Ex
     - Do you maintain a complete list of application dependencies?
 
       _Examples of typical dependencies include platform dependencies outside the remit of the application, such as Azure Active Directory, Express Route, or a central NVA (Network Virtual Appliance), as well as application dependencies such as APIs which may be in-house or externally owned by a third-party. For cost it’s important to  understand the price for these services and how they are being charged, this makes it easier to understanding an all up cost. For more details see cost models._
-      > Map application dependencies either as a simple list or a document (usually this is part of a design document or reference architecture).  Dependencies may be categorized as either strong or weak based on whether or not the application is able to continue operating in a degraded fashion in their absence.
+      > Map application dependencies either as a simple list or a document (usually this is part of a design document or reference architecture). 
     - Is the impact of an outage with each dependency well understood?
 
       _Strong dependencies play a critical role in application function and availability meaning their absence will have a significant impact, while the absence of weak dependencies may only impact specific features and not affect overall availability. For cost this reflects the cost that is needed to maintain the HA relationship between the service and it’s dependencies. It would explain why certain measures needs to be maintained in order to hold a given SLA._
-      > Classify dependencies either as strong or weak. This will help identify which components are essential to the application.  Dependencies may be categorized as either strong or weak based on whether or not the application is able to continue operating in a degraded fashion in their absence.
+      > Classify dependencies either as strong or weak. This will help identify which components are essential to the application. 
   
     Additional resources:
     - [Twelve-Factor App: Dependencies](https://12factor.net/dependencies)
@@ -442,11 +442,11 @@ These critical design principles are used as lenses to assess the Operational Ex
   > Implement a health model.  A holistic application health model should be used to quantify what 'healthy' and 'unhealthy' states represent across all application components. It is highly recommended that a 'traffic light' model be used to indicate a green/healthy state when key non-functional requirements and targets are fully satisfied and resources are optimally utilized, e.g. 95% of requests are processed in <= 500ms with AKS node utilization at x% etc. Once established, this health model should inform critical monitoring metrics across system components and operational sub-system composition. It is important to note that the health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state.
     - Are critical system flows used to inform the health model?
 
-      > The health model should be able to surface the respective health of critical system flows or key subsystems to ensure appropriate operational prioritization is applied. For example, the health model should be able to represent the current state of the user login transaction flow.  A holistic application health model should be used to quantify what 'healthy' and 'unhealthy' states represent across all application components. It is highly recommended that a 'traffic light' model be used to indicate a green/healthy state when key non-functional requirements and targets are fully satisfied and resources are optimally utilized, e.g. 95% of requests are processed in <= 500ms with AKS node utilization at x% etc. Once established, this health model should inform critical monitoring metrics across system components and operational sub-system composition. It is important to note that the health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state.
+      > The health model should be able to surface the respective health of critical system flows or key subsystems to ensure appropriate operational prioritization is applied. For example, the health model should be able to represent the current state of the user login transaction flow. 
     - Can the health model distinguish between transient and non-transient faults?
 
       _Is the health model treating all failures the same?_
-      > The health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state.  A holistic application health model should be used to quantify what 'healthy' and 'unhealthy' states represent across all application components. It is highly recommended that a 'traffic light' model be used to indicate a green/healthy state when key non-functional requirements and targets are fully satisfied and resources are optimally utilized, e.g. 95% of requests are processed in <= 500ms with AKS node utilization at x% etc. Once established, this health model should inform critical monitoring metrics across system components and operational sub-system composition. It is important to note that the health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state.
+      > The health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state. 
     - Can the health model determine if the application is performing at expected performance targets?
 
       _The health model should have the ability to evaluate application performance as a part of the application's overall health state._
@@ -610,7 +610,7 @@ These critical design principles are used as lenses to assess the Operational Ex
     - How is a failover decided and initiated?
 
       _Regional failovers are significant operational activities and may incur some downtime, degraded functionality, or data loss depending on the recovery strategy used. The failover process should be fully automated and tested, or at least the process should be clearly documented._
-      > Document and understand the failover process 
+      > Document and understand the failover process  The failover process itself and also the decision process as to what constitutes a failover should be clearly understood.
     - Is the health model being used to classify failover situations?
 
       _It is important to know if a formal procedure is used to classify failover situations._

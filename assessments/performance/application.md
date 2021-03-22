@@ -47,7 +47,7 @@
     - Were regions chosen based on location and proximity to your users or based on resource types that were available?
 
       _Not only is it important to utilize regions close to your audience, but it is equally important to choose regions that offer the SKUs that will support your future growth. Not all regions share the same parity when it comes to product SKUs._
-      > Plan your growth, then choose regions that will support those plans.  The ultimate goal is to set up the infrastructure in a way that it's able to automatically react to regional disasters. While active-active configuration would be the north star, not every workload requires two regions running simultaneously at all times, some don't even support it due to technical limitations. Depending on the availability, performance and cost requirements, passive or warm standby can be viable alternatives too.
+      > Plan your growth, then choose regions that will support those plans. 
   
       Additional resources:
         - [Products available by region](https://azure.microsoft.com/global-infrastructure/services/)
@@ -138,15 +138,15 @@
     - Are there any targets defined for the time it takes to perform scale operations?
 
       _Scale operations (horizontal - changing the number of identical instances, vertical - switching to more/less powerful instances) can be fast, but usually take time to complete. It's important to understand how this delay affects the application under load and if degraded performance is acceptable._
-      > The application should be designed to scale to cope with spikes in load in-line with what is an acceptable duration for degraded performance.  Work with stakeholders to identify sensible non-functional requirements based on business requirements, research and user testing.
+      > The application should be designed to scale to cope with spikes in load in-line with what is an acceptable duration for degraded performance. 
     - What is the maximum traffic volume the application is expected to serve without performance degradation?
 
       _Scale requirements the application must be able to effectively satisfy, such as the number of concurrent users or requests per second, is a critical lens for assessing operations. From the cost perspective, it's recommended to set a budget for extreme circumstances and indicate upper limit for cost (when it's not worth serving more traffic due to overall costs)._
-      > Traffic limits for the application should be defined in quantified and measurable manner.  Work with stakeholders to identify sensible non-functional requirements based on business requirements, research and user testing.
+      > Traffic limits for the application should be defined in quantified and measurable manner. 
     - Are these performance targets monitored and measured across the application and/or key scenarios?
 
       _Monitoring and measuring end-to-end application performance is vital to qualifying overall application health and progress towards defined targets._
-      > Automation and specialized tooling (such as Application Insights) should be used to orchestrate and measure application performance.  Work with stakeholders to identify sensible non-functional requirements based on business requirements, research and user testing.
+      > Automation and specialized tooling (such as Application Insights) should be used to orchestrate and measure application performance. 
 ### Transactional
             
 * Can you measure the efficiency of the connections that are created to external services and datastores?
@@ -230,11 +230,11 @@
   > Implement a health model.  A holistic application health model should be used to quantify what 'healthy' and 'unhealthy' states represent across all application components. It is highly recommended that a 'traffic light' model be used to indicate a green/healthy state when key non-functional requirements and targets are fully satisfied and resources are optimally utilized, e.g. 95% of requests are processed in <= 500ms with AKS node utilization at x% etc. Once established, this health model should inform critical monitoring metrics across system components and operational sub-system composition. It is important to note that the health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state.
     - Are critical system flows used to inform the health model?
 
-      > The health model should be able to surface the respective health of critical system flows or key subsystems to ensure appropriate operational prioritization is applied. For example, the health model should be able to represent the current state of the user login transaction flow.  A holistic application health model should be used to quantify what 'healthy' and 'unhealthy' states represent across all application components. It is highly recommended that a 'traffic light' model be used to indicate a green/healthy state when key non-functional requirements and targets are fully satisfied and resources are optimally utilized, e.g. 95% of requests are processed in <= 500ms with AKS node utilization at x% etc. Once established, this health model should inform critical monitoring metrics across system components and operational sub-system composition. It is important to note that the health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state.
+      > The health model should be able to surface the respective health of critical system flows or key subsystems to ensure appropriate operational prioritization is applied. For example, the health model should be able to represent the current state of the user login transaction flow. 
     - Can the health model distinguish between transient and non-transient faults?
 
       _Is the health model treating all failures the same?_
-      > The health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state.  A holistic application health model should be used to quantify what 'healthy' and 'unhealthy' states represent across all application components. It is highly recommended that a 'traffic light' model be used to indicate a green/healthy state when key non-functional requirements and targets are fully satisfied and resources are optimally utilized, e.g. 95% of requests are processed in <= 500ms with AKS node utilization at x% etc. Once established, this health model should inform critical monitoring metrics across system components and operational sub-system composition. It is important to note that the health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state.
+      > The health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state. 
     - Can the health model determine if the application is performing at expected performance targets?
 
       _The health model should have the ability to evaluate application performance as a part of the application's overall health state._
