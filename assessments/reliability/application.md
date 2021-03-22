@@ -645,8 +645,8 @@ These critical design principles are used as lenses to assess the Reliability of
       > The precise steps required to failover and failback the application must be tested to validate the effectiveness of the defined disaster recovery approach. Testing of the disaster recovery strategy should occur according to a reasonably regular cadence, such as annually, to ensure that operational application changes do not impact the applicability of the selected approach.
     - How is a failover decided and initiated?
 
-      _Regional failovers are significant operational activity and may incur some downtime, degraded functionality, or data loss depending on the recovery strategy used. The failover process should be fully automated and tested, or at least the process should be clearly documented._
-      > Document and uderstand the failover process
+      _Regional failovers are significant operational activities and may incur some downtime, degraded functionality, or data loss depending on the recovery strategy used. The failover process should be fully automated and tested, or at least the process should be clearly documented._
+      > Document and understand the failover process
     - Is the health model being used to classify failover situations?
 
       _It is important to know if a formal procedure is used to classify failover situations._
