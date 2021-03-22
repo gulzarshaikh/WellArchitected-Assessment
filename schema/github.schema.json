@@ -168,7 +168,12 @@
                         }
                       },
                       "dependencies": {
-                        "context": { "required": ["title"]}
+                        "context": {
+                          "properties": {
+                            "title": { "minLength": 0 }
+                          },
+                          "required": ["title"]
+                        }
                       }
                     },
                     "code": {
