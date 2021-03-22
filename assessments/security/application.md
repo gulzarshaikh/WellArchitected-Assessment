@@ -109,7 +109,7 @@ These critical design principles are used as lenses to assess the Security of an
 * Are there any regulatory or governance requirements for this workload?
 
   _Regulatory requirements may mandate that operational data, such as application logs and metrics, remain within a certain geo-political region. This has obvious implications for how the application should be operationalized._
-  > Make sure that all regulatory requirements are known and well understood. Create processes for obtaining attestations and be familiar with the [Microsoft Trust Center](https://www.microsoft.com/trust-center). Regulatory requirements like data sovereignty and others might affect the overall architecture as well as the selection and configuration of specific PaaS and SaaS services.
+  > Make sure that all regulatory requirements are known and well understood.
   
     Additional resources:
     - [Microsoft Trust Center](https://www.microsoft.com/trust-center)
@@ -168,15 +168,15 @@ These critical design principles are used as lenses to assess the Security of an
 
       _Operational capabilities, such as auto-scale and auto-heal for App Services, can reduce management overheads, support operational effectiveness and reduce cost._
       > Make sure you understand the operational features/capabilities available and how they can be used in the solution.
-    - What technologies and frameworks are used by the application?
+* What technologies and frameworks are used by the application?
 
-      _It is important to understand what technologies are used by the application and must be managed, such as .NET Core , Spring, or Node.js._
-      > All technologies and frameworks should be identified. Vulnerabilities of these dependencies must be understood (there are automated solutions on the market that can help: [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/) or [NPM audit](https://docs.npmjs.com/cli/audit).
+  _It is important to understand what technologies are used by the application and must be managed, such as .NET Core , Spring, or Node.js._
+  > Identify technologies and frameworks used by the application.
   
-      Additional resources:
-        - [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/)
+    Additional resources:
+    - [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/)
   
-        - [NPM audit](https://docs.npmjs.com/cli/audit)
+    - [NPM audit](https://docs.npmjs.com/cli/audit)
 ### Threat Analysis
             
 * Has the workload been threat modeled?
@@ -197,7 +197,7 @@ These critical design principles are used as lenses to assess the Security of an
       > Map threats to mitigations.
     - Are identified threats communicated to stakeholders? E.g., business, IT, application users
 
-      _After defining and analyzing the risks, identify risk owners which are the roles that are responsible for mitigating the risk. They need to be aware of the risks so that they can start the mitigation process by allocating resources (e.g. financial or people)_
+      _After defining and analyzing the risks, identify risk owners which are the roles that are responsible for mitigating the risk. They need to be aware of the risks so that they can start the mitigation process by allocating resources (e.g. financial or people)._
       > Establish communication processes for identified threats.
   
     Additional resources:
@@ -230,7 +230,10 @@ These critical design principles are used as lenses to assess the Security of an
 * Does the organization evaluate the security posture of this workload using standard benchmarks?
 
   _[Benchmarking](https://docs.microsoft.com/azure/architecture/framework/Security/governance#evaluate-security-using-benchmarks) enables security program improvement by learning from external organizations. It lets the organization know how its current security state compares to that of other organizations. As an example, the Center for Internet Security (CIS) has created security benchmarks for Azure that map to the CIS Control Framework. Another reference example is the MITRE ATT&CK™ framework that defines the various adversary tactics and techniques based on real-world observations._
-  > Establish security benchmarking using [Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview) to align with industry standards.
+  > Establish security benchmarking using Azure Security Benchmark to align with industry standards.
+  
+    Additional resources:
+    - [Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview)
 ### Security Criteria &amp; Data Classification
             
 * How do you monitor and maintain your compliance of this workload?
@@ -558,10 +561,10 @@ These critical design principles are used as lenses to assess the Security of an
     - [Azure DDoS Protection](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview)
 * Is communication to Azure PaaS services secured using VNet Service Endpoints or Private Link?
 
-  _Service Endpoints and Private Link can be leveraged to restrict access to PaaS endpoints from only authorized virtual networks, effectively mitigating data intrusion risks and associated impact to application availability. Service Endpoints provide service level access to a PaaS service, while Private Link provides direct access to a specific PaaS resource to mitigate data exfiltration risks (e.g. malicious admin scenarios)_
+  _Service Endpoints and Private Link can be leveraged to restrict access to PaaS endpoints from only authorized virtual networks, effectively mitigating data intrusion risks and associated impact to application availability. Service Endpoints provide service level access to a PaaS service, while Private Link provides direct access to a specific PaaS resource to mitigate data exfiltration risks (e.g. malicious admin scenarios)._
 * If data exfiltration concerns exist for services where Private Link is not yet supported, is filtering via Azure Firewall or an NVA being used?
 
-  _NVA solutions and [Azure Firewall](https://docs.microsoft.com/azure/firewall/features) (for supported protocols) can be leveraged as a reverse proxy to restrict access to only authorized PaaS services for services where Private Link is not yet supported._
+  _NVA (Network Virtual Appliance) solutions and [Azure Firewall](https://docs.microsoft.com/azure/firewall/features) (for supported protocols) can be leveraged as a reverse proxy to restrict access to only authorized PaaS services for services where Private Link is not yet supported._
   
     Additional resources:
     - [Azure Firewall](https://docs.microsoft.com/azure/firewall/features)
@@ -625,7 +628,7 @@ These critical design principles are used as lenses to assess the Security of an
 * Does the organization store customer managed keys for this workload in Azure Key Vault and protect them with identity-based access control?
 
   _Keys must be stored in a secure location with identity-based access control and audit policies. Data encryption keys are often encrypted with a key encryption key in Azure Key Vault to further limit access._
-  > Store customer managed keys in Azure Key Vault
+  > Store customer managed keys in Azure Key Vault.
     - Does the organization protect customer managed keys in this workload with an additional key encryption key (KEK)?
 
       _More than one encryption key should be used in an encryption at rest implementation. Storing an encryption key in Azure Key Vault ensures secure key access and central management of keys._
@@ -652,7 +655,7 @@ These critical design principles are used as lenses to assess the Security of an
             
 * Where is application configuration information stored and how does the application access it?
 
-  _Application configuration information can be stored together with the application itself or preferably using a dedicated configuration management system like Azure App Configuration or Azure Key Vault_
+  _Application configuration information can be stored together with the application itself or preferably using a dedicated configuration management system like Azure App Configuration or Azure Key Vault._
   > Preferably configuration information is stored using a dedicated configuration management system like Azure App Configuration or Azure Key Vault so that it can be updated independently of the application code.
 * How are passwords and other secrets managed?
 
@@ -678,7 +681,7 @@ These critical design principles are used as lenses to assess the Security of an
 * Are the expiry dates of SSL/TLS certificates monitored and are processes in place to renew them?
 
   _Expired SSL/TLS certificates are one of the most common yet avoidable causes of application outages; even Azure and more recently Microsoft Teams have experienced outages due to expired certificates._
-  > Tracking expiry dates of SSL/TLS certificates and renewing them in due time is therefore highly critical. Ideally the process should be automated, although this often depends on leveraged CA. If not automated, sufficient alerting should be applied to ensure expiry dates do not go unnoticed
+  > Tracking expiry dates of SSL/TLS certificates and renewing them in due time is therefore highly critical. Ideally the process should be automated, although this often depends on leveraged CA. If not automated, sufficient alerting should be applied to ensure expiry dates do not go unnoticed.
 * Is there a defined access model for keys and secrets for this workload?
 
   _Permissions to keys and secrets have to be controlled with an [access model](https://docs.microsoft.com/azure/key-vault/general/secure-your-key-vault)._
@@ -725,7 +728,7 @@ These critical design principles are used as lenses to assess the Security of an
 * Can N-1 or N+1 versions be deployed via automated pipelines where N is current deployment version in production?
 
   _N-1 and N+1 refer to roll-back and roll-forward. Automated deployment pipelines should allow for quick roll-forward and roll-back deployments to address critical bugs and code updates outside of the normal deployment lifecycle._
-  > Automated deployment pipelines should allow for quick roll-forward and roll-back deployments to address critical bugs and code updates outside of the normal deployment lifecycle
+  > Automated deployment pipelines should allow for quick roll-forward and roll-back deployments to address critical bugs and code updates outside of the normal deployment lifecycle.
 * Are code scanning tools an integrated part of the continuous integration (CI) process for this workload?
 
   _Credentials should not be stored in source code or configuration files, because that increases the risk of exposure. Code analyzers (such as Roslyn analyzers for Visual Studio) can prevent from pushing credentials to source code repository and pipeline addons such as CredScan (part of Microsoft Security Code Analysis) help to catch credentials during the build process._
@@ -758,8 +761,11 @@ These critical design principles are used as lenses to assess the Security of an
             
 * Does the organization use Azure Defender (Azure Security Center) or any third-party solution to scan containers in this workload for vulnerabilities?
 
-  _Azure Security Center is the Azure-native solution for securing containers. Security Center can protect virtual machines that are running Docker, Azure Kubernetes Service clusters, Azure Container Registry registries. ASC is able to scan container images and identify security issues, or provide real-time threat detection for containerized environments. [Container Security in Security Center](https://docs.microsoft.com/azure/security-center/container-security)_
+  _Azure Security Center is the Azure-native solution for securing containers. Security Center can protect virtual machines that are running Docker, Azure Kubernetes Service clusters, Azure Container Registry registries. ASC is able to scan container images and identify security issues, or provide real-time threat detection for containerized environments._
   > Scan container workloads for vulnerabilities.
+  
+    Additional resources:
+    - [Container Security in Security Center](https://docs.microsoft.com/azure/security-center/container-security)
 * Does the organization perform penetration testing or have a third-party entity perform penetration testing of this workload to validate the current security defenses?
 
   _Real world validation of security defenses is critical to validate a defense strategy and implementation. Penetration tests or red team programs can be used to simulate either one time, or persistent threats against an organization to validate defenses that have been put in place to protect organizational resources._
@@ -833,7 +839,7 @@ These critical design principles are used as lenses to assess the Security of an
     - [Use tags to organize your Azure resources and management hierarchy](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources)
   
     - [Tagging Strategies](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging)
-* Has the organization implemented or considered implementing elevated security capabilities such as dedicated Hardware Security Modules (HSMs) or the use of [Confidential Computing](https://azure.microsoft.com/solutions/confidential-compute/)?
+* Has the organization implemented or considered implementing elevated security capabilities such as dedicated Hardware Security Modules (HSMs) or the use of Confidential Computing?
 
-  _Careful consideration is necessary on whether to utilize specialized security capabilities in an organization’s enterprise architecture._
+  _Careful consideration is necessary on whether to utilize specialized security capabilities in the workload architecture. These capabilities include dedicated [Hardware Security Modules](https://docs.microsoft.com/azure/key-vault/managed-hsm/overview) and [Confidential Computing](https://azure.microsoft.com/solutions/confidential-compute/)._
   > Review and consider elevated security capabilities for Azure workloads.

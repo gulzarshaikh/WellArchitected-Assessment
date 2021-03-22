@@ -97,6 +97,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 * Is the workload deployed across multiple regions?
 
   _Multiple regions should be used for failover purposes in a disaster state, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active strategies. Additional cost needs to be taken into consideration - mostly from compute, data and networking perspective, but also services like [Azure Site Recovery (ASR)](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)._
+  > Deploy across multiple regions for higher availability.
     - Were regions chosen based on location and proximity to your users or based on resource types that were available?
 
       _Not only is it important to utilize regions close to your audience, but it is equally important to choose regions that offer the SKUs that will support your future growth. Not all regions share the same parity when it comes to product SKUs._
@@ -130,7 +131,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
     - [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones)
 * Is component proximity required for application performance reasons?
 
-  _If all or part of the application is highly sensitive to latency it may mandate component co-locality which can limit the applicability of multi-region and multi-zone strategies_
+  _If all or part of the application is highly sensitive to latency it may mandate component co-locality which can limit the applicability of multi-region and multi-zone strategies._
   > Consider using the same datacenter region, Availability Zone and [Proximity Placement Groups](https://azure.microsoft.com/blog/announcing-the-general-availability-of-proximity-placement-groups/) and other options to bring latency sensitive components closer together. Keep also in mind that additional charges may apply when chatty workloads are spread across zones and region.
 * Has the application been designed to scale-out?
 
@@ -158,12 +159,12 @@ These critical design principles are used as lenses to assess the Cost Optimizat
             
 * Are availability targets such as Service Level Agreements (SLAs), Service Level Indicators (SLIs), and Service Level Objectives (SLOs) defined for the application and/or key scenarios?
 
-  _Understanding customer availability expectations is vital to reviewing overall operations for the application. For instance, if a customer is striving to achieve an application SLO of 99.999%, the level of inherent operational actionality required by the application is going to far greater than if an SLO of 99.9% was the aspiration_
-  > Having clearly defined availability targets is crucial in order to have a goal to work and measure against. This will also determine which services an application can leverage vs. those which do not qualify in terms of the SLA they offer.
+  _Understanding customer availability expectations is vital to reviewing overall operations for the application. For instance, if a customer is striving to achieve an application SLO of 99.999%, the level of inherent operational actionality required by the application is going to far greater than if an SLO of 99.9% was the aspiration._
+  > Have clearly defined availability targets.
     - Are SLAs/SLOs/SLIs for all leveraged dependencies understood?
 
-      _Availability targets for any dependencies leveraged by the application should be understood and ideally align with application targets_
-      > Make sure SLAs/SLOs/SLIs for all leveraged dependencies are understood
+      _If the application is depending on external services, their availability targets/commitments should be understood and ideally aligned with application targets._
+      > Make sure SLAs/SLOs/SLIs for all leveraged dependencies are understood.
     - Has a composite Service-Level Agreement (SLA) been calculated for the application and/or key scenarios using Azure SLAs?
 
       _A [composite SLA](https://docs.microsoft.com/azure/architecture/framework/resiliency/business-metrics#understand-service-level-agreements) captures the end-to-end SLA across all application components and dependencies. It is calculated using the individual SLAs of Azure services housing application components and provides an important indicator of designed availability in relation to customer expectations and targets._
@@ -174,18 +175,18 @@ These critical design principles are used as lenses to assess the Cost Optimizat
     - Are availability targets considered while the system is running in disaster recovery mode?
 
       _The above defined targets might or might not be applied when running in DR mode. This depends from application to application._
-      > If targets must also apply in a failure state then an N+1 model should be used to achieve greater availability and resiliency, where N is the capacity needed to deliver required availability. There's also a cost implication, because more resilient infrastructure usually means more expensive. This has to be accepted by business.
-    - Are these availability targets monitored and measured?
+      > Consider availability targets for disaster recovery mode.
+    - Are availability targets monitored and measured?
 
       _Monitoring and measuring application availability is vital to qualifying overall application health and progress towards defined targets._
-      > Make sure you measure and monitor key targets such as **Mean Time Between Failures (MTBF)** which denotes the average time between failures of a particular component.
+      > Measure and monitor key availability targets.
   
       Additional resources:
         - [Mean Time Between Failures](https://en.wikipedia.org/wiki/Mean_time_between_failures)
     - What are the consequences if availability targets are not satisfied?
 
       _Are there any penalties, such as financial charges, associated with failing to meet SLA commitments? Additional measures can be used to prevent penalties, but that also brings additional cost to operate the infrastructure. This has to be factored in and evaluated._
-      > It should be fully understood what are the consequences if availability targets are not satisfied. This will also inform when to initiate a failover case.
+      > Understand the consequences of missing availability targets.
 * Are recovery targets such as Recovery Time Objective (RTO) and Recovery Point Objective (RPO) defined for the application and/or key scenarios?
 
   _Understanding customer reliability expectations is vital to reviewing the overall reliability of the application. For instance, if a customer is striving to achieve an application RTO of less than a minute then back-up based and active-passive disaster recovery strategies are unlikely to be appropriate<br />**Recovery time objective (RTO)**: The maximum acceptable time the application is unavailable after a disaster incident<br />**Recovery point objective (RPO)**: The maximum duration of data loss that is acceptable during a disaster event_
@@ -226,7 +227,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 * Are all internal and external dependencies identified and categorized as either weak or strong?
 
   _Internal dependencies describe components within the application scope which are required for the application to fully operate, while external dependencies captures required components outside the scope of the application, such as another application or third-party service._
-  > Dependencies may be categorized as either strong or weak based on whether or not the application is able to continue operating in a degraded fashion in their absence.
+  > Categorize dependencies as either weak or strong.
     - Do you maintain a complete list of application dependencies?
 
       _Examples of typical dependencies include platform dependencies outside the remit of the application, such as Azure Active Directory, Express Route, or a central NVA (Network Virtual Appliance), as well as application dependencies such as APIs which may be in-house or externally owned by a third-party. For cost it’s important to  understand the price for these services and how they are being charged, this makes it easier to understanding an all up cost. For more details see cost models._
@@ -252,15 +253,15 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
       _Operational capabilities, such as auto-scale and auto-heal for App Services, can reduce management overheads, support operational effectiveness and reduce cost._
       > Make sure you understand the operational features/capabilities available and how they can be used in the solution.
-    - What technologies and frameworks are used by the application?
+* What technologies and frameworks are used by the application?
 
-      _It is important to understand what technologies are used by the application and must be managed, such as .NET Core , Spring, or Node.js._
-      > All technologies and frameworks should be identified. Vulnerabilities of these dependencies must be understood (there are automated solutions on the market that can help: [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/) or [NPM audit](https://docs.npmjs.com/cli/audit).
+  _It is important to understand what technologies are used by the application and must be managed, such as .NET Core , Spring, or Node.js._
+  > Identify technologies and frameworks used by the application.
   
-      Additional resources:
-        - [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/)
+    Additional resources:
+    - [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/)
   
-        - [NPM audit](https://docs.npmjs.com/cli/audit)
+    - [NPM audit](https://docs.npmjs.com/cli/audit)
 * Are components hosted on shared application or data platforms which are used by other applications?
 
   _Do application components leverage shared data platforms, such as a central data lake, or application hosting platforms, such as a centrally managed AKS or ASE cluster? Shared platforms drive down cost, but the workload needs to maintain the expected performance._
@@ -276,7 +277,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 * Is an Application Performance Management (APM) tool used collect application level logs?
 
   _In order to successfully maintain the application it's important to 'turn the lights on' and have clear visibility of important metrics both in real-time and historically._
-  > An APM technology, such as [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview), should be used to manage the performance and availability of the application, aggregating application level logs and events for subsequent interpretation. It should be considered what is the appropriate level of logging, because too much can incur significant costs.
+  > Use Application Performance Management tools.
   
     Additional resources:
     - [What is Application Insights?](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)
@@ -291,7 +292,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 * Is Role Based Access Control (RBAC) used to control access to operational and financial dashboards and underlying data?
 
   _Are the dashboards openly available in your organization or do you limit access based on roles etc.? For example: developers usually don't need to know the overall cost of Azure for the company, but it might be good for them to be able to watch a particular workload._
-  > Access to operational and financial data should be tightly controlled to align with segregation of duties, while making sure that it doesn't hinder operational effectiveness; i.e. scenarios where developers have to raise an ITSM ticket to access logs should be avoided
+  > Access to operational and financial data should be tightly controlled to align with segregation of duties, while making sure that it doesn't hinder operational effectiveness; i.e. scenarios where developers have to raise an ITSM (IT service management) ticket to access logs should be avoided.
 * Is there a dashboard showing cost related KPIs for this workload which gives a transparent view of the current situation?
 
   _Single pane of glass which can be shown during weekly ops meetings and instills accountability within everyone whilst also allowing you to understand where you are in terms of budget through every stage._
@@ -312,7 +313,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 * Are push notifications enabled to inform responsible parties of alerts in real time?
 
   _Do teams have to actively monitor the systems and dashboard or are alerts sent to them by email etc.? This can help identify not just operational incidents but also budget overruns._
-  > It is important that alert owners get reliably notified of alerts, which could use many communication channels such as text messages, emails or push notifications to a mobile app
+  > It is important that alert owners get reliably notified of alerts, which could use many communication channels such as text messages, emails or push notifications to a mobile app.
 * Are there alerts defined for cost thresholds and limits?
 
   _This is to ensure that if any budget is close to threshold, the cost owner gets notified to take appropriate actions on the change._
@@ -426,7 +427,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
     - How long does it take to deploy an entire production environment?
 
       _The time it takes to perform a complete environment deployment should align with recovery targets. Automation and agility also lead to cost savings due to the reduction of manual labor and errors._
-      > The time it takes to perform a complete environment deployment should be fully understood as it needs to align with the recovery targets
+      > The time it takes to perform a complete environment deployment should be fully understood as it needs to align with the recovery targets.
 ### Build Environments
             
 * Are releases to production gated by having it successfully deployed and tested in other environments?
@@ -479,7 +480,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 * Does the application have a well-defined naming standard for Azure resources?
 
   _A well-defined naming convention is important for overall operations to be able to easily determine the usage of certain resources and help understand owners and cost centers responsible for the workload. Naming conventions allow the matching of resource costs to particular workloads._
-  > Having a well-defined [naming convention](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging) is important for overall operations, particularly for large application platforms where there are numerous resources.
+  > Implement a naming convention.
   
     Additional resources:
     - [Naming Conventions](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)
