@@ -630,28 +630,37 @@
           "links": [],
           "priority": "medium"
         }
-      },
-      {
-        "id": "f064cc1d-a8c8-4305-bc1f-c9354d7000e5",
-        "title": "What technologies and frameworks are used by the application?",
-        "context": "It is important to understand what technologies are used by the application and must be managed, such as .NET Core , Spring, or Node.js.",
-        "recommendation": {
-          "title": "All technologies and frameworks should be identified. Vulnerabilities of these dependencies must be understood (there are automated solutions on the market that can help: [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/) or [NPM audit](https://docs.npmjs.com/cli/audit).",
-          "context": "",
-          "links": [
-            {
-              "title": "OWASP Dependency-Check",
-              "url": "https://owasp.org/www-project-dependency-check/"
-            },
-            {
-              "title": "NPM audit",
-              "url": "https://docs.npmjs.com/cli/audit"
-            }
-          ],
-          "priority": "medium"
-        }
       }
     ]
+  },
+  {
+    "id": "f064cc1d-a8c8-4305-bc1f-c9354d7000e5",
+    "type": "Questions",
+    "pillars": [
+      "operationalexcellence",
+      "security",
+      "costoptimization"
+    ],
+    "lens": "application",
+    "category": "Application Design",
+    "subCategory": "Application Composition",
+    "title": "What technologies and frameworks are used by the application?",
+    "context": "It is important to understand what technologies are used by the application and must be managed, such as .NET Core , Spring, or Node.js.",
+    "recommendation": {
+      "title": "All technologies and frameworks should be identified. Vulnerabilities of these dependencies must be understood (there are automated solutions on the market that can help: [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/) or [NPM audit](https://docs.npmjs.com/cli/audit).",
+      "context": "",
+      "links": [
+        {
+          "title": "OWASP Dependency-Check",
+          "url": "https://owasp.org/www-project-dependency-check/"
+        },
+        {
+          "title": "NPM audit",
+          "url": "https://docs.npmjs.com/cli/audit"
+        }
+      ],
+      "priority": "medium"
+    }
   },
   {
     "id": "b3b27631-4f69-4170-8fa4-441077843378",
