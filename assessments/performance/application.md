@@ -43,11 +43,11 @@
 * Is the workload deployed across multiple regions?
 
   _Multiple regions should be used for failover purposes in a disaster state, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active strategies. Additional cost needs to be taken into consideration - mostly from compute, data and networking perspective, but also services like [Azure Site Recovery (ASR)](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)._
-  > Deploy across multiple regions for higher availability.
+  > Deploy across multiple regions for higher availability. The ultimate goal is to set up the infrastructure in a way that it's able to automatically react to regional disasters. While active-active configuration would be the north star, not every workload requires two regions running simultaneously at all times, some don't even support it due to technical limitations. Depending on the availability, performance and cost requirements, passive or warm standby can be viable alternatives too.
     - Were regions chosen based on location and proximity to your users or based on resource types that were available?
 
       _Not only is it important to utilize regions close to your audience, but it is equally important to choose regions that offer the SKUs that will support your future growth. Not all regions share the same parity when it comes to product SKUs._
-      > Plan your growth, then choose regions that will support those plans.
+      > Plan your growth, then choose regions that will support those plans. The ultimate goal is to set up the infrastructure in a way that it's able to automatically react to regional disasters. While active-active configuration would be the north star, not every workload requires two regions running simultaneously at all times, some don't even support it due to technical limitations. Depending on the availability, performance and cost requirements, passive or warm standby can be viable alternatives too.
   
       Additional resources:
         - [Products available by region](https://azure.microsoft.com/global-infrastructure/services/)
@@ -71,14 +71,14 @@
 * Within a region is the application architecture designed to use Availability Zones?
 
   _[Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones) can be used to optimise application availability within a region by providing datacenter level fault tolerance. However, the application architecture must not share dependencies between zones to use them effectively. It is also important to note that Availability Zones may introduce performance and cost considerations for applications which are extremely 'chatty' across zones given the implied physical separation between each zone and inter-zone bandwidth charges. That also means that AZ can be considered to get higher SLA for lower cost. Be aware of [pricing changes](https://azure.microsoft.com/pricing/details/bandwidth/) coming to Availability Zone bandwidth starting February 2021._
-  > Use Availability Zones where applicable to improve reliability and optimize costs.
+  > Use Availability Zones where applicable to improve reliability and optimize costs. 
   
     Additional resources:
     - [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones)
 * Is the application implemented with strategies for resiliency and self-healing?
 
   _Strategies for resiliency and self-healing include retrying transient failures and failing over to a secondary instance or even another region._
-  > Consider implementing strategies and capabilities for resiliency and self-healing needed to achieve workload availability targets. Programming paradigms such as retry patterns, request timeouts, and circuit breaker patterns can improve application resiliency by automatically recovering from transient faults.
+  > Consider implementing strategies and capabilities for resiliency and self-healing needed to achieve workload availability targets. Programming paradigms such as retry patterns, request timeouts, and circuit breaker patterns can improve application resiliency by automatically recovering from transient faults. 
   
     Additional resources:
     - [Designing resilient Azure applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design)
@@ -87,14 +87,14 @@
 * Is component proximity required for application performance reasons?
 
   _If all or part of the application is highly sensitive to latency it may mandate component co-locality which can limit the applicability of multi-region and multi-zone strategies._
-  > Consider using the same datacenter region, Availability Zone and [Proximity Placement Groups](https://azure.microsoft.com/blog/announcing-the-general-availability-of-proximity-placement-groups/) and other options to bring latency sensitive components closer together. Keep also in mind that additional charges may apply when chatty workloads are spread across zones and region.
+  > Consider using the same datacenter region, Availability Zone and [Proximity Placement Groups](https://azure.microsoft.com/blog/announcing-the-general-availability-of-proximity-placement-groups/) and other options to bring latency sensitive components closer together. Keep also in mind that additional charges may apply when chatty workloads are spread across zones and region. 
 * Can the application operate with reduced functionality or degraded performance in the presence of an outage?
 
   _Avoiding failure is impossible in the public cloud, and as a result applications require resilience to respond to outages and deliver reliability. The application should therefore be designed to operate even when impacted by regional, zonal, service or component failures across critical application scenarios and functionality._
 * Has the application been designed to scale-out?
 
   _Azure provides elastic scalability, however, applications must leverage a scale-unit approach to navigate service and subscription limits to ensure that individual components and the application as a whole can scale horizontally. Don't forget about scale in as well, as this is important to drive cost down. For example, scale in and out for App Service is done via rules. Often customers write scale out rule and never write scale in rule, this leaves the App Service more expensive._
-  > Design your solution with scalability in mind, leverage PaaS capabilities to [scale out](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out) and in by adding additional intances when needed.
+  > Design your solution with scalability in mind, leverage PaaS capabilities to [scale out](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out) and in by adding additional intances when needed. 
   
     Additional resources:
     - [Design to scale out](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out)
@@ -120,7 +120,7 @@
 * Are you able to predict general application usage?
 
   _It is important to understand application and environment usage. The customer may have an understanding of certain seasons or incidents that increase user load (e.g. a weather service being hit by users facing a storm, an e-commerce site during the holiday season)._
-  > Traffic patterns should be identified by analyzing historical traffic data and the effect of significant external events on the application.
+  > Traffic patterns should be identified by analyzing historical traffic data and the effect of significant external events on the application. 
     - If typical usage is predictable, are your predictions based on time of day, day of week, or season (e.g. holiday shopping season)?
 
       _Dig deeper and document predictable periods. By doing so, you can leverage resources like Azure Automation and Autoscale to proactively scale the application and its underlying environment._
@@ -134,19 +134,19 @@
 * Are there well defined performance requirements for the application and/or key scenarios?
 
   _Non-functional performance requirements, such as those relating to end-user experiences (e.g. average and maximum response times) are vital to assessing the overall health of an application, and is a critical lens required for assessing operations._
-  > Identify sensible non-functional requirements.
+  > Identify sensible non-functional requirements. Work with stakeholders to identify sensible non-functional requirements based on business requirements, research and user testing.
     - Are there any targets defined for the time it takes to perform scale operations?
 
       _Scale operations (horizontal - changing the number of identical instances, vertical - switching to more/less powerful instances) can be fast, but usually take time to complete. It's important to understand how this delay affects the application under load and if degraded performance is acceptable._
-      > The application should be designed to scale to cope with spikes in load in-line with what is an acceptable duration for degraded performance.
+      > The application should be designed to scale to cope with spikes in load in-line with what is an acceptable duration for degraded performance. Work with stakeholders to identify sensible non-functional requirements based on business requirements, research and user testing.
     - What is the maximum traffic volume the application is expected to serve without performance degradation?
 
       _Scale requirements the application must be able to effectively satisfy, such as the number of concurrent users or requests per second, is a critical lens for assessing operations. From the cost perspective, it's recommended to set a budget for extreme circumstances and indicate upper limit for cost (when it's not worth serving more traffic due to overall costs)._
-      > Traffic limits for the application should be defined in quantified and measurable manner.
+      > Traffic limits for the application should be defined in quantified and measurable manner. Work with stakeholders to identify sensible non-functional requirements based on business requirements, research and user testing.
     - Are these performance targets monitored and measured across the application and/or key scenarios?
 
       _Monitoring and measuring end-to-end application performance is vital to qualifying overall application health and progress towards defined targets._
-      > Automation and specialized tooling (such as Application Insights) should be used to orchestrate and measure application performance.
+      > Automation and specialized tooling (such as Application Insights) should be used to orchestrate and measure application performance. Work with stakeholders to identify sensible non-functional requirements based on business requirements, research and user testing.
 ### Transactional
             
 * Can you measure the efficiency of the connections that are created to external services and datastores?
@@ -173,25 +173,25 @@
 * Are application logs collected from different application environments?
 
   _Application logs support the end-to-end application lifecycle. Logging is essential in understanding how the application operates in various environments and what events occur and under which conditions._
-  > Collect application logs across application environments.
+  > Collect application logs across application environments. Application logs and events should be collected across all major environments. Sufficient degree of separation and filtering should be in place to ensure non-critical environments do not convolute production log interpretation. Furthermore, corresponding log entries across the application should capture a correlation ID for their respective transactions.
 * Are log messages captured in a structured format?
 
   _Structured format, following well-known schema can help in parsing and analyzing logs._
-  > Application events should be captured as a structured data type with machine-readable data points rather than unstructured string types. Structured data can easily be indexed and searched, and reporting can be greatly simplified.
+  > Application events should be captured as a structured data type with machine-readable data points rather than unstructured string types. Structured data can easily be indexed and searched, and reporting can be greatly simplified. 
 * Are application events correlated across all application components?
 
   _[Distributed tracing](https://docs.microsoft.com/azure/architecture/microservices/logging-monitoring#distributed-tracing) provides the ability to build and visualize end-to-end transaction flows for the application._
-  > Events coming from different application components or different component tiers of the application should be correlated to build end-to-end transaction flows. For instance, this is often achieved by using consistent correlation IDs transferred between components within a transaction.<br /><br />Event correlation between the layers of the application will provide the ability to connect tracing data of the complete application stack. Once this connection is made, you can see a complete picture of where time is spent at each layer. This will typically mean having a tool that can query the repositories of tracing data in correlation to a unique identifier that represents a given transaction that has flowed through the system.
+  > Events coming from different application components or different component tiers of the application should be correlated to build end-to-end transaction flows. For instance, this is often achieved by using consistent correlation IDs transferred between components within a transaction.<br /><br />Event correlation between the layers of the application will provide the ability to connect tracing data of the complete application stack. Once this connection is made, you can see a complete picture of where time is spent at each layer. This will typically mean having a tool that can query the repositories of tracing data in correlation to a unique identifier that represents a given transaction that has flowed through the system. 
   
     Additional resources:
     - [Distributed tracing](https://docs.microsoft.com/azure/architecture/microservices/logging-monitoring#distributed-tracing)
 * Is it possible to evaluate critical application performance targets and non-functional requirements (NFRs)?
 
-  > Application level metrics should include end-to-end transaction times of key technical functions, such as database queries, response times for external API calls, failure rates of processing steps, etc.
+  > Application level metrics should include end-to-end transaction times of key technical functions, such as database queries, response times for external API calls, failure rates of processing steps, etc. 
     - Is the end-to-end performance of critical system flows monitored?
 
       _To fully assess the health of key scenarios in the context of targets and NFRs, application log events across critical system flows should be correlated._
-      > Correlate application log events across critical system flows, such as user login.
+      > Correlate application log events across critical system flows, such as user login. 
 * Do you have detailed instrumentation in the application code?
 
   _Instrumentation of your code allows precise detection of underperforming pieces when load or stress tests are applied. It is critical to have this data available to improve and identify performance opportunities in the application code. Application Performance Monitoring (APM) tools, such as Application Insights, should be used to manage the performance and availability of the application, along with aggregating application level logs and events for subsequent interpretation._
@@ -200,47 +200,47 @@
 * Which log aggregation technology is used to collect logs and metrics from Azure resources?
 
   _Log aggregation technologies, such as Azure Log Analytics or Splunk, should be used to collate logs and metrics across all application components for subsequent evaluation. Resources may include Azure IaaS and PaaS services as well as 3rd-party appliances such as firewalls or anti-malware solutions used in the application. For instance, if Azure Event Hub is used, the [Diagnostic Settings](https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs) should be configured to push logs and metrics to the data sink. Understanding usage helps with right-sizing of the workload, but additional cost for logging needs to be accepted and included in the cost model._
-  > Use log aggregation technology, such as Azure Log Analytics or Splunk, to gather information across all application components.
+  > Use log aggregation technology, such as Azure Log Analytics or Splunk, to gather information across all application components. 
 * Are you collecting Azure Activity Logs within the log aggregation tool?
 
   _Azure Activity Logs provide audit information about when an Azure resource is modified, such as when a virtual machine is started or stopped. Such information is extremely useful for the interpretation and troubleshooting of operational and performance issues, as it provides transparency around configuration changes._
-  > Azure Activity Logs should be collected and aggregated.
+  > Azure Activity Logs should be collected and aggregated. 
 * Is resource-level monitoring enforced throughout the application?
 
   _Resource- or infrastructure-level monitoring refers to the used platform services such as Azure VMs, Express Route or SQL Database. But also covers 3rd-party solutions like an NVA._
-  > All application resources should be configured to route diagnostic logs and metrics to the chosen log aggregation technology. Azure Policy should also be used as a device to ensure the consistent use of diagnostic settings across the application, to enforce the desired configuration for each Azure service.
+  > All application resources should be configured to route diagnostic logs and metrics to the chosen log aggregation technology. Azure Policy should also be used as a device to ensure the consistent use of diagnostic settings across the application, to enforce the desired configuration for each Azure service. 
 * Are logs and metrics available for critical internal dependencies?
 
   _To be able to build a robust application health model it is vital that visibility into the operational state of critical internal dependencies, such as a shared NVA or Express Route connection, be achieved._
-  > Make sure logs and key metrics of critical components are collected and stored.
+  > Make sure logs and key metrics of critical components are collected and stored. 
 ### Dependencies
             
 * Are critical external dependencies monitored?
 
   _It's common for applications to depend on other services or libraries. Despite these are external, it is still possible to monitor their health and availability using probes._
-  > Critical external dependencies, such as an API service, should be monitored to ensure operational visibility of dependency health. For instance, a probe could be used to measure the availability and latency of an external API.
+  > Critical external dependencies, such as an API service, should be monitored to ensure operational visibility of dependency health. For instance, a probe could be used to measure the availability and latency of an external API. 
 ### Data Interpretation &amp; Health Modelling
             
 * Are application and resource level logs aggregated in a single data sink, or is it possible to cross-query events at both levels?
 
   _To build a robust application health model it is vital that application and resource level data be correlated and evaluated together to optimize the detection of issues and troubleshooting of detected issues._
-  > Implement a unified solution to aggregate and query application and resource level logs, such as Azure Log Analytics.
+  > Implement a unified solution to aggregate and query application and resource level logs, such as Azure Log Analytics. 
 * Is a health model used to qualify what 'healthy' and 'unhealthy' states represent for the application?
 
-  > Implement a health model.
+  > Implement a health model. A holistic application health model should be used to quantify what 'healthy' and 'unhealthy' states represent across all application components. It is highly recommended that a 'traffic light' model be used to indicate a green/healthy state when key non-functional requirements and targets are fully satisfied and resources are optimally utilized, e.g. 95% of requests are processed in <= 500ms with AKS node utilization at x% etc. Once established, this health model should inform critical monitoring metrics across system components and operational sub-system composition. It is important to note that the health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state.
     - Are critical system flows used to inform the health model?
 
-      > The health model should be able to surface the respective health of critical system flows or key subsystems to ensure appropriate operational prioritization is applied. For example, the health model should be able to represent the current state of the user login transaction flow.
+      > The health model should be able to surface the respective health of critical system flows or key subsystems to ensure appropriate operational prioritization is applied. For example, the health model should be able to represent the current state of the user login transaction flow. A holistic application health model should be used to quantify what 'healthy' and 'unhealthy' states represent across all application components. It is highly recommended that a 'traffic light' model be used to indicate a green/healthy state when key non-functional requirements and targets are fully satisfied and resources are optimally utilized, e.g. 95% of requests are processed in <= 500ms with AKS node utilization at x% etc. Once established, this health model should inform critical monitoring metrics across system components and operational sub-system composition. It is important to note that the health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state.
     - Can the health model distinguish between transient and non-transient faults?
 
       _Is the health model treating all failures the same?_
-      > The health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state.
+      > The health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state. A holistic application health model should be used to quantify what 'healthy' and 'unhealthy' states represent across all application components. It is highly recommended that a 'traffic light' model be used to indicate a green/healthy state when key non-functional requirements and targets are fully satisfied and resources are optimally utilized, e.g. 95% of requests are processed in <= 500ms with AKS node utilization at x% etc. Once established, this health model should inform critical monitoring metrics across system components and operational sub-system composition. It is important to note that the health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state.
     - Can the health model determine if the application is performing at expected performance targets?
 
       _The health model should have the ability to evaluate application performance as a part of the application's overall health state._
 * Have retention times for logs and metrics been defined and with housekeeping mechanisms configured?
 
-  > Clear retention times should be defined to allow for suitable historic analysis but also control storage costs. Suitable housekeeping tasks should also be used to archive data to cheaper storage or aggregate data for long-term trend analysis.
+  > Clear retention times should be defined to allow for suitable historic analysis but also control storage costs. Suitable housekeeping tasks should also be used to archive data to cheaper storage or aggregate data for long-term trend analysis. 
 * Are long-term trends analyzed to predict performance issues before they occur?
 
   _Analytics can and should be performed across long-term operational data to help inform on the history of application performance and detect if there have been any regressions. For instance, if the average response times have been slowly increasing over time and getting closer to maximum target._
@@ -251,26 +251,26 @@
 * Is there a capacity model for the application?
 
   _A capacity model should describe the relationships between the utilization of various components as a ratio, to capture when and how application components should scale-out._
-  > A capacity model should describe the relationships between the utilization of various components as a ratio, to capture when and how application components should scale-out. For instance, scaling the number of Application Gateway v2 instances may put excess pressure on downstream components unless also scaled to a degree. When modelling capacity for critical system components it is therefore recommended that an N+1 model be applied to ensure complete tolerance to transient faults, where N describes the capacity required to satisfy performance and availability requirements. This also prevents cost-related surprises when scaling out and realizing that multiple services need to be scaled at the same time.
+  > A capacity model should describe the relationships between the utilization of various components as a ratio, to capture when and how application components should scale-out. For instance, scaling the number of Application Gateway v2 instances may put excess pressure on downstream components unless also scaled to a degree. When modelling capacity for critical system components it is therefore recommended that an N+1 model be applied to ensure complete tolerance to transient faults, where N describes the capacity required to satisfy performance and availability requirements. This also prevents cost-related surprises when scaling out and realizing that multiple services need to be scaled at the same time. 
   
     Additional resources:
     - [Performance Efficiency - Capacity](https://docs.microsoft.com/azure/architecture/framework/scalability/capacity)
 * Is auto-scaling enabled for supporting PaaS and IaaS services?
 
   _Are built-in capabilities for automatic scale being used vs. scaling being always a manual decision?_
-  > Leveraging built-in Auto-scaling capabilities can help to maintain system reliability in times of increased demand while not needing to overprovision resources up-front, by letting a service automatically scale within a pre-configured range of resources. It greatly simplifies management and operational burdens. However, it must take into account the capacity model, else automated scaling of one component can impact downstream services if those are not also automatically scaled accordingly.
+  > Leveraging built-in Auto-scaling capabilities can help to maintain system reliability in times of increased demand while not needing to overprovision resources up-front, by letting a service automatically scale within a pre-configured range of resources. It greatly simplifies management and operational burdens. However, it must take into account the capacity model, else automated scaling of one component can impact downstream services if those are not also automatically scaled accordingly. 
 * Is the process to provision and deprovision capacity codified?
 
   _Codifying and automating the process helps to avoid human error, varying results and to speed up the overall process._
-  > Fluctuation in application traffic is typically expected. To ensure optimal operation is maintained, such variations should be met by automated scalability. The significance of automated capacity responses underpinned by a robust capacity model was highlighted by the COVID-19 crisis where many applications experienced severe traffic variations. While Auto-scaling enables a PaaS or IaaS service to scale within a pre-configured (and often times limited) range of resources, is provisioning or de-provisioning capacity a more advanced and complex process of for example adding additional scale units like additional clusters, instances or deployments. The process should be codified, automated and the effects of adding/removing capacity should be well understood.
+  > Fluctuation in application traffic is typically expected. To ensure optimal operation is maintained, such variations should be met by automated scalability. The significance of automated capacity responses underpinned by a robust capacity model was highlighted by the COVID-19 crisis where many applications experienced severe traffic variations. While Auto-scaling enables a PaaS or IaaS service to scale within a pre-configured (and often times limited) range of resources, is provisioning or de-provisioning capacity a more advanced and complex process of for example adding additional scale units like additional clusters, instances or deployments. The process should be codified, automated and the effects of adding/removing capacity should be well understood. 
 * Is the required capacity (initial and future growth) within Azure service scale limits and quotas?
 
   _Due to physical and logical resource constraints within the platform, Azure must apply [limits and quotas](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) to service scalability, which may be either hard or soft._
-  > The application should take a scale-unit approach to navigate within service limits, and where necessary consider multiple subscriptions which are often the boundary for such limits. It is highly recommended that a structured approach to scale be designed up-front rather than resorting to a 'spill and fill' model.
+  > The application should take a scale-unit approach to navigate within service limits, and where necessary consider multiple subscriptions which are often the boundary for such limits. It is highly recommended that a structured approach to scale be designed up-front rather than resorting to a 'spill and fill' model. 
     - Is the required capacity (initial and future growth) available within targeted regions?
 
       _While the promise of the cloud is infinite scale, the reality is that there are finite resources available and as a result situations can occur where capacity can be constrained due to overall demand._
-      > If the application requires a large amount of capacity or expects a significant increase in capacity then effort should be invested to ensure that desired capacity is attainable within selected region(s). For applications leveraging a recovery or active-passive based disaster recovery strategy, consideration should also be given to ensure suitable capacity exists in the secondary region(s) since a regional outage can lead to a significant increase in demand within a paired region due to other customer workloads also failing over. To help mitigate this, consideration should be given to pre-provisioning resources within the secondary region.
+      > If the application requires a large amount of capacity or expects a significant increase in capacity then effort should be invested to ensure that desired capacity is attainable within selected region(s). For applications leveraging a recovery or active-passive based disaster recovery strategy, consideration should also be given to ensure suitable capacity exists in the secondary region(s) since a regional outage can lead to a significant increase in demand within a paired region due to other customer workloads also failing over. To help mitigate this, consideration should be given to pre-provisioning resources within the secondary region. 
   
       Additional resources:
         - [Azure Capacity (internal)](https://aka.ms/AzureCapacity)
@@ -280,7 +280,7 @@
 * Is capacity utilization monitored and used to forecast future growth?
 
   _Predicting future growth and capacity demands can prevent outages due to insufficient provisioned capacity over time._
-  > Especially when demand is fluctuating, it is useful to monitor historical capacity utilization to derive predictions about future growth. Azure Monitor provides the ability to collect utilization metrics for Azure services so that they can be operationalized in the context of a defined capacity model. The Azure Portal can also be used to inspect current subscription usage and quota status.
+  > Especially when demand is fluctuating, it is useful to monitor historical capacity utilization to derive predictions about future growth. Azure Monitor provides the ability to collect utilization metrics for Azure services so that they can be operationalized in the context of a defined capacity model. The Azure Portal can also be used to inspect current subscription usage and quota status. 
   
     Additional resources:
     - [Supported metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported)
@@ -306,7 +306,7 @@
 * Are the right sizes and SKUs used for workload services?
 
   _The required performance and infrastructure utilization are key factors which define the 'size' of Azure resources to be used, but there can be hidden aspects that affect cost too. Watch for cost variations between different SKUs - for example App Service Plans S3 cost the same as P2v2, but have worse performance characteristics. Once the purchased SKUs have been identified, determine if they purchased resources have the capabilities of supporting anticipated load. For example, if you expect the load to require 30 instances of an App Service, yet you are currently leveraging a Standard App Service Plan SKU (maximum of 10 instances supported), then you will need to upgrade your App Service Plan in order to accommodate the anticipated load._
-  > Make sure the optimal service SKUs are used for this workload.
+  > Make sure the optimal service SKUs are used for this workload. 
 ## Networking &amp; Connectivity
     
 ### Endpoints
@@ -314,7 +314,7 @@
 * Are you using any Content Delivery Networks (CDN)?
 
   _CDNs store static files in locations that are typically geographically closer to the user than the data center. This increases overall application performance as latency for delivery and downloading these artifacts is reduced. Also, from a security point of view, CDNs can be used to separate the hosting platform from end users. Azure CDN contains a rule engine to remove platform-specific information and headers. The use of Azure CDN or 3rd party CDN will have different cost implications depending on what is chosen for the workload._
-  > Use CDN to speed up delivery performance to users and to separate the hosting platform from the end users / clients.
+  > Use CDN to speed up delivery performance to users and to separate the hosting platform from the end users / clients. 
 * Are you using SSL offloading?
 
   _SSL offloading places the SSL certificate at an appliance that sits in front of the web server, instead of on the web server itself. This is beneficial for two reasons. First, the verification of the SSL certificate is conducted by the appliance instead of the web server, which reduces the taxation on the server. Second, SSL offloading increases operational efficiency as it can often eliminate the need to manage certificates across microservices._
@@ -374,7 +374,7 @@
 * Is the application stateless or stateful? If it is stateful, is the state externalized in a data store?
 
   _[Stateless services](https://docs.microsoft.com/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices) and processes can easily be hosted across multiple compute instances to meet scale demands, as well as helping to reduce complexity and ensure high cacheability._
-  > Use externalized data store for stateful applications.
+  > Use externalized data store for stateful applications. 
   
     Additional resources:
     - [Stateless web services](https://docs.microsoft.com/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices)
@@ -385,7 +385,7 @@
 * Is the application tested for performance, scalability, and resiliency?
 
   _**Performance testing** is the superset of both load and stress testing. The primary goal of performance testing is to validate benchmark behavior for the application.<br />**Load Testing** validates application scalability by rapidly and/or gradually increasing the load on the application until it reaches a threshold/limit.<br />**Stress Testing** is a type of negative testing which involves various activities to overload existing resources and remove components to understand overall resiliency and how the application responds to issues._
-  > Define a testing strategy.
+  > Define a testing strategy. 
     - How does your team perceive the importance of performance testing?
 
       _It is critical that your team understands the importance of performance testing. Additionally, the team should be committed to providing the necessary time and resources for adequately executing performance testing proven practices._
@@ -503,7 +503,7 @@
     - What technology are you using for data caching?
 
       _Available data caching technologies are for example:<br />- Azure Redis Cache<br />- IIS Caching Server<br />- SQL Caching Server<br />- Disk<br />- Other solution_
-      > Azure Cache for Redis is a preferred solution for data caching as it improves performance by storing data in memory instead of on disk like SQL Server. Certain development frameworks like .NET also have mechanisms for caching data at the server level.
+      > Azure Cache for Redis is a preferred solution for data caching as it improves performance by storing data in memory instead of on disk like SQL Server. Certain development frameworks like .NET also have mechanisms for caching data at the server level. 
 ### Troubleshooting
             
 * Does the application spend a lot of time in the database?
