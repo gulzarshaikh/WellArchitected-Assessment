@@ -104,6 +104,14 @@
               "priority": {
                 "type": "string"
               }
+            },
+            "dependencies": {
+              "context": {
+                "properties": {
+                  "title": { "minLength": 0 }
+                },
+                "required": ["title"]
+              }
             }
           },
           "code": {
@@ -157,6 +165,14 @@
                         },
                         "priority": {
                           "type": "string"
+                        }
+                      },
+                      "dependencies": {
+                        "context": {
+                          "properties": {
+                            "title": { "minLength": 0 }
+                          },
+                          "required": ["title"]
                         }
                       }
                     },

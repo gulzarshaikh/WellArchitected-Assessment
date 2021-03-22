@@ -109,7 +109,7 @@ These critical design principles are used as lenses to assess the Security of an
 * Are there any regulatory or governance requirements for this workload?
 
   _Regulatory requirements may mandate that operational data, such as application logs and metrics, remain within a certain geo-political region. This has obvious implications for how the application should be operationalized._
-  > Make sure that all regulatory requirements are known and well understood.
+  > Make sure that all regulatory requirements are known and well understood. Create processes for obtaining attestations and be familiar with the [Microsoft Trust Center](https://www.microsoft.com/trust-center). Regulatory requirements like data sovereignty and others might affect the overall architecture as well as the selection and configuration of specific PaaS and SaaS services.
   
     Additional resources:
     - [Microsoft Trust Center](https://www.microsoft.com/trust-center)
@@ -171,7 +171,7 @@ These critical design principles are used as lenses to assess the Security of an
 * What technologies and frameworks are used by the application?
 
   _It is important to understand what technologies are used by the application and must be managed, such as .NET Core , Spring, or Node.js._
-  > Identify technologies and frameworks used by the application.
+  > Identify technologies and frameworks used by the application. All technologies and frameworks should be identified. Vulnerabilities of these dependencies must be understood (there are automated solutions on the market that can help: [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/) or [NPM audit](https://docs.npmjs.com/cli/audit).
   
     Additional resources:
     - [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/)
