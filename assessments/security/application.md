@@ -625,11 +625,11 @@ These critical design principles are used as lenses to assess the Security of an
 
   _Applications should use the **SHA-2** family of hash algorithms (SHA-256, SHA-384, SHA-512)._
   > Use only secure hash algorithms (SHA-2 family).
-* Does the organization store customer managed keys for this workload in Azure Key Vault and protect them with identity-based access control?
+* Are customer managed keys (CMK) for this workload stored in Azure Key Vault and protected with identity-based access control?
 
-  _Keys must be stored in a secure location with identity-based access control and audit policies. Data encryption keys are often encrypted with a key encryption key in Azure Key Vault to further limit access._
-  > Store customer managed keys in Azure Key Vault.
-    - Does the organization protect customer managed keys in this workload with an additional key encryption key (KEK)?
+  _In many industries, regulations and compliance obligations require the use of workloads (typically databases) that not only encrypt data at rest, but do so by using encryption keys that end-users can control. The use of CMK exposes the workload to additional management responsibilities around key rotation and renewal, which in-turn can expose the workload to realiability risks, if not handled properly. Keys must be stored in a secure location with identity-based access control and audit policies. Data encryption keys are often encrypted with a key encryption key in Azure Key Vault to further limit access._
+  > Store customer managed keys in Azure Key Vault. For general use, it is recommended to adopt platform managed keys, unless there are specific business reasons (like regulatory requirements) to use customer managed keys. Those keys should be always stored in Azure Key Vault.
+    - Are customer managed keys (CMK) in this workload protected with an additional key encryption key (KEK)?
 
       _More than one encryption key should be used in an encryption at rest implementation. Storing an encryption key in Azure Key Vault ensures secure key access and central management of keys._
       > Use an additional key encryption key (KEK) to protect your data encryption key (DEK).

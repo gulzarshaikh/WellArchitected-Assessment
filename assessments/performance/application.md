@@ -475,7 +475,7 @@
             
 * How much of the application is involved in serving an immediate, single request?
 
-  _When understanding load and demands on the application, it is necessary to understand how the application is architected--whether monolithic, n-Tier, or microservice-based--and then understand how load is distributed across the application. This is crucial for focusing on the testing of individual components and identifying bottlenecks._
+  _When understanding load and demands on the application, it is necessary to understand how the application is architected - whether monolithic, n-Tier, or microservice-based - and then understand how load is distributed across the application. This is crucial for focusing on the testing of individual components and identifying bottlenecks._
 * Have you determined an acceptable operational margin between your peak utilization and the applications maximum load?
 
   _What is the maximum taxation you wish to place on resources? Factors such as memory, CPU, and disk IOPS should all be considered. Once a stress test has been performed resulting in the maximum supported load and an operational margin has been chosen, it is best to determine an operational threshold. Then, environment scaling (automatic or manual) can be performed once the threshold has been reached._
