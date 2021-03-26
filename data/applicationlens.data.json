@@ -32,7 +32,7 @@
     "context": "Regulatory requirements may mandate that operational data, such as application logs and metrics, remain within a certain geo-political region. This has obvious implications for how the application should be operationalized.",
     "recommendation": {
       "title": "Make sure that all regulatory requirements are known and well understood.",
-      "context": "Create processes for obtaining attestations and be familiar with the [Microsoft Trust Center] (https://www.microsoft.com/trust-center). Regulatory requirements like data sovereignty and others might affect the overall architecture as well as the selection and configuration of specific PaaS and SaaS services.",
+      "context": "Create processes for obtaining attestations and be familiar with the [Microsoft Trust Center](https://www.microsoft.com/trust-center). Regulatory requirements like data sovereignty and others might affect the overall architecture as well as the selection and configuration of specific PaaS and SaaS services.",
       "links": [
         {
           "title": "Microsoft Trust Center",
@@ -73,7 +73,7 @@
     "category": "Application Design",
     "subCategory": "Design",
     "title": "Is the workload deployed across multiple regions?",
-    "context": "Multiple regions should be used for failover purposes in a disaster state, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active strategies. Additional cost needs to be taken into consideration - mostly from compute, data and networking perspective, but also services like [Azure Site Recovery (ASR)] (https://docs.microsoft.com/azure/site-recovery/site-recovery-overview).",
+    "context": "Multiple regions should be used for failover purposes in a disaster state, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active strategies. Additional cost needs to be taken into consideration - mostly from compute, data and networking perspective, but also services like [Azure Site Recovery (ASR)](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview).",
     "recommendation": {
       "title": "Deploy across multiple regions for higher availability.",
       "context": "The ultimate goal is to set up the infrastructure in a way that it's able to automatically react to regional disasters. While active-active configuration would be the north star, not every workload requires two regions running simultaneously at all times, some don't even support it due to technical limitations. Depending on the availability, performance and cost requirements, passive or warm standby can be viable alternatives too.",
@@ -300,7 +300,7 @@
         "context": "The above defined targets might or might not be applied when running in Disaster Recovery (DR) mode. This depends from application to application.",
         "recommendation": {
           "title": "Consider availability targets for disaster recovery mode.",
-          "context": "If targets must also apply in a failure state then an N+1 model should be used to achieve greater availability and resiliency, where N is the capacity needed to deliver required availability. There's also a cost implication, because more resilient infrastructure usually means more expensive. This has to be accepted by business.",
+          "context": "If targets must also apply in a failure state, then an N+1 model should be used to achieve greater availability and resiliency, where N is the capacity needed to deliver required availability. There's also a cost implication, because a more resilient infrastructure usually means more costs being involved. This has to be accepted by business.",
           "links": [],
           "priority": "medium"
         }
@@ -435,7 +435,7 @@
     "lens": "application",
     "category": "Application Design",
     "subCategory": "Targets & Non-Functional Requirements",
-    "title": "Are there well defined performance requirements for the application and/or key scenarios?",
+    "title": "Are there well-defined performance requirements for the application and/or key scenarios?",
     "context": "Non-functional performance requirements, such as those relating to end-user experiences (e.g. average and maximum response times) are vital to assessing the overall health of an application, and is a critical lens required for assessing operations.",
     "recommendation": {
       "title": "Identify sensible non-functional requirements.",
@@ -490,7 +490,7 @@
     "category": "Application Design",
     "subCategory": "Key Scenarios",
     "title": "Have critical system flows through the application been defined for all key business scenarios?",
-    "context": "Understanding critical system flows is vital to assessing overall operational effectiveness, and should be used to inform a health model for the application. It can also tell if areas of the application are over or under utilized and should be adjusted to better meet business needs and cost goals.",
+    "context": "Understanding critical system flows is vital to assessing overall operational effectiveness, and should be used to inform a health model for the application. It can also tell if areas of the application are over or under-utilized and should be adjusted to better meet business needs and cost goals.",
     "recommendation": {
       "title": "Path-wise analysis should be used to define critical system flows for key business scenarios, such as the checkout process for an eCommerce application.",
       "context": "",
@@ -542,7 +542,7 @@
     "category": "Application Design",
     "subCategory": "Dependencies",
     "title": "Are all internal and external dependencies identified and categorized as either weak or strong?",
-    "context": "Internal dependencies describe components within the application scope which are required for the application to fully operate, while external dependencies captures required components outside the scope of the application, such as another application or third-party service.",
+    "context": "Internal dependencies describe components within the application scope which are required for the application to fully operate, while external dependencies capture required components outside the scope of the application, such as another application or third-party service.",
     "recommendation": {
       "title": "Categorize dependencies as either weak or strong.",
       "context": "Dependencies may be categorized as either strong or weak based on whether or not the application is able to continue operating in a degraded fashion in their absence.",
@@ -558,7 +558,7 @@
       {
         "id": "0482ed48-5cb5-4a36-9d40-4d18c77f27d5",
         "title": "Do you maintain a complete list of application dependencies?",
-        "context": "Examples of typical dependencies include platform dependencies outside the remit of the application, such as Azure Active Directory, Express Route, or a central NVA (Network Virtual Appliance), as well as application dependencies such as APIs which may be in-house or externally owned by a third-party. For cost it’s important to  understand the price for these services and how they are being charged, this makes it easier to understanding an all up cost. For more details see cost models.",
+        "context": "Examples of typical dependencies include platform dependencies outside the remit of the application, such as Azure Active Directory, Express Route, or a central NVA (Network Virtual Appliance), as well as application dependencies such as APIs which may be in-house or externally owned by a third-party. For cost it’s important to understand the price for these services and how they are being charged, this makes it easier to understanding an all-up cost. For more details see cost models.",
         "recommendation": {
           "title": "Map application dependencies either as a simple list or a document (usually this is part of a design document or reference architecture).",
           "context": "",
@@ -569,7 +569,7 @@
       {
         "id": "a0363b83-cf12-4456-bde0-e2f7c3b6f9b2",
         "title": "Is the impact of an outage with each dependency well understood?",
-        "context": "Strong dependencies play a critical role in application function and availability meaning their absence will have a significant impact, while the absence of weak dependencies may only impact specific features and not affect overall availability. For cost this reflects the cost that is needed to maintain the HA relationship between the service and it’s dependencies. It would explain why certain measures needs to be maintained in order to hold a given Service Level Agreement (SLA).",
+        "context": "Strong dependencies play a critical role in application function and availability meaning their absence will have a significant impact, while the absence of weak dependencies may only impact specific features and not affect overall availability. This reflects the cost that is needed to maintain the HA relationship between the service and its dependencies. It would explain why certain measures needs to be maintained in order to hold a given Service Level Agreement (SLA).",
         "recommendation": {
           "title": "Classify dependencies either as strong or weak. This will help identify which components are essential to the application.",
           "context": "",
@@ -590,8 +590,8 @@
     "lens": "application",
     "category": "Application Design",
     "subCategory": "Dependencies",
-    "title": "Are Service Level Agreement (SLA)s and support agreements in place for all critical dependencies?",
-    "context": "Service Level Agreement (SLA) represents a commitment around performance and availability of the application. Understanding the Service Level Agreement (SLA) of individual components within the system is essential in order to define reliability targets. Knowing the SLA of dependencies will also provide a justifications for additional spend when making the dependencies highly available and with proper support contracts.",
+    "title": "Are Service Level Agreement (SLA) and support agreements in place for all critical dependencies?",
+    "context": "Service Level Agreement (SLA) represents a commitment around performance and availability of the application. Understanding the Service Level Agreement (SLA) of individual components within the system is essential in order to define reliability targets. Knowing the SLA of dependencies will also provide a justification for additional spend when making the dependencies highly available and with proper support contracts.",
     "recommendation": {
       "title": "The operational commitments of all external and internal dependencies should be understood to inform the broader application operations and health model.",
       "context": "",
@@ -644,7 +644,7 @@
     "category": "Application Design",
     "subCategory": "Application Composition",
     "title": "What technologies and frameworks are used by the application?",
-    "context": "It is important to understand what technologies are used by the application and must be managed, such as .NET Core , Spring, or Node.js.",
+    "context": "It is important to understand what technologies are used by the application and must be managed, such as .NET Core, Spring, or Node.js.",
     "recommendation": {
       "title": "Identify technologies and frameworks used by the application.",
       "context": "All technologies and frameworks should be identified. Vulnerabilities of these dependencies must be understood (there are automated solutions on the market that can help: [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/) or [NPM audit](https://docs.npmjs.com/cli/audit).",
@@ -1074,7 +1074,7 @@
     "lens": "application",
     "category": "Health Modelling & Monitoring",
     "subCategory": "Data Interpretation & Health Modelling",
-    "title": "Are long-term trends analysed to predict operational issues before they occur?",
+    "title": "Are long-term trends analyzed to predict operational issues before they occur?",
     "context": "Are Operations and/or analytics teams using the stored events for machine learning or similar to make predictions for the future?",
     "recommendation": {
       "title": "Analytics can and should be performed across long-term operational data to help inform operational strategies and also to predict what operational issues are likely to occur and when. For instance, if the average response times have been slowly increasing over time and getting closer to the maximum target.",
@@ -1141,7 +1141,7 @@
     "title": "Are dashboards tailored to a specific audience?",
     "context": "Is there just one big dashboard or do you build individualized solutions for different teams (e.g. networking teams might have a different interest focus than the security team)?",
     "recommendation": {
-      "title": "Dashboards should be customized to represent the precise lens of interest of the end-user. For example, the areas of interest when evaluating the current state will differ greatly between developers, security and networking. Tailored dashboards makes interpretation easier and accelerates time to detection and action.",
+      "title": "Dashboards should be customized to represent the precise lens of interest of the end-user. For example, the areas of interest when evaluating the current state will differ greatly between developers, security and networking. Tailored dashboards make interpretation easier and accelerates time to detection and action.",
       "context": "",
       "links": [],
       "priority": "medium"
@@ -1179,7 +1179,7 @@
     "title": "What technology is used for alerting?",
     "context": "Alerts from tools such as Splunk or Azure Monitor proactively notify or respond to operational states that deviate from norm. Alerts can also enable cost-awareness by watching budgets and limits and helping workload teams to scale appropriately.",
     "recommendation": {
-      "title": "You should not rely on people to actively look for issues. Instead an alerting solution should be in place that can push notifications to relevant teams. For example by email, SMS or into an mobile app.",
+      "title": "You should not rely on people to actively look for issues. Instead, an alerting solution should be in place that can push notifications to relevant teams. For example, by email, SMS or into a mobile app.",
       "context": "",
       "links": [],
       "priority": "medium"
@@ -1216,7 +1216,7 @@
     "title": "Are operational events prioritized based on business impact?",
     "context": "Are all alerts being treated the same or do you analyze the potential business impact when defining an alert?",
     "recommendation": {
-      "title": "Tagging events with a specific severity or urgency helps operational teams priorities in cases where multiple events require intervention at the same time. For example, alerts concerning critical system flows might require special attention.",
+      "title": "Tagging events with a specific severity or urgency helps operational team priorities in cases where multiple events require intervention at the same time. For example, alerts concerning critical system flows might require special attention.",
       "context": "",
       "links": [],
       "priority": "medium"
@@ -1296,7 +1296,7 @@
     "title": "Have Azure Resource Health alerts been created to respond to Resource-level events?",
     "context": "Azure Resource Health provides information about the health of individual resources such as a specific virtual machine, and is highly useful when diagnosing unavailable resources.",
     "recommendation": {
-      "title": "Azure Resource Health Alerts should be configured for specific resource groups and resource types, and should be adjusted to maximize signal to noise ratios, i.e. only distribute a notification when a resource becomes unhealthy according to the application health model or due to an Azure platform initiated event. It is therefore important to consider transient issues when setting an appropriate threshold for resource unavailability, such as configuring an alert for a virtual machine with a threshold of 1 minute for unavailability before an alert is triggered.",
+      "title": "Azure Resource Health Alerts should be configured for specific resource groups and resource types, and should be adjusted to maximize signal to noise ratios, i.e. only distribute a notification when a resource becomes unhealthy according to the application health model or due to an Azure platform-initiated event. It is therefore important to consider transient issues when setting an appropriate threshold for resource unavailability, such as configuring an alert for a virtual machine with a threshold of 1 minute for unavailability before an alert is triggered.",
       "context": "",
       "links": [],
       "priority": "medium"
@@ -1311,7 +1311,7 @@
     "lens": "application",
     "category": "Health Modelling & Monitoring",
     "subCategory": "Alerting",
-    "title": "Are Azure notifications sent to subscriptions owners received and if necessary properly routed to relevant technical stakeholders?",
+    "title": "Are Azure notifications sent to subscriptions owners received and if necessary, properly routed to relevant technical stakeholders?",
     "context": "Subscription notification emails can contain important service notifications or security alerts.",
     "recommendation": {
       "title": "Make sure that subscription notification emails are routed to the relevant technical stakeholders.",
@@ -1371,7 +1371,7 @@
         "title": "Is the health model being used to classify failover situations?",
         "context": "It is important to know if a formal procedure is used to classify failover situations.",
         "recommendation": {
-          "title": "A platform service outage in a specific region will likely require a failover to another region, whereas the accidental change of an firewall rule can be mitigated by a recovery process. The health model and all underlying data should be used to interpret which operational procedures should be triggered.",
+          "title": "A platform service outage in a specific region will likely require a failover to another region, whereas the accidental change of a firewall rule can be mitigated by a recovery process. The health model and all underlying data should be used to interpret which operational procedures should be triggered.",
           "context": "",
           "links": [],
           "priority": "medium"
@@ -1913,7 +1913,7 @@
     "lens": "application",
     "category": "Operational Procedures",
     "subCategory": "Operational Lifecycles",
-    "title": "How are operational shortcomings and failures analysed?",
+    "title": "How are operational shortcomings and failures analyzed?",
     "context": "",
     "recommendation": {
       "title": "Reviewing operational incidents where the response and remediation to issues either failed or could have been optimized is vital to improving overall operational effectiveness. Failures provide a valuable learning opportunity and in some cases these learnings can also be shared across the entire organization.",
@@ -3165,7 +3165,7 @@
     "category": "Capacity & Service Availability Planning",
     "subCategory": "Service Availability",
     "title": "Are any preview services/capabilities required in production?",
-    "context": "If the application has taken a dependency on preview services or SKUs then it is important to ensure that the level of support and committed Service Level Agreement (SLA)s are in alignment with expectations and that roadmap plans for preview services to go<br />Generally Available (GA) are understood<br />Private Preview : SLAs do not apply and formal support is not generally provided <br />Public Preview : SLAs do not apply and formal support may be provided on a best-effort basis",
+    "context": "If the application has taken a dependency on preview services or SKUs then it is important to ensure that the level of support and committed Service Level Agreement (SLA) are in alignment with expectations and that roadmap plans for preview services to go<br />Generally Available (GA) are understood<br />Private Preview : SLAs do not apply and formal support is not generally provided <br />Public Preview : SLAs do not apply and formal support may be provided on a best-effort basis",
     "recommendation": {
       "title": "",
       "context": "",
@@ -3337,7 +3337,7 @@
     "category": "Application Platform Availability",
     "subCategory": "Compute Availability",
     "title": "Is the application hosted across 2 or more application platform nodes?",
-    "context": "To ensure application platform reliability, it is vital that the application be hosted across at least two nodes to ensure there are no single points of failure. Ideally An n+1 model should be applied for compute availability where n is the number of instances required to support application availability and performance requirements. It is important to note that the higher [SLAs provided for virtual machines](https://azure.microsoft.com/support/legal/Service Level Agreement (SLA)/virtual-machines/v1_9/) and associated related platform services, require at least two replica nodes deployed to either an Availability Set or across two or more [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones).",
+    "context": "To ensure application platform reliability, it is vital that the application be hosted across at least two nodes to ensure there are no single points of failure. Ideally An n+1 model should be applied for compute availability where n is the number of instances required to support application availability and performance requirements. It is important to note that the higher [SLAs provided for virtual machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/) and associated related platform services, require at least two replica nodes deployed to either an Availability Set or across two or more [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones).",
     "recommendation": {
       "title": "",
       "context": "",
@@ -5159,7 +5159,7 @@
       {
         "id": "ee5f1204-c080-42ed-8b24-ad403b91fa28",
         "title": "Are public endpoints of this workload protected with firewall or WAF (Web Application Firewall)?",
-        "context": "[Azure Firewall](https://docs.microsoft.com/azure/firewall/features) is a managed, cloud-based network security service that protects Azure Virtual Network resources. [Web Application Firewall](https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview) (Web Application Firewall (WAF)) mitigates the risk of an attacker being able to exploit commonly known security application vulnerabilities like cross-site scripting or SQL injection.",
+        "context": "[Azure Firewall](https://docs.microsoft.com/azure/firewall/features) is a managed, cloud-based network security service that protects Azure Virtual Network resources. [Web Application Firewall](https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview) (WAF) mitigates the risk of an attacker being able to exploit commonly known security application vulnerabilities like cross-site scripting or SQL injection.",
         "recommendation": {
           "title": "Use web application firewall.",
           "context": "",
@@ -6638,7 +6638,7 @@
     "category": "Capacity & Service Availability Planning",
     "subCategory": "Service SKU",
     "title": "Is Azure Advisor being used to optimize SKUs discovered in this workload?",
-    "context": "Azure Advisor helps to optimize and improve efficiency of the workload by identifying idle and underutilized resources. It analyzes your configurations and usage telemetry and consolidates it into personalized, actionable recommendations to help you optimize your resources.",
+    "context": "Azure Advisor helps to optimize and improve efficiency of the workload by identifying idle and under-utilized resources. It analyzes your configurations and usage telemetry and consolidates it into personalized, actionable recommendations to help you optimize your resources.",
     "recommendation": {
       "title": "Use Azure Advisor to identify SKUs for optimization.",
       "context": "",

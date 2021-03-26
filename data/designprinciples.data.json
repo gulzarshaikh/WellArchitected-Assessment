@@ -116,7 +116,7 @@
     "category": "General",
     "subCategory": "Unassigned",
     "title": "Design for Self-Healing",
-    "context": "Self Healing describes a system's ability to deal with failures automatically through pre-defined remediation protocols connected to failure modes within the solution. It is an advanced concept that requires a high level of system maturity with monitoring and automation, but should be an aspiration from inception to maximise reliability.",
+    "context": "Self Healing describes a system's ability to deal with failures automatically through pre-defined remediation protocols connected to failure modes within the solution. It is an advanced concept that requires a high level of system maturity with monitoring and automation, but should be an aspiration from inception to maximize reliability.",
     "id": "740c5681-e13b-4a10-bc15-db0233935895"
   },
   {
@@ -152,7 +152,7 @@
     "category": "General",
     "subCategory": "Unassigned",
     "title": "Automate and use least privilege",
-    "context": "Implement least privilege throughout the application and control plane to protect against data exfiltration and malitious actor scenarios. Drive automation through DevSecOps to minimize the need for human interaction.",
+    "context": "Implement least privilege throughout the application and control plane to protect against data exfiltration and malicious actor scenarios. Drive automation through DevSecOps to minimize the need for human interaction.",
     "id": "2de95dfb-2b3e-4af9-9a42-7fac79e39144"
   },
   {
