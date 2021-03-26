@@ -5403,18 +5403,18 @@
     "lens": "application",
     "category": "Security & Compliance",
     "subCategory": "Encryption",
-    "title": "Does the organization store customer managed keys for this workload in Azure Key Vault and protect them with identity-based access control?",
-    "context": "Keys must be stored in a secure location with identity-based access control and audit policies. Data encryption keys are often encrypted with a key encryption key in Azure Key Vault to further limit access.",
+    "title": "Are customer managed keys (CMK) for this workload stored in Azure Key Vault and protected with identity-based access control?",
+    "context": "In many industries, regulations and compliance obligations require the use of workloads (typically databases) that not only encrypt data at rest, but do so by using encryption keys that end-users can control. The use of CMK exposes the workload to additional management responsibilities around key rotation and renewal, which in-turn can expose the workload to realiability risks, if not handled properly. Keys must be stored in a secure location with identity-based access control and audit policies. Data encryption keys are often encrypted with a key encryption key in Azure Key Vault to further limit access.",
     "recommendation": {
       "title": "Store customer managed keys in Azure Key Vault.",
-      "context": "",
+      "context": "For general use, it is recommended to adopt platform managed keys, unless there are specific business reasons (like regulatory requirements) to use customer managed keys. Those keys should be always stored in Azure Key Vault.",
       "links": [],
       "priority": "medium"
     },
     "children": [
       {
         "id": "10b646df-66c3-476d-8f7d-ac3a4f69722c",
-        "title": "Does the organization protect customer managed keys in this workload with an additional key encryption key (KEK)?",
+        "title": "Are customer managed keys (CMK) in this workload protected with an additional key encryption key (KEK)?",
         "context": "More than one encryption key should be used in an encryption at rest implementation. Storing an encryption key in Azure Key Vault ensures secure key access and central management of keys.",
         "recommendation": {
           "title": "Use an additional key encryption key (KEK) to protect your data encryption key (DEK).",
@@ -6856,7 +6856,7 @@
     "category": "Capacity & Service Availability Planning",
     "subCategory": "Service SKU",
     "title": "Have you deployed a Hub and Spoke Design or Virtual WAN?",
-    "context": "Virtual WAN has costs that are different in hub and spoke design. The cost of the peering network or other service routing has to be included. If Private Link is deployed, peering is not billed - only private link.",
+    "context": "Virtual Wide Area Network (WAN) has costs that are different in hub and spoke design. The cost of the peering network or other service routing has to be included. If Private Link is deployed, peering is not billed - only private link.",
     "recommendation": {
       "title": "Consider whether to deploy Hub and Spoke or Virtual WAN for this workload.",
       "context": "",
@@ -7936,7 +7936,7 @@
     "category": "Performance Testing",
     "subCategory": "Load Capacity",
     "title": "How much of the application is involved in serving an immediate, single request?",
-    "context": "When understanding load and demands on the application, it is necessary to understand how the application is architected--whether monolithic, n-Tier, or microservice-based--and then understand how load is distributed across the application. This is crucial for focusing on the testing of individual components and identifying bottlenecks.",
+    "context": "When understanding load and demands on the application, it is necessary to understand how the application is architected - whether monolithic, n-Tier, or microservice-based - and then understand how load is distributed across the application. This is crucial for focusing on the testing of individual components and identifying bottlenecks.",
     "recommendation": {
       "title": "",
       "context": "",

@@ -348,7 +348,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
       > Review Azure Advisor recommendation periodically.
 * Have you deployed a Hub and Spoke Design or Virtual WAN?
 
-  _Virtual WAN has costs that are different in hub and spoke design. The cost of the peering network or other service routing has to be included. If Private Link is deployed, peering is not billed - only private link._
+  _Virtual Wide Area Network (WAN) has costs that are different in hub and spoke design. The cost of the peering network or other service routing has to be included. If Private Link is deployed, peering is not billed - only private link._
   > Consider whether to deploy Hub and Spoke or Virtual WAN for this workload.
 ### Efficiency
             
