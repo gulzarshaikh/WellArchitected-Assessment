@@ -1,39 +1,62 @@
-$dataDir = "data"
-$outputDir = "assessments"
+$dataDir = "../data"
+$outputDir = "../assessments"
 
 # Merge data files
 # ----------------
-$AllItems = @()
+$allItems = @()
 Get-ChildItem -Path $dataDir | where { $_.Name -match ".data.json$" } | % {
     Get-Content -Path $_.FullName | ConvertFrom-Json | % {
         if ($_) {
-            $AllItems += $_
+            $allItems += $_
         }
     }
 }
 
-$PnpQuestions = Get-Content -Path "$dataDir/pnp-questions.json" | ConvertFrom-Json
+$pnpMapping = Get-Content -Path "$dataDir/assessment-platform.questions-mapping.json" | ConvertFrom-Json
 
-foreach ($question in $PnpQuestions) {
-    foreach ($answer in $question.answers) {
+foreach ($question in $pnpMapping) {
+    foreach ($choice in $question.choices) {
         $content = $null
-        if ($answer.question_id) { # not every answer might have a reference to a question, we ignore those
-            $content = $AllItems | Where-Object { $_.id -eq $answer.question_id }       
+        if ($choice.waf_github_content_id) { # not every answer might have a reference to a question, we ignore those
+            $content = $allItems | Where-Object { $_.id -eq $choice.waf_github_content_id }
             if (-not $content) {
                 # If the ID was not matched on a parent question, we look now inside the children
-                $content = $AllItems | Where-Object { $_.children.id -eq $answer.question_id } | Select-Object -ExpandProperty children | Where-Object { $_.id -eq $answer.question_id }   
+                $content = $allItems | Where-Object { $_.children.id -eq $choice.waf_github_content_id } | Select-Object -ExpandProperty "children" | Where-Object { $_.id -eq $choice.waf_github_content_id }
             }
             if ($content -and $content.statement) {
-                Write-Host "Found statement for question $($answer.question_id): " $content.statement
-                $answer | Add-Member -MemberType NoteProperty -Name "statement" -Value $content.statement
-                $answer | Add-Member -MemberType NoteProperty -Name "context" -Value $content.context
-                $answer | Add-Member -MemberType NoteProperty -Name "recommendation" -Value $content.recommendation
-                $answer.PSObject.Properties.Remove('question_id')
+                Write-Host "Found statement for question $($choice.waf_github_content_id): " $content.statement
+                $choice | Add-Member -MemberType NoteProperty -Name "title" -Value $content.statement
+                $choice | Add-Member -MemberType NoteProperty -Name "context" -Value $content.context
+                
+                # Using string to define JSON for simplicity - it's a completely new object with nested properties.
+                # Links is intentionally empty - it gets assigned afterwards.
+                $recommendations = "
+                  [
+                    {
+                      ""title"": ""$($content.recommendation.title)"",
+                      ""context"": ""$($content.recommendation.context)"",
+                      ""links"": [],
+                      ""nextSteps"": ""1"",
+                      ""metadata"": {
+                        ""priority"": ""$($content.recommendation.priority)"",
+                        ""category"": ""$($content.category)"",
+                        ""sub-category"": ""$($content.subCategory)"",
+                        ""description-long"": ""$($content.recommendation.context)""
+                      }
+                    }
+                  ]
+                " | ConvertFrom-Json -NoEnumerate
+
+                # Currently, GitHub content always has just one recommendation, so we can safely assume that links should go to $recommendations[0].
+                $recommendations[0].links = $content.recommendation.links
+                
+                $choice | Add-Member -MemberType NoteProperty -Name "recommendations" -Value $recommendations
             }
             else {
-                Write-Warning "Either mapped question $($answer.question_id) was not found or it does not have a 'statement' field"
+                Write-Warning "Either mapped question $($choice.waf_github_content_id) was not found or it does not have a 'statement' field"
             }
         }
     }
 }
-$PnpQuestions | ConvertTo-Json -Depth 10 | Out-File $outputDir/pnp_questions.json
+
+$pnpMapping | ConvertTo-Json -Depth 10 | Out-File $outputDir/pnp_questions.json
