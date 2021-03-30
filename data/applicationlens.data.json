@@ -672,7 +672,7 @@
     "category": "Application Design",
     "subCategory": "Application Composition",
     "title": "Are components hosted on shared application or data platforms which are used by other applications?",
-    "context": "Do application components leverage shared data platforms, such as a central data lake, or application hosting platforms, such as a centrally managed Azure Kubernetes Service (AKS) or ASE cluster? Shared platforms drive down cost, but the workload needs to maintain the expected performance.",
+    "context": "Do application components leverage shared data platforms, such as a central data lake, or application hosting platforms, such as a centrally managed Azure Kubernetes Service (AKS) or App Service Environment (ASE) cluster? Shared platforms drive down cost, but the workload needs to maintain the expected performance.",
     "recommendation": {
       "title": "Make sure you understand the design decisions and implications of using shared hosting platforms.",
       "context": "",
@@ -1216,7 +1216,7 @@
     "title": "Are operational events prioritized based on business impact?",
     "context": "Are all alerts being treated the same or do you analyze the potential business impact when defining an alert?",
     "recommendation": {
-      "title": "Tagging events with a specific severity or urgency helps operational team priorities in cases where multiple events require intervention at the same time. For example, alerts concerning critical system flows might require special attention.",
+      "title": "Tagging events with a specific severity or urgency helps operational teams prioritize in cases where multiple events require intervention at the same time. For example, alerts concerning critical system flows might require special attention.",
       "context": "",
       "links": [],
       "priority": "medium"
