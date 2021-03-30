@@ -104,7 +104,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
       > Plan your growth, then choose regions that will support those plans.
   
       Additional resources:
-        - [Products available by region](https://azure.microsoft.com/global-infrastructure/services/)
+        - [Products available by region] (https://azure.microsoft.com/global-infrastructure/services/)
     - Are paired regions used?
 
       _[Paired regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) exist within the same geography and provide native replication features for recovery purposes, such as Geo-Redundant Storage (GRS) asynchronous replication. In the event of planned maintenance, updates to a region will be performed sequentially only._

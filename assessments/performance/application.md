@@ -94,7 +94,7 @@
 * Has the application been designed to scale-out?
 
   _Azure provides elastic scalability, however, applications must leverage a scale-unit approach to navigate service and subscription limits to ensure that individual components and the application as a whole can scale horizontally. Don't forget about scale in as well, as this is important to drive cost down. For example, scale in and out for App Service is done via rules. Often customers write scale out rule and never write scale in rule, this leaves the App Service more expensive._
-  > Design your solution with scalability in mind, leverage PaaS capabilities to [scale out](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out) and in by adding additional intances when needed.
+  > Design your solution with scalability in mind, leverage PaaS capabilities to [scale out](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out) and in by adding additional instances when needed.
   
     Additional resources:
     - [Design to scale out](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out)
@@ -115,7 +115,7 @@
       _One of the fundamental concepts of a microservice is that it uses its own datastore. Not only does this help with resiliency, but can also improve performance by reducing load on a single source, thus eliminating bottlenecks due to long-running queries._
     - Are the datastores&#39; access restricted only to their respective service or can multiple microservices access the datastores directly?
 
-### Targets &amp; Non Functional Requirements
+### Targets &amp; Non-Functional Requirements
             
 * Are you able to predict general application usage?
 
@@ -131,7 +131,7 @@
 
     - Are you able to accurately predict the amount of load your application will experience during these peaks?
 
-* Are there well defined performance requirements for the application and/or key scenarios?
+* Are there well-defined performance requirements for the application and/or key scenarios?
 
   _Non-functional performance requirements, such as those relating to end-user experiences (e.g. average and maximum response times) are vital to assessing the overall health of an application, and is a critical lens required for assessing operations._
   > Identify sensible non-functional requirements. Work with stakeholders to identify sensible non-functional requirements based on business requirements, research and user testing.
@@ -168,7 +168,7 @@
 
 ## Health Modelling &amp; Monitoring
     
-### Application Level Monitoring
+### Application-Level Monitoring
             
 * Are application logs collected from different application environments?
 
@@ -187,14 +187,14 @@
     - [Distributed tracing](https://docs.microsoft.com/azure/architecture/microservices/logging-monitoring#distributed-tracing)
 * Is it possible to evaluate critical application performance targets and non-functional requirements (NFRs)?
 
-  > Application level metrics should include end-to-end transaction times of key technical functions, such as database queries, response times for external API calls, failure rates of processing steps, etc.
+  > Application-level metrics should include end-to-end transaction times of key technical functions, such as database queries, response times for external API calls, failure rates of processing steps, etc.
     - Is the end-to-end performance of critical system flows monitored?
 
       _To fully assess the health of key scenarios in the context of targets and NFRs, application log events across critical system flows should be correlated._
       > Correlate application log events across critical system flows, such as user login.
 * Do you have detailed instrumentation in the application code?
 
-  _Instrumentation of your code allows precise detection of underperforming pieces when load or stress tests are applied. It is critical to have this data available to improve and identify performance opportunities in the application code. Application Performance Monitoring (APM) tools, such as Application Insights, should be used to manage the performance and availability of the application, along with aggregating application level logs and events for subsequent interpretation._
+  _Instrumentation of your code allows precise detection of underperforming pieces when load or stress tests are applied. It is critical to have this data available to improve and identify performance opportunities in the application code. Application Performance Monitoring (APM) tools, such as Application Insights, should be used to manage the performance and availability of the application, along with aggregating application-level logs and events for subsequent interpretation._
 ### Resource and Infrastructure Level Monitoring
             
 * Which log aggregation technology is used to collect logs and metrics from Azure resources?
