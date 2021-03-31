@@ -26,8 +26,8 @@
       "security"
     ],
     "lens": "application",
-    "category": "Application Design",
-    "subCategory": "Design",
+    "category": "Governance",
+    "subCategory": "Standards",
     "title": "Are there any regulatory or governance requirements for this workload?",
     "context": "Regulatory requirements may mandate that operational data, such as application logs and metrics, remain within a certain geo-political region. This has obvious implications for how the application should be operationalized.",
     "recommendation": {
