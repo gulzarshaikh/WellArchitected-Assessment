@@ -4170,29 +4170,6 @@
     }
   },
   {
-    "id": "34319d37-7db5-4902-95e3-7e08b1bc90c2",
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Security & Compliance",
-    "subCategory": "Network Security",
-    "title": "Are all external application endpoints secured?",
-    "context": "External application endpoints should be protected against common attack vectors, such as Denial of Service (DoS) attacks like Slowloris, to prevent potential application downtime due to malicious intent. Azure native technologies such as Azure Firewall, Application Gateway/Azure Front Door Web Application Firewall (WAF), and DDoS Protection Standard Plan can be used to achieve requisite protection.",
-    "recommendation": {
-      "title": "Consider using Azure DDoS Protection to protect endpoints agains DDoS attacks.",
-      "context": "",
-      "links": [
-        {
-          "title": "Azure DDoS Protection",
-          "url": "https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview"
-        }
-      ],
-      "priority": "medium"
-    }
-  },
-  {
     "id": "45bf67c1-4cb1-4b7d-b1a5-5edeff0aa150",
     "type": "Questions",
     "pillars": [
@@ -5152,7 +5129,16 @@
     "recommendation": {
       "title": "Protect all public endpoints with appropriate solutions, e.g. Azure Front Door, Application Gateway, Azure Firewall, Azure DDOS Protection or any 3rd party solution.",
       "context": "",
-      "links": [],
+      "links": [
+        {
+          "title": "Azure DDoS Protection",
+          "url": "https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview"
+        },
+        {
+          "title": "Azure Web Application Firewall",
+          "url": "https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview"
+        }
+      ],
       "priority": "medium"
     },
     "children": [
