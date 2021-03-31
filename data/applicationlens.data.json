@@ -4578,8 +4578,8 @@
       "security"
     ],
     "lens": "application",
-    "category": "Application Design",
-    "subCategory": "Security Criteria & Data Classification",
+    "category": "Security & Compliance",
+    "subCategory": "Compliance",
     "title": "How do you monitor and maintain your compliance of this workload?",
     "context": "Find out how they make sure they maintain compliance as the Azure Platform evolves and they update their application. Are there things preventing them from adopting new features in the platform because it will knock them out of compliance?",
     "recommendation": {
@@ -4620,8 +4620,8 @@
       "security"
     ],
     "lens": "application",
-    "category": "Application Design",
-    "subCategory": "Security Criteria & Data Classification",
+    "category": "Security & Compliance",
+    "subCategory": "Compliance",
     "title": "Does the organization periodically perform external and/or internal workload audits?",
     "context": "Compliance is important for several reasons. Aside from signifying levels of standards, like ISO 27001 and others, noncompliance with regulatory guidelines may bring sanctions and penalties.",
     "recommendation": {
@@ -5702,8 +5702,8 @@
       "security"
     ],
     "lens": "application",
-    "category": "Application Design",
-    "subCategory": "Security Criteria & Data Classification",
+    "category": "Security & Compliance",
+    "subCategory": "Compliance",
     "title": "Are Azure policies used to enforce security, compliance and organizational standards of this workload?",
     "context": "Azure Policy should be used to enforce and report a compliant configuration of Azure services. Azure policies can be used on multiple levels. It is recommended to apply organizational wide security controls on Azure platform level. These policies build the guardrails of a landing zone.",
     "recommendation": {
