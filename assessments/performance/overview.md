@@ -10,7 +10,7 @@ This assessment has been produced to help the global CE&S community to optimize 
 - [Application Assessment Checklist](./application.md#Application-Assessment-Checklist)
   - [Application Design](./application.md#Application-Design)
     - [Design](./application.md#Design)
-    - [Targets &amp; Non Functional Requirements](./application.md#Targets--Non-Functional-Requirements)
+    - [Targets &amp; Non-Functional Requirements](./application.md#Targets--Non-Functional-Requirements)
     - [Transactional](./application.md#Transactional)
   - [Health Modelling &amp; Monitoring](./application.md#Health-Modelling--Monitoring)
     - [Application Level Monitoring](./application.md#Application-Level-Monitoring)

@@ -4,7 +4,7 @@
 - [Application Assessment Checklist](#Application-Assessment-Checklist)
   - [Application Design](#Application-Design)
     - [Design](#Design)
-    - [Targets &amp; Non Functional Requirements](#Targets--Non-Functional-Requirements)
+    - [Targets &amp; Non-Functional Requirements](#Targets--Non-Functional-Requirements)
     - [Transactional](#Transactional)
   - [Health Modelling &amp; Monitoring](#Health-Modelling--Monitoring)
     - [Application Level Monitoring](#Application-Level-Monitoring)
@@ -70,7 +70,7 @@
     - [About Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)
 * Within a region is the application architecture designed to use Availability Zones?
 
-  _[Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones) can be used to optimise application availability within a region by providing datacenter level fault tolerance. However, the application architecture must not share dependencies between zones to use them effectively. It is also important to note that Availability Zones may introduce performance and cost considerations for applications which are extremely 'chatty' across zones given the implied physical separation between each zone and inter-zone bandwidth charges. That also means that AZ can be considered to get higher SLA for lower cost. Be aware of [pricing changes](https://azure.microsoft.com/pricing/details/bandwidth/) coming to Availability Zone bandwidth starting February 2021._
+  _[Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones) can be used to optimize application availability within a region by providing datacenter level fault tolerance. However, the application architecture must not share dependencies between zones to use them effectively. It is also important to note that Availability Zones may introduce performance and cost considerations for applications which are extremely 'chatty' across zones given the implied physical separation between each zone and inter-zone bandwidth charges. That also means that AZ can be considered to get higher Service Level Agreement (SLA) for lower cost. Be aware of [pricing changes](https://azure.microsoft.com/pricing/details/bandwidth/) coming to Availability Zone bandwidth starting February 2021._
   > Use Availability Zones where applicable to improve reliability and optimize costs.
   
     Additional resources:
@@ -94,7 +94,7 @@
 * Has the application been designed to scale-out?
 
   _Azure provides elastic scalability, however, applications must leverage a scale-unit approach to navigate service and subscription limits to ensure that individual components and the application as a whole can scale horizontally. Don't forget about scale in as well, as this is important to drive cost down. For example, scale in and out for App Service is done via rules. Often customers write scale out rule and never write scale in rule, this leaves the App Service more expensive._
-  > Design your solution with scalability in mind, leverage PaaS capabilities to [scale out](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out) and in by adding additional instances when needed.
+  > Design your solution with scalability in mind, leverage PaaS capabilities to [scale out](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out) and in by adding additional intances when needed.
   
     Additional resources:
     - [Design to scale out](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out)
@@ -168,7 +168,7 @@
 
 ## Health Modelling &amp; Monitoring
     
-### Application-Level Monitoring
+### Application Level Monitoring
             
 * Are application logs collected from different application environments?
 
@@ -187,14 +187,14 @@
     - [Distributed tracing](https://docs.microsoft.com/azure/architecture/microservices/logging-monitoring#distributed-tracing)
 * Is it possible to evaluate critical application performance targets and non-functional requirements (NFRs)?
 
-  > Application-level metrics should include end-to-end transaction times of key technical functions, such as database queries, response times for external API calls, failure rates of processing steps, etc.
+  > Application level metrics should include end-to-end transaction times of key technical functions, such as database queries, response times for external API calls, failure rates of processing steps, etc.
     - Is the end-to-end performance of critical system flows monitored?
 
       _To fully assess the health of key scenarios in the context of targets and NFRs, application log events across critical system flows should be correlated._
       > Correlate application log events across critical system flows, such as user login.
 * Do you have detailed instrumentation in the application code?
 
-  _Instrumentation of your code allows precise detection of underperforming pieces when load or stress tests are applied. It is critical to have this data available to improve and identify performance opportunities in the application code. Application Performance Monitoring (APM) tools, such as Application Insights, should be used to manage the performance and availability of the application, along with aggregating application-level logs and events for subsequent interpretation._
+  _Instrumentation of your code allows precise detection of underperforming pieces when load or stress tests are applied. It is critical to have this data available to improve and identify performance opportunities in the application code. Application Performance Monitoring (APM) tools, such as Application Insights, should be used to manage the performance and availability of the application, along with aggregating application level logs and events for subsequent interpretation._
 ### Resource and Infrastructure Level Monitoring
             
 * Which log aggregation technology is used to collect logs and metrics from Azure resources?
@@ -227,7 +227,7 @@
   > Implement a unified solution to aggregate and query application and resource level logs, such as Azure Log Analytics.
 * Is a health model used to qualify what 'healthy' and 'unhealthy' states represent for the application?
 
-  > Implement a health model. A holistic application health model should be used to quantify what 'healthy' and 'unhealthy' states represent across all application components. It is highly recommended that a 'traffic light' model be used to indicate a green/healthy state when key non-functional requirements and targets are fully satisfied and resources are optimally utilized, e.g. 95% of requests are processed in <= 500ms with AKS node utilization at x% etc. Once established, this health model should inform critical monitoring metrics across system components and operational sub-system composition. It is important to note that the health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state.
+  > Implement a health model. A holistic application health model should be used to quantify what 'healthy' and 'unhealthy' states represent across all application components. It is highly recommended that a 'traffic light' model be used to indicate a green/healthy state when key non-functional requirements and targets are fully satisfied and resources are optimally utilized, e.g. 95% of requests are processed in <= 500ms with Azure Kubernetes Service (AKS) node utilization at x% etc. Once established, this health model should inform critical monitoring metrics across system components and operational sub-system composition. It is important to note that the health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state.
     - Are critical system flows used to inform the health model?
 
       > The health model should be able to surface the respective health of critical system flows or key subsystems to ensure appropriate operational prioritization is applied. For example, the health model should be able to represent the current state of the user login transaction flow.

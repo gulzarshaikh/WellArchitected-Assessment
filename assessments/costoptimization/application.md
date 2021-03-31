@@ -6,7 +6,7 @@
 - [Application Assessment Checklist](#Application-Assessment-Checklist)
   - [Application Design](#Application-Design)
     - [Design](#Design)
-    - [Targets &amp; Non Functional Requirements](#Targets--Non-Functional-Requirements)
+    - [Targets &amp; Non-Functional Requirements](#Targets--Non-Functional-Requirements)
     - [Key Scenarios](#Key-Scenarios)
     - [Dependencies](#Dependencies)
     - [Application Composition](#Application-Composition)
@@ -92,7 +92,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
             
 * Was the application built natively for the cloud or was an existing on-premises system migrated?
 
-  _Understanding if the application is cloud-native or not provides a very useful high level indication about potential technical debt for operability and cost efficiency._
+  _Understanding if the application is cloud-native or not provides a very useful high-level indication about potential technical debt for operability and cost efficiency._
   > While cloud-native workloads are preferred, migrated or modernized applications are reality and they might not utilize the available cloud functionality like auto-scaling, platform notifications etc. Make sure to understand the limitations and implement workarounds if available.
 * Is the workload deployed across multiple regions?
 
@@ -104,7 +104,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
       > Plan your growth, then choose regions that will support those plans.
   
       Additional resources:
-        - [Products available by region] (https://azure.microsoft.com/global-infrastructure/services/)
+        - [Products available by region](https://azure.microsoft.com/global-infrastructure/services/)
     - Are paired regions used?
 
       _[Paired regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) exist within the same geography and provide native replication features for recovery purposes, such as Geo-Redundant Storage (GRS) asynchronous replication. In the event of planned maintenance, updates to a region will be performed sequentially only._
@@ -124,7 +124,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
     - [About Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)
 * Within a region is the application architecture designed to use Availability Zones?
 
-  _[Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones) can be used to optimise application availability within a region by providing datacenter level fault tolerance. However, the application architecture must not share dependencies between zones to use them effectively. It is also important to note that Availability Zones may introduce performance and cost considerations for applications which are extremely 'chatty' across zones given the implied physical separation between each zone and inter-zone bandwidth charges. That also means that AZ can be considered to get higher SLA for lower cost. Be aware of [pricing changes](https://azure.microsoft.com/pricing/details/bandwidth/) coming to Availability Zone bandwidth starting February 2021._
+  _[Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones) can be used to optimize application availability within a region by providing datacenter level fault tolerance. However, the application architecture must not share dependencies between zones to use them effectively. It is also important to note that Availability Zones may introduce performance and cost considerations for applications which are extremely 'chatty' across zones given the implied physical separation between each zone and inter-zone bandwidth charges. That also means that AZ can be considered to get higher Service Level Agreement (SLA) for lower cost. Be aware of [pricing changes](https://azure.microsoft.com/pricing/details/bandwidth/) coming to Availability Zone bandwidth starting February 2021._
   > Use Availability Zones where applicable to improve reliability and optimize costs.
   
     Additional resources:
@@ -155,12 +155,12 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 * Is there a plan to modernize the workload?
 
   _Is there a plan to change the execution model to Serverless? To move as far as you can up the stack towards cloud-native. When the workload is serverless, it’s charged only for actual use, whereas whith traditional infrastructure there are many underlying things that need to be factored into the price. By applying an end date to the application it encourages you to discuss the goal of re-designing the application to make even better use of the cloud. It might be more expensive from an Azure cost point of view but factoring in other things like licenses, people, time to deploy can drive down cost._
-### Targets &amp; Non Functional Requirements
+### Targets &amp; Non-Functional Requirements
             
 * Are availability targets such as Service Level Agreements (SLAs), Service Level Indicators (SLIs), and Service Level Objectives (SLOs) defined for the application and/or key scenarios?
 
-  _Understanding customer availability expectations is vital to reviewing overall operations for the application. For instance, if a customer is striving to achieve an application SLO of 99.999%, the level of inherent operational actionality required by the application is going to far greater than if an SLO of 99.9% was the aspiration._
-  > Have clearly defined availability targets. Having clearly defined availability targets is crucial in order to have a goal to work and measure against. This will also determine which services an application can leverage vs. those which do not qualify in terms of the SLA they offer.
+  _Understanding customer availability expectations is vital to reviewing overall operations for the application. For instance, if a customer is striving to achieve an application SLO of 99.999%, the level of inherent operational activity required by the application is going to be far greater than if an SLO of 99.9% was the aspiration._
+  > Have clearly defined availability targets. Having clearly defined availability targets is crucial in order to have a goal to work and measure against. This will also determine which services an application can leverage vs. those which do not qualify in terms of the Service Level Agreement (SLA) they offer.
     - Are SLAs/SLOs/SLIs for all leveraged dependencies understood?
 
       _If the application is depending on external services, their availability targets/commitments should be understood and ideally aligned with application targets._
@@ -171,11 +171,11 @@ These critical design principles are used as lenses to assess the Cost Optimizat
       > Make sure the composite SLA of all components and dependencies on the critical paths are understood.
   
       Additional resources:
-        - [Composite SLA](https://docs.microsoft.com/azure/architecture/framework/resiliency/business-metrics#understand-service-level-agreements)
+        - [Composite Service Level Agreement (SLA)](https://docs.microsoft.com/azure/architecture/framework/resiliency/business-metrics#understand-service-level-agreements)
     - Are availability targets considered while the system is running in disaster recovery mode?
 
-      _The above defined targets might or might not be applied when running in DR mode. This depends from application to application._
-      > Consider availability targets for disaster recovery mode. If targets must also apply in a failure state then an N+1 model should be used to achieve greater availability and resiliency, where N is the capacity needed to deliver required availability. There's also a cost implication, because more resilient infrastructure usually means more expensive. This has to be accepted by business.
+      _The above defined targets might or might not be applied when running in Disaster Recovery (DR) mode. This depends from application to application._
+      > Consider availability targets for disaster recovery mode. If targets must also apply in a failure state, then an N+1 model should be used to achieve greater availability and resiliency, where N is the capacity needed to deliver required availability. There's also a cost implication, because a more resilient infrastructure usually means more costs being involved. This has to be accepted by business.
     - Are availability targets monitored and measured?
 
       _Monitoring and measuring application availability is vital to qualifying overall application health and progress towards defined targets._
@@ -185,7 +185,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
         - [Mean Time Between Failures](https://en.wikipedia.org/wiki/Mean_time_between_failures)
     - What are the consequences if availability targets are not satisfied?
 
-      _Are there any penalties, such as financial charges, associated with failing to meet SLA commitments? Additional measures can be used to prevent penalties, but that also brings additional cost to operate the infrastructure. This has to be factored in and evaluated._
+      _Are there any penalties, such as financial charges, associated with failing to meet Service Level Agreement (SLA) commitments? Additional measures can be used to prevent penalties, but that also brings additional cost to operate the infrastructure. This has to be factored in and evaluated._
       > Understand the consequences of missing availability targets. It should be fully understood what are the consequences if availability targets are not satisfied. This will also inform when to initiate a failover case.
 * Are recovery targets such as Recovery Time Objective (RTO) and Recovery Point Objective (RPO) defined for the application and/or key scenarios?
 
@@ -212,7 +212,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
             
 * Have critical system flows through the application been defined for all key business scenarios?
 
-  _Understanding critical system flows is vital to assessing overall operational effectiveness, and should be used to inform a health model for the application. It can also tell if areas of the application are over or under utilized and should be adjusted to better meet business needs and cost goals._
+  _Understanding critical system flows is vital to assessing overall operational effectiveness, and should be used to inform a health model for the application. It can also tell if areas of the application are over or under-utilized and should be adjusted to better meet business needs and cost goals._
   > Path-wise analysis should be used to define critical system flows for key business scenarios, such as the checkout process for an eCommerce application.
     - Do these critical system flows have distinct availability, performance, or recovery targets?
 
@@ -226,22 +226,22 @@ These critical design principles are used as lenses to assess the Cost Optimizat
             
 * Are all internal and external dependencies identified and categorized as either weak or strong?
 
-  _Internal dependencies describe components within the application scope which are required for the application to fully operate, while external dependencies captures required components outside the scope of the application, such as another application or third-party service._
+  _Internal dependencies describe components within the application scope which are required for the application to fully operate, while external dependencies capture required components outside the scope of the application, such as another application or third-party service._
   > Categorize dependencies as either weak or strong. Dependencies may be categorized as either strong or weak based on whether or not the application is able to continue operating in a degraded fashion in their absence.
     - Do you maintain a complete list of application dependencies?
 
-      _Examples of typical dependencies include platform dependencies outside the remit of the application, such as Azure Active Directory, Express Route, or a central NVA (Network Virtual Appliance), as well as application dependencies such as APIs which may be in-house or externally owned by a third-party. For cost it’s important to  understand the price for these services and how they are being charged, this makes it easier to understanding an all up cost. For more details see cost models._
+      _Examples of typical dependencies include platform dependencies outside the remit of the application, such as Azure Active Directory, Express Route, or a central NVA (Network Virtual Appliance), as well as application dependencies such as APIs which may be in-house or externally owned by a third-party. For cost it’s important to understand the price for these services and how they are being charged, this makes it easier to understanding an all-up cost. For more details see cost models._
       > Map application dependencies either as a simple list or a document (usually this is part of a design document or reference architecture).
     - Is the impact of an outage with each dependency well understood?
 
-      _Strong dependencies play a critical role in application function and availability meaning their absence will have a significant impact, while the absence of weak dependencies may only impact specific features and not affect overall availability. For cost this reflects the cost that is needed to maintain the HA relationship between the service and it’s dependencies. It would explain why certain measures needs to be maintained in order to hold a given SLA._
+      _Strong dependencies play a critical role in application function and availability meaning their absence will have a significant impact, while the absence of weak dependencies may only impact specific features and not affect overall availability. This reflects the cost that is needed to maintain the HA relationship between the service and its dependencies. It would explain why certain measures needs to be maintained in order to hold a given Service Level Agreement (SLA)._
       > Classify dependencies either as strong or weak. This will help identify which components are essential to the application.
   
     Additional resources:
     - [Twelve-Factor App: Dependencies](https://12factor.net/dependencies)
-* Are SLAs and support agreements in place for all critical dependencies?
+* Are Service Level Agreement (SLA) and support agreements in place for all critical dependencies?
 
-  _Service Level Agreement (SLA) represents a commitment around performance and availability of the application. Understanding the SLA of individual components within the system is essential in order to define reliability targets. Knowing the SLA of dependencies will also provide a justifications for additional spend when making the dependencies highly available and with proper support contracts._
+  _Service Level Agreement (SLA) represents a commitment around performance and availability of the application. Understanding the Service Level Agreement (SLA) of individual components within the system is essential in order to define reliability targets. Knowing the SLA of dependencies will also provide a justification for additional spend when making the dependencies highly available and with proper support contracts._
   > The operational commitments of all external and internal dependencies should be understood to inform the broader application operations and health model.
 ### Application Composition
             
@@ -255,7 +255,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
       > Make sure you understand the operational features/capabilities available and how they can be used in the solution.
 * What technologies and frameworks are used by the application?
 
-  _It is important to understand what technologies are used by the application and must be managed, such as .NET Core , Spring, or Node.js._
+  _It is important to understand what technologies are used by the application and must be managed, such as .NET Core, Spring, or Node.js._
   > Identify technologies and frameworks used by the application. All technologies and frameworks should be identified. Vulnerabilities of these dependencies must be understood (there are automated solutions on the market that can help: [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/) or [NPM audit](https://docs.npmjs.com/cli/audit).
   
     Additional resources:
@@ -264,7 +264,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
     - [NPM audit](https://docs.npmjs.com/cli/audit)
 * Are components hosted on shared application or data platforms which are used by other applications?
 
-  _Do application components leverage shared data platforms, such as a central data lake, or application hosting platforms, such as a centrally managed AKS or ASE cluster? Shared platforms drive down cost, but the workload needs to maintain the expected performance._
+  _Do application components leverage shared data platforms, such as a central data lake, or application hosting platforms, such as a centrally managed Azure Kubernetes Service (AKS) or App Service Environment (ASE) cluster? Shared platforms drive down cost, but the workload needs to maintain the expected performance._
   > Make sure you understand the design decisions and implications of using shared hosting platforms.
 * How do you ensure that cloud resources are appropriately provisioned?
 
@@ -305,7 +305,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 * What technology is used for alerting?
 
   _Alerts from tools such as Splunk or Azure Monitor proactively notify or respond to operational states that deviate from norm. Alerts can also enable cost-awareness by watching budgets and limits and helping workload teams to scale appropriately._
-  > You should not rely on people to actively look for issues. Instead an alerting solution should be in place that can push notifications to relevant teams. For example by email, SMS or into an mobile app.
+  > You should not rely on people to actively look for issues. Instead, an alerting solution should be in place that can push notifications to relevant teams. For example, by email, SMS or into a mobile app.
 * Are specific owners and processes defined for each alert type?
 
   _Having well-defined owners and response playbooks per alert is vital to optimizing operational effectiveness. Alerts don't have to be only technical, for example the budget owner should be made aware of capacity issues so that budgets can be adjusted and discussed._
@@ -340,11 +340,11 @@ These critical design principles are used as lenses to assess the Cost Optimizat
             
 * Is Azure Advisor being used to optimize SKUs discovered in this workload?
 
-  _Azure Advisor helps to optimize and improve efficiency of the workload by identifying idle and underutilized resources. It analyzes your configurations and usage telemetry and consolidates it into personalized, actionable recommendations to help you optimise your resources._
+  _Azure Advisor helps to optimize and improve efficiency of the workload by identifying idle and under-utilized resources. It analyzes your configurations and usage telemetry and consolidates it into personalized, actionable recommendations to help you optimize your resources._
   > Use Azure Advisor to identify SKUs for optimization.
     - Are the Advisor recommendations being reviewed weekly or bi-weekly for optimization?
 
-      _Your underutilised resources need to be reviewed often in order to be identified and dealt with accordingly, in addition to ensuring that your actionable recommendations are up-to-date and fully optimised. For example, Azure Advisor monitors your virtual machine (VM) usage for 7 days and then identifies low-utilization VMs._
+      _Your underutilised resources need to be reviewed often in order to be identified and dealt with accordingly, in addition to ensuring that your actionable recommendations are up-to-date and fully optimized. For example, Azure Advisor monitors your virtual machine (VM) usage for 7 days and then identifies low-utilization VMs._
       > Review Azure Advisor recommendation periodically.
 * Have you deployed a Hub and Spoke Design or Virtual WAN?
 
