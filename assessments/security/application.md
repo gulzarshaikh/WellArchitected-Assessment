@@ -18,6 +18,7 @@
     - [Endpoints](#Endpoints)
     - [Data flow](#Data-flow)
   - [Security &amp; Compliance](#Security--Compliance)
+    - [Compliance](#Compliance)
     - [Separation of duties](#Separation-of-duties)
     - [Control-plane RBAC](#Control-plane-RBAC)
     - [Authentication and authorization](#Authentication-and-authorization)
@@ -57,7 +58,7 @@ These critical design principles are used as lenses to assess the Security of an
 ## Automate and use least privilege
 
 
-  Implement least privilege throughout the application and control plane to protect against data exfiltration and malitious actor scenarios. Drive automation through DevSecOps to minimize the need for human interaction.
+  Implement least privilege throughout the application and control plane to protect against data exfiltration and malicious actor scenarios. Drive automation through DevSecOps to minimize the need for human interaction.
 
 
 
@@ -106,13 +107,6 @@ These critical design principles are used as lenses to assess the Security of an
     
 ### Design
             
-* Are there any regulatory or governance requirements for this workload?
-
-  _Regulatory requirements may mandate that operational data, such as application logs and metrics, remain within a certain geo-political region. This has obvious implications for how the application should be operationalized._
-  > Make sure that all regulatory requirements are known and well understood. Create processes for obtaining attestations and be familiar with the [Microsoft Trust Center](https://www.microsoft.com/trust-center). Regulatory requirements like data sovereignty and others might affect the overall architecture as well as the selection and configuration of specific PaaS and SaaS services.
-  
-    Additional resources:
-    - [Microsoft Trust Center](https://www.microsoft.com/trust-center)
 * Does the workload hide detailed error messages / verbose information from the end user / client?
 
   _Providing unnecessary information to end users in case of application failure should be avoided. Revealing detailed error information (call stack, SQL queries, out of range errors...) can provide attackers with valuable information about the internals of the application. Error handlers should make the application fail gracefully and log the error._
@@ -170,7 +164,7 @@ These critical design principles are used as lenses to assess the Security of an
       > Make sure you understand the operational features/capabilities available and how they can be used in the solution.
 * What technologies and frameworks are used by the application?
 
-  _It is important to understand what technologies are used by the application and must be managed, such as .NET Core , Spring, or Node.js._
+  _It is important to understand what technologies are used by the application and must be managed, such as .NET Core, Spring, or Node.js._
   > Identify technologies and frameworks used by the application. All technologies and frameworks should be identified. Vulnerabilities of these dependencies must be understood (there are automated solutions on the market that can help: [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/) or [NPM audit](https://docs.npmjs.com/cli/audit).
   
     Additional resources:
@@ -236,29 +230,6 @@ These critical design principles are used as lenses to assess the Security of an
     - [Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview)
 ### Security Criteria &amp; Data Classification
             
-* How do you monitor and maintain your compliance of this workload?
-
-  _Find out how they make sure they maintain compliance as the Azure Platform evolves and they update their application. Are there things preventing them from adopting new features in the platform because it will knock them out of compliance?_
-    - Does the organization have a process for regulatory or governance compliance attestation for this workload?
-
-      _Knowing whether your cloud resources are in compliance with standards mandated by governments or industry organizations is essential in today's globalized world (e.g. GDPR)._
-      > Perform regulatory compliance attestation.
-    - Has the organization established a monitoring and assessment solution for compliance?
-
-      _Continuously monitoring and assessing the workload increases the overall security and compliance of your workload in Azure. For example Azure Security Center provides a regulatory compliance dashboard._
-      > Continuously assess and monitor compliance.
-* Does the organization periodically perform external and/or internal workload audits?
-
-  _Compliance is important for several reasons. Aside from signifying levels of standards, like ISO 27001 and others, noncompliance with regulatory guidelines may bring sanctions and penalties._
-  > Periodically perform external and/or internal workload security audits.
-    - How often do you have internal and external audits of this workload?
-
-      _Determine the process the customer uses for auditing the solution. Is it done internally, external, or both. How are findings reflected back to the application? Is everyone aware of the audit and involved or is it done in a silo. This will help reduce the firefighting mentality when there is a finding and stress of performing updates._
-      > Perform regular internal and external compliance audits.
-* Are Azure policies used to enforce security, compliance and organizational standards of this workload?
-
-  _Azure Policy should be used to enforce and report a compliant configuration of Azure services. Azure policies can be used on multiple levels. It is recommended to apply organizational wide security controls on Azure platform level. These policies build the guardrails of a landing zone._
-  > Define a set of Azure Policies which enforce organizational standards and are aligned with the governance team.
 * Has the organization developed and maintained a security plan in support of the workload?
 
   _A security plan should be part of the main planning documentation for the cloud. It should include several core elements including organizational functions, security skilling, technical security architecture and capabilities roadmap._
@@ -351,12 +322,17 @@ These critical design principles are used as lenses to assess the Security of an
             
 * Are all public endpoints of this workload protected / secured?
 
-  _External application endpoints should be protected against common attack vectors, such as Denial of Service (DoS) attacks like Slowloris, to prevent potential application downtime due to malicious intent. Azure-native technologies such as Azure Firewall, Application Gateway/Azure Front Door WAF, and DDoS Protection Standard Plan can be used to achieve requisite protection._
+  _External application endpoints should be protected against common attack vectors, such as Denial of Service (DoS) attacks like Slowloris, to prevent potential application downtime due to malicious intent. Azure-native technologies such as Azure Firewall, Application Gateway/Azure Front Door Web Application Firewall (WAF), and DDoS Protection Standard Plan can be used to achieve requisite protection._
   > Protect all public endpoints with appropriate solutions, e.g. Azure Front Door, Application Gateway, Azure Firewall, Azure DDOS Protection or any 3rd party solution.
     - Are public endpoints of this workload protected with firewall or WAF (Web Application Firewall)?
 
       _[Azure Firewall](https://docs.microsoft.com/azure/firewall/features) is a managed, cloud-based network security service that protects Azure Virtual Network resources. [Web Application Firewall](https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview) (WAF) mitigates the risk of an attacker being able to exploit commonly known security application vulnerabilities like cross-site scripting or SQL injection._
       > Use web application firewall.
+  
+    Additional resources:
+    - [Azure DDoS Protection](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview)
+  
+    - [Azure Web Application Firewall](https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview)
 * Does the organization protect publishing methods for the workload (e.g FTP, Web Deploy)?
 
   _Application resources allowing multiple methods to publish app content (e.g FTP, Web Deploy) should have the unused endpoints disabled. For Azure Web Apps SCM is the recommended endpoint and it can be protected separately with network restrictions for sensitive scenarios._
@@ -387,12 +363,37 @@ These critical design principles are used as lenses to assess the Security of an
 
   _Data filtering between subnets and other Azure resources should be protected. Network Security Groups, PrivateLink, and Private Endpoints can be used for traffic filtering._
   > Control network traffic between subnets (east/west) and application tiers (north/south).
-* Does the organization leverage a cloud application security broker (CASB) for this workload?
+* Does the organization leverage a Cloud Application Security Broker (CASB) for this workload?
 
   _CASBs provide rich visibility, control over data travel, and sophisticated analytics to identify and combat cyberthreats across all Microsoft and third-party cloud services._
-  > Leverage a cloud application security broker (CASB).
+  > Leverage a Cloud Application Security Broker (CASB).
 ## Security &amp; Compliance
     
+### Compliance
+            
+* How do you monitor and maintain your compliance of this workload?
+
+  _Find out how they make sure they maintain compliance as the Azure Platform evolves and they update their application. Are there things preventing them from adopting new features in the platform because it will knock them out of compliance?_
+    - Does the organization have a process for regulatory or governance compliance attestation for this workload?
+
+      _Knowing whether your cloud resources are in compliance with standards mandated by governments or industry organizations is essential in today's globalized world (e.g. GDPR)._
+      > Perform regulatory compliance attestation.
+    - Has the organization established a monitoring and assessment solution for compliance?
+
+      _Continuously monitoring and assessing the workload increases the overall security and compliance of your workload in Azure. For example Azure Security Center provides a regulatory compliance dashboard._
+      > Continuously assess and monitor compliance.
+* Does the organization periodically perform external and/or internal workload audits?
+
+  _Compliance is important for several reasons. Aside from signifying levels of standards, like ISO 27001 and others, noncompliance with regulatory guidelines may bring sanctions and penalties._
+  > Periodically perform external and/or internal workload security audits.
+    - How often do you have internal and external audits of this workload?
+
+      _Determine the process the customer uses for auditing the solution. Is it done internally, external, or both. How are findings reflected back to the application? Is everyone aware of the audit and involved or is it done in a silo. This will help reduce the firefighting mentality when there is a finding and stress of performing updates._
+      > Perform regular internal and external compliance audits.
+* Are Azure policies used to enforce security, compliance and organizational standards of this workload?
+
+  _Azure Policy should be used to enforce and report a compliant configuration of Azure services. Azure policies can be used on multiple levels. It is recommended to apply organizational wide security controls on Azure platform level. These policies build the guardrails of a landing zone._
+  > Define a set of Azure Policies which enforce organizational standards and are aligned with the governance team.
 ### Separation of duties
             
 * Does the application team have a clear view on responsibilities and individual/group access levels for this workload?
@@ -429,13 +430,13 @@ These critical design principles are used as lenses to assess the Security of an
   _[Role-based and resource-based authorization](https://docs.microsoft.com/azure/architecture/multitenant-identity/authorize) are common approaches to authorize users based on required permission scopes._
     - Does the application write-back to Azure AD?
 
-      _The Azure AD SLA includes authentication, read, write, and administrative actions.  In many cases, applications only require authentication and read access to Azure AD, which aligns with a much higher operational availability due to geographically distributed read replicas._
+      _The Azure AD Service Level Agreement (SLA) includes authentication, read, write, and administrative actions.  In many cases, applications only require authentication and read access to Azure AD, which aligns with a much higher operational availability due to geographically distributed read replicas._
   
       Additional resources:
         - [Azure AD Architecture](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-architecture)
     - Are authentication tokens cached and encrypted for sharing across web servers?
 
-      _Application code should first try to get tokens silently from a cache before attempting to acquire a token from the identity provider, to optimise performance and maximize availability._
+      _Application code should first try to get tokens silently from a cache before attempting to acquire a token from the identity provider, to optimize performance and maximize availability._
   
       Additional resources:
         - [Acquire and cache tokens](https://docs.microsoft.com/azure/active-directory/develop/msal-acquire-cache-tokens)
@@ -474,7 +475,7 @@ These critical design principles are used as lenses to assess the Security of an
             
 * Are authentication tokens cached securely and encrypted when sharing across web servers in this workload?
 
-  _OAuth tokens are usually cached after they've been acquired. Application code should first try to get tokens silently from a cache before attempting to acquire a token from the identity provider, to optimise performance and maximize availability. Tokens should be stored securely and handled as any other credentials. When there's a need to share tokens across application servers (instead of each server acquiring and caching their own) encryption should be used._
+  _OAuth tokens are usually cached after they've been acquired. Application code should first try to get tokens silently from a cache before attempting to acquire a token from the identity provider, to optimize performance and maximize availability. Tokens should be stored securely and handled as any other credentials. When there's a need to share tokens across application servers (instead of each server acquiring and caching their own) encryption should be used._
   > Configure web apps to reuse authentication tokens securely and handle them like other credentials.
     - Is trusted state information protected when stored on untrusted client (such as cookie in a web browser)?
 
@@ -493,7 +494,7 @@ These critical design principles are used as lenses to assess the Security of an
   > Require API authentication for all workloads.
     - Does this workload leverage modern (OAuth 2.0, OpenID) authentication protocols?
 
-      _Modern authentication protocols support strong controls such as MFA and should be used instead of legacy._
+      _Modern authentication protocols support strong controls such as Multi-factor Authentication (MFA) and should be used instead of legacy._
       > Standardize on modern authentication protocols.
 * How is user authentication handled in this workload?
 
@@ -505,7 +506,7 @@ These critical design principles are used as lenses to assess the Security of an
     - Does the organization enforce password less or multi-factor authentication for users of this workload?
 
       _Attack methods have evolved to the point where passwords alone cannot reliably protect an account.  Modern authentication solutions including password-less and multi-factor authentication increase security posture through strong authentication._
-      > Enforce password-less or MFA.
+      > Enforce password-less or Multi-factor Authentication (MFA).
 * Does the organization prioritize authentication via identity services for this workload vs. cryptographic keys?
 
   _Consideration should always be given to authenticating with identity services rather than cryptographic keys when available. Managing keys securely with application code is difficult and regularly leads to mistakes like accidentally publishing sensitive access keys to code repositories like GitHub. Identity systems (such as Azure Active Directory) offer secure and usable experience for access control with built-in sophisticated mechanisms for key rotation, monitoring for anomalies, and more._
@@ -552,13 +553,6 @@ These critical design principles are used as lenses to assess the Security of an
   > Discover and remediate common risks to improve Secure Score in Azure Security Center.
 ### Network Security
             
-* Are all external application endpoints secured?
-
-  _External application endpoints should be protected against common attack vectors, such as Denial of Service (DoS) attacks like Slowloris, to prevent potential application downtime due to malicious intent. Azure native technologies such as Azure Firewall, Application Gateway/Azure Front Door WAF, and DDoS Protection Standard Plan can be used to achieve requisite protection._
-  > Consider using Azure DDoS Protection to protect endpoints agains DDoS attacks.
-  
-    Additional resources:
-    - [Azure DDoS Protection](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview)
 * Is communication to Azure PaaS services secured using VNet Service Endpoints or Private Link?
 
   _Service Endpoints and Private Link can be leveraged to restrict access to PaaS endpoints from only authorized virtual networks, effectively mitigating data intrusion risks and associated impact to application availability. Service Endpoints provide service level access to a PaaS service, while Private Link provides direct access to a specific PaaS resource to mitigate data exfiltration risks (e.g. malicious admin scenarios)._
@@ -591,14 +585,14 @@ These critical design principles are used as lenses to assess the Security of an
 
   _Traditional network controls based on a “trusted intranet” approach will not be able to effectively provide security assurances for cloud applications._
   > Evolve security beyond network controls.
-* What kind of data loss prevention (DLP) is used for this workload?
+* What kind of Data Loss Prevention (DLP) is used for this workload?
 
-  _Network-based data loss prevention (DLP) is decreasingly effective at identifying both inadvertent and deliberate data loss. The reason for this is that most modern protocols and attackers use network-level encryption for inbound and outbound communications. While the organization can use “SSL-bridging” to provide an “authorized man-in-the-middle” that terminates and then reestablishes encrypted network connections, this can also introduce privacy, security and reliability challenges._
+  _Network-based Data Loss Prevention (DLP) is decreasingly effective at identifying both inadvertent and deliberate data loss. The reason for this is that most modern protocols and attackers use network-level encryption for inbound and outbound communications. While the organization can use “SSL-bridging” to provide an “authorized man-in-the-middle” that terminates and then reestablishes encrypted network connections, this can also introduce privacy, security and reliability challenges._
   > Deprecate legacy network security controls.
-* Has the organization enabled enhanced network visibility by integrating network logs into a Security information and event management (SIEM) solution or similar technology?
+* Has the organization enabled enhanced network visibility by integrating network logs into a Security Information and Event Management (SIEM) solution or similar technology?
 
   _Integrating logs from the network devices, and even raw network traffic itself, will provide greater visibility into potential security threats flowing over the wire._
-  > Integrate network logs into a SIEM.
+  > Integrate network logs into a Security Information and Event Management (SIEM).
 * Does the organization have cloud virtual networks that are designed for growth based on an intentional subnet security strategy?
 
   _Most organizations end up adding more resources to networks than initially planned. When this happens, IP addressing and subnetting schemes need to be refactored to accommodate the extra resources. This is a labor-intensive process. There is limited security value in creating a very large number of small subnets and then trying to map network access controls (such as security groups) to each of them._
@@ -717,10 +711,10 @@ These critical design principles are used as lenses to assess the Security of an
 
   _Incident responders are part of a central SecOps team and need to understand security insights of an application. Playbooks can help to understand the security concepts and cover the typical investigation activities. These procedures can and should be automated as much as possible (while maintaining confidence and security)._
   > Define security playbooks which help to understand, investigte and respond to security incidents. It is recommended to automate as many steps of those procedures as you can. Automation reduces overhead. It can also improve your security by ensuring the process steps are done quickly, consistently, and according to your predefined requirements.
-* Does the organization have a security operations center (SOC) that leverages a modern security approach?
+* Does the organization have a Security Operations Center (SOC) that leverages a modern security approach?
 
   _A SOC has a critical role in limiting the time and access an attacker can get to valuable systems and data.  In addition, it provides the vital role of detecting the presence of adversaries, reacting to an alert of suspicious activity, or proactively hunting for anomalous events in the enterprise activity logs._
-  > Establish a security operations center (SOC).
+  > Establish a Security Operations Center (SOC).
 ## Deployment &amp; Testing
     
 ### Application Code Deployments
@@ -830,6 +824,13 @@ These critical design principles are used as lenses to assess the Security of an
     
 ### Standards
             
+* Are there any regulatory or governance requirements for this workload?
+
+  _Regulatory requirements may mandate that operational data, such as application logs and metrics, remain within a certain geo-political region. This has obvious implications for how the application should be operationalized._
+  > Make sure that all regulatory requirements are known and well understood. Create processes for obtaining attestations and be familiar with the [Microsoft Trust Center](https://www.microsoft.com/trust-center). Regulatory requirements like data sovereignty and others might affect the overall architecture as well as the selection and configuration of specific PaaS and SaaS services.
+  
+    Additional resources:
+    - [Microsoft Trust Center](https://www.microsoft.com/trust-center)
 * Are Azure Tags used to enrich Azure resources with operational metadata?
 
   _Using tags can help to manage resources and make it easier to find relevant items during operational procedures._

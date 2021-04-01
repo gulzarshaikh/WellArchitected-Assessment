@@ -13,7 +13,7 @@ This reliability assessment has been produced to help the global CE&S community 
   - [Application Design](./application.md#Application-Design)
     - [Design](./application.md#Design)
     - [Failure Mode Analysis](./application.md#Failure-Mode-Analysis)
-    - [Targets &amp; Non Functional Requirements](./application.md#Targets--Non-Functional-Requirements)
+    - [Targets &amp; Non-Functional Requirements](./application.md#Targets--Non-Functional-Requirements)
     - [Dependencies](./application.md#Dependencies)
   - [Health Modelling &amp; Monitoring](./application.md#Health-Modelling--Monitoring)
     - [Application Level Monitoring](./application.md#Application-Level-Monitoring)

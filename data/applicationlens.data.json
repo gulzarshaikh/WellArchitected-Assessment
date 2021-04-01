@@ -26,8 +26,8 @@
       "security"
     ],
     "lens": "application",
-    "category": "Application Design",
-    "subCategory": "Design",
+    "category": "Governance",
+    "subCategory": "Standards",
     "title": "Are there any regulatory or governance requirements for this workload?",
     "context": "Regulatory requirements may mandate that operational data, such as application logs and metrics, remain within a certain geo-political region. This has obvious implications for how the application should be operationalized.",
     "recommendation": {
@@ -2884,7 +2884,7 @@
     "title": "Has the application been designed to scale-out?",
     "context": "Azure provides elastic scalability, however, applications must leverage a scale-unit approach to navigate service and subscription limits to ensure that individual components and the application as a whole can scale horizontally. Don't forget about scale in as well, as this is important to drive cost down. For example, scale in and out for App Service is done via rules. Often customers write scale out rule and never write scale in rule, this leaves the App Service more expensive.",
     "recommendation": {
-      "title": "Design your solution with scalability in mind, leverage PaaS capabilities to [scale out](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out) and in by adding additional intances when needed.",
+      "title": "Design your solution with scalability in mind, leverage PaaS capabilities to [scale out](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out) and in by adding additional instances when needed.",
       "context": "",
       "links": [
         {
@@ -4170,29 +4170,6 @@
     }
   },
   {
-    "id": "34319d37-7db5-4902-95e3-7e08b1bc90c2",
-    "type": "Questions",
-    "pillars": [
-      "security"
-    ],
-    "lens": "application",
-    "category": "Security & Compliance",
-    "subCategory": "Network Security",
-    "title": "Are all external application endpoints secured?",
-    "context": "External application endpoints should be protected against common attack vectors, such as Denial of Service (DoS) attacks like Slowloris, to prevent potential application downtime due to malicious intent. Azure native technologies such as Azure Firewall, Application Gateway/Azure Front Door Web Application Firewall (WAF), and DDoS Protection Standard Plan can be used to achieve requisite protection.",
-    "recommendation": {
-      "title": "Consider using Azure DDoS Protection to protect endpoints agains DDoS attacks.",
-      "context": "",
-      "links": [
-        {
-          "title": "Azure DDoS Protection",
-          "url": "https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview"
-        }
-      ],
-      "priority": "medium"
-    }
-  },
-  {
     "id": "45bf67c1-4cb1-4b7d-b1a5-5edeff0aa150",
     "type": "Questions",
     "pillars": [
@@ -4578,8 +4555,8 @@
       "security"
     ],
     "lens": "application",
-    "category": "Application Design",
-    "subCategory": "Security Criteria & Data Classification",
+    "category": "Security & Compliance",
+    "subCategory": "Compliance",
     "title": "How do you monitor and maintain your compliance of this workload?",
     "context": "Find out how they make sure they maintain compliance as the Azure Platform evolves and they update their application. Are there things preventing them from adopting new features in the platform because it will knock them out of compliance?",
     "recommendation": {
@@ -4620,8 +4597,8 @@
       "security"
     ],
     "lens": "application",
-    "category": "Application Design",
-    "subCategory": "Security Criteria & Data Classification",
+    "category": "Security & Compliance",
+    "subCategory": "Compliance",
     "title": "Does the organization periodically perform external and/or internal workload audits?",
     "context": "Compliance is important for several reasons. Aside from signifying levels of standards, like ISO 27001 and others, noncompliance with regulatory guidelines may bring sanctions and penalties.",
     "recommendation": {
@@ -5152,7 +5129,16 @@
     "recommendation": {
       "title": "Protect all public endpoints with appropriate solutions, e.g. Azure Front Door, Application Gateway, Azure Firewall, Azure DDOS Protection or any 3rd party solution.",
       "context": "",
-      "links": [],
+      "links": [
+        {
+          "title": "Azure DDoS Protection",
+          "url": "https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview"
+        },
+        {
+          "title": "Azure Web Application Firewall",
+          "url": "https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview"
+        }
+      ],
       "priority": "medium"
     },
     "children": [
@@ -5702,8 +5688,8 @@
       "security"
     ],
     "lens": "application",
-    "category": "Application Design",
-    "subCategory": "Security Criteria & Data Classification",
+    "category": "Security & Compliance",
+    "subCategory": "Compliance",
     "title": "Are Azure policies used to enforce security, compliance and organizational standards of this workload?",
     "context": "Azure Policy should be used to enforce and report a compliant configuration of Azure services. Azure policies can be used on multiple levels. It is recommended to apply organizational wide security controls on Azure platform level. These policies build the guardrails of a landing zone.",
     "recommendation": {
