@@ -725,12 +725,17 @@ These critical design principles are used as lenses to assess the Security of an
   > Automated deployment pipelines should allow for quick roll-forward and roll-back deployments to address critical bugs and code updates outside of the normal deployment lifecycle.
 * Are code scanning tools an integrated part of the continuous integration (CI) process for this workload?
 
-  _Credentials should not be stored in source code or configuration files, because that increases the risk of exposure. Code analyzers (such as Roslyn analyzers for Visual Studio) can prevent from pushing credentials to source code repository and pipeline addons such as CredScan (part of Microsoft Security Code Analysis) help to catch credentials during the build process._
+  _Credentials should not be stored in source code or configuration files, because that increases the risk of exposure. Code analyzers (such as Roslyn analyzers for Visual Studio) can prevent from pushing credentials to source code repository and pipeline addons such as [GitHub Advanced Security](https://docs.github.com/en/github/getting-started-with-github/about-github-advanced-security) or CredScan (part of Microsoft Security Code Analysis) help to catch credentials during the build process._
   > Integrate code scanning tools within CI/CD pipeline.
     - Are dependencies and framework components included in the code scanning process of this workload?
 
       _As part of the continuous integration process it is crucial that every release includes a scan of all components in use. Vulnerable dependencies should be flagged and investigated. This can be done in combination with other code scanning tasks (e.g. code churn, test results/coverage)._
       > Include code scans into CI/CD process that also covers 3rd party dependencies and framework components.
+  
+    Additional resources:
+    - [GitHub Advanced Security](https://docs.github.com/github/getting-started-with-github/about-github-advanced-security)
+  
+    - [OWASP source code analysis tools](https://owasp.org/www-community/Source_Code_Analysis_Tools)
 * Are branch policies used in source control management of this workload? How are they configured?
 
   _Branch policies provide additional level of control over the code which is commited to the product. It is a common practice to not allow pushing against the main branch and require pull-request (PR) with code review before merging the changes by at least one reviewer, other than the change author. Different branches can have different purposes and access levels, for example: feature branches are created by developers and are open to push, integration branch requires PR and code-review and production branch requires additional approval from a senior developer before merging._

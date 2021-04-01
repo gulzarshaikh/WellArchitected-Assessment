@@ -5534,11 +5534,20 @@
     "category": "Deployment & Testing",
     "subCategory": "Application Code Deployments",
     "title": "Are code scanning tools an integrated part of the continuous integration (CI) process for this workload?",
-    "context": "Credentials should not be stored in source code or configuration files, because that increases the risk of exposure. Code analyzers (such as Roslyn analyzers for Visual Studio) can prevent from pushing credentials to source code repository and pipeline addons such as CredScan (part of Microsoft Security Code Analysis) help to catch credentials during the build process.",
+    "context": "Credentials should not be stored in source code or configuration files, because that increases the risk of exposure. Code analyzers (such as Roslyn analyzers for Visual Studio) can prevent from pushing credentials to source code repository and pipeline addons such as [GitHub Advanced Security](https://docs.github.com/en/github/getting-started-with-github/about-github-advanced-security) or CredScan (part of Microsoft Security Code Analysis) help to catch credentials during the build process.",
     "recommendation": {
       "title": "Integrate code scanning tools within CI/CD pipeline.",
       "context": "",
-      "links": [],
+      "links": [
+        {
+          "title": "GitHub Advanced Security",
+          "url": "https://docs.github.com/github/getting-started-with-github/about-github-advanced-security"
+        },
+        {
+          "title": "OWASP source code analysis tools ",
+          "url": "https://owasp.org/www-community/Source_Code_Analysis_Tools"
+        }
+      ],
       "priority": "medium"
     },
     "children": [
