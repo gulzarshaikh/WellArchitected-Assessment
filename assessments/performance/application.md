@@ -1,6 +1,7 @@
 # Application Performance Efficiency
 
 # Navigation Menu
+- [Workload Definition](#Workload-Definition)
 - [Application Assessment Checklist](#Application-Assessment-Checklist)
   - [Application Design](#Application-Design)
     - [Design](#Design)

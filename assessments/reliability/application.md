@@ -3,6 +3,7 @@
 # Navigation Menu
 
 - [Design Principles](#design-principles)
+- [Workload Definition](#Workload-Definition)
 - [Application Assessment Checklist](#Application-Assessment-Checklist)
   - [Application Design](#Application-Design)
     - [Design](#Design)
