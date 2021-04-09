@@ -11,7 +11,7 @@
 - [Design Principles]({{ $.baseUrl }}#design-principles)
 {{ end }}
 {{- if .printChecklistHeader -}}
-- [Workload Definition]({{ $.baseUrl }}#Workload-Definition)
+- [Definition of Workload]({{ $.baseUrl }}#Workload-Definition)
 - [Application Assessment Checklist]({{ $.baseUrl }}#Application-Assessment-Checklist)
 {{- end -}}
 {{- range $category := .categories -}}
