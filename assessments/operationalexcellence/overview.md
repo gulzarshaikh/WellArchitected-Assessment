@@ -9,7 +9,7 @@ This operational excellence assessment has been produced to help the global CE&S
 ### [Application Operational Excellence](./application.md) 
 
 - [Design Principles](./application.md#design-principles)
-- [Workload Definition](./application.md#Workload-Definition)
+- [Definition of Workload](./application.md#Workload-Definition)
 - [Application Assessment Checklist](./application.md#Application-Assessment-Checklist)
   - [Application Design](./application.md#Application-Design)
     - [Design](./application.md#Design)
