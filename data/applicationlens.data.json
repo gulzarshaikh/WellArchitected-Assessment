@@ -15,7 +15,7 @@
       "title": "While cloud-native workloads are preferred, migrated or modernized applications are reality and they might not utilize the available cloud functionality like auto-scaling, platform notifications etc. Make sure to understand the limitations and implement workarounds if available.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -39,7 +39,7 @@
           "url": "https://www.microsoft.com/trust-center"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -57,7 +57,7 @@
       "title": "Make sure that any hybrid or cross cloud relationships and dependencies are well understood.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -87,7 +87,7 @@
           "url": "https://docs.microsoft.com/azure/site-recovery/site-recovery-overview"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -102,7 +102,7 @@
               "url": "https://azure.microsoft.com/global-infrastructure/services/"
             }
           ],
-          "priority": "medium"
+          "priority": "50"
         }
       },
       {
@@ -118,7 +118,7 @@
               "url": "https://docs.microsoft.com/azure/best-practices-availability-paired-regions"
             }
           ],
-          "priority": "medium"
+          "priority": "50"
         }
       },
       {
@@ -134,7 +134,7 @@
               "url": "https://azure.microsoft.com/en-us/global-infrastructure/services/"
             }
           ],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -162,7 +162,7 @@
           "url": "https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -191,7 +191,7 @@
           "url": "https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design-error-handling"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -220,7 +220,7 @@
           "url": "https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -244,7 +244,7 @@
           "url": "https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -264,7 +264,7 @@
       "title": "Have clearly defined availability targets.",
       "context": "Having clearly defined availability targets is crucial in order to have a goal to work and measure against. This will also determine which services an application can leverage vs. those which do not qualify in terms of the Service Level Agreement (SLA) they offer.",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -275,7 +275,7 @@
           "title": "Make sure SLAs/SLOs/SLIs for all leveraged dependencies are understood.",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       },
       {
@@ -291,7 +291,7 @@
               "url": "https://docs.microsoft.com/azure/architecture/framework/resiliency/business-metrics#understand-service-level-agreements"
             }
           ],
-          "priority": "medium"
+          "priority": "50"
         }
       },
       {
@@ -302,7 +302,7 @@
           "title": "Consider availability targets for disaster recovery mode.",
           "context": "If targets must also apply in a failure state, then an N+1 model should be used to achieve greater availability and resiliency, where N is the capacity needed to deliver required availability. There's also a cost implication, because a more resilient infrastructure usually means more costs being involved. This has to be accepted by business.",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       },
       {
@@ -318,7 +318,7 @@
               "url": "https://en.wikipedia.org/wiki/Mean_time_between_failures"
             }
           ],
-          "priority": "medium"
+          "priority": "50"
         }
       },
       {
@@ -329,7 +329,7 @@
           "title": "Understand the consequences of missing availability targets.",
           "context": "It should be fully understood what are the consequences if availability targets are not satisfied. This will also inform when to initiate a failover case.",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -356,7 +356,7 @@
           "url": "https://docs.microsoft.com/azure/cloud-adoption-framework/manage/considerations/protect"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -376,7 +376,7 @@
       "title": "Traffic patterns should be identified by analyzing historical traffic data and the effect of significant external events on the application.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -387,7 +387,7 @@
           "title": "",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       },
       {
@@ -398,7 +398,7 @@
           "title": "",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       },
       {
@@ -409,7 +409,7 @@
           "title": "",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       },
       {
@@ -420,7 +420,7 @@
           "title": "",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -441,7 +441,7 @@
       "title": "Identify sensible non-functional requirements.",
       "context": "Work with stakeholders to identify sensible non-functional requirements based on business requirements, research and user testing.",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -452,7 +452,7 @@
           "title": "The application should be designed to scale to cope with spikes in load in-line with what is an acceptable duration for degraded performance.",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       },
       {
@@ -463,7 +463,7 @@
           "title": "Traffic limits for the application should be defined in quantified and measurable manner.",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       },
       {
@@ -474,7 +474,7 @@
           "title": "Automation and specialized tooling (such as Application Insights) should be used to orchestrate and measure application performance.",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -495,7 +495,7 @@
       "title": "Path-wise analysis should be used to define critical system flows for key business scenarios, such as the checkout process for an eCommerce application.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -506,7 +506,7 @@
           "title": "Targets should be specific and measurable.",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -527,7 +527,7 @@
       "title": "Identify if there are components with more relaxed performance requirements.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -552,7 +552,7 @@
           "url": "https://12factor.net/dependencies"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -563,7 +563,7 @@
           "title": "Map application dependencies either as a simple list or a document (usually this is part of a design document or reference architecture).",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       },
       {
@@ -574,7 +574,7 @@
           "title": "Classify dependencies either as strong or weak. This will help identify which components are essential to the application.",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -596,7 +596,7 @@
       "title": "The operational commitments of all external and internal dependencies should be understood to inform the broader application operations and health model.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -616,7 +616,7 @@
       "title": "All Azure services in use should be identified.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -627,7 +627,7 @@
           "title": "Make sure you understand the operational features/capabilities available and how they can be used in the solution.",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -658,7 +658,7 @@
           "url": "https://docs.npmjs.com/cli/audit"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -677,7 +677,7 @@
       "title": "Make sure you understand the design decisions and implications of using shared hosting platforms.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -695,7 +695,7 @@
       "title": "Keep up to date on newest developments and feature updates, at least for services most relevant to your application.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -706,7 +706,7 @@
           "title": "Use announcement subscriptions to stay up to date.",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -732,7 +732,7 @@
           "url": "https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -751,7 +751,7 @@
       "title": "Collect application logs across application environments.",
       "context": "Application logs and events should be collected across all major environments. Sufficient degree of separation and filtering should be in place to ensure non-critical environments do not convolute production log interpretation. Furthermore, corresponding log entries across the application should capture a correlation ID for their respective transactions.",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -770,7 +770,7 @@
       "title": "Application events should be captured as a structured data type with machine-readable data points rather than unstructured string types. Structured data can easily be indexed and searched, and reporting can be greatly simplified.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -788,7 +788,7 @@
       "title": "Different log levels, such as INFO, WARNING, ERROR, and DEBUG should be pre-configured and applied within relevant environments. The approach to change log levels should be simple configuration change to support operational scenarios where it is necessary to elevate the log level within an environment.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -812,7 +812,7 @@
           "url": "https://docs.microsoft.com/azure/architecture/microservices/logging-monitoring#distributed-tracing"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -831,7 +831,7 @@
       "title": "Application level metrics should include end-to-end transaction times of key technical functions, such as database queries, response times for external API calls, failure rates of processing steps, etc.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -842,7 +842,7 @@
           "title": "Correlate application log events across critical system flows, such as user login.",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -864,7 +864,7 @@
       "title": "Use log aggregation technology, such as Azure Log Analytics or Splunk, to gather information across all application components.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -883,7 +883,7 @@
       "title": "Azure Activity Logs should be collected and aggregated.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -903,7 +903,7 @@
       "title": "All application resources should be configured to route diagnostic logs and metrics to the chosen log aggregation technology. Azure Policy should also be used as a device to ensure the consistent use of diagnostic settings across the application, to enforce the desired configuration for each Azure service.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -922,7 +922,7 @@
       "title": "Make sure logs and key metrics of critical components are collected and stored.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -941,7 +941,7 @@
       "title": "Critical external dependencies, such as an API service, should be monitored to ensure operational visibility of dependency health. For instance, a probe could be used to measure the availability and latency of an external API.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -960,7 +960,7 @@
       "title": "Implement a unified solution to aggregate and query application and resource level logs, such as Azure Log Analytics.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -984,7 +984,7 @@
           "url": "https://docs.microsoft.com/azure/azure-monitor/app/correlation"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -1007,7 +1007,7 @@
           "url": "https://docs.microsoft.com/azure/azure-monitor/app/app-map?tabs=net"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -1027,7 +1027,7 @@
       "title": "Implement a health model.",
       "context": "A holistic application health model should be used to quantify what 'healthy' and 'unhealthy' states represent across all application components. It is highly recommended that a 'traffic light' model be used to indicate a green/healthy state when key non-functional requirements and targets are fully satisfied and resources are optimally utilized, e.g. 95% of requests are processed in <= 500ms with Azure Kubernetes Service (AKS) node utilization at x% etc. Once established, this health model should inform critical monitoring metrics across system components and operational sub-system composition. It is important to note that the health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state.",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -1038,7 +1038,7 @@
           "title": "The health model should be able to surface the respective health of critical system flows or key subsystems to ensure appropriate operational prioritization is applied. For example, the health model should be able to represent the current state of the user login transaction flow.",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       },
       {
@@ -1049,7 +1049,7 @@
           "title": "The health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state.",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       },
       {
@@ -1060,7 +1060,7 @@
           "title": "",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -1080,7 +1080,7 @@
       "title": "Analytics can and should be performed across long-term operational data to help inform operational strategies and also to predict what operational issues are likely to occur and when. For instance, if the average response times have been slowly increasing over time and getting closer to the maximum target.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -1099,7 +1099,7 @@
       "title": "Clear retention times should be defined to allow for suitable historic analysis but also control storage costs. Suitable housekeeping tasks should also be used to archive data to cheaper storage or aggregate data for long-term trend analysis.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -1126,7 +1126,7 @@
           "url": "https://grafana.com/"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -1144,7 +1144,7 @@
       "title": "Dashboards should be customized to represent the precise lens of interest of the end-user. For example, the areas of interest when evaluating the current state will differ greatly between developers, security and networking. Tailored dashboards make interpretation easier and accelerates time to detection and action.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -1163,7 +1163,7 @@
       "title": "Access to operational and financial data should be tightly controlled to align with segregation of duties, while making sure that it doesn't hinder operational effectiveness; i.e. scenarios where developers have to raise an ITSM (IT service management) ticket to access logs should be avoided.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -1182,7 +1182,7 @@
       "title": "You should not rely on people to actively look for issues. Instead, an alerting solution should be in place that can push notifications to relevant teams. For example, by email, SMS or into a mobile app.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -1201,7 +1201,7 @@
       "title": "Instead of treating all alerts the same, there should be a well-defined process which determines what teams are responsible to react to which alert type.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -1219,7 +1219,7 @@
       "title": "Tagging events with a specific severity or urgency helps operational teams prioritize in cases where multiple events require intervention at the same time. For example, alerts concerning critical system flows might require special attention.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -1238,7 +1238,7 @@
       "title": "It is important that alert owners get reliably notified of alerts, which could use many communication channels such as text messages, emails or push notifications to a mobile app.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -1256,7 +1256,7 @@
       "title": "ITSM systems, such as ServiceNow, can help to document issues, notify and assign responsible parties, and track issues. For example,  operational alerts from the application could for be integrated to automatically create new tickets to track resolution.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -1280,7 +1280,7 @@
           "url": "https://docs.microsoft.com/azure/service-health/overview"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -1299,7 +1299,7 @@
       "title": "Azure Resource Health Alerts should be configured for specific resource groups and resource types, and should be adjusted to maximize signal to noise ratios, i.e. only distribute a notification when a resource becomes unhealthy according to the application health model or due to an Azure platform-initiated event. It is therefore important to consider transient issues when setting an appropriate threshold for resource unavailability, such as configuring an alert for a virtual machine with a threshold of 1 minute for unavailability before an alert is triggered.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -1322,7 +1322,7 @@
           "url": "https://docs.microsoft.com/azure/cost-management-billing/manage/change-azure-account-profile#service-and-marketing-emails"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -1341,7 +1341,7 @@
       "title": "The steps required to recover or fail over the application to a secondary Azure region in failure situations should be codified, preferably in an automated manner, to ensure capabilities exist to effectively respond to an outage in a way that limits impact. Similar codified steps should also exist to capture the process required to failback the application to the primary region once a failover triggering issue has been addressed.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -1352,7 +1352,7 @@
           "title": "The precise steps required to failover and failback the application must be tested to validate the effectiveness of the defined disaster recovery approach. Testing of the disaster recovery strategy should occur according to a reasonably regular cadence, such as annually, to ensure that operational application changes do not impact the applicability of the selected approach.",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       },
       {
@@ -1363,7 +1363,7 @@
           "title": "Document and understand the failover process",
           "context": "The failover process itself and also the decision process as to what constitutes a failover should be clearly understood.",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       },
       {
@@ -1374,7 +1374,7 @@
           "title": "A platform service outage in a specific region will likely require a failover to another region, whereas the accidental change of a firewall rule can be mitigated by a recovery process. The health model and all underlying data should be used to interpret which operational procedures should be triggered.",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       },
       {
@@ -1385,7 +1385,7 @@
           "title": "When a disaster that affects multiple application components occurs, it's critical that the recovery plan can be used to take a complete inventory of what needs attention and how to prioritize each item. Each major process or workload that's implemented by an app should have separate RPO and RTO values. Each one should be generated through a separate analysis that examines disaster scenario risks and potential recovery strategies for each respective process.",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       },
       {
@@ -1396,7 +1396,7 @@
           "title": "Ideally failover can happen on a component-level instead of needing to failover the entire system together, when, for instance, only one service experiences an outage.",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -1417,7 +1417,7 @@
       "title": "Automated responses to specific events help to reduce response times and limit errors associated with manual processes. Thus, wherever possible, it is recommended to have automation in place instead of relying on manual intervention.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -1428,7 +1428,7 @@
           "title": "Automated operational responses should be tested frequently as part of the normal application lifecycle to ensure operational effectiveness",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -1449,7 +1449,7 @@
       "title": "Operational runbooks should be defined to codify the procedures and relevant information needed for operations staff to respond to failures and maintain operational health.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -1460,7 +1460,7 @@
           "title": "Manual operational runbooks should be tested frequently as part of the normal application lifecycle to ensure appropriateness and efficiency.",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -1488,7 +1488,7 @@
           "url": "https://docs.microsoft.com/azure/architecture/framework/scalability/capacity"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -1507,7 +1507,7 @@
       "title": "Leveraging built-in Auto-scaling capabilities can help to maintain system reliability in times of increased demand while not needing to overprovision resources up-front, by letting a service automatically scale within a pre-configured range of resources. It greatly simplifies management and operational burdens. However, it must take into account the capacity model, else automated scaling of one component can impact downstream services if those are not also automatically scaled accordingly.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -1527,7 +1527,7 @@
       "title": "Fluctuation in application traffic is typically expected. To ensure optimal operation is maintained, such variations should be met by automated scalability. The significance of automated capacity responses underpinned by a robust capacity model was highlighted by the COVID-19 crisis where many applications experienced severe traffic variations. While Auto-scaling enables a PaaS or IaaS service to scale within a pre-configured (and often times limited) range of resources, is provisioning or de-provisioning capacity a more advanced and complex process of for example adding additional scale units like additional clusters, instances or deployments. The process should be codified, automated and the effects of adding/removing capacity should be well understood.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -1545,7 +1545,7 @@
       "title": "Any change in the health state of application components can influence the capacity demands on other components. Those impacts need to be fully understood and measures such as auto-scaling need to be in place to handle those.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -1570,7 +1570,7 @@
           "url": "https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -1586,7 +1586,7 @@
               "url": "https://aka.ms/AzureCapacity"
             }
           ],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -1614,7 +1614,7 @@
           "url": "https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -1634,7 +1634,7 @@
       "title": "Preferably configuration information is stored using a dedicated configuration management system like Azure App Configuration or Azure Key Vault so that it can be updated independently of the application code.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -1652,7 +1652,7 @@
       "title": "Application code and configuration should not share the same lifecycle to enable operational activities that change and update specific configurations without developer involvement or redeployment.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -1676,7 +1676,7 @@
           "url": "https://www.vaultproject.io/"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -1701,7 +1701,7 @@
           "url": "https://docs.microsoft.com/azure/key-vault/secrets/tutorial-rotation-dual"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -1725,7 +1725,7 @@
           "url": "https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -1749,7 +1749,7 @@
           "url": "https://docs.microsoft.com/azure/key-vault/general/disaster-recovery-guidance"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -1760,7 +1760,7 @@
           "title": "Encryption keys and data should be backed up separately to optimize the security of underlying data.",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -1786,7 +1786,7 @@
           "url": "https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -1805,7 +1805,7 @@
       "title": "Tracking expiry dates of SSL/TLS certificates and renewing them in due time is therefore highly critical. Ideally the process should be automated, although this often depends on leveraged CA. If not automated, sufficient alerting should be applied to ensure expiry dates do not go unnoticed.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -1823,7 +1823,7 @@
       "title": "The PNU process should be fully defined and understood for all relevant application components.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -1834,7 +1834,7 @@
           "title": "Ideally the PNU process should be fully or partially automated to optimize response times for new updates and also to reduce the risks associated with manual intervention.",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       },
       {
@@ -1845,7 +1845,7 @@
           "title": "Performing operations should be defined 'as-code' since it helps to minimize human error and increase consistency.",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -1865,7 +1865,7 @@
       "title": "It is recommended to have a defined strategy in place to rollback patches in case of an error or unexpected side effects.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -1883,7 +1883,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -1901,7 +1901,7 @@
       "title": "Changing dependencies, such as new versions of packages, updated Docker images, should be factored into operational processes; the application team should be subscribed to release notes of dependent services, tools, and libraries.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -1919,7 +1919,7 @@
       "title": "Reviewing operational incidents where the response and remediation to issues either failed or could have been optimized is vital to improving overall operational effectiveness. Failures provide a valuable learning opportunity and in some cases these learnings can also be shared across the entire organization.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -1937,7 +1937,7 @@
       "title": "Operational procedures should be updated based on outcomes from frequent testing.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -1956,7 +1956,7 @@
       "title": "The entire end-to-end CI/CD deployment process should be understood.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -1967,7 +1967,7 @@
           "title": "The time it takes to perform a complete environment deployment should be fully understood as it needs to align with the recovery targets.",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -1987,7 +1987,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -2011,7 +2011,7 @@
           "url": "https://docs.microsoft.com/azure/architecture/framework/devops/deployment"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -2022,7 +2022,7 @@
           "title": "Any manual steps that are required in the deployment pipeline must be clearly documented with roles and responsibilities well defined.",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -2043,7 +2043,7 @@
       "title": "The entire end-to-end deployment process should be understood and align with recovery targets.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -2063,7 +2063,7 @@
       "title": "Automated deployment pipelines should allow for quick roll-forward and roll-back deployments to address critical bugs and code updates outside of the normal deployment lifecycle.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -2081,7 +2081,7 @@
       "title": "In some scenarios there is an operational need to rapidly deploy changes, such as critical security updates. Having a defined process for how such changes can be safely and effectively performed helps greatly to prevent 'heat of the moment' issues.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -2105,7 +2105,7 @@
           "url": "https://docs.microsoft.com/azure/architecture/framework/devops/deployment#stage-your-workloads"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -2128,7 +2128,7 @@
           "url": "https://azure.microsoft.com/services/devops/"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -2139,7 +2139,7 @@
           "title": "To optimize for collaboration and ensure developers spend less time managing version control and more time developing code, a clear and simple branching strategy should be used, such as Trunk-Based Development which is employed internally [within Microsoft Engineering](https://docs.microsoft.com/azure/devops/learn/devops-at-microsoft/use-git-microsoft).",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -2164,7 +2164,7 @@
           "url": "https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -2175,7 +2175,7 @@
           "title": "Tools like Terraform offer a 'plan' command that helps to identify changes and monitor configuration drift, with Azure as the ultimate source of truth.",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -2196,7 +2196,7 @@
       "title": "It is recommended that even small operational changes and modifications be implemented as-code to track changes and ensure they are fully reproduceable and revertible. No infrastructure changes should be done manually outside of IaC.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -2214,7 +2214,7 @@
       "title": "It is recommended to define infrastructure deployments and changes as code and to use build and release tools to develop automated pipelines for their deployment.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -2233,7 +2233,7 @@
       "title": "To completely validate the suitability of application changes, all changes should be tested in an environment that is fully reflective of production, to ensure there is no potential impact from environment deltas.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -2251,7 +2251,7 @@
       "title": "The use of dependent services should be appropriately reflected in test environments.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -2270,7 +2270,7 @@
       "title": "It is recommended to have a staged deployment process which requires changes to have been validated in test environments first before they can hit production.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -2293,7 +2293,7 @@
           "url": "https://docs.microsoft.com/azure/architecture/framework/devops/development#feature-flags"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -2318,7 +2318,7 @@
           "url": "https://docs.microsoft.com/azure/architecture/checklist/dev-ops#testing"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -2329,7 +2329,7 @@
           "title": "",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       },
       {
@@ -2340,7 +2340,7 @@
           "title": "",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       },
       {
@@ -2351,7 +2351,7 @@
           "title": "",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       },
       {
@@ -2362,7 +2362,7 @@
           "title": "",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -2387,7 +2387,7 @@
           "url": "https://docs.microsoft.com/azure/architecture/framework/devops/testing#smoke-testing"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -2410,7 +2410,7 @@
           "url": "https://docs.microsoft.com/azure/architecture/framework/devops/testing#integration-testing"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -2433,7 +2433,7 @@
           "url": "https://docs.microsoft.com/azure/architecture/framework/devops/testing#unit-testing"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -2452,7 +2452,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -2470,7 +2470,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -2488,7 +2488,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -2506,7 +2506,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -2524,7 +2524,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -2547,7 +2547,7 @@
           "url": "https://docs.microsoft.com/azure/devops/learn/what-is-devops"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -2574,7 +2574,7 @@
           "url": "https://en.wikipedia.org/wiki/IT_service_management"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -2593,7 +2593,7 @@
       "title": "Explore where technical delivery capabilities reside.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -2611,7 +2611,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -2622,7 +2622,7 @@
           "title": "",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       },
       {
@@ -2633,7 +2633,7 @@
           "title": "",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       },
       {
@@ -2649,7 +2649,7 @@
               "url": "https://docs.microsoft.com/azure/architecture/framework/devops/app-design#workload-isolation"
             }
           ],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -2669,7 +2669,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -2687,7 +2687,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -2705,7 +2705,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -2724,7 +2724,7 @@
       "title": "Implement just-in-time privileged access management.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -2735,7 +2735,7 @@
           "title": "Limit long-standing write access to production environments only to service principals.",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -2755,7 +2755,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -2773,7 +2773,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -2800,7 +2800,7 @@
           "url": "https://www.hashicorp.com/resources/introduction-sentinel-compliance-policy-as-code/"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -2819,7 +2819,7 @@
       "title": "Consider using the same datacenter region, Availability Zone and [Proximity Placement Groups](https://azure.microsoft.com/blog/announcing-the-general-availability-of-proximity-placement-groups/) and other options to bring latency sensitive components closer together. Keep also in mind that additional charges may apply when chatty workloads are spread across zones and region.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -2838,7 +2838,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -2866,7 +2866,7 @@
           "url": "https://azure.microsoft.com/overview/what-is-paas/"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -2892,7 +2892,7 @@
           "url": "https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -2911,7 +2911,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -2929,7 +2929,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -2952,7 +2952,7 @@
           "url": "https://docs.microsoft.com/azure/architecture/resiliency/failure-mode-analysis"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -2975,7 +2975,7 @@
           "url": "https://docs.microsoft.com/azure/architecture/guide/design-principles/redundancy"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -2993,7 +2993,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -3012,7 +3012,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -3035,7 +3035,7 @@
           "url": "https://docs.microsoft.com/azure/architecture/guide/design-principles/minimize-coordination"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -3054,7 +3054,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -3073,7 +3073,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -3093,7 +3093,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -3104,7 +3104,7 @@
           "title": "",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -3129,7 +3129,7 @@
           "url": "https://azure.microsoft.com/global-infrastructure/services/"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -3152,7 +3152,7 @@
           "url": "https://docs.microsoft.com/azure/availability-zones/az-region"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -3170,7 +3170,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -3188,7 +3188,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -3213,7 +3213,7 @@
           "url": ""
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -3237,7 +3237,7 @@
           "url": "https://docs.microsoft.com/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices"
         }
       ],
-      "priority": "medium",
+      "priority": "50",
       "children": [
         {
           "id": "2e674bd4-b36f-450a-ae07-18efe64f7374",
@@ -3252,7 +3252,7 @@
                 "url": ""
               }
             ],
-            "priority": "medium"
+            "priority": "50"
           }
         }
       ]
@@ -3278,7 +3278,7 @@
           "url": "https://docs.microsoft.com/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#sessionstate"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -3301,7 +3301,7 @@
           "url": "https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -3324,7 +3324,7 @@
           "url": "https://docs.microsoft.com/azure/architecture/high-availability/building-solutions-for-high-availability"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -3347,7 +3347,7 @@
           "url": "https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -3363,7 +3363,7 @@
               "url": "https://azurecomcdn.azureedge.net/cvt-27012b3bd03d67c9fa81a9e2f53f7d081c94f3a68c13cdeb7958edf43b7771e8/mediahandler/files/resourcefiles/azure-resiliency-infographic/Azure_resiliency_infographic.pdf"
             }
           ],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -3388,7 +3388,7 @@
           "url": "https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -3415,7 +3415,7 @@
           "url": "https://docs.microsoft.com/azure/storage/common/storage-redundancy"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -3438,7 +3438,7 @@
           "url": "https://en.wikipedia.org/wiki/CAP_theorem"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -3456,7 +3456,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -3479,7 +3479,7 @@
           "url": "https://docs.microsoft.com/azure/storage/common/storage-redundancy"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -3497,7 +3497,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -3515,7 +3515,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -3542,7 +3542,7 @@
           "url": "https://docs.microsoft.com/azure/frontdoor/front-door-routing-architecture"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -3565,7 +3565,7 @@
           "url": "https://docs.microsoft.com/azure/expressroute/cross-network-connectivity"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -3588,7 +3588,7 @@
           "url": "https://docs.microsoft.com/azure/expressroute/use-s2s-vpn-as-backup-for-expressroute-privatepeering"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -3611,7 +3611,7 @@
           "url": "https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -3638,7 +3638,7 @@
           "url": "https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -3661,7 +3661,7 @@
           "url": "https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -3684,7 +3684,7 @@
           "url": "https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -3707,7 +3707,7 @@
           "url": "https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -3730,7 +3730,7 @@
           "url": "https://docs.microsoft.com/azure/architecture/patterns/health-endpoint-monitoring"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -3753,7 +3753,7 @@
           "url": "https://docs.microsoft.com/azure/load-balancer/troubleshoot-outbound-connection#snatexhaust"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -3773,7 +3773,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -3792,7 +3792,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -3811,7 +3811,7 @@
       "title": "Make sure that data size and growth is monitored, proper alerts are configured and develop (automated and codified, if possible) mitigation plans to help the application to remain available - or to recover if needed.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -3830,7 +3830,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -3849,7 +3849,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -3873,7 +3873,7 @@
           "url": "https://docs.microsoft.com/azure/virtual-machines/windows/co-location#proximity-placement-groups"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -3896,7 +3896,7 @@
           "url": "https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -3915,7 +3915,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -3933,7 +3933,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -3944,7 +3944,7 @@
           "title": "",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -3965,7 +3965,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -3984,7 +3984,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -3995,7 +3995,7 @@
           "title": "",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -4016,7 +4016,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -4034,7 +4034,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -4058,7 +4058,7 @@
           "url": "https://docs.microsoft.com/azure/architecture/multitenant-identity/authorize"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -4074,7 +4074,7 @@
               "url": "https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-architecture"
             }
           ],
-          "priority": "medium"
+          "priority": "50"
         }
       },
       {
@@ -4090,7 +4090,7 @@
               "url": "https://docs.microsoft.com/azure/active-directory/develop/msal-acquire-cache-tokens"
             }
           ],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -4144,7 +4144,7 @@
           "url": "https://docs.microsoft.com/azure/security-center/secure-score-security-controls"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -4166,7 +4166,7 @@
           "url": "https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -4184,7 +4184,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -4207,7 +4207,7 @@
           "url": "https://docs.microsoft.com/azure/firewall/features"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -4230,7 +4230,7 @@
           "url": "https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -4250,7 +4250,7 @@
               "url": "https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview#why-use-flow-logs"
             }
           ],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -4276,7 +4276,7 @@
           "url": "https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -4300,7 +4300,7 @@
           "url": "https://docs.microsoft.com/azure/azure-monitor/app/web-monitor-performance"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -4324,7 +4324,7 @@
           "url": "https://docs.microsoft.com/azure/azure-monitor/app/asp-net-dependencies"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -4348,7 +4348,7 @@
           "url": "https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -4367,7 +4367,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -4386,7 +4386,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -4405,7 +4405,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -4423,7 +4423,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -4450,7 +4450,7 @@
           "url": "https://docs.microsoft.com/azure/security/develop/threat-modeling-tool-getting-started"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -4461,7 +4461,7 @@
           "title": "Rank identified threats based on organizational impact.",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       },
       {
@@ -4472,7 +4472,7 @@
           "title": "Centralize threat modeling results.",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       },
       {
@@ -4483,7 +4483,7 @@
           "title": "Map threats to mitigations.",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       },
       {
@@ -4494,7 +4494,7 @@
           "title": "Establish communication processes for identified threats.",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -4514,7 +4514,7 @@
       "title": "Develop and implement a process to track, triage, and address threats into the application development lifecycle.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -4532,7 +4532,7 @@
       "title": "Develop or implement established processes and timelines to deploy mitigations for identified threats.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -4543,7 +4543,7 @@
           "title": "",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -4563,7 +4563,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -4574,7 +4574,7 @@
           "title": "Perform regulatory compliance attestation.",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       },
       {
@@ -4585,7 +4585,7 @@
           "title": "Continuously assess and monitor compliance.",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -4605,7 +4605,7 @@
       "title": "Periodically perform external and/or internal workload security audits.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -4616,7 +4616,7 @@
           "title": "Perform regular internal and external compliance audits.",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -4649,7 +4649,7 @@
           "url": "https://www.whitesourcesoftware.com/free-developer-tools/bolt/"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -4667,7 +4667,7 @@
       "title": "Include framework & library updates into workload lifecycle.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -4685,7 +4685,7 @@
       "title": "Do not expose security details in error messages. Handle exceptions and failures gracefully (with retry logic) and log them for further inspection.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -4703,7 +4703,7 @@
       "title": "Remove platform-specific information from HTTP headers, error messages, web site content (e.g. page footer).",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -4714,7 +4714,7 @@
           "title": "Remove sensitive information from HTTP headers with Azure API Management or Azure Front Door.",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -4734,7 +4734,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -4752,7 +4752,7 @@
       "title": "Establish detection and response strategy for identity risks.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -4775,7 +4775,7 @@
           "url": "https://docs.microsoft.com/azure/search/cognitive-search-skill-pii-detection"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -4793,7 +4793,7 @@
       "title": "Conduct periodic access reviews for the workload.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -4816,7 +4816,7 @@
           "url": "https://azure.microsoft.com/resources/develop-secure-applications-on-azure/"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -4834,7 +4834,7 @@
       "title": "Establish an incident response plan and perform periodically a simulated execution.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -4852,7 +4852,7 @@
       "title": "Define security playbooks which help to understand, investigte and respond to security incidents. It is recommended to automate as many steps of those procedures as you can. Automation reduces overhead. It can also improve your security by ensuring the process steps are done quickly, consistently, and according to your predefined requirements.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -4870,7 +4870,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -4893,7 +4893,7 @@
           "url": "https://docs.microsoft.com/azure/active-directory/develop/msal-acquire-cache-tokens"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -4904,7 +4904,7 @@
           "title": "Implement Data Protection for trusted state information.",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -4924,7 +4924,7 @@
       "title": "Establish processes and use tools to manage priviliged access.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -4942,7 +4942,7 @@
       "title": "Implement resource locks to protect critical infrastructure.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -4960,7 +4960,7 @@
       "title": "Clearly define CI/CD roles and permissions.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -4978,7 +4978,7 @@
       "title": "Use managed identites for authentication to other Azure platform services.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -4996,7 +4996,7 @@
       "title": "Require API authentication for all workloads.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -5007,7 +5007,7 @@
           "title": "Standardize on modern authentication protocols.",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -5027,7 +5027,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -5045,7 +5045,7 @@
       "title": "Implement Conditional Access Policies.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -5056,7 +5056,7 @@
           "title": "Enforce password-less or Multi-factor Authentication (MFA).",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -5076,7 +5076,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -5094,7 +5094,7 @@
       "title": "Define an access model for keys and secrets. Use Azure Key Vault as the secure store and protect the keys/secrets with Azure RBAC.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -5112,7 +5112,7 @@
       "title": "Provide guidance for either platform managed keys (PMK) or customer managed keys (CMK), based on security or compliance requirements of this workload.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -5139,7 +5139,7 @@
           "url": "https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -5150,7 +5150,7 @@
           "title": "Use web application firewall.",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -5170,7 +5170,7 @@
       "title": "Protect non-public accessible services with network restrictions / IP firewall.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -5188,7 +5188,7 @@
       "title": "Protect workload publishing methods and restrict those not in use.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -5199,7 +5199,7 @@
           "title": "Implement an automated and gated CD/CD deployment process.",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -5220,7 +5220,7 @@
       "title": "Use service endpoints and private links where appropriate.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -5238,7 +5238,7 @@
       "title": "Use Azure Firewall or a 3rd party next generation firewall to protect against data exfiltration concerns.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -5256,7 +5256,7 @@
       "title": "Use NSG or Azure Firewall to protect and control traffic within the VNet",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -5267,7 +5267,7 @@
           "title": "Configure and collect network traffic logs.",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -5287,7 +5287,7 @@
       "title": "Apply a layered defense in depth / zero trust approach, e.g. use Azure Security Center to detect data exfiltration attempts.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -5305,7 +5305,7 @@
       "title": "Control network traffic between subnets (east/west) and application tiers (north/south).",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -5323,7 +5323,7 @@
       "title": "Use standard and recommended encryption algorithms.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -5341,7 +5341,7 @@
       "title": "Use encrypted network channels (TLS / HTTPS) for all client/server communication.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -5359,7 +5359,7 @@
       "title": "Use TLS 1.2 by default on Azure. Prefer TLS 1.3 where possible.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -5377,7 +5377,7 @@
       "title": "Use only secure hash algorithms (SHA-2 family).",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -5395,7 +5395,7 @@
       "title": "Store customer managed keys in Azure Key Vault.",
       "context": "For general use, it is recommended to adopt platform managed keys, unless there are specific business reasons (like regulatory requirements) to use customer managed keys. Those keys should be always stored in Azure Key Vault.",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -5406,7 +5406,7 @@
           "title": "Use an additional key encryption key (KEK) to protect your data encryption key (DEK).",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -5426,7 +5426,7 @@
       "title": "Classify your data at rest and use encryption.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -5444,7 +5444,7 @@
       "title": "Data in transit should be encrypted at all points to ensure data integrity.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -5462,7 +5462,7 @@
       "title": "Adopt a formal DevSecOps approach to building and maintaining software.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -5485,7 +5485,7 @@
           "url": "https://docs.microsoft.com/azure/security/benchmarks/"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -5503,7 +5503,7 @@
       "title": "Configure quality gate approvals in DevOps release process.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -5521,7 +5521,7 @@
       "title": "Involve security team into development process.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -5548,7 +5548,7 @@
           "url": "https://owasp.org/www-community/Source_Code_Analysis_Tools"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -5559,7 +5559,7 @@
           "title": "Include code scans into CI/CD process that also covers 3rd party dependencies and framework components.",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -5579,7 +5579,7 @@
       "title": "Store keys and secrets outside of deployment pipeline in Azure Key Vault or in secure store for the pipeline.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -5602,7 +5602,7 @@
           "url": "https://docs.microsoft.com/azure/security-center/container-security"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -5620,7 +5620,7 @@
       "title": "Implement branch policy strategy to enhance branch security.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -5638,7 +5638,7 @@
       "title": "Apply security controls to self-hosted build agents in the same manner as with other Azure IaaS VMs.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -5656,7 +5656,7 @@
       "title": "Use penetration testing and red team exercises to validate security defenses for this workload.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -5674,7 +5674,7 @@
       "title": "Implement a landing zone concept with Azure Blueprints and Azure Policies.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -5685,7 +5685,7 @@
           "title": "Use Azure Blueprints to consistently deploy environments that comply with organizational policies.",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -5705,7 +5705,7 @@
       "title": "Define a set of Azure Policies which enforce organizational standards and are aligned with the governance team.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -5723,7 +5723,7 @@
       "title": "Use native security capabilities in application services.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -5741,7 +5741,7 @@
       "title": "Use services available from a cloud provider for well-established functions like databases, encryption, identity directory, and authentication.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -5759,7 +5759,7 @@
       "title": "Define security requirements for the workload.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -5777,7 +5777,7 @@
       "title": "Implement threat protection for the workload.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -5795,7 +5795,7 @@
       "title": "Identify and classify business critical applications.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -5813,7 +5813,7 @@
       "title": "Develop a security plan.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -5831,7 +5831,7 @@
       "title": "Review, prioritize, and proactively apply security best practices to cloud resources.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -5849,7 +5849,7 @@
       "title": "Implement holistic security resilience strategy.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -5867,7 +5867,7 @@
       "title": "Implement defenses that detect and prevent easy and cheap attack methods.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -5885,7 +5885,7 @@
       "title": "Implement security strategy to contain attacker access.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -5903,7 +5903,7 @@
       "title": "Establish a SecOps team and monitor security related events.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -5914,7 +5914,7 @@
           "title": "Define a process for aligning communication, investigation & hunting activities with the application team.",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -5934,7 +5934,7 @@
       "title": "Ensure all Azure environments that connect to your production environment/network apply your organization’s policy and IT governance controls for security.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -5952,7 +5952,7 @@
       "title": "Restrict access to backend services to a minimal set of public IP addresses, only those who really need it.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -5970,7 +5970,7 @@
       "title": "Establish a unified enterprise segmentation strategy.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -5981,7 +5981,7 @@
           "title": "Align cloud network segmentation strategy with the enterprise segmentation model.",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -6001,7 +6001,7 @@
       "title": "Develop process and procedures to prevent direct Internet access of virtual machines (such as proxy or firewall) with logging and monitoring to enforce policies.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -6019,7 +6019,7 @@
       "title": "Leverage a Cloud Application Security Broker (CASB).",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -6037,7 +6037,7 @@
       "title": "Discover and remediate common risks to improve Secure Score in Azure Security Center.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -6055,7 +6055,7 @@
       "title": "Establish designated group responsible for central network management.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -6073,7 +6073,7 @@
       "title": "Evolve security beyond network controls.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -6091,7 +6091,7 @@
       "title": "Deprecate legacy network security controls.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -6109,7 +6109,7 @@
       "title": "Integrate network logs into a Security Information and Event Management (SIEM).",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -6128,7 +6128,7 @@
       "title": "Mitigate DDoS attacks. Use Standard protection for critical workloads where outage would have business impact. Also consider CDN as another layer of protection.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -6146,7 +6146,7 @@
       "title": "Design virtual networks for growth.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -6164,7 +6164,7 @@
       "title": "Build a security containment strategy.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -6182,7 +6182,7 @@
       "title": "Implement identity-based storage access controls.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -6200,7 +6200,7 @@
       "title": "Use tools like Azure Disk Encryption, BitLocker or DM-Crypt to encrypt virtual disks.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -6218,7 +6218,7 @@
       "title": "Define a role & responsibility concept for managing keys and secrets.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -6236,7 +6236,7 @@
       "title": "Put a solution in place that ensures all VMs are patched in a timely manner and that ensures strong local administrative password management.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -6254,7 +6254,7 @@
       "title": "Establish a Security Operations Center (SOC).",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -6272,7 +6272,7 @@
       "title": "Simulate attack against users and critical accounts. Ensure proper follow-up to educate users about the various means that an attacker may use.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -6295,7 +6295,7 @@
           "url": "https://docs.microsoft.com/azure/security/benchmarks/overview"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -6313,7 +6313,7 @@
       "title": "Develop security training program.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -6338,7 +6338,7 @@
           "url": "https://docs.microsoft.com/azure/active-directory/roles/security-emergency-access"
         }
       ],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -6356,7 +6356,7 @@
       "title": "Designate the parties responsible for specific functions in Azure.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -6374,7 +6374,7 @@
       "title": "Review and consider elevated security capabilities for Azure workloads.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -6392,7 +6392,7 @@
       "title": "Establish lifecycle management policy for critical accounts.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -6403,7 +6403,7 @@
           "title": "Regularly review access for critical roles.",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       },
       {
@@ -6414,7 +6414,7 @@
           "title": "Assign all roles only as needed and review access periodically.",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -6434,7 +6434,7 @@
       "title": "Establish a designated point of contact to receive Azure incident notifications from Microsoft.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -6452,7 +6452,7 @@
       "title": "Document and implement a privileged access strategy sourced from Microsoft core services reference models.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -6470,7 +6470,7 @@
       "title": "Synchronize on-premise directory with Azure AD",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -6481,7 +6481,7 @@
           "title": "Avoid synching on-premises admin accounts to AAD.",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       },
       {
@@ -6492,7 +6492,7 @@
           "title": "Use cloud provider identity services for non-employees.",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -6512,7 +6512,7 @@
       "title": "Use single identity provider for cross-platform IDM.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -6530,7 +6530,7 @@
       "title": "Implement a well-defined identity strategy.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -6548,7 +6548,7 @@
       "title": "Assign permissions based on management or resource groups.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -6566,7 +6566,7 @@
       "title": "Ensure security team has \"Security Readers\" or equivalent on cloud resources in their purview.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -6584,7 +6584,7 @@
       "title": "Add planning, testing, and validation rigor to the use of the root management group.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -6602,7 +6602,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -6620,7 +6620,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -6638,7 +6638,7 @@
       "title": "Use Azure Advisor to identify SKUs for optimization.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -6649,7 +6649,7 @@
           "title": "Review Azure Advisor recommendation periodically.",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -6669,7 +6669,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -6687,7 +6687,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -6698,7 +6698,7 @@
           "title": "",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       },
       {
@@ -6709,7 +6709,7 @@
           "title": "",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -6729,7 +6729,7 @@
       "title": "Use ACM or other cost management tools to understand if savings are possible.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -6747,7 +6747,7 @@
       "title": "Choose appropriate region for workload deployment to optimize cost.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -6765,7 +6765,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -6783,7 +6783,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -6801,7 +6801,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -6820,7 +6820,7 @@
       "title": "Make sure the optimal service SKUs are used for this workload.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -6838,7 +6838,7 @@
       "title": "Make sure the optimal operating systems are used for this workload.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -6856,7 +6856,7 @@
       "title": "Consider whether to deploy Hub and Spoke or Virtual WAN for this workload.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -6874,7 +6874,7 @@
       "title": "Consider if the cost of data transfer is acceptable.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -6892,7 +6892,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -6910,7 +6910,7 @@
       "title": "Set up alerts for cost limits and thresholds.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -6928,7 +6928,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -6946,7 +6946,7 @@
       "title": "Utilize the PaaS pay-as-you-go consumption model where relevant.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -6964,7 +6964,7 @@
       "title": "Use developer SKUs for dev/test purposes.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -6982,7 +6982,7 @@
       "title": "Make sure to delete/deallocate resources used in test environments.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -7000,7 +7000,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -7018,7 +7018,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -7036,7 +7036,7 @@
       "title": "Perform regular reviews focused on cost and spending for this workload.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -7054,7 +7054,7 @@
       "title": "Assign a budget and spend limit to the workload.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -7072,7 +7072,7 @@
       "title": "Establish a cost owner for each service used by the workload.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -7090,7 +7090,7 @@
       "title": "Use cost forcasting as a tool to estimate if the workload is aligned with budget.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -7108,7 +7108,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -7126,7 +7126,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -7144,7 +7144,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -7162,7 +7162,7 @@
       "title": "Revisit key Azure services to see if there were any updates which could reduce the spend.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -7180,7 +7180,7 @@
       "title": "Understand how is the budget defined.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -7198,7 +7198,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -7216,7 +7216,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -7234,7 +7234,7 @@
       "title": "See if you can use the hybrid use benefit to reuse licensing.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -7252,7 +7252,7 @@
       "title": "Learn if there are any discounts available for the services already in use.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -7270,7 +7270,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -7288,7 +7288,7 @@
       "title": "Make sure the workload works with cross-region peering efficiently and be aware of additional costs.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -7306,7 +7306,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -7324,7 +7324,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -7342,7 +7342,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -7360,7 +7360,7 @@
       "title": "Automate based on the application lifespan, use DevOps and deployment automation, configure auto-scale policies for the workload (both in and out), select the right resource offering size (VM, disk, database), choose appropriate services that match business requirements.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -7378,7 +7378,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -7396,7 +7396,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -7414,7 +7414,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -7432,7 +7432,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -7443,7 +7443,7 @@
           "title": "",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       },
       {
@@ -7454,7 +7454,7 @@
           "title": "",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -7474,7 +7474,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -7492,7 +7492,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -7510,7 +7510,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -7528,7 +7528,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -7539,7 +7539,7 @@
           "title": "",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       },
       {
@@ -7550,7 +7550,7 @@
           "title": "",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -7570,7 +7570,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -7588,7 +7588,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -7606,7 +7606,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -7624,7 +7624,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -7635,7 +7635,7 @@
           "title": "",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       },
       {
@@ -7646,7 +7646,7 @@
           "title": "",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       },
       {
@@ -7657,7 +7657,7 @@
           "title": "",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -7677,7 +7677,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -7688,7 +7688,7 @@
           "title": "",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -7708,7 +7708,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -7726,7 +7726,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -7737,7 +7737,7 @@
           "title": "",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       },
       {
@@ -7748,7 +7748,7 @@
           "title": "",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -7768,7 +7768,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -7779,7 +7779,7 @@
           "title": "",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       },
       {
@@ -7790,7 +7790,7 @@
           "title": "",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -7810,7 +7810,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -7821,7 +7821,7 @@
           "title": "",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       },
       {
@@ -7832,7 +7832,7 @@
           "title": "",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -7852,7 +7852,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -7863,7 +7863,7 @@
           "title": "",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       },
       {
@@ -7874,7 +7874,7 @@
           "title": "",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -7894,7 +7894,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -7905,7 +7905,7 @@
           "title": "",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       },
       {
@@ -7916,7 +7916,7 @@
           "title": "",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -7936,7 +7936,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -7954,7 +7954,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -7972,7 +7972,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -7990,7 +7990,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -8001,7 +8001,7 @@
           "title": "",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       },
       {
@@ -8012,7 +8012,7 @@
           "title": "",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       },
       {
@@ -8023,7 +8023,7 @@
           "title": "",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       },
       {
@@ -8034,7 +8034,7 @@
           "title": "",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -8054,7 +8054,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -8065,7 +8065,7 @@
           "title": "",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       },
       {
@@ -8076,7 +8076,7 @@
           "title": "",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       },
       {
@@ -8087,7 +8087,7 @@
           "title": "Azure Cache for Redis is a preferred solution for data caching as it improves performance by storing data in memory instead of on disk like SQL Server. Certain development frameworks like .NET also have mechanisms for caching data at the server level.",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -8108,7 +8108,7 @@
       "title": "Use CDN to speed up delivery performance to users and to separate the hosting platform from the end users / clients.",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -8126,7 +8126,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -8144,7 +8144,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -8162,7 +8162,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -8180,7 +8180,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -8200,7 +8200,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -8218,7 +8218,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -8236,7 +8236,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -8254,7 +8254,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -8265,7 +8265,7 @@
           "title": "",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       },
       {
@@ -8276,7 +8276,7 @@
           "title": "",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -8296,7 +8296,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     },
     "children": [
       {
@@ -8307,7 +8307,7 @@
           "title": "",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       },
       {
@@ -8318,7 +8318,7 @@
           "title": "",
           "context": "",
           "links": [],
-          "priority": "medium"
+          "priority": "50"
         }
       }
     ]
@@ -8338,7 +8338,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   },
   {
@@ -8356,7 +8356,7 @@
       "title": "",
       "context": "",
       "links": [],
-      "priority": "medium"
+      "priority": "50"
     }
   }
 ]

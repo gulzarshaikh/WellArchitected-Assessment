@@ -205,7 +205,7 @@
                                                               ],
                                                               "properties": {
                                                                   "priority": {
-                                                                      "type": "string"
+                                                                      "type": "integer"
                                                                   },
                                                                   "category": {
                                                                       "type": "string"
