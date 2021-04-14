@@ -164,7 +164,7 @@
                           }
                         },
                         "priority": {
-                          "type": "string"
+                          "type": "integer"
                         }
                       },
                       "dependencies": {
