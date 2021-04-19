@@ -19,7 +19,7 @@
           "url": ""
         }
       ],
-      "priority": "medium"
+      "priority": 50
     },
     "children": [
       {
@@ -35,7 +35,7 @@
               "url": ""
             }
           ],
-          "priority": "medium"
+          "priority": 50
         }
       },
       {
