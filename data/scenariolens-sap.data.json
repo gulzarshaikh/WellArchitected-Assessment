@@ -51,7 +51,7 @@
               "url": ""
             }
           ],
-          "priority": "medium"
+          "priority": 50
         }
       },
       {
@@ -67,7 +67,7 @@
               "url": ""
             }
           ],
-          "priority": "medium"
+          "priority": 50
         }
       }
     ]
@@ -92,7 +92,7 @@
           "url": ""
         }
       ],
-      "priority": "medium"
+      "priority": 50
     }
   }
 ]
