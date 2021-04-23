@@ -16,7 +16,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "The application was built natively for the cloud."
   },
   {
     "id": "e29151ac-52d2-40cf-accd-61cf0d98df5a",
@@ -40,7 +41,8 @@
         }
       ],
       "priority": 50
-    }
+    },
+    "statement": "Regulatory and governance requirements of this workload are known and well understood."
   },
   {
     "id": "64e1fbda-1d0b-4697-91ac-44d1524b86ab",
@@ -137,7 +139,8 @@
           "priority": 50
         }
       }
-    ]
+    ],
+    "statement": "Data is replicated across multiple regions."
   },
   {
     "id": "a24d9c7f-0f48-4570-af60-a56e7adc5c7e",
@@ -163,7 +166,8 @@
         }
       ],
       "priority": 50
-    }
+    },
+    "statement": "Data is replicated across Availability Zones."
   },
   {
     "id": "f519f2ea-3183-4d69-9338-b1187a8fb337",
@@ -192,7 +196,8 @@
         }
       ],
       "priority": 50
-    }
+    },
+    "statement": "The application is instrumented with semantic logs and metrics."
   },
   {
     "id": "b3d3b386-e35b-4c4b-b1c0-80f7052721ce",
@@ -221,7 +226,8 @@
         }
       ],
       "priority": 30
-    }
+    },
+    "statement": "Azure Tags are used to enrich Azure resources with operational metadata."
   },
   {
     "id": "f3970d77-e4e3-4f8e-bc35-30c6ce2dfc1f",
@@ -245,7 +251,8 @@
         }
       ],
       "priority": 50
-    }
+    },
+    "statement": "The application has a well-defined naming standard for Azure resources."
   },
   {
     "id": "ecb8d1d6-cfcd-411a-a8d3-1613619adf96",
@@ -276,7 +283,8 @@
           "context": "",
           "links": [],
           "priority": 50
-        }
+        },
+        "statement": "Availability targets such as SLAs, SLIs and SLOs for all leveraged dependencies are understood and monitored"
       },
       {
         "id": "9f204902-54d0-4f02-9708-91786af5f8f5",
@@ -292,7 +300,8 @@
             }
           ],
           "priority": 50
-        }
+        },
+        "statement": "There are well defined performance requirements for the application and key scenarios"
       },
       {
         "id": "1dda55eb-f2d5-4e4a-bfaa-8548f1c87692",
@@ -330,9 +339,11 @@
           "context": "It should be fully understood what are the consequences if availability targets are not satisfied. This will also inform when to initiate a failover case.",
           "links": [],
           "priority": 50
-        }
+        },
+        "statement": "The consequences if availability and recovery targets are not satisfied are well understood"
       }
-    ]
+    ],
+    "statement": "Availability targets such as Service Level Agreements (SLAs) and Service Level Objectives (SLOs)."
   },
   {
     "id": "4520f33a-e713-43f6-95d3-d4f768593a16",
@@ -357,7 +368,8 @@
         }
       ],
       "priority": 50
-    }
+    },
+    "statement": "Recovery targets such as Recovery Time Objective (RTO) and Recovery Point Objective (RPO) are defined for the application and key scenarios"
   },
   {
     "id": "c49a880c-9583-41b8-9dd3-305bbaf77cd8",
@@ -388,7 +400,8 @@
           "context": "",
           "links": [],
           "priority": 50
-        }
+        },
+        "statement": "Automatically schedule autoscaling to add resources based on time of day trends."
       },
       {
         "id": "3e8145b6-2c3b-4385-90da-732bad7eed80",
@@ -421,9 +434,11 @@
           "context": "",
           "links": [],
           "priority": 50
-        }
+        },
+        "statement": "There is an automated process to deploy application releases to production."
       }
-    ]
+    ],
+    "statement": "Queuing and reliable messaging patterns are used to integrate application tiers."
   },
   {
     "id": "995db623-f694-45ff-87c5-fe886e02a100",
@@ -453,7 +468,8 @@
           "context": "",
           "links": [],
           "priority": 50
-        }
+        },
+        "statement": "There are targets defined for the time it takes to perform scale operations"
       },
       {
         "id": "a2aa6296-448a-477d-be39-55f565ca9838",
@@ -509,7 +525,8 @@
           "priority": 50
         }
       }
-    ]
+    ],
+    "statement": "Critical system flows through the application have been defined for all key business scenarios and have distinct availability, performance and recovery targets"
   },
   {
     "id": "a5bdaeae-59ba-42e3-a305-3cc3cb6a3243",
@@ -528,7 +545,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Any application components which are less critical and have lower availability or performance requirements are well understood"
   },
   {
     "id": "df1f88e2-763c-4dcd-92b3-85378139587e",
@@ -577,7 +595,8 @@
           "priority": 50
         }
       }
-    ]
+    ],
+    "statement": "Internal and external dependencies are identified and cost implications understood."
   },
   {
     "id": "8f850c48-3bd4-44a4-8e3f-724916147348",
@@ -628,9 +647,11 @@
           "context": "",
           "links": [],
           "priority": 50
-        }
+        },
+        "statement": "The right operational capabilities are used for Azure services."
       }
-    ]
+    ],
+    "statement": "Cost implications of each Azure service used by the application are understood."
   },
   {
     "id": "f064cc1d-a8c8-4305-bc1f-c9354d7000e5",
@@ -659,7 +680,8 @@
         }
       ],
       "priority": 50
-    }
+    },
+    "statement": "Technologies and frameworks used in this workload are fully understood, including their vulnerabilities."
   },
   {
     "id": "b3b27631-4f69-4170-8fa4-441077843378",
@@ -733,7 +755,8 @@
         }
       ],
       "priority": 50
-    }
+    },
+    "statement": "An Application Performance Management (APM) tool like Azure Application Insights is used to collect application level logs"
   },
   {
     "id": "49e2686e-55a9-47fc-a07c-89df5de3c5dc",
@@ -752,7 +775,8 @@
       "context": "Application logs and events should be collected across all major environments. Sufficient degree of separation and filtering should be in place to ensure non-critical environments do not convolute production log interpretation. Furthermore, corresponding log entries across the application should capture a correlation ID for their respective transactions.",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Application logs are collected from different application environments"
   },
   {
     "id": "ab9180fe-064c-452a-ab4a-62365277a01a",
@@ -771,7 +795,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Log messages are captured in a structured format and can be indexed and searched"
   },
   {
     "id": "2dc5393e-5f28-4197-9427-e03446e00f33",
@@ -813,7 +838,8 @@
         }
       ],
       "priority": 50
-    }
+    },
+    "statement": "Application events are correlated across all application components"
   },
   {
     "id": "d87e5980-2cce-4f3b-8535-c430bdfcde50",
@@ -843,9 +869,11 @@
           "context": "",
           "links": [],
           "priority": 50
-        }
+        },
+        "statement": "End-to-end performance of critical system flows is monitored"
       }
-    ]
+    ],
+    "statement": "It is possible to evaluate critical application performance targets and non-functional requirements based on application logs and metrics"
   },
   {
     "id": "9bcd1100-4d63-4fc5-add6-d26627ac89b2",
@@ -865,7 +893,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "A log aggregation technology, such as Azure Log Analytics or Splunk, is used to collect logs and metrics from Azure resources"
   },
   {
     "id": "49e0d916-54f5-45e7-af5b-abc0bc7713c0",
@@ -884,7 +913,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Azure Activity Logs are collected within the log aggregation tool"
   },
   {
     "id": "8b658592-9fa5-471b-8317-2475be298ab1",
@@ -904,7 +934,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Resource-level monitoring is enforced throughout the application"
   },
   {
     "id": "ee4fc13b-bf84-451b-b332-31131179dc7f",
@@ -923,7 +954,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Logs and metrics are available for critical internal dependencies"
   },
   {
     "id": "4b7ca980-a9ac-4c9c-bffb-dabb52f515c5",
@@ -942,7 +974,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Critical external dependencies are monitored"
   },
   {
     "id": "7aac63df-735a-42a0-932a-e8a4f9da02eb",
@@ -961,7 +994,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Application and resource level logs are either aggregated in a single data sink, or it is possible to cross-query events at both levels"
   },
   {
     "id": "1acdbd60-acb6-40de-8e67-c2a17051cac1",
@@ -985,7 +1019,8 @@
         }
       ],
       "priority": 50
-    }
+    },
+    "statement": "Application level events are automatically correlated with resource-level metrics to quantify the current application state"
   },
   {
     "id": "851e4f75-73a2-4eda-bd30-a93a9852efcc",
@@ -1039,7 +1074,8 @@
           "context": "",
           "links": [],
           "priority": 50
-        }
+        },
+        "statement": "Critical system flows are used to inform the health model"
       },
       {
         "id": "7277055a-fd82-4d38-9da5-afb52e75d5c1",
@@ -1050,7 +1086,8 @@
           "context": "",
           "links": [],
           "priority": 50
-        }
+        },
+        "statement": "The health model can distinguish between transient and non-transient faults"
       },
       {
         "id": "fe6737db-7169-4dab-9f60-fd9b49281ade",
@@ -1061,9 +1098,11 @@
           "context": "",
           "links": [],
           "priority": 50
-        }
+        },
+        "statement": "The lifecycle of the application is decoupled from its dependencies."
       }
-    ]
+    ],
+    "statement": "A health model is used to qualify what 'healthy' and 'unhealthy' states represent for the workload"
   },
   {
     "id": "62af7280-fe66-4509-85cb-3a54aa8a90f6",
@@ -1081,7 +1120,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Long-term trends are analysed to predict operational issues before they occur"
   },
   {
     "id": "c7107299-fbf8-4040-944c-ff83ffa35f16",
@@ -1100,7 +1140,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Retention times for logs and metrics have been defined and with housekeeping mechanisms configured"
   },
   {
     "id": "2f89f20c-69ef-4150-9753-6ba603fb2b7d",
@@ -1127,7 +1168,8 @@
         }
       ],
       "priority": 50
-    }
+    },
+    "statement": "A tool such as Azure Monitor or Grafana is used to visualize the application health model and encompassed logs and metrics"
   },
   {
     "id": "413102d3-0e18-4631-b23d-9a4243df977f",
@@ -1145,7 +1187,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Dashboards are tailored to a specific audience such as developers, security or networking teams"
   },
   {
     "id": "56b8fb6f-31b5-45e0-bf0c-4db0f4e98a98",
@@ -1164,7 +1207,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Role Based Access Control (RBAC) is used to control access to operational and financial dashboards and underlying data."
   },
   {
     "id": "5f29603d-1775-49fa-8b55-e44c322b3aa0",
@@ -1183,7 +1227,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "A tool such as Azure Monitor or Splunk is used for alerting"
   },
   {
     "id": "9d6a7684-4c7f-4d0c-a3a8-f729272ee1c4",
@@ -1202,7 +1247,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Specific owners and processes are defined for each alert type"
   },
   {
     "id": "5a5ad49b-95fa-48f2-8281-a0ae2b6a08b5",
@@ -1220,7 +1266,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Operational events are prioritized based on business impact"
   },
   {
     "id": "3bc6bd65-0b6b-4c9d-b324-670359378b11",
@@ -1239,7 +1286,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Push notifications are used  to inform responsible parties of alerts in real time"
   },
   {
     "id": "2b766ac2-0888-4def-b44f-a97d457a643d",
@@ -1257,7 +1305,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Alerting is integrated with an IT Service Management (ITSM) system such as ServiceNow"
   },
   {
     "id": "37da75f6-a948-4649-938f-1a841a36bea2",
@@ -1281,7 +1330,8 @@
         }
       ],
       "priority": 50
-    }
+    },
+    "statement": "Azure Service Health events are used to alert on applicable Service level events."
   },
   {
     "id": "d710770a-2fad-4f36-a3c2-9846cf8fcf62",
@@ -1300,7 +1350,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Azure Resource Health events are used to alert on resource health events."
   },
   {
     "id": "d34470a5-15fc-498f-9788-81b354ef3fcb",
@@ -1323,7 +1374,8 @@
         }
       ],
       "priority": 50
-    }
+    },
+    "statement": "Azure Policies are used to enforce and control security and organizational standards."
   },
   {
     "id": "9114249f-151b-44e7-aa9c-b81691f6a738",
@@ -1353,7 +1405,8 @@
           "context": "",
           "links": [],
           "priority": 50
-        }
+        },
+        "statement": "The failover and failback approach has been tested/validated at least once"
       },
       {
         "id": "c1285732-71c4-4be6-a1ed-d1ff41e95d69",
@@ -1375,7 +1428,8 @@
           "context": "",
           "links": [],
           "priority": 50
-        }
+        },
+        "statement": "The health model is being used to classify failover situations"
       },
       {
         "id": "aa82b487-99b0-449f-9aeb-9828181088f1",
@@ -1386,7 +1440,8 @@
           "context": "",
           "links": [],
           "priority": 50
-        }
+        },
+        "statement": "Defined a disaster recovery strategy to capture recovery steps for failover and failback."
       },
       {
         "id": "11035227-0137-470c-9405-94d93b8f89c9",
@@ -1399,7 +1454,8 @@
           "priority": 50
         }
       }
-    ]
+    ],
+    "statement": "Recovery steps are defined and well understood for failover and failback"
   },
   {
     "id": "413b129f-4bcd-43c8-9ab9-0207f8b65c49",
@@ -1429,9 +1485,11 @@
           "context": "",
           "links": [],
           "priority": 50
-        }
+        },
+        "statement": "Automated recovery procedures are tested and validated on a regular basis"
       }
-    ]
+    ],
+    "statement": "Automated recovery procedures are in place for common failure events"
   },
   {
     "id": "edbf9e6e-8dfd-492c-9d1b-0c617e3b4232",
@@ -1461,9 +1519,11 @@
           "context": "",
           "links": [],
           "priority": 50
-        }
+        },
+        "statement": "Manual operational runbooks are tested and validated on a regular basis"
       }
-    ]
+    ],
+    "statement": "Critical manual processes are defined and documented for failure responses."
   },
   {
     "id": "136a8bdf-d29f-46cc-af2a-79b670aadf7a",
@@ -1489,7 +1549,8 @@
         }
       ],
       "priority": 50
-    }
+    },
+    "statement": "There is a capacity model for the workload"
   },
   {
     "id": "28471adf-d53f-41e6-a1e6-ccb808f49705",
@@ -1508,7 +1569,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Auto-scaling is enabled for supporting PaaS and IaaS services"
   },
   {
     "id": "cbf4551a-15dc-4aac-85aa-97df8d293dfc",
@@ -1528,7 +1590,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "The process to provision and deprovision capacity is codified"
   },
   {
     "id": "a91eab73-2d36-48de-bffb-d76638a72ec5",
@@ -1546,7 +1609,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "The impact of changes in application health on capacity is fully understood"
   },
   {
     "id": "693eecc0-4a8b-4ce8-9722-44de6e386091",
@@ -1587,9 +1651,11 @@
             }
           ],
           "priority": 50
-        }
+        },
+        "statement": "It has been validated that the required capacity (initial and future growth) is available within targeted regions"
       }
-    ]
+    ],
+    "statement": "It has been validated that the required capacity (initial and future growth) is within Azure service scale limits and quotas"
   },
   {
     "id": "acdf3d8f-a73e-46c0-9f13-93bba4d516b8",
@@ -1615,7 +1681,8 @@
         }
       ],
       "priority": 50
-    }
+    },
+    "statement": "Capacity utilization is monitored and used to forecast future growth"
   },
   {
     "id": "7805a648-7e52-4cab-aa2c-25053b81cf3a",
@@ -1635,7 +1702,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Application configuration is treated as code and deployed with the application."
   },
   {
     "id": "0966bda6-bd3d-475b-9103-707a36fa65a9",
@@ -1653,7 +1721,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Configuration settings can be changed or modified without rebuilding or redeploying the application"
   },
   {
     "id": "902e6215-5216-4a49-8283-a6612d5327b6",
@@ -1677,7 +1746,8 @@
         }
       ],
       "priority": 70
-    }
+    },
+    "statement": "Passwords and other secrets are managed in a secure store like Azure Key Vault or HashiCorp Vault"
   },
   {
     "id": "010e6217-ea74-4f08-aec7-2d80b1972a14",
@@ -1702,7 +1772,8 @@
         }
       ],
       "priority": 70
-    }
+    },
+    "statement": "Secret/key rotation procedures are in place."
   },
   {
     "id": "0dfaf9be-ac16-40c6-954c-cecc0023ae1a",
@@ -1726,7 +1797,8 @@
         }
       ],
       "priority": 70
-    }
+    },
+    "statement": "The application uses Azure Managed Identities"
   },
   {
     "id": "047ed13f-54ea-49cb-a5e0-95215442b626",
@@ -1761,7 +1833,8 @@
           "context": "",
           "links": [],
           "priority": 50
-        }
+        },
+        "statement": "Keys and secrets are backed-up to geo-redundant storage."
       }
     ]
   },
@@ -1806,7 +1879,8 @@
       "context": "",
       "links": [],
       "priority": 70
-    }
+    },
+    "statement": "Expiry dates of SSL/TLS certificates are monitored and there are renewal processes in place."
   },
   {
     "id": "c11945e2-24bd-437e-a3af-844aae6627ee",
@@ -1846,7 +1920,8 @@
           "context": "",
           "links": [],
           "priority": 50
-        }
+        },
+        "statement": "The process for key rotation is automated and tested"
       }
     ]
   },
@@ -1866,7 +1941,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Spot virtual machines are used."
   },
   {
     "id": "c8544011-707a-462a-a29a-4f54ea85ff8a",
@@ -1920,7 +1996,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Operational shortcomings and failures are analyzed and used to improve and refine operational procedures"
   },
   {
     "id": "cb7e2f75-a15f-41d6-9ca1-bcbdd65c6184",
@@ -2023,9 +2100,11 @@
           "context": "",
           "links": [],
           "priority": 50
-        }
+        },
+        "statement": "There is a documented process for any portions of the deployment that require manual intervention"
       }
-    ]
+    ],
+    "statement": "Application can be automatically deployed to a new region without any manual operations to recover from disaster scenarios."
   },
   {
     "id": "f2d628f5-015a-4e0c-a74e-af6236d3273a",
@@ -2044,7 +2123,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "The time it takes to deploy an entire production environment is tested and validated."
   },
   {
     "id": "ea1c85e2-4685-49b2-9f3a-c06cd0618f8f",
@@ -2064,7 +2144,8 @@
       "context": "",
       "links": [],
       "priority": 60
-    }
+    },
+    "statement": "Deployments are automated and it's possible to deploy N+1 and N-1 version (where N is the current production)."
   },
   {
     "id": "c0836ae9-b89f-41ae-a072-36c55eea3cda",
@@ -2082,7 +2163,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "There is a defined hotfix process which bypasses normal deployment procedures"
   },
   {
     "id": "da5a44fb-1c50-4527-aac8-5b2d37191367",
@@ -2106,7 +2188,8 @@
         }
       ],
       "priority": 50
-    }
+    },
+    "statement": "The application deployment process leverages blue-green deployments and/or canary releases"
   },
   {
     "id": "e7a16b2a-6ed6-4ec7-8255-63b17f72ed71",
@@ -2140,7 +2223,8 @@
           "context": "",
           "links": [],
           "priority": 50
-        }
+        },
+        "statement": "Branch policies are used in source control management, main branch is protected and code reviews are required."
       }
     ]
   },
@@ -2178,7 +2262,8 @@
           "priority": 50
         }
       }
-    ]
+    ],
+    "statement": "The entire application infrastructure is defined as code"
   },
   {
     "id": "8a2e1f59-f9f9-4936-81cc-d657908ffa57",
@@ -2197,7 +2282,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Direct access to the infrastructure through Azure Portal, command-line Interface (CLI) or REST API is limited and CI/CD is preferred."
   },
   {
     "id": "548d645a-de28-46db-ae42-658ce8529848",
@@ -2215,7 +2301,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "The process to deploy infrastructure is automated"
   },
   {
     "id": "59afb736-7446-4eb3-b81c-4cf6cbb2810c",
@@ -2234,7 +2321,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Critical test environments have 1:1 parity with the production environment"
   },
   {
     "id": "e646dee6-2a03-48e8-85e5-55d09e000c83",
@@ -2271,7 +2359,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Releases to production are gated by having it successfully deployed and tested in other environments"
   },
   {
     "id": "79c0b89b-feb0-4ed6-b5d0-8d72525baee1",
@@ -2294,7 +2383,8 @@
         }
       ],
       "priority": 50
-    }
+    },
+    "statement": "Feature flags are used to test features before rolling them out to everyone"
   },
   {
     "id": "83fa413f-b255-45e4-9cf4-b7be172fb951",
@@ -2341,7 +2431,8 @@
           "context": "",
           "links": [],
           "priority": 50
-        }
+        },
+        "statement": "Tests for performance, scalability, and resiliency are performed as part of each major change"
       },
       {
         "id": "46674ef4-13a3-4c87-9430-695b1792633c",
@@ -2352,7 +2443,8 @@
           "context": "",
           "links": [],
           "priority": 50
-        }
+        },
+        "statement": "At least a subset of tests is also performed in the production environment"
       },
       {
         "id": "80cc9d6c-c573-4e02-8219-098a8df796a4",
@@ -2363,9 +2455,11 @@
           "context": "",
           "links": [],
           "priority": 50
-        }
+        },
+        "statement": "Fault injection tests are being utilized"
       }
-    ]
+    ],
+    "statement": "The application is tested for performance, scalability, and resiliency"
   },
   {
     "id": "92c316d7-4d45-4878-b21e-b55504a3b7dc",
@@ -2388,7 +2482,8 @@
         }
       ],
       "priority": 50
-    }
+    },
+    "statement": "Smoke tests are performed during application deployments"
   },
   {
     "id": "905cd585-1316-4aa4-9578-0bf6c1a7b9e1",
@@ -2411,7 +2506,8 @@
         }
       ],
       "priority": 50
-    }
+    },
+    "statement": "Integration testing is performed as part of the application deployment process"
   },
   {
     "id": "7fa3dcaf-7590-41d2-8d50-7f34af9a657b",
@@ -2453,7 +2549,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Tests are automated and carried out periodically or on-demand."
   },
   {
     "id": "2cbe3dff-ff2b-4eb8-b391-f3ae358a258d",
@@ -2489,7 +2586,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Application processes are stateless."
   },
   {
     "id": "bf694d59-b58c-416c-bf27-1652e3228c3f",
@@ -2507,7 +2605,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Business Continuity 'fire drills' are performed to test regional failover scenarios"
   },
   {
     "id": "0e298715-89d7-4536-83dc-5f975ecbb585",
@@ -2525,7 +2624,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Security and penetration testing is performed regularly"
   },
   {
     "id": "ef245ebc-c008-4b2a-a225-72df86287fb9",
@@ -2548,7 +2648,8 @@
         }
       ],
       "priority": 50
-    }
+    },
+    "statement": "Specific methodologies, like DevOps, are used to structure the development and operations process"
   },
   {
     "id": "e52765b6-67fc-4d48-8dd8-1e105a491cfe",
@@ -2594,7 +2695,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "There is awareness around how the application has been built and is being maintained (in house or via an external partner)."
   },
   {
     "id": "d978d35a-374b-489a-a598-f86385c182d3",
@@ -2634,7 +2736,8 @@
           "context": "",
           "links": [],
           "priority": 50
-        }
+        },
+        "statement": "Collaboration between development and operations team to resolve production issue is clearly defined and well understood"
       },
       {
         "id": "ac2da964-f113-43a9-8d69-49a80b2ea136",
@@ -2736,9 +2839,11 @@
           "context": "",
           "links": [],
           "priority": 50
-        }
+        },
+        "statement": "No users have long-standing write-access to production environments"
       }
-    ]
+    ],
+    "statement": "There are tools and processes in place to grant just-in-time access."
   },
   {
     "id": "e75105b1-922d-4b3a-95e4-7b0f443550a1",
@@ -2774,7 +2879,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "There are tools and processes, like Azure Policy, in place to govern available services, enforce mandatory operational functionality and ensure compliance"
   },
   {
     "id": "901bdeee-486e-4d0b-9eac-da785d58315b",
@@ -2801,7 +2907,8 @@
         }
       ],
       "priority": 50
-    }
+    },
+    "statement": "Standards, policies, restrictions and best practices are defined as code, for example by using solutions like Azure Policy or HashiCorp Sentinel"
   },
   {
     "id": "b3d8e0fe-be4a-4269-a4c8-e53c6283effe",
@@ -2820,7 +2927,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "All components are monitored and correlated with application telemetry."
   },
   {
     "id": "e6f5bc32-2d59-4c1b-b496-647a1736f269",
@@ -2893,7 +3001,8 @@
         }
       ],
       "priority": 50
-    }
+    },
+    "statement": "The application has been designed to scale both in and out."
   },
   {
     "id": "bb4bf73a-4312-4064-bae4-736c7663f7f0",
@@ -2953,7 +3062,8 @@
         }
       ],
       "priority": 50
-    }
+    },
+    "statement": "Performed Failure Mode Analysis (FMA) to identify fault-points and fault-modes."
   },
   {
     "id": "30dacd9f-9aca-49bf-868b-e37fc70e38d1",
@@ -3074,7 +3184,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "There is an availability strategy defined and cost implications of it are understood."
   },
   {
     "id": "801ba01e-c712-43f9-98c1-f19308518706",
@@ -3107,7 +3218,8 @@
           "priority": 50
         }
       }
-    ]
+    ],
+    "statement": "Application components and data are split into groups as part of your disaster recovery strategy."
   },
   {
     "id": "3c1b0e11-0404-4abb-9fe0-1933e8f642c8",
@@ -3153,7 +3265,8 @@
         }
       ],
       "priority": 50
-    }
+    },
+    "statement": "Confirmed Availability Zones are available in required regions."
   },
   {
     "id": "c273e4c2-5bc8-49ea-ab30-523bc69d6033",
@@ -3171,7 +3284,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Aligned with Azure roadmaps for required preview services and capabilities."
   },
   {
     "id": "bc85cb20-2a7d-45d3-94f1-92011a7d5d01",
@@ -3189,7 +3303,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Validated all APIs/SDKs against target runtimes and languages for required functionality."
   },
   {
     "id": "03e4391f-ea9a-4c15-babf-d215947e859f",
@@ -3256,7 +3371,8 @@
           }
         }
       ]
-    }
+    },
+    "statement": "Session state is non-sticky and externalised to a data store."
   },
   {
     "id": "90f75e94-be97-4ea9-9e6c-6606e9dd6403",
@@ -3302,7 +3418,8 @@
         }
       ],
       "priority": 50
-    }
+    },
+    "statement": "Application platform services are running in a highly available configuration/SKU."
   },
   {
     "id": "607de629-d1ce-4287-9fe1-c5d6f460d341",
@@ -3364,7 +3481,8 @@
             }
           ],
           "priority": 50
-        }
+        },
+        "statement": "Application platform components are deployed across Availability Zones or Availability Sets."
       }
     ]
   },
@@ -3389,7 +3507,8 @@
         }
       ],
       "priority": 50
-    }
+    },
+    "statement": "Client traffic can be routed to the application in the case of region/zone/network outages."
   },
   {
     "id": "a30d4bf1-8b60-43be-a398-5c78c2dac347",
@@ -3416,7 +3535,8 @@
         }
       ],
       "priority": 50
-    }
+    },
+    "statement": "Data platform services are running in a highly available configuration/SKU."
   },
   {
     "id": "2dc45fe0-5cdf-4d21-9f4e-2a41e2480ed8",
@@ -3439,7 +3559,8 @@
         }
       ],
       "priority": 50
-    }
+    },
+    "statement": "Health probes are implemented to check the health of application components and compound application health."
   },
   {
     "id": "72179480-4291-4ddb-9b2a-1d6b89ac29c5",
@@ -3457,7 +3578,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Data types are categorized by data consistency requirements."
   },
   {
     "id": "9310a518-5a20-45d8-bf08-7940ed650b22",
@@ -3498,7 +3620,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Data restore processes have been validated and tested to ensure consistent application state when data is corrupted or deleted."
   },
   {
     "id": "d1a1ba27-e4eb-48de-a72f-c8a910d176a0",
@@ -3516,7 +3639,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Application traffic can be routed to data stores in the case of region/zone/network outages."
   },
   {
     "id": "c41cae15-f2ca-4c46-a438-0be9cc42ef3a",
@@ -3543,7 +3667,8 @@
         }
       ],
       "priority": 50
-    }
+    },
+    "statement": "Load balancing is implemented to distribute traffic across multiple nodes."
   },
   {
     "id": "54da56cb-0199-469f-ad2c-ba1e37affdbf",
@@ -3566,7 +3691,8 @@
         }
       ],
       "priority": 50
-    }
+    },
+    "statement": "Zone redundant gateways are used for cross-premises connectivity (ExpressRoute or VPN)."
   },
   {
     "id": "d8042586-8239-4d1f-95a2-18f363493510",
@@ -3589,7 +3715,8 @@
         }
       ],
       "priority": 50
-    }
+    },
+    "statement": "A failure path has been simulated for cross-premises connectivity."
   },
   {
     "id": "e3490fd7-6328-471e-86e5-732dc4d405c8",
@@ -3612,7 +3739,8 @@
         }
       ],
       "priority": 50
-    }
+    },
+    "statement": "All single points of failure have been eliminated from application communication flows."
   },
   {
     "id": "8599bf25-c2c5-4157-9e15-f36cb41d7ebd",
@@ -3639,7 +3767,8 @@
         }
       ],
       "priority": 50
-    }
+    },
+    "statement": "Reserved premium disks (P30 & above) are used."
   },
   {
     "id": "3af87d81-fd2c-4c1b-b463-a810edcf1bc0",
@@ -3662,7 +3791,8 @@
         }
       ],
       "priority": 50
-    }
+    },
+    "statement": "Application is available across multiple regions in an active-active configuration."
   },
   {
     "id": "2c8c39f6-b215-4a5e-8812-c4529925ceda",
@@ -3685,7 +3815,8 @@
         }
       ],
       "priority": 50
-    }
+    },
+    "statement": "Azure Load Balancer Standard or Zone redundant application gateways are used to load balance traffic across Availability Zones."
   },
   {
     "id": "9148810e-51f3-448e-99dd-a74993289c4b",
@@ -3708,7 +3839,8 @@
         }
       ],
       "priority": 50
-    }
+    },
+    "statement": "Health probes are configured for Azure Load Balancer(s) to assess application traffic flows and compound health."
   },
   {
     "id": "1c70914e-d93a-4265-9828-0af492269f42",
@@ -3731,7 +3863,8 @@
         }
       ],
       "priority": 50
-    }
+    },
+    "statement": "Load balancer health probes assess data platform components."
   },
   {
     "id": "dbae0514-eeb8-402d-9d82-c4f48407464e",
@@ -3754,7 +3887,8 @@
         }
       ],
       "priority": 50
-    }
+    },
+    "statement": "Deployed the application across multiple regions."
   },
   {
     "id": "87216475-61b5-4b28-b31c-496aa0adbf6d",
@@ -3774,7 +3908,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Document plans for data growth and retention."
   },
   {
     "id": "98d022fb-825a-4f4c-9d69-4f82978a14f6",
@@ -3793,7 +3928,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Calculated target data sizes and associated growth rates per scenario and component."
   },
   {
     "id": "e76fc3b0-6446-4590-84ef-4df313593f37",
@@ -3812,7 +3948,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Operational procedures are defined in case data sizes exceed limits."
   },
   {
     "id": "2712d167-cce7-4365-a309-afbc5a513d8b",
@@ -3897,7 +4034,8 @@
         }
       ],
       "priority": 50
-    }
+    },
+    "statement": "Gateways (ExpressRoute or VPN) have been sized according to expected cross-premises network throughput."
   },
   {
     "id": "da08ff51-123a-4f8d-9fcf-996d3f23967c",
@@ -3916,7 +4054,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "The application has dedicated cross-premises bandwidth."
   },
   {
     "id": "28f0029b-a3bf-421e-af45-96d1aaaf4a24",
@@ -3996,9 +4135,11 @@
           "context": "",
           "links": [],
           "priority": 50
-        }
+        },
+        "statement": "Autoscaling has been tested and the time to scale in/out has been measured."
       }
-    ]
+    ],
+    "statement": "Autoscaling is enabled for application components and integrated with Azure Monitor."
   },
   {
     "id": "40df86e9-96ed-4173-be52-2a4d2d18ca6b",
@@ -4035,7 +4176,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "SLAs for all internal and external dependencies."
   },
   {
     "id": "a1a4a381-7949-48a2-85ff-c9b43fd941c0",
@@ -4167,7 +4309,8 @@
         }
       ],
       "priority": 50
-    }
+    },
+    "statement": "Configured scaling policies by using the appropriate metrics."
   },
   {
     "id": "45bf67c1-4cb1-4b7d-b1a5-5edeff0aa150",
@@ -4185,7 +4328,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Communication to Azure PaaS services secured using Virtual Network Service Endpoints or Private Link."
   },
   {
     "id": "c577d9bb-328e-41c4-a196-901cbdf3e188",
@@ -4208,7 +4352,8 @@
         }
       ],
       "priority": 50
-    }
+    },
+    "statement": "Service Endpoints or Private Links are used for accessing Azure PaaS services."
   },
   {
     "id": "840237e5-e39b-40a2-a473-9fbcd40c305c",
@@ -4253,7 +4398,8 @@
           "priority": 50
         }
       }
-    ]
+    ],
+    "statement": "Legacy network security controls for data loss prevention were deprecated."
   },
   {
     "id": "4a51287f-a087-493b-962a-9807ff919423",
@@ -4368,7 +4514,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Procedures to scale out application platform components are automated."
   },
   {
     "id": "63074932-570c-40bf-9347-ac0b662c8753",
@@ -4387,7 +4534,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Leveraged platform services are Availability Zone aware."
   },
   {
     "id": "57ac4b78-8cbb-4864-8fee-d827c7fb44c7",
@@ -4406,7 +4554,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "There is a monthly or yearly meeting where the budget is reviewed."
   },
   {
     "id": "61ee43c5-c2d8-4a87-b269-4c6772d1a549",
@@ -4462,7 +4611,8 @@
           "context": "",
           "links": [],
           "priority": 70
-        }
+        },
+        "statement": "Threat modeling processes are adopted, identified threats are ranked based on organizational impact, mapped to mitigations and communicated to stakeholders."
       },
       {
         "id": "f8fd44fd-052d-4325-8d73-06bec97db606",
@@ -4473,7 +4623,8 @@
           "context": "",
           "links": [],
           "priority": 60
-        }
+        },
+        "statement": "Deployed the application across Availability Zones within a region."
       },
       {
         "id": "c28f72c2-ec48-46b8-b708-11e990ac3b8e",
@@ -4484,7 +4635,8 @@
           "context": "",
           "links": [],
           "priority": 60
-        }
+        },
+        "statement": "Use idempotent operations."
       },
       {
         "id": "310f09b2-6f4c-48ab-ba95-182f478f87de",
@@ -4497,7 +4649,8 @@
           "priority": 50
         }
       }
-    ]
+    ],
+    "statement": "Minimize the load on the data store."
   },
   {
     "id": "de9d35b9-db4e-48fd-8636-d4852d024a6e",
@@ -4546,7 +4699,8 @@
           "priority": 50
         }
       }
-    ]
+    ],
+    "statement": "Timelines and processess are established to deploy mitigations (security fixes) for identified threats."
   },
   {
     "id": "8f5df5fb-36fc-4ff3-a78e-c0f56c85e652",
@@ -4586,7 +4740,8 @@
           "context": "",
           "links": [],
           "priority": 50
-        }
+        },
+        "statement": "The application is tested against critical Non-Functional requirements for performance."
       }
     ]
   },
@@ -4619,7 +4774,8 @@
           "priority": 50
         }
       }
-    ]
+    ],
+    "statement": "External or internal audits of this workload are performed periodically."
   },
   {
     "id": "977b98dd-c5bc-495b-bbfe-3a93de8341a5",
@@ -4650,7 +4806,8 @@
         }
       ],
       "priority": 60
-    }
+    },
+    "statement": "A list of dependencies, frameworks and libraries used by this workload is maintained and updated regularly."
   },
   {
     "id": "971e41cc-5e22-43e7-8c48-79a714f318da",
@@ -4668,7 +4825,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Framework and library updates are included into the workload lifecycle."
   },
   {
     "id": "53677c7f-2657-45ba-8cef-cbb554115334",
@@ -4686,7 +4844,8 @@
       "context": "",
       "links": [],
       "priority": 60
-    }
+    },
+    "statement": "Detailed error messages and verbose information are hidden from the end user/client applications. Exceptions in code are handled gracefully and logged."
   },
   {
     "id": "23ced5d0-bcfc-4b86-bea5-5a03ed6ab51f",
@@ -4717,7 +4876,8 @@
           "priority": 50
         }
       }
-    ]
+    ],
+    "statement": "Platform specific information (e.g. web server version) is removed from server-client communication channels."
   },
   {
     "id": "d2996a6c-94f0-4da9-b81c-fc0fac28c2fa",
@@ -4735,7 +4895,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "A central SecOps team monitors security related telemetry data for this workload."
   },
   {
     "id": "da47385e-87ba-44b0-a6ae-6dd643bfb729",
@@ -4753,7 +4914,8 @@
       "context": "",
       "links": [],
       "priority": 90
-    }
+    },
+    "statement": "Identity related risk events related to potentially compromised identities are actively monitored."
   },
   {
     "id": "4988784c-ff7d-4746-be36-cb3138116568",
@@ -4776,7 +4938,8 @@
         }
       ],
       "priority": 70
-    }
+    },
+    "statement": "Personally identifiable information (PII) is detected and removed/obfuscated automatically for this workload, including application logs."
   },
   {
     "id": "3675560e-8ded-4856-8b20-90c2137b3f1f",
@@ -4835,7 +4998,8 @@
       "context": "",
       "links": [],
       "priority": 70
-    }
+    },
+    "statement": "Operational processes for incident response are defined and tested for this workload."
   },
   {
     "id": "a3db11f9-48e7-4e2b-8cab-3b63f08b0e8d",
@@ -4853,7 +5017,8 @@
       "context": "",
       "links": [],
       "priority": 60
-    }
+    },
+    "statement": "Playbooks are built to help incident responders quickly understand the workload and components, to mitigate an attack and do an investigation."
   },
   {
     "id": "31b6c00d-7a89-40cb-b3b2-dcc9e06daa5c",
@@ -4871,7 +5036,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "The application team has a clear view on responsibilities and individual/group access levels for this workload."
   },
   {
     "id": "0b1ba5fd-f346-443e-8041-0da60c579078",
@@ -4925,7 +5091,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "There are processes and tools being used to manage privileged activities. Long standing administrative access is avoided whenever possible."
   },
   {
     "id": "0cbce1f5-e8b3-4124-88d5-7c8765b74a43",
@@ -4961,7 +5128,8 @@
       "context": "",
       "links": [],
       "priority": 70
-    }
+    },
+    "statement": "CI/CD roles and permissions are clearly defined for this workload."
   },
   {
     "id": "b371929d-a69e-43f0-8a0d-777dbf01c511",
@@ -4979,7 +5147,8 @@
       "context": "",
       "links": [],
       "priority": 60
-    }
+    },
+    "statement": "When communicating with Azure platform services managed identities are preferred over API keys and connection strings."
   },
   {
     "id": "5e844c68-4730-4490-af0f-56c4ab0c93a6",
@@ -5010,7 +5179,8 @@
           "priority": 70
         }
       }
-    ]
+    ],
+    "statement": "All APIs in this workload require clients to authenticate."
   },
   {
     "id": "a9f6fe14-37b5-4756-af66-e917f9420c9e",
@@ -5028,7 +5198,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Azure Active Directory or other managed identity provider (Microsoft Account, Azure B2C etc.) is used for user authentication."
   },
   {
     "id": "12f98c47-97c7-42bb-a1a7-b030d2b6b2ca",
@@ -5057,9 +5228,11 @@
           "context": "",
           "links": [],
           "priority": 90
-        }
+        },
+        "statement": "Password-less or multi-factor authentication (MFA) is enforced for users of this workload."
       }
-    ]
+    ],
+    "statement": "Conditional access policies are implemented for users of this workload."
   },
   {
     "id": "e5ea3147-1528-44ff-93c6-aaaaf9e46bb6",
@@ -5077,7 +5250,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Authentication via identity services is prioritized for this workload vs. cryptographic keys."
   },
   {
     "id": "594dc42b-a485-4d45-aad7-a6a9c439f8fe",
@@ -5113,7 +5287,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "There's a clear guidance or requirement on what type of keys (PMK - Platform Managed Keys vs. CMK - Customer Managed Keys) should be used for this workload."
   },
   {
     "id": "4cb602ef-f9d9-4af0-ba9d-ed7d875b0b02",
@@ -5151,7 +5326,8 @@
           "context": "",
           "links": [],
           "priority": 90
-        }
+        },
+        "statement": "All public endpoints of this workload are protected/secured with appropriate solution (i.e. Azure Front Door, Azure Firewall...)."
       }
     ]
   },
@@ -5171,7 +5347,8 @@
       "context": "",
       "links": [],
       "priority": 90
-    }
+    },
+    "statement": "Services used by this workload, which should not be accessible from public IP addresses, are protected with network restrictions / IP firewall rules."
   },
   {
     "id": "c44accc9-f302-4cf1-9b4f-cc27af1d1824",
@@ -5200,9 +5377,11 @@
           "context": "",
           "links": [],
           "priority": 70
-        }
+        },
+        "statement": "Code is published to this workload using CI/CD process instead of manually."
       }
-    ]
+    ],
+    "statement": "Publishing methods for this workload (e.g FTP, Web Deploy) are protected."
   },
   {
     "id": "3f5a198e-7782-473e-97a9-4dee3024d41b",
@@ -5239,7 +5418,8 @@
       "context": "",
       "links": [],
       "priority": 70
-    }
+    },
+    "statement": "Azure Firewall or any 3rd party next generation firewall is used for this workload to control outgoing traffic of Azure PaaS services (data exfiltration protection) where Private Link is not available."
   },
   {
     "id": "aa852ce9-aa3a-4a60-90b7-0147d45741fa",
@@ -5268,9 +5448,11 @@
           "context": "",
           "links": [],
           "priority": 60
-        }
+        },
+        "statement": "NSG flow logs are configured to get insights about incoming and outgoing traffic of this workload."
       }
-    ]
+    ],
+    "statement": "Network security groups (NSG) are used to isolate and protect traffic within the workloads VNet."
   },
   {
     "id": "a40be08f-1a64-4fb3-9675-12cde86df123",
@@ -5306,7 +5488,8 @@
       "context": "",
       "links": [],
       "priority": 70
-    }
+    },
+    "statement": "Traffic between subnets, Azure components and tiers of the workload is managed and protected."
   },
   {
     "id": "5476b7cb-521b-4182-9199-9d1de69ad843",
@@ -5324,7 +5507,8 @@
       "context": "",
       "links": [],
       "priority": 60
-    }
+    },
+    "statement": "The workload uses industry standard encryption algorithms instead of creating own."
   },
   {
     "id": "e2e8f136-9ccc-4184-af0f-df2825acefeb",
@@ -5342,7 +5526,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "The workload communicates over encrypted (TLS / HTTPS) network channels only."
   },
   {
     "id": "11157485-2ed1-4be9-a1af-c98e18b49966",
@@ -5378,7 +5563,8 @@
       "context": "",
       "links": [],
       "priority": 70
-    }
+    },
+    "statement": "Secure modern hashing algorithms (SHA-2 family) are used."
   },
   {
     "id": "a6ecb4d2-0c54-4b9f-8316-dda2e1c39b28",
@@ -5409,7 +5595,8 @@
           "priority": 70
         }
       }
-    ]
+    ],
+    "statement": "Workload infrastructure is protected with role-based access control (RBAC)."
   },
   {
     "id": "4f02db17-1805-430b-bee8-07977e30783b",
@@ -5427,7 +5614,8 @@
       "context": "",
       "links": [],
       "priority": 90
-    }
+    },
+    "statement": "Data at rest is protected with encryption."
   },
   {
     "id": "d5929c78-b0f4-432f-8384-1acd703ecb2b",
@@ -5445,7 +5633,8 @@
       "context": "",
       "links": [],
       "priority": 70
-    }
+    },
+    "statement": "Data in transit is encrypted."
   },
   {
     "id": "c70c535e-eeea-45b9-a068-c52da0926e46",
@@ -5463,7 +5652,8 @@
       "context": "",
       "links": [],
       "priority": 90
-    }
+    },
+    "statement": "Formal DevOps approach to building and maintaining software in this workload was adopted."
   },
   {
     "id": "42313970-aa03-4d24-8997-e241cf2003fe",
@@ -5486,7 +5676,8 @@
         }
       ],
       "priority": 70
-    }
+    },
+    "statement": "DevOps security guidance based on industry lessons-learned, and available automation tools (OWASP guidance, Microsoft toolkit for Secure DevOps etc.) is leveraged."
   },
   {
     "id": "6e2d04fd-07d6-4c15-b1b0-3003f15f0e2e",
@@ -5504,7 +5695,8 @@
       "context": "",
       "links": [],
       "priority": 70
-    }
+    },
+    "statement": "Gates and approvals are configured in DevOps release process of this workload."
   },
   {
     "id": "8ff18175-427f-4f20-bac1-6efc8fd34b2a",
@@ -5522,7 +5714,8 @@
       "context": "",
       "links": [],
       "priority": 70
-    }
+    },
+    "statement": "Security team is involved in planning, design and the rest of DevOps process of this workload."
   },
   {
     "id": "7f9e19c3-0765-4312-9370-e4c6358f2283",
@@ -5562,7 +5755,8 @@
           "priority": 70
         }
       }
-    ]
+    ],
+    "statement": "Code scanning tools are integrated as part of the continuous integration (CI) process for this workload and cover also 3rd party dependencies."
   },
   {
     "id": "ad088a52-c456-473d-8a48-dd0abc40c372",
@@ -5580,7 +5774,8 @@
       "context": "",
       "links": [],
       "priority": 70
-    }
+    },
+    "statement": "Credentials, certificates and other secrets are managed in a secure manner inside of CI/CD pipelines."
   },
   {
     "id": "f319bb1b-ae72-4d1a-8902-7764fa9681c7",
@@ -5603,7 +5798,8 @@
         }
       ],
       "priority": 90
-    }
+    },
+    "statement": "For containerized workloads, Azure Defender (Azure Security Center) or other third-party solution is used to scan for vulnerabilities."
   },
   {
     "id": "66712af8-529b-40f5-a113-65cb36fa5a74",
@@ -5639,7 +5835,8 @@
       "context": "",
       "links": [],
       "priority": 70
-    }
+    },
+    "statement": "Security controls are applied to all self-hosted build agents used by this workload (if any)."
   },
   {
     "id": "2d93a35f-b5f5-4af8-bdc5-dd9c94128370",
@@ -5657,7 +5854,8 @@
       "context": "",
       "links": [],
       "priority": 70
-    }
+    },
+    "statement": "Penetration testing is performed in-house or a third-party entity performs penetration testing of this workload to validate the current security defenses."
   },
   {
     "id": "aa319731-d21d-4050-92f5-08064d97a0ef",
@@ -5742,7 +5940,8 @@
       "context": "",
       "links": [],
       "priority": 60
-    }
+    },
+    "statement": "Cloud services are used for well-established functions instead of building custom service implementations."
   },
   {
     "id": "e7fe8862-d666-4036-bb02-744dc866b74b",
@@ -5760,7 +5959,8 @@
       "context": "",
       "links": [],
       "priority": 70
-    }
+    },
+    "statement": "Security requirements are defined for this workload."
   },
   {
     "id": "e56c6759-7dbd-4d57-b9ba-cb1b349f6357",
@@ -5778,7 +5978,8 @@
       "context": "",
       "links": [],
       "priority": 100
-    }
+    },
+    "statement": "Threat protection was addressed for this workload."
   },
   {
     "id": "2201faed-8247-4936-a9e5-ce6c41f0d24c",
@@ -5796,7 +5997,8 @@
       "context": "",
       "links": [],
       "priority": 60
-    }
+    },
+    "statement": "Business critical workloads, which may adversely affect operations if they are compromised or become unavailable, were identified and classified."
   },
   {
     "id": "dbb3f936-15cd-490f-a5bf-59da748be40a",
@@ -5814,7 +6016,8 @@
       "context": "",
       "links": [],
       "priority": 70
-    }
+    },
+    "statement": "Security plan for this workload was developed and is maintained."
   },
   {
     "id": "2f7e64ac-2ca0-436e-b4f6-8754441492e9",
@@ -5832,7 +6035,8 @@
       "context": "",
       "links": [],
       "priority": 70
-    }
+    },
+    "statement": "Best practices and guidelines, based on industry recommendations, are reviewed and applied proactively."
   },
   {
     "id": "f469b520-f6c1-490d-a872-4fd101d2b30e",
@@ -5850,7 +6054,8 @@
       "context": "",
       "links": [],
       "priority": 90
-    }
+    },
+    "statement": "Resource locks are leveraged to protect critical infrastructure of this workload."
   },
   {
     "id": "c3155ab8-b4f3-41bd-b2a8-2c1c950a3ad4",
@@ -5915,7 +6120,8 @@
           "context": "",
           "links": [],
           "priority": 30
-        }
+        },
+        "statement": "Communication, investigation and hunting activities are aligned with the workload team."
       }
     ]
   },
@@ -5935,7 +6141,8 @@
       "context": "",
       "links": [],
       "priority": 80
-    }
+    },
+    "statement": "The security team has access to and monitor all subscriptions and tenants that are connected to the existing cloud environment, relative to this workload."
   },
   {
     "id": "6d12de13-c7e7-41d8-a6a6-2f9b123256fe",
@@ -5953,7 +6160,8 @@
       "context": "",
       "links": [],
       "priority": 90
-    }
+    },
+    "statement": "Access to the workload backend infrastructure (APIs, databases, etc.) is restricted to only a minimal set of public IP addresses - only those who really need it."
   },
   {
     "id": "fc134d54-b2df-4a1d-bb40-d0b4f82c53f6",
@@ -5982,9 +6190,11 @@
           "context": "",
           "links": [],
           "priority": 60
-        }
+        },
+        "statement": "Decomposed the application into distinct subsystems with independent disaster recovery strategies."
       }
-    ]
+    ],
+    "statement": "Identified groups of resources are isolated from other parts of the organization to aid in detecting and containing adversary movement within the enterprise."
   },
   {
     "id": "917c3243-527a-4ac6-8799-655224355ffa",
@@ -6002,7 +6212,8 @@
       "context": "",
       "links": [],
       "priority": 70
-    }
+    },
+    "statement": "Workload virtual machines running on premises or in the cloud don't have direct internet connectivity for users that may perform interactive logins, or by applications running on virtual machines."
   },
   {
     "id": "164a64d4-3396-44d1-9ee2-e39c4708fb72",
@@ -6020,7 +6231,8 @@
       "context": "",
       "links": [],
       "priority": 60
-    }
+    },
+    "statement": "Cloud application security broker (CASB) is leveraged in this workload."
   },
   {
     "id": "ce02ae0a-b27e-4a1c-b213-19e10e02afd0",
@@ -6038,7 +6250,8 @@
       "context": "",
       "links": [],
       "priority": 70
-    }
+    },
+    "statement": "Tools like Azure Security Center are used to discover and remediate common risks within Azure tenants."
   },
   {
     "id": "89fbfdcc-ffe5-4c7f-aa38-bf9354101142",
@@ -6056,7 +6269,8 @@
       "context": "",
       "links": [],
       "priority": 70
-    }
+    },
+    "statement": "There's a designated group within the organization, which is responsible for centralized network management security of this workload."
   },
   {
     "id": "3eae3859-2536-4aca-9df5-5a02295d4c7f",
@@ -6074,7 +6288,8 @@
       "context": "",
       "links": [],
       "priority": 70
-    }
+    },
+    "statement": "There are controls in place to ensure that security extends past the network boundaries of the workload in order to effectively prevent, detect, and respond to threats."
   },
   {
     "id": "56ccd440-c629-4fff-9f32-6ae85f2a7ca2",
@@ -6110,7 +6325,8 @@
       "context": "",
       "links": [],
       "priority": 70
-    }
+    },
+    "statement": "Enhanced network visibility is enabled by integrating network logs into a Security information and event management (SIEM) solution or similar technology."
   },
   {
     "id": "e8a8ac7a-c2f6-45dd-99d2-8508df8ac947",
@@ -6129,7 +6345,8 @@
       "context": "",
       "links": [],
       "priority": 70
-    }
+    },
+    "statement": "There's a capability and plans in place to mitigate DDoS attacks for this workload."
   },
   {
     "id": "925d1919-b4da-476f-aacc-0dcaa1ec5d58",
@@ -6147,7 +6364,8 @@
       "context": "",
       "links": [],
       "priority": 60
-    }
+    },
+    "statement": "Cloud virtual networks are designed for growth based on an intentional subnet security strategy."
   },
   {
     "id": "538ea2df-640e-48f7-9f08-788753edcfc6",
@@ -6165,7 +6383,8 @@
       "context": "",
       "links": [],
       "priority": 70
-    }
+    },
+    "statement": "This workload has a security containment strategy that blends existing on-premises security controls and practices with native security controls available in Azure, and uses a zero-trust approach."
   },
   {
     "id": "f61327a2-c4b6-4774-acac-d254b49f8abb",
@@ -6183,7 +6402,8 @@
       "context": "",
       "links": [],
       "priority": 60
-    }
+    },
+    "statement": "Access to data storage is identity-based, whenever possible."
   },
   {
     "id": "0f500e60-0bc3-4915-8d10-7b63c528dfee",
@@ -6201,7 +6421,8 @@
       "context": "",
       "links": [],
       "priority": 70
-    }
+    },
+    "statement": "Virtual disk files for virtual machines which are associated with this workload are encrypted."
   },
   {
     "id": "ec4859c5-a599-4434-aa2e-0913d5a29282",
@@ -6219,7 +6440,8 @@
       "context": "",
       "links": [],
       "priority": 70
-    }
+    },
+    "statement": "A clear responsibility / role concept for managing keys and secrets is defined for this workload."
   },
   {
     "id": "cef59cbc-f9a6-4b3d-84c2-3b5fe2ea1efb",
@@ -6237,7 +6459,8 @@
       "context": "",
       "links": [],
       "priority": 70
-    }
+    },
+    "statement": "Security updates to VMs are applied in a timely manner, and strong passwords exist on those VMs for any local administrative accounts that may be in use."
   },
   {
     "id": "3a187a27-9b8a-46fc-b0b3-129e58ab8ef2",
@@ -6255,7 +6478,8 @@
       "context": "",
       "links": [],
       "priority": 90
-    }
+    },
+    "statement": "There's a security operations center (SOC) that leverages a modern security approach."
   },
   {
     "id": "8779ebb8-92d6-4805-93da-2f4379c5ea53",
@@ -6273,7 +6497,8 @@
       "context": "",
       "links": [],
       "priority": 60
-    }
+    },
+    "statement": "Simulated attacks on users of this workload, such as phishing campaigns, are carried out regularly."
   },
   {
     "id": "b90c6845-3a0e-48eb-8ea3-95d16b3c0f87",
@@ -6314,7 +6539,8 @@
       "context": "",
       "links": [],
       "priority": 60
-    }
+    },
+    "statement": "A security training program is developed and maintained to ensure security staff of this workload are well-informed and equipped with the appropriate skills."
   },
   {
     "id": "30a2a854-1504-423f-90de-86598a07047b",
@@ -6339,7 +6565,8 @@
         }
       ],
       "priority": 100
-    }
+    },
+    "statement": "Appropriate emergency access accounts are configured for this workload in case of an emergency."
   },
   {
     "id": "f084ba4e-cf89-467e-a462-ed271f1c6f4e",
@@ -6357,7 +6584,8 @@
       "context": "",
       "links": [],
       "priority": 70
-    }
+    },
+    "statement": "Lines of responsibility and designated responsible parties were clearly defined for specific functions in Azure."
   },
   {
     "id": "ddd9b32b-5e94-4365-a28d-adb7bd94fab9",
@@ -6375,7 +6603,8 @@
       "context": "",
       "links": [],
       "priority": 70
-    }
+    },
+    "statement": "Elevated security capabilities such as dedicated Hardware Security Modules (HSMs) or the use of Confidential Computing was implemented or considered implementing?"
   },
   {
     "id": "d364734f-cadd-4e0f-9ae0-f0ec863d8d14",
@@ -6417,7 +6646,8 @@
           "priority": 50
         }
       }
-    ]
+    ],
+    "statement": "There is a lifecycle management policy for critical accounts in this workload and privileged accounts are reviewed regularly."
   },
   {
     "id": "97b1087c-3c6d-407d-930b-61425e00bb4f",
@@ -6435,7 +6665,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "A designated point of contact was assigned for this workload to receive Azure incident notifications from Microsoft."
   },
   {
     "id": "32b6aabb-2251-4c25-9dae-d420bd46dcfe",
@@ -6495,7 +6726,8 @@
           "priority": 50
         }
       }
-    ]
+    ],
+    "statement": "Current on-premises Active Directory is synchronized with Azure AD or other cloud identity system."
   },
   {
     "id": "dae60aaf-8826-4db1-8a7a-73a520422ae8",
@@ -6549,7 +6781,8 @@
       "context": "",
       "links": [],
       "priority": 60
-    }
+    },
+    "statement": "Permissions to Azure workloads are rarely based on individual resources and custom permissions are rarely used."
   },
   {
     "id": "4a26da75-4e2c-4e45-9a7c-d173b7553225",
@@ -6585,7 +6818,8 @@
       "context": "",
       "links": [],
       "priority": 60
-    }
+    },
+    "statement": "Root management group is used and any changes that are applied using this group are carefully considered."
   },
   {
     "id": "1ff63ebf-4b13-4e91-bf92-c0c38cbe0e2e",
@@ -6603,7 +6837,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "The workload is designed to scale independently."
   },
   {
     "id": "8e2c2f0f-abdd-438c-a577-73a9c534cb9e",
@@ -6621,7 +6856,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "There is a plan to modernize the workload."
   },
   {
     "id": "ce279686-4463-4d66-9050-d7b3b329502e",
@@ -6650,9 +6886,11 @@
           "context": "",
           "links": [],
           "priority": 50
-        }
+        },
+        "statement": "Resources are reviewed weekly or bi-weekly for optimization."
       }
-    ]
+    ],
+    "statement": "Tools (such as Azure Advisor) are being used to optimise SKUs discovered in this workload."
   },
   {
     "id": "05ab4eb1-ca06-44ed-9a6a-5ac63c98e10a",
@@ -6699,7 +6937,8 @@
           "context": "",
           "links": [],
           "priority": 50
-        }
+        },
+        "statement": "There is awareness regarding the ratio of cost of production and non-production environments for this workload."
       },
       {
         "id": "8f8c351f-c380-4883-aa24-17710a0c39f5",
@@ -6710,7 +6949,8 @@
           "context": "",
           "links": [],
           "priority": 50
-        }
+        },
+        "statement": "There is a difference in configuration for production and non-production environments."
       }
     ]
   },
@@ -6730,7 +6970,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Cost Management Tools (such as Azure Cost Management) are being used to track spending in this workload."
   },
   {
     "id": "8ede922e-de0c-4d1c-93c0-b023595e070c",
@@ -6748,7 +6989,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Cost-effective regions are considered as part of the deployment selection."
   },
   {
     "id": "cff58283-3316-42ef-bffa-e6576cea4708",
@@ -6766,7 +7008,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "All cloud services used by this workload are identified and it is understood how to configure them securely."
   },
   {
     "id": "edfdf193-67ef-4bd9-9b5c-85fae8732b19",
@@ -6784,7 +7027,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Authentication tokens are cached securely and encrypted when sharing across web servers."
   },
   {
     "id": "48cb1f38-b038-4dbc-b6ba-3923921f4ce9",
@@ -6802,7 +7046,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "This workload benefits from higher density."
   },
   {
     "id": "6e8058fb-1147-462b-9425-893662990a0e",
@@ -6821,7 +7066,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Appropriate SKUs are used for workload servers."
   },
   {
     "id": "cd6409b3-8fa5-4018-94fb-a939fe51858d",
@@ -6839,7 +7085,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Composite SLA for the workload derived using the Azure SLAs for all relevant resources."
   },
   {
     "id": "185c7dbd-49a7-48bf-ae45-1590e5b333f3",
@@ -6857,7 +7104,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Hub and spoke design pricing is understood."
   },
   {
     "id": "a1e57ff4-0860-432b-9b96-f04238abed4a",
@@ -6875,7 +7123,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Data is being transferred between regions."
   },
   {
     "id": "c87c3d62-20db-4738-802b-498cf99f275f",
@@ -6893,7 +7142,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Attacker access containment is considered when making investments into security solutions."
   },
   {
     "id": "11d6628c-7ab9-4b4f-9b73-c600b55e561c",
@@ -6911,7 +7161,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Alerts are set for cost thresholds and limits."
   },
   {
     "id": "e55b0a49-f9b7-4520-8271-664272063fac",
@@ -6929,7 +7180,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Every environment has a target end-date."
   },
   {
     "id": "483bab1e-19b0-4e4a-a0a8-16d3dbe6787f",
@@ -6947,7 +7199,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Every environment has a plan for migrating to PaaS or serverless to lower the all up cost and transfer risk."
   },
   {
     "id": "4d38ccbe-68c5-407e-8b24-4772f93f9cca",
@@ -6965,7 +7218,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Dev/Test offerings are used correctly."
   },
   {
     "id": "ad2ab1fb-7a8d-4083-a20a-c0896ef31a5e",
@@ -6983,7 +7237,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Test-environments  are deployed automatically and deleted after use."
   },
   {
     "id": "70c3cbcf-77f1-4386-ad5c-6666544c2671",
@@ -7001,7 +7256,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Cloud costs are being modelled for this workload."
   },
   {
     "id": "90ed1aac-0bd7-42c3-b914-011a9c0e70de",
@@ -7073,7 +7329,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "There is a cost owner for every service used by this workload."
   },
   {
     "id": "d06ba066-96d3-446a-b07d-1a6b55abebef",
@@ -7091,7 +7348,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Cost forecasting is done to ensure it aligns with the budget."
   },
   {
     "id": "b78ee923-ea80-46b3-9162-9ac76ed6f54e",
@@ -7181,7 +7439,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "There is a clear understanding of how budget is defined."
   },
   {
     "id": "ad6d0bf9-10fb-4805-aeda-37bede287ece",
@@ -7199,7 +7458,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Budget is factored into the building phase."
   },
   {
     "id": "a66075ca-dac1-4da7-a5d1-631e51d9e70f",
@@ -7217,7 +7477,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "There is an ongoing conversation between the app owner and the business."
   },
   {
     "id": "b022e836-4da1-4c2e-8053-373a0ccc731b",
@@ -7235,7 +7496,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Azure Hybrid Use Benefit is used to drive down cost in the cloud."
   },
   {
     "id": "47b507d5-1e35-4597-9287-09b4cf709f15",
@@ -7253,7 +7515,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Special discounts given to services or licenses are factored in when calculating new cost models for services being moved to the cloud."
   },
   {
     "id": "9c300c2f-609f-4f23-bb08-8e79c8b38443",
@@ -7289,7 +7552,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "The workload is connected between regions (using network peering or gateways)."
   },
   {
     "id": "7a504b6e-1fdd-4a63-8961-12084679f2d4",
@@ -7307,7 +7571,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Azure resources are connecting to the internet via on-premises."
   },
   {
     "id": "2e844175-58e7-488c-93a9-ecd8e7ef68a5",
@@ -7325,7 +7590,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Azure Front Door, Azure App Gateway or Web Application Firewall is used."
   },
   {
     "id": "b81d85ef-f3b6-46e9-9adc-f73acaebd496",
@@ -7343,7 +7609,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Microsoft backbone network is preferred."
   },
   {
     "id": "1bece592-e405-45c7-b6d4-4b553ca09777",
@@ -7455,9 +7722,11 @@
           "context": "",
           "links": [],
           "priority": 50
-        }
+        },
+        "statement": "Periodic & automated access reviews of the workload are conducted to ensure that only authorized people have access?"
       }
-    ]
+    ],
+    "statement": "Traffic is routable to the application in the case of a regional failure."
   },
   {
     "id": "60c51482-9fa8-4d1c-afc2-9025e688f8fd",
@@ -7540,7 +7809,8 @@
           "context": "",
           "links": [],
           "priority": 50
-        }
+        },
+        "statement": "Request timeouts are configured to manage inter-component calls."
       },
       {
         "id": "d714e22b-57cf-4ff8-8471-c000b973b05e",
@@ -7551,7 +7821,8 @@
           "context": "",
           "links": [],
           "priority": 50
-        }
+        },
+        "statement": "Monitor long-running workflows for failures."
       }
     ]
   },
@@ -7571,7 +7842,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Use async calls and waits to prevent locks."
   },
   {
     "id": "61b607a3-cd91-4bf9-9427-3b87dfe8e475",
@@ -7589,7 +7861,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Validated required capacity is within Azure service scale limits and quotas."
   },
   {
     "id": "fa9b1582-6c91-4810-b993-d431a827dbc0",
@@ -7607,7 +7880,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "The security team has read-only access into all cloud environment resources for this workload."
   },
   {
     "id": "32ed6874-8c18-4c4b-9b54-cbc7cc53a44b",
@@ -7691,7 +7965,8 @@
           "priority": 50
         }
       }
-    ]
+    ],
+    "statement": "Planned for dependency failures to minimize application downtime."
   },
   {
     "id": "a0d1abc3-a486-42ca-bb08-41821dbc9984",
@@ -7751,7 +8026,8 @@
           "priority": 50
         }
       }
-    ]
+    ],
+    "statement": "Have well-defined performance goals."
   },
   {
     "id": "d50f03b0-1db8-4763-8360-8799ff8272ad",
@@ -7793,7 +8069,8 @@
           "priority": 50
         }
       }
-    ]
+    ],
+    "statement": "Budgets are assigned to all services in this workload."
   },
   {
     "id": "6e826ce9-8400-4594-9532-dfffc2e892ca",
@@ -7833,7 +8110,8 @@
           "context": "",
           "links": [],
           "priority": 50
-        }
+        },
+        "statement": "Have awareness about the time taken to scale in response to events."
       }
     ]
   },
@@ -7877,7 +8155,8 @@
           "priority": 50
         }
       }
-    ]
+    ],
+    "statement": "Lifecycle policy is used to move data between access tiers."
   },
   {
     "id": "4f052a2c-76a0-4f7d-88da-d0dea15f033c",
@@ -7917,7 +8196,8 @@
           "context": "",
           "links": [],
           "priority": 50
-        }
+        },
+        "statement": "Read operations are segregated from update operations."
       }
     ]
   },
@@ -8066,7 +8346,8 @@
           "context": "",
           "links": [],
           "priority": 50
-        }
+        },
+        "statement": "Use horizontal scaling when possible."
       },
       {
         "id": "17859c2a-0c4a-41e4-9e8c-fc10e0d055bd",
@@ -8077,7 +8358,8 @@
           "context": "",
           "links": [],
           "priority": 50
-        }
+        },
+        "statement": "Avoid sticky sessions and client affinity."
       },
       {
         "id": "654cc0be-fa8d-4c07-a1f9-5b0fbdd477de",
@@ -8088,7 +8370,8 @@
           "context": "",
           "links": [],
           "priority": 50
-        }
+        },
+        "statement": "PaaS is used as an alternative to buying virtual machines."
       }
     ]
   },
@@ -8109,7 +8392,8 @@
       "context": "",
       "links": [],
       "priority": 30
-    }
+    },
+    "statement": "Use a Content Delivery Networks (CDN) if applicable."
   },
   {
     "id": "f299b253-d9fe-4ce8-b1e9-9904f83a637a",
@@ -8163,7 +8447,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Use sharding for database storage when appropriate."
   },
   {
     "id": "f9f2ff8b-d2c5-4663-916b-0fd0268f8897",
@@ -8181,7 +8466,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Have policies to scale in and scale down when my load decreases."
   },
   {
     "id": "6b4f9fbf-be67-4b86-96a9-83695aa60bb2",
@@ -8201,7 +8487,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "statement": "Built a capacity model for the application "
   },
   {
     "id": "06a5919f-9888-4dd3-81d4-db9578fdd15c",
