@@ -10,7 +10,7 @@
     "category": "Application Design",
     "subCategory": "Design",
     "title": "Was the application built natively for the cloud or was an existing on-premises system migrated?",
-    "context": "While cloud-native workloads are preferred, migrated or modernized applications are reality and they might not utilize the available cloud functionality like auto-scaling, platform notifications and other features the underlying cloud platform can offer. Understanding if the application is cloud-native or not provides a very useful high level indication about potential technical debt for operability and cost efficiency.",
+    "context": "Understanding if the application is cloud-native or not provides a very useful high-level indication about potential technical debt for operability and cost efficiency.",
     "recommendation": {
       "title": "While cloud-native workloads are preferred, migrated or modernized applications are reality and they might not utilize the available cloud functionality like auto-scaling, platform notifications etc. Make sure to understand the limitations and implement workarounds if available.",
       "context": "",
@@ -75,7 +75,7 @@
     "category": "Application Design",
     "subCategory": "Design",
     "title": "Is the workload deployed across multiple regions?",
-    "context": "Is data replicated across paired regions?",
+    "context": "Multiple regions should be used for failover purposes in a disaster state, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active strategies. Additional cost needs to be taken into consideration - mostly from compute, data and networking perspective, but also services like [Azure Site Recovery (ASR)](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview).",
     "recommendation": {
       "title": "Deploy across multiple regions for higher availability.",
       "context": "The ultimate goal is to set up the infrastructure in a way that it's able to automatically react to regional disasters. While active-active configuration would be the north star, not every workload requires two regions running simultaneously at all times, some don't even support it due to technical limitations. Depending on the availability, performance and cost requirements, passive or warm standby can be viable alternatives too.",
@@ -155,7 +155,7 @@
     "category": "Application Design",
     "subCategory": "Design",
     "title": "Within a region is the application architecture designed to use Availability Zones?",
-    "context": "Is data replicated across Availability Zones within a region?",
+    "context": "[Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones) can be used to optimize application availability within a region by providing datacenter level fault tolerance. However, the application architecture must not share dependencies between zones to use them effectively. It is also important to note that Availability Zones may introduce performance and cost considerations for applications which are extremely 'chatty' across zones given the implied physical separation between each zone and inter-zone bandwidth charges. That also means that AZ can be considered to get higher Service Level Agreement (SLA) for lower cost. Be aware of [pricing changes](https://azure.microsoft.com/pricing/details/bandwidth/) coming to Availability Zone bandwidth starting February 2021.",
     "recommendation": {
       "title": "Use Availability Zones where applicable to improve reliability and optimize costs.",
       "context": "",
@@ -181,7 +181,7 @@
     "category": "Application Design",
     "subCategory": "Design",
     "title": "Is the application implemented with strategies for resiliency and self-healing?",
-    "context": "Is the application instrumented with semantic logs to capture, alert and respond to errors?",
+    "context": "Strategies for resiliency and self-healing include retrying transient failures and failing over to a secondary instance or even another region.",
     "recommendation": {
       "title": "Consider implementing strategies and capabilities for resiliency and self-healing needed to achieve workload availability targets. Programming paradigms such as retry patterns, request timeouts, and circuit breaker patterns can improve application resiliency by automatically recovering from transient faults.",
       "context": "",
@@ -266,7 +266,7 @@
     "category": "Application Design",
     "subCategory": "Targets & Non-Functional Requirements",
     "title": "Are availability targets such as Service Level Agreements (SLAs), Service Level Indicators (SLIs), and Service Level Objectives (SLOs) defined for the application and/or key scenarios?",
-    "context": "Have availability targets been defined for the application and key scenarios? and are targets considered whilst the system is running in a recovery mode?",
+    "context": "Understanding customer availability expectations is vital to reviewing overall operations for the application. For instance, if a customer is striving to achieve an application SLO of 99.999%, the level of inherent operational activity required by the application is going to be far greater than if an SLO of 99.9% was the aspiration.",
     "recommendation": {
       "title": "Have clearly defined availability targets.",
       "context": "Having clearly defined availability targets is crucial in order to have a goal to work and measure against. This will also determine which services an application can leverage vs. those which do not qualify in terms of the Service Level Agreement (SLA) they offer.",
@@ -277,7 +277,7 @@
       {
         "id": "c13f33bd-ae2e-4481-812b-617bae0b6703",
         "title": "Are SLAs/SLOs/SLIs for all leveraged dependencies understood?",
-        "context": "Are SLAs/SLOs/SLIs for all leveraged dependencies understood?",
+        "context": "If the application is depending on external services, their availability targets/commitments should be understood and ideally aligned with application targets.",
         "recommendation": {
           "title": "Make sure SLAs/SLOs/SLIs for all leveraged dependencies are understood.",
           "context": "",
@@ -289,7 +289,7 @@
       {
         "id": "9f204902-54d0-4f02-9708-91786af5f8f5",
         "title": "Has a composite Service-Level Agreement (SLA) been calculated for the application and/or key scenarios using Azure SLAs?",
-        "context": "Are there well defined performance requirements for the application and/or key scenarios?",
+        "context": "A [composite SLA](https://docs.microsoft.com/azure/architecture/framework/resiliency/business-metrics#understand-service-level-agreements) captures the end-to-end SLA across all application components and dependencies. It is calculated using the individual SLAs of Azure services housing application components and provides an important indicator of designed availability in relation to customer expectations and targets.",
         "recommendation": {
           "title": "Make sure the composite SLA of all components and dependencies on the critical paths are understood.",
           "context": "",
@@ -333,7 +333,7 @@
       {
         "id": "63dcda16-778b-4774-b27a-c8e9c694142f",
         "title": "What are the consequences if availability targets are not satisfied?",
-        "context": "What are the consequences if availability targets are not satisfied?",
+        "context": "Are there any penalties, such as financial charges, associated with failing to meet Service Level Agreement (SLA) commitments? Additional measures can be used to prevent penalties, but that also brings additional cost to operate the infrastructure. This has to be factored in and evaluated.",
         "recommendation": {
           "title": "Understand the consequences of missing availability targets.",
           "context": "It should be fully understood what are the consequences if availability targets are not satisfied. This will also inform when to initiate a failover case.",
@@ -357,7 +357,7 @@
     "category": "Application Design",
     "subCategory": "Targets & Non-Functional Requirements",
     "title": "Are recovery targets such as Recovery Time Objective (RTO) and Recovery Point Objective (RPO) defined for the application and/or key scenarios?",
-    "context": "Are recovery targets such as Recovery Time Objective (RTO) and Recovery Point Objective (RPO) defined for the application and/or key scenarios?",
+    "context": "Understanding customer reliability expectations is vital to reviewing the overall reliability of the application. For instance, if a customer is striving to achieve an application RTO of less than a minute then back-up based and active-passive disaster recovery strategies are unlikely to be appropriate<br />**Recovery time objective (RTO)**: The maximum acceptable time the application is unavailable after a disaster incident<br />**Recovery point objective (RPO)**: The maximum duration of data loss that is acceptable during a disaster event",
     "recommendation": {
       "title": "Recovery targets should be defined in accordance to the required RTO and RPO targets for the workloads.",
       "context": "",
@@ -383,7 +383,7 @@
     "category": "Application Design",
     "subCategory": "Targets & Non-Functional Requirements",
     "title": "Are you able to predict general application usage?",
-    "context": "Are queuing and messaging patterns used to asynchronously integrate application components?",
+    "context": "It is important to understand application and environment usage. The customer may have an understanding of certain seasons or incidents that increase user load (e.g. a weather service being hit by users facing a storm, an e-commerce site during the holiday season).",
     "recommendation": {
       "title": "Traffic patterns should be identified by analyzing historical traffic data and the effect of significant external events on the application.",
       "context": "",
@@ -394,7 +394,7 @@
       {
         "id": "6b2d1510-0d19-4d28-bf2a-80dbaf323956",
         "title": "If typical usage is predictable, are your predictions based on time of day, day of week, or season (e.g. holiday shopping season)?",
-        "context": "Preemptively scaling based on historical data can ensure your application is performant before your metrics indicate additional resources are required.",
+        "context": "Dig deeper and document predictable periods. By doing so, you can leverage resources like Azure Automation and Autoscale to proactively scale the application and its underlying environment.",
         "recommendation": {
           "title": "",
           "context": "",
@@ -428,7 +428,7 @@
       {
         "id": "ff75660f-9625-4afa-a59d-af8b1bcc85d5",
         "title": "Are you able to accurately predict the amount of load your application will experience during these peaks?",
-        "context": "The time it takes to perform a complete environment deployment should align with recovery targets. Automation and agility also lead to cost savings due to the reduction of manual actions and errors.",
+        "context": "",
         "recommendation": {
           "title": "",
           "context": "",
@@ -462,7 +462,7 @@
       {
         "id": "89333b94-6ced-45ad-abb2-73e82b0d560b",
         "title": "Are there any targets defined for the time it takes to perform scale operations?",
-        "context": "Are there any targets defined for the time it takes to perform scale operations?",
+        "context": "Scale operations (horizontal - changing the number of identical instances, vertical - switching to more/less powerful instances) can be fast, but usually take time to complete. It's important to understand how this delay affects the application under load and if degraded performance is acceptable.",
         "recommendation": {
           "title": "The application should be designed to scale to cope with spikes in load in-line with what is an acceptable duration for degraded performance.",
           "context": "",
@@ -506,7 +506,7 @@
     "category": "Application Design",
     "subCategory": "Key Scenarios",
     "title": "Have critical system flows through the application been defined for all key business scenarios?",
-    "context": "Have critical system flows through the application been defined for all key business scenarios?",
+    "context": "Understanding critical system flows is vital to assessing overall operational effectiveness, and should be used to inform a health model for the application. It can also tell if areas of the application are over or under-utilized and should be adjusted to better meet business needs and cost goals.",
     "recommendation": {
       "title": "Path-wise analysis should be used to define critical system flows for key business scenarios, such as the checkout process for an eCommerce application.",
       "context": "",
@@ -539,7 +539,7 @@
     "category": "Application Design",
     "subCategory": "Key Scenarios",
     "title": "Are there any application components which are less critical and have lower availability or performance requirements?",
-    "context": "Are there any application components which are less critical and have lower availability or performance requirements?",
+    "context": "Some less critical components or paths through the application may have lower expectations around availability, recovery, and performance. This can result in cost reduction by choosing lower SKUs with less performance and availability.",
     "recommendation": {
       "title": "Identify if there are components with more relaxed performance requirements.",
       "context": "",
@@ -560,7 +560,7 @@
     "category": "Application Design",
     "subCategory": "Dependencies",
     "title": "Are all internal and external dependencies identified and categorized as either weak or strong?",
-    "context": "Examples of typical dependencies include platform dependencies outside the remit of the application, such as Azure Active Directory, Express Route, or a central NVA (Network Virtual Appliance), as well as application dependencies such as APIs which may be in-house or externally owned by a third-party. It’s important to understand the cost for these services and how they are being charged, this makes it easier to understand an all up cost.",
+    "context": "Internal dependencies describe components within the application scope which are required for the application to fully operate, while external dependencies capture required components outside the scope of the application, such as another application or third-party service.",
     "recommendation": {
       "title": "Categorize dependencies as either weak or strong.",
       "context": "Dependencies may be categorized as either strong or weak based on whether or not the application is able to continue operating in a degraded fashion in their absence.",
@@ -641,7 +641,7 @@
       {
         "id": "1e05353d-5a07-4fac-a589-b99d13152edd",
         "title": "What operational features/capabilities are used for leveraged services?",
-        "context": "Operational capabilities, such as auto-scale and auto-heal for App Services, can reduce management overheads, support operational effectiveness and reduce cost. Make sure you understand the operational features/capabilities available and how they can be used in the solution.",
+        "context": "Operational capabilities, such as auto-scale and auto-heal for App Services, can reduce management overheads, support operational effectiveness and reduce cost.",
         "recommendation": {
           "title": "Make sure you understand the operational features/capabilities available and how they can be used in the solution.",
           "context": "",
@@ -665,7 +665,7 @@
     "category": "Application Design",
     "subCategory": "Application Composition",
     "title": "What technologies and frameworks are used by the application?",
-    "context": "It is important to understand what technologies are used by the application and must be managed, such as .NET Core , Spring, or Node.js. Each choice of technology also has consequences for security.",
+    "context": "It is important to understand what technologies are used by the application and must be managed, such as .NET Core, Spring, or Node.js.",
     "recommendation": {
       "title": "Identify technologies and frameworks used by the application.",
       "context": "All technologies and frameworks should be identified. Vulnerabilities of these dependencies must be understood (there are automated solutions on the market that can help: [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/) or [NPM audit](https://docs.npmjs.com/cli/audit).",
@@ -744,7 +744,7 @@
     "category": "Health Modelling & Monitoring",
     "subCategory": "Application Level Monitoring",
     "title": "Is an Application Performance Management (APM) tool used collect application level logs?",
-    "context": "Is an Application Performance Management (APM) tool used collect application level logs?",
+    "context": "In order to successfully maintain the application it's important to 'turn the lights on' and have clear visibility of important metrics both in real-time and historically.",
     "recommendation": {
       "title": "Use Application Performance Management tools.",
       "context": "An APM technology, such as [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview), should be used to manage the performance and availability of the application, aggregating application level logs and events for subsequent interpretation. It should be considered what is the appropriate level of logging, because too much can incur significant costs.",
@@ -769,7 +769,7 @@
     "category": "Health Modelling & Monitoring",
     "subCategory": "Application Level Monitoring",
     "title": "Are application logs collected from different application environments?",
-    "context": "Are application logs collected from different application environments?",
+    "context": "Application logs support the end-to-end application lifecycle. Logging is essential in understanding how the application operates in various environments and what events occur and under which conditions.",
     "recommendation": {
       "title": "Collect application logs across application environments.",
       "context": "Application logs and events should be collected across all major environments. Sufficient degree of separation and filtering should be in place to ensure non-critical environments do not convolute production log interpretation. Furthermore, corresponding log entries across the application should capture a correlation ID for their respective transactions.",
@@ -789,7 +789,7 @@
     "category": "Health Modelling & Monitoring",
     "subCategory": "Application Level Monitoring",
     "title": "Are log messages captured in a structured format?",
-    "context": "Are log messages captured in a structured format?",
+    "context": "Structured format, following well-known schema can help in parsing and analyzing logs.",
     "recommendation": {
       "title": "Application events should be captured as a structured data type with machine-readable data points rather than unstructured string types. Structured data can easily be indexed and searched, and reporting can be greatly simplified.",
       "context": "",
@@ -827,7 +827,7 @@
     "category": "Health Modelling & Monitoring",
     "subCategory": "Application Level Monitoring",
     "title": "Are application events correlated across all application components?",
-    "context": "Are application events correlated across all application components?",
+    "context": "[Distributed tracing](https://docs.microsoft.com/azure/architecture/microservices/logging-monitoring#distributed-tracing) provides the ability to build and visualize end-to-end transaction flows for the application.",
     "recommendation": {
       "title": "Events coming from different application components or different component tiers of the application should be correlated to build end-to-end transaction flows. For instance, this is often achieved by using consistent correlation IDs transferred between components within a transaction.<br /><br />Event correlation between the layers of the application will provide the ability to connect tracing data of the complete application stack. Once this connection is made, you can see a complete picture of where time is spent at each layer. This will typically mean having a tool that can query the repositories of tracing data in correlation to a unique identifier that represents a given transaction that has flowed through the system.",
       "context": "",
@@ -852,7 +852,7 @@
     "category": "Health Modelling & Monitoring",
     "subCategory": "Application Level Monitoring",
     "title": "Is it possible to evaluate critical application performance targets and non-functional requirements (NFRs)?",
-    "context": "Is it possible to evaluate critical application performance targets and non-functional requirements (NFRs)?",
+    "context": "",
     "recommendation": {
       "title": "Application level metrics should include end-to-end transaction times of key technical functions, such as database queries, response times for external API calls, failure rates of processing steps, etc.",
       "context": "",
@@ -863,7 +863,7 @@
       {
         "id": "a68692f8-664c-44e1-9fb6-f2d09dd2bf82",
         "title": "Is the end-to-end performance of critical system flows monitored?",
-        "context": "Is the end-to-end performance of critical system flows monitored?",
+        "context": "To fully assess the health of key scenarios in the context of targets and NFRs, application log events across critical system flows should be correlated.",
         "recommendation": {
           "title": "Correlate application log events across critical system flows, such as user login.",
           "context": "",
@@ -887,7 +887,7 @@
     "category": "Health Modelling & Monitoring",
     "subCategory": "Resource and Infrastructure Level Monitoring",
     "title": "Which log aggregation technology is used to collect logs and metrics from Azure resources?",
-    "context": "Which log aggregation technology is used to collect logs and metrics from Azure resources?",
+    "context": "Log aggregation technologies, such as Azure Log Analytics or Splunk, should be used to collate logs and metrics across all application components for subsequent evaluation. Resources may include Azure IaaS and PaaS services as well as 3rd-party appliances such as firewalls or anti-malware solutions used in the application. For instance, if Azure Event Hub is used, the [Diagnostic Settings](https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs) should be configured to push logs and metrics to the data sink. Understanding usage helps with right-sizing of the workload, but additional cost for logging needs to be accepted and included in the cost model.",
     "recommendation": {
       "title": "Use log aggregation technology, such as Azure Log Analytics or Splunk, to gather information across all application components.",
       "context": "",
@@ -907,7 +907,7 @@
     "category": "Health Modelling & Monitoring",
     "subCategory": "Resource and Infrastructure Level Monitoring",
     "title": "Are you collecting Azure Activity Logs within the log aggregation tool?",
-    "context": "Are you collecting Azure Activity Logs within the log aggregation tool?",
+    "context": "Azure Activity Logs provide audit information about when an Azure resource is modified, such as when a virtual machine is started or stopped. Such information is extremely useful for the interpretation and troubleshooting of operational and performance issues, as it provides transparency around configuration changes.",
     "recommendation": {
       "title": "Azure Activity Logs should be collected and aggregated.",
       "context": "",
@@ -928,7 +928,7 @@
     "category": "Health Modelling & Monitoring",
     "subCategory": "Resource and Infrastructure Level Monitoring",
     "title": "Is resource-level monitoring enforced throughout the application?",
-    "context": "Is resource level monitoring enforced throughout the application?",
+    "context": "Resource- or infrastructure-level monitoring refers to the used platform services such as Azure VMs, Express Route or SQL Database. But also covers 3rd-party solutions like an NVA.",
     "recommendation": {
       "title": "All application resources should be configured to route diagnostic logs and metrics to the chosen log aggregation technology. Azure Policy should also be used as a device to ensure the consistent use of diagnostic settings across the application, to enforce the desired configuration for each Azure service.",
       "context": "",
@@ -948,7 +948,7 @@
     "category": "Health Modelling & Monitoring",
     "subCategory": "Resource and Infrastructure Level Monitoring",
     "title": "Are logs and metrics available for critical internal dependencies?",
-    "context": "Are logs and metrics available for critical internal dependencies?",
+    "context": "To be able to build a robust application health model it is vital that visibility into the operational state of critical internal dependencies, such as a shared NVA or Express Route connection, be achieved.",
     "recommendation": {
       "title": "Make sure logs and key metrics of critical components are collected and stored.",
       "context": "",
@@ -988,7 +988,7 @@
     "category": "Health Modelling & Monitoring",
     "subCategory": "Data Interpretation & Health Modelling",
     "title": "Are application and resource level logs aggregated in a single data sink, or is it possible to cross-query events at both levels?",
-    "context": "Are application and resource level logs aggregated in a single data sink, or is it possible to cross-query events at both levels?",
+    "context": "To build a robust application health model it is vital that application and resource level data be correlated and evaluated together to optimize the detection of issues and troubleshooting of detected issues.",
     "recommendation": {
       "title": "Implement a unified solution to aggregate and query application and resource level logs, such as Azure Log Analytics.",
       "context": "",
@@ -1008,7 +1008,7 @@
     "category": "Health Modelling & Monitoring",
     "subCategory": "Data Interpretation & Health Modelling",
     "title": "Are application level events automatically correlated with resource level metrics to quantify the current application state?",
-    "context": "Are application level events automatically correlated with resource level metrics to quantify the current application state?",
+    "context": "The overall health state can be impacted by both application-level issues as well as resource-level failures. [Telemetry correlation](https://docs.microsoft.com/azure/azure-monitor/app/correlation) should be used to ensure transactions can be mapped through the end-to-end application and critical system flows, as this is vital to root cause analysis for failures. Platform-level metrics and logs such as CPU percentage, network in/out, and disk operations/sec should be collected from the application to inform a health model and detect/predict issues. This can also help to distinguish between transient and non-transient faults.",
     "recommendation": {
       "title": "",
       "context": "",
@@ -1057,7 +1057,7 @@
     "category": "Health Modelling & Monitoring",
     "subCategory": "Data Interpretation & Health Modelling",
     "title": "Is a health model used to qualify what 'healthy' and 'unhealthy' states represent for the application?",
-    "context": "Is a health model used to qualify what 'healthy' and 'unhealthy' states represent for the application?",
+    "context": "",
     "recommendation": {
       "title": "Implement a health model.",
       "context": "A holistic application health model should be used to quantify what 'healthy' and 'unhealthy' states represent across all application components. It is highly recommended that a 'traffic light' model be used to indicate a green/healthy state when key non-functional requirements and targets are fully satisfied and resources are optimally utilized, e.g. 95% of requests are processed in <= 500ms with Azure Kubernetes Service (AKS) node utilization at x% etc. Once established, this health model should inform critical monitoring metrics across system components and operational sub-system composition. It is important to note that the health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state.",
@@ -1068,7 +1068,7 @@
       {
         "id": "ba919d0a-8b8a-496d-bdcc-b2b521daed88",
         "title": "Are critical system flows used to inform the health model?",
-        "context": "Are critical system flows used to inform the health model?",
+        "context": "",
         "recommendation": {
           "title": "The health model should be able to surface the respective health of critical system flows or key subsystems to ensure appropriate operational prioritization is applied. For example, the health model should be able to represent the current state of the user login transaction flow.",
           "context": "",
@@ -1080,7 +1080,7 @@
       {
         "id": "7277055a-fd82-4d38-9da5-afb52e75d5c1",
         "title": "Can the health model distinguish between transient and non-transient faults?",
-        "context": "Can the health model distinguish between transient and non-transient faults?",
+        "context": "Is the health model treating all failures the same?",
         "recommendation": {
           "title": "The health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state.",
           "context": "",
@@ -1092,7 +1092,7 @@
       {
         "id": "fe6737db-7169-4dab-9f60-fd9b49281ade",
         "title": "Can the health model determine if the application is performing at expected performance targets?",
-        "context": "Is the lifecycle of the application is decoupled from its dependencies?",
+        "context": "The health model should have the ability to evaluate application performance as a part of the application's overall health state.",
         "recommendation": {
           "title": "",
           "context": "",
@@ -1114,7 +1114,7 @@
     "category": "Health Modelling & Monitoring",
     "subCategory": "Data Interpretation & Health Modelling",
     "title": "Are long-term trends analyzed to predict operational issues before they occur?",
-    "context": "Are long-term trends analysed to predict operational issues before they occur?",
+    "context": "Are Operations and/or analytics teams using the stored events for machine learning or similar to make predictions for the future?",
     "recommendation": {
       "title": "Analytics can and should be performed across long-term operational data to help inform operational strategies and also to predict what operational issues are likely to occur and when. For instance, if the average response times have been slowly increasing over time and getting closer to the maximum target.",
       "context": "",
@@ -1134,7 +1134,7 @@
     "category": "Health Modelling & Monitoring",
     "subCategory": "Data Interpretation & Health Modelling",
     "title": "Have retention times for logs and metrics been defined and with housekeeping mechanisms configured?",
-    "context": "Have retention times for logs and metrics been defined and with housekeeping mechanisms configured?",
+    "context": "",
     "recommendation": {
       "title": "Clear retention times should be defined to allow for suitable historic analysis but also control storage costs. Suitable housekeeping tasks should also be used to archive data to cheaper storage or aggregate data for long-term trend analysis.",
       "context": "",
@@ -1153,7 +1153,7 @@
     "category": "Health Modelling & Monitoring",
     "subCategory": "Dashboarding",
     "title": "What technology is used to visualize the application health model and encompassed logs and metrics?",
-    "context": "What technology in used to visualize the application health model and encompassed logs and metrics?",
+    "context": "Visualization, often also called Dashboarding, refers to how data is presented to operations teams and other interested users.",
     "recommendation": {
       "title": "Dashboarding tools, such as Azure Monitor or [Grafana](https://grafana.com/), should be used to visualize metrics and events collected at the application and resource levels, to illustrate the health model and the current operational state of the application.",
       "context": "",
@@ -1181,7 +1181,7 @@
     "category": "Health Modelling & Monitoring",
     "subCategory": "Dashboarding",
     "title": "Are dashboards tailored to a specific audience?",
-    "context": "Are dashboards tailored to a specific audience?",
+    "context": "Is there just one big dashboard or do you build individualized solutions for different teams (e.g. networking teams might have a different interest focus than the security team)?",
     "recommendation": {
       "title": "Dashboards should be customized to represent the precise lens of interest of the end-user. For example, the areas of interest when evaluating the current state will differ greatly between developers, security and networking. Tailored dashboards make interpretation easier and accelerates time to detection and action.",
       "context": "",
@@ -1201,7 +1201,7 @@
     "category": "Health Modelling & Monitoring",
     "subCategory": "Dashboarding",
     "title": "Is Role Based Access Control (RBAC) used to control access to operational and financial dashboards and underlying data?",
-    "context": "Are the dashboards openly available in your organization or do you limit access based on roles etc.? For example: developers usually don't need to know the overall cost of Azure for the company, but it might be good for them to be able to watch a particular workload. Access to operational and financial data should be tightly controlled to align with segregation of duties, while making sure that it doesn't hinder operational effectiveness; i.e. scenarios where developers have to raise an ticket to access logs should be avoided.",
+    "context": "Are the dashboards openly available in your organization or do you limit access based on roles etc.? For example: developers usually don't need to know the overall cost of Azure for the company, but it might be good for them to be able to watch a particular workload.",
     "recommendation": {
       "title": "Access to operational and financial data should be tightly controlled to align with segregation of duties, while making sure that it doesn't hinder operational effectiveness; i.e. scenarios where developers have to raise an ITSM (IT service management) ticket to access logs should be avoided.",
       "context": "",
@@ -1221,7 +1221,7 @@
     "category": "Health Modelling & Monitoring",
     "subCategory": "Alerting",
     "title": "What technology is used for alerting?",
-    "context": "What technology in used for alerting?",
+    "context": "Alerts from tools such as Splunk or Azure Monitor proactively notify or respond to operational states that deviate from norm. Alerts can also enable cost-awareness by watching budgets and limits and helping workload teams to scale appropriately.",
     "recommendation": {
       "title": "You should not rely on people to actively look for issues. Instead, an alerting solution should be in place that can push notifications to relevant teams. For example, by email, SMS or into a mobile app.",
       "context": "",
@@ -1241,7 +1241,7 @@
     "category": "Health Modelling & Monitoring",
     "subCategory": "Alerting",
     "title": "Are specific owners and processes defined for each alert type?",
-    "context": "Are specific owners and processes defined for each alert type?",
+    "context": "Having well-defined owners and response playbooks per alert is vital to optimizing operational effectiveness. Alerts don't have to be only technical, for example the budget owner should be made aware of capacity issues so that budgets can be adjusted and discussed.",
     "recommendation": {
       "title": "Instead of treating all alerts the same, there should be a well-defined process which determines what teams are responsible to react to which alert type.",
       "context": "",
@@ -1260,7 +1260,7 @@
     "category": "Health Modelling & Monitoring",
     "subCategory": "Alerting",
     "title": "Are operational events prioritized based on business impact?",
-    "context": "Are operational events prioritized based on business impact?",
+    "context": "Are all alerts being treated the same or do you analyze the potential business impact when defining an alert?",
     "recommendation": {
       "title": "Tagging events with a specific severity or urgency helps operational teams prioritize in cases where multiple events require intervention at the same time. For example, alerts concerning critical system flows might require special attention.",
       "context": "",
@@ -1280,7 +1280,7 @@
     "category": "Health Modelling & Monitoring",
     "subCategory": "Alerting",
     "title": "Are push notifications enabled to inform responsible parties of alerts in real time?",
-    "context": "Are push notifications enabled to inform responsible parties of alerts in real time?",
+    "context": "Do teams have to actively monitor the systems and dashboard or are alerts sent to them by email etc.? This can help identify not just operational incidents but also budget overruns.",
     "recommendation": {
       "title": "It is important that alert owners get reliably notified of alerts, which could use many communication channels such as text messages, emails or push notifications to a mobile app.",
       "context": "",
@@ -1299,7 +1299,7 @@
     "category": "Health Modelling & Monitoring",
     "subCategory": "Alerting",
     "title": "Is alerting integrated with an IT Service Management (ITSM) system?",
-    "context": "Is alerting integrated with an IT Service Management (ITSM) system?",
+    "context": "",
     "recommendation": {
       "title": "ITSM systems, such as ServiceNow, can help to document issues, notify and assign responsible parties, and track issues. For example,  operational alerts from the application could for be integrated to automatically create new tickets to track resolution.",
       "context": "",
@@ -1319,7 +1319,7 @@
     "category": "Health Modelling & Monitoring",
     "subCategory": "Alerting",
     "title": "Have Azure Service Health alerts been created to respond to Service-level events?",
-    "context": "Have Azure Service Health events been integrated to alert on applicable Service level events?",
+    "context": "Azure Service Health provides a view into the health of Azure services and regions, as well as issuing service impacting communications about outages, planned maintenance activities, and other health advisories.",
     "recommendation": {
       "title": "[Azure Service Health](https://docs.microsoft.com/azure/service-health/overview) Alerts should be configured to operationalize Service Health events. However, Service Health alerts should not be used to detect issues due to associated latencies; there is a 5 minute Service Level Objectives (SLOs) for automated issues, but many issues require manual interpretation to define an RCA (Root Cause Analysis). Instead, they should be used to provide extremely useful information to help interpret issues that have already been detected and surfaced via the health model, to inform how best to operationally respond.",
       "context": "",
@@ -1344,7 +1344,7 @@
     "category": "Health Modelling & Monitoring",
     "subCategory": "Alerting",
     "title": "Have Azure Resource Health alerts been created to respond to Resource-level events?",
-    "context": "Are Azure Resource Health event used to alert on resource health events? An appropriate threshold for resource unavailability must be set to minimise signal to noise ratios so that transient faults do not generate an alert. For example, configuring a virtual machine alert with an unavailability threshold of 1 minute before an alert is triggered.",
+    "context": "Azure Resource Health provides information about the health of individual resources such as a specific virtual machine, and is highly useful when diagnosing unavailable resources.",
     "recommendation": {
       "title": "Azure Resource Health Alerts should be configured for specific resource groups and resource types, and should be adjusted to maximize signal to noise ratios, i.e. only distribute a notification when a resource becomes unhealthy according to the application health model or due to an Azure platform-initiated event. It is therefore important to consider transient issues when setting an appropriate threshold for resource unavailability, such as configuring an alert for a virtual machine with a threshold of 1 minute for unavailability before an alert is triggered.",
       "context": "",
@@ -1363,7 +1363,7 @@
     "category": "Health Modelling & Monitoring",
     "subCategory": "Alerting",
     "title": "Are Azure notifications sent to subscriptions owners received and if necessary, properly routed to relevant technical stakeholders?",
-    "context": "Azure Policy should be used to enforce and report a compliant configuration of Azure services. Azure policies can be use on multiple levels. It is recommended to apply organizational wide security controls on Azure platform level. These policies build the guardrails of a landing zone.",
+    "context": "Subscription notification emails can contain important service notifications or security alerts.",
     "recommendation": {
       "title": "Make sure that subscription notification emails are routed to the relevant technical stakeholders.",
       "context": "",
@@ -1388,7 +1388,7 @@
     "category": "Operational Procedures",
     "subCategory": "Recovery & Failover",
     "title": "Are recovery steps defined for failover and failback?",
-    "context": "Are recovery steps defined for failover and failback?",
+    "context": "Is there a clearly defined playbook or disaster recovery plan for failover and failback procedures?",
     "recommendation": {
       "title": "The steps required to recover or fail over the application to a secondary Azure region in failure situations should be codified, preferably in an automated manner, to ensure capabilities exist to effectively respond to an outage in a way that limits impact. Similar codified steps should also exist to capture the process required to failback the application to the primary region once a failover triggering issue has been addressed.",
       "context": "",
@@ -1399,7 +1399,7 @@
       {
         "id": "25e34538-345e-420a-bddd-c0ba6fd883ed",
         "title": "Has the failover and failback approach been tested/validated at least once?",
-        "context": "Has the failover and failback approach been tested/validated at least once?",
+        "context": "Only plans and playbooks that have been executed successfully at least once can be considered working.",
         "recommendation": {
           "title": "The precise steps required to failover and failback the application must be tested to validate the effectiveness of the defined disaster recovery approach. Testing of the disaster recovery strategy should occur according to a reasonably regular cadence, such as annually, to ensure that operational application changes do not impact the applicability of the selected approach.",
           "context": "",
@@ -1422,7 +1422,7 @@
       {
         "id": "1432ba95-f96c-4416-bb33-1f057877f471",
         "title": "Is the health model being used to classify failover situations?",
-        "context": "Is the health model being used to classify failover situations?",
+        "context": "It is important to know if a formal procedure is used to classify failover situations.",
         "recommendation": {
           "title": "A platform service outage in a specific region will likely require a failover to another region, whereas the accidental change of a firewall rule can be mitigated by a recovery process. The health model and all underlying data should be used to interpret which operational procedures should be triggered.",
           "context": "",
@@ -1434,7 +1434,7 @@
       {
         "id": "aa82b487-99b0-449f-9aeb-9828181088f1",
         "title": "Does the playbook or disaster recovery plan consider every process, component and every category of data that can't afford unlimited loss or downtime?",
-        "context": "Is there a BCDR strategy for the application and/or its key workloads? and are operational runbooks defined for key failure scenarios?",
+        "context": "Different components of an application might have different priorities and impact and therefore different priorities in case of a disaster.",
         "recommendation": {
           "title": "When a disaster that affects multiple application components occurs, it's critical that the recovery plan can be used to take a complete inventory of what needs attention and how to prioritize each item. Each major process or workload that's implemented by an app should have separate RPO and RTO values. Each one should be generated through a separate analysis that examines disaster scenario risks and potential recovery strategies for each respective process.",
           "context": "",
@@ -1468,7 +1468,7 @@
     "category": "Operational Procedures",
     "subCategory": "Recovery & Failover",
     "title": "Are automated recovery procedures in place for common failure event?",
-    "context": "Are automated recovery procedures in place for common failure event?",
+    "context": "Is there at least some automation for certain failure scenarios or are all those depending on manual intervention?",
     "recommendation": {
       "title": "Automated responses to specific events help to reduce response times and limit errors associated with manual processes. Thus, wherever possible, it is recommended to have automation in place instead of relying on manual intervention.",
       "context": "",
@@ -1479,7 +1479,7 @@
       {
         "id": "c9c82e87-21a7-4f8c-8326-7c60a752da74",
         "title": "Are these automated recovery procedures tested and validated on a regular basis?",
-        "context": "Are these automated recovery procedures tested and validated on a regular basis?",
+        "context": "",
         "recommendation": {
           "title": "Automated operational responses should be tested frequently as part of the normal application lifecycle to ensure operational effectiveness",
           "context": "",
@@ -1502,7 +1502,7 @@
     "category": "Operational Procedures",
     "subCategory": "Recovery & Failover",
     "title": "Are critical manual processes defined and documented for manual failure responses?",
-    "context": "Are critical manual processes defined and documented for failure responses?",
+    "context": "While full automation is attainable, there might be cases where manual steps cannot be avoided.",
     "recommendation": {
       "title": "Operational runbooks should be defined to codify the procedures and relevant information needed for operations staff to respond to failures and maintain operational health.",
       "context": "",
@@ -1513,7 +1513,7 @@
       {
         "id": "7346c067-ba83-491a-ad70-922e28d58939",
         "title": "Are these manual operational runbooks tested and validated on a regular basis?",
-        "context": "Are these manual operational runbooks tested and validated on a regular basis?",
+        "context": "",
         "recommendation": {
           "title": "Manual operational runbooks should be tested frequently as part of the normal application lifecycle to ensure appropriateness and efficiency.",
           "context": "",
@@ -1538,7 +1538,7 @@
     "category": "Capacity & Service Availability Planning",
     "subCategory": "Scalability & Capacity Model",
     "title": "Is there a capacity model for the application?",
-    "context": "Is there a capacity model for the application?",
+    "context": "A capacity model should describe the relationships between the utilization of various components as a ratio, to capture when and how application components should scale-out.",
     "recommendation": {
       "title": "A capacity model should describe the relationships between the utilization of various components as a ratio, to capture when and how application components should scale-out. For instance, scaling the number of Application Gateway v2 instances may put excess pressure on downstream components unless also scaled to a degree. When modelling capacity for critical system components it is therefore recommended that an N+1 model be applied to ensure complete tolerance to transient faults, where N describes the capacity required to satisfy performance and availability requirements. This also prevents cost-related surprises when scaling out and realizing that multiple services need to be scaled at the same time.",
       "context": "",
@@ -1563,7 +1563,7 @@
     "category": "Capacity & Service Availability Planning",
     "subCategory": "Scalability & Capacity Model",
     "title": "Is auto-scaling enabled for supporting PaaS and IaaS services?",
-    "context": "Is auto-scaling enabled for supporting PaaS and IaaS services?",
+    "context": "Are built-in capabilities for automatic scale being used vs. scaling being always a manual decision?",
     "recommendation": {
       "title": "Leveraging built-in Auto-scaling capabilities can help to maintain system reliability in times of increased demand while not needing to overprovision resources up-front, by letting a service automatically scale within a pre-configured range of resources. It greatly simplifies management and operational burdens. However, it must take into account the capacity model, else automated scaling of one component can impact downstream services if those are not also automatically scaled accordingly.",
       "context": "",
@@ -1584,7 +1584,7 @@
     "category": "Capacity & Service Availability Planning",
     "subCategory": "Scalability & Capacity Model",
     "title": "Is the process to provision and deprovision capacity codified?",
-    "context": "Is the process to provision and deprovision capacity codified?",
+    "context": "Codifying and automating the process helps to avoid human error, varying results and to speed up the overall process.",
     "recommendation": {
       "title": "Fluctuation in application traffic is typically expected. To ensure optimal operation is maintained, such variations should be met by automated scalability. The significance of automated capacity responses underpinned by a robust capacity model was highlighted by the COVID-19 crisis where many applications experienced severe traffic variations. While Auto-scaling enables a PaaS or IaaS service to scale within a pre-configured (and often times limited) range of resources, is provisioning or de-provisioning capacity a more advanced and complex process of for example adding additional scale units like additional clusters, instances or deployments. The process should be codified, automated and the effects of adding/removing capacity should be well understood.",
       "context": "",
@@ -1603,7 +1603,7 @@
     "category": "Capacity & Service Availability Planning",
     "subCategory": "Scalability & Capacity Model",
     "title": "Is the impact of changes in application health on capacity fully understood?",
-    "context": "Is the impact of changes in application health on capacity fully understood?",
+    "context": "For example, if an outage in an external API is mitigated by writing messages into a retry queue, this queue will get sudden spikes in load which it will need to be able to handle.",
     "recommendation": {
       "title": "Any change in the health state of application components can influence the capacity demands on other components. Those impacts need to be fully understood and measures such as auto-scaling need to be in place to handle those.",
       "context": "",
@@ -1624,7 +1624,7 @@
     "category": "Capacity & Service Availability Planning",
     "subCategory": "Scalability & Capacity Model",
     "title": "Is the required capacity (initial and future growth) within Azure service scale limits and quotas?",
-    "context": "Is the required capacity (initial and future growth) within Azure service scale limits and quotas?",
+    "context": "Due to physical and logical resource constraints within the platform, Azure must apply [limits and quotas](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) to service scalability, which may be either hard or soft.",
     "recommendation": {
       "title": "The application should take a scale-unit approach to navigate within service limits, and where necessary consider multiple subscriptions which are often the boundary for such limits. It is highly recommended that a structured approach to scale be designed up-front rather than resorting to a 'spill and fill' model.",
       "context": "",
@@ -1640,7 +1640,7 @@
       {
         "id": "79d32a9a-60da-4065-8fda-3a53c82c9516",
         "title": "Is the required capacity (initial and future growth) available within targeted regions?",
-        "context": "Is the required capacity (initial and future growth) available within targeted regions?",
+        "context": "While the promise of the cloud is infinite scale, the reality is that there are finite resources available and as a result situations can occur where capacity can be constrained due to overall demand.",
         "recommendation": {
           "title": "If the application requires a large amount of capacity or expects a significant increase in capacity then effort should be invested to ensure that desired capacity is attainable within selected region(s). For applications leveraging a recovery or active-passive based disaster recovery strategy, consideration should also be given to ensure suitable capacity exists in the secondary region(s) since a regional outage can lead to a significant increase in demand within a paired region due to other customer workloads also failing over. To help mitigate this, consideration should be given to pre-provisioning resources within the secondary region.",
           "context": "",
@@ -1670,7 +1670,7 @@
     "category": "Capacity & Service Availability Planning",
     "subCategory": "Scalability & Capacity Model",
     "title": "Is capacity utilization monitored and used to forecast future growth?",
-    "context": "Is capacity utilization monitored and used to forecast future growth?",
+    "context": "Predicting future growth and capacity demands can prevent outages due to insufficient provisioned capacity over time.",
     "recommendation": {
       "title": "Especially when demand is fluctuating, it is useful to monitor historical capacity utilization to derive predictions about future growth. Azure Monitor provides the ability to collect utilization metrics for Azure services so that they can be operationalized in the context of a defined capacity model. The Azure Portal can also be used to inspect current subscription usage and quota status.",
       "context": "",
@@ -1696,7 +1696,7 @@
     "category": "Operational Procedures",
     "subCategory": "Configuration & Secrets Management",
     "title": "Where is application configuration information stored and how does the application access it?",
-    "context": "Is application configuration treated as code and deployed with the application? i.e. is configuration information captrued for operational transparency.",
+    "context": "Application configuration information can be stored together with the application itself or preferably using a dedicated configuration management system like Azure App Configuration or Azure Key Vault.",
     "recommendation": {
       "title": "Preferably configuration information is stored using a dedicated configuration management system like Azure App Configuration or Azure Key Vault so that it can be updated independently of the application code.",
       "context": "",
@@ -1715,7 +1715,7 @@
     "category": "Operational Procedures",
     "subCategory": "Configuration & Secrets Management",
     "title": "Can configuration settings be changed or modified without rebuilding or redeploying the application?",
-    "context": "Can configuration settings be changed or modified without rebuilding or redeploying the application?",
+    "context": "",
     "recommendation": {
       "title": "Application code and configuration should not share the same lifecycle to enable operational activities that change and update specific configurations without developer involvement or redeployment.",
       "context": "",
@@ -1735,7 +1735,7 @@
     "category": "Operational Procedures",
     "subCategory": "Configuration & Secrets Management",
     "title": "How are passwords and other secrets managed?",
-    "context": "How are passwords and other secrets managed?",
+    "context": "API keys, database connection strings and passwords are all sensitive to leakage, occasionally require rotation and are prone to expiration. Storing them in a secure store and not within the application code or configuration simplifies operational tasks like key rotation as well as improving overall security.",
     "recommendation": {
       "title": "Tools like Azure Key Vault or [HashiCorp Vault](https://www.vaultproject.io/) should be used to store and manage secrets securely rather than being baked into the application artefact during deployment, as this simplifies operational tasks like key rotation as well as improving overall security. Keys and secrets stored in source code should be identified with static code scanning tools. Ensure that these scans are an integrated part of the continuous integration (CI) process.",
       "context": "",
@@ -1786,7 +1786,7 @@
     "category": "Operational Procedures",
     "subCategory": "Configuration & Secrets Management",
     "title": "Does the application use Managed Identities?",
-    "context": "Does the application use Managed Identities?",
+    "context": "[Managed Identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) in Azure can be used to securely access Azure services while removing the need to store the secrets or certificates of Service Principals.",
     "recommendation": {
       "title": "Wherever possible Azure Managed Identities (either system-managed or user-managed) should be used since they remove the management burden of storing and rotating keys for service principles. Thus, they provide higher security as well as easier maintenance.",
       "context": "",
@@ -1827,7 +1827,7 @@
       {
         "id": "8989344e-36af-4658-9300-a2d35cf7b93c",
         "title": "Are certificate/key backups and data backups stored in different geo-redundant storage accounts?",
-        "context": "Are Keys and secrets backed-up to geo-redundant storage?",
+        "context": "",
         "recommendation": {
           "title": "Encryption keys and data should be backed up separately to optimize the security of underlying data.",
           "context": "",
@@ -1914,7 +1914,7 @@
       {
         "id": "5383b7fc-1e07-46b4-9c21-61d751a8d63b",
         "title": "Are Patch & Update Process (PNU) operations performed 'as-code'?",
-        "context": "Is the process for key rotation is automated and tested?",
+        "context": "",
         "recommendation": {
           "title": "Performing operations should be defined 'as-code' since it helps to minimize human error and increase consistency.",
           "context": "",
@@ -1935,7 +1935,7 @@
     "category": "Operational Procedures",
     "subCategory": "Patch & Update Process (PNU)",
     "title": "How are patches rolled back?",
-    "context": "Spot VMs are ideal for workloads that can be interrupted, such as highly parallel batch processing jobs. These VMs take advantage of the surplus capacity in Azure at a lower cost. They're also well suited for experimenting, development and testing of large-scale solutions.",
+    "context": "",
     "recommendation": {
       "title": "It is recommended to have a defined strategy in place to rollback patches in case of an error or unexpected side effects.",
       "context": "",
@@ -1990,7 +1990,7 @@
     "category": "Operational Procedures",
     "subCategory": "Operational Lifecycles",
     "title": "How are operational shortcomings and failures analyzed?",
-    "context": "How are operational shortcomings and failures analyzed?",
+    "context": "",
     "recommendation": {
       "title": "Reviewing operational incidents where the response and remediation to issues either failed or could have been optimized is vital to improving overall operational effectiveness. Failures provide a valuable learning opportunity and in some cases these learnings can also be shared across the entire organization.",
       "context": "",
@@ -2078,7 +2078,7 @@
     "category": "Deployment & Testing",
     "subCategory": "Application Code Deployments",
     "title": "Can the application be deployed automatically from scratch without any manual operations?",
-    "context": "Can the application be deployed automatically from scratch without any manual operations?",
+    "context": "Manual deployment steps introduce significant risks where human error is concerned and also increases overall deployment times.",
     "recommendation": {
       "title": "Automated end-to-end deployments, with manual approval gates where necessary, should be used to ensure a consistent and efficient deployment process.",
       "context": "",
@@ -2094,7 +2094,7 @@
       {
         "id": "43578635-dade-49cb-8c64-6c8431ac0369",
         "title": "Is there a documented process for any portions of the deployment that require manual intervention?",
-        "context": "Is there a documented process for any portions of the deployment that require manual intervention?",
+        "context": "Without detailed release process documentation, there is a much higher risk of an operator improperly configuring settings for the application.",
         "recommendation": {
           "title": "Any manual steps that are required in the deployment pipeline must be clearly documented with roles and responsibilities well defined.",
           "context": "",
@@ -2117,7 +2117,7 @@
     "category": "Deployment & Testing",
     "subCategory": "Application Code Deployments",
     "title": "How long does it take to deploy an entire production environment?",
-    "context": "Is the time it takes to deploy an entire end-to-end production environment understood and validated?",
+    "context": "The time it takes for a full deployment needs to align with recovery targets.",
     "recommendation": {
       "title": "The entire end-to-end deployment process should be understood and align with recovery targets.",
       "context": "",
@@ -2157,7 +2157,7 @@
     "category": "Deployment & Testing",
     "subCategory": "Application Code Deployments",
     "title": "Is there a defined hotfix process which bypasses normal deployment procedures?",
-    "context": "Is there a defined hotfix process which bypasses normal deployment procedures?",
+    "context": "",
     "recommendation": {
       "title": "In some scenarios there is an operational need to rapidly deploy changes, such as critical security updates. Having a defined process for how such changes can be safely and effectively performed helps greatly to prevent 'heat of the moment' issues.",
       "context": "",
@@ -2177,7 +2177,7 @@
     "category": "Deployment & Testing",
     "subCategory": "Application Code Deployments",
     "title": "Does the application deployment process leverage blue-green deployments and/or canary releases?",
-    "context": "Does the application deployment process leverage blue-green deployments and/or canary releases?",
+    "context": "Blue/green or canary deployments are a way to gradually release new feature or changes without impacting all users at once.",
     "recommendation": {
       "title": "Blue-green deployments and/or canary releases can be used to deploy updates in a controlled manner that helps to minimize disruption from unanticipated deployment issues. For example, Azure uses canary regions to test and validate new services and capabilities before they are more broadly rolled out to other Azure regions. Where appropriate the application can also use canary environments to validate changes before wider production rollout. Moreover, certain large application platforms may also derive benefit from leveraging Azure canary regions as a basis for validating the potential impact of Azure platform changes on the application.",
       "context": "",
@@ -2217,7 +2217,7 @@
       {
         "id": "9c087bad-35fb-4282-bbb9-140cf458e338",
         "title": "If Git is used for source control, what branching strategy is used?",
-        "context": "Branch policies provide additional level of control over the code which is committed to the product. It is a common practice to not allow pushing against the main branch and require pull-request (PR) with code review before merging the changes by at least one reviewer, other than the change author. Different branches can have different purposes and access levels, for example: feature branches are created by developers and are open to push, integration branch requires PR and code-review and production branch requires additional approval from a senior developer before merging.",
+        "context": "While there are various valid ways, a clearly defined strategy should be in place and understood",
         "recommendation": {
           "title": "To optimize for collaboration and ensure developers spend less time managing version control and more time developing code, a clear and simple branching strategy should be used, such as Trunk-Based Development which is employed internally [within Microsoft Engineering](https://docs.microsoft.com/azure/devops/learn/devops-at-microsoft/use-git-microsoft).",
           "context": "",
@@ -2238,7 +2238,7 @@
     "category": "Deployment & Testing",
     "subCategory": "Application Infrastructure Provisioning",
     "title": "Is application infrastructure defined as code?",
-    "context": "Is application infrastructure defined as code, for example with ARM templates or Terraform?",
+    "context": "[Infrastructure as Code](https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code) (IaC) is the management of infrastructure (networks, virtual machines, load balancers, and connection topology) in a descriptive model, using the same versioning as the team uses for application source code. Like the principle that the same source code generates the same binary, an IaC model generates the same environment every time it is applied.",
     "recommendation": {
       "title": "It is highly recommended to describe the entire infrastructure as code, using either ARM Templates, Terraform, or other tools. This allows for proper versioning and configuration management, encouraging consistency and reproducibility across environments.",
       "context": "",
@@ -2276,7 +2276,7 @@
     "category": "Deployment & Testing",
     "subCategory": "Application Infrastructure Provisioning",
     "title": "Is direct write access to the infrastructure possible and are any resources provisioned or configured outside of IaC processes?",
-    "context": "While it is recommended to deploy application infrastructure via automation and CI/CD. To maximize application autonomy and agility, restrictive access control need be balanced on less critical development and test environments.",
+    "context": "Are any resources provisioned or operationally configured manually through user tools such as the Azure Portal or via Azure CLI?",
     "recommendation": {
       "title": "It is recommended that even small operational changes and modifications be implemented as-code to track changes and ensure they are fully reproduceable and revertible. No infrastructure changes should be done manually outside of IaC.",
       "context": "",
@@ -2295,7 +2295,7 @@
     "category": "Deployment & Testing",
     "subCategory": "Application Infrastructure Provisioning",
     "title": "Is the process to deploy infrastructure automated?",
-    "context": "Is the process to deploy infrastructure automated?",
+    "context": "Manual changes via for example the Azure Portal or Azure CLI are difficult to test, document and introduce significant risks where human error is concerned and might also increase the overall deployment and recovery times.",
     "recommendation": {
       "title": "It is recommended to define infrastructure deployments and changes as code and to use build and release tools to develop automated pipelines for their deployment.",
       "context": "",
@@ -2315,7 +2315,7 @@
     "category": "Deployment & Testing",
     "subCategory": "Build Environments",
     "title": "Do critical test environments have 1:1 parity with the production environment?",
-    "context": "Do critical test environments have 1:1 parity with the production environment?",
+    "context": "Do test environment differ from production in more than just smaller SKUs being used, e.g. by sharing components between different environments?",
     "recommendation": {
       "title": "To completely validate the suitability of application changes, all changes should be tested in an environment that is fully reflective of production, to ensure there is no potential impact from environment deltas.",
       "context": "",
@@ -2353,7 +2353,7 @@
     "category": "Deployment & Testing",
     "subCategory": "Build Environments",
     "title": "Are releases to production gated by having it successfully deployed and tested in other environments?",
-    "context": "Are releases to production gated by having it successfully deployed and tested in other environments?",
+    "context": "Deploying to other environments and verifying changes before going into production can prevent bugs getting in front of end users.",
     "recommendation": {
       "title": "It is recommended to have a staged deployment process which requires changes to have been validated in test environments first before they can hit production.",
       "context": "",
@@ -2372,7 +2372,7 @@
     "category": "Deployment & Testing",
     "subCategory": "Build Environments",
     "title": "Are feature flags used to test features before rolling them out to everyone?",
-    "context": "Are feature flags used to test features before rolling them out to everyone?",
+    "context": "",
     "recommendation": {
       "title": "To test new features quickly and without bigger risk, [Feature flags](https://docs.microsoft.com/azure/architecture/framework/devops/development#feature-flags) are a technique to help frequently integrate code into a shared repository, even if incomplete. It allows for deployment decisions to be separated from release decisions.",
       "context": "",
@@ -2398,7 +2398,7 @@
     "category": "Deployment & Testing",
     "subCategory": "Testing & Validation",
     "title": "Is the application tested for performance, scalability, and resiliency?",
-    "context": "Is the application tested for performance, scalability, and resiliency?",
+    "context": "**Performance testing** is the superset of both load and stress testing. The primary goal of performance testing is to validate benchmark behavior for the application.<br />**Load Testing** validates application scalability by rapidly and/or gradually increasing the load on the application until it reaches a threshold/limit.<br />**Stress Testing** is a type of negative testing which involves various activities to overload existing resources and remove components to understand overall resiliency and how the application responds to issues.",
     "recommendation": {
       "title": "Define a testing strategy.",
       "context": "",
@@ -2425,7 +2425,7 @@
       {
         "id": "fdd44349-dbfd-4897-8502-05962c134c1f",
         "title": "When do you do test for performance, scalability, and resiliency?",
-        "context": "When do you do test for performance, scalability, and resiliency?",
+        "context": "Regular testing should be performed as part of each major change and if possible on a regular basis to validate existing thresholds, targets and assumptions, as well as ensuring the validity of the health model, capacity model and operational procedures.",
         "recommendation": {
           "title": "",
           "context": "",
@@ -2437,7 +2437,7 @@
       {
         "id": "46674ef4-13a3-4c87-9430-695b1792633c",
         "title": "Are any tests performed in production?",
-        "context": "Are any tests performed in production?",
+        "context": "While the majority of testing should be performed within the testing and staging environments, it is often beneficial to also run a subset of tests against the production system.",
         "recommendation": {
           "title": "",
           "context": "",
@@ -2449,7 +2449,7 @@
       {
         "id": "80cc9d6c-c573-4e02-8219-098a8df796a4",
         "title": "Is the application tested with injected faults?",
-        "context": "Is the application tested with injected faults?",
+        "context": "It is a common \"chaos monkey\" practice to verify the effectiveness of operational procedures using artificial faults. For example, taking dependencies offline (stopping API apps, shutting down VMs, etc.), restricting access (enabling firewall rules, changing connection strings, etc.) or forcing failover (database level, Front Door, etc.) is a good way to validate that the application is able to handle faults gracefully.",
         "recommendation": {
           "title": "",
           "context": "",
@@ -2471,7 +2471,7 @@
     "category": "Deployment & Testing",
     "subCategory": "Testing & Validation",
     "title": "Are smoke tests performed during application deployments?",
-    "context": "Are smoke tests performed during application deployments?",
+    "context": "[Smoke tests](https://docs.microsoft.com/azure/architecture/framework/devops/testing#smoke-testing) are a lightweight way to perform high-level validation of changes. For instance, performing a ping test immediately after a deployment.",
     "recommendation": {
       "title": "",
       "context": "",
@@ -2495,7 +2495,7 @@
     "category": "Deployment & Testing",
     "subCategory": "Testing & Validation",
     "title": "When is integration testing performed?",
-    "context": "When is integration testing performed?",
+    "context": "[Integration tests](https://docs.microsoft.com/azure/architecture/framework/devops/testing#integration-testing) should be applied as part of the application deployment process, to ensure that different application components  interact with each other as they should. Integration tests typically take longer than smoke testing, and as a consequence occur at a latter stage of the deployment process so they are executed less frequently.",
     "recommendation": {
       "title": "",
       "context": "",
@@ -2543,7 +2543,7 @@
     "category": "Deployment & Testing",
     "subCategory": "Testing & Validation",
     "title": "Are these tests automated and carried out periodically or on-demand?",
-    "context": "Are tests automated and carried out periodically or on-demand?",
+    "context": "Testing should be fully automated where possible and performed as part of the deployment lifecycle to validate the impact of all application changes. Additionally, manual explorative testing may also be conducted.",
     "recommendation": {
       "title": "",
       "context": "",
@@ -2580,7 +2580,7 @@
     "category": "Deployment & Testing",
     "subCategory": "Testing & Validation",
     "title": "What happens when a test fails?",
-    "context": "Are all processes stateless with application state externalised?",
+    "context": "Failed tests should temporarily block a deployment and lead to a deeper analysis of what has happened and to either a refinement of the test or an improvement of the change that caused the test to fail.",
     "recommendation": {
       "title": "",
       "context": "",
@@ -2599,7 +2599,7 @@
     "category": "Deployment & Testing",
     "subCategory": "Testing & Validation",
     "title": "Do you perform Business Continuity 'fire drills' to test regional failover scenarios?",
-    "context": "Do you perform Business Continuity 'fire drills' to test regional failover scenarios?",
+    "context": "Business Continuity 'fire drills' help to ensure operational readiness and validate the accuracy of recovery procedures ready for critical incidents.",
     "recommendation": {
       "title": "",
       "context": "",
@@ -2618,7 +2618,7 @@
     "category": "Deployment & Testing",
     "subCategory": "Testing & Validation",
     "title": "What degree of security testing is performed?",
-    "context": "What degree of security testing is performed?",
+    "context": "Security and penetration testing, such as scanning for open ports or known vulnerabilities and exposed credentials, is vital to ensure overall security and also support operational effectiveness of the system.",
     "recommendation": {
       "title": "",
       "context": "",
@@ -2637,7 +2637,7 @@
     "category": "Operational Model & DevOps",
     "subCategory": "General",
     "title": "Are specific methodologies, like DevOps, used to structure the development and operations process?",
-    "context": "Are specific methodologies, like DevOps, used to structure the development and operations process?",
+    "context": "The contraction of “Dev” and “Ops” refers to replacing siloed Development and Operations to create multidisciplinary teams that now work together with shared and efficient practices and tools. [Essential DevOps practices](https://docs.microsoft.com/azure/devops/learn/what-is-devops) include agile planning, continuous integration, continuous delivery, and monitoring of applications.",
     "recommendation": {
       "title": "",
       "context": "",
@@ -2730,7 +2730,7 @@
       {
         "id": "82894085-5a65-4aa4-b943-9275dcbf99c4",
         "title": "How do development and operations teams collaborate to resolve production issues?",
-        "context": "How do development and operations teams collaborate to resolve production issues?",
+        "context": "It is important to understand how operations and development teams collaborate to address operational issues, and what processes exist to support and structure this collaboration. Moreover, mitigating issues might require the involvement of different teams outside of development or operations, such as networking, and in some cases external parties as well. The processes to support this collaboration should also be understood.",
         "recommendation": {
           "title": "",
           "context": "",
@@ -2822,7 +2822,7 @@
     "category": "Operational Model & DevOps",
     "subCategory": "Roles & Responsibilities",
     "title": "Are tools or processes in place to grant access on a just-in-time basis?",
-    "context": "Minimizing the number of people who have access to secure information or resources reduces the chance of a malicious actor gaining access or an authorized user inadvertently impacting a sensitive resource. For example, Azure AD Privileged Identity Management provides time-based and approval-based role activation to mitigate the risks of excessive, unnecessary, or misused access permissions on resources that you care about.",
+    "context": "Minimizing the number of people who have access to secure information or resources reduces the chance of a malicious actor gaining access or an authorized user inadvertently impacting a sensitive resource. For example, Azure AD [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) provides time-based and approval-based role activation to mitigate the risks of excessive, unnecessary, or misused access permissions on resources that you care about.",
     "recommendation": {
       "title": "Implement just-in-time privileged access management.",
       "context": "",
@@ -2833,7 +2833,7 @@
       {
         "id": "c9839a42-707e-4904-bdec-854316da93de",
         "title": "Does anyone have long-standing write-access to production environments?",
-        "context": "Does anyone have long-standing write-access to production environments?",
+        "context": "Regular, long-standing write access to production environments by user accounts can pose a security risk and manual intervention is often prone to errors.",
         "recommendation": {
           "title": "Limit long-standing write access to production environments only to service principals.",
           "context": "",
@@ -2873,7 +2873,7 @@
     "category": "Governance",
     "subCategory": "Standards",
     "title": "Are tools and processes in place to govern available services, enforce mandatory operational functionality and ensure compliance?",
-    "context": "Are tools and processes in place to govern available services, enforce mandatory operational functionality and ensure compliance?",
+    "context": "Proper standards for naming, tagging, the deployment of specific configurations such as diagnostic logging, and the available set of services and regions is important to drive consistency and ensure compliance. Solutions like [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview) can help to enforce and assess compliance at-scale.",
     "recommendation": {
       "title": "",
       "context": "",
@@ -2892,7 +2892,7 @@
     "category": "Governance",
     "subCategory": "Standards",
     "title": "Are standards, policies, restrictions and best practices defined as code?",
-    "context": "Are standards, policies, restrictions and best practices defined as code?",
+    "context": "Policy-as-Code provides the same benefits as Infrastructure-as-Code in regards to versioning, automation, documentation as well as encouraging consistency and reproducibility. Available solutions in the market are [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview) or [HashiCorp Sentinel](https://www.hashicorp.com/resources/introduction-sentinel-compliance-policy-as-code/).",
     "recommendation": {
       "title": "",
       "context": "",
@@ -2921,7 +2921,7 @@
     "category": "Application Design",
     "subCategory": "Design",
     "title": "Is component proximity required for application performance reasons?",
-    "context": "Are all components monitored and correlated with application level telemetry?",
+    "context": "If all or part of the application is highly sensitive to latency it may mandate component co-locality which can limit the applicability of multi-region and multi-zone strategies.",
     "recommendation": {
       "title": "Consider using the same datacenter region, Availability Zone and [Proximity Placement Groups](https://azure.microsoft.com/blog/announcing-the-general-availability-of-proximity-placement-groups/) and other options to bring latency sensitive components closer together. Keep also in mind that additional charges may apply when chatty workloads are spread across zones and region.",
       "context": "",
@@ -3051,7 +3051,7 @@
     "category": "Application Design",
     "subCategory": "Failure Mode Analysis",
     "title": "Have all fault-points and fault-modes been identified?",
-    "context": "Have you performed FMA?",
+    "context": "Fault-points describe the elements within an application architecture which are capable of failing, while fault-modes capture the various ways by which a fault-point may fail. To ensure an application is resilient to end-to-end failures, it is essential that all fault-points and fault-modes are understood and operationalized.",
     "recommendation": {
       "title": "",
       "context": "",
@@ -3254,7 +3254,7 @@
     "category": "Capacity & Service Availability Planning",
     "subCategory": "Service Availability",
     "title": "Are Azure Availability Zones available in the required regions?",
-    "context": "Are Azure Availability Zones available in all of the required regions, including any disaster recovery regions?",
+    "context": "Not all regions support [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones) today, so when assessing the suitability of availability strategy in relation to targets it is important to confirm if targeted regions also provide zonal support. All net new Azure regions will conform to the 3 + 0 datacenter design, and where possible existing regions will expand to provide support for [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-region).",
     "recommendation": {
       "title": "",
       "context": "",
@@ -3278,7 +3278,7 @@
     "category": "Capacity & Service Availability Planning",
     "subCategory": "Service Availability",
     "title": "Are any preview services/capabilities required in production?",
-    "context": "Are any preview services/capabilities required in production?",
+    "context": "If the application has taken a dependency on preview services or SKUs then it is important to ensure that the level of support and committed Service Level Agreement (SLA) are in alignment with expectations and that roadmap plans for preview services to go<br />Generally Available (GA) are understood<br />Private Preview : SLAs do not apply and formal support is not generally provided <br />Public Preview : SLAs do not apply and formal support may be provided on a best-effort basis",
     "recommendation": {
       "title": "",
       "context": "",
@@ -3297,7 +3297,7 @@
     "category": "Capacity & Service Availability Planning",
     "subCategory": "Service Availability",
     "title": "Are all APIs/SDKs validated against target runtime/languages for required functionality?",
-    "context": "Are all APIs/SDKs validated against target runtime/languages for required functionality?",
+    "context": "While there is a desire across Azure to achieve API/SDK uniformity for supported languages and runtimes, the reality is that capability deltas exist. For instance, not all CosmosDB APIs support the use of direct connect mode over TCP to bypass the platform HTTP gateway. It is therefore important to ensure that APIs/SDKs for selected languages and runtimes provide all of the required capabilities",
     "recommendation": {
       "title": "",
       "context": "",
@@ -3342,7 +3342,7 @@
     "category": "Operational Procedures",
     "subCategory": "Configuration & Secrets Management",
     "title": "Is the application stateless or stateful? If it is stateful, is the state externalized in a data store?",
-    "context": "Is session state (if any) non-sticky and externalized to a data store?",
+    "context": "[Stateless services](https://docs.microsoft.com/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices) and processes can easily be hosted across multiple compute instances to meet scale demands, as well as helping to reduce complexity and ensure high cacheability.",
     "recommendation": {
       "title": "Use externalized data store for stateful applications.",
       "context": "",
@@ -3407,7 +3407,7 @@
     "category": "Application Platform Availability",
     "subCategory": "Service SKU",
     "title": "Are all application platform services running in a High Availability (HA) configuration/SKU?",
-    "context": "Are all application platform services running in a HA configuration/SKU? e.g. Service Bus Premium.",
+    "context": "Azure application platform services offer resiliency features to support application reliability, though they may only be applicable at a certain SKU. For instance, [Service Bus Premium SKU](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging) provides predictable latency and throughput to mitigate noisy neighbor scenarios, as well as the ability to automatically scale and replicate metadata to another Service Bus instance for failover purposes.",
     "recommendation": {
       "title": "",
       "context": "",
@@ -3470,7 +3470,7 @@
       {
         "id": "a13c94ba-a40d-4b2d-982d-6af090629703",
         "title": "Does the application platform use Availability Zones or Availability Sets?",
-        "context": "Is the application deployed across AZs or ASs?",
+        "context": "An **Availability Set (AS)** is a logical construct to inform Azure that it should distribute contained virtual machine instances across multiple fault and update domains within an Azure region. **Availability Zones (AZ)** elevate the fault level for virtual machines to a physical datacenter by allowing replica instances to be deployed across multiple datacenters within an Azure region. While zones provide greater resiliency than sets, there are performance and cost considerations where applications are extremely 'chatty' across zones given the implied physical separation and inter-zone bandwidth charges. Ultimately, Azure Virtual Machines and Azure PaaS services, such as Service Fabric and Azure Kubernetes Service (AKS) which use virtual machines underneath, can leverage either AZs or an AS to provide application resiliency within a region.",
         "recommendation": {
           "title": "",
           "context": "",
@@ -3496,7 +3496,7 @@
     "category": "Application Platform Availability",
     "subCategory": "Compute Availability",
     "title": "How is the client traffic routed to the application in the case of region, zone or network outage?",
-    "context": "How is the client traffic routed to the application in the case of region outage? i.e. is traffic routed through a global load balancer such as Azure Front Door, Azure Traffic Manager or a third-party CDN.",
+    "context": "In the event of a major outage, client traffic should be routable to application deployments which remain available across other regions or zones. This is ultimately where cross-premises connectivity and global load balancing should be used, depending on whether the application is internal and/or external facing. Services such as [Azure Front Door](https://docs.microsoft.com/azure/frontdoor/front-door-overview), [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview), or third-party CDNs can route traffic across regions based on application health solicited via health probes.",
     "recommendation": {
       "title": "",
       "context": "",
@@ -3520,7 +3520,7 @@
     "category": "Data Platform Availability",
     "subCategory": "Service SKU",
     "title": "Are all data and storage services running in a High Availability (HA) configuration/SKU?",
-    "context": "Are data store(s) running in a HA configuration/SKU? i.e. SQL DB in a Zone Redundant configuration, or SQL MI Always-On.",
+    "context": "Azure data platform services offer resiliency features to support application reliability, though they may only be applicable at a certain SKU. For instance, [Azure SQL Database Business Critical SKUs](https://docs.microsoft.com/azure/azure-sql/database/service-tier-business-critical), or [Azure Storage Zone Redundant Storage (ZRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy) with three synchronous replicas spread across Availability Zones.",
     "recommendation": {
       "title": "",
       "context": "",
@@ -3548,7 +3548,7 @@
     "category": "Data Platform Availability",
     "subCategory": "Consistency",
     "title": "How does CAP theorem apply to the data platform and key application scenarios?",
-    "context": "Are health probes used for load balancers to check next hop component health and compound application health for key workloads?",
+    "context": "[CAP theorem](https://en.wikipedia.org/wiki/CAP_theorem) proves that it is impossible for a distributed data store to simultaneously provide more than two guarantees across 1) Consistency (every read receives the most recent write or an error), 2) Availability (very request receives a non-error response, without the guarantee that it contains the most recent write), and 3) Partition tolerance (a system continues to operate despite an arbitrary number of transactions being dropped or delayed by the network between nodes). Determining which of these guarantees are most important in the context of application requirements is critical.",
     "recommendation": {
       "title": "",
       "context": "",
@@ -3572,7 +3572,7 @@
     "category": "Data Platform Availability",
     "subCategory": "Consistency",
     "title": "Are data types categorized by data consistency requirements?",
-    "context": "Has CAP theorem been applied to the application and key data scenarios to ensure data is categorized according to consistency requirements?",
+    "context": "Data consistency requirements, such as strong or eventual consistency, should be understood for all data types and used to inform data grouping and categorization, as well as what data replication/synchronization strategies can be considered to meet application reliability targets.",
     "recommendation": {
       "title": "",
       "context": "",
@@ -3614,7 +3614,7 @@
     "category": "Data Platform Availability",
     "subCategory": "Replication and Redundancy",
     "title": "Has a data restore process been defined and tested to ensure a consistent application state?",
-    "context": "Has a data restore process been validated and tested to ensure a consistent state for the application?",
+    "context": "Regular testing of the data restore process promotes operational excellence and confidence in the ability to recover data in alignment with defined recovery objectives for the application.",
     "recommendation": {
       "title": "",
       "context": "",
@@ -3633,7 +3633,7 @@
     "category": "Data Platform Availability",
     "subCategory": "Replication and Redundancy",
     "title": "How is application traffic routed to data sources in the case of region, zone, or network outage?",
-    "context": "How is application traffic routed to data sources in the case of region/zone/network outage? i.e. Cosmos DB Automatic Failover.",
+    "context": "Understanding the method used to route application traffic to data sources in the event of a major failure event is critical to identify whether failover processes will meet recovery objectives. Many Azure data platform services offer native reliability capabilities to handle major failures, such as Cosmos DB Automatic Failover or Azure SQL DB Active Geo-Replication. However, it is important to note that some capabilities such as Azure Storage RA-GRS and Azure SQL DB Active Geo-Replication require application-side failover to alternate endpoints in some failure scenarios, so application logic should be developed to handle these scenarios.",
     "recommendation": {
       "title": "",
       "context": "",
@@ -3652,7 +3652,7 @@
     "category": "Networking & Connectivity",
     "subCategory": "Connectivity",
     "title": "Is a global load balancer used to distribute traffic and/or failover across regions?",
-    "context": "Are application components hosted across multiple nodes based on expected traffic patterns?",
+    "context": "Azure Front Door, Azure Traffic Manager, or third-party CDN (Content Delivery Network) services can be used to direct inbound requests to external-facing application endpoints deployed across multiple regions. It is important to note that Traffic Manager is a DNS based load balancer, so failover must wait for DNS propagation to occur. A sufficiently low TTL (Time To Live) value should be used for DNS records, though not all ISPs (Internet Service Providers) may honor this. For application scenarios which only need HTTP(S) support and are requiring transparent failover, Azure Front Door should be used.",
     "recommendation": {
       "title": "",
       "context": "",
@@ -3680,7 +3680,7 @@
     "category": "Networking & Connectivity",
     "subCategory": "Connectivity",
     "title": "For cross-premises connectivity (ExpressRoute or VPN) are there redundant connections from different locations?",
-    "context": "Are ExpressRoute/VPN zone redundant gateways being used?",
+    "context": "At least two redundant connections should be established across two or more Azure regions and peering locations to ensure there are no single points of failure. An active/active load-shared configuration provides path diversity and promotes availability of network connection paths.",
     "recommendation": {
       "title": "",
       "context": "",
@@ -3704,7 +3704,7 @@
     "category": "Networking & Connectivity",
     "subCategory": "Connectivity",
     "title": "Has a failure path been simulated to ensure connectivity is available over alternative paths?",
-    "context": "Has a failure path been simulated to ensure connectivity is available over alternative paths? i.e. using S2S as a backup for Express Route.",
+    "context": "The failure of a connection path onto other connection paths should be tested to validate connectivity and operational effectiveness. Using [Site-to-Site VPN connectivity as a backup path for ExpressRoute](https://docs.microsoft.com/azure/expressroute/use-s2s-vpn-as-backup-for-expressroute-privatepeering) provides an additional layer of network resiliency for cross-premises connectivity.",
     "recommendation": {
       "title": "",
       "context": "",
@@ -3728,7 +3728,7 @@
     "category": "Networking & Connectivity",
     "subCategory": "Connectivity",
     "title": "Have all single points of failure been eliminated from the data path (on-premises and Azure)?",
-    "context": "Have all single points of failure been eliminated from the data path (on-premises and Azure)? i.e. no single VM NVA or no single ExpressRoute connection",
+    "context": "Single-instance Network Virtual Appliances (NVAs), whether deployed in Azure or within an on-premises datacenter, introduce significant connectivity risk and should be deployed [highly available](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha).",
     "recommendation": {
       "title": "",
       "context": "",
@@ -3752,7 +3752,7 @@
     "category": "Networking & Connectivity",
     "subCategory": "Zone-Aware Services",
     "title": "Are zone-redundant ExpressRoute/VPN Gateways used?",
-    "context": "Premium Disks (P30 & above) can be reserved (1 or 3 years) at discounted price.",
+    "context": "[Zone-redundant virtual network gateways](https://docs.microsoft.com/azure/vpn-gateway/about-zone-redundant-vnet-gateways) distribute gateway instances across [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones) to improve reliability and ensure availability during failure scenarios impacting a datacenter within a region.",
     "recommendation": {
       "title": "",
       "context": "",
@@ -3780,7 +3780,7 @@
     "category": "Networking & Connectivity",
     "subCategory": "Zone-Aware Services",
     "title": "If used, is Azure Application Gateway v2 deployed in a zone-redundant configuration?",
-    "context": "Is the application and/or its key workloads deployed across multiple regions in an active-active configuration?",
+    "context": "Azure Application Gateway v2 can be deployed in a [zone-redundant configuration](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant) to deploy gateway instances across zones for improved reliability and availability during failure scenarios impacting a datacenter within a region.",
     "recommendation": {
       "title": "",
       "context": "",
@@ -3804,7 +3804,7 @@
     "category": "Networking & Connectivity",
     "subCategory": "Zone-Aware Services",
     "title": "Is Azure Load Balancer Standard being used to load-balance traffic across Availability Zones?",
-    "context": "Are there any mitigation plans defined in case data size exceeds limits? i.e. purging or archiving",
+    "context": "Azure Load Balancer Standard is zone-aware to distribute traffic across [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones) and [can also be configured in a zone-redundant configuration](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) to improve reliability and ensure availability during failure scenarios impacting a datacenter within a region.",
     "recommendation": {
       "title": "",
       "context": "",
@@ -3828,7 +3828,7 @@
     "category": "Networking & Connectivity",
     "subCategory": "Zone-Aware Services",
     "title": "Are health probes configured for Azure Load Balancer(s)/Azure Application Gateway(s)?",
-    "context": "Are Azure Load Balancer health probes configured to assess traffic flows and compound application health?",
+    "context": "[Health probes](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview) allow Azure Load Balancers to assess the health of backend endpoints to prevent traffic from being sent to unhealthy instances.",
     "recommendation": {
       "title": "",
       "context": "",
@@ -3852,7 +3852,7 @@
     "category": "Networking & Connectivity",
     "subCategory": "Connectivity",
     "title": "Do health probes assess critical application dependencies?",
-    "context": "Do health probes asses critical internal data dependencies? e.g. do health probes perform a mutable database operation.",
+    "context": "Custom health probes should be used to assess overall application health including downstream components and dependent services, such as APIs and datastores, so that traffic is not sent to backend instances that cannot successfully process requests due to dependency failures.",
     "recommendation": {
       "title": "",
       "context": "",
@@ -3876,7 +3876,7 @@
     "category": "Application Performance Management",
     "subCategory": "Network Throughput and Latency",
     "title": "Does the application require long running TCP connections?",
-    "context": "Does the application support multi-region deployments for failover purposes?",
+    "context": "If an application is initiating many outbound TCP or UDP connections it may exhaust all available ports leading to [SNAT port exhaustion](https://docs.microsoft.com/azure/load-balancer/troubleshoot-outbound-connection#snatexhaust) and poor application performance. Long-running connections exacerbate this risk by occupying ports for sustained durations. Effort should be taken to ensure that the application can scale within the port limits of the chosen application hosting platform.",
     "recommendation": {
       "title": "",
       "context": "",
@@ -3902,7 +3902,7 @@
     "category": "Application Performance Management",
     "subCategory": "Data Size/Growth",
     "title": "Do you know the growth rate of your data?",
-    "context": "The amount of data stored by an application grows over time, how are you going to handle that growth?",
+    "context": "Your solution might work great in the first week or month, but what happens when data just keeps increasing? Will the solution slow down, or will it even break at a particular threshold? Planning for data growth, data retention, and archiving is essential in capacity planning. Without adequately planning capacity for your datastores, performance will be negatively affected.",
     "recommendation": {
       "title": "",
       "context": "",
@@ -3922,7 +3922,7 @@
     "category": "Application Performance Management",
     "subCategory": "Data Size/Growth",
     "title": "Are target data sizes and associated growth rates calculated per scenario or service?",
-    "context": "Are target data sizes and associated growth rates calculated per scenario/services?",
+    "context": "Scale limits and recovery options should be assessed in the context of target data sizes and growth rates to ensure suitable capacity exists.",
     "recommendation": {
       "title": "",
       "context": "",
@@ -3942,7 +3942,7 @@
     "category": "Application Performance Management",
     "subCategory": "Data Size/Growth",
     "title": "Are there any mitigation plans defined in case data size exceeds limits?",
-    "context": "Are there any mitigation plans defined in case data size exceeds limits? i.e. purging or archiving",
+    "context": "Mitigation plans such as purging or archiving data can help the application to remain available in scenarios where data size exceeds expected limits.",
     "recommendation": {
       "title": "Make sure that data size and growth is monitored, proper alerts are configured and develop (automated and codified, if possible) mitigation plans to help the application to remain available - or to recover if needed.",
       "context": "",
@@ -4023,7 +4023,7 @@
     "category": "Application Performance Management",
     "subCategory": "Network Throughput and Latency",
     "title": "Have gateways (ExpressRoute or VPN) been sized accordingly to the expected cross-premises network throughput?",
-    "context": "Have gateways (ExpressRoute or VPN) been sized accordingly to the expected cross-premises network throughput?",
+    "context": "Azure Virtual Network Gateways throughput varies based on SKU.",
     "recommendation": {
       "title": "Consider sizing gateways according to required throughput based on the available [VPN Gateway SKUs](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku).",
       "context": "",
@@ -4048,7 +4048,7 @@
     "category": "Application Performance Management",
     "subCategory": "Network Throughput and Latency",
     "title": "Does the application require dedicated bandwidth?",
-    "context": "Does the application have dedicated cross-premises bandwidth? Or is bandwidth shared with other applications?",
+    "context": "Applications with stringent throughput requirements may require dedicated bandwidth to remove the risks associated with noisy neighbor scenarios.",
     "recommendation": {
       "title": "",
       "context": "",
@@ -4118,7 +4118,7 @@
     "category": "Application Performance Management",
     "subCategory": "Elasticity",
     "title": "Is autoscaling enabled and integrated within Azure Monitor?",
-    "context": "Is autoscaling enabled and integrated within Azure Monitor?",
+    "context": "Autoscaling can be leveraged to address unanticipated peak loads to help prevent application outages caused by overloading.",
     "recommendation": {
       "title": "",
       "context": "",
@@ -4129,7 +4129,7 @@
       {
         "id": "55480e81-91e3-493a-838f-98c28a533971",
         "title": "Has autoscaling been tested under sustained load?",
-        "context": "Has autoscaling been tested? and has the time to scale in/out been measured?",
+        "context": "The scaling on any single component may have an impact on downstream application components and dependencies. Autoscaling should therefore be tested regularly to help inform and validate a capacity model describing when and how application components should scale.",
         "recommendation": {
           "title": "",
           "context": "",
@@ -4170,7 +4170,7 @@
     "category": "Security & Compliance",
     "subCategory": "Control-plane RBAC",
     "title": "Is the identity provider and associated dependencies highly available?",
-    "context": "Are SLAs defined and measured for third-party dependencies.",
+    "context": "It is important to confirm that the identity provider (e.g. Azure AD, AD, or ADFS) and its dependencies (e.g. DNS and network connectivity to the identity provider) are designed in a way and provide an Service Level Agreement (SLA)/Service Level Objectives (SLOs) that aligns with application availability targets.",
     "recommendation": {
       "title": "",
       "context": "",
@@ -4310,8 +4310,7 @@
       ],
       "priority": 50
     },
-    "statement": "Configured scaling policies by using the appropriate metrics.",
-    "context": "By performing load testing you can evaluate the bottlenecks in your workload and then configure your autoscaling rules to trigger off of the metrics related to those bottlenecks."
+    "statement": "Configured scaling policies by using the appropriate metrics."
   },
   {
     "id": "45bf67c1-4cb1-4b7d-b1a5-5edeff0aa150",
@@ -4323,7 +4322,7 @@
     "category": "Security & Compliance",
     "subCategory": "Network Security",
     "title": "Is communication to Azure PaaS services secured using VNet Service Endpoints or Private Link?",
-    "context": "Is communication to Azure PaaS services secured by using VNet Service Endpoints or Private Link?",
+    "context": "Service Endpoints and Private Link can be leveraged to restrict access to PaaS endpoints from only authorized virtual networks, effectively mitigating data intrusion risks and associated impact to application availability. Service Endpoints provide service level access to a PaaS service, while Private Link provides direct access to a specific PaaS resource to mitigate data exfiltration risks (e.g. malicious admin scenarios).",
     "recommendation": {
       "title": "",
       "context": "",
@@ -4342,7 +4341,7 @@
     "category": "Security & Compliance",
     "subCategory": "Network Security",
     "title": "If data exfiltration concerns exist for services where Private Link is not yet supported, is filtering via Azure Firewall or an NVA being used?",
-    "context": "Service Endpoints and Private Link can be leveraged to restrict access to PaaS endpoints only from authorized virtual networks, effectively mitigating data intrusion risks and associated impact to application availability. Service Endpoints provide service level access to a PaaS service, while Private Link provides direct access to a specific PaaS resource to mitigate data exfiltration risks (e.g. malicious admin scenarios). Don’t forget that Private Link is a paid service and has meters for inbound and outbound data processed. Private Endpoints are charged as well.",
+    "context": "NVA (Network Virtual Appliance) solutions and [Azure Firewall](https://docs.microsoft.com/azure/firewall/features) (for supported protocols) can be leveraged as a reverse proxy to restrict access to only authorized PaaS services for services where Private Link is not yet supported.",
     "recommendation": {
       "title": "",
       "context": "",
@@ -4366,7 +4365,7 @@
     "category": "Security & Compliance",
     "subCategory": "Network Security",
     "title": "Are Network Security Groups (NSGs) being used?",
-    "context": "Network-based data loss prevention (DLP) is decreasingly effective at identifying both inadvertent and deliberate data loss. The reason for this is that most modern protocols and attackers use network-level encryption for inbound and outbound communications. While the organization can use \"SSL-bridging\" to provide an \"authorized man-in-the-middle\" that terminates and then reestablishes encrypted network connections, this can also introduce privacy, security and reliability challenges.",
+    "context": "If NSGs are being used to isolate and protect the application, the rule set should be reviewed to confirm that required services are not unintentionally blocked.",
     "recommendation": {
       "title": "",
       "context": "",
@@ -4509,7 +4508,7 @@
     "category": "Health Modelling & Monitoring",
     "subCategory": "Monitoring and Measurement",
     "title": "Are there known gaps in application observability that led to missed incidents and/or false positives?",
-    "context": "Are operational procedures to scale out application platform components automated based on key utilization metrics?",
+    "context": "What you cannot see, you cannot measure. What you cannot measure, you cannot improve.",
     "recommendation": {
       "title": "",
       "context": "",
@@ -4529,7 +4528,7 @@
     "category": "Health Modelling & Monitoring",
     "subCategory": "Monitoring and Measurement",
     "title": "Are error budgets used to track service reliability?",
-    "context": "Is the underlying application platform service Availability Zone aware? Platform services that can leverage Availability Zones are deployed in either a zonal manner within a particular zone, and/or in a zone-redundant configuration across multiple zones",
+    "context": "An error budget describes the maximum amount of time that the application can fail without consequence, and is typically calculated as 1-Service Level Agreement (SLA). For example, if the SLA specifies that the application will function 99.99% of the time before the business has to compensate customers, the error budget is 52 minutes and 35 seconds per year. Error budgets are a device to encourage development teams to minimize real incidents and maximize innovation by taking risks within acceptable limits, given teams are free to ‘spend’ budget appropriately.",
     "recommendation": {
       "title": "",
       "context": "",
@@ -4549,7 +4548,7 @@
     "category": "Health Modelling & Monitoring",
     "subCategory": "Monitoring and Measurement",
     "title": "Is there an policy that dictates what will happen when the error budget has been exhausted?",
-    "context": "As Azure changes and new services are introduced, it is recommended that key services are revisited to see if any new services offered in Azure can help drive down cost or if new SKUs can help drive down cost. It’s recommended that this is done 1-4 times a year. Revisit key Azure services to see if there were any updates which could reduce spending.",
+    "context": "If the application error budget has been met or exceeded and the application is operating at or below the defined Service Level Agreement (SLA), a policy may stipulate that all deployments are frozen until they reduce the number of errors to a level that allows deployments to proceed.",
     "recommendation": {
       "title": "",
       "context": "",
@@ -4586,7 +4585,7 @@
     "category": "Application Design",
     "subCategory": "Threat Analysis",
     "title": "Has the workload been threat modeled?",
-    "context": "Where possible, remove logic (such as processing XML documents or JSON objects) from the data store, and perform processing within the application.",
+    "context": "Threat modeling is an engineering technique which can be used to help identify threats, attacks, vulnerabilities and countermeasures that could affect an application. Threat modeling consists of: defining security requirements, identifying threats, mitigating threats, validating threat mitigation. Microsoft uses [STRIDE](https://docs.microsoft.com/azure/security/develop/threat-modeling-tool-threats) for threat modeling.  This might be the right time to talk through the STRIDE methodology and then the tools available to help them with Threat Modeling. There are tools like [Microsoft Threat Modeling Tool](https://docs.microsoft.com/azure/security/develop/threat-modeling-tool-getting-started) which can help.",
     "recommendation": {
       "title": "Adopt threat modeling processes.",
       "context": "",
@@ -4606,7 +4605,7 @@
       {
         "id": "019c2350-c407-4a61-bcdb-a5db2fb93130",
         "title": "Are identified threats ranked based on organizational impact?",
-        "context": "Threat modeling is an engineering technique which can be used to help identify threats, attacks, vulnerabilities and countermeasures that could affect an application. Threat modeling consists of: defining security requirements, identifying threats, mitigating threats, validating threat mitigation. Microsoft uses STRIDE for threat modeling.  Tools like Microsoft Threat Modeling Tool can help.",
+        "context": "Ranked threats improves the understanding of risks associated with security issues.",
         "recommendation": {
           "title": "Rank identified threats based on organizational impact.",
           "context": "",
@@ -4618,7 +4617,7 @@
       {
         "id": "f8fd44fd-052d-4325-8d73-06bec97db606",
         "title": "Does the organization track threat modeling or vulnerability scan results with a management system?",
-        "context": "Is the application designed to use Availability Zones within a region?",
+        "context": "Effectively tracking and prioritizing discovered application threats is a vital component of vulnerability management.",
         "recommendation": {
           "title": "Centralize threat modeling results.",
           "context": "",
@@ -4630,7 +4629,7 @@
       {
         "id": "c28f72c2-ec48-46b8-b708-11e990ac3b8e",
         "title": "Are identified threats mapped to mitigations?",
-        "context": "An idempotent operation can be applied multiple times to a data-set and only changes the data the first time it's applied.",
+        "context": "Mitigations are controls to help protect, detect and respond to a certain type of threat.",
         "recommendation": {
           "title": "Map threats to mitigations.",
           "context": "",
@@ -4735,7 +4734,7 @@
       {
         "id": "ba2c3632-7118-429c-bf48-58f5a0adaee7",
         "title": "Has the organization established a monitoring and assessment solution for compliance?",
-        "context": "Is the application tested for performance?",
+        "context": "Continuously monitoring and assessing the workload increases the overall security and compliance of your workload in Azure. For example Azure Security Center provides a regulatory compliance dashboard.",
         "recommendation": {
           "title": "Continuously assess and monitor compliance.",
           "context": "",
@@ -4788,7 +4787,7 @@
     "category": "Application Design",
     "subCategory": "Dependencies",
     "title": "Does the application team maintain a list frameworks and libraries used by this workload?",
-    "context": "As part of the workload inventory the application team should maintain a framework and library list, along with versions in use. Understanding of the frameworks and libraries (custom, OSS, 3rd party, etc.) used by the application and the resulting vulnerabilities is important. There are automated solutions on the market that can help with this assessment: OWASP Dependency-Check, NPM audit or Whitesource Bolt.",
+    "context": "As part of the workload inventory the application team should maintain a framework and library list, along with versions in use. Understanding of the frameworks and libraries (custom, OSS, 3rd party, etc.) used by the application and the resulting vulnerabilities is important. There are automated solutions on the market that can help with this assessment: [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/), [NPM audit](https://docs.npmjs.com/cli/v6/commands/npm-audit) or [WhiteSource Bolt](https://www.whitesourcesoftware.com/free-developer-tools/bolt/).",
     "recommendation": {
       "title": "Conduct inventory of used frameworks and libraries.",
       "context": "",
@@ -4858,7 +4857,7 @@
     "category": "Application Design",
     "subCategory": "Design",
     "title": "Is platform-specific information (e.g. web server version) removed from server-client communication channels in this workload?",
-    "context": "Information revealing the application platform, such as HTTP banners containing framework information (\"X-Powered-By\", \"X-ASPNET-VERSION\"), are commonly used by malicious actors when mapping attack vectors of the application. HTTP headers, error messages, website footers etc. should not contain information about the application platform. Azure CDN or Cloudflare can be used to separate the hosting platform from end users, Azure API Management offers transformation policies that allow to modify HTTP headers and remove sensitive information.",
+    "context": "Information revealing the application platform, such as HTTP banners containing framework information (\"`X-Powered-By`\", \"`X-ASPNET-VERSION`\"), are commonly used by malicious actors when mapping attack vectors of the application. HTTP headers, error messages, website footers etc. should not contain information about the application platform. Azure CDN or Cloudflare can be used to separate the hosting platform from end users, Azure API Management offers [transformation policies](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies) that allow to modify HTTP headers and remove sensitive information.",
     "recommendation": {
       "title": "Remove platform-specific information from HTTP headers, error messages, web site content (e.g. page footer).",
       "context": "",
@@ -4890,7 +4889,7 @@
     "category": "Health Modelling & Monitoring",
     "subCategory": "Application Level Monitoring",
     "title": "How is security monitored in this workload?",
-    "context": "Organization is monitoring the security posture across workloads and central SecOps team is monitoring security-related telemetry data and investigating security breaches.",
+    "context": "Organization is monitoring the security posture across workloads and central SecOps team is monitoring security-related telemetry data and investigating security breaches. Communication, investigation and hunting activities need to be aligned with the application team.",
     "recommendation": {
       "title": "",
       "context": "",
@@ -4928,7 +4927,7 @@
     "category": "Health Modelling & Monitoring",
     "subCategory": "Application Level Monitoring",
     "title": "Is Personally identifiable information (PII) detected and removed/obfuscated automatically for this workload?",
-    "context": "Extra care should be take around logging of sensitive application areas. PII (contact information, payment information etc.) should not be stored in any application logs and protective measures should be applied (such as obfuscation). Machine learning tools like Azure Cognitive Search PII detection can help with this.",
+    "context": "Extra care should be taken around logging of sensitive application areas. PII (contact information, payment information etc.) should not be stored in any application logs and protective measures should be applied (such as obfuscation). Machine learning tools like [Cognitive Search PII detection](https://docs.microsoft.com/azure/search/cognitive-search-skill-pii-detection) can help with this.",
     "recommendation": {
       "title": "Automatically remove/obfuscate personally identifiable information (PII) for this workload.",
       "context": "",
@@ -5086,7 +5085,7 @@
     "category": "Security & Compliance",
     "subCategory": "Separation of duties",
     "title": "Are there any processes and tools leveraged in this workload to manage privileged activities?",
-    "context": "Zero-trust principle comes with the requirement of no standing access to an environment. Native and 3rd party solution can be used to elevate access permissions for at least highly privileged if not all activities. Azure AD Privileged Identity Management (Azure AD PIM) is the recommended and Azure native solution.",
+    "context": "Zero-trust principle comes with the requirement of no standing access to an environment. Native and 3rd party solution can be used to elevate access permissions for at least highly privileged if not all activities. [Azure AD Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) (Azure AD PIM) is the recommended and Azure native solution.",
     "recommendation": {
       "title": "Establish processes and use tools to manage priviliged access.",
       "context": "",
@@ -5142,7 +5141,7 @@
     "category": "Security & Compliance",
     "subCategory": "Authentication and authorization",
     "title": "How is the workload authenticated when communicating with Azure platform services?",
-    "context": "Try to avoid authentication with keys (connection strings, API keys etc.) and always prefer Managed Identities (formerly also known as Managed Service Identity, MSI). Managed identities enable Azure Services to authenticate to each other without presenting explicit credentials via code. Typical use case is a Web App accessing Key Vault credentials or a Virtual Machine accessing SQL Database.",
+    "context": "Try to avoid authentication with keys (connection strings, API keys etc.) and always prefer Managed Identities (formerly also known as Managed Service Identity, MSI). Managed identities enable Azure Services to authenticate to each other without presenting explicit credentials via code. Typical use case is a Web App accessing Key Vault credentials or a Virtual Machine accessing SQL Database. [Managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/)",
     "recommendation": {
       "title": "Use managed identites for authentication to other Azure platform services.",
       "context": "",
@@ -5223,7 +5222,7 @@
       {
         "id": "7a4e4bd9-73cf-4f91-9dfc-d90428078e87",
         "title": "Does the organization enforce password less or multi-factor authentication for users of this workload?",
-        "context": "Attack methods have evolved to the point where passwords alone cannot reliably protect an account. Modern authentication solutions including password-less and multi-factor authentication increase security posture through strong authentication.",
+        "context": "Attack methods have evolved to the point where passwords alone cannot reliably protect an account.  Modern authentication solutions including password-less and multi-factor authentication increase security posture through strong authentication.",
         "recommendation": {
           "title": "Enforce password-less or Multi-factor Authentication (MFA).",
           "context": "",
@@ -5321,7 +5320,7 @@
       {
         "id": "ee5f1204-c080-42ed-8b24-ad403b91fa28",
         "title": "Are public endpoints of this workload protected with firewall or WAF (Web Application Firewall)?",
-        "context": "External application endpoints should be protected against common attack vectors, such as Denial of Service (DoS) attacks like Slowloris, to prevent potential application downtime due to malicious intent. Azure-native technologies such as Azure Firewall, Application Gateway/Azure Front Door WAF, and DDoS Protection Standard Plan can be used to achieve requisite protection (Azure DDoS Protection).",
+        "context": "[Azure Firewall](https://docs.microsoft.com/azure/firewall/features) is a managed, cloud-based network security service that protects Azure Virtual Network resources. [Web Application Firewall](https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview) (WAF) mitigates the risk of an attacker being able to exploit commonly known security application vulnerabilities like cross-site scripting or SQL injection.",
         "recommendation": {
           "title": "Use web application firewall.",
           "context": "",
@@ -5413,7 +5412,7 @@
     "category": "Networking & Connectivity",
     "subCategory": "Connectivity",
     "title": "Does the organization use Azure Firewall or any 3rd party next generation Firewall for this workload to control outgoing traffic of Azure PaaS services (data exfiltration protection) where Private Link is not available?",
-    "context": "NVA solutions and Azure Firewall (for supported protocols) can be leveraged as a reverse proxy to restrict access to only authorized PaaS services for services where Private Link is not yet supported (Azure Firewall).",
+    "context": "NVA solutions and Azure Firewall (for supported protocols) can be leveraged as a reverse proxy to restrict access to only authorized PaaS services for services where Private Link is not yet supported.",
     "recommendation": {
       "title": "Use Azure Firewall or a 3rd party next generation firewall to protect against data exfiltration concerns.",
       "context": "",
@@ -5502,7 +5501,7 @@
     "category": "Security & Compliance",
     "subCategory": "Encryption",
     "title": "Does the workload use industry standard encryption algorithms instead of creating own?",
-    "context": "Organizations should rarely develop and maintain their own encryption algorithms. Secure standards already exist on the market and should be preferred. AES should be used as symmetric block cipher, AES-128, AES-192 and AES-256 are acceptable. Crypto APIs built into operating systems should be used where possible, instead of non-platform crypto libraries. For .NET make sure you follow the .NET Cryptography Model.",
+    "context": "Organizations should rarely develop and maintain their own encryption algorithms. Secure standards already exist on the market and should be preferred. AES should be used as symmetric block cipher, AES-128, AES-192 and AES-256 are acceptable. Crypto APIs built into operating systems should be used where possible, instead of non-platform crypto libraries. For .NET make sure you follow the [.NET Cryptography Model](https://docs.microsoft.com/dotnet/standard/security/cryptography-model).",
     "recommendation": {
       "title": "Use standard and recommended encryption algorithms.",
       "context": "",
@@ -5558,7 +5557,7 @@
     "category": "Security & Compliance",
     "subCategory": "Encryption",
     "title": "Does the workload use secure modern hash algorithms?",
-    "context": "Applications should use the SHA-2 family of hash algorithms (SHA-256, SHA-384, SHA-512).",
+    "context": "Applications should use the **SHA-2** family of hash algorithms (SHA-256, SHA-384, SHA-512).",
     "recommendation": {
       "title": "Use only secure hash algorithms (SHA-2 family).",
       "context": "",
@@ -5577,7 +5576,7 @@
     "category": "Security & Compliance",
     "subCategory": "Encryption",
     "title": "Are customer managed keys (CMK) for this workload stored in Azure Key Vault and protected with identity-based access control?",
-    "context": "Performing role-based or/or resource-based authorization with Azure Active Directory allows centralized management that supports principal of least privilege when accessing organizational resources. RBAC provides the necessary tools to maintain separation of concerns when it comes to accessing the application infrastructure. Aligned with the separation of duties section, users should have only the minimal set of permissions. Examples: \"Developers can't access production infrastructure.\", \"Only the SecOps team can read and manage Key Vault secrets.\", \"Project A team can access and manage Resource Group A and all resources within.\"",
+    "context": "In many industries, regulations and compliance obligations require the use of workloads (typically databases) that not only encrypt data at rest, but do so by using encryption keys that end-users can control. The use of CMK exposes the workload to additional management responsibilities around key rotation and renewal, which in-turn can expose the workload to realiability risks, if not handled properly. Keys must be stored in a secure location with identity-based access control and audit policies. Data encryption keys are often encrypted with a key encryption key in Azure Key Vault to further limit access.",
     "recommendation": {
       "title": "Store customer managed keys in Azure Key Vault.",
       "context": "For general use, it is recommended to adopt platform managed keys, unless there are specific business reasons (like regulatory requirements) to use customer managed keys. Those keys should be always stored in Azure Key Vault.",
@@ -5609,7 +5608,7 @@
     "category": "Security & Compliance",
     "subCategory": "Encryption",
     "title": "How is data at rest protected in this workload?",
-    "context": "This includes all information storage objects, containers, and types that exist statically on physical media, whether magnetic or optical disk. All data should be classified and encrypted with an encryption standard. How is the data classified and tagged as such so that it can be audited.",
+    "context": "This includes all information storage objects, containers, and types that exist statically on physical media, whether magnetic or optical disk.  All data should be classified and encrypted with an encryption standard. It should also be tagged so that it can be audited.",
     "recommendation": {
       "title": "Classify your data at rest and use encryption.",
       "context": "",
@@ -5647,7 +5646,7 @@
     "category": "Operational Model & DevOps",
     "subCategory": "General",
     "title": "Has the organization adopted a formal DevOps approach to building and maintaining software in this workload to ensure security and feature enhancements can be deployed in rapid fashion?",
-    "context": "The DevOps approach increases the organization’s ability to rapidly address security concerns without waiting for a longer planning and testing cycle of traditional waterfall model. Key attributes are: automation, close integration of infra and dev teams, testability and reliability and repeatability of deployments.",
+    "context": "The DevOps approach increases the organization’s ability to rapidly address security concerns without waiting for a longer planning and testing cycle of traditional waterfall model. Key attributes are: automation, close integration of infra and dev teams, testability and reliability and repeatability of deployments.* [Adopt the DevOps approach](https://docs.microsoft.com/azure/architecture/framework/Security/applications-services#adopt-the-devops-approach)",
     "recommendation": {
       "title": "Adopt a formal DevSecOps approach to building and maintaining software.",
       "context": "",
@@ -5666,7 +5665,7 @@
     "category": "Operational Model & DevOps",
     "subCategory": "General",
     "title": "Does the organization leverage DevOps security guidance based on industry lessons-learned, and available automation tools (OWASP guidance, Microsoft toolkit for Secure DevOps etc.)?",
-    "context": "Organizations should leverage a control framework such as NIST, CIS or ASB (Azure Security Benchmarks) for securing applications on the cloud rather than starting from zero.",
+    "context": "Organizations should leverage a control framework such as NIST, CIS or [Azure Security Benchmarks (ASB)](https://docs.microsoft.com/azure/security/benchmarks/) for securing applications on the cloud rather than starting from zero.",
     "recommendation": {
       "title": "Follow DevOps security guidance and automation for securing applications.",
       "context": "",
@@ -5709,7 +5708,7 @@
     "category": "Operational Model & DevOps",
     "subCategory": "Roles & Responsibilities",
     "title": "Is the security team involved in the planning, design and overall DevOps process of this workload, so that they can implement security controls, auditing and response processes?",
-    "context": "There should be a process for onboarding service securely to Azure. The onboarding process should include reviewing the configuration options to determine what logging/monitoring needs to be established, how to properly harden a resource before it goes into production. For a list of common criteria for onboarding resoruces, see the Service Enablement Framework",
+    "context": "There should be a process for onboarding service securely to Azure. The onboarding process should include reviewing the configuration options to determine what logging/monitoring needs to be established, how to properly harden a resource before it goes into production.  For a list of common criteria for onboarding resoruces, see the [Service Enablement Framework](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/enterprise-scale/security-governance-and-compliance#service-enablement-framework)",
     "recommendation": {
       "title": "Involve security team into development process.",
       "context": "",
@@ -5728,7 +5727,7 @@
     "category": "Deployment & Testing",
     "subCategory": "Application Code Deployments",
     "title": "Are code scanning tools an integrated part of the continuous integration (CI) process for this workload?",
-    "context": "Credentials should not be stored in source code or configuration files, because that increases the risk of exposure. Code analyzers (such as Roslyn analyzers for Visual Studio) can prevent from pushing credentials to source code repository and pipeline addons such as CredScan (part of Microsoft Security Code Analysis) help to catch credentials during the build process. Vulnerable dependencies should be flagged and investigated. This can done in combination with other code scanning tasks (e.g. code churn, test results/coverage).",
+    "context": "Credentials should not be stored in source code or configuration files, because that increases the risk of exposure. Code analyzers (such as Roslyn analyzers for Visual Studio) can prevent from pushing credentials to source code repository and pipeline addons such as [GitHub Advanced Security](https://docs.github.com/en/github/getting-started-with-github/about-github-advanced-security) or CredScan (part of Microsoft Security Code Analysis) help to catch credentials during the build process.",
     "recommendation": {
       "title": "Integrate code scanning tools within CI/CD pipeline.",
       "context": "",
@@ -5769,7 +5768,7 @@
     "category": "Deployment & Testing",
     "subCategory": "Application Infrastructure Provisioning",
     "title": "How are credentials, certificates and other secrets managed in CI/CD pipelines for this workload?",
-    "context": "Secrets need to be managed in a secure manner inside of the CI/CD pipeline. The secrets needs to be stored either in a secure store inside the pipeline or externally in Azure Key Vault. When deploying application infrastructure (e.g. with Azure Resource Manager or Terraform), credentials and keys should be generated during the process, stored directly in Key Vault and referenced by deployed resources. Hard-coded credentials should be avoided.",
+    "context": "Secrets need to be managed in a secure manner inside of the CI/CD pipeline. Secrets need to be stored either in a secure store inside the pipeline or externally in Azure Key Vault. When deploying application infrastructure (e.g. with Azure Resource Manager or Terraform), credentials and keys should be generated during the process, stored directly in Key Vault and referenced by deployed resources. Hardcoded credentials should be avoided.",
     "recommendation": {
       "title": "Store keys and secrets outside of deployment pipeline in Azure Key Vault or in secure store for the pipeline.",
       "context": "",
@@ -5992,7 +5991,7 @@
     "category": "Application Design",
     "subCategory": "Threat Analysis",
     "title": "Has the organization identified and classified business critical workloads which may adversely affect operations if they are compromised or become unavailable?",
-    "context": "Enterprise organizations typically have a large application portfolio. Have key business applications been identified and classified? This should include applications that have a high business impact if affected. Examples would be business critical data, regulated data, or business critical availability. These applications also might include applications which have a high exposure to attach such as public facing websites which are key to organizational success.",
+    "context": "Enterprise organizations typically have a large application portfolio. Have key business applications been identified and classified? This should include applications that have a high business impact if affected. Examples would be business critical data, regulated data, or business critical availability. These applications also might include applications which have a high exposure to attack such as public facing websites key to organizational success.",
     "recommendation": {
       "title": "Identify and classify business critical applications.",
       "context": "",
@@ -6030,7 +6029,7 @@
     "category": "Application Design",
     "subCategory": "Security Criteria & Data Classification",
     "title": "Does the organization prioritize security best practices by reviewing guidance based on industry recommendations and apply those settings proactively and completely to all systems as the cloud workload is implemented?",
-    "context": "Security best practices are ideally applied proactively and completely to all systems as a cloud program is implemented.",
+    "context": "Security best practices are ideally applied proactively and completely to all systems as the cloud workload is implemented.",
     "recommendation": {
       "title": "Review, prioritize, and proactively apply security best practices to cloud resources.",
       "context": "",
@@ -6049,7 +6048,7 @@
     "category": "Application Design",
     "subCategory": "Security Criteria & Data Classification",
     "title": "Does the organization build the appropriate level of resilience into the security infrastructure of this workload?",
-    "context": "Critical infrastructure typically doesn't change often. To prevent accidental/undesired modification of resources, Azure offers the locking functionality where only specific roles and users with permissions are able to delete/modify resources. Locks can be used on critical parts of the infrastructure, but special care needs to be taken in the DevOps process - modification locks can sometimes block automation.",
+    "context": "Building cybersecurity resilience into an organization requires balancing investments across the security lifecycle, diligently applying maintenance, vigilantly responding to anomalies and alerts to prevent security assurance decay, and designing to defense in depth and least privilege.",
     "recommendation": {
       "title": "Implement holistic security resilience strategy.",
       "context": "",
@@ -6115,7 +6114,7 @@
       {
         "id": "ac0e00ed-006f-4010-9e3f-274b1f8f6138",
         "title": "Does the organization have an established process for communication, investigation & hunting activities that is aligned with the workload team?",
-        "context": "Development team needs to be aware of those activities to align their security improvement activities with the outcome of those activities.",
+        "context": "Development team needs to be aware of those activities to align their security improvement  activities with the outcome of those activities.",
         "recommendation": {
           "title": "Define a process for aligning communication, investigation & hunting activities with the application team.",
           "context": "",
@@ -6155,7 +6154,7 @@
     "category": "Networking & Connectivity",
     "subCategory": "Connectivity",
     "title": "Does the organization restrict access to the workload backend infrastructure (APIs, databases, etc.) by only a minimal set of public IP addresses - only those who really need it?",
-    "context": "Web applications typically have one public entrypoint and don't expose subsequent APIs and database servers over the internet. When using gateway services like Azure Front Door it's possible to restrict access only to a set of Front Door IP addresses and lock down the infrastructure completely.",
+    "context": "Web applications typically have one public entrypoint and don't expose subsequent APIs and database servers over the internet. When using gateway services like [Azure Front Door](https://docs.microsoft.com/azure/frontdoor/) it's possible to restrict access only to a set of Front Door IP addresses and lock down the infrastructure completely.",
     "recommendation": {
       "title": "Restrict access to backend services to a minimal set of public IP addresses, only those who really need it.",
       "context": "",
@@ -6174,7 +6173,7 @@
     "category": "Networking & Connectivity",
     "subCategory": "Connectivity",
     "title": "Does the organization identify and isolate groups of resources from other parts of the organization to aid in detecting and containing adversary movement within the enterprise?",
-    "context": "A unified enterprise segmentation strategy will guide all technical teams to consistently segment access using networking, applications, identity, and any other access controls.",
+    "context": "A unified [enterprise segmentation strategy](https://docs.microsoft.com/azure/architecture/framework/Security/governance#enterprise-segmentation-strategy) will guide all technical teams to consistently segment access using networking, applications, identity, and any other access controls.",
     "recommendation": {
       "title": "Establish a unified enterprise segmentation strategy.",
       "context": "",
@@ -6185,7 +6184,7 @@
       {
         "id": "d9a9fa76-2508-48de-9824-8c9ea999fd9c",
         "title": "Does the organization align the cloud network segmentation strategy with the enterprise segmentation model?",
-        "context": "Has the application been decomposed according to key workloads with their own independent recovery targets and disaster recovery strategies?",
+        "context": "Aligning cloud network segmentation strategy with the enterprise segmentation model reduces confusion and resulting challenges with different technical teams (networking, identity, applications, etc.) each developing their own segmentation and delegation models that don’t align with each other.",
         "recommendation": {
           "title": "Align cloud network segmentation strategy with the enterprise segmentation model.",
           "context": "",
@@ -6207,7 +6206,7 @@
     "category": "Networking & Connectivity",
     "subCategory": "Endpoints",
     "title": "Do workload virtual machines running on premises or in the cloud have direct internet connectivity for users that may perform interactive logins, or by applications running on virtual machines?",
-    "context": "Attackers constantly scan public cloud IP ranges for open management ports and attempt \"easy\" attacks like common passwords and known unpatched vulnerabilities. Limiting internet access from within an application server can prevent data exfiltration or stop the attacker from downloading additional tools.",
+    "context": "Attackers constantly scan public cloud IP ranges for open management ports and attempt “easy” attacks like common passwords and known unpatched vulnerabilities. Limiting internet access from within an application server can prevent data exfiltration or stop the attacker from downloading additional tools.",
     "recommendation": {
       "title": "Develop process and procedures to prevent direct Internet access of virtual machines (such as proxy or firewall) with logging and monitoring to enforce policies.",
       "context": "",
@@ -6245,7 +6244,7 @@
     "category": "Security & Compliance",
     "subCategory": "Security Center",
     "title": "Does the organization use tools to discover and remediate common risks within Azure tenants?",
-    "context": "Identifying and remediating common security hygiene risks significantly reduces overall risk to the organization by increasing cost to attackers. Azure Secure Score in Azure Security Center monitors the security posture of machines, networks, storage and data services, and applications to discover potential security issues (internet connected VMs, or missing security updates, missing endpoint protection or encryption, deviations from baseline security configurations, missing Web Application Firewall (WAF), and more).",
+    "context": "Identifying and remediating common security hygiene risks significantly reduces overall risk to the organization by increasing cost to attackers. [Azure Secure Score](https://docs.microsoft.com/azure/security-center/security-center-secure-score) in Azure Security Center monitors the security posture of machines, networks, storage and data services, and applications to discover potential security issues (internet connected VMs, or missing security updates, missing endpoint protection or encryption, deviations from baseline security configurations, missing Web Application Firewall (WAF), and more).",
     "recommendation": {
       "title": "Discover and remediate common risks to improve Secure Score in Azure Security Center.",
       "context": "",
@@ -6283,7 +6282,7 @@
     "category": "Security & Compliance",
     "subCategory": "Network Security",
     "title": "Does the organization have controls in place to ensure that security extends past the network boundaries of the workload in order to effectively prevent, detect, and respond to threats?",
-    "context": "Traditional network controls based on a 'trusted intranet' approach will not be able to effectively provide security assurances for cloud applications.",
+    "context": "Traditional network controls based on a “trusted intranet” approach will not be able to effectively provide security assurances for cloud applications.",
     "recommendation": {
       "title": "Evolve security beyond network controls.",
       "context": "",
@@ -6454,7 +6453,7 @@
     "category": "Operational Procedures",
     "subCategory": "Patch & Update Process (PNU)",
     "title": "Does the organization have a formal policy for this workload to apply security updates to VMs in a timely manner, and do strong passwords exist on those VMs for any local administrative accounts that may be in use?",
-    "context": "Attackers constantly scan public cloud IP ranges for open management ports and attempt \"easy\" attacks like common passwords and unpatched vulnerabilities.",
+    "context": "Attackers constantly scan public cloud IP ranges for open management ports and attempt “easy” attacks like common passwords and unpatched vulnerabilities.",
     "recommendation": {
       "title": "Put a solution in place that ensures all VMs are patched in a timely manner and that ensures strong local administrative password management.",
       "context": "",
@@ -6473,7 +6472,7 @@
     "category": "Operational Procedures",
     "subCategory": "Incident Response",
     "title": "Does the organization have a Security Operations Center (SOC) that leverages a modern security approach?",
-    "context": "A SOC has a critical role in limiting the time and access an attacker can get to valuable systems and data. In addition, it provides the vital role of detecting the presence of adversaries, reacting to an alert of suspicious activity, or proactively hunting for anomalous events in the enterprise activity logs.",
+    "context": "A SOC has a critical role in limiting the time and access an attacker can get to valuable systems and data.  In addition, it provides the vital role of detecting the presence of adversaries, reacting to an alert of suspicious activity, or proactively hunting for anomalous events in the enterprise activity logs.",
     "recommendation": {
       "title": "Establish a Security Operations Center (SOC).",
       "context": "",
@@ -6598,7 +6597,7 @@
     "category": "Governance",
     "subCategory": "Standards",
     "title": "Has the organization implemented or considered implementing elevated security capabilities such as dedicated Hardware Security Modules (HSMs) or the use of Confidential Computing?",
-    "context": "Careful consideration is necessary on whether to utilize specialized security capabilities in an organization’s enterprise architecture.",
+    "context": "Careful consideration is necessary on whether to utilize specialized security capabilities in the workload architecture. These capabilities include dedicated [Hardware Security Modules](https://docs.microsoft.com/azure/key-vault/managed-hsm/overview) and [Confidential Computing](https://azure.microsoft.com/solutions/confidential-compute/).",
     "recommendation": {
       "title": "Review and consider elevated security capabilities for Azure workloads.",
       "context": "",
@@ -6617,7 +6616,7 @@
     "category": "Security & Compliance",
     "subCategory": "Separation of duties",
     "title": "Has the organization established a lifecycle management policy for critical accounts in this workload?",
-    "context": "A compromise of an account in a role that is assigned privileges with a business-critical impact can be detrimental to organizational information systems and should therefore be closely monitored including a lifecycle process. It is important to set up a recurring review pattern to ensure that accounts are removed from permissions as roles change.",
+    "context": "A compromise of an account in a role that is assigned privileges with a business-critical impact can be detrimental to organizational information systems and should therefore be closely monitored including a lifecycle process.",
     "recommendation": {
       "title": "Establish lifecycle management policy for critical accounts.",
       "context": "",
@@ -6813,7 +6812,7 @@
     "category": "Security & Compliance",
     "subCategory": "Control-plane RBAC",
     "title": "Does the organization use the root management group and carefully consider any changes that are applied using this group?",
-    "context": "The root management group ensures consistency across the enterprise by applying policies, permissions, and tags across all subscriptions. This group can affect all resources in Azure and incorrect use can impact the security of all workloads in Azure.",
+    "context": "The [root management group](https://docs.microsoft.com/azure/architecture/framework/security/design-management-groups#use-root-management-group-with-caution) ensures consistency across the enterprise by applying policies, permissions, and tags across all subscriptions. This group can affect all resources in Azure and incorrect use can impact the security of all workloads in Azure.",
     "recommendation": {
       "title": "Add planning, testing, and validation rigor to the use of the root management group.",
       "context": "",
@@ -6851,7 +6850,7 @@
     "category": "Application Design",
     "subCategory": "Design",
     "title": "Is there a plan to modernize the workload?",
-    "context": "Is there a plan to change the execution model to Serverless? The reasoning for this is to move as far as you can up the stack towards cloud-native. When the workload is serverless, it’s charged only for actual use, whereas with traditional infrastructure there are many underlying things that need to be factored into the price. By applying an end date to the application it encourages you to discuss the goal of re-designing the application to make even better use of the cloud. It might be more expensive from an Azure cost point of view but factoring in other things like licenses, people, time to deploy can drive down cost.",
+    "context": "Is there a plan to change the execution model to Serverless? To move as far as you can up the stack towards cloud-native. When the workload is serverless, it’s charged only for actual use, whereas whith traditional infrastructure there are many underlying things that need to be factored into the price. By applying an end date to the application it encourages you to discuss the goal of re-designing the application to make even better use of the cloud. It might be more expensive from an Azure cost point of view but factoring in other things like licenses, people, time to deploy can drive down cost.",
     "recommendation": {
       "title": "",
       "context": "",
@@ -6870,7 +6869,7 @@
     "category": "Capacity & Service Availability Planning",
     "subCategory": "Service SKU",
     "title": "Is Azure Advisor being used to optimize SKUs discovered in this workload?",
-    "context": "Azure Advisor helps to optimize and improve efficiency of the workload by identifying idle and underutilized resources. It analyzes your configurations and usage telemetry and consolidates it into personalized, actionable recommendations to help you optimise your resources.",
+    "context": "Azure Advisor helps to optimize and improve efficiency of the workload by identifying idle and under-utilized resources. It analyzes your configurations and usage telemetry and consolidates it into personalized, actionable recommendations to help you optimize your resources.",
     "recommendation": {
       "title": "Use Azure Advisor to identify SKUs for optimization.",
       "context": "",
@@ -6881,7 +6880,7 @@
       {
         "id": "d6c16b47-4416-4225-a61e-258f1fee71ca",
         "title": "Are the Advisor recommendations being reviewed weekly or bi-weekly for optimization?",
-        "context": "Your under-utilized resources need to be reviewed often in order to be identified and dealt with accordingly, in addition to ensuring that your actionable recommendations are up-to-date and fully optimized. For example, Azure Advisor monitors your virtual machine (VM) usage for 7 days and then identifies low-utilization VMs.",
+        "context": "Your underutilised resources need to be reviewed often in order to be identified and dealt with accordingly, in addition to ensuring that your actionable recommendations are up-to-date and fully optimized. For example, Azure Advisor monitors your virtual machine (VM) usage for 7 days and then identifies low-utilization VMs.",
         "recommendation": {
           "title": "Review Azure Advisor recommendation periodically.",
           "context": "",
@@ -6932,7 +6931,7 @@
       {
         "id": "9df5957f-8653-43f2-a19d-ff5cf3f21c66",
         "title": "What is the ratio of cost of production and non-production environments for this workload?",
-        "context": "If you are spending more money on testing than production, it usually means you have too many non-production environments. Consider the ratio of non-production to production environments and if it is substantially higher you should consider merging testing environments or re-visit why the cost is so much higher.",
+        "context": "When the customer is spending more money on testing than production, it usually means they have too many non-production environments. Consider ratio of non-production to production environments and if ratio is substantially higher you should consider merging testing environments or re-visit why the cost is so much higher.",
         "recommendation": {
           "title": "",
           "context": "",
@@ -6944,7 +6943,7 @@
       {
         "id": "8f8c351f-c380-4883-aa24-17710a0c39f5",
         "title": "How many production vs. non-production environments do you have?",
-        "context": "Understand the scope of the solution and distinguish between SKUs used in production and non-production environments. To drive down cost it might be possible to consolidate environments for applications that are not as critical to the business and not needing the same testing.",
+        "context": "Provisioning non-production environments (like development, test, integration...) each on a separate infrastructure is not always necessary. E.g. using shared App Service Plans and consolidating Web Apps for development and testing environments can save costs.",
         "recommendation": {
           "title": "",
           "context": "",
@@ -7003,7 +7002,7 @@
     "category": "Capacity & Service Availability Planning",
     "subCategory": "Efficiency",
     "title": "Is the price model of this workload clear? Do the consumers understand why they are paying the price per month?",
-    "context": "It is important to understand what Azure services, such as App Services and Event Hubs, are used by the workload to host both application code and data. Selection should be made with security in mind.",
+    "context": "As part of driving a good behavior it's important that the consumer has understood why they are paying the price for a service and also that the cost is transparent and fair to the user of the service or else it can drive wrong behavior.",
     "recommendation": {
       "title": "",
       "context": "",
@@ -7022,7 +7021,7 @@
     "category": "Capacity & Service Availability Planning",
     "subCategory": "Efficiency",
     "title": "Is the distribution of the cost done in accordance with the usage of the service?",
-    "context": "OAuth tokens are usually cached after they've been acquired. Application code should first try to get tokens silently from a cache before attempting to acquire a token from the identity provider, to optimise performance and maximize availability. Tokens should be stored securely and handled as any other credentials. When there's a need to share tokens across application servers (instead of each server acquiring and caching their own) encryption should be used.",
+    "context": "In order to drive down cost it can be advised to incentivize the user of driving the use of a service that helps put less burden on the platform and via this drive down cost as it falls back on the user if a good behavior is followed in order to drive down the price.",
     "recommendation": {
       "title": "",
       "context": "",
@@ -7041,7 +7040,7 @@
     "category": "Capacity & Service Availability Planning",
     "subCategory": "Efficiency",
     "title": "Is it possible to benefit from higher density in this workload?",
-    "context": "When running multiple applications (typically in multi-tenant or microservices scenarios) density can be increased by deploying them on shared infrastructure and utilizing it more. For example: Containerization and moving to Kubernetes (Azure Kubernetes Services) enables pod-based deployment which can utilize underlying nodes efficiently. Similar approach can be taken with App Service Plans. To prevent the 'noisy neighbor' situation, proper monitoring must be in place and performance analysis must be done (if possible).",
+    "context": "When running multiple applications (typically in multi-tenant or microservices scenarios) density can be increased by deploying them on shared infrastructure and utilizing it more. For example: Containerization and moving to Kubernetes (Azure Kubernetes Services) enables pod-based deployment which can utilize underlying nodes efficiently. Similar approach can be taken with App Service Plans. To prevent the 'noisy neighbour' situation, proper monitoring must be in place and performance analysis must be done (if possible).",
     "recommendation": {
       "title": "",
       "context": "",
@@ -7061,7 +7060,7 @@
     "category": "Capacity & Service Availability Planning",
     "subCategory": "Efficiency",
     "title": "Are the right sizes and SKUs used for workload services?",
-    "context": "The performance required and infrastructure utilization are key factors which define the \"size\" of Azure resources to be used, but there can be hidden aspects that affect cost too. Watch for cost variations between different SKUs – for example App Service Plans S3 cost the same as P2v2, but have worse performance characteristics.",
+    "context": "The required performance and infrastructure utilization are key factors which define the 'size' of Azure resources to be used, but there can be hidden aspects that affect cost too. Watch for cost variations between different SKUs - for example App Service Plans S3 cost the same as P2v2, but have worse performance characteristics. Once the purchased SKUs have been identified, determine if they purchased resources have the capabilities of supporting anticipated load. For example, if you expect the load to require 30 instances of an App Service, yet you are currently leveraging a Standard App Service Plan SKU (maximum of 10 instances supported), then you will need to upgrade your App Service Plan in order to accommodate the anticipated load.",
     "recommendation": {
       "title": "Make sure the optimal service SKUs are used for this workload.",
       "context": "",
@@ -7080,7 +7079,7 @@
     "category": "Capacity & Service Availability Planning",
     "subCategory": "Efficiency",
     "title": "Is the workload using the right operating system for its servers?",
-    "context": "Has a composite SLA been calculated for the application and/or key scenarios using Azure SLAs?",
+    "context": "Analyze the technology stack and identify which workloads are capable of running on Linux and which require Windows. Linux-based VMs and App Services are significantly cheaper, but require the app to run on supported stack (.NET Core, Node.js etc.).",
     "recommendation": {
       "title": "Make sure the optimal operating systems are used for this workload.",
       "context": "",
@@ -7099,7 +7098,7 @@
     "category": "Capacity & Service Availability Planning",
     "subCategory": "Service SKU",
     "title": "Have you deployed a Hub and Spoke Design or Virtual WAN?",
-    "context": "Virtual WAN has costs that are different in hub and spoke design. The cost of the peering network or other service routing has to be included. If Private Link is deployed, peering is not billed - only private link.",
+    "context": "Virtual Wide Area Network (WAN) has costs that are different in hub and spoke design. The cost of the peering network or other service routing has to be included. If Private Link is deployed, peering is not billed - only private link.",
     "recommendation": {
       "title": "Consider whether to deploy Hub and Spoke or Virtual WAN for this workload.",
       "context": "",
@@ -7118,7 +7117,7 @@
     "category": "Networking & Connectivity",
     "subCategory": "Data flow",
     "title": "Are you moving data between regions?",
-    "context": "Moving data between regions can add additional cost - both on the storage layer and networking layer. It's worth reviewing if this cost is justified or can be replaced via re-architecture or justified due to e.g. disaster recovery (DR). If applications or services are exchanging data between regions, extra cost is typically accrued.",
+    "context": "Moving data between regions can add additional cost - both on the storage layer or networking layer. It's worth reviewing if this cost is can be replaced via re-architecture or justified due to e.g. disaster recovery (DR).",
     "recommendation": {
       "title": "Consider if the cost of data transfer is acceptable.",
       "context": "",
@@ -7137,7 +7136,7 @@
     "category": "Operational Model & DevOps",
     "subCategory": "Roles & Responsibilities",
     "title": "Are Billing account names and structure consistent with reference to or use of Departments or Services, or Organization?",
-    "context": "The actual security risk for an organization is heavily influenced by how much access an adversary can or does obtain to valuable systems and data. When each user has focused scope of permissions, the impact of compromising an account will be limited.",
+    "context": "Transparency and traceability when it comes to cost in order to ensure that any discrepancies are able to be followed back to the source and be dealt with accordingly.",
     "recommendation": {
       "title": "",
       "context": "",
@@ -7194,7 +7193,7 @@
     "category": "Operational Procedures",
     "subCategory": "Operational Lifecycles",
     "title": "Does every environment have a target date for migrating to PaaS or serverless to bring all up cost and transfer risk?",
-    "context": "To bring down cost the goal should be to get as many applications to only consume resources when they are used, this goes as an evolution from IaaS to PaaS to serverless where you only pay when a service is triggered. The PaaS and serverless might appear more expensive, but risk and other operational work is transferred to the cloud provider which should also be factored in as part of the cost (e.g. patching, monitoring, licenses).",
+    "context": "To bring down cost the goal should be to get as many applications to only consume resources when they are used, this goes as an evolution from IaaS to PaaS to serverless where you only pay when a service I triggered. The PaaS and serverless might appear more expensive, but risk and other operational work is transferred to the cloud provider which should also be factored in as part of the cost (e.g. patching, monitoring, licenses).",
     "recommendation": {
       "title": "Utilize the PaaS pay-as-you-go consumption model where relevant.",
       "context": "",
@@ -7232,7 +7231,7 @@
     "category": "Deployment & Testing",
     "subCategory": "Testing & Validation",
     "title": "Are test-environments deployed automatically and deleted after use? Use of tagging for end date?",
-    "context": "Automating test cases reduces time, cost and helps inefficient resource utilization. It also provides a structured approach to testing with test scripts. Test environments can quickly become overhead if not monitored properly, therefore stopping these resources when they are not in use leads to cost saving. In order to drive down cost a good place to look is test environments that might not be used anymore. Implementing a process can help by tagging all test environments with end date and owner and after this date follow up with the owner if the environment is still needed and if so set a new end-of-life date.",
+    "context": "Automating test cases reduces time, cost and helps inefficient resource utilization. It also provides a structured approach to testing with test scripts. Test environments can quickly become overhead if not monitored properly, therefore stopping these resources when they are not in use enables cost saving. In order to drive down cost a good place to look is test environments that might not be used anymore. Implementing a process can help by tagging all test environments with an end date and an owner and after this date follow up with the owner if the environment is still needed and if so set a new end-of-life date.",
     "recommendation": {
       "title": "Make sure to delete/deallocate resources used in test environments.",
       "context": "",
@@ -7251,7 +7250,7 @@
     "category": "Governance",
     "subCategory": "Financial Management & Cost Models",
     "title": "How is your organization modeling cloud costs for this workload?",
-    "context": "Modelling allows you to identify opportunities to reduce overall cost. Estimate and track costs, educate employees about the cloud and various pricing models and have appropriate governance regarding expenditure. Use cost management tools to plan and track costs, tag resources and track that back to costs.",
+    "context": "Estimate and track costs, educate the employees about the cloud and various pricing models, have appropriate governance about expenditure.",
     "recommendation": {
       "title": "",
       "context": "",
@@ -7472,7 +7471,7 @@
     "category": "Governance",
     "subCategory": "Culture & Dynamics",
     "title": "Is there an ongoing conversation between the app owner and the business?",
-    "context": "Is what is delivered from IT and what the business is expecting from IT mapped to the cost of the application? Communication between the app owner and business should be constant in order to ensure a management of expectations and cost.",
+    "context": "Is what’s delivered from IT and what the business is expecting from IT mapped to the cost of the application?",
     "recommendation": {
       "title": "",
       "context": "",
@@ -7547,7 +7546,7 @@
     "category": "Networking & Connectivity",
     "subCategory": "Data flow",
     "title": "How is the workload connected between regions? Is it using network peering or gateways?",
-    "context": "Data exchange between regions has cost implications. Peering within the same region is cheaper than peering between regions. Inbound and outbound traffic is charged at both ends of the peered networks.",
+    "context": "VNET Peering has additional cost. Peering within the same region is cheaper than peering between regions or Global regions. Inbound and outbound traffic is charged at both ends of the peered networks.",
     "recommendation": {
       "title": "Make sure the workload works with cross-region peering efficiently and be aware of additional costs.",
       "context": "",
@@ -7604,7 +7603,7 @@
     "category": "Networking & Connectivity",
     "subCategory": "Connectivity",
     "title": "Are you using Microsoft backbone or MPLS network?",
-    "context": "If users are closer to the cloud than on-premises, Microsoft backbone and ExpressRoute or VPN Gateway should be used for network traffic (i.e. egress).",
+    "context": "Are you closer to your users or on-prem? If users are closer to the cloud you should use MSFT (i.e. egress traffic). MPLS is when another service provider gives you the line.",
     "recommendation": {
       "title": "",
       "context": "",
@@ -7695,7 +7694,7 @@
     "category": "Application Design",
     "subCategory": "Design",
     "title": "Would you consider the application design to be a microservice architecture?",
-    "context": "How is the traffic routed to the application in the case of region outage?",
+    "context": "As compared to a monolithic architecture--an application that is tightly coupled with synchronous communication and often a single datastore--microservices leverage concepts such as asynchronous communication, service discovery, various resiliency strategies, and each service has its own datastore.",
     "recommendation": {
       "title": "",
       "context": "",
@@ -7717,7 +7716,7 @@
       {
         "id": "eaace585-16f9-43bc-9b09-a83f68278878",
         "title": "Are the datastores' access restricted only to their respective service or can multiple microservices access the datastores directly?",
-        "context": "As people in the organization and on the project change, it is crucial to make sure that only the right people have access to the application infrastructure. Auditing and reviewing the access control reduces the attack vector to the application. Azure control plane depends on Azure AD and access reviews are often centrally performed often as part of internal or external audit activities. For the application specific access it is recommended to do the same at least twice a year.",
+        "context": "",
         "recommendation": {
           "title": "",
           "context": "",
@@ -7804,7 +7803,7 @@
       {
         "id": "34739dde-eec7-449b-bc90-d016e85c017f",
         "title": "Where possible, have tasks been configured to execute in parallel?",
-        "context": "Have you configured timeouts for inter-component calls?",
+        "context": "There are many ways to handle long-running tasks. The common way is to use parallel execution threads and leverage WaitAll or WaitAny process waits. However, using these methods introduce blocking on threads and can have large, detrimental performance hits on applications, especially distributed applications. Additionally, the blocks can prevent the execution of other tasks that may not have a dependency on the data at the current code position. Instead, it is better to follow asynchronous models and leverage message queuing for long-running tasks. In this pattern, tasks publish and subscribe to data on the queue and tasks can execute as soon as the data is made available.",
         "recommendation": {
           "title": "",
           "context": "",
@@ -7816,7 +7815,7 @@
       {
         "id": "d714e22b-57cf-4ff8-8471-c000b973b05e",
         "title": "Are long-running tasks and workflows leveraging durable functions?",
-        "context": "Do you monitor any long running application workflows and operationalise failure scenarios?",
+        "context": "",
         "recommendation": {
           "title": "",
           "context": "",
@@ -7837,7 +7836,7 @@
     "category": "Capacity & Service Availability Planning",
     "subCategory": "Service SKU",
     "title": "Do you know your scale limits and what is most likely to be your bottleneck?",
-    "context": "When an application calls a remote service leveraging a synchronous call, some of resources on the client (i.e caller thread, network socket, etc) are blocked and unavailable for use elsewhere until the remote service invocation completes.",
+    "context": "An application is made up of many different components, services, and frameworks within both infrastructure and application code. The design and choices in each area will incur unique limits and scale options. Knowing how your application behaves under different kinds of load allows you to be better prepared. It can also help you recognize which individual services to scale, if necessary, versus scaling your entire infrastructure. This can help increase performance efficiency without sacrificing costs. ",
     "recommendation": {
       "title": "",
       "context": "",
@@ -7856,7 +7855,7 @@
     "category": "Capacity & Service Availability Planning",
     "subCategory": "Service SKU",
     "title": "Is the required peak capacity aligned with the subscription quotas and limits?",
-    "context": "Is the required capacity, both initial and future growth, within Azure service scale limits and quotas?",
+    "context": "Limitless scale requires dedicated design and one of the important design considerations is the limits and quotas of Azure subscriptions. Some services are almost limitless, others require more planning. Some services have 'soft' limits that can be increased by contacting support.",
     "recommendation": {
       "title": "",
       "context": "",
@@ -7875,7 +7874,7 @@
     "category": "Performance Testing",
     "subCategory": "Tools & Planning",
     "title": "Have you identified the required human and environment resources needed to create performance tests?",
-    "context": "Provide security teams read-only access to the security aspects of all technical resources in their purview. Security organizations require visibility into the technical environment to perform their duties of assessing and reporting on organizational risk. Without this visibility, security will have to rely on information provided from groups, operating the environment, who have a potential conflict of interest (and other priorities). Note that security teams may separately be granted additional privileges if they have operational responsibilities or a requirement to enforce compliance on Azure resources. For example in Azure, assign security teams to the Security Readers permission that provides access to measure security risk (without providing access to the data itself). Because security will have broad access to the environment (and visibility into potentially exploitable vulnerabilities), you should consider them critical impact accounts and apply the same protections as administrators.",
+    "context": "Successfully implementing meaningful performance tests requires a number of resources. If is not just a single developer or QA Analyst running some tests on their local machine. Instead, performance tests need a test environment (also known as a test bed) that tests can be executed against without interfering with production environments and data. Performance testing requires input and commitment from developers, architects, database administrators, and network administrators. In short, solid performance testing is a team responsibility.<br />Additionally, to run scaled tests, a machine with enough resources (e.g. memory, processors, network connections, etc.) needs to be made available. While this machine can be located within a data center or on-premises, it is often advantageous to perform performance testing from instances located from multiple geographies. This better simulates what an end-user can expect.",
     "recommendation": {
       "title": "",
       "context": "",
@@ -7947,7 +7946,7 @@
     "category": "Performance Testing",
     "subCategory": "Benchmarking",
     "title": "Have you identified goals or baselines for application performance?",
-    "context": "Have you validated the application can operate effectively in the absence of its dependencies?",
+    "context": "There are many types of goals when determining baselines for application performance. Perhaps baselines center around a certain number of visitors within a given time period, the time it takes to render a page, type  required for executing a stored procedure, or a desired number of transactions if your site conducts some type of e-commerce. It is important to identify and maintain a shared understanding of these baselines so that you can architect a system that meets them.<br />Baselines can vary based on types of connections or platforms that a user may leverage for accessing the application. It may be important to establish baselines that address the diversity of connections, platforms, and other elements (like time of day, or weekday versus weekend).",
     "recommendation": {
       "title": "",
       "context": "",
@@ -7997,7 +7996,7 @@
     "category": "Performance Testing",
     "subCategory": "Benchmarking",
     "title": "Do you have goals defined for a complete page load?",
-    "context": "Defining performance goals allows you to build architecture that aligns to your business needs.",
+    "context": "What are your goals for a completed page load? When formulating this metric, it is important to note the varying thresholds that can be deemed acceptable. Some companies, whose primary audience is internal and are salary-based, may base their thresholds on the user's mental capacity to sit at the application screen. Other customers that have service-related users (i.e. users who are paid for performance) may base their thresholds on the ability to keep the user working as fast as possible (mental state is not the primary motivator) because increased productivity typically increases revenue. Typically, most industry standards target page load times to 1-2 seconds, while 3-5 seconds is \"acceptable,\" and more than 5 is unacceptable. If applications are being hosted in Azure App Services, there are a number of tactics that can increase page performance.",
     "recommendation": {
       "title": "",
       "context": "",
@@ -8040,7 +8039,7 @@
     "category": "Performance Testing",
     "subCategory": "Benchmarking",
     "title": "Do you have goals defined for an API (service) endpoint complete response?",
-    "context": "For cost management it is recommended to have a budget even for the smallest services operated, because that allows to track and understand the flow of the spend and also understand the impact of a smaller service in a bigger picture.",
+    "context": "Data-centric applications are comprised of pulling data from various API endpoints. For a single page, this could mean many server requests. The page is only as fast as the slowest endpoint. It is important for you to test the performance of your APIs to quickly identify bottlenecks in the application that impede user experience. As an example, if a dashboard page requires data from ten API endpoints and one of those endpoints requires 6.0 seconds to return data while the remaining endpoints only a few hundred milliseconds, this is a good indicator that the single endpoint needs to be inspected and targeted for optimization.",
     "recommendation": {
       "title": "",
       "context": "",
@@ -8105,7 +8104,7 @@
       {
         "id": "e2e5525d-1e33-42e5-826a-e9a2e84fca9e",
         "title": "How often are you achieving your server response goals?",
-        "context": "Knowing how long it takes to scale allows you to understand how quickly you can adapt to changes in demand.",
+        "context": "",
         "recommendation": {
           "title": "",
           "context": "",
@@ -8126,7 +8125,7 @@
     "category": "Performance Testing",
     "subCategory": "Benchmarking",
     "title": "Do you have goals for latency between systems/microservices?",
-    "context": "Lifecycle management policy periodically moves data between tiers. Policies can move data based on rules that specified by the user. For example, you might create rules that move blobs to the archive tier if that blob has not been modified in 90 days. Unused data can be also completely removed using a policy. By creating policies that adjust the access tier of your data, you can design the least expensive storage options for your need.",
+    "context": "Performance should not only be monitored within the application itself, but response times between service tiers should also be noted. While this is important for n-Tier applications, it is especially crucial for microservices. Most microservices leverage some type of pub-sub architecture where communication is asynchronous. However, validation for sending and receiving messages should still take place. In these instances, understanding the routing and latency between services is imperative to improving performance.",
     "recommendation": {
       "title": "",
       "context": "",
@@ -8191,7 +8190,7 @@
       {
         "id": "22e31b1e-dedd-44ca-87e8-75f1fdcba29d",
         "title": "How often are you achieving your goals for database query execution?",
-        "context": "Have read operations been segregated from update operations across application data stores?",
+        "context": "",
         "recommendation": {
           "title": "",
           "context": "",
@@ -8341,7 +8340,7 @@
       {
         "id": "89917711-c113-4b13-bb6e-4b717d466a7b",
         "title": "Are you using any caching mechanisms?",
-        "context": "Horizontal scaling allows you to dynamically add and remove resources based on demand.",
+        "context": "Use caching whenever possible, whether it is client-side caching, view caching, or data caching. Caching can also be configured on the browser, the server, or on an appliance in-between (e.g. Azure Frontdoor). Incorporating caching can help reduce latency and server taxation by eliminating repetitive class to microservices, APIs, and data stores.",
         "recommendation": {
           "title": "",
           "context": "",
@@ -8353,7 +8352,7 @@
       {
         "id": "17859c2a-0c4a-41e4-9e8c-fc10e0d055bd",
         "title": "Are you using static or page caching mechanisms?",
-        "context": "Stateless, or non-affinity applications, allow the hosting platform (App Services, Kubernetes, Service Fabric, other) to dynamically add or remove compute instances based on service metrics.",
+        "context": "Available static and page caching mechanisms are for example:<br />- Browser<br />- Azure CDN<br />- Azure Front Door<br />- Other<br />There are various types of caching mechanisms that can be configured with a web page and its components. Such examples include expiry dates, tags, modification dates, content, or other variances like IP addresses or encoding types.",
         "recommendation": {
           "title": "",
           "context": "",
@@ -8365,7 +8364,7 @@
       {
         "id": "654cc0be-fa8d-4c07-a1f9-5b0fbdd477de",
         "title": "What technology are you using for data caching?",
-        "context": "When you use the Platform-as-a-service (PaaS) model, operational and maintenance costs are included in the pricing and in some cases can be cheaper than managing VMs on your own.",
+        "context": "Available data caching technologies are for example:<br />- Azure Redis Cache<br />- IIS Caching Server<br />- SQL Caching Server<br />- Disk<br />- Other solution",
         "recommendation": {
           "title": "Azure Cache for Redis is a preferred solution for data caching as it improves performance by storing data in memory instead of on disk like SQL Server. Certain development frameworks like .NET also have mechanisms for caching data at the server level.",
           "context": "",
@@ -8387,7 +8386,7 @@
     "category": "Networking & Connectivity",
     "subCategory": "Endpoints",
     "title": "Are you using any Content Delivery Networks (CDN)?",
-    "context": "Storing static content in a CDN relieves the application of the load caused by dynamically generating this content for each request.",
+    "context": "CDNs store static files in locations that are typically geographically closer to the user than the data center. This increases overall application performance as latency for delivery and downloading these artifacts is reduced. Also, from a security point of view, CDNs can be used to separate the hosting platform from end users. Azure CDN contains a rule engine to remove platform-specific information and headers. The use of Azure CDN or 3rd party CDN will have different cost implications depending on what is chosen for the workload.",
     "recommendation": {
       "title": "Use CDN to speed up delivery performance to users and to separate the hosting platform from the end users / clients.",
       "context": "",
@@ -8442,7 +8441,7 @@
     "category": "Application Performance Management",
     "subCategory": "Data Latency and Throughput",
     "title": "Are you using database replicas and data partitioning?",
-    "context": "Divide the data across multiple databases and database servers, or design the application to use data storage services that can provide this partitioning transparently.",
+    "context": "Database replicas and data partitioning can improve application performance by providing multiple copies of the data and/or reducing the taxation of database operations. Both mechanisms involve conversations and planning between developers and database administrators.",
     "recommendation": {
       "title": "",
       "context": "",
@@ -8461,7 +8460,7 @@
     "category": "Performance Testing",
     "subCategory": "Benchmarking",
     "title": "How do you know when you have reached acceptable efficiency?",
-    "context": "Scaling in removes unused resources when they become idle.",
+    "context": "There is almost no limit to how much an application can be performance-tuned. How do you know when you have tuned an application enough? It really comes down to the 80/20 rule--generally, 80% of the application can be optimized by focusing on just 20%. While you can continue optimizing certain elements of the application, after optimizing the initial 20%, a company typically sees a diminishing return on any further optimization. The question the customer must answer is how much of the remaining 80% of the application is worth optimizing for the business. In other words, how much will optimizing the remaining 80% help the business reach its goals (e.g. customer acquisition/retention, sales, etc.)? The business must determine their own realistic definition of \"acceptable.\"",
     "recommendation": {
       "title": "",
       "context": "",
@@ -8482,7 +8481,7 @@
     "category": "Health Modelling & Monitoring",
     "subCategory": "Application Level Monitoring",
     "title": "Do you have detailed instrumentation in the application code?",
-    "context": "Is there a capacity model for the application identifying relationships between the utilization of various components, to capture when and how to scale-out?",
+    "context": "Instrumentation of your code allows precise detection of underperforming pieces when load or stress tests are applied. It is critical to have this data available to improve and identify performance opportunities in the application code. Application Performance Monitoring (APM) tools, such as Application Insights, should be used to manage the performance and availability of the application, along with aggregating application level logs and events for subsequent interpretation.",
     "recommendation": {
       "title": "",
       "context": "",
