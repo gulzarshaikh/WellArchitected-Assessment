@@ -290,6 +290,9 @@
       },
       {
         "title": "Azure Databricks"
+      },
+      {
+        "title": "Azure PostgreSQL"
       }
     ]
   },
