@@ -6061,7 +6061,7 @@
     "title": "Does the organization have a designated group responsible for centralized network management and security of this workload?",
     "context": "Centralizing network management and security can reduce the potential for inconsistent strategies that create potential attacker exploitable security risks. Because all divisions of the IT and development organizations do not have the same level of network management and security knowledge and sophistication, organizations benefit from leveraging a centralized network team’s expertise and tooling.",
     "recommendation": {
-      "title": "Establish designated group responsible for central network management.",
+      "title": "Establish a designated group responsible for central network management.",
       "context": "",
       "links": [],
       "priority": 70
