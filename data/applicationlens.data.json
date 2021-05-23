@@ -4637,6 +4637,10 @@
       "context": "",
       "links": [
         {
+          "title": "Dependencies, frameworks, and libraries",
+          "url": "https://docs.microsoft.com/azure/architecture/framework/security/design-app-dependencies#dependencies-frameworks-and-libraries"
+        },
+        {
           "title": "OWASP Dependency-Check",
           "url": "https://owasp.org/www-project-dependency-check/"
         },
