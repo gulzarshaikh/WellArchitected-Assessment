@@ -4050,7 +4050,7 @@
     "title": "Has role-based and/or resource-based authorization been configured within Azure AD?",
     "context": "[Role-based and resource-based authorization](https://docs.microsoft.com/azure/architecture/multitenant-identity/authorize) are common approaches to authorize users based on required permission scopes.",
     "recommendation": {
-      "title": "",
+      "title": "Implement role-based access control for application infrastructure",
       "context": "",
       "links": [
         {
