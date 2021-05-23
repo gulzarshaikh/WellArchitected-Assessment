@@ -208,11 +208,11 @@
     "title": "Are Azure Tags used to enrich Azure resources with operational metadata?",
     "context": "Using tags can help to manage resources and make it easier to find relevant items during operational procedures.",
     "recommendation": {
-      "title": "[Azure Tags](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources) provide the ability to associate critical metadata as a name-value pair, such as billing information (e.g. cost center code), environment information (e.g. environment type), with Azure resources, resource groups, and subscriptions. See [Tagging Strategies](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging) for best practices.",
-      "context": "",
+      "title": "Enforce naming conventions and resource tagging for all Azure resources",
+      "context": "[Azure Tags](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources) provide the ability to associate critical metadata as a name-value pair, such as billing information (e.g. cost center code), environment information (e.g. environment type), with Azure resources, resource groups, and subscriptions. See [Tagging Strategies](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging) for best practices.",
       "links": [
         {
-          "title": "Enforce naming conventions and resource tagging for all Azure resources",
+          "title": "Use tags to organize your Azure resources and management hierarchy",
           "url": "https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources"
         },
         {
