@@ -4853,8 +4853,8 @@
     "title": "Are there playbooks built to help incident responders quickly understand the workload and components to mitigate an attack and investigate?",
     "context": "Incident responders are part of a central SecOps team and need to understand security insights of an application. Playbooks can help to understand the security concepts and cover the typical investigation activities. These procedures can and should be automated as much as possible (while maintaining confidence and security).",
     "recommendation": {
-      "title": "Define security playbooks which help to understand, investigte and respond to security incidents. It is recommended to automate as many steps of those procedures as you can. Automation reduces overhead. It can also improve your security by ensuring the process steps are done quickly, consistently, and according to your predefined requirements.",
-      "context": "",
+      "title": "Implement security playbooks for incident response",
+      "context": "It is recommended to automate as many steps of those procedures as you can. Automation reduces overhead. It can also improve your security by ensuring the process steps are done quickly, consistently, and according to your predefined requirements.",
       "links": [],
       "priority": 60
     }
