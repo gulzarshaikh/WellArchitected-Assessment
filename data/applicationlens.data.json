@@ -6458,7 +6458,7 @@
     "title": "Does the organization assign the appropriate level of privileges for managing the Azure environment for this workload based on a clearly documented strategy built with the principle of least privilege and based on operational needs?",
     "context": "Microsoft recommends starting from the Core Services Reference Permissions model and Segment Reference Permissions model to provide clear guidance for technical teams implementing these permissions.",
     "recommendation": {
-      "title": "Document and implement a privileged access strategy sourced from Microsoft core services reference models.",
+      "title": "Establish process and tools to manage privileged access with just-in-time capabilities",
       "context": "",
       "links": [],
       "priority": 70
