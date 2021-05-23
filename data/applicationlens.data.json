@@ -6339,8 +6339,8 @@
     "title": "Does the organization have the appropriate emergency access accounts configured for this workload in case of an emergency?",
     "context": "While rare, sometimes extreme circumstances arise where all normal means of administrative access are unavailable and for this reason emergency access accounts (also refered to as 'break glass' accounts) should be available. These accounts are strictly controlled in accordance with best practice guidance, and they are closely monitored for unsanctioned use to ensure they are not compromised or used for nefarious purposes.",
     "recommendation": {
-      "title": "Configure emergency access accounts. The impact of no administrative access can be mitigated by creating two or more [emergency access accounts](https://docs.microsoft.com/azure/active-directory/roles/security-emergency-access) in Azure AD.",
-      "context": "",
+      "title": "Configure emergency access accounts",
+      "context": "The impact of no administrative access can be mitigated by creating two or more [emergency access accounts](https://docs.microsoft.com/azure/active-directory/roles/security-emergency-access) in Azure AD.",
       "links": [
         {
           "title": "Emergency Access Accounts",
