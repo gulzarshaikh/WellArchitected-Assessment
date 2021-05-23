@@ -212,7 +212,7 @@
       "context": "",
       "links": [
         {
-          "title": "Use tags to organize your Azure resources and management hierarchy",
+          "title": "Enforce naming conventions and resource tagging for all Azure resources",
           "url": "https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources"
         },
         {
