@@ -6572,7 +6572,7 @@
     "title": "Does the organizational security team have read-only access into all cloud environment resources for this workload?",
     "context": "Provide [security teams](https://docs.microsoft.com/azure/architecture/framework/Security/governance#security-team-visibility) read-only access to the security aspects of all technical resources in their purview. Security organizations require visibility into the technical environment to perform their duties of assessing and reporting on organizational risk. Without this visibility, security will have to rely on information provided from groups, operating the environment, who have a potential conflict of interest (and other priorities).<br />Note that security teams may separately be granted additional privileges if they have operational responsibilities or a requirement to enforce compliance on Azure resources.<br />For example in Azure, assign security teams to the Security Readers permission that provides access to measure security risk (without providing access to the data itself).<br />Because security will have broad access to the environment (and visibility into potentially exploitable vulnerabilities), you should consider them critical impact accounts and apply the same protections as administrators.",
     "recommendation": {
-      "title": "Ensure security team has \"Security Readers\" or equivalent on cloud resources in their purview.",
+      "title": "Ensure security team has Security Reader or equivalent to support all cloud resources in their purview",
       "context": "",
       "links": [],
       "priority": 60
