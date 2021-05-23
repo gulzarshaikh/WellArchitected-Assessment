@@ -6007,7 +6007,7 @@
     "title": "Do workload virtual machines running on premises or in the cloud have direct internet connectivity for users that may perform interactive logins, or by applications running on virtual machines?",
     "context": "Attackers constantly scan public cloud IP ranges for open management ports and attempt “easy” attacks like common passwords and known unpatched vulnerabilities. Limiting internet access from within an application server can prevent data exfiltration or stop the attacker from downloading additional tools.",
     "recommendation": {
-      "title": "Develop process and procedures to prevent direct Internet access of virtual machines (such as proxy or firewall) with logging and monitoring to enforce policies.",
+      "title": "Prohibit virtual machine access from the internet",
       "context": "",
       "links": [],
       "priority": 70
