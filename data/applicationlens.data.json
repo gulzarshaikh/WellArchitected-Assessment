@@ -208,8 +208,8 @@
     "title": "Are Azure Tags used to enrich Azure resources with operational metadata?",
     "context": "Using tags can help to manage resources and make it easier to find relevant items during operational procedures.",
     "recommendation": {
-      "title": "[Azure Tags](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources) provide the ability to associate critical metadata as a name-value pair, such as billing information (e.g. cost center code), environment information (e.g. environment type), with Azure resources, resource groups, and subscriptions. See [Tagging Strategies](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging) for best practices.",
-      "context": "",
+      "title": "Enforce naming conventions and resource tagging for all Azure resources",
+      "context": "[Azure Tags](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources) provide the ability to associate critical metadata as a name-value pair, such as billing information (e.g. cost center code), environment information (e.g. environment type), with Azure resources, resource groups, and subscriptions. See [Tagging Strategies](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging) for best practices.",
       "links": [
         {
           "title": "Use tags to organize your Azure resources and management hierarchy",
@@ -1668,8 +1668,8 @@
     "title": "How are passwords and other secrets managed?",
     "context": "API keys, database connection strings and passwords are all sensitive to leakage, occasionally require rotation and are prone to expiration. Storing them in a secure store and not within the application code or configuration simplifies operational tasks like key rotation as well as improving overall security.",
     "recommendation": {
-      "title": "Tools like Azure Key Vault or [HashiCorp Vault](https://www.vaultproject.io/) should be used to store and manage secrets securely rather than being baked into the application artefact during deployment, as this simplifies operational tasks like key rotation as well as improving overall security. Keys and secrets stored in source code should be identified with static code scanning tools. Ensure that these scans are an integrated part of the continuous integration (CI) process.",
-      "context": "",
+      "title": "Store keys and secrets outside of application code in Azure Key Vault",
+      "context": "Tools like Azure Key Vault or [HashiCorp Vault](https://www.vaultproject.io/) should be used to store and manage secrets securely rather than being baked into the application artefact during deployment, as this simplifies operational tasks like key rotation as well as improving overall security. Keys and secrets stored in source code should be identified with static code scanning tools. Ensure that these scans are an integrated part of the continuous integration (CI) process.",
       "links": [
         {
           "title": "HashiCorp Vault",
@@ -1693,8 +1693,8 @@
     "title": "Do you have procedures in place for secret rotation?",
     "context": "In the situation where a key or secret becomes compromised, it is important to be able to quickly act and generate new versions. Key rotation reduces the attack vectors and should be automated and executed without any human interactions.",
     "recommendation": {
-      "title": "Secrets (keys, certificates etc.) should be replaced once they have reached the end of their active lifetime or once they have been compromised. Renewed certificates should also use a new key. A process needs to be in place for situations where keys get compromised (leaked) and need to be regenerated on-demand. Tools, such as Azure Key Vault should ideally be used to store and manage application secrets to help with [rotation processes](https://docs.microsoft.com/azure/key-vault/secrets/tutorial-rotation-dual).",
-      "context": "",
+      "title": "Establish a process for key management and automatic key rotation",
+      "context": "Secrets (keys, certificates etc.) should be replaced once they have reached the end of their active lifetime or once they have been compromised. Renewed certificates should also use a new key. A process needs to be in place for situations where keys get compromised (leaked) and need to be regenerated on-demand. Tools, such as Azure Key Vault should ideally be used to store and manage application secrets to help with [rotation processes](https://docs.microsoft.com/azure/key-vault/secrets/tutorial-rotation-dual).",
       "links": [
         {
           "title": "Secret rotation process tutorial",
@@ -1717,8 +1717,8 @@
     "title": "Does the application use Managed Identities?",
     "context": "[Managed Identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) in Azure can be used to securely access Azure services while removing the need to store the secrets or certificates of Service Principals.",
     "recommendation": {
-      "title": "Wherever possible Azure Managed Identities (either system-managed or user-managed) should be used since they remove the management burden of storing and rotating keys for service principles. Thus, they provide higher security as well as easier maintenance.",
-      "context": "",
+      "title": "Use Managed Identities for authentication to other Azure platform services",
+      "context": "Wherever possible Azure Managed Identities (either system-managed or user-managed) should be used since they remove the management burden of storing and rotating keys for service principles. Thus, they provide higher security as well as easier maintenance.",
       "links": [
         {
           "title": "Managed Identities",
@@ -2060,7 +2060,7 @@
     "title": "Can N-1 or N+1 versions be deployed via automated pipelines where N is current deployment version in production?",
     "context": "N-1 and N+1 refer to roll-back and roll-forward. Automated deployment pipelines should allow for quick roll-forward and roll-back deployments to address critical bugs and code updates outside of the normal deployment lifecycle.",
     "recommendation": {
-      "title": "Automated deployment pipelines should allow for quick roll-forward and roll-back deployments to address critical bugs and code updates outside of the normal deployment lifecycle.",
+      "title": "Implement automated deployment process with rollback/roll-forward capabilities",
       "context": "",
       "links": [],
       "priority": 60
@@ -4050,7 +4050,7 @@
     "title": "Has role-based and/or resource-based authorization been configured within Azure AD?",
     "context": "[Role-based and resource-based authorization](https://docs.microsoft.com/azure/architecture/multitenant-identity/authorize) are common approaches to authorize users based on required permission scopes.",
     "recommendation": {
-      "title": "",
+      "title": "Implement role-based access control for application infrastructure",
       "context": "",
       "links": [
         {
@@ -4529,7 +4529,7 @@
     "title": "Does the organization have established processes and timelines to deploy security fixes for this workload?",
     "context": "Fixing identified vulnerabilities in a timely manner helps staying secure and preventing additional attack vectors.",
     "recommendation": {
-      "title": "Develop or implement established processes and timelines to deploy mitigations for identified threats.",
+      "title": "Implement established processes and timelines to deploy mitigations for identified threats",
       "context": "",
       "links": [],
       "priority": 90
@@ -4633,9 +4633,13 @@
     "title": "Does the application team maintain a list frameworks and libraries used by this workload?",
     "context": "As part of the workload inventory the application team should maintain a framework and library list, along with versions in use. Understanding of the frameworks and libraries (custom, OSS, 3rd party, etc.) used by the application and the resulting vulnerabilities is important. There are automated solutions on the market that can help with this assessment: [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/), [NPM audit](https://docs.npmjs.com/cli/v6/commands/npm-audit) or [WhiteSource Bolt](https://www.whitesourcesoftware.com/free-developer-tools/bolt/).",
     "recommendation": {
-      "title": "Conduct inventory of used frameworks and libraries.",
+      "title": "Maintain a list of frameworks and libraries as part of the application inventory",
       "context": "",
       "links": [
+        {
+          "title": "Dependencies, frameworks, and libraries",
+          "url": "https://docs.microsoft.com/azure/architecture/framework/security/design-app-dependencies#dependencies-frameworks-and-libraries"
+        },
         {
           "title": "OWASP Dependency-Check",
           "url": "https://owasp.org/www-project-dependency-check/"
@@ -4664,7 +4668,7 @@
     "title": "Are frameworks and library updates included into the workload lifecycle?",
     "context": "Application frameworks are frequently provided with updates (e.g. security), released by the vendor or communities. Critical and important security patches need to be prioritized.",
     "recommendation": {
-      "title": "Include framework & library updates into workload lifecycle.",
+      "title": "Update frameworks and libraries as part of the application lifecycle",
       "context": "",
       "links": [],
       "priority": 50
@@ -4700,7 +4704,7 @@
     "title": "Is platform-specific information (e.g. web server version) removed from server-client communication channels in this workload?",
     "context": "Information revealing the application platform, such as HTTP banners containing framework information (\"`X-Powered-By`\", \"`X-ASPNET-VERSION`\"), are commonly used by malicious actors when mapping attack vectors of the application. HTTP headers, error messages, website footers etc. should not contain information about the application platform. Azure CDN or Cloudflare can be used to separate the hosting platform from end users, Azure API Management offers [transformation policies](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies) that allow to modify HTTP headers and remove sensitive information.",
     "recommendation": {
-      "title": "Remove platform-specific information from HTTP headers, error messages, web site content (e.g. page footer).",
+      "title": "Remove platform-specific information from HTTP headers, error messages, and web site content",
       "context": "",
       "links": [],
       "priority": 70
@@ -4749,7 +4753,7 @@
     "title": "Does the organization actively monitor identity related risk events related to potentially compromised identities of this workload?",
     "context": "Most security incidents take place after an attacker initially gains access using a stolen identity. These identities can often start with low privileges, but attackers then use that identity to traverse laterally and gain access to more privileged identities. This repeats as needed until the attacker controls access to the ultimate target data or systems. Reported risk events for Azure AD can be viewed in Azure AD reporting, or Azure AD Identity Protection. Additionally, the Identity Protection risk events API can be used to programmatically access identity related security detections using Microsoft Graph.",
     "recommendation": {
-      "title": "Establish detection and response strategy for identity risks.",
+      "title": "Establish a detection and response strategy for identity risks",
       "context": "",
       "links": [],
       "priority": 90
@@ -4849,8 +4853,8 @@
     "title": "Are there playbooks built to help incident responders quickly understand the workload and components to mitigate an attack and investigate?",
     "context": "Incident responders are part of a central SecOps team and need to understand security insights of an application. Playbooks can help to understand the security concepts and cover the typical investigation activities. These procedures can and should be automated as much as possible (while maintaining confidence and security).",
     "recommendation": {
-      "title": "Define security playbooks which help to understand, investigte and respond to security incidents. It is recommended to automate as many steps of those procedures as you can. Automation reduces overhead. It can also improve your security by ensuring the process steps are done quickly, consistently, and according to your predefined requirements.",
-      "context": "",
+      "title": "Implement security playbooks for incident response",
+      "context": "It is recommended to automate as many steps of the investigation and response procedures as you can. Automation reduces overhead. It can also improve your security by ensuring the process steps are done quickly, consistently, and according to your predefined requirements.",
       "links": [],
       "priority": 60
     }
@@ -5127,7 +5131,7 @@
     "title": "Are all public endpoints of this workload protected / secured?",
     "context": "External application endpoints should be protected against common attack vectors, such as Denial of Service (DoS) attacks like Slowloris, to prevent potential application downtime due to malicious intent. Azure-native technologies such as Azure Firewall, Application Gateway/Azure Front Door Web Application Firewall (WAF), and DDoS Protection Standard Plan can be used to achieve requisite protection.",
     "recommendation": {
-      "title": "Protect all public endpoints with appropriate solutions, e.g. Azure Front Door, Application Gateway, Azure Firewall, Azure DDOS Protection or any 3rd party solution.",
+      "title": "Protect all public endpoints with appropriate controls",
       "context": "",
       "links": [
         {
@@ -5235,7 +5239,7 @@
     "title": "Does the organization use Azure Firewall or any 3rd party next generation Firewall for this workload to control outgoing traffic of Azure PaaS services (data exfiltration protection) where Private Link is not available?",
     "context": "NVA solutions and Azure Firewall (for supported protocols) can be leveraged as a reverse proxy to restrict access to only authorized PaaS services for services where Private Link is not yet supported.",
     "recommendation": {
-      "title": "Use Azure Firewall or a 3rd party next generation firewall to protect against data exfiltration concerns.",
+      "title": "Use Azure Firewall or a 3rd party next generation firewall to protect against data exfiltration",
       "context": "",
       "links": [],
       "priority": 70
@@ -5253,7 +5257,7 @@
     "title": "Does the workload use network security groups (NSG) to isolate and protect traffic within the workload's VNet?",
     "context": "If NSGs are being used to isolate and protect the application, the rule set should be reviewed to confirm that required services are not unintentionally blocked.",
     "recommendation": {
-      "title": "Use NSG or Azure Firewall to protect and control traffic within the VNet",
+      "title": "Use NSG or Azure Firewall to protect and control traffic within VNETs",
       "context": "",
       "links": [],
       "priority": 70
@@ -5284,9 +5288,14 @@
     "title": "Are there controls in place for this workload to detect and protect from data exfiltration?",
     "context": "Data exfiltration occurs when an internal/external malicious actor performs an unauthorized data transfer. The solution should leverage a layered approach such as hub/spoke for network communications with deep packet inspection to detect/protect from data exfiltration attack. Azure Firewall, UDR (User-defined Routes), NSG (Network Security Groups), Key Protection, Data Encryption, PrivateLink, and Private Endpoints are layered defenses for a data exfiltration attack. Azure Sentinel and Azure Security Center can be used to detect data exfiltration attempts and alert incident responders.",
     "recommendation": {
-      "title": "Apply a layered defense in depth / zero trust approach, e.g. use Azure Security Center to detect data exfiltration attempts.",
+      "title": "Adopt a zero trust approach",
       "context": "",
-      "links": [],
+      "links": [
+              {
+          "title": "Adopt a zero trust approach",
+          "url": "https://docs.microsoft.com/azure/security/fundamentals/network-best-practices#adopt-a-zero-trust-approach"
+        }
+      ],
       "priority": 90
     }
   },
@@ -5518,7 +5527,7 @@
     "title": "Is the security team involved in the planning, design and overall DevOps process of this workload, so that they can implement security controls, auditing and response processes?",
     "context": "There should be a process for onboarding service securely to Azure. The onboarding process should include reviewing the configuration options to determine what logging/monitoring needs to be established, how to properly harden a resource before it goes into production.  For a list of common criteria for onboarding resoruces, see the [Service Enablement Framework](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/enterprise-scale/security-governance-and-compliance#service-enablement-framework)",
     "recommendation": {
-      "title": "Involve security team into development process.",
+      "title": "Involve the security team in the development process",
       "context": "",
       "links": [],
       "priority": 70
@@ -5617,7 +5626,7 @@
     "title": "Are branch policies used in source control management of this workload? How are they configured?",
     "context": "Branch policies provide additional level of control over the code which is commited to the product. It is a common practice to not allow pushing against the main branch and require pull-request (PR) with code review before merging the changes by at least one reviewer, other than the change author. Different branches can have different purposes and access levels, for example: feature branches are created by developers and are open to push, integration branch requires PR and code-review and production branch requires additional approval from a senior developer before merging.",
     "recommendation": {
-      "title": "Implement branch policy strategy to enhance branch security.",
+      "title": "Implement branch policy strategy to enhance DevOps security",
       "context": "",
       "links": [],
       "priority": 90
@@ -5864,7 +5873,7 @@
     "title": "Does the organization consider balancing attacker vs. defender cost for this workload?",
     "context": "Cybersecurity attacks are planned and conducted by human attackers that must manage their return on investment into attacks (return could include profit or achieving an assigned objective).",
     "recommendation": {
-      "title": "Implement defenses that detect and prevent easy and cheap attack methods.",
+      "title": "Implement defenses that detect and prevent commodity attacks",
       "context": "",
       "links": [],
       "priority": 90
@@ -5911,7 +5920,7 @@
         "title": "Does the organization have an established process for communication, investigation & hunting activities that is aligned with the workload team?",
         "context": "Development team needs to be aware of those activities to align their security improvement  activities with the outcome of those activities.",
         "recommendation": {
-          "title": "Define a process for aligning communication, investigation & hunting activities with the application team.",
+          "title": "Define a process for aligning communication, investigation and hunting activities with the application team",
           "context": "",
           "links": [],
           "priority": 30
@@ -5949,7 +5958,7 @@
     "title": "Does the organization restrict access to the workload backend infrastructure (APIs, databases, etc.) by only a minimal set of public IP addresses - only those who really need it?",
     "context": "Web applications typically have one public entrypoint and don't expose subsequent APIs and database servers over the internet. When using gateway services like [Azure Front Door](https://docs.microsoft.com/azure/frontdoor/) it's possible to restrict access only to a set of Front Door IP addresses and lock down the infrastructure completely.",
     "recommendation": {
-      "title": "Restrict access to backend services to a minimal set of public IP addresses, only those who really need it.",
+      "title": "Expose only a minimal set of public IP addresses based on need",
       "context": "",
       "links": [],
       "priority": 90
@@ -5998,7 +6007,7 @@
     "title": "Do workload virtual machines running on premises or in the cloud have direct internet connectivity for users that may perform interactive logins, or by applications running on virtual machines?",
     "context": "Attackers constantly scan public cloud IP ranges for open management ports and attempt “easy” attacks like common passwords and known unpatched vulnerabilities. Limiting internet access from within an application server can prevent data exfiltration or stop the attacker from downloading additional tools.",
     "recommendation": {
-      "title": "Develop process and procedures to prevent direct Internet access of virtual machines (such as proxy or firewall) with logging and monitoring to enforce policies.",
+      "title": "Prohibit direct internet access of virtual machines with policy, logging, and monitoring",
       "context": "",
       "links": [],
       "priority": 70
@@ -6052,7 +6061,7 @@
     "title": "Does the organization have a designated group responsible for centralized network management and security of this workload?",
     "context": "Centralizing network management and security can reduce the potential for inconsistent strategies that create potential attacker exploitable security risks. Because all divisions of the IT and development organizations do not have the same level of network management and security knowledge and sophistication, organizations benefit from leveraging a centralized network team’s expertise and tooling.",
     "recommendation": {
-      "title": "Establish designated group responsible for central network management.",
+      "title": "Establish a designated group responsible for central network management.",
       "context": "",
       "links": [],
       "priority": 70
@@ -6125,8 +6134,8 @@
     "title": "Does the organization have the capability and plans in place to mitigate DDoS attacks for this workload?",
     "context": "DDoS attacks can be very debilitating and completely block access to your services or even take down the services, depending on the type of DDoS attack.",
     "recommendation": {
-      "title": "Mitigate DDoS attacks. Use Standard protection for critical workloads where outage would have business impact. Also consider CDN as another layer of protection.",
-      "context": "",
+      "title": "Mitigate DDoS attacks",
+      "context": "Use Azure DDoS Protection Standard for critical workloads where outage would have business impact. Also consider CDN as another layer of protection.",
       "links": [],
       "priority": 70
     }
@@ -6330,8 +6339,8 @@
     "title": "Does the organization have the appropriate emergency access accounts configured for this workload in case of an emergency?",
     "context": "While rare, sometimes extreme circumstances arise where all normal means of administrative access are unavailable and for this reason emergency access accounts (also refered to as 'break glass' accounts) should be available. These accounts are strictly controlled in accordance with best practice guidance, and they are closely monitored for unsanctioned use to ensure they are not compromised or used for nefarious purposes.",
     "recommendation": {
-      "title": "Configure emergency access accounts. The impact of no administrative access can be mitigated by creating two or more [emergency access accounts](https://docs.microsoft.com/azure/active-directory/roles/security-emergency-access) in Azure AD.",
-      "context": "",
+      "title": "Configure emergency access accounts",
+      "context": "The impact of no administrative access can be mitigated by creating two or more [emergency access accounts](https://docs.microsoft.com/azure/active-directory/roles/security-emergency-access) in Azure AD.",
       "links": [
         {
           "title": "Emergency Access Accounts",
@@ -6449,7 +6458,7 @@
     "title": "Does the organization assign the appropriate level of privileges for managing the Azure environment for this workload based on a clearly documented strategy built with the principle of least privilege and based on operational needs?",
     "context": "Microsoft recommends starting from the Core Services Reference Permissions model and Segment Reference Permissions model to provide clear guidance for technical teams implementing these permissions.",
     "recommendation": {
-      "title": "Document and implement a privileged access strategy sourced from Microsoft core services reference models.",
+      "title": "Establish process and tools to manage privileged access with just-in-time capabilities",
       "context": "",
       "links": [],
       "priority": 70
@@ -6467,7 +6476,7 @@
     "title": "Does the organization synchronize current on-premises Active Directory with Azure AD, or other cloud identity systems?",
     "context": "Consistency of identities across cloud and on-premises will reduce human errors and resulting security risk. Teams managing resources in both environments need a consistent authoritative source to achieve security assurances.",
     "recommendation": {
-      "title": "Synchronize on-premise directory with Azure AD",
+      "title": "Synchronize on-premises directory with Azure AD",
       "context": "",
       "links": [],
       "priority": 60
@@ -6563,7 +6572,7 @@
     "title": "Does the organizational security team have read-only access into all cloud environment resources for this workload?",
     "context": "Provide [security teams](https://docs.microsoft.com/azure/architecture/framework/Security/governance#security-team-visibility) read-only access to the security aspects of all technical resources in their purview. Security organizations require visibility into the technical environment to perform their duties of assessing and reporting on organizational risk. Without this visibility, security will have to rely on information provided from groups, operating the environment, who have a potential conflict of interest (and other priorities).<br />Note that security teams may separately be granted additional privileges if they have operational responsibilities or a requirement to enforce compliance on Azure resources.<br />For example in Azure, assign security teams to the Security Readers permission that provides access to measure security risk (without providing access to the data itself).<br />Because security will have broad access to the environment (and visibility into potentially exploitable vulnerabilities), you should consider them critical impact accounts and apply the same protections as administrators.",
     "recommendation": {
-      "title": "Ensure security team has \"Security Readers\" or equivalent on cloud resources in their purview.",
+      "title": "Ensure security team has Security Reader or equivalent to support all cloud resources in their purview",
       "context": "",
       "links": [],
       "priority": 60
@@ -8105,7 +8114,7 @@
     "title": "Are you using any Content Delivery Networks (CDN)?",
     "context": "CDNs store static files in locations that are typically geographically closer to the user than the data center. This increases overall application performance as latency for delivery and downloading these artifacts is reduced. Also, from a security point of view, CDNs can be used to separate the hosting platform from end users. Azure CDN contains a rule engine to remove platform-specific information and headers. The use of Azure CDN or 3rd party CDN will have different cost implications depending on what is chosen for the workload.",
     "recommendation": {
-      "title": "Use CDN to speed up delivery performance to users and to separate the hosting platform from the end users / clients.",
+      "title": "Use CDN to optimize delivery performance to users and obfuscate hosting platform from users/clients",
       "context": "",
       "links": [],
       "priority": 30
