@@ -4529,7 +4529,7 @@
     "title": "Does the organization have established processes and timelines to deploy security fixes for this workload?",
     "context": "Fixing identified vulnerabilities in a timely manner helps staying secure and preventing additional attack vectors.",
     "recommendation": {
-      "title": "implement established processes and timelines to deploy mitigations for identified threats",
+      "title": "Implement established processes and timelines to deploy mitigations for identified threats",
       "context": "",
       "links": [],
       "priority": 90
