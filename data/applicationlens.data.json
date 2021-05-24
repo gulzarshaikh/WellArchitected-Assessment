@@ -5288,7 +5288,7 @@
     "title": "Are there controls in place for this workload to detect and protect from data exfiltration?",
     "context": "Data exfiltration occurs when an internal/external malicious actor performs an unauthorized data transfer. The solution should leverage a layered approach such as hub/spoke for network communications with deep packet inspection to detect/protect from data exfiltration attack. Azure Firewall, UDR (User-defined Routes), NSG (Network Security Groups), Key Protection, Data Encryption, PrivateLink, and Private Endpoints are layered defenses for a data exfiltration attack. Azure Sentinel and Azure Security Center can be used to detect data exfiltration attempts and alert incident responders.",
     "recommendation": {
-      "title": "Adopt zero trust approach",
+      "title": "Adopt a zero trust approach",
       "context": "",
       "links": [
               {
