@@ -6476,7 +6476,7 @@
     "title": "Does the organization synchronize current on-premises Active Directory with Azure AD, or other cloud identity systems?",
     "context": "Consistency of identities across cloud and on-premises will reduce human errors and resulting security risk. Teams managing resources in both environments need a consistent authoritative source to achieve security assurances.",
     "recommendation": {
-      "title": "Synchronize on-premise directory with Azure AD",
+      "title": "Synchronize on-premises directory with Azure AD",
       "context": "",
       "links": [],
       "priority": 60
