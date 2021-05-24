@@ -4633,7 +4633,7 @@
     "title": "Does the application team maintain a list frameworks and libraries used by this workload?",
     "context": "As part of the workload inventory the application team should maintain a framework and library list, along with versions in use. Understanding of the frameworks and libraries (custom, OSS, 3rd party, etc.) used by the application and the resulting vulnerabilities is important. There are automated solutions on the market that can help with this assessment: [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/), [NPM audit](https://docs.npmjs.com/cli/v6/commands/npm-audit) or [WhiteSource Bolt](https://www.whitesourcesoftware.com/free-developer-tools/bolt/).",
     "recommendation": {
-      "title": "Conduct inventory of used frameworks and libraries.",
+      "title": "Maintain a list of frameworks and libraries as part of the application inventory",
       "context": "",
       "links": [
         {
