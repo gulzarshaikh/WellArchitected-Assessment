@@ -1717,8 +1717,8 @@
     "title": "Does the application use Managed Identities?",
     "context": "[Managed Identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) in Azure can be used to securely access Azure services while removing the need to store the secrets or certificates of Service Principals.",
     "recommendation": {
-      "title": "Wherever possible Azure Managed Identities (either system-managed or user-managed) should be used since they remove the management burden of storing and rotating keys for service principles. Thus, they provide higher security as well as easier maintenance.",
-      "context": "",
+      "title": "Use Managed Identities for authentication to other Azure platform services",
+      "context": "Wherever possible Azure Managed Identities (either system-managed or user-managed) should be used since they remove the management burden of storing and rotating keys for service principles. Thus, they provide higher security as well as easier maintenance.",
       "links": [
         {
           "title": "Managed Identities",
