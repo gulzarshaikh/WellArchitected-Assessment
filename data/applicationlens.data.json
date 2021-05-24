@@ -4753,7 +4753,7 @@
     "title": "Does the organization actively monitor identity related risk events related to potentially compromised identities of this workload?",
     "context": "Most security incidents take place after an attacker initially gains access using a stolen identity. These identities can often start with low privileges, but attackers then use that identity to traverse laterally and gain access to more privileged identities. This repeats as needed until the attacker controls access to the ultimate target data or systems. Reported risk events for Azure AD can be viewed in Azure AD reporting, or Azure AD Identity Protection. Additionally, the Identity Protection risk events API can be used to programmatically access identity related security detections using Microsoft Graph.",
     "recommendation": {
-      "title": "Establish a detection and response strategy for identity risks.",
+      "title": "Establish a detection and response strategy for identity risks",
       "context": "",
       "links": [],
       "priority": 90
