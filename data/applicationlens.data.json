@@ -5291,7 +5291,7 @@
       "title": "Adopt a zero trust approach",
       "context": "",
       "links": [
-              {
+        {
           "title": "Adopt a zero trust approach",
           "url": "https://docs.microsoft.com/azure/security/fundamentals/network-best-practices#adopt-a-zero-trust-approach"
         }

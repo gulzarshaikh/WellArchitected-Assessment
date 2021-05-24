@@ -314,7 +314,7 @@
 * Are you using any Content Delivery Networks (CDN)?
 
   _CDNs store static files in locations that are typically geographically closer to the user than the data center. This increases overall application performance as latency for delivery and downloading these artifacts is reduced. Also, from a security point of view, CDNs can be used to separate the hosting platform from end users. Azure CDN contains a rule engine to remove platform-specific information and headers. The use of Azure CDN or 3rd party CDN will have different cost implications depending on what is chosen for the workload._
-  > Use CDN to speed up delivery performance to users and to separate the hosting platform from the end users / clients.
+  > Use CDN to optimize delivery performance to users and obfuscate hosting platform from users/clients
 * Are you using SSL offloading?
 
   _SSL offloading places the SSL certificate at an appliance that sits in front of the web server, instead of on the web server itself. This is beneficial for two reasons. First, the verification of the SSL certificate is conducted by the appliance instead of the web server, which reduces the taxation on the server. Second, SSL offloading increases operational efficiency as it can often eliminate the need to manage certificates across microservices._
