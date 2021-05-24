@@ -5293,7 +5293,7 @@
       "links": [
               {
           "title": "Adopt a zero trust approach",
-          "url": "https://docs.microsoft.com/azure/security/fundamentals/network-best-practices?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json#adopt-a-zero-trust-approach"
+          "url": "https://docs.microsoft.com/azure/security/fundamentals/network-best-practices#adopt-a-zero-trust-approach"
         }
       ],
       "priority": 90
