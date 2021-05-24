@@ -5257,7 +5257,7 @@
     "title": "Does the workload use network security groups (NSG) to isolate and protect traffic within the workload's VNet?",
     "context": "If NSGs are being used to isolate and protect the application, the rule set should be reviewed to confirm that required services are not unintentionally blocked.",
     "recommendation": {
-      "title": "Use NSG or Azure Firewall to protect and control traffic within the VNet",
+      "title": "Use NSG or Azure Firewall to protect and control traffic within VNETs",
       "context": "",
       "links": [],
       "priority": 70
