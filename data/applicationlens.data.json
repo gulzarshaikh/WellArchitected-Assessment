@@ -4704,7 +4704,7 @@
     "title": "Is platform-specific information (e.g. web server version) removed from server-client communication channels in this workload?",
     "context": "Information revealing the application platform, such as HTTP banners containing framework information (\"`X-Powered-By`\", \"`X-ASPNET-VERSION`\"), are commonly used by malicious actors when mapping attack vectors of the application. HTTP headers, error messages, website footers etc. should not contain information about the application platform. Azure CDN or Cloudflare can be used to separate the hosting platform from end users, Azure API Management offers [transformation policies](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies) that allow to modify HTTP headers and remove sensitive information.",
     "recommendation": {
-      "title": "Remove platform-specific information from HTTP headers, error messages, web site content (e.g. page footer).",
+      "title": "Remove platform-specific information from HTTP headers, error messages, and, web site content",
       "context": "",
       "links": [],
       "priority": 70
