@@ -5873,7 +5873,7 @@
     "title": "Does the organization consider balancing attacker vs. defender cost for this workload?",
     "context": "Cybersecurity attacks are planned and conducted by human attackers that must manage their return on investment into attacks (return could include profit or achieving an assigned objective).",
     "recommendation": {
-      "title": "Implement defenses that detect and prevent easy and cheap attack methods.",
+      "title": "Implement defenses that detect and prevent commodity attacks",
       "context": "",
       "links": [],
       "priority": 90
