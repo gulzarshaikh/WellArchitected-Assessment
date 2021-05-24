@@ -5527,7 +5527,7 @@
     "title": "Is the security team involved in the planning, design and overall DevOps process of this workload, so that they can implement security controls, auditing and response processes?",
     "context": "There should be a process for onboarding service securely to Azure. The onboarding process should include reviewing the configuration options to determine what logging/monitoring needs to be established, how to properly harden a resource before it goes into production.  For a list of common criteria for onboarding resoruces, see the [Service Enablement Framework](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/enterprise-scale/security-governance-and-compliance#service-enablement-framework)",
     "recommendation": {
-      "title": "Involve security team into development process.",
+      "title": "Involve the security team in the development process",
       "context": "",
       "links": [],
       "priority": 70
