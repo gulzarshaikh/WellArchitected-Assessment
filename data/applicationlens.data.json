@@ -5239,7 +5239,7 @@
     "title": "Does the organization use Azure Firewall or any 3rd party next generation Firewall for this workload to control outgoing traffic of Azure PaaS services (data exfiltration protection) where Private Link is not available?",
     "context": "NVA solutions and Azure Firewall (for supported protocols) can be leveraged as a reverse proxy to restrict access to only authorized PaaS services for services where Private Link is not yet supported.",
     "recommendation": {
-      "title": "Use Azure Firewall or a 3rd party next generation firewall to protect against data exfiltration concerns.",
+      "title": "Use Azure Firewall or a 3rd party next generation firewall to protect against data exfiltration",
       "context": "",
       "links": [],
       "priority": 70
