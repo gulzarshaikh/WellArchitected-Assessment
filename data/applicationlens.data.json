@@ -6134,8 +6134,8 @@
     "title": "Does the organization have the capability and plans in place to mitigate DDoS attacks for this workload?",
     "context": "DDoS attacks can be very debilitating and completely block access to your services or even take down the services, depending on the type of DDoS attack.",
     "recommendation": {
-      "title": "Mitigate DDoS attacks. Use Standard protection for critical workloads where outage would have business impact. Also consider CDN as another layer of protection.",
-      "context": "",
+      "title": "Mitigate DDoS attacks",
+      "context": "Use Standard protection for critical workloads where outage would have business impact. Also consider CDN as another layer of protection.",
       "links": [],
       "priority": 70
     }
