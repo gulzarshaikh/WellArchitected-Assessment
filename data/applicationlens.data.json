@@ -4668,7 +4668,7 @@
     "title": "Are frameworks and library updates included into the workload lifecycle?",
     "context": "Application frameworks are frequently provided with updates (e.g. security), released by the vendor or communities. Critical and important security patches need to be prioritized.",
     "recommendation": {
-      "title": "Update frameworks and libraries as part of the application lifecycle process",
+      "title": "Update frameworks and libraries as part of the application lifecycle",
       "context": "",
       "links": [],
       "priority": 50
