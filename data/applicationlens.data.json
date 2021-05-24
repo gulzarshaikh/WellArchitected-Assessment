@@ -5920,7 +5920,7 @@
         "title": "Does the organization have an established process for communication, investigation & hunting activities that is aligned with the workload team?",
         "context": "Development team needs to be aware of those activities to align their security improvement  activities with the outcome of those activities.",
         "recommendation": {
-          "title": "Define a process for aligning communication, investigation and hunting activities with the application team.",
+          "title": "Define a process for aligning communication, investigation and hunting activities with the application team",
           "context": "",
           "links": [],
           "priority": 30
