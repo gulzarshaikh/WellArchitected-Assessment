@@ -5131,7 +5131,7 @@
     "title": "Are all public endpoints of this workload protected / secured?",
     "context": "External application endpoints should be protected against common attack vectors, such as Denial of Service (DoS) attacks like Slowloris, to prevent potential application downtime due to malicious intent. Azure-native technologies such as Azure Firewall, Application Gateway/Azure Front Door Web Application Firewall (WAF), and DDoS Protection Standard Plan can be used to achieve requisite protection.",
     "recommendation": {
-      "title": "Protect all public endpoints with appropriate solutions, e.g. Azure Front Door, Application Gateway, Azure Firewall, Azure DDOS Protection or any 3rd party solution.",
+      "title": "Protect all public endpoints with appropriate controls",
       "context": "",
       "links": [
         {
