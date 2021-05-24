@@ -6135,7 +6135,7 @@
     "context": "DDoS attacks can be very debilitating and completely block access to your services or even take down the services, depending on the type of DDoS attack.",
     "recommendation": {
       "title": "Mitigate DDoS attacks",
-      "context": "Use Standard protection for critical workloads where outage would have business impact. Also consider CDN as another layer of protection.",
+      "context": "Use Azure DDoS Protection Standard for critical workloads where outage would have business impact. Also consider CDN as another layer of protection.",
       "links": [],
       "priority": 70
     }
