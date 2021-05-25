@@ -109,7 +109,7 @@ These critical design principles are used as lenses to assess the Reliability of
 
   _Multiple regions should be used for failover purposes in a disaster state, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active strategies. Additional cost needs to be taken into consideration - mostly from compute, data and networking perspective, but also services like [Azure Site Recovery (ASR)](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)._
   > Deploy across multiple regions for higher availability.
-  
+  > 
   > *The ultimate goal is to set up the infrastructure in a way that it's able to automatically react to regional disasters. While active-active configuration would be the north star, not every workload requires two regions running simultaneously at all times, some don't even support it due to technical limitations. Depending on the availability, performance and cost requirements, passive or warm standby can be viable alternatives too.*
     - Were regions chosen based on location and proximity to your users or based on resource types that were available?
 
@@ -209,7 +209,7 @@ These critical design principles are used as lenses to assess the Reliability of
 
   _Understanding customer availability expectations is vital to reviewing overall operations for the application. For instance, if a customer is striving to achieve an application SLO of 99.999%, the level of inherent operational activity required by the application is going to be far greater than if an SLO of 99.9% was the aspiration._
   > Have clearly defined availability targets.
-  
+  > 
   > *Having clearly defined availability targets is crucial in order to have a goal to work and measure against. This will also determine which services an application can leverage vs. those which do not qualify in terms of the Service Level Agreement (SLA) they offer.*
     - Are SLAs/SLOs/SLIs for all leveraged dependencies understood?
 
@@ -226,13 +226,13 @@ These critical design principles are used as lenses to assess the Reliability of
 
       _The above defined targets might or might not be applied when running in Disaster Recovery (DR) mode. This depends from application to application._
       > Consider availability targets for disaster recovery mode.
-      
+      > 
       > *If targets must also apply in a failure state, then an N+1 model should be used to achieve greater availability and resiliency, where N is the capacity needed to deliver required availability. There's also a cost implication, because a more resilient infrastructure usually means more costs being involved. This has to be accepted by business.*
     - Are availability targets monitored and measured?
 
       _Monitoring and measuring application availability is vital to qualifying overall application health and progress towards defined targets._
       > Measure and monitor key availability targets.
-      
+      > 
       > *Make sure you measure and monitor key targets such as **Mean Time Between Failures (MTBF)** which denotes the average time between failures of a particular component.*
   
       Additional resources:
@@ -241,7 +241,7 @@ These critical design principles are used as lenses to assess the Reliability of
 
       _Are there any penalties, such as financial charges, associated with failing to meet Service Level Agreement (SLA) commitments? Additional measures can be used to prevent penalties, but that also brings additional cost to operate the infrastructure. This has to be factored in and evaluated._
       > Understand the consequences of missing availability targets.
-      
+      > 
       > *It should be fully understood what are the consequences if availability targets are not satisfied. This will also inform when to initiate a failover case.*
 * Are recovery targets such as Recovery Time Objective (RTO) and Recovery Point Objective (RPO) defined for the application and/or key scenarios?
 
@@ -256,7 +256,7 @@ These critical design principles are used as lenses to assess the Reliability of
 
   _Internal dependencies describe components within the application scope which are required for the application to fully operate, while external dependencies capture required components outside the scope of the application, such as another application or third-party service._
   > Categorize dependencies as either weak or strong.
-  
+  > 
   > *Dependencies may be categorized as either strong or weak based on whether or not the application is able to continue operating in a degraded fashion in their absence.*
     - Do you maintain a complete list of application dependencies?
 
@@ -346,7 +346,7 @@ These critical design principles are used as lenses to assess the Reliability of
 * Is a health model used to qualify what 'healthy' and 'unhealthy' states represent for the application?
 
   > Implement a health model.
-  
+  > 
   > *A holistic application health model should be used to quantify what 'healthy' and 'unhealthy' states represent across all application components. It is highly recommended that a 'traffic light' model be used to indicate a green/healthy state when key non-functional requirements and targets are fully satisfied and resources are optimally utilized, e.g. 95% of requests are processed in <= 500ms with Azure Kubernetes Service (AKS) node utilization at x% etc. Once established, this health model should inform critical monitoring metrics across system components and operational sub-system composition. It is important to note that the health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state.*
     - Are critical system flows used to inform the health model?
 
@@ -662,7 +662,7 @@ These critical design principles are used as lenses to assess the Reliability of
 
       _Regional failovers are significant operational activities and may incur some downtime, degraded functionality, or data loss depending on the recovery strategy used. The failover process should be fully automated and tested, or at least the process should be clearly documented._
       > Document and understand the failover process
-      
+      > 
       > *The failover process itself and also the decision process as to what constitutes a failover should be clearly understood.*
     - Is the health model being used to classify failover situations?
 
@@ -700,7 +700,7 @@ These critical design principles are used as lenses to assess the Reliability of
 
   _In the situation where a key or secret becomes compromised, it is important to be able to quickly act and generate new versions. Key rotation reduces the attack vectors and should be automated and executed without any human interactions._
   > Establish a process for key management and automatic key rotation
-  
+  > 
   > *Secrets (keys, certificates etc.) should be replaced once they have reached the end of their active lifetime or once they have been compromised. Renewed certificates should also use a new key. A process needs to be in place for situations where keys get compromised (leaked) and need to be regenerated on-demand. Tools, such as Azure Key Vault should ideally be used to store and manage application secrets to help with [rotation processes](https://docs.microsoft.com/azure/key-vault/secrets/tutorial-rotation-dual).*
   
     Additional resources:
@@ -803,7 +803,7 @@ These critical design principles are used as lenses to assess the Reliability of
 
   _While rare, sometimes extreme circumstances arise where all normal means of administrative access are unavailable and for this reason emergency access accounts (also refered to as 'break glass' accounts) should be available. These accounts are strictly controlled in accordance with best practice guidance, and they are closely monitored for unsanctioned use to ensure they are not compromised or used for nefarious purposes._
   > Configure emergency access accounts
-  
+  > 
   > *The impact of no administrative access can be mitigated by creating two or more [emergency access accounts](https://docs.microsoft.com/azure/active-directory/roles/security-emergency-access) in Azure AD.*
   
     Additional resources:

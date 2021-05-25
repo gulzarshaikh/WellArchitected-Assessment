@@ -98,7 +98,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
   _Multiple regions should be used for failover purposes in a disaster state, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active strategies. Additional cost needs to be taken into consideration - mostly from compute, data and networking perspective, but also services like [Azure Site Recovery (ASR)](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)._
   > Deploy across multiple regions for higher availability.
-  
+  > 
   > *The ultimate goal is to set up the infrastructure in a way that it's able to automatically react to regional disasters. While active-active configuration would be the north star, not every workload requires two regions running simultaneously at all times, some don't even support it due to technical limitations. Depending on the availability, performance and cost requirements, passive or warm standby can be viable alternatives too.*
     - Were regions chosen based on location and proximity to your users or based on resource types that were available?
 
@@ -163,7 +163,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
   _Understanding customer availability expectations is vital to reviewing overall operations for the application. For instance, if a customer is striving to achieve an application SLO of 99.999%, the level of inherent operational activity required by the application is going to be far greater than if an SLO of 99.9% was the aspiration._
   > Have clearly defined availability targets.
-  
+  > 
   > *Having clearly defined availability targets is crucial in order to have a goal to work and measure against. This will also determine which services an application can leverage vs. those which do not qualify in terms of the Service Level Agreement (SLA) they offer.*
     - Are SLAs/SLOs/SLIs for all leveraged dependencies understood?
 
@@ -180,13 +180,13 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
       _The above defined targets might or might not be applied when running in Disaster Recovery (DR) mode. This depends from application to application._
       > Consider availability targets for disaster recovery mode.
-      
+      > 
       > *If targets must also apply in a failure state, then an N+1 model should be used to achieve greater availability and resiliency, where N is the capacity needed to deliver required availability. There's also a cost implication, because a more resilient infrastructure usually means more costs being involved. This has to be accepted by business.*
     - Are availability targets monitored and measured?
 
       _Monitoring and measuring application availability is vital to qualifying overall application health and progress towards defined targets._
       > Measure and monitor key availability targets.
-      
+      > 
       > *Make sure you measure and monitor key targets such as **Mean Time Between Failures (MTBF)** which denotes the average time between failures of a particular component.*
   
       Additional resources:
@@ -195,7 +195,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
       _Are there any penalties, such as financial charges, associated with failing to meet Service Level Agreement (SLA) commitments? Additional measures can be used to prevent penalties, but that also brings additional cost to operate the infrastructure. This has to be factored in and evaluated._
       > Understand the consequences of missing availability targets.
-      
+      > 
       > *It should be fully understood what are the consequences if availability targets are not satisfied. This will also inform when to initiate a failover case.*
 * Are recovery targets such as Recovery Time Objective (RTO) and Recovery Point Objective (RPO) defined for the application and/or key scenarios?
 
@@ -238,7 +238,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
   _Internal dependencies describe components within the application scope which are required for the application to fully operate, while external dependencies capture required components outside the scope of the application, such as another application or third-party service._
   > Categorize dependencies as either weak or strong.
-  
+  > 
   > *Dependencies may be categorized as either strong or weak based on whether or not the application is able to continue operating in a degraded fashion in their absence.*
     - Do you maintain a complete list of application dependencies?
 
@@ -269,7 +269,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
   _It is important to understand what technologies are used by the application and must be managed, such as .NET Core, Spring, or Node.js._
   > Identify technologies and frameworks used by the application.
-  
+  > 
   > *All technologies and frameworks should be identified. Vulnerabilities of these dependencies must be understood (there are automated solutions on the market that can help: [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/) or [NPM audit](https://docs.npmjs.com/cli/audit).*
   
     Additional resources:
@@ -292,7 +292,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
   _In order to successfully maintain the application it's important to 'turn the lights on' and have clear visibility of important metrics both in real-time and historically._
   > Use Application Performance Management tools.
-  
+  > 
   > *An APM technology, such as [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview), should be used to manage the performance and availability of the application, aggregating application level logs and events for subsequent interpretation. It should be considered what is the appropriate level of logging, because too much can incur significant costs.*
   
     Additional resources:
@@ -406,7 +406,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
   _DDoS attacks can be very debilitating and completely block access to your services or even take down the services, depending on the type of DDoS attack._
   > Mitigate DDoS attacks
-  
+  > 
   > *Use Azure DDoS Protection Standard for critical workloads where outage would have business impact. Also consider CDN as another layer of protection.*
 * Are you using Azure Front Door, Azure App Gateway or Web Application Firewall?
 
@@ -490,7 +490,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
   _Using tags can help to manage resources and make it easier to find relevant items during operational procedures._
   > Enforce naming conventions and resource tagging for all Azure resources
-  
+  > 
   > *[Azure Tags](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources) provide the ability to associate critical metadata as a name-value pair, such as billing information (e.g. cost center code), environment information (e.g. environment type), with Azure resources, resource groups, and subscriptions. See [Tagging Strategies](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging) for best practices.*
   
     Additional resources:
@@ -501,7 +501,7 @@ These critical design principles are used as lenses to assess the Cost Optimizat
 
   _A well-defined naming convention is important for overall operations to be able to easily determine the usage of certain resources and help understand owners and cost centers responsible for the workload. Naming conventions allow the matching of resource costs to particular workloads._
   > Implement a naming convention.
-  
+  > 
   > *Having a well-defined [naming convention](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging) is important for overall operations, particularly for large application platforms where there are numerous resources.*
   
     Additional resources:
