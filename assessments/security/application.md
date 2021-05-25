@@ -167,7 +167,9 @@ These critical design principles are used as lenses to assess the Security of an
 * What technologies and frameworks are used by the application?
 
   _It is important to understand what technologies are used by the application and must be managed, such as .NET Core, Spring, or Node.js._
-  > Identify technologies and frameworks used by the application.\n\nAll technologies and frameworks should be identified. Vulnerabilities of these dependencies must be understood (there are automated solutions on the market that can help: [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/) or [NPM audit](https://docs.npmjs.com/cli/audit).
+  > Identify technologies and frameworks used by the application.
+  
+    All technologies and frameworks should be identified. Vulnerabilities of these dependencies must be understood (there are automated solutions on the market that can help: [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/) or [NPM audit](https://docs.npmjs.com/cli/audit).
   
     Additional resources:
     - [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/)
@@ -350,7 +352,9 @@ These critical design principles are used as lenses to assess the Security of an
 * Does the organization have the capability and plans in place to mitigate DDoS attacks for this workload?
 
   _DDoS attacks can be very debilitating and completely block access to your services or even take down the services, depending on the type of DDoS attack._
-  > Mitigate DDoS attacks\n\nUse Azure DDoS Protection Standard for critical workloads where outage would have business impact. Also consider CDN as another layer of protection.
+  > Mitigate DDoS attacks
+  
+    Use Azure DDoS Protection Standard for critical workloads where outage would have business impact. Also consider CDN as another layer of protection.
 * Are you using any Content Delivery Networks (CDN)?
 
   _CDNs store static files in locations that are typically geographically closer to the user than the data center. This increases overall application performance as latency for delivery and downloading these artifacts is reduced. Also, from a security point of view, CDNs can be used to separate the hosting platform from end users. Azure CDN contains a rule engine to remove platform-specific information and headers. The use of Azure CDN or 3rd party CDN will have different cost implications depending on what is chosen for the workload._
@@ -628,7 +632,9 @@ These critical design principles are used as lenses to assess the Security of an
 * Are customer managed keys (CMK) for this workload stored in Azure Key Vault and protected with identity-based access control?
 
   _In many industries, regulations and compliance obligations require the use of workloads (typically databases) that not only encrypt data at rest, but do so by using encryption keys that end-users can control. The use of CMK exposes the workload to additional management responsibilities around key rotation and renewal, which in-turn can expose the workload to realiability risks, if not handled properly. Keys must be stored in a secure location with identity-based access control and audit policies. Data encryption keys are often encrypted with a key encryption key in Azure Key Vault to further limit access._
-  > Store customer managed keys in Azure Key Vault.\n\nFor general use, it is recommended to adopt platform managed keys, unless there are specific business reasons (like regulatory requirements) to use customer managed keys. Those keys should be always stored in Azure Key Vault.
+  > Store customer managed keys in Azure Key Vault.
+  
+    For general use, it is recommended to adopt platform managed keys, unless there are specific business reasons (like regulatory requirements) to use customer managed keys. Those keys should be always stored in Azure Key Vault.
     - Are customer managed keys (CMK) in this workload protected with an additional key encryption key (KEK)?
 
       _More than one encryption key should be used in an encryption at rest implementation. Storing an encryption key in Azure Key Vault ensures secure key access and central management of keys._
@@ -660,21 +666,27 @@ These critical design principles are used as lenses to assess the Security of an
 * How are passwords and other secrets managed?
 
   _API keys, database connection strings and passwords are all sensitive to leakage, occasionally require rotation and are prone to expiration. Storing them in a secure store and not within the application code or configuration simplifies operational tasks like key rotation as well as improving overall security._
-  > Store keys and secrets outside of application code in Azure Key Vault\n\nTools like Azure Key Vault or [HashiCorp Vault](https://www.vaultproject.io/) should be used to store and manage secrets securely rather than being baked into the application artefact during deployment, as this simplifies operational tasks like key rotation as well as improving overall security. Keys and secrets stored in source code should be identified with static code scanning tools. Ensure that these scans are an integrated part of the continuous integration (CI) process.
+  > Store keys and secrets outside of application code in Azure Key Vault
+  
+    Tools like Azure Key Vault or [HashiCorp Vault](https://www.vaultproject.io/) should be used to store and manage secrets securely rather than being baked into the application artefact during deployment, as this simplifies operational tasks like key rotation as well as improving overall security. Keys and secrets stored in source code should be identified with static code scanning tools. Ensure that these scans are an integrated part of the continuous integration (CI) process.
   
     Additional resources:
     - [HashiCorp Vault](https://www.vaultproject.io/)
 * Do you have procedures in place for secret rotation?
 
   _In the situation where a key or secret becomes compromised, it is important to be able to quickly act and generate new versions. Key rotation reduces the attack vectors and should be automated and executed without any human interactions._
-  > Establish a process for key management and automatic key rotation\n\nSecrets (keys, certificates etc.) should be replaced once they have reached the end of their active lifetime or once they have been compromised. Renewed certificates should also use a new key. A process needs to be in place for situations where keys get compromised (leaked) and need to be regenerated on-demand. Tools, such as Azure Key Vault should ideally be used to store and manage application secrets to help with [rotation processes](https://docs.microsoft.com/azure/key-vault/secrets/tutorial-rotation-dual).
+  > Establish a process for key management and automatic key rotation
+  
+    Secrets (keys, certificates etc.) should be replaced once they have reached the end of their active lifetime or once they have been compromised. Renewed certificates should also use a new key. A process needs to be in place for situations where keys get compromised (leaked) and need to be regenerated on-demand. Tools, such as Azure Key Vault should ideally be used to store and manage application secrets to help with [rotation processes](https://docs.microsoft.com/azure/key-vault/secrets/tutorial-rotation-dual).
   
     Additional resources:
     - [Secret rotation process tutorial](https://docs.microsoft.com/azure/key-vault/secrets/tutorial-rotation-dual)
 * Does the application use Managed Identities?
 
   _[Managed Identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) in Azure can be used to securely access Azure services while removing the need to store the secrets or certificates of Service Principals._
-  > Use Managed Identities for authentication to other Azure platform services\n\nWherever possible Azure Managed Identities (either system-managed or user-managed) should be used since they remove the management burden of storing and rotating keys for service principles. Thus, they provide higher security as well as easier maintenance.
+  > Use Managed Identities for authentication to other Azure platform services
+  
+    Wherever possible Azure Managed Identities (either system-managed or user-managed) should be used since they remove the management burden of storing and rotating keys for service principles. Thus, they provide higher security as well as easier maintenance.
   
     Additional resources:
     - [Managed Identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
@@ -716,7 +728,9 @@ These critical design principles are used as lenses to assess the Security of an
 * Are there playbooks built to help incident responders quickly understand the workload and components to mitigate an attack and investigate?
 
   _Incident responders are part of a central SecOps team and need to understand security insights of an application. Playbooks can help to understand the security concepts and cover the typical investigation activities. These procedures can and should be automated as much as possible (while maintaining confidence and security)._
-  > Implement security playbooks for incident response\n\nIt is recommended to automate as many steps of the investigation and response procedures as you can. Automation reduces overhead. It can also improve your security by ensuring the process steps are done quickly, consistently, and according to your predefined requirements.
+  > Implement security playbooks for incident response
+  
+    It is recommended to automate as many steps of the investigation and response procedures as you can. Automation reduces overhead. It can also improve your security by ensuring the process steps are done quickly, consistently, and according to your predefined requirements.
 * Does the organization have a Security Operations Center (SOC) that leverages a modern security approach?
 
   _A SOC has a critical role in limiting the time and access an attacker can get to valuable systems and data.  In addition, it provides the vital role of detecting the presence of adversaries, reacting to an alert of suspicious activity, or proactively hunting for anomalous events in the enterprise activity logs._
@@ -823,7 +837,9 @@ These critical design principles are used as lenses to assess the Security of an
 * Does the organization have the appropriate emergency access accounts configured for this workload in case of an emergency?
 
   _While rare, sometimes extreme circumstances arise where all normal means of administrative access are unavailable and for this reason emergency access accounts (also refered to as 'break glass' accounts) should be available. These accounts are strictly controlled in accordance with best practice guidance, and they are closely monitored for unsanctioned use to ensure they are not compromised or used for nefarious purposes._
-  > Configure emergency access accounts\n\nThe impact of no administrative access can be mitigated by creating two or more [emergency access accounts](https://docs.microsoft.com/azure/active-directory/roles/security-emergency-access) in Azure AD.
+  > Configure emergency access accounts
+  
+    The impact of no administrative access can be mitigated by creating two or more [emergency access accounts](https://docs.microsoft.com/azure/active-directory/roles/security-emergency-access) in Azure AD.
   
     Additional resources:
     - [Emergency Access Accounts](https://docs.microsoft.com/azure/active-directory/roles/security-emergency-access)
@@ -838,14 +854,18 @@ These critical design principles are used as lenses to assess the Security of an
 * Are there any regulatory or governance requirements for this workload?
 
   _Regulatory requirements may mandate that operational data, such as application logs and metrics, remain within a certain geo-political region. This has obvious implications for how the application should be operationalized._
-  > Make sure that all regulatory requirements are known and well understood\n\nCreate processes for obtaining attestations and be familiar with the [Microsoft Trust Center](https://www.microsoft.com/trust-center). Regulatory requirements like data sovereignty and others might affect the overall architecture as well as the selection and configuration of specific PaaS and SaaS services.
+  > Make sure that all regulatory requirements are known and well understood
+  
+    Create processes for obtaining attestations and be familiar with the [Microsoft Trust Center](https://www.microsoft.com/trust-center). Regulatory requirements like data sovereignty and others might affect the overall architecture as well as the selection and configuration of specific PaaS and SaaS services.
   
     Additional resources:
     - [Microsoft Trust Center](https://www.microsoft.com/trust-center)
 * Are Azure Tags used to enrich Azure resources with operational metadata?
 
   _Using tags can help to manage resources and make it easier to find relevant items during operational procedures._
-  > Enforce naming conventions and resource tagging for all Azure resources\n\n[Azure Tags](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources) provide the ability to associate critical metadata as a name-value pair, such as billing information (e.g. cost center code), environment information (e.g. environment type), with Azure resources, resource groups, and subscriptions. See [Tagging Strategies](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging) for best practices.
+  > Enforce naming conventions and resource tagging for all Azure resources
+  
+    [Azure Tags](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources) provide the ability to associate critical metadata as a name-value pair, such as billing information (e.g. cost center code), environment information (e.g. environment type), with Azure resources, resource groups, and subscriptions. See [Tagging Strategies](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging) for best practices.
   
     Additional resources:
     - [Use tags to organize your Azure resources and management hierarchy](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources)
