@@ -108,13 +108,13 @@ These critical design principles are used as lenses to assess the Reliability of
 * Is the workload deployed across multiple regions?
 
   _Multiple regions should be used for failover purposes in a disaster state, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active strategies. Additional cost needs to be taken into consideration - mostly from compute, data and networking perspective, but also services like [Azure Site Recovery (ASR)](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)._
-  > Deploy across multiple regions for higher availability.
+  > Deploy across multiple regions for higher availability
   > 
   > *The ultimate goal is to set up the infrastructure in a way that it's able to automatically react to regional disasters. While active-active configuration would be the north star, not every workload requires two regions running simultaneously at all times, some don't even support it due to technical limitations. Depending on the availability, performance and cost requirements, passive or warm standby can be viable alternatives too.*
     - Were regions chosen based on location and proximity to your users or based on resource types that were available?
 
       _Not only is it important to utilize regions close to your audience, but it is equally important to choose regions that offer the SKUs that will support your future growth. Not all regions share the same parity when it comes to product SKUs._
-      > Plan your growth, then choose regions that will support those plans.
+      > Plan your growth, then choose regions that will support those plans
   
       Additional resources:
         - [Products available by region](https://azure.microsoft.com/global-infrastructure/services/)
@@ -138,7 +138,7 @@ These critical design principles are used as lenses to assess the Reliability of
 * Within a region is the application architecture designed to use Availability Zones?
 
   _[Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones) can be used to optimize application availability within a region by providing datacenter level fault tolerance. However, the application architecture must not share dependencies between zones to use them effectively. It is also important to note that Availability Zones may introduce performance and cost considerations for applications which are extremely 'chatty' across zones given the implied physical separation between each zone and inter-zone bandwidth charges. That also means that AZ can be considered to get higher Service Level Agreement (SLA) for lower cost. Be aware of [pricing changes](https://azure.microsoft.com/pricing/details/bandwidth/) coming to Availability Zone bandwidth starting February 2021._
-  > Use Availability Zones where applicable to improve reliability and optimize costs.
+  > Use Availability Zones where applicable to improve reliability and optimize costs
   
     Additional resources:
     - [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones)
@@ -157,7 +157,7 @@ These critical design principles are used as lenses to assess the Reliability of
 * Is the application designed to use managed services?
 
   _Platform-as-a-Service (PaaS) services provide native resiliency capabilities to support overall application reliability and native capabilities for scalability, monitoring and disaster recovery._
-  > Where possible prefer Platform-as-a-Service (PaaS) offerings to leverage their advanced capabilities and to avoid managing the underlying infrastructure.
+  > Where possible prefer Platform-as-a-Service (PaaS) offerings to leverage their advanced capabilities and to avoid managing the underlying infrastructure
   
     Additional resources:
     - [Use managed services](https://docs.microsoft.com/azure/architecture/guide/design-principles/managed-services)
@@ -166,7 +166,7 @@ These critical design principles are used as lenses to assess the Reliability of
 * Has the application been designed to scale-out?
 
   _Azure provides elastic scalability, however, applications must leverage a scale-unit approach to navigate service and subscription limits to ensure that individual components and the application as a whole can scale horizontally. Don't forget about scale in as well, as this is important to drive cost down. For example, scale in and out for App Service is done via rules. Often customers write scale out rule and never write scale in rule, this leaves the App Service more expensive._
-  > Design your solution with scalability in mind, leverage PaaS capabilities to [scale out](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out) and in by adding additional instances when needed.
+  > Design your solution with scalability in mind, leverage PaaS capabilities to [scale out](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out) and in by adding additional instances when needed
   
     Additional resources:
     - [Design to scale out](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out)
@@ -208,30 +208,30 @@ These critical design principles are used as lenses to assess the Reliability of
 * Are availability targets such as Service Level Agreements (SLAs), Service Level Indicators (SLIs), and Service Level Objectives (SLOs) defined for the application and/or key scenarios?
 
   _Understanding customer availability expectations is vital to reviewing overall operations for the application. For instance, if a customer is striving to achieve an application SLO of 99.999%, the level of inherent operational activity required by the application is going to be far greater than if an SLO of 99.9% was the aspiration._
-  > Have clearly defined availability targets.
+  > Have clearly defined availability targets
   > 
   > *Having clearly defined availability targets is crucial in order to have a goal to work and measure against. This will also determine which services an application can leverage vs. those which do not qualify in terms of the Service Level Agreement (SLA) they offer.*
     - Are SLAs/SLOs/SLIs for all leveraged dependencies understood?
 
       _If the application is depending on external services, their availability targets/commitments should be understood and ideally aligned with application targets._
-      > Make sure SLAs/SLOs/SLIs for all leveraged dependencies are understood.
+      > Make sure SLAs/SLOs/SLIs for all leveraged dependencies are understood
     - Has a composite Service-Level Agreement (SLA) been calculated for the application and/or key scenarios using Azure SLAs?
 
       _A [composite SLA](https://docs.microsoft.com/azure/architecture/framework/resiliency/business-metrics#understand-service-level-agreements) captures the end-to-end SLA across all application components and dependencies. It is calculated using the individual SLAs of Azure services housing application components and provides an important indicator of designed availability in relation to customer expectations and targets._
-      > Make sure the composite SLA of all components and dependencies on the critical paths are understood.
+      > Make sure the composite SLA of all components and dependencies on the critical paths are understood
   
       Additional resources:
         - [Composite Service Level Agreement (SLA)](https://docs.microsoft.com/azure/architecture/framework/resiliency/business-metrics#understand-service-level-agreements)
     - Are availability targets considered while the system is running in disaster recovery mode?
 
       _The above defined targets might or might not be applied when running in Disaster Recovery (DR) mode. This depends from application to application._
-      > Consider availability targets for disaster recovery mode.
+      > Consider availability targets for disaster recovery mode
       > 
       > *If targets must also apply in a failure state, then an N+1 model should be used to achieve greater availability and resiliency, where N is the capacity needed to deliver required availability. There's also a cost implication, because a more resilient infrastructure usually means more costs being involved. This has to be accepted by business.*
     - Are availability targets monitored and measured?
 
       _Monitoring and measuring application availability is vital to qualifying overall application health and progress towards defined targets._
-      > Measure and monitor key availability targets.
+      > Measure and monitor key availability targets
       > 
       > *Make sure you measure and monitor key targets such as **Mean Time Between Failures (MTBF)** which denotes the average time between failures of a particular component.*
   
@@ -240,13 +240,13 @@ These critical design principles are used as lenses to assess the Reliability of
     - What are the consequences if availability targets are not satisfied?
 
       _Are there any penalties, such as financial charges, associated with failing to meet Service Level Agreement (SLA) commitments? Additional measures can be used to prevent penalties, but that also brings additional cost to operate the infrastructure. This has to be factored in and evaluated._
-      > Understand the consequences of missing availability targets.
+      > Understand the consequences of missing availability targets
       > 
       > *It should be fully understood what are the consequences if availability targets are not satisfied. This will also inform when to initiate a failover case.*
 * Are recovery targets such as Recovery Time Objective (RTO) and Recovery Point Objective (RPO) defined for the application and/or key scenarios?
 
   _Understanding customer reliability expectations is vital to reviewing the overall reliability of the application. For instance, if a customer is striving to achieve an application RTO of less than a minute then back-up based and active-passive disaster recovery strategies are unlikely to be appropriate<br />**Recovery time objective (RTO)**: The maximum acceptable time the application is unavailable after a disaster incident<br />**Recovery point objective (RPO)**: The maximum duration of data loss that is acceptable during a disaster event_
-  > Recovery targets should be defined in accordance to the required RTO and RPO targets for the workloads.
+  > Recovery targets should be defined in accordance to the required RTO and RPO targets for the workloads
   
     Additional resources:
     - [Protect and recover in cloud management](https://docs.microsoft.com/azure/cloud-adoption-framework/manage/considerations/protect)
@@ -255,24 +255,24 @@ These critical design principles are used as lenses to assess the Reliability of
 * Are all internal and external dependencies identified and categorized as either weak or strong?
 
   _Internal dependencies describe components within the application scope which are required for the application to fully operate, while external dependencies capture required components outside the scope of the application, such as another application or third-party service._
-  > Categorize dependencies as either weak or strong.
+  > Categorize dependencies as either weak or strong
   > 
   > *Dependencies may be categorized as either strong or weak based on whether or not the application is able to continue operating in a degraded fashion in their absence.*
     - Do you maintain a complete list of application dependencies?
 
       _Examples of typical dependencies include platform dependencies outside the remit of the application, such as Azure Active Directory, Express Route, or a central NVA (Network Virtual Appliance), as well as application dependencies such as APIs which may be in-house or externally owned by a third-party. For cost it’s important to understand the price for these services and how they are being charged, this makes it easier to understanding an all-up cost. For more details see cost models._
-      > Map application dependencies either as a simple list or a document (usually this is part of a design document or reference architecture).
+      > Map application dependencies either as a simple list or a document (usually this is part of a design document or reference architecture)
     - Is the impact of an outage with each dependency well understood?
 
       _Strong dependencies play a critical role in application function and availability meaning their absence will have a significant impact, while the absence of weak dependencies may only impact specific features and not affect overall availability. This reflects the cost that is needed to maintain the HA relationship between the service and its dependencies. It would explain why certain measures needs to be maintained in order to hold a given Service Level Agreement (SLA)._
-      > Classify dependencies either as strong or weak. This will help identify which components are essential to the application.
+      > Classify dependencies either as strong or weak. This will help identify which components are essential to the application
   
     Additional resources:
     - [Twelve-Factor App: Dependencies](https://12factor.net/dependencies)
 * Are Service Level Agreement (SLA) and support agreements in place for all critical dependencies?
 
   _Service Level Agreement (SLA) represents a commitment around performance and availability of the application. Understanding the Service Level Agreement (SLA) of individual components within the system is essential in order to define reliability targets. Knowing the SLA of dependencies will also provide a justification for additional spend when making the dependencies highly available and with proper support contracts._
-  > The operational commitments of all external and internal dependencies should be understood to inform the broader application operations and health model.
+  > The operational commitments of all external and internal dependencies should be understood to inform the broader application operations and health model
 * Are all platform-level dependencies identified and understood?
 
   _The usage of platform level dependencies such as Azure Active Directory must also be understood to ensure that their availability and recovery targets align with that of the application._
@@ -345,7 +345,7 @@ These critical design principles are used as lenses to assess the Reliability of
     - [Telemetry correlation](https://docs.microsoft.com/azure/azure-monitor/app/correlation)
 * Is a health model used to qualify what 'healthy' and 'unhealthy' states represent for the application?
 
-  > Implement a health model.
+  > Implement a health model
   > 
   > *A holistic application health model should be used to quantify what 'healthy' and 'unhealthy' states represent across all application components. It is highly recommended that a 'traffic light' model be used to indicate a green/healthy state when key non-functional requirements and targets are fully satisfied and resources are optimally utilized, e.g. 95% of requests are processed in <= 500ms with Azure Kubernetes Service (AKS) node utilization at x% etc. Once established, this health model should inform critical monitoring metrics across system components and operational sub-system composition. It is important to note that the health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state.*
     - Are critical system flows used to inform the health model?
@@ -354,10 +354,10 @@ These critical design principles are used as lenses to assess the Reliability of
     - Can the health model distinguish between transient and non-transient faults?
 
       _Is the health model treating all failures the same?_
-      > The health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state.
+      > The health model should clearly distinguish between expected transient but recoverable failures and a true disaster state
     - Can the health model determine if the application is performing at expected performance targets?
 
-      _The health model should have the ability to evaluate application performance as a part of the application's overall health state._
+      _The health model should have the ability to evaluate application performance as a part of the application's overall health state_
 ### Alerting
             
 * Have Azure Service Health alerts been created to respond to Service-level events?
@@ -581,7 +581,7 @@ These critical design principles are used as lenses to assess the Reliability of
 * Are there any mitigation plans defined in case data size exceeds limits?
 
   _Mitigation plans such as purging or archiving data can help the application to remain available in scenarios where data size exceeds expected limits._
-  > Make sure that data size and growth is monitored, proper alerts are configured and develop (automated and codified, if possible) mitigation plans to help the application to remain available - or to recover if needed.
+  > Make sure that data size and growth is monitored, proper alerts are configured and develop (automated and codified, if possible) mitigation plans to help the application to remain available - or to recover if needed
 ### Network Throughput and Latency
             
 * Does the application require long running TCP connections?
@@ -599,7 +599,7 @@ These critical design principles are used as lenses to assess the Reliability of
 * Have gateways (ExpressRoute or VPN) been sized accordingly to the expected cross-premises network throughput?
 
   _Azure Virtual Network Gateways throughput varies based on SKU._
-  > Consider sizing gateways according to required throughput based on the available [VPN Gateway SKUs](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku).
+  > Consider sizing gateways according to required throughput based on the available [VPN Gateway SKUs](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku)
   
     Additional resources:
     - [VPN Gateway SKUs](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku)
@@ -675,7 +675,7 @@ These critical design principles are used as lenses to assess the Reliability of
     - Can individual processes and components of the application failover independently?
 
       _For example, is it possible to failover the compute cluster to a secondary region while keeping the database running in the primary region?_
-      > Ideally failover can happen on a component-level instead of needing to failover the entire system together, when, for instance, only one service experiences an outage.
+      > Ideally failover can happen on a component-level instead of needing to failover the entire system together, when, for instance, only one service experiences an outage
 * Are automated recovery procedures in place for common failure event?
 
   _Is there at least some automation for certain failure scenarios or are all those depending on manual intervention?_
@@ -686,16 +686,16 @@ These critical design principles are used as lenses to assess the Reliability of
 * Are critical manual processes defined and documented for manual failure responses?
 
   _While full automation is attainable, there might be cases where manual steps cannot be avoided._
-  > Operational runbooks should be defined to codify the procedures and relevant information needed for operations staff to respond to failures and maintain operational health.
+  > Operational runbooks should be defined to codify the procedures and relevant information needed for operations staff to respond to failures and maintain operational health
     - Are these manual operational runbooks tested and validated on a regular basis?
 
-      > Manual operational runbooks should be tested frequently as part of the normal application lifecycle to ensure appropriateness and efficiency.
+      > Manual operational runbooks should be tested frequently as part of the normal application lifecycle to ensure appropriateness and efficiency
 ### Configuration &amp; Secrets Management
             
 * Where is application configuration information stored and how does the application access it?
 
   _Application configuration information can be stored together with the application itself or preferably using a dedicated configuration management system like Azure App Configuration or Azure Key Vault._
-  > Preferably configuration information is stored using a dedicated configuration management system like Azure App Configuration or Azure Key Vault so that it can be updated independently of the application code.
+  > Preferably configuration information is stored using a dedicated configuration management system like Azure App Configuration or Azure Key Vault so that it can be updated independently of the application code
 * Do you have procedures in place for secret rotation?
 
   _In the situation where a key or secret becomes compromised, it is important to be able to quickly act and generate new versions. Key rotation reduces the attack vectors and should be automated and executed without any human interactions._
@@ -711,21 +711,21 @@ These critical design principles are used as lenses to assess the Reliability of
   > Keys and secrets should be backed up to geo-redundant storage so that they can be accessed in the event of a regional failure and support recovery objectives. In the event of a regional outage, the Key Vault service will automatically be failed over to the secondary region in a read-only state.
     - Are certificate/key backups and data backups stored in different geo-redundant storage accounts?
 
-      > Encryption keys and data should be backed up separately to optimize the security of underlying data.
+      > Encryption keys and data should be backed up separately to optimize the security of underlying data
   
     Additional resources:
     - [Azure Key Vault availability and reliability](https://docs.microsoft.com/azure/key-vault/general/disaster-recovery-guidance)
 * Is Soft-Delete enabled for Key Vaults and Key Vault objects?
 
   _The [Soft-Delete feature](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete) retains resources for a given retention period after a DELETE operation has been performed, while giving the appearance that the object is deleted. It helps to mitigate scenarios where resources are unintentionally, maliciously or incorrectly deleted._
-  > It is highly recommended to enable Key Vault Soft-Delete.
+  > Enable Key Vault Soft-Delete
   
     Additional resources:
     - [Azure Key Vault Soft-Delete](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete)
 * Is the application stateless or stateful? If it is stateful, is the state externalized in a data store?
 
   _[Stateless services](https://docs.microsoft.com/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices) and processes can easily be hosted across multiple compute instances to meet scale demands, as well as helping to reduce complexity and ensure high cacheability._
-  > Use externalized data store for stateful applications.
+  > Use externalized data store for stateful applications
   
     Additional resources:
     - [Stateless web services](https://docs.microsoft.com/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices)
@@ -742,18 +742,18 @@ These critical design principles are used as lenses to assess the Reliability of
 * Can the application be deployed automatically from scratch without any manual operations?
 
   _Manual deployment steps introduce significant risks where human error is concerned and also increases overall deployment times._
-  > Automated end-to-end deployments, with manual approval gates where necessary, should be used to ensure a consistent and efficient deployment process.
+  > Automated end-to-end deployments, with manual approval gates where necessary, should be used to ensure a consistent and efficient deployment process
     - Is there a documented process for any portions of the deployment that require manual intervention?
 
       _Without detailed release process documentation, there is a much higher risk of an operator improperly configuring settings for the application._
-      > Any manual steps that are required in the deployment pipeline must be clearly documented with roles and responsibilities well defined.
+      > Any manual steps that are required in the deployment pipeline must be clearly documented with roles and responsibilities well defined
   
     Additional resources:
     - [Deployment considerations for DevOps](https://docs.microsoft.com/azure/architecture/framework/devops/deployment)
 * How long does it take to deploy an entire production environment?
 
   _The time it takes for a full deployment needs to align with recovery targets._
-  > The entire end-to-end deployment process should be understood and align with recovery targets.
+  > The entire end-to-end deployment process should be understood and align with recovery targets
 * Can N-1 or N+1 versions be deployed via automated pipelines where N is current deployment version in production?
 
   _N-1 and N+1 refer to roll-back and roll-forward. Automated deployment pipelines should allow for quick roll-forward and roll-back deployments to address critical bugs and code updates outside of the normal deployment lifecycle._
@@ -770,13 +770,13 @@ These critical design principles are used as lenses to assess the Reliability of
 * Do critical test environments have 1:1 parity with the production environment?
 
   _Do test environment differ from production in more than just smaller SKUs being used, e.g. by sharing components between different environments?_
-  > To completely validate the suitability of application changes, all changes should be tested in an environment that is fully reflective of production, to ensure there is no potential impact from environment deltas.
+  > To completely validate the suitability of application changes, all changes should be tested in an environment that is fully reflective of production, to ensure there is no potential impact from environment deltas
 ### Testing &amp; Validation
             
 * Is the application tested for performance, scalability, and resiliency?
 
   _**Performance testing** is the superset of both load and stress testing. The primary goal of performance testing is to validate benchmark behavior for the application.<br />**Load Testing** validates application scalability by rapidly and/or gradually increasing the load on the application until it reaches a threshold/limit.<br />**Stress Testing** is a type of negative testing which involves various activities to overload existing resources and remove components to understand overall resiliency and how the application responds to issues._
-  > Define a testing strategy.
+  > Define a testing strategy
     - How does your team perceive the importance of performance testing?
 
       _It is critical that your team understands the importance of performance testing. Additionally, the team should be committed to providing the necessary time and resources for adequately executing performance testing proven practices._

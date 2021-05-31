@@ -54,7 +54,7 @@
     "title": "Does the application have components on-premises or in another cloud platform?",
     "context": "Hybrid and cross-cloud workloads with components on-premises or on different cloud platforms, such as AWS or GCP, introduce additional operational considerations around achieving a 'single pane of glass' for operations.",
     "recommendation": {
-      "title": "Make sure that any hybrid or cross cloud relationships and dependencies are well understood.",
+      "title": "Make sure that any hybrid or cross cloud relationships and dependencies are well understood",
       "context": "",
       "links": [],
       "priority": 50
@@ -75,7 +75,7 @@
     "title": "Is the workload deployed across multiple regions?",
     "context": "Multiple regions should be used for failover purposes in a disaster state, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active strategies. Additional cost needs to be taken into consideration - mostly from compute, data and networking perspective, but also services like [Azure Site Recovery (ASR)](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview).",
     "recommendation": {
-      "title": "Deploy across multiple regions for higher availability.",
+      "title": "Deploy across multiple regions for higher availability",
       "context": "The ultimate goal is to set up the infrastructure in a way that it's able to automatically react to regional disasters. While active-active configuration would be the north star, not every workload requires two regions running simultaneously at all times, some don't even support it due to technical limitations. Depending on the availability, performance and cost requirements, passive or warm standby can be viable alternatives too.",
       "links": [
         {
@@ -95,7 +95,7 @@
         "title": "Were regions chosen based on location and proximity to your users or based on resource types that were available?",
         "context": "Not only is it important to utilize regions close to your audience, but it is equally important to choose regions that offer the SKUs that will support your future growth. Not all regions share the same parity when it comes to product SKUs.",
         "recommendation": {
-          "title": "Plan your growth, then choose regions that will support those plans.",
+          "title": "Plan your growth, then choose regions that will support those plans",
           "links": [
             {
               "title": "Products available by region",
@@ -154,7 +154,7 @@
     "title": "Within a region is the application architecture designed to use Availability Zones?",
     "context": "[Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones) can be used to optimize application availability within a region by providing datacenter level fault tolerance. However, the application architecture must not share dependencies between zones to use them effectively. It is also important to note that Availability Zones may introduce performance and cost considerations for applications which are extremely 'chatty' across zones given the implied physical separation between each zone and inter-zone bandwidth charges. That also means that AZ can be considered to get higher Service Level Agreement (SLA) for lower cost. Be aware of [pricing changes](https://azure.microsoft.com/pricing/details/bandwidth/) coming to Availability Zone bandwidth starting February 2021.",
     "recommendation": {
-      "title": "Use Availability Zones where applicable to improve reliability and optimize costs.",
+      "title": "Use Availability Zones where applicable to improve reliability and optimize costs",
       "context": "",
       "links": [
         {
@@ -236,7 +236,7 @@
     "title": "Does the application have a well-defined naming standard for Azure resources?",
     "context": "A well-defined naming convention is important for overall operations to be able to easily determine the usage of certain resources and help understand owners and cost centers responsible for the workload. Naming conventions allow the matching of resource costs to particular workloads.",
     "recommendation": {
-      "title": "Implement a naming convention.",
+      "title": "Implement a naming convention",
       "context": "Having a well-defined [naming convention](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging) is important for overall operations, particularly for large application platforms where there are numerous resources.",
       "links": [
         {
@@ -261,7 +261,7 @@
     "title": "Are availability targets such as Service Level Agreements (SLAs), Service Level Indicators (SLIs), and Service Level Objectives (SLOs) defined for the application and/or key scenarios?",
     "context": "Understanding customer availability expectations is vital to reviewing overall operations for the application. For instance, if a customer is striving to achieve an application SLO of 99.999%, the level of inherent operational activity required by the application is going to be far greater than if an SLO of 99.9% was the aspiration.",
     "recommendation": {
-      "title": "Have clearly defined availability targets.",
+      "title": "Have clearly defined availability targets",
       "context": "Having clearly defined availability targets is crucial in order to have a goal to work and measure against. This will also determine which services an application can leverage vs. those which do not qualify in terms of the Service Level Agreement (SLA) they offer.",
       "links": [],
       "priority": 50
@@ -272,7 +272,7 @@
         "title": "Are SLAs/SLOs/SLIs for all leveraged dependencies understood?",
         "context": "If the application is depending on external services, their availability targets/commitments should be understood and ideally aligned with application targets.",
         "recommendation": {
-          "title": "Make sure SLAs/SLOs/SLIs for all leveraged dependencies are understood.",
+          "title": "Make sure SLAs/SLOs/SLIs for all leveraged dependencies are understood",
           "context": "",
           "links": [],
           "priority": 50
@@ -283,7 +283,7 @@
         "title": "Has a composite Service-Level Agreement (SLA) been calculated for the application and/or key scenarios using Azure SLAs?",
         "context": "A [composite SLA](https://docs.microsoft.com/azure/architecture/framework/resiliency/business-metrics#understand-service-level-agreements) captures the end-to-end SLA across all application components and dependencies. It is calculated using the individual SLAs of Azure services housing application components and provides an important indicator of designed availability in relation to customer expectations and targets.",
         "recommendation": {
-          "title": "Make sure the composite SLA of all components and dependencies on the critical paths are understood.",
+          "title": "Make sure the composite SLA of all components and dependencies on the critical paths are understood",
           "context": "",
           "links": [
             {
@@ -299,7 +299,7 @@
         "title": "Are availability targets considered while the system is running in disaster recovery mode?",
         "context": "The above defined targets might or might not be applied when running in Disaster Recovery (DR) mode. This depends from application to application.",
         "recommendation": {
-          "title": "Consider availability targets for disaster recovery mode.",
+          "title": "Consider availability targets for disaster recovery mode",
           "context": "If targets must also apply in a failure state, then an N+1 model should be used to achieve greater availability and resiliency, where N is the capacity needed to deliver required availability. There's also a cost implication, because a more resilient infrastructure usually means more costs being involved. This has to be accepted by business.",
           "links": [],
           "priority": 50
@@ -310,7 +310,7 @@
         "title": "Are availability targets monitored and measured?",
         "context": "Monitoring and measuring application availability is vital to qualifying overall application health and progress towards defined targets.",
         "recommendation": {
-          "title": "Measure and monitor key availability targets.",
+          "title": "Measure and monitor key availability targets",
           "context": "Make sure you measure and monitor key targets such as **Mean Time Between Failures (MTBF)** which denotes the average time between failures of a particular component.",
           "links": [
             {
@@ -326,7 +326,7 @@
         "title": "What are the consequences if availability targets are not satisfied?",
         "context": "Are there any penalties, such as financial charges, associated with failing to meet Service Level Agreement (SLA) commitments? Additional measures can be used to prevent penalties, but that also brings additional cost to operate the infrastructure. This has to be factored in and evaluated.",
         "recommendation": {
-          "title": "Understand the consequences of missing availability targets.",
+          "title": "Understand the consequences of missing availability targets",
           "context": "It should be fully understood what are the consequences if availability targets are not satisfied. This will also inform when to initiate a failover case.",
           "links": [],
           "priority": 50
@@ -348,7 +348,7 @@
     "title": "Are recovery targets such as Recovery Time Objective (RTO) and Recovery Point Objective (RPO) defined for the application and/or key scenarios?",
     "context": "Understanding customer reliability expectations is vital to reviewing the overall reliability of the application. For instance, if a customer is striving to achieve an application RTO of less than a minute then back-up based and active-passive disaster recovery strategies are unlikely to be appropriate<br />**Recovery time objective (RTO)**: The maximum acceptable time the application is unavailable after a disaster incident<br />**Recovery point objective (RPO)**: The maximum duration of data loss that is acceptable during a disaster event",
     "recommendation": {
-      "title": "Recovery targets should be defined in accordance to the required RTO and RPO targets for the workloads.",
+      "title": "Recovery targets should be defined in accordance to the required RTO and RPO targets for the workloads",
       "context": "",
       "links": [
         {
@@ -373,7 +373,7 @@
     "title": "Are you able to predict general application usage?",
     "context": "It is important to understand application and environment usage. The customer may have an understanding of certain seasons or incidents that increase user load (e.g. a weather service being hit by users facing a storm, an e-commerce site during the holiday season).",
     "recommendation": {
-      "title": "Traffic patterns should be identified by analyzing historical traffic data and the effect of significant external events on the application.",
+      "title": "Traffic patterns should be identified by analyzing historical traffic data and the effect of significant external events on the application",
       "context": "",
       "links": [],
       "priority": 50
@@ -438,7 +438,7 @@
     "title": "Are there well-defined performance requirements for the application and/or key scenarios?",
     "context": "Non-functional performance requirements, such as those relating to end-user experiences (e.g. average and maximum response times) are vital to assessing the overall health of an application, and is a critical lens required for assessing operations.",
     "recommendation": {
-      "title": "Identify sensible non-functional requirements.",
+      "title": "Identify sensible non-functional requirements",
       "context": "Work with stakeholders to identify sensible non-functional requirements based on business requirements, research and user testing.",
       "links": [],
       "priority": 50
@@ -449,7 +449,7 @@
         "title": "Are there any targets defined for the time it takes to perform scale operations?",
         "context": "Scale operations (horizontal - changing the number of identical instances, vertical - switching to more/less powerful instances) can be fast, but usually take time to complete. It's important to understand how this delay affects the application under load and if degraded performance is acceptable.",
         "recommendation": {
-          "title": "The application should be designed to scale to cope with spikes in load in-line with what is an acceptable duration for degraded performance.",
+          "title": "The application should be designed to scale to cope with spikes in load in-line with what is an acceptable duration for degraded performance",
           "context": "",
           "links": [],
           "priority": 50
@@ -460,7 +460,7 @@
         "title": "What is the maximum traffic volume the application is expected to serve without performance degradation?",
         "context": "Scale requirements the application must be able to effectively satisfy, such as the number of concurrent users or requests per second, is a critical lens for assessing operations. From the cost perspective, it's recommended to set a budget for extreme circumstances and indicate upper limit for cost (when it's not worth serving more traffic due to overall costs).",
         "recommendation": {
-          "title": "Traffic limits for the application should be defined in quantified and measurable manner.",
+          "title": "Traffic limits for the application should be defined in quantified and measurable manner",
           "context": "",
           "links": [],
           "priority": 50
@@ -471,7 +471,7 @@
         "title": "Are these performance targets monitored and measured across the application and/or key scenarios?",
         "context": "Monitoring and measuring end-to-end application performance is vital to qualifying overall application health and progress towards defined targets.",
         "recommendation": {
-          "title": "Automation and specialized tooling (such as Application Insights) should be used to orchestrate and measure application performance.",
+          "title": "Automation and specialized tooling (such as Application Insights) should be used to orchestrate and measure application performance",
           "context": "",
           "links": [],
           "priority": 50
@@ -492,7 +492,7 @@
     "title": "Have critical system flows through the application been defined for all key business scenarios?",
     "context": "Understanding critical system flows is vital to assessing overall operational effectiveness, and should be used to inform a health model for the application. It can also tell if areas of the application are over or under-utilized and should be adjusted to better meet business needs and cost goals.",
     "recommendation": {
-      "title": "Path-wise analysis should be used to define critical system flows for key business scenarios, such as the checkout process for an eCommerce application.",
+      "title": "Path-wise analysis should be used to define critical system flows for key business scenarios, such as the checkout process for an eCommerce application",
       "context": "",
       "links": [],
       "priority": 50
@@ -503,7 +503,7 @@
         "title": "Do these critical system flows have distinct availability, performance, or recovery targets?",
         "context": "Critical sub-systems or paths through the application may have higher expectations around availability, recovery, and performance due to the criticality of associated business scenarios and functionality. This also helps to understand if cost will be affected due to these higher needs.",
         "recommendation": {
-          "title": "Targets should be specific and measurable.",
+          "title": "Targets should be specific and measurable",
           "context": "",
           "links": [],
           "priority": 50
@@ -524,7 +524,7 @@
     "title": "Are there any application components which are less critical and have lower availability or performance requirements?",
     "context": "Some less critical components or paths through the application may have lower expectations around availability, recovery, and performance. This can result in cost reduction by choosing lower SKUs with less performance and availability.",
     "recommendation": {
-      "title": "Identify if there are components with more relaxed performance requirements.",
+      "title": "Identify if there are components with more relaxed performance requirements",
       "context": "",
       "links": [],
       "priority": 50
@@ -544,7 +544,7 @@
     "title": "Are all internal and external dependencies identified and categorized as either weak or strong?",
     "context": "Internal dependencies describe components within the application scope which are required for the application to fully operate, while external dependencies capture required components outside the scope of the application, such as another application or third-party service.",
     "recommendation": {
-      "title": "Categorize dependencies as either weak or strong.",
+      "title": "Categorize dependencies as either weak or strong",
       "context": "Dependencies may be categorized as either strong or weak based on whether or not the application is able to continue operating in a degraded fashion in their absence.",
       "links": [
         {
@@ -560,7 +560,7 @@
         "title": "Do you maintain a complete list of application dependencies?",
         "context": "Examples of typical dependencies include platform dependencies outside the remit of the application, such as Azure Active Directory, Express Route, or a central NVA (Network Virtual Appliance), as well as application dependencies such as APIs which may be in-house or externally owned by a third-party. For cost it’s important to understand the price for these services and how they are being charged, this makes it easier to understanding an all-up cost. For more details see cost models.",
         "recommendation": {
-          "title": "Map application dependencies either as a simple list or a document (usually this is part of a design document or reference architecture).",
+          "title": "Map application dependencies either as a simple list or a document (usually this is part of a design document or reference architecture)",
           "context": "",
           "links": [],
           "priority": 50
@@ -571,7 +571,7 @@
         "title": "Is the impact of an outage with each dependency well understood?",
         "context": "Strong dependencies play a critical role in application function and availability meaning their absence will have a significant impact, while the absence of weak dependencies may only impact specific features and not affect overall availability. This reflects the cost that is needed to maintain the HA relationship between the service and its dependencies. It would explain why certain measures needs to be maintained in order to hold a given Service Level Agreement (SLA).",
         "recommendation": {
-          "title": "Classify dependencies either as strong or weak. This will help identify which components are essential to the application.",
+          "title": "Classify dependencies either as strong or weak. This will help identify which components are essential to the application",
           "context": "",
           "links": [],
           "priority": 50
@@ -593,7 +593,7 @@
     "title": "Are Service Level Agreement (SLA) and support agreements in place for all critical dependencies?",
     "context": "Service Level Agreement (SLA) represents a commitment around performance and availability of the application. Understanding the Service Level Agreement (SLA) of individual components within the system is essential in order to define reliability targets. Knowing the SLA of dependencies will also provide a justification for additional spend when making the dependencies highly available and with proper support contracts.",
     "recommendation": {
-      "title": "The operational commitments of all external and internal dependencies should be understood to inform the broader application operations and health model.",
+      "title": "The operational commitments of all external and internal dependencies should be understood to inform the broader application operations and health model",
       "context": "",
       "links": [],
       "priority": 50
@@ -613,7 +613,7 @@
     "title": "What Azure services are used by the application?",
     "context": "It is important to understand what Azure services, such as App Services and Event Hubs, are used by the application platform to host both application code and data. In a discussion around cost, this can drive decisions towards the right replacements (e.g. moving from Virtual Machines to containers to increase efficiency, or migrating to .NET Core to use cheaper SKUs etc.).",
     "recommendation": {
-      "title": "All Azure services in use should be identified.",
+      "title": "All Azure services in use should be identified",
       "context": "",
       "links": [],
       "priority": 50
@@ -624,7 +624,7 @@
         "title": "What operational features/capabilities are used for leveraged services?",
         "context": "Operational capabilities, such as auto-scale and auto-heal for App Services, can reduce management overheads, support operational effectiveness and reduce cost.",
         "recommendation": {
-          "title": "Make sure you understand the operational features/capabilities available and how they can be used in the solution.",
+          "title": "Make sure you understand the operational features/capabilities available and how they can be used in the solution",
           "context": "",
           "links": [],
           "priority": 50
@@ -646,7 +646,7 @@
     "title": "What technologies and frameworks are used by the application?",
     "context": "It is important to understand what technologies are used by the application and must be managed, such as .NET Core, Spring, or Node.js.",
     "recommendation": {
-      "title": "Identify technologies and frameworks used by the application.",
+      "title": "Identify technologies and frameworks used by the application",
       "context": "All technologies and frameworks should be identified. Vulnerabilities of these dependencies must be understood (there are automated solutions on the market that can help: [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/) or [NPM audit](https://docs.npmjs.com/cli/audit).",
       "links": [
         {
@@ -674,7 +674,7 @@
     "title": "Are components hosted on shared application or data platforms which are used by other applications?",
     "context": "Do application components leverage shared data platforms, such as a central data lake, or application hosting platforms, such as a centrally managed Azure Kubernetes Service (AKS) or App Service Environment (ASE) cluster? Shared platforms drive down cost, but the workload needs to maintain the expected performance.",
     "recommendation": {
-      "title": "Make sure you understand the design decisions and implications of using shared hosting platforms.",
+      "title": "Make sure you understand the design decisions and implications of using shared hosting platforms",
       "context": "",
       "links": [],
       "priority": 50
@@ -692,7 +692,7 @@
     "title": "Do you monitor and regularly review new features and capabilities?",
     "context": "Azure is continuously evolving, with new features and services becoming available which may be beneficial for the application.",
     "recommendation": {
-      "title": "Keep up to date on newest developments and feature updates, at least for services most relevant to your application.",
+      "title": "Keep up to date on newest developments and feature updates, at least for services most relevant to your application",
       "context": "",
       "links": [],
       "priority": 50
@@ -703,7 +703,7 @@
         "title": "Do you subscribe to Azure service announcements for new features and capabilities?",
         "context": "Service announcements provide insights into new features and services, as well as features or services which become deprecated.",
         "recommendation": {
-          "title": "Use announcement subscriptions to stay up to date.",
+          "title": "Use announcement subscriptions to stay up to date",
           "context": "",
           "links": [],
           "priority": 50
@@ -724,7 +724,7 @@
     "title": "Is an Application Performance Management (APM) tool used collect application level logs?",
     "context": "In order to successfully maintain the application it's important to 'turn the lights on' and have clear visibility of important metrics both in real-time and historically.",
     "recommendation": {
-      "title": "Use Application Performance Management tools.",
+      "title": "Use Application Performance Management tools",
       "context": "An APM technology, such as [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview), should be used to manage the performance and availability of the application, aggregating application level logs and events for subsequent interpretation. It should be considered what is the appropriate level of logging, because too much can incur significant costs.",
       "links": [
         {
@@ -748,7 +748,7 @@
     "title": "Are application logs collected from different application environments?",
     "context": "Application logs support the end-to-end application lifecycle. Logging is essential in understanding how the application operates in various environments and what events occur and under which conditions.",
     "recommendation": {
-      "title": "Collect application logs across application environments.",
+      "title": "Collect application logs across application environments",
       "context": "Application logs and events should be collected across all major environments. Sufficient degree of separation and filtering should be in place to ensure non-critical environments do not convolute production log interpretation. Furthermore, corresponding log entries across the application should capture a correlation ID for their respective transactions.",
       "links": [],
       "priority": 50
@@ -767,8 +767,8 @@
     "title": "Are log messages captured in a structured format?",
     "context": "Structured format, following well-known schema can help in parsing and analyzing logs.",
     "recommendation": {
-      "title": "Application events should be captured as a structured data type with machine-readable data points rather than unstructured string types. Structured data can easily be indexed and searched, and reporting can be greatly simplified.",
-      "context": "",
+      "title": "Application events should be captured as a structured data type with machine-readable data points rather than unstructured string types",
+      "context": "Structured data can easily be indexed and searched, and reporting can be greatly simplified.",
       "links": [],
       "priority": 50
     }
@@ -785,8 +785,8 @@
     "title": "Are log levels used to capture different types of application events?",
     "context": "Different log levels, such as INFO, WARNING, ERROR, and DEBUG can be used across environments (such as DEBUG for development environment).",
     "recommendation": {
-      "title": "Different log levels, such as INFO, WARNING, ERROR, and DEBUG should be pre-configured and applied within relevant environments. The approach to change log levels should be simple configuration change to support operational scenarios where it is necessary to elevate the log level within an environment.",
-      "context": "",
+      "title": "Configure appropriate log levels for environments",
+      "context": " Different log levels, such as INFO, WARNING, ERROR, and DEBUG should be pre-configured and applied within relevant environments. The approach to change log levels should be simple configuration change to support operational scenarios where it is necessary to elevate the log level within an environment.",
       "links": [],
       "priority": 50
     }
@@ -804,8 +804,8 @@
     "title": "Are application events correlated across all application components?",
     "context": "[Distributed tracing](https://docs.microsoft.com/azure/architecture/microservices/logging-monitoring#distributed-tracing) provides the ability to build and visualize end-to-end transaction flows for the application.",
     "recommendation": {
-      "title": "Events coming from different application components or different component tiers of the application should be correlated to build end-to-end transaction flows. For instance, this is often achieved by using consistent correlation IDs transferred between components within a transaction.<br /><br />Event correlation between the layers of the application will provide the ability to connect tracing data of the complete application stack. Once this connection is made, you can see a complete picture of where time is spent at each layer. This will typically mean having a tool that can query the repositories of tracing data in correlation to a unique identifier that represents a given transaction that has flowed through the system.",
-      "context": "",
+      "title": "Events coming from different application components or different component tiers of the application should be correlated to build end-to-end transaction flows",
+      "context": "For instance, this is often achieved by using consistent correlation IDs transferred between components within a transaction.<br /><br />Event correlation between the layers of the application will provide the ability to connect tracing data of the complete application stack. Once this connection is made, you can see a complete picture of where time is spent at each layer. This will typically mean having a tool that can query the repositories of tracing data in correlation to a unique identifier that represents a given transaction that has flowed through the system.",
       "links": [
         {
           "title": "Distributed tracing",
@@ -839,7 +839,7 @@
         "title": "Is the end-to-end performance of critical system flows monitored?",
         "context": "To fully assess the health of key scenarios in the context of targets and NFRs, application log events across critical system flows should be correlated.",
         "recommendation": {
-          "title": "Correlate application log events across critical system flows, such as user login.",
+          "title": "Correlate application log events across critical system flows, such as user login",
           "context": "",
           "links": [],
           "priority": 50
@@ -861,7 +861,7 @@
     "title": "Which log aggregation technology is used to collect logs and metrics from Azure resources?",
     "context": "Log aggregation technologies, such as Azure Log Analytics or Splunk, should be used to collate logs and metrics across all application components for subsequent evaluation. Resources may include Azure IaaS and PaaS services as well as 3rd-party appliances such as firewalls or anti-malware solutions used in the application. For instance, if Azure Event Hub is used, the [Diagnostic Settings](https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs) should be configured to push logs and metrics to the data sink. Understanding usage helps with right-sizing of the workload, but additional cost for logging needs to be accepted and included in the cost model.",
     "recommendation": {
-      "title": "Use log aggregation technology, such as Azure Log Analytics or Splunk, to gather information across all application components.",
+      "title": "Use log aggregation technology, such as Azure Log Analytics or Splunk, to gather information across all application components",
       "context": "",
       "links": [],
       "priority": 50
@@ -880,7 +880,7 @@
     "title": "Are you collecting Azure Activity Logs within the log aggregation tool?",
     "context": "Azure Activity Logs provide audit information about when an Azure resource is modified, such as when a virtual machine is started or stopped. Such information is extremely useful for the interpretation and troubleshooting of operational and performance issues, as it provides transparency around configuration changes.",
     "recommendation": {
-      "title": "Azure Activity Logs should be collected and aggregated.",
+      "title": "Azure Activity Logs should be collected and aggregated",
       "context": "",
       "links": [],
       "priority": 50
@@ -919,7 +919,7 @@
     "title": "Are logs and metrics available for critical internal dependencies?",
     "context": "To be able to build a robust application health model it is vital that visibility into the operational state of critical internal dependencies, such as a shared NVA or Express Route connection, be achieved.",
     "recommendation": {
-      "title": "Make sure logs and key metrics of critical components are collected and stored.",
+      "title": "Collect and store logs and key metrics of critical components",
       "context": "",
       "links": [],
       "priority": 50
@@ -938,8 +938,8 @@
     "title": "Are critical external dependencies monitored?",
     "context": "It's common for applications to depend on other services or libraries. Despite these are external, it is still possible to monitor their health and availability using probes.",
     "recommendation": {
-      "title": "Critical external dependencies, such as an API service, should be monitored to ensure operational visibility of dependency health. For instance, a probe could be used to measure the availability and latency of an external API.",
-      "context": "",
+      "title": "Monitor critical external dependencies",
+      "context": "Critical external dependencies, such as an API service, should be monitored to ensure operational visibility of dependency health. For instance, a probe could be used to measure the availability and latency of an external API.",
       "links": [],
       "priority": 50
     }
@@ -957,7 +957,7 @@
     "title": "Are application and resource level logs aggregated in a single data sink, or is it possible to cross-query events at both levels?",
     "context": "To build a robust application health model it is vital that application and resource level data be correlated and evaluated together to optimize the detection of issues and troubleshooting of detected issues.",
     "recommendation": {
-      "title": "Implement a unified solution to aggregate and query application and resource level logs, such as Azure Log Analytics.",
+      "title": "Implement a unified solution to aggregate and query application and resource level logs, such as Azure Log Analytics",
       "context": "",
       "links": [],
       "priority": 50
@@ -999,7 +999,7 @@
     "title": "Is the transaction flow data used to generate application/service maps?",
     "context": "Is there a correlation between events in different services and are those visualized?",
     "recommendation": {
-      "title": "An [Application Map](https://docs.microsoft.com/azure/azure-monitor/app/app-map?tabs=net) can to help spot performance bottlenecks or failure hotspots across components of a distributed application.",
+      "title": "An [Application Map](https://docs.microsoft.com/azure/azure-monitor/app/app-map?tabs=net) can help spot performance bottlenecks or failure hotspots across components of a distributed application",
       "context": "",
       "links": [
         {
@@ -1024,7 +1024,7 @@
     "title": "Is a health model used to qualify what 'healthy' and 'unhealthy' states represent for the application?",
     "context": "",
     "recommendation": {
-      "title": "Implement a health model.",
+      "title": "Implement a health model",
       "context": "A holistic application health model should be used to quantify what 'healthy' and 'unhealthy' states represent across all application components. It is highly recommended that a 'traffic light' model be used to indicate a green/healthy state when key non-functional requirements and targets are fully satisfied and resources are optimally utilized, e.g. 95% of requests are processed in <= 500ms with Azure Kubernetes Service (AKS) node utilization at x% etc. Once established, this health model should inform critical monitoring metrics across system components and operational sub-system composition. It is important to note that the health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state.",
       "links": [],
       "priority": 50
@@ -1046,7 +1046,7 @@
         "title": "Can the health model distinguish between transient and non-transient faults?",
         "context": "Is the health model treating all failures the same?",
         "recommendation": {
-          "title": "The health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state.",
+          "title": "The health model should clearly distinguish between expected transient but recoverable failures and a true disaster state",
           "context": "",
           "links": [],
           "priority": 50
@@ -1055,7 +1055,7 @@
       {
         "id": "fe6737db-7169-4dab-9f60-fd9b49281ade",
         "title": "Can the health model determine if the application is performing at expected performance targets?",
-        "context": "The health model should have the ability to evaluate application performance as a part of the application's overall health state.",
+        "context": "The health model should have the ability to evaluate application performance as a part of the application's overall health state",
         "recommendation": {
           "title": "",
           "context": "",
@@ -1179,8 +1179,8 @@
     "title": "What technology is used for alerting?",
     "context": "Alerts from tools such as Splunk or Azure Monitor proactively notify or respond to operational states that deviate from norm. Alerts can also enable cost-awareness by watching budgets and limits and helping workload teams to scale appropriately.",
     "recommendation": {
-      "title": "You should not rely on people to actively look for issues. Instead, an alerting solution should be in place that can push notifications to relevant teams. For example, by email, SMS or into a mobile app.",
-      "context": "",
+      "title": "Use automated alerting solution",
+      "context": "You should not rely on people to actively look for issues. Instead, an alerting solution should be in place that can push notifications to relevant teams. For example, by email, SMS or into a mobile app.",
       "links": [],
       "priority": 50
     }
@@ -1198,8 +1198,8 @@
     "title": "Are specific owners and processes defined for each alert type?",
     "context": "Having well-defined owners and response playbooks per alert is vital to optimizing operational effectiveness. Alerts don't have to be only technical, for example the budget owner should be made aware of capacity issues so that budgets can be adjusted and discussed.",
     "recommendation": {
-      "title": "Instead of treating all alerts the same, there should be a well-defined process which determines what teams are responsible to react to which alert type.",
-      "context": "",
+      "title": "Define a process for alert reaction",
+      "context": "Instead of treating all alerts the same, there should be a well-defined process which determines what teams are responsible to react to which alert type.",
       "links": [],
       "priority": 50
     }
@@ -1235,8 +1235,8 @@
     "title": "Are push notifications enabled to inform responsible parties of alerts in real time?",
     "context": "Do teams have to actively monitor the systems and dashboard or are alerts sent to them by email etc.? This can help identify not just operational incidents but also budget overruns.",
     "recommendation": {
-      "title": "It is important that alert owners get reliably notified of alerts, which could use many communication channels such as text messages, emails or push notifications to a mobile app.",
-      "context": "",
+      "title": "Send reliable alert notifications",
+      "context": "It is important that alert owners get reliably notified of alerts, which could use many communication channels such as text messages, emails or push notifications to a mobile app.",
       "links": [],
       "priority": 50
     }
@@ -1314,7 +1314,7 @@
     "title": "Are Azure notifications sent to subscriptions owners received and if necessary, properly routed to relevant technical stakeholders?",
     "context": "Subscription notification emails can contain important service notifications or security alerts.",
     "recommendation": {
-      "title": "Make sure that subscription notification emails are routed to the relevant technical stakeholders.",
+      "title": "Make sure that subscription notification emails are routed to the relevant technical stakeholders",
       "context": "",
       "links": [
         {
@@ -1393,7 +1393,7 @@
         "title": "Can individual processes and components of the application failover independently?",
         "context": "For example, is it possible to failover the compute cluster to a secondary region while keeping the database running in the primary region?",
         "recommendation": {
-          "title": "Ideally failover can happen on a component-level instead of needing to failover the entire system together, when, for instance, only one service experiences an outage.",
+          "title": "Ideally failover can happen on a component-level instead of needing to failover the entire system together, when, for instance, only one service experiences an outage",
           "context": "",
           "links": [],
           "priority": 50
@@ -1446,7 +1446,7 @@
     "title": "Are critical manual processes defined and documented for manual failure responses?",
     "context": "While full automation is attainable, there might be cases where manual steps cannot be avoided.",
     "recommendation": {
-      "title": "Operational runbooks should be defined to codify the procedures and relevant information needed for operations staff to respond to failures and maintain operational health.",
+      "title": "Operational runbooks should be defined to codify the procedures and relevant information needed for operations staff to respond to failures and maintain operational health",
       "context": "",
       "links": [],
       "priority": 50
@@ -1457,7 +1457,7 @@
         "title": "Are these manual operational runbooks tested and validated on a regular basis?",
         "context": "",
         "recommendation": {
-          "title": "Manual operational runbooks should be tested frequently as part of the normal application lifecycle to ensure appropriateness and efficiency.",
+          "title": "Manual operational runbooks should be tested frequently as part of the normal application lifecycle to ensure appropriateness and efficiency",
           "context": "",
           "links": [],
           "priority": 50
@@ -1631,7 +1631,7 @@
     "title": "Where is application configuration information stored and how does the application access it?",
     "context": "Application configuration information can be stored together with the application itself or preferably using a dedicated configuration management system like Azure App Configuration or Azure Key Vault.",
     "recommendation": {
-      "title": "Preferably configuration information is stored using a dedicated configuration management system like Azure App Configuration or Azure Key Vault so that it can be updated independently of the application code.",
+      "title": "Preferably configuration information is stored using a dedicated configuration management system like Azure App Configuration or Azure Key Vault so that it can be updated independently of the application code",
       "context": "",
       "links": [],
       "priority": 50
@@ -1649,7 +1649,7 @@
     "title": "Can configuration settings be changed or modified without rebuilding or redeploying the application?",
     "context": "",
     "recommendation": {
-      "title": "Application code and configuration should not share the same lifecycle to enable operational activities that change and update specific configurations without developer involvement or redeployment.",
+      "title": "Application code and configuration should not share the same lifecycle to enable operational activities that change and update specific configurations without developer involvement or redeployment",
       "context": "",
       "links": [],
       "priority": 50
@@ -1757,7 +1757,7 @@
         "title": "Are certificate/key backups and data backups stored in different geo-redundant storage accounts?",
         "context": "",
         "recommendation": {
-          "title": "Encryption keys and data should be backed up separately to optimize the security of underlying data.",
+          "title": "Encryption keys and data should be backed up separately to optimize the security of underlying data",
           "context": "",
           "links": [],
           "priority": 50
@@ -1778,7 +1778,7 @@
     "title": "Is Soft-Delete enabled for Key Vaults and Key Vault objects?",
     "context": "The [Soft-Delete feature](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete) retains resources for a given retention period after a DELETE operation has been performed, while giving the appearance that the object is deleted. It helps to mitigate scenarios where resources are unintentionally, maliciously or incorrectly deleted.",
     "recommendation": {
-      "title": "It is highly recommended to enable Key Vault Soft-Delete.",
+      "title": "Enable Key Vault Soft-Delete",
       "context": "",
       "links": [
         {
@@ -1820,7 +1820,7 @@
     "title": "Is the Patch & Update Process (PNU) process defined and for all relevant application components?",
     "context": "The PNU process will vary based on the type of Azure service used (i.e. Virtual Machines, Virtual Machine Scale Sets, Containers on Azure Kubernetes Service). Applications using IaaS will typically require more investment to define a PNU process",
     "recommendation": {
-      "title": "The PNU process should be fully defined and understood for all relevant application components.",
+      "title": "The PNU process should be fully defined and understood for all relevant application components",
       "context": "",
       "links": [],
       "priority": 50
@@ -1831,7 +1831,7 @@
         "title": "Is the Patch & Update Process (PNU) process automated?",
         "context": "",
         "recommendation": {
-          "title": "Ideally the PNU process should be fully or partially automated to optimize response times for new updates and also to reduce the risks associated with manual intervention.",
+          "title": "Ideally the PNU process should be fully or partially automated to optimize response times for new updates and also to reduce the risks associated with manual intervention",
           "context": "",
           "links": [],
           "priority": 50
@@ -1842,7 +1842,7 @@
         "title": "Are Patch & Update Process (PNU) operations performed 'as-code'?",
         "context": "",
         "recommendation": {
-          "title": "Performing operations should be defined 'as-code' since it helps to minimize human error and increase consistency.",
+          "title": "Performing operations should be defined 'as-code' since it helps to minimize human error and increase consistency",
           "context": "",
           "links": [],
           "priority": 50
@@ -1862,7 +1862,7 @@
     "title": "How are patches rolled back?",
     "context": "",
     "recommendation": {
-      "title": "It is recommended to have a defined strategy in place to rollback patches in case of an error or unexpected side effects.",
+      "title": "It is recommended to have a defined strategy in place to rollback patches in case of an error or unexpected side effects",
       "context": "",
       "links": [],
       "priority": 50
@@ -1898,7 +1898,7 @@
     "title": "What is the strategy to keep up with changing dependencies?",
     "context": "",
     "recommendation": {
-      "title": "Changing dependencies, such as new versions of packages, updated Docker images, should be factored into operational processes; the application team should be subscribed to release notes of dependent services, tools, and libraries.",
+      "title": "Changing dependencies, such as new versions of packages, updated Docker images, should be factored into operational processes; the application team should be subscribed to release notes of dependent services, tools, and libraries",
       "context": "",
       "links": [],
       "priority": 50
@@ -1934,7 +1934,7 @@
     "title": "Are operational procedures reviewed and refined frequently?",
     "context": "",
     "recommendation": {
-      "title": "Operational procedures should be updated based on outcomes from frequent testing.",
+      "title": "Operational procedures should be updated based on outcomes from frequent testing",
       "context": "",
       "links": [],
       "priority": 50
@@ -1953,7 +1953,7 @@
     "title": "What is the process to deploy application releases to production?",
     "context": "",
     "recommendation": {
-      "title": "The entire end-to-end CI/CD deployment process should be understood.",
+      "title": "The entire end-to-end CI/CD deployment process should be understood",
       "context": "",
       "links": [],
       "priority": 50
@@ -1964,7 +1964,7 @@
         "title": "How long does it take to deploy an entire production environment?",
         "context": "The time it takes to perform a complete environment deployment should align with recovery targets. Automation and agility also lead to cost savings due to the reduction of manual labor and errors.",
         "recommendation": {
-          "title": "The time it takes to perform a complete environment deployment should be fully understood as it needs to align with the recovery targets.",
+          "title": "The time it takes to perform a complete environment deployment should be fully understood as it needs to align with the recovery targets",
           "context": "",
           "links": [],
           "priority": 50
@@ -2003,7 +2003,7 @@
     "title": "Can the application be deployed automatically from scratch without any manual operations?",
     "context": "Manual deployment steps introduce significant risks where human error is concerned and also increases overall deployment times.",
     "recommendation": {
-      "title": "Automated end-to-end deployments, with manual approval gates where necessary, should be used to ensure a consistent and efficient deployment process.",
+      "title": "Automated end-to-end deployments, with manual approval gates where necessary, should be used to ensure a consistent and efficient deployment process",
       "context": "",
       "links": [
         {
@@ -2019,7 +2019,7 @@
         "title": "Is there a documented process for any portions of the deployment that require manual intervention?",
         "context": "Without detailed release process documentation, there is a much higher risk of an operator improperly configuring settings for the application.",
         "recommendation": {
-          "title": "Any manual steps that are required in the deployment pipeline must be clearly documented with roles and responsibilities well defined.",
+          "title": "Any manual steps that are required in the deployment pipeline must be clearly documented with roles and responsibilities well defined",
           "context": "",
           "links": [],
           "priority": 50
@@ -2040,7 +2040,7 @@
     "title": "How long does it take to deploy an entire production environment?",
     "context": "The time it takes for a full deployment needs to align with recovery targets.",
     "recommendation": {
-      "title": "The entire end-to-end deployment process should be understood and align with recovery targets.",
+      "title": "The entire end-to-end deployment process should be understood and align with recovery targets",
       "context": "",
       "links": [],
       "priority": 50
@@ -2120,7 +2120,7 @@
     "title": "How does the development team manage application source code, builds, and releases?",
     "context": "It is important to understand whether there is a systematic approach to the development and release process.",
     "recommendation": {
-      "title": "The use of source code control systems, such as [Azure Repos](https://azure.microsoft.com/services/devops/) or GitHub, and build and release systems, such as Azure Pipelines or GitHub Actions, should be understood, including the corresponding processes to access, review and approve changes.",
+      "title": "The use of source code control systems, such as [Azure Repos](https://azure.microsoft.com/services/devops/) or GitHub, and build and release systems, such as Azure Pipelines or GitHub Actions, should be understood, including the corresponding processes to access, review and approve changes",
       "context": "",
       "links": [
         {
@@ -2136,7 +2136,7 @@
         "title": "If Git is used for source control, what branching strategy is used?",
         "context": "While there are various valid ways, a clearly defined strategy should be in place and understood",
         "recommendation": {
-          "title": "To optimize for collaboration and ensure developers spend less time managing version control and more time developing code, a clear and simple branching strategy should be used, such as Trunk-Based Development which is employed internally [within Microsoft Engineering](https://docs.microsoft.com/azure/devops/learn/devops-at-microsoft/use-git-microsoft).",
+          "title": "To optimize for collaboration and ensure developers spend less time managing version control and more time developing code, a clear and simple branching strategy should be used, such as Trunk-Based Development which is employed internally [within Microsoft Engineering](https://docs.microsoft.com/azure/devops/learn/devops-at-microsoft/use-git-microsoft)",
           "context": "",
           "links": [],
           "priority": 50
@@ -2172,7 +2172,7 @@
         "title": "How does the application track and address configuration drift?",
         "context": "Configuration drift occurs when changes are applied outside of IaC processes such as manual changes.",
         "recommendation": {
-          "title": "Tools like Terraform offer a 'plan' command that helps to identify changes and monitor configuration drift, with Azure as the ultimate source of truth.",
+          "title": "Tools like Terraform offer a 'plan' command that helps to identify changes and monitor configuration drift, with Azure as the ultimate source of truth",
           "context": "",
           "links": [],
           "priority": 50
@@ -2193,7 +2193,7 @@
     "title": "Is direct write access to the infrastructure possible and are any resources provisioned or configured outside of IaC processes?",
     "context": "Are any resources provisioned or operationally configured manually through user tools such as the Azure Portal or via Azure CLI?",
     "recommendation": {
-      "title": "It is recommended that even small operational changes and modifications be implemented as-code to track changes and ensure they are fully reproduceable and revertible. No infrastructure changes should be done manually outside of IaC.",
+      "title": "It is recommended that even small operational changes and modifications be implemented as-code to track changes and ensure they are fully reproducible and revertible. No infrastructure changes should be done manually outside of IaC.",
       "context": "",
       "links": [],
       "priority": 50
@@ -2211,7 +2211,7 @@
     "title": "Is the process to deploy infrastructure automated?",
     "context": "Manual changes via for example the Azure Portal or Azure CLI are difficult to test, document and introduce significant risks where human error is concerned and might also increase the overall deployment and recovery times.",
     "recommendation": {
-      "title": "It is recommended to define infrastructure deployments and changes as code and to use build and release tools to develop automated pipelines for their deployment.",
+      "title": "It is recommended to define infrastructure deployments and changes as code and to use build and release tools to develop automated pipelines for their deployment",
       "context": "",
       "links": [],
       "priority": 50
@@ -2230,7 +2230,7 @@
     "title": "Do critical test environments have 1:1 parity with the production environment?",
     "context": "Do test environment differ from production in more than just smaller SKUs being used, e.g. by sharing components between different environments?",
     "recommendation": {
-      "title": "To completely validate the suitability of application changes, all changes should be tested in an environment that is fully reflective of production, to ensure there is no potential impact from environment deltas.",
+      "title": "To completely validate the suitability of application changes, all changes should be tested in an environment that is fully reflective of production, to ensure there is no potential impact from environment deltas",
       "context": "",
       "links": [],
       "priority": 50
@@ -2248,7 +2248,7 @@
     "title": "Are mocks/stubs used to test external dependencies in non-production environments?",
     "context": "Mocks/stubs can help to test and validate external dependencies, to increase test coverage, when accessing those external dependencies is not possible due to for example IP restrictions.",
     "recommendation": {
-      "title": "The use of dependent services should be appropriately reflected in test environments.",
+      "title": "The use of dependent services should be appropriately reflected in test environments",
       "context": "",
       "links": [],
       "priority": 50
@@ -2267,7 +2267,7 @@
     "title": "Are releases to production gated by having it successfully deployed and tested in other environments?",
     "context": "Deploying to other environments and verifying changes before going into production can prevent bugs getting in front of end users.",
     "recommendation": {
-      "title": "It is recommended to have a staged deployment process which requires changes to have been validated in test environments first before they can hit production.",
+      "title": "It is recommended to have a staged deployment process which requires changes to have been validated in test environments first before they can hit production",
       "context": "",
       "links": [],
       "priority": 50
@@ -2285,7 +2285,7 @@
     "title": "Are feature flags used to test features before rolling them out to everyone?",
     "context": "",
     "recommendation": {
-      "title": "To test new features quickly and without bigger risk, [Feature flags](https://docs.microsoft.com/azure/architecture/framework/devops/development#feature-flags) are a technique to help frequently integrate code into a shared repository, even if incomplete. It allows for deployment decisions to be separated from release decisions.",
+      "title": "To test new features quickly and without bigger risk, [Feature flags](https://docs.microsoft.com/azure/architecture/framework/devops/development#feature-flags) are a technique to help frequently integrate code into a shared repository, even if incomplete. It allows for deployment decisions to be separated from release decisions",
       "context": "",
       "links": [
         {
@@ -2310,7 +2310,7 @@
     "title": "Is the application tested for performance, scalability, and resiliency?",
     "context": "**Performance testing** is the superset of both load and stress testing. The primary goal of performance testing is to validate benchmark behavior for the application.<br />**Load Testing** validates application scalability by rapidly and/or gradually increasing the load on the application until it reaches a threshold/limit.<br />**Stress Testing** is a type of negative testing which involves various activities to overload existing resources and remove components to understand overall resiliency and how the application responds to issues.",
     "recommendation": {
-      "title": "Define a testing strategy.",
+      "title": "Define a testing strategy",
       "context": "",
       "links": [
         {
@@ -2590,7 +2590,7 @@
     "title": "Has the application been built and maintained in-house or by an external partner?",
     "context": "Exploring where technical delivery capabilities reside helps to qualify operational model boundaries and estimate the cost of operating the application as well as defining a budget and cost model.",
     "recommendation": {
-      "title": "Explore where technical delivery capabilities reside.",
+      "title": "Explore where technical delivery capabilities reside",
       "context": "",
       "links": [],
       "priority": 50
@@ -2721,7 +2721,7 @@
     "title": "Are tools or processes in place to grant access on a just-in-time basis?",
     "context": "Minimizing the number of people who have access to secure information or resources reduces the chance of a malicious actor gaining access or an authorized user inadvertently impacting a sensitive resource. For example, Azure AD [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) provides time-based and approval-based role activation to mitigate the risks of excessive, unnecessary, or misused access permissions on resources that you care about.",
     "recommendation": {
-      "title": "Implement just-in-time privileged access management.",
+      "title": "Implement just-in-time privileged access management",
       "context": "",
       "links": [],
       "priority": 70
@@ -2854,7 +2854,7 @@
     "title": "Is the application designed to use managed services?",
     "context": "Platform-as-a-Service (PaaS) services provide native resiliency capabilities to support overall application reliability and native capabilities for scalability, monitoring and disaster recovery.",
     "recommendation": {
-      "title": "Where possible prefer Platform-as-a-Service (PaaS) offerings to leverage their advanced capabilities and to avoid managing the underlying infrastructure.",
+      "title": "Where possible prefer Platform-as-a-Service (PaaS) offerings to leverage their advanced capabilities and to avoid managing the underlying infrastructure",
       "context": "",
       "links": [
         {
@@ -2884,7 +2884,7 @@
     "title": "Has the application been designed to scale-out?",
     "context": "Azure provides elastic scalability, however, applications must leverage a scale-unit approach to navigate service and subscription limits to ensure that individual components and the application as a whole can scale horizontally. Don't forget about scale in as well, as this is important to drive cost down. For example, scale in and out for App Service is done via rules. Often customers write scale out rule and never write scale in rule, this leaves the App Service more expensive.",
     "recommendation": {
-      "title": "Design your solution with scalability in mind, leverage PaaS capabilities to [scale out](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out) and in by adding additional instances when needed.",
+      "title": "Design your solution with scalability in mind, leverage PaaS capabilities to [scale out](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out) and in by adding additional instances when needed",
       "context": "",
       "links": [
         {
@@ -3229,7 +3229,7 @@
     "title": "Is the application stateless or stateful? If it is stateful, is the state externalized in a data store?",
     "context": "[Stateless services](https://docs.microsoft.com/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices) and processes can easily be hosted across multiple compute instances to meet scale demands, as well as helping to reduce complexity and ensure high cacheability.",
     "recommendation": {
-      "title": "Use externalized data store for stateful applications.",
+      "title": "Use externalized data store for stateful applications",
       "context": "",
       "links": [
         {
@@ -3808,7 +3808,7 @@
     "title": "Are there any mitigation plans defined in case data size exceeds limits?",
     "context": "Mitigation plans such as purging or archiving data can help the application to remain available in scenarios where data size exceeds expected limits.",
     "recommendation": {
-      "title": "Make sure that data size and growth is monitored, proper alerts are configured and develop (automated and codified, if possible) mitigation plans to help the application to remain available - or to recover if needed.",
+      "title": "Make sure that data size and growth is monitored, proper alerts are configured and develop (automated and codified, if possible) mitigation plans to help the application to remain available - or to recover if needed",
       "context": "",
       "links": [],
       "priority": 50
@@ -3888,7 +3888,7 @@
     "title": "Have gateways (ExpressRoute or VPN) been sized accordingly to the expected cross-premises network throughput?",
     "context": "Azure Virtual Network Gateways throughput varies based on SKU.",
     "recommendation": {
-      "title": "Consider sizing gateways according to required throughput based on the available [VPN Gateway SKUs](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku).",
+      "title": "Consider sizing gateways according to required throughput based on the available [VPN Gateway SKUs](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku)",
       "context": "",
       "links": [
         {
@@ -4107,7 +4107,7 @@
     "title": "Is Azure Defender enabled for all subscriptions and reporting to centralized workspaces?",
     "context": "Azure Security Center is a unified infrastructure security management system that strengthens the security posture of your data centers, and provides advanced threat protection across your workloads. It has two offerings Azure Security Center free and Azure Defender.",
     "recommendation": {
-      "title": "Use Azure Defender with automatic provisioning for all subscriptions and configure reporting to centralized workspaces.",
+      "title": "Use Azure Defender with automatic provisioning for all subscriptions and configure reporting to centralized workspaces",
       "context": "",
       "links": [
         {
@@ -4136,7 +4136,7 @@
     "subCategory": "Security Center",
     "title": "Is Azure Security Center's [Secure Score](https://docs.microsoft.com/azure/security-center/secure-score-security-controls)) being formally reviewed and improved on a regular basis?",
     "recommendation": {
-      "title": "Formally review Azure Security Center's Secure Score on a regular basis and take actions out of it.",
+      "title": "Formally review Azure Security Center's Secure Score on a regular basis and take actions out of it",
       "context": "",
       "links": [
         {
@@ -4158,7 +4158,7 @@
     "subCategory": "Security Center",
     "title": "Are contact details set in security center to the appropriate email distribution list?",
     "recommendation": {
-      "title": "Set correct contact details in Azure Security Center to appropriate email distribution lists and review them on a regular basis.",
+      "title": "Set correct contact details in Azure Security Center to appropriate email distribution lists and review them on a regular basis",
       "context": "",
       "links": [
         {
@@ -4238,7 +4238,7 @@
         "title": "Are NSG flow logs being collected?",
         "context": "Network Security Group (NSG) flow logs is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through an NSG. Flow data is sent to Azure Storage accounts from where you can access it as well as export it to any visualization tool, SIEM, or IDS of your choice.",
         "recommendation": {
-          "title": "Capture and analyze NSG flow logs to monitor performance and security.",
+          "title": "Capture and analyze NSG flow logs to monitor performance and security",
           "context": "",
           "links": [
             {
@@ -4438,7 +4438,7 @@
     "title": "Has the workload been threat modeled?",
     "context": "Threat modeling is an engineering technique which can be used to help identify threats, attacks, vulnerabilities and countermeasures that could affect an application. Threat modeling consists of: defining security requirements, identifying threats, mitigating threats, validating threat mitigation. Microsoft uses [STRIDE](https://docs.microsoft.com/azure/security/develop/threat-modeling-tool-threats) for threat modeling.  This might be the right time to talk through the STRIDE methodology and then the tools available to help them with Threat Modeling. There are tools like [Microsoft Threat Modeling Tool](https://docs.microsoft.com/azure/security/develop/threat-modeling-tool-getting-started) which can help.",
     "recommendation": {
-      "title": "Adopt threat modeling processes.",
+      "title": "Adopt threat modeling processes",
       "context": "",
       "links": [
         {
@@ -4458,7 +4458,7 @@
         "title": "Are identified threats ranked based on organizational impact?",
         "context": "Ranked threats improves the understanding of risks associated with security issues.",
         "recommendation": {
-          "title": "Rank identified threats based on organizational impact.",
+          "title": "Rank identified threats based on organizational impact",
           "context": "",
           "links": [],
           "priority": 70
@@ -4469,7 +4469,7 @@
         "title": "Does the organization track threat modeling or vulnerability scan results with a management system?",
         "context": "Effectively tracking and prioritizing discovered application threats is a vital component of vulnerability management.",
         "recommendation": {
-          "title": "Centralize threat modeling results.",
+          "title": "Centralize threat modeling results",
           "context": "",
           "links": [],
           "priority": 60
@@ -4480,7 +4480,7 @@
         "title": "Are identified threats mapped to mitigations?",
         "context": "Mitigations are controls to help protect, detect and respond to a certain type of threat.",
         "recommendation": {
-          "title": "Map threats to mitigations.",
+          "title": "Map threats to mitigations",
           "context": "",
           "links": [],
           "priority": 60
@@ -4491,7 +4491,7 @@
         "title": "Are identified threats communicated to stakeholders? E.g., business, IT, application users",
         "context": "After defining and analyzing the risks, identify risk owners which are the roles that are responsible for mitigating the risk. They need to be aware of the risks so that they can start the mitigation process by allocating resources (e.g. financial or people).",
         "recommendation": {
-          "title": "Establish communication processes for identified threats.",
+          "title": "Establish communication processes for identified threats",
           "context": "",
           "links": [],
           "priority": 50
@@ -4511,7 +4511,7 @@
     "title": "How are threats addressed once found?",
     "context": "The threat modeling tool will produce a report of all the threats identified. This report is typically uploaded into a tracking tool or work items that can be validated and addressed by the developers. Cyber security teams can also use the report to determine attack vectors during a penetration test.  As new features are added to the solution, the threat model should be updated and integrated into the code management process.  If a security issue is found, there should be a process to triage the issue into the next release cycle or a faster release, depending on the severity.",
     "recommendation": {
-      "title": "Develop and implement a process to track, triage, and address threats into the application development lifecycle.",
+      "title": "Develop and implement a process to track, triage, and address threats into the application development lifecycle",
       "context": "",
       "links": [],
       "priority": 70
@@ -4571,7 +4571,7 @@
         "title": "Does the organization have a process for regulatory or governance compliance attestation for this workload?",
         "context": "Knowing whether your cloud resources are in compliance with standards mandated by governments or industry organizations is essential in today's globalized world (e.g. GDPR).",
         "recommendation": {
-          "title": "Perform regulatory compliance attestation.",
+          "title": "Perform regulatory compliance attestation",
           "context": "",
           "links": [],
           "priority": 70
@@ -4582,7 +4582,7 @@
         "title": "Has the organization established a monitoring and assessment solution for compliance?",
         "context": "Continuously monitoring and assessing the workload increases the overall security and compliance of your workload in Azure. For example Azure Security Center provides a regulatory compliance dashboard.",
         "recommendation": {
-          "title": "Continuously assess and monitor compliance.",
+          "title": "Continuously assess and monitor compliance",
           "context": "",
           "links": [],
           "priority": 50
@@ -4602,7 +4602,7 @@
     "title": "Does the organization periodically perform external and/or internal workload audits?",
     "context": "Compliance is important for several reasons. Aside from signifying levels of standards, like ISO 27001 and others, noncompliance with regulatory guidelines may bring sanctions and penalties.",
     "recommendation": {
-      "title": "Periodically perform external and/or internal workload security audits.",
+      "title": "Periodically perform external and/or internal workload security audits",
       "context": "",
       "links": [],
       "priority": 70
@@ -4613,7 +4613,7 @@
         "title": "How often do you have internal and external audits of this workload?",
         "context": "Determine the process the customer uses for auditing the solution. Is it done internally, external, or both. How are findings reflected back to the application? Is everyone aware of the audit and involved or is it done in a silo. This will help reduce the firefighting mentality when there is a finding and stress of performing updates.",
         "recommendation": {
-          "title": "Perform regular internal and external compliance audits.",
+          "title": "Perform regular internal and external compliance audits",
           "context": "",
           "links": [],
           "priority": 50
@@ -4715,7 +4715,7 @@
         "title": "Does the workload use API Management or Azure Front Door to modify HTTP headers and remove sensitive information?",
         "context": "Azure API Management and Azure Front Door offers transformation policies that allow to modify HTTP headers and remove sensitive information.",
         "recommendation": {
-          "title": "Remove sensitive information from HTTP headers with Azure API Management or Azure Front Door.",
+          "title": "Remove sensitive information from HTTP headers with Azure API Management or Azure Front Door",
           "context": "",
           "links": [],
           "priority": 50
@@ -4771,7 +4771,7 @@
     "title": "Is Personally identifiable information (PII) detected and removed/obfuscated automatically for this workload?",
     "context": "Extra care should be taken around logging of sensitive application areas. PII (contact information, payment information etc.) should not be stored in any application logs and protective measures should be applied (such as obfuscation). Machine learning tools like [Cognitive Search PII detection](https://docs.microsoft.com/azure/search/cognitive-search-skill-pii-detection) can help with this.",
     "recommendation": {
-      "title": "Automatically remove/obfuscate personally identifiable information (PII) for this workload.",
+      "title": "Automatically remove/obfuscate personally identifiable information (PII)",
       "context": "",
       "links": [
         {
@@ -4794,7 +4794,7 @@
     "title": "Does the organization conduct periodic & automated access reviews of the workload to make sure only authorized people have access?",
     "context": "As people in the organization and on the project change, it is crucial to make sure that only the right people have access to the application infrastructure. Auditing and reviewing access reduces the attack vector to the application. Azure control plane depends on Azure AD and access reviews are often centrally performed often as part of internal or external audit activities. For the application specific access it is recommended to do the same at least twice a year.",
     "recommendation": {
-      "title": "Conduct periodic access reviews for the workload.",
+      "title": "Conduct periodic access reviews for the workload",
       "context": "",
       "links": [],
       "priority": 70
@@ -4812,7 +4812,7 @@
     "title": "Does the organization reduce the count and potential severity of security vulnerabilities for this workload by implementing security practices and tools during the development lifecycle?",
     "context": "Security vulnerabilities can result in an application disclosing confidential data, allowing criminals to alter data/records, or the data/application becoming unavailable for use by customers and employees. Applications will almost always contain logic errors, so it is important to discover, evaluate, and correct them to avoid damage to the organization’s reputation, revenue, or margins. This is made easier by discovering these vulnerabilities in the early stages of the development cycle.",
     "recommendation": {
-      "title": "Implement security practices and tools during development lifecycle.",
+      "title": "Implement security practices and tools during development lifecycle",
       "context": "",
       "links": [
         {
@@ -4835,7 +4835,7 @@
     "title": "Are operational processes for incident response defined and tested for this workload?",
     "context": "Actions executed during an incident and response investigation could impact application availability or performance. It is recommended to define these processes and align them with the responsible (and in most cases central) SecOps team. The impact of such an investigation on the application has to be analyzed.",
     "recommendation": {
-      "title": "Establish an incident response plan and perform periodically a simulated execution.",
+      "title": "Establish an incident response plan and perform periodically a simulated execution",
       "context": "",
       "links": [],
       "priority": 70
@@ -4889,7 +4889,7 @@
     "title": "Are authentication tokens cached securely and encrypted when sharing across web servers in this workload?",
     "context": "OAuth tokens are usually cached after they've been acquired. Application code should first try to get tokens silently from a cache before attempting to acquire a token from the identity provider, to optimize performance and maximize availability. Tokens should be stored securely and handled as any other credentials. When there's a need to share tokens across application servers (instead of each server acquiring and caching their own) encryption should be used.",
     "recommendation": {
-      "title": "Configure web apps to reuse authentication tokens securely and handle them like other credentials.",
+      "title": "Configure web apps to reuse authentication tokens securely and handle them like other credentials",
       "context": "",
       "links": [
         {
@@ -4905,7 +4905,7 @@
         "title": "Is trusted state information protected when stored on untrusted client (such as cookie in a web browser)?",
         "context": "State data can contain not just session identifier, but also account and claims information, which can get exploited by the client. In a situation where the application needs to round-trip trusted state via an untrusted client (which can be session cookie in a web browser), it has to ensure that the information isn't tampered with. See [ASP.NET Core Data Protection](https://docs.microsoft.com/aspnet/core/security/data-protection/introduction?view=aspnetcore-5.0) for more details on how to use .NET APIs.",
         "recommendation": {
-          "title": "Implement Data Protection for trusted state information.",
+          "title": "Implement Data Protection for trusted state information",
           "context": "",
           "links": [],
           "priority": 50
@@ -4925,7 +4925,7 @@
     "title": "Are there any processes and tools leveraged in this workload to manage privileged activities?",
     "context": "Zero-trust principle comes with the requirement of no standing access to an environment. Native and 3rd party solution can be used to elevate access permissions for at least highly privileged if not all activities. [Azure AD Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) (Azure AD PIM) is the recommended and Azure native solution.",
     "recommendation": {
-      "title": "Establish processes and use tools to manage priviliged access.",
+      "title": "Establish processes and use tools to manage priviliged access",
       "context": "",
       "links": [],
       "priority": 50
@@ -4943,7 +4943,7 @@
     "title": "Does the organization leverage resource locks in this workload to protect critical infrastructure?",
     "context": "Critical infrastructure typically doesn't change often. To prevent accidental/undesired modification of resources, Azure offers the locking functionality where only specific roles and users with permissions are able to delete/modify resources. Locks can be used on critical parts of the infrastructure, but special care needs to be taken in the DevOps process - modification locks can sometimes block automation (see [Considerations before applying locks](https://review.docs.microsoft.com/azure/azure-resource-manager/management/lock-resources#considerations-before-applying-locks) for more information).",
     "recommendation": {
-      "title": "Implement resource locks to protect critical infrastructure.",
+      "title": "Implement resource locks to protect critical infrastructure",
       "context": "",
       "links": [],
       "priority": 40
@@ -4961,7 +4961,7 @@
     "title": "Does the organization clearly define CI/CD roles and permissions for this workload?",
     "context": "Defining CI/CD permissions properly ensures that only users responsible for production releases are able to initiate the process and that only developers can access the source code. Azure DevOps offers pre-defined roles which can be assigned to individual users of groups. Using them properly can make sure that for example only users responsible for production releases are able to initiate the process and that only developers can access the source code. Variable groups often contain sensitive configuration information and can be protected as well.",
     "recommendation": {
-      "title": "Clearly define CI/CD roles and permissions.",
+      "title": "Clearly define CI/CD roles and permissions",
       "context": "",
       "links": [],
       "priority": 70
@@ -4979,7 +4979,7 @@
     "title": "How is the workload authenticated when communicating with Azure platform services?",
     "context": "Try to avoid authentication with keys (connection strings, API keys etc.) and always prefer Managed Identities (formerly also known as Managed Service Identity, MSI). Managed identities enable Azure Services to authenticate to each other without presenting explicit credentials via code. Typical use case is a Web App accessing Key Vault credentials or a Virtual Machine accessing SQL Database. [Managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/)",
     "recommendation": {
-      "title": "Use managed identites for authentication to other Azure platform services.",
+      "title": "Use managed identites for authentication to other Azure platform services",
       "context": "",
       "links": [],
       "priority": 60
@@ -4997,7 +4997,7 @@
     "title": "Do all APIs for this workload require authentication?",
     "context": "API URLs used by client applications are exposed to attackers (JavaScript code on a website can be viewed, mobile application can be decompiled and inspected) and should be protected. For internal APIs, requiring authentication can increase the difficulty of lateral movement if an attacker obtains network access. Typical mechanisms include API keys, authorization tokens, IP restrictions or Azure Managed identities.",
     "recommendation": {
-      "title": "Require API authentication for all workloads.",
+      "title": "Require API authentication for all workloads",
       "context": "",
       "links": [],
       "priority": 70
@@ -5008,7 +5008,7 @@
         "title": "Does this workload leverage modern (OAuth 2.0, OpenID) authentication protocols?",
         "context": "Modern authentication protocols support strong controls such as Multi-factor Authentication (MFA) and should be used instead of legacy.",
         "recommendation": {
-          "title": "Standardize on modern authentication protocols.",
+          "title": "Standardize on modern authentication protocols",
           "context": "",
           "links": [],
           "priority": 70
@@ -5046,7 +5046,7 @@
     "title": "Does the organization enforce conditional access for this workload?",
     "context": "Modern cloud-based applications are often accessible over the internet and location-based networking restrictions don't make much sense, but it needs to be mapped and understood what kind of restrictions are required. Multi-factor Authentication (MFA) is a necessity for remote access, IP-based filtering can be used to enable ad-hoc debugging, but VPNs are preferred.",
     "recommendation": {
-      "title": "Implement Conditional Access Policies.",
+      "title": "Implement Conditional Access Policies",
       "context": "",
       "links": [],
       "priority": 90
@@ -5057,7 +5057,7 @@
         "title": "Does the organization enforce password less or multi-factor authentication for users of this workload?",
         "context": "Attack methods have evolved to the point where passwords alone cannot reliably protect an account.  Modern authentication solutions including password-less and multi-factor authentication increase security posture through strong authentication.",
         "recommendation": {
-          "title": "Enforce password-less or Multi-factor Authentication (MFA).",
+          "title": "Enforce password-less or Multi-factor Authentication (MFA)",
           "context": "",
           "links": [],
           "priority": 90
@@ -5095,8 +5095,8 @@
     "title": "Is there a defined access model for keys and secrets for this workload?",
     "context": "Permissions to keys and secrets have to be controlled with an [access model](https://docs.microsoft.com/azure/key-vault/general/secure-your-key-vault).",
     "recommendation": {
-      "title": "Define an access model for keys and secrets. Use Azure Key Vault as the secure store and protect the keys/secrets with Azure RBAC.",
-      "context": "",
+      "title": "Define an access model for keys and secrets",
+      "context": "Use Azure Key Vault as the secure store and protect the keys/secrets with Azure RBAC.",
       "links": [],
       "priority": 70
     }
@@ -5113,7 +5113,7 @@
     "title": "Does the organization have a clear guidance or requirement on what type of keys (PMK - Platform Managed Keys vs CMK - Customer Managed Keys) should be used for this workload?",
     "context": "Different approaches can be used by the workload team. Decisions are often driven by security, compliance and specific data classification requirements. Understanding these requirements is important to determine which key types are best suitable (MMK - Microsoft-managed Keys, CMK - Customer-managed Keys or BYOK - Bring Your Own Key).",
     "recommendation": {
-      "title": "Provide guidance for either platform managed keys (PMK) or customer managed keys (CMK), based on security or compliance requirements of this workload.",
+      "title": "Provide guidance for either platform managed keys (PMK) or customer managed keys (CMK), based on security or compliance requirements of this workload",
       "context": "",
       "links": [],
       "priority": 50
@@ -5151,7 +5151,7 @@
         "title": "Are public endpoints of this workload protected with firewall or WAF (Web Application Firewall)?",
         "context": "[Azure Firewall](https://docs.microsoft.com/azure/firewall/features) is a managed, cloud-based network security service that protects Azure Virtual Network resources. [Web Application Firewall](https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview) (WAF) mitigates the risk of an attacker being able to exploit commonly known security application vulnerabilities like cross-site scripting or SQL injection.",
         "recommendation": {
-          "title": "Use web application firewall.",
+          "title": "Use web application firewall",
           "context": "",
           "links": [],
           "priority": 90
@@ -5171,7 +5171,7 @@
     "title": "Are the services of this workload, which should not be accessible from public IP addresses, protected with network restrictions / IP firewall rules?",
     "context": "Azure provides networking solutions to restrict access to individual application services. Multiple levels (such as IP filtering or firewall rules) should be explored to prevent application services from being accessed by unauthorized actors.",
     "recommendation": {
-      "title": "Protect non-public accessible services with network restrictions / IP firewall.",
+      "title": "Protect non-public accessible services with network restrictions / IP firewall",
       "context": "",
       "links": [],
       "priority": 90
@@ -5189,7 +5189,7 @@
     "title": "Does the organization protect publishing methods for the workload (e.g FTP, Web Deploy)?",
     "context": "Application resources allowing multiple methods to publish app content (e.g FTP, Web Deploy) should have the unused endpoints disabled. For Azure Web Apps SCM is the recommended endpoint and it can be protected separately with network restrictions for sensitive scenarios.",
     "recommendation": {
-      "title": "Protect workload publishing methods and restrict those not in use.",
+      "title": "Protect workload publishing methods and restrict those not in use",
       "context": "",
       "links": [],
       "priority": 70
@@ -5200,7 +5200,7 @@
         "title": "Does the organization have an CI/CD process for publishing code in this workload?",
         "context": "Developers shouldn't publish their code directly to app servers - automated and gated CI/CD process should manage this.",
         "recommendation": {
-          "title": "Implement an automated and gated CD/CD deployment process.",
+          "title": "Implement an automated and gated CD/CD deployment process",
           "context": "",
           "links": [],
           "priority": 70
@@ -5221,7 +5221,7 @@
     "title": "Does the workload use Service Endpoints or Private Link for accessing Azure PaaS services?",
     "context": "[Service Endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) and [Private Link](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) can be leveraged to restrict access to PaaS endpoints only from authorized virtual networks, effectively mitigating data intrusion risks and associated impact to application availability. Service Endpoints provide service level access to a PaaS service, while Private Link provides direct access to a specific PaaS resource to mitigate data exfiltration risks (e.g. malicious admin scenarios). Don’t forget that Private Link is a paid service and has meters for inbound and outbound data processed. Private Endpoints are charged as well.",
     "recommendation": {
-      "title": "Use service endpoints and private links where appropriate.",
+      "title": "Use service endpoints and private links where appropriate",
       "context": "",
       "links": [],
       "priority": 70
@@ -5268,7 +5268,7 @@
         "title": "Does the organization have configured NSG flow logs to get insights about incoming and outgoing traffic of this workload?",
         "context": "NSG flow logs should be captured and analyzed to monitor performance and security. The NSG flow logs enables Traffic Analytics to gain insights into internal and external traffic flows of the application.",
         "recommendation": {
-          "title": "Configure and collect network traffic logs.",
+          "title": "Configure and collect network traffic logs",
           "context": "",
           "links": [],
           "priority": 60
@@ -5311,7 +5311,7 @@
     "title": "Is the traffic between subnets, Azure components and tiers of the workload managed and secured?",
     "context": "Data filtering between subnets and other Azure resources should be protected. Network Security Groups, PrivateLink, and Private Endpoints can be used for traffic filtering.",
     "recommendation": {
-      "title": "Control network traffic between subnets (east/west) and application tiers (north/south).",
+      "title": "Control network traffic between subnets (east/west) and application tiers (north/south)",
       "context": "",
       "links": [],
       "priority": 70
@@ -5329,7 +5329,7 @@
     "title": "Does the workload use industry standard encryption algorithms instead of creating own?",
     "context": "Organizations should rarely develop and maintain their own encryption algorithms. Secure standards already exist on the market and should be preferred. AES should be used as symmetric block cipher, AES-128, AES-192 and AES-256 are acceptable. Crypto APIs built into operating systems should be used where possible, instead of non-platform crypto libraries. For .NET make sure you follow the [.NET Cryptography Model](https://docs.microsoft.com/dotnet/standard/security/cryptography-model).",
     "recommendation": {
-      "title": "Use standard and recommended encryption algorithms.",
+      "title": "Use standard and recommended encryption algorithms",
       "context": "",
       "links": [],
       "priority": 60
@@ -5347,7 +5347,7 @@
     "title": "Does the workload communicate over encrypted (TLS / HTTPS) network channels only?",
     "context": "Any network communication between client and server where man-in-the-middle attack can occur, needs to be encrypted. All website communication should use HTTPS, no matter the perceived sensitivity of transferred data (man-in-the-middle attacks can occur anywhere on the site, not just on login forms).",
     "recommendation": {
-      "title": "Use encrypted network channels (TLS / HTTPS) for all client/server communication.",
+      "title": "Use encrypted network channels (TLS / HTTPS) for all client/server communication",
       "context": "",
       "links": [],
       "priority": 50
@@ -5365,7 +5365,7 @@
     "title": "What TLS version is used in this workload?",
     "context": "All Microsoft Azure services fully support TLS 1.2. It is recommended to migrate solutions to support **TLS 1.2** and use this version by default. TLS 1.3 is not available on Azure yet, but should be the preferred option once implemented on the platform.",
     "recommendation": {
-      "title": "Use TLS 1.2 by default on Azure. Prefer TLS 1.3 where possible.",
+      "title": "Use TLS 1.2 or TLS 1.3 where possible",
       "context": "",
       "links": [],
       "priority": 70
@@ -5383,7 +5383,7 @@
     "title": "Does the workload use secure modern hash algorithms?",
     "context": "Applications should use the **SHA-2** family of hash algorithms (SHA-256, SHA-384, SHA-512).",
     "recommendation": {
-      "title": "Use only secure hash algorithms (SHA-2 family).",
+      "title": "Use only secure hash algorithms (SHA-2 family)",
       "context": "",
       "links": [],
       "priority": 70
@@ -5412,7 +5412,7 @@
         "title": "Are customer managed keys (CMK) in this workload protected with an additional key encryption key (KEK)?",
         "context": "More than one encryption key should be used in an encryption at rest implementation. Storing an encryption key in Azure Key Vault ensures secure key access and central management of keys.",
         "recommendation": {
-          "title": "Use an additional key encryption key (KEK) to protect your data encryption key (DEK).",
+          "title": "Use an additional key encryption key (KEK) to protect your data encryption key (DEK)",
           "context": "",
           "links": [],
           "priority": 70
@@ -5432,7 +5432,7 @@
     "title": "How is data at rest protected in this workload?",
     "context": "This includes all information storage objects, containers, and types that exist statically on physical media, whether magnetic or optical disk.  All data should be classified and encrypted with an encryption standard. It should also be tagged so that it can be audited.",
     "recommendation": {
-      "title": "Classify your data at rest and use encryption.",
+      "title": "Classify your data at rest and use encryption",
       "context": "",
       "links": [],
       "priority": 90
@@ -5450,7 +5450,7 @@
     "title": "Is there any portion of the workload that does not secure data in transit?",
     "context": "When data is being transferred between components, locations, or programs, it’s in transit. Data in transit should be encrypted using a common encryption standard at all points to ensure data integrity. For example: web applications and APIs should use HTTPS/SSL for all communication with clients and also between each other (in micro-services architecture). Determine if all components in the solution are using a consistent standard. There are times when encryption is not possible due to technical limitations, but the reason needs to be clear and valid.",
     "recommendation": {
-      "title": "Data in transit should be encrypted at all points to ensure data integrity.",
+      "title": "Data in transit should be encrypted at all points to ensure data integrity",
       "context": "",
       "links": [],
       "priority": 70
@@ -5468,7 +5468,7 @@
     "title": "Has the organization adopted a formal DevOps approach to building and maintaining software in this workload to ensure security and feature enhancements can be deployed in rapid fashion?",
     "context": "The DevOps approach increases the organization’s ability to rapidly address security concerns without waiting for a longer planning and testing cycle of traditional waterfall model. Key attributes are: automation, close integration of infra and dev teams, testability and reliability and repeatability of deployments.* [Adopt the DevOps approach](https://docs.microsoft.com/azure/architecture/framework/Security/applications-services#adopt-the-devops-approach)",
     "recommendation": {
-      "title": "Adopt a formal DevSecOps approach to building and maintaining software.",
+      "title": "Adopt a formal DevSecOps approach to building and maintaining software",
       "context": "",
       "links": [],
       "priority": 90
@@ -5486,7 +5486,7 @@
     "title": "Does the organization leverage DevOps security guidance based on industry lessons-learned, and available automation tools (OWASP guidance, Microsoft toolkit for Secure DevOps etc.)?",
     "context": "Organizations should leverage a control framework such as NIST, CIS or [Azure Security Benchmarks (ASB)](https://docs.microsoft.com/azure/security/benchmarks/) for securing applications on the cloud rather than starting from zero.",
     "recommendation": {
-      "title": "Follow DevOps security guidance and automation for securing applications.",
+      "title": "Follow DevOps security guidance and automation for securing applications",
       "context": "",
       "links": [
         {
@@ -5509,7 +5509,7 @@
     "title": "Does the organization have release gate approvals configured in their DevOps release process of this workload?",
     "context": "Pull Requests and code reviews serve as the first line of approvals during development cycle. Before releasing new code to production (new features, bugfixes etc.), security review and approval should be required.",
     "recommendation": {
-      "title": "Configure quality gate approvals in DevOps release process.",
+      "title": "Configure quality gate approvals in DevOps release process",
       "context": "",
       "links": [],
       "priority": 70
@@ -5545,7 +5545,7 @@
     "title": "Are code scanning tools an integrated part of the continuous integration (CI) process for this workload?",
     "context": "Credentials should not be stored in source code or configuration files, because that increases the risk of exposure. Code analyzers (such as Roslyn analyzers for Visual Studio) can prevent from pushing credentials to source code repository and pipeline addons such as [GitHub Advanced Security](https://docs.github.com/en/github/getting-started-with-github/about-github-advanced-security) or CredScan (part of Microsoft Security Code Analysis) help to catch credentials during the build process.",
     "recommendation": {
-      "title": "Integrate code scanning tools within CI/CD pipeline.",
+      "title": "Integrate code scanning tools within CI/CD pipeline",
       "context": "",
       "links": [
         {
@@ -5565,7 +5565,7 @@
         "title": "Are dependencies and framework components included in the code scanning process of this workload?",
         "context": "As part of the continuous integration process it is crucial that every release includes a scan of all components in use. Vulnerable dependencies should be flagged and investigated. This can be done in combination with other code scanning tasks (e.g. code churn, test results/coverage).",
         "recommendation": {
-          "title": "Include code scans into CI/CD process that also covers 3rd party dependencies and framework components.",
+          "title": "Include code scans into CI/CD process that also covers 3rd party dependencies and framework components",
           "context": "",
           "links": [],
           "priority": 70
@@ -5585,7 +5585,7 @@
     "title": "How are credentials, certificates and other secrets managed in CI/CD pipelines for this workload?",
     "context": "Secrets need to be managed in a secure manner inside of the CI/CD pipeline. Secrets need to be stored either in a secure store inside the pipeline or externally in Azure Key Vault. When deploying application infrastructure (e.g. with Azure Resource Manager or Terraform), credentials and keys should be generated during the process, stored directly in Key Vault and referenced by deployed resources. Hardcoded credentials should be avoided.",
     "recommendation": {
-      "title": "Store keys and secrets outside of deployment pipeline in Azure Key Vault or in secure store for the pipeline.",
+      "title": "Store keys and secrets outside of deployment pipeline in Azure Key Vault or in secure store for the pipeline",
       "context": "",
       "links": [],
       "priority": 70
@@ -5603,7 +5603,7 @@
     "title": "Does the organization use Azure Defender (Azure Security Center) or any third-party solution to scan containers in this workload for vulnerabilities?",
     "context": "Azure Security Center is the Azure-native solution for securing containers. Security Center can protect virtual machines that are running Docker, Azure Kubernetes Service clusters, Azure Container Registry registries. ASC is able to scan container images and identify security issues, or provide real-time threat detection for containerized environments.",
     "recommendation": {
-      "title": "Scan container workloads for vulnerabilities.",
+      "title": "Scan container workloads for vulnerabilities",
       "context": "",
       "links": [
         {
@@ -5644,7 +5644,7 @@
     "title": "Does the organization apply security controls (e.g. IP firewall restrictions, update management, etc.) to self-hosted build agents for this workload?",
     "context": "When the organization uses their own build agents it adds management complexity and can become an attack vector. Build machine credentials must be stored securely and file system needs to be cleaned of any temporary build artifacts regularly. Network isolation can be achieved by only allowing outgoing traffic from the build agent, because it's using pull model of communication with Azure DevOps.",
     "recommendation": {
-      "title": "Apply security controls to self-hosted build agents in the same manner as with other Azure IaaS VMs.",
+      "title": "Apply security controls to self-hosted build agents in the same manner as with other Azure IaaS VMs",
       "context": "",
       "links": [],
       "priority": 70
@@ -5662,7 +5662,7 @@
     "title": "Does the organization perform penetration testing or have a third-party entity perform penetration testing of this workload to validate the current security defenses?",
     "context": "Real world validation of security defenses is critical to validate a defense strategy and implementation. Penetration tests or red team programs can be used to simulate either one time, or persistent threats against an organization to validate defenses that have been put in place to protect organizational resources.",
     "recommendation": {
-      "title": "Use penetration testing and red team exercises to validate security defenses for this workload.",
+      "title": "Use penetration testing and red team exercises to validate security defenses for this workload",
       "context": "",
       "links": [],
       "priority": 70
@@ -5680,7 +5680,7 @@
     "title": "Is the organization using a Landing Zone concept for this workload and how was it implemented?",
     "context": "Landing Zone refers to components that are already defined and in place before the workloads are getting deployed by the workload owners, e.g. network topology with Hub/Spoke concept. The purpose of the “Landing Zone” is to ensure that when a workload lands on Azure, the required “plumbing” is already in place, providing greater agility and compliance with enterprise security and governance requirements. This is crucial, that a Landing Zone will be handed over to the workload owner with the security guardrails deployed.",
     "recommendation": {
-      "title": "Implement a landing zone concept with Azure Blueprints and Azure Policies.",
+      "title": "Implement a landing zone concept with Azure Blueprints and Azure Policies",
       "context": "",
       "links": [],
       "priority": 70
@@ -5691,7 +5691,7 @@
         "title": "Does the organization use Azure Blueprints to consistently deploy environments of this workload that comply with organizational policies?",
         "context": "Automation of deployment and maintenance tasks reduces security and compliance risk by limiting opportunity to introduce human errors during manual tasks.",
         "recommendation": {
-          "title": "Use Azure Blueprints to consistently deploy environments that comply with organizational policies.",
+          "title": "Use Azure Blueprints to consistently deploy environments that comply with organizational policies",
           "context": "",
           "links": [],
           "priority": 70
@@ -5711,7 +5711,7 @@
     "title": "Are Azure policies used to enforce security, compliance and organizational standards of this workload?",
     "context": "Azure Policy should be used to enforce and report a compliant configuration of Azure services. Azure policies can be used on multiple levels. It is recommended to apply organizational wide security controls on Azure platform level. These policies build the guardrails of a landing zone.",
     "recommendation": {
-      "title": "Define a set of Azure Policies which enforce organizational standards and are aligned with the governance team.",
+      "title": "Define a set of Azure Policies which enforce organizational standards and are aligned with the governance team",
       "context": "",
       "links": [],
       "priority": 70
@@ -5729,7 +5729,7 @@
     "title": "Does the organization use cloud native security controls for this workload?",
     "context": "Native security controls are maintained and supported by the service provider, eliminating, or reducing effort required to integrate external security tooling and update those integrations over time.",
     "recommendation": {
-      "title": "Use native security capabilities in application services.",
+      "title": "Use native security capabilities in application services",
       "context": "",
       "links": [],
       "priority": 70
@@ -5747,7 +5747,7 @@
     "title": "Does this workload use cloud services for well-established functions instead of building custom service implementations?",
     "context": "Developers should use services available from a cloud provider for well-established functions like databases, encryption, identity directory, and authentication instead of writing custom versions or third-party solutions that must be integrated into the cloud provider.",
     "recommendation": {
-      "title": "Use services available from a cloud provider for well-established functions like databases, encryption, identity directory, and authentication.",
+      "title": "Use services available from a cloud provider for well-established functions like databases, encryption, identity directory, and authentication",
       "context": "",
       "links": [],
       "priority": 60
@@ -5765,7 +5765,7 @@
     "title": "Does the organization have a defined set of security requirements for this workload?",
     "context": "Azure resources should be blocked that do not meet the proper security requirements defined during service enablement.",
     "recommendation": {
-      "title": "Define security requirements for the workload.",
+      "title": "Define security requirements for the workload",
       "context": "",
       "links": [],
       "priority": 70
@@ -5783,7 +5783,7 @@
     "title": "Has the organization addressed threat protection for the workload?",
     "context": "Enterprise workloads are subjected to many threats that can jeopardize confidentiality, availability, or integrity and should be protected with advanced security solutions.",
     "recommendation": {
-      "title": "Implement threat protection for the workload.",
+      "title": "Implement threat protection for the workload",
       "context": "",
       "links": [],
       "priority": 100
@@ -5801,7 +5801,7 @@
     "title": "Has the organization identified and classified business critical workloads which may adversely affect operations if they are compromised or become unavailable?",
     "context": "Enterprise organizations typically have a large application portfolio. Have key business applications been identified and classified? This should include applications that have a high business impact if affected. Examples would be business critical data, regulated data, or business critical availability. These applications also might include applications which have a high exposure to attack such as public facing websites key to organizational success.",
     "recommendation": {
-      "title": "Identify and classify business critical applications.",
+      "title": "Identify and classify business critical applications",
       "context": "",
       "links": [],
       "priority": 60
@@ -5819,7 +5819,7 @@
     "title": "Has the organization developed and maintained a security plan in support of the workload?",
     "context": "A security plan should be part of the main planning documentation for the cloud. It should include several core elements including organizational functions, security skilling, technical security architecture and capabilities roadmap.",
     "recommendation": {
-      "title": "Develop a security plan.",
+      "title": "Develop a security plan",
       "context": "",
       "links": [],
       "priority": 70
@@ -5837,7 +5837,7 @@
     "title": "Does the organization prioritize security best practices by reviewing guidance based on industry recommendations and apply those settings proactively and completely to all systems as the cloud workload is implemented?",
     "context": "Security best practices are ideally applied proactively and completely to all systems as the cloud workload is implemented.",
     "recommendation": {
-      "title": "Review, prioritize, and proactively apply security best practices to cloud resources.",
+      "title": "Review, prioritize, and proactively apply security best practices to cloud resources",
       "context": "",
       "links": [],
       "priority": 70
@@ -5855,7 +5855,7 @@
     "title": "Does the organization build the appropriate level of resilience into the security infrastructure of this workload?",
     "context": "Building cybersecurity resilience into an organization requires balancing investments across the security lifecycle, diligently applying maintenance, vigilantly responding to anomalies and alerts to prevent security assurance decay, and designing to defense in depth and least privilege.",
     "recommendation": {
-      "title": "Implement holistic security resilience strategy.",
+      "title": "Implement holistic security resilience strategy",
       "context": "",
       "links": [],
       "priority": 90
@@ -5891,7 +5891,7 @@
     "title": "Does the organization consider containing attacker access to Azure workloads when making investments in security solutions?",
     "context": "The actual security risk for an organization is heavily influenced by how much access an adversary can or does obtain to valuable systems and data. For example, when each user only has a focused scope of permissions assigned to them, the impact of compromising an account will be limited.",
     "recommendation": {
-      "title": "Implement security strategy to contain attacker access.",
+      "title": "Implement security strategy to contain attacker access",
       "context": "",
       "links": [],
       "priority": 90
@@ -5909,7 +5909,7 @@
     "title": "Does the organization have a central SecOps teams which monitors security related telemetry data for this workload?",
     "context": "Organization is monitoring the security posture across workloads and central SecOps team is monitoring security-related telemetry data and investigating security breaches.",
     "recommendation": {
-      "title": "Establish a SecOps team and monitor security related events.",
+      "title": "Establish a SecOps team and monitor security related events",
       "context": "",
       "links": [],
       "priority": 50
@@ -5940,7 +5940,7 @@
     "title": "Does the security team have access to and monitor all subscriptions and tenants that are connected to the existing cloud environment, relative to this workload?",
     "context": "Ensure the security organization is aware of all enrollments and associated subscriptions connected to the existing environment and is able to monitor those resources as part of the overall enterprise security posture.",
     "recommendation": {
-      "title": "Ensure all Azure environments that connect to your production environment/network apply your organization’s policy and IT governance controls for security.",
+      "title": "Ensure all Azure environments that connect to your production environment/network apply your organization’s policy and IT governance controls for security",
       "context": "",
       "links": [],
       "priority": 80
@@ -5976,7 +5976,7 @@
     "title": "Does the organization identify and isolate groups of resources from other parts of the organization to aid in detecting and containing adversary movement within the enterprise?",
     "context": "A unified [enterprise segmentation strategy](https://docs.microsoft.com/azure/architecture/framework/Security/governance#enterprise-segmentation-strategy) will guide all technical teams to consistently segment access using networking, applications, identity, and any other access controls.",
     "recommendation": {
-      "title": "Establish a unified enterprise segmentation strategy.",
+      "title": "Establish a unified enterprise segmentation strategy",
       "context": "",
       "links": [],
       "priority": 70
@@ -5987,7 +5987,7 @@
         "title": "Does the organization align the cloud network segmentation strategy with the enterprise segmentation model?",
         "context": "Aligning cloud network segmentation strategy with the enterprise segmentation model reduces confusion and resulting challenges with different technical teams (networking, identity, applications, etc.) each developing their own segmentation and delegation models that don’t align with each other.",
         "recommendation": {
-          "title": "Align cloud network segmentation strategy with the enterprise segmentation model.",
+          "title": "Align cloud network segmentation strategy with the enterprise segmentation model",
           "context": "",
           "links": [],
           "priority": 60
@@ -6025,7 +6025,7 @@
     "title": "Does the organization leverage a Cloud Application Security Broker (CASB) for this workload?",
     "context": "CASBs provide rich visibility, control over data travel, and sophisticated analytics to identify and combat cyberthreats across all Microsoft and third-party cloud services.",
     "recommendation": {
-      "title": "Leverage a Cloud Application Security Broker (CASB).",
+      "title": "Leverage a Cloud Application Security Broker (CASB)",
       "context": "",
       "links": [],
       "priority": 60
@@ -6043,7 +6043,7 @@
     "title": "Does the organization use tools to discover and remediate common risks within Azure tenants?",
     "context": "Identifying and remediating common security hygiene risks significantly reduces overall risk to the organization by increasing cost to attackers. [Azure Secure Score](https://docs.microsoft.com/azure/security-center/security-center-secure-score) in Azure Security Center monitors the security posture of machines, networks, storage and data services, and applications to discover potential security issues (internet connected VMs, or missing security updates, missing endpoint protection or encryption, deviations from baseline security configurations, missing Web Application Firewall (WAF), and more).",
     "recommendation": {
-      "title": "Discover and remediate common risks to improve Secure Score in Azure Security Center.",
+      "title": "Discover and remediate common risks to improve Secure Score in Azure Security Center",
       "context": "",
       "links": [],
       "priority": 70
@@ -6061,7 +6061,7 @@
     "title": "Does the organization have a designated group responsible for centralized network management and security of this workload?",
     "context": "Centralizing network management and security can reduce the potential for inconsistent strategies that create potential attacker exploitable security risks. Because all divisions of the IT and development organizations do not have the same level of network management and security knowledge and sophistication, organizations benefit from leveraging a centralized network team’s expertise and tooling.",
     "recommendation": {
-      "title": "Establish a designated group responsible for central network management.",
+      "title": "Establish a designated group responsible for central network management",
       "context": "",
       "links": [],
       "priority": 70
@@ -6079,7 +6079,7 @@
     "title": "Does the organization have controls in place to ensure that security extends past the network boundaries of the workload in order to effectively prevent, detect, and respond to threats?",
     "context": "Traditional network controls based on a “trusted intranet” approach will not be able to effectively provide security assurances for cloud applications.",
     "recommendation": {
-      "title": "Evolve security beyond network controls.",
+      "title": "Evolve security beyond network controls",
       "context": "",
       "links": [],
       "priority": 70
@@ -6097,7 +6097,7 @@
     "title": "What kind of Data Loss Prevention (DLP) is used for this workload?",
     "context": "Network-based Data Loss Prevention (DLP) is decreasingly effective at identifying both inadvertent and deliberate data loss. The reason for this is that most modern protocols and attackers use network-level encryption for inbound and outbound communications. While the organization can use “SSL-bridging” to provide an “authorized man-in-the-middle” that terminates and then reestablishes encrypted network connections, this can also introduce privacy, security and reliability challenges.",
     "recommendation": {
-      "title": "Deprecate legacy network security controls.",
+      "title": "Deprecate legacy network security controls",
       "context": "",
       "links": [],
       "priority": 70
@@ -6115,7 +6115,7 @@
     "title": "Has the organization enabled enhanced network visibility by integrating network logs into a Security Information and Event Management (SIEM) solution or similar technology?",
     "context": "Integrating logs from the network devices, and even raw network traffic itself, will provide greater visibility into potential security threats flowing over the wire.",
     "recommendation": {
-      "title": "Integrate network logs into a Security Information and Event Management (SIEM).",
+      "title": "Integrate network logs into a Security Information and Event Management (SIEM)",
       "context": "",
       "links": [],
       "priority": 70
@@ -6152,7 +6152,7 @@
     "title": "Does the organization have cloud virtual networks that are designed for growth based on an intentional subnet security strategy?",
     "context": "Most organizations end up adding more resources to networks than initially planned. When this happens, IP addressing and subnetting schemes need to be refactored to accommodate the extra resources. This is a labor-intensive process. There is limited security value in creating a very large number of small subnets and then trying to map network access controls (such as security groups) to each of them.",
     "recommendation": {
-      "title": "Design virtual networks for growth.",
+      "title": "Design virtual networks for growth",
       "context": "",
       "links": [],
       "priority": 60
@@ -6170,7 +6170,7 @@
     "title": "Does the organization have a security containment strategy that blends existing on-premises security controls and practices with native security controls available in Azure, and uses a zero-trust approach?",
     "context": "Assume breach is the recommended cybersecurity mindset and the ability to contain an attacker is vital to protect information systems.",
     "recommendation": {
-      "title": "Build a security containment strategy.",
+      "title": "Build a security containment strategy",
       "context": "",
       "links": [],
       "priority": 70
@@ -6188,7 +6188,7 @@
     "title": "Does the organization use identity-based storage access controls for this workload?",
     "context": "Protecting data at rest is required to maintain confidentiality, integrity, and availability assurances across all workloads. Cloud service providers make multiple methods of access control available - shared keys, shared signatures, anonymous access, identity provider-based. Identity provider methods (such as AAD and RBAC) are the least liable to compromise and enable more fine-grained role-based access controls.",
     "recommendation": {
-      "title": "Implement identity-based storage access controls.",
+      "title": "Implement identity-based storage access controls",
       "context": "",
       "links": [],
       "priority": 60
@@ -6206,7 +6206,7 @@
     "title": "Does the organization encrypt virtual disk files for virtual machines which are associated with this workload?",
     "context": "Encrypting the virtual disk files helps prevent attackers from gaining access to the contents of the disk files in the event an attacker is able to download the files and mount the disk files offline on a separate system.",
     "recommendation": {
-      "title": "Use tools like Azure Disk Encryption, BitLocker or DM-Crypt to encrypt virtual disks.",
+      "title": "Use tools like Azure Disk Encryption, BitLocker or DM-Crypt to encrypt virtual disks",
       "context": "",
       "links": [],
       "priority": 70
@@ -6224,7 +6224,7 @@
     "title": "Does the organization define clear responsibility / role concept for managing keys and secrets for this workload?",
     "context": "Central SecOps team should provide guidance on how keys and secrets are managed (governance), application DevOps team is responsible to manage the application related keys and secrets.",
     "recommendation": {
-      "title": "Define a role & responsibility concept for managing keys and secrets.",
+      "title": "Define a role & responsibility concept for managing keys and secrets",
       "context": "",
       "links": [],
       "priority": 70
@@ -6242,7 +6242,7 @@
     "title": "Does the organization have a formal policy for this workload to apply security updates to VMs in a timely manner, and do strong passwords exist on those VMs for any local administrative accounts that may be in use?",
     "context": "Attackers constantly scan public cloud IP ranges for open management ports and attempt “easy” attacks like common passwords and unpatched vulnerabilities.",
     "recommendation": {
-      "title": "Put a solution in place that ensures all VMs are patched in a timely manner and that ensures strong local administrative password management.",
+      "title": "Put a solution in place that ensures all VMs are patched in a timely manner and that ensures strong local administrative password management",
       "context": "",
       "links": [],
       "priority": 70
@@ -6260,7 +6260,7 @@
     "title": "Does the organization have a Security Operations Center (SOC) that leverages a modern security approach?",
     "context": "A SOC has a critical role in limiting the time and access an attacker can get to valuable systems and data.  In addition, it provides the vital role of detecting the presence of adversaries, reacting to an alert of suspicious activity, or proactively hunting for anomalous events in the enterprise activity logs.",
     "recommendation": {
-      "title": "Establish a Security Operations Center (SOC).",
+      "title": "Establish a Security Operations Center (SOC)",
       "context": "",
       "links": [],
       "priority": 90
@@ -6278,7 +6278,7 @@
     "title": "Does the organization have a method to carry out simulated attacks on users of this workload?",
     "context": "People are a critical part of your defense, especially those with elevated permissions, so ensuring they have the knowledge and skills to avoid and resist attacks will reduce your overall organizational risk. Simulating attacks for educational purposes helps to enforce understanding of the various means that an attacker may use to compromise accounts. Tools such as Office 365 Attack Simulation or similar may be used.",
     "recommendation": {
-      "title": "Simulate attack against users and critical accounts. Ensure proper follow-up to educate users about the various means that an attacker may use.",
+      "title": "Simulate attack against users and critical accounts. Ensure proper follow-up to educate users about the various means that an attacker may use",
       "context": "",
       "links": [],
       "priority": 60
@@ -6296,7 +6296,7 @@
     "title": "Does the organization evaluate the security posture of this workload using standard benchmarks?",
     "context": "[Benchmarking](https://docs.microsoft.com/azure/architecture/framework/Security/governance#evaluate-security-using-benchmarks) enables security program improvement by learning from external organizations. It lets the organization know how its current security state compares to that of other organizations. As an example, the Center for Internet Security (CIS) has created security benchmarks for Azure that map to the CIS Control Framework. Another reference example is the MITRE ATT&CK™ framework that defines the various adversary tactics and techniques based on real-world observations.",
     "recommendation": {
-      "title": "Establish security benchmarking using Azure Security Benchmark to align with industry standards.",
+      "title": "Establish security benchmarking using Azure Security Benchmark to align with industry standards",
       "context": "",
       "links": [
         {
@@ -6319,7 +6319,7 @@
     "title": "Has the organization developed and maintained a security training program to ensure technical staff of this workload are well-informed and equipped with the appropriate skills?",
     "context": "Cybersecurity threats are always evolving and therefore those responsible for organizational information security require specialized, continual, and relevant training to ensure staff maintains the level of competency required to protect, detect, and respond.",
     "recommendation": {
-      "title": "Develop security training program.",
+      "title": "Develop security training program",
       "context": "",
       "links": [],
       "priority": 60
@@ -6362,7 +6362,7 @@
     "title": "Has the organization clearly defined lines of responsibility and designated responsible parties for specific functions in Azure?",
     "context": "Clearly documenting and sharing the contacts responsible for each of these functions will create consistency and facilitate communication. Examples of such contact groups include network security, network management, server endpoint security, incident response, policy management, identity...",
     "recommendation": {
-      "title": "Designate the parties responsible for specific functions in Azure.",
+      "title": "Designate the parties responsible for specific functions in Azure",
       "context": "",
       "links": [],
       "priority": 70
@@ -6380,7 +6380,7 @@
     "title": "Has the organization implemented or considered implementing elevated security capabilities such as dedicated Hardware Security Modules (HSMs) or the use of Confidential Computing?",
     "context": "Careful consideration is necessary on whether to utilize specialized security capabilities in the workload architecture. These capabilities include dedicated [Hardware Security Modules](https://docs.microsoft.com/azure/key-vault/managed-hsm/overview) and [Confidential Computing](https://azure.microsoft.com/solutions/confidential-compute/).",
     "recommendation": {
-      "title": "Review and consider elevated security capabilities for Azure workloads.",
+      "title": "Review and consider elevated security capabilities for Azure workloads",
       "context": "",
       "links": [],
       "priority": 70
@@ -6398,7 +6398,7 @@
     "title": "Has the organization established a lifecycle management policy for critical accounts in this workload?",
     "context": "A compromise of an account in a role that is assigned privileges with a business-critical impact can be detrimental to organizational information systems and should therefore be closely monitored including a lifecycle process.",
     "recommendation": {
-      "title": "Establish lifecycle management policy for critical accounts.",
+      "title": "Establish lifecycle management policy for critical accounts",
       "context": "",
       "links": [],
       "priority": 70
@@ -6409,7 +6409,7 @@
         "title": "Does the organization regularly review access from accounts that have privileges to this workload?",
         "context": "It is important to monitor the usage of high privilege accounts and set up a recurring review pattern to ensure that accounts are removed from permissions as roles change.",
         "recommendation": {
-          "title": "Regularly review access for critical roles.",
+          "title": "Regularly review access for critical roles",
           "context": "",
           "links": [],
           "priority": 80
@@ -6420,7 +6420,7 @@
         "title": "Are all roles (critical and non-critical) assigned only to accounts which really need them and reviewed regularly?",
         "context": "All access should be assigned only when really needed. Even the Reader role, especially with wide scope (subscription, resource group level), can provide an attack vector, because if attacker compromises such user account or service principal, they get access to information such as source code of Azure Automation runbooks, Azure Logic Apps definitions, virtual network structure and other configuration properties of various services.",
         "recommendation": {
-          "title": "Assign all roles only as needed and review access periodically.",
+          "title": "Assign all roles only as needed and review access periodically",
           "context": "",
           "links": [],
           "priority": 50
@@ -6440,7 +6440,7 @@
     "title": "Has a designated point of contact been assigned for this workload to receive Azure incident notifications from Microsoft?",
     "context": "Security alerts need to reach the right people in your organization. It is important to ensure a security contact receives Azure incident notifications, or alerts from Microsoft / Azure Security Center, such as a notification that your resource is compromised and/or attacking another customer.",
     "recommendation": {
-      "title": "Establish a designated point of contact to receive Azure incident notifications from Microsoft.",
+      "title": "Establish a designated point of contact to receive Azure incident notifications from Microsoft",
       "context": "",
       "links": [],
       "priority": 50
@@ -6487,7 +6487,7 @@
         "title": "Does the organization synchronize on-premises admin accounts to Azure Active Directory, or to another cloud identity provider?",
         "context": "Synchronizing on-premises admin accounts to Azure Active Directory creates a pivot point that allows an on-premsise compromise to impact Azure workloads.",
         "recommendation": {
-          "title": "Avoid synching on-premises admin accounts to AAD.",
+          "title": "Avoid synchronizing on-premises admin accounts to AAD",
           "context": "",
           "links": [],
           "priority": 70
@@ -6498,7 +6498,7 @@
         "title": "Does the organization use cloud provider identity services designed to host non-employee rather than including vendors, partners, and customers into a corporate directory?",
         "context": "Using a cloud identity provider reduces risk by granting the appropriate level of access to external entities instead of the full default permissions given to full-time employees. This least privilege approach and clear differentiation of external accounts from company staff makes it easier to prevent and detect attacks coming in from these vectors.",
         "recommendation": {
-          "title": "Use cloud provider identity services for non-employees.",
+          "title": "Use cloud provider identity services for non-employees",
           "context": "",
           "links": [],
           "priority": 50
@@ -6518,7 +6518,7 @@
     "title": "Does the organization use a single identity provider for cross-platform identity management of this workload?",
     "context": "A single identity provider such as Azure Active Directory (AAD) for all enterprise assets and cloud services will simplify management and security, minimizing the risk of oversights or human mistakes. Ideally this provider should span across platforms (Windows, Linux, Azure, AWS, Google...).",
     "recommendation": {
-      "title": "Use single identity provider for cross-platform IDM.",
+      "title": "Use single identity provider for cross-platform IDM",
       "context": "",
       "links": [],
       "priority": 60
@@ -6536,7 +6536,7 @@
     "title": "Does the organization have a well-defined identity strategy for controlling access to cloud-based workloads?",
     "context": "Identity provides the basis of a large percentage of security assurances and a well-defined identity strategy is effective in protecting the organization from cybersecurity threats.",
     "recommendation": {
-      "title": "Implement a well-defined identity strategy.",
+      "title": "Implement a well-defined identity strategy",
       "context": "",
       "links": [],
       "priority": 90
@@ -6554,7 +6554,7 @@
     "title": "Does the organization assign permissions to Azure workloads based on individual resources or use custom permissions?",
     "context": "Custom resource-based permissions are often not needed and can result in increased complexity and confusion as they do not carry the intention to new similar resources. This then accumulates into a complex legacy configuration that is difficult to maintain or change without fear of \"breaking something\" – negatively impacting both security and solution agility. Higher level permissions sets - based on resource groups or management groups - are usually more efficient.",
     "recommendation": {
-      "title": "Assign permissions based on management or resource groups.",
+      "title": "Assign permissions based on management or resource groups",
       "context": "",
       "links": [],
       "priority": 60
@@ -6590,7 +6590,7 @@
     "title": "Does the organization use the root management group and carefully consider any changes that are applied using this group?",
     "context": "The [root management group](https://docs.microsoft.com/azure/architecture/framework/security/design-management-groups#use-root-management-group-with-caution) ensures consistency across the enterprise by applying policies, permissions, and tags across all subscriptions. This group can affect all resources in Azure and incorrect use can impact the security of all workloads in Azure.",
     "recommendation": {
-      "title": "Add planning, testing, and validation rigor to the use of the root management group.",
+      "title": "Add planning, testing, and validation rigor to the use of the root management group",
       "context": "",
       "links": [],
       "priority": 60
@@ -6644,7 +6644,7 @@
     "title": "Is Azure Advisor being used to optimize SKUs discovered in this workload?",
     "context": "Azure Advisor helps to optimize and improve efficiency of the workload by identifying idle and under-utilized resources. It analyzes your configurations and usage telemetry and consolidates it into personalized, actionable recommendations to help you optimize your resources.",
     "recommendation": {
-      "title": "Use Azure Advisor to identify SKUs for optimization.",
+      "title": "Use Azure Advisor to identify SKUs for optimization",
       "context": "",
       "links": [],
       "priority": 50
@@ -6655,7 +6655,7 @@
         "title": "Are the Advisor recommendations being reviewed weekly or bi-weekly for optimization?",
         "context": "Your underutilised resources need to be reviewed often in order to be identified and dealt with accordingly, in addition to ensuring that your actionable recommendations are up-to-date and fully optimized. For example, Azure Advisor monitors your virtual machine (VM) usage for 7 days and then identifies low-utilization VMs.",
         "recommendation": {
-          "title": "Review Azure Advisor recommendation periodically.",
+          "title": "Review Azure Advisor recommendation periodically",
           "context": "",
           "links": [],
           "priority": 50
@@ -6735,7 +6735,7 @@
     "title": "Are you using Azure Cost Management (ACM) to track spending in this workload?",
     "context": "In order to track spending an ACM tool can help with understanding how much is spent, where and when. This helps to make better decisions about how and if cost can be reduced.",
     "recommendation": {
-      "title": "Use ACM or other cost management tools to understand if savings are possible.",
+      "title": "Use ACM or other cost management tools to understand if savings are possible",
       "context": "",
       "links": [],
       "priority": 50
@@ -6753,7 +6753,7 @@
     "title": "Are cost-effective regions considered as part of the deployment selection?",
     "context": "Is there a technical/legal reason for deploying in a particular region? If not, it might be worth looking at another region to decrease cost. Also depending on the workload and data processing model, choosing a cheaper region might make more financial sense.",
     "recommendation": {
-      "title": "Choose appropriate region for workload deployment to optimize cost.",
+      "title": "Choose appropriate region for workload deployment to optimize cost",
       "context": "",
       "links": [],
       "priority": 50
@@ -6826,7 +6826,7 @@
     "title": "Are the right sizes and SKUs used for workload services?",
     "context": "The required performance and infrastructure utilization are key factors which define the 'size' of Azure resources to be used, but there can be hidden aspects that affect cost too. Watch for cost variations between different SKUs - for example App Service Plans S3 cost the same as P2v2, but have worse performance characteristics. Once the purchased SKUs have been identified, determine if they purchased resources have the capabilities of supporting anticipated load. For example, if you expect the load to require 30 instances of an App Service, yet you are currently leveraging a Standard App Service Plan SKU (maximum of 10 instances supported), then you will need to upgrade your App Service Plan in order to accommodate the anticipated load.",
     "recommendation": {
-      "title": "Make sure the optimal service SKUs are used for this workload.",
+      "title": "Make sure the optimal service SKUs are used for this workload",
       "context": "",
       "links": [],
       "priority": 50
@@ -6844,7 +6844,7 @@
     "title": "Is the workload using the right operating system for its servers?",
     "context": "Analyze the technology stack and identify which workloads are capable of running on Linux and which require Windows. Linux-based VMs and App Services are significantly cheaper, but require the app to run on supported stack (.NET Core, Node.js etc.).",
     "recommendation": {
-      "title": "Make sure the optimal operating systems are used for this workload.",
+      "title": "Make sure the optimal operating systems are used for this workload",
       "context": "",
       "links": [],
       "priority": 50
@@ -6862,7 +6862,7 @@
     "title": "Have you deployed a Hub and Spoke Design or Virtual WAN?",
     "context": "Virtual Wide Area Network (WAN) has costs that are different in hub and spoke design. The cost of the peering network or other service routing has to be included. If Private Link is deployed, peering is not billed - only private link.",
     "recommendation": {
-      "title": "Consider whether to deploy Hub and Spoke or Virtual WAN for this workload.",
+      "title": "Consider whether to deploy Hub and Spoke or Virtual WAN for this workload",
       "context": "",
       "links": [],
       "priority": 50
@@ -6880,7 +6880,7 @@
     "title": "Are you moving data between regions?",
     "context": "Moving data between regions can add additional cost - both on the storage layer or networking layer. It's worth reviewing if this cost is can be replaced via re-architecture or justified due to e.g. disaster recovery (DR).",
     "recommendation": {
-      "title": "Consider if the cost of data transfer is acceptable.",
+      "title": "Consider if the cost of data transfer is acceptable",
       "context": "",
       "links": [],
       "priority": 50
@@ -6916,7 +6916,7 @@
     "title": "Are there alerts defined for cost thresholds and limits?",
     "context": "This is to ensure that if any budget is close to threshold, the cost owner gets notified to take appropriate actions on the change.",
     "recommendation": {
-      "title": "Set up alerts for cost limits and thresholds.",
+      "title": "Set up alerts for cost limits and thresholds",
       "context": "",
       "links": [],
       "priority": 50
@@ -6952,7 +6952,7 @@
     "title": "Does every environment have a target date for migrating to PaaS or serverless to bring all up cost and transfer risk?",
     "context": "To bring down cost the goal should be to get as many applications to only consume resources when they are used, this goes as an evolution from IaaS to PaaS to serverless where you only pay when a service I triggered. The PaaS and serverless might appear more expensive, but risk and other operational work is transferred to the cloud provider which should also be factored in as part of the cost (e.g. patching, monitoring, licenses).",
     "recommendation": {
-      "title": "Utilize the PaaS pay-as-you-go consumption model where relevant.",
+      "title": "Utilize the PaaS pay-as-you-go consumption model where relevant",
       "context": "",
       "links": [],
       "priority": 50
@@ -6970,7 +6970,7 @@
     "title": "Are Dev/Test offerings used correctly for the workload?",
     "context": "Special SKUs and subscription offers for development and testing purposes can save costs, but have to be used properly. Dev SKUs are not meant for production deployments.",
     "recommendation": {
-      "title": "Use developer SKUs for dev/test purposes.",
+      "title": "Use developer SKUs for dev/test purposes",
       "context": "",
       "links": [],
       "priority": 50
@@ -6988,7 +6988,7 @@
     "title": "Are test-environments deployed automatically and deleted after use? Use of tagging for end date?",
     "context": "Automating test cases reduces time, cost and helps inefficient resource utilization. It also provides a structured approach to testing with test scripts. Test environments can quickly become overhead if not monitored properly, therefore stopping these resources when they are not in use enables cost saving. In order to drive down cost a good place to look is test environments that might not be used anymore. Implementing a process can help by tagging all test environments with an end date and an owner and after this date follow up with the owner if the environment is still needed and if so set a new end-of-life date.",
     "recommendation": {
-      "title": "Make sure to delete/deallocate resources used in test environments.",
+      "title": "Make sure to delete/deallocate resources used in test environments",
       "context": "",
       "links": [],
       "priority": 50
@@ -7042,7 +7042,7 @@
     "title": "Is there any weekly review process to follow up on budget overrun or signs of spend that should be dealt with?",
     "context": "During a weekly review a key area to discuss is high spending on SKUs or workloads that has a high cost, which might cause a budget overrun. Discussing these spendings early and plan for next step enables the business to be pro-active about spending.",
     "recommendation": {
-      "title": "Perform regular reviews focused on cost and spending for this workload.",
+      "title": "Perform regular reviews focused on cost and spending for this workload",
       "context": "",
       "links": [],
       "priority": 50
@@ -7060,7 +7060,7 @@
     "title": "Do all services used in this workload have a budget assigned to them?",
     "context": "For cost management it is recommended to have a budget even for the smallest services operated as that allows to track and understand the flow of the spend and also understand the impact of a smaller service in a bigger picture.",
     "recommendation": {
-      "title": "Assign a budget and spend limit to the workload.",
+      "title": "Assign a budget and spend limit to the workload",
       "context": "",
       "links": [],
       "priority": 50
@@ -7078,7 +7078,7 @@
     "title": "Is there a cost owner for every service used by this workload?",
     "context": "Every service should have a cost owner that is tracking and is responsible for cost. This drives responsibility and awareness on who owns the cost tracking.",
     "recommendation": {
-      "title": "Establish a cost owner for each service used by the workload.",
+      "title": "Establish a cost owner for each service used by the workload",
       "context": "",
       "links": [],
       "priority": 50
@@ -7096,7 +7096,7 @@
     "title": "Is spending forecast to ensure it aligns with budget?",
     "context": "In order to predict costs and trends it’s recommended to use forecasting to be proactive for any spending that might be going up due to higher demand than anticipated.",
     "recommendation": {
-      "title": "Use cost forcasting as a tool to estimate if the workload is aligned with budget.",
+      "title": "Use cost forcasting as a tool to estimate if the workload is aligned with budget",
       "context": "",
       "links": [],
       "priority": 50
@@ -7168,7 +7168,7 @@
     "title": "Is there a yearly or monthly meeting where you are able to re-negotiate budget or is it given to you?",
     "context": "As Azure changes and new services are introduced, it’s recommended that key services are revisited to see if any new services offered in Azure can help drive down cost or if new SKUs can help drive down cost. It’s recommended that this is done 1-4 times a year.",
     "recommendation": {
-      "title": "Revisit key Azure services to see if there were any updates which could reduce the spend.",
+      "title": "Revisit key Azure services to see if there were any updates which could reduce the spend",
       "context": "",
       "links": [],
       "priority": 50
@@ -7186,7 +7186,7 @@
     "title": "When new applications are introduced to the company, how is the budget defined?",
     "context": "It is important to have a clear understanding how an IT budget is defined. This is especially true for applications that are not built in-house, where IT budget has to be factored in as part of the delivery.",
     "recommendation": {
-      "title": "Understand how is the budget defined.",
+      "title": "Understand how is the budget defined",
       "context": "",
       "links": [],
       "priority": 50
@@ -7240,7 +7240,7 @@
     "title": "Is A-HUB (Azure Hybrid Use Benefit) used to drive cost down in order to re-use licenses to drive cost down in cloud?",
     "context": "Understanding your current spending on licenses can help you drive down cost in the cloud. A-HUB allows you to reuse licenses that you purchased for on-premises in Azure and via this drive down the cost as the license is already paid.",
     "recommendation": {
-      "title": "See if you can use the hybrid use benefit to reuse licensing.",
+      "title": "See if you can use the hybrid use benefit to reuse licensing",
       "context": "",
       "links": [],
       "priority": 50
@@ -7258,7 +7258,7 @@
     "title": "Are any special discounts given to services or licenses that should be factored in when calculating new cost models for services being moved to the cloud?",
     "context": "When alternative cost options are considered it should be understood first if any special offers or deals are given for the existing SKUs to verify that the correct prices are being used to build a business case.",
     "recommendation": {
-      "title": "Learn if there are any discounts available for the services already in use.",
+      "title": "Learn if there are any discounts available for the services already in use",
       "context": "",
       "links": [],
       "priority": 50
@@ -7294,7 +7294,7 @@
     "title": "How is the workload connected between regions? Is it using network peering or gateways?",
     "context": "VNET Peering has additional cost. Peering within the same region is cheaper than peering between regions or Global regions. Inbound and outbound traffic is charged at both ends of the peered networks.",
     "recommendation": {
-      "title": "Make sure the workload works with cross-region peering efficiently and be aware of additional costs.",
+      "title": "Make sure the workload works with cross-region peering efficiently and be aware of additional costs",
       "context": "",
       "links": [],
       "priority": 50
@@ -7366,7 +7366,7 @@
     "title": "How do you ensure that cloud resources are appropriately provisioned?",
     "context": "Deliberate selection of resources and sizing is important to maintain efficiency and optimal cost.",
     "recommendation": {
-      "title": "Automate based on the application lifespan, use DevOps and deployment automation, configure auto-scale policies for the workload (both in and out), select the right resource offering size (VM, disk, database), choose appropriate services that match business requirements.",
+      "title": "Automate based on the application lifespan, use DevOps and deployment automation, configure auto-scale policies for the workload (both in and out), select the right resource offering size (VM, disk, database), choose appropriate services that match business requirements",
       "context": "",
       "links": [],
       "priority": 50

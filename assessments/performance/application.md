@@ -43,13 +43,13 @@
 * Is the workload deployed across multiple regions?
 
   _Multiple regions should be used for failover purposes in a disaster state, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active strategies. Additional cost needs to be taken into consideration - mostly from compute, data and networking perspective, but also services like [Azure Site Recovery (ASR)](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)._
-  > Deploy across multiple regions for higher availability.
+  > Deploy across multiple regions for higher availability
   > 
   > *The ultimate goal is to set up the infrastructure in a way that it's able to automatically react to regional disasters. While active-active configuration would be the north star, not every workload requires two regions running simultaneously at all times, some don't even support it due to technical limitations. Depending on the availability, performance and cost requirements, passive or warm standby can be viable alternatives too.*
     - Were regions chosen based on location and proximity to your users or based on resource types that were available?
 
       _Not only is it important to utilize regions close to your audience, but it is equally important to choose regions that offer the SKUs that will support your future growth. Not all regions share the same parity when it comes to product SKUs._
-      > Plan your growth, then choose regions that will support those plans.
+      > Plan your growth, then choose regions that will support those plans
   
       Additional resources:
         - [Products available by region](https://azure.microsoft.com/global-infrastructure/services/)
@@ -73,7 +73,7 @@
 * Within a region is the application architecture designed to use Availability Zones?
 
   _[Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones) can be used to optimize application availability within a region by providing datacenter level fault tolerance. However, the application architecture must not share dependencies between zones to use them effectively. It is also important to note that Availability Zones may introduce performance and cost considerations for applications which are extremely 'chatty' across zones given the implied physical separation between each zone and inter-zone bandwidth charges. That also means that AZ can be considered to get higher Service Level Agreement (SLA) for lower cost. Be aware of [pricing changes](https://azure.microsoft.com/pricing/details/bandwidth/) coming to Availability Zone bandwidth starting February 2021._
-  > Use Availability Zones where applicable to improve reliability and optimize costs.
+  > Use Availability Zones where applicable to improve reliability and optimize costs
   
     Additional resources:
     - [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones)
@@ -96,7 +96,7 @@
 * Has the application been designed to scale-out?
 
   _Azure provides elastic scalability, however, applications must leverage a scale-unit approach to navigate service and subscription limits to ensure that individual components and the application as a whole can scale horizontally. Don't forget about scale in as well, as this is important to drive cost down. For example, scale in and out for App Service is done via rules. Often customers write scale out rule and never write scale in rule, this leaves the App Service more expensive._
-  > Design your solution with scalability in mind, leverage PaaS capabilities to [scale out](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out) and in by adding additional instances when needed.
+  > Design your solution with scalability in mind, leverage PaaS capabilities to [scale out](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out) and in by adding additional instances when needed
   
     Additional resources:
     - [Design to scale out](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out)
@@ -122,7 +122,7 @@
 * Are you able to predict general application usage?
 
   _It is important to understand application and environment usage. The customer may have an understanding of certain seasons or incidents that increase user load (e.g. a weather service being hit by users facing a storm, an e-commerce site during the holiday season)._
-  > Traffic patterns should be identified by analyzing historical traffic data and the effect of significant external events on the application.
+  > Traffic patterns should be identified by analyzing historical traffic data and the effect of significant external events on the application
     - If typical usage is predictable, are your predictions based on time of day, day of week, or season (e.g. holiday shopping season)?
 
       _Dig deeper and document predictable periods. By doing so, you can leverage resources like Azure Automation and Autoscale to proactively scale the application and its underlying environment._
@@ -136,21 +136,21 @@
 * Are there well-defined performance requirements for the application and/or key scenarios?
 
   _Non-functional performance requirements, such as those relating to end-user experiences (e.g. average and maximum response times) are vital to assessing the overall health of an application, and is a critical lens required for assessing operations._
-  > Identify sensible non-functional requirements.
+  > Identify sensible non-functional requirements
   > 
   > *Work with stakeholders to identify sensible non-functional requirements based on business requirements, research and user testing.*
     - Are there any targets defined for the time it takes to perform scale operations?
 
       _Scale operations (horizontal - changing the number of identical instances, vertical - switching to more/less powerful instances) can be fast, but usually take time to complete. It's important to understand how this delay affects the application under load and if degraded performance is acceptable._
-      > The application should be designed to scale to cope with spikes in load in-line with what is an acceptable duration for degraded performance.
+      > The application should be designed to scale to cope with spikes in load in-line with what is an acceptable duration for degraded performance
     - What is the maximum traffic volume the application is expected to serve without performance degradation?
 
       _Scale requirements the application must be able to effectively satisfy, such as the number of concurrent users or requests per second, is a critical lens for assessing operations. From the cost perspective, it's recommended to set a budget for extreme circumstances and indicate upper limit for cost (when it's not worth serving more traffic due to overall costs)._
-      > Traffic limits for the application should be defined in quantified and measurable manner.
+      > Traffic limits for the application should be defined in quantified and measurable manner
     - Are these performance targets monitored and measured across the application and/or key scenarios?
 
       _Monitoring and measuring end-to-end application performance is vital to qualifying overall application health and progress towards defined targets._
-      > Automation and specialized tooling (such as Application Insights) should be used to orchestrate and measure application performance.
+      > Automation and specialized tooling (such as Application Insights) should be used to orchestrate and measure application performance
 ### Transactional
             
 * Can you measure the efficiency of the connections that are created to external services and datastores?
@@ -177,17 +177,21 @@
 * Are application logs collected from different application environments?
 
   _Application logs support the end-to-end application lifecycle. Logging is essential in understanding how the application operates in various environments and what events occur and under which conditions._
-  > Collect application logs across application environments.
+  > Collect application logs across application environments
   > 
   > *Application logs and events should be collected across all major environments. Sufficient degree of separation and filtering should be in place to ensure non-critical environments do not convolute production log interpretation. Furthermore, corresponding log entries across the application should capture a correlation ID for their respective transactions.*
 * Are log messages captured in a structured format?
 
   _Structured format, following well-known schema can help in parsing and analyzing logs._
-  > Application events should be captured as a structured data type with machine-readable data points rather than unstructured string types. Structured data can easily be indexed and searched, and reporting can be greatly simplified.
+  > Application events should be captured as a structured data type with machine-readable data points rather than unstructured string types
+  > 
+  > *Structured data can easily be indexed and searched, and reporting can be greatly simplified.*
 * Are application events correlated across all application components?
 
   _[Distributed tracing](https://docs.microsoft.com/azure/architecture/microservices/logging-monitoring#distributed-tracing) provides the ability to build and visualize end-to-end transaction flows for the application._
-  > Events coming from different application components or different component tiers of the application should be correlated to build end-to-end transaction flows. For instance, this is often achieved by using consistent correlation IDs transferred between components within a transaction.<br /><br />Event correlation between the layers of the application will provide the ability to connect tracing data of the complete application stack. Once this connection is made, you can see a complete picture of where time is spent at each layer. This will typically mean having a tool that can query the repositories of tracing data in correlation to a unique identifier that represents a given transaction that has flowed through the system.
+  > Events coming from different application components or different component tiers of the application should be correlated to build end-to-end transaction flows
+  > 
+  > *For instance, this is often achieved by using consistent correlation IDs transferred between components within a transaction.<br /><br />Event correlation between the layers of the application will provide the ability to connect tracing data of the complete application stack. Once this connection is made, you can see a complete picture of where time is spent at each layer. This will typically mean having a tool that can query the repositories of tracing data in correlation to a unique identifier that represents a given transaction that has flowed through the system.*
   
     Additional resources:
     - [Distributed tracing](https://docs.microsoft.com/azure/architecture/microservices/logging-monitoring#distributed-tracing)
@@ -197,7 +201,7 @@
     - Is the end-to-end performance of critical system flows monitored?
 
       _To fully assess the health of key scenarios in the context of targets and NFRs, application log events across critical system flows should be correlated._
-      > Correlate application log events across critical system flows, such as user login.
+      > Correlate application log events across critical system flows, such as user login
 * Do you have detailed instrumentation in the application code?
 
   _Instrumentation of your code allows precise detection of underperforming pieces when load or stress tests are applied. It is critical to have this data available to improve and identify performance opportunities in the application code. Application Performance Monitoring (APM) tools, such as Application Insights, should be used to manage the performance and availability of the application, along with aggregating application level logs and events for subsequent interpretation._
@@ -206,11 +210,11 @@
 * Which log aggregation technology is used to collect logs and metrics from Azure resources?
 
   _Log aggregation technologies, such as Azure Log Analytics or Splunk, should be used to collate logs and metrics across all application components for subsequent evaluation. Resources may include Azure IaaS and PaaS services as well as 3rd-party appliances such as firewalls or anti-malware solutions used in the application. For instance, if Azure Event Hub is used, the [Diagnostic Settings](https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs) should be configured to push logs and metrics to the data sink. Understanding usage helps with right-sizing of the workload, but additional cost for logging needs to be accepted and included in the cost model._
-  > Use log aggregation technology, such as Azure Log Analytics or Splunk, to gather information across all application components.
+  > Use log aggregation technology, such as Azure Log Analytics or Splunk, to gather information across all application components
 * Are you collecting Azure Activity Logs within the log aggregation tool?
 
   _Azure Activity Logs provide audit information about when an Azure resource is modified, such as when a virtual machine is started or stopped. Such information is extremely useful for the interpretation and troubleshooting of operational and performance issues, as it provides transparency around configuration changes._
-  > Azure Activity Logs should be collected and aggregated.
+  > Azure Activity Logs should be collected and aggregated
 * Is resource-level monitoring enforced throughout the application?
 
   _Resource- or infrastructure-level monitoring refers to the used platform services such as Azure VMs, Express Route or SQL Database. But also covers 3rd-party solutions like an NVA._
@@ -218,22 +222,24 @@
 * Are logs and metrics available for critical internal dependencies?
 
   _To be able to build a robust application health model it is vital that visibility into the operational state of critical internal dependencies, such as a shared NVA or Express Route connection, be achieved._
-  > Make sure logs and key metrics of critical components are collected and stored.
+  > Collect and store logs and key metrics of critical components
 ### Dependencies
             
 * Are critical external dependencies monitored?
 
   _It's common for applications to depend on other services or libraries. Despite these are external, it is still possible to monitor their health and availability using probes._
-  > Critical external dependencies, such as an API service, should be monitored to ensure operational visibility of dependency health. For instance, a probe could be used to measure the availability and latency of an external API.
+  > Monitor critical external dependencies
+  > 
+  > *Critical external dependencies, such as an API service, should be monitored to ensure operational visibility of dependency health. For instance, a probe could be used to measure the availability and latency of an external API.*
 ### Data Interpretation &amp; Health Modelling
             
 * Are application and resource level logs aggregated in a single data sink, or is it possible to cross-query events at both levels?
 
   _To build a robust application health model it is vital that application and resource level data be correlated and evaluated together to optimize the detection of issues and troubleshooting of detected issues._
-  > Implement a unified solution to aggregate and query application and resource level logs, such as Azure Log Analytics.
+  > Implement a unified solution to aggregate and query application and resource level logs, such as Azure Log Analytics
 * Is a health model used to qualify what 'healthy' and 'unhealthy' states represent for the application?
 
-  > Implement a health model.
+  > Implement a health model
   > 
   > *A holistic application health model should be used to quantify what 'healthy' and 'unhealthy' states represent across all application components. It is highly recommended that a 'traffic light' model be used to indicate a green/healthy state when key non-functional requirements and targets are fully satisfied and resources are optimally utilized, e.g. 95% of requests are processed in <= 500ms with Azure Kubernetes Service (AKS) node utilization at x% etc. Once established, this health model should inform critical monitoring metrics across system components and operational sub-system composition. It is important to note that the health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state.*
     - Are critical system flows used to inform the health model?
@@ -242,10 +248,10 @@
     - Can the health model distinguish between transient and non-transient faults?
 
       _Is the health model treating all failures the same?_
-      > The health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state.
+      > The health model should clearly distinguish between expected transient but recoverable failures and a true disaster state
     - Can the health model determine if the application is performing at expected performance targets?
 
-      _The health model should have the ability to evaluate application performance as a part of the application's overall health state._
+      _The health model should have the ability to evaluate application performance as a part of the application's overall health state_
 * Have retention times for logs and metrics been defined and with housekeeping mechanisms configured?
 
   > Clear retention times should be defined to allow for suitable historic analysis but also control storage costs. Suitable housekeeping tasks should also be used to archive data to cheaper storage or aggregate data for long-term trend analysis.
@@ -314,7 +320,7 @@
 * Are the right sizes and SKUs used for workload services?
 
   _The required performance and infrastructure utilization are key factors which define the 'size' of Azure resources to be used, but there can be hidden aspects that affect cost too. Watch for cost variations between different SKUs - for example App Service Plans S3 cost the same as P2v2, but have worse performance characteristics. Once the purchased SKUs have been identified, determine if they purchased resources have the capabilities of supporting anticipated load. For example, if you expect the load to require 30 instances of an App Service, yet you are currently leveraging a Standard App Service Plan SKU (maximum of 10 instances supported), then you will need to upgrade your App Service Plan in order to accommodate the anticipated load._
-  > Make sure the optimal service SKUs are used for this workload.
+  > Make sure the optimal service SKUs are used for this workload
 ## Networking &amp; Connectivity
     
 ### Endpoints
@@ -382,7 +388,7 @@
 * Is the application stateless or stateful? If it is stateful, is the state externalized in a data store?
 
   _[Stateless services](https://docs.microsoft.com/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices) and processes can easily be hosted across multiple compute instances to meet scale demands, as well as helping to reduce complexity and ensure high cacheability._
-  > Use externalized data store for stateful applications.
+  > Use externalized data store for stateful applications
   
     Additional resources:
     - [Stateless web services](https://docs.microsoft.com/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices)
@@ -393,7 +399,7 @@
 * Is the application tested for performance, scalability, and resiliency?
 
   _**Performance testing** is the superset of both load and stress testing. The primary goal of performance testing is to validate benchmark behavior for the application.<br />**Load Testing** validates application scalability by rapidly and/or gradually increasing the load on the application until it reaches a threshold/limit.<br />**Stress Testing** is a type of negative testing which involves various activities to overload existing resources and remove components to understand overall resiliency and how the application responds to issues._
-  > Define a testing strategy.
+  > Define a testing strategy
     - How does your team perceive the importance of performance testing?
 
       _It is critical that your team understands the importance of performance testing. Additionally, the team should be committed to providing the necessary time and resources for adequately executing performance testing proven practices._
