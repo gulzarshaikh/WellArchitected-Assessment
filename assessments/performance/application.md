@@ -1,6 +1,7 @@
 # Application Performance Efficiency
 
 # Navigation Menu
+- [Definition of Workload](#Workload-Definition)
 - [Application Assessment Checklist](#Application-Assessment-Checklist)
   - [Application Design](#Application-Design)
     - [Design](#Design)
@@ -34,6 +35,18 @@
     - [Troubleshooting](#Troubleshooting)
 
 
+
+# Definition of Workload
+
+To ensure a successful assessment it is important to scope it to the right customer *workload*. We realize that the term is quite ambiguous and used in various contexts, so for the Well Architected assessments, we define it as:
+
+*A "workload" or "application" is a resource or collection of resources that provide end-to-end functionality to one or multiple clients (humans or systems). Another way to think of it: A workload is an end-to-end scenario (a process) and the IT infrastructure supporting it. It can be one application, it can be multiple apps, APIs and databases working together to deliver a specific functionality.*
+
+Some examples:
+* The Azure part of ticket ordering workload would be 1) the client web application, used by consumers to book tickets, 2) the payment gateway used to process credit card transactions, 3) the backend API handling communication, 4) the database where everything is stored, 5) the gateway to on-premises systems handling capacities and available seats, 5) the admin web application, 6) the shared AAD supporting authentication for administrators across the organization... etc.
+* A data processing pipeline, which every night 1) ingests data from SAP and other on-premises systems, 2) runs data analytics workbooks on Azure Databricks, 3) stores results into Storage Accounts, 4) is accessed by a desktop application, 5) only for authenticated users from the organization.
+
+Compared to reviewing the whole Azure landscape of an organization, this focus allows us to go deeper into the workload and architecture and provide more relevant recommendations, which are quite often transferrable to other workloads within the same customer as well. 
 
 # Application Assessment Checklist
 ## Application Design
