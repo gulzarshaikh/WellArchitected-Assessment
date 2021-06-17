@@ -12,6 +12,8 @@ This list contains design considerations and recommended configuration options, 
     - [Virtual Machines](#Virtual-Machines)
   - [Data](#Data)
     - [Azure SQL Database](#Azure-SQL-Database)
+    - [Azure Database For PostgreSQL](#Azure-Database-For-PostgreSQL)
+    - [Azure Database For MySQL](#Azure-Database-For-MySQL)
   - [Storage](#Storage)
     - [Storage Accounts](#Storage-Accounts)
     - [Disks](#Disks)
@@ -20,6 +22,9 @@ This list contains design considerations and recommended configuration options, 
     - [Network Connectivity](#Network-Connectivity)
     - [API Management](#API-Management)
     - [IP Addresses](#IP-Addresses)
+  - [Monitoring](#Monitoring)
+    - [Log Analytics Workspace](#Log-Analytics-Workspace)
+    - [Application Insights](#Application-Insights)
 # Compute
         
 ## Azure App Service
@@ -73,6 +78,47 @@ This list contains design considerations and recommended configuration options, 
 ### Configuration Recommendations
 * Consider Reserved Capacity for Azure SQL Database.
   > Compute costs associated with Azure SQL Database can be reduced by using [Reservation Discount](https://docs.microsoft.com/azure/cost-management-billing/reservations/understand-reservation-charges). Once the total compute capacity and performance tier for Azure SQL databases in a region is determined, this information can be used to reserve the capacity. The reservation can span 1 or 3 years. Significant cost optimization can be realized with this commitment. Refer to documentation on [Save costs for resources with reserved capacity](https://docs.microsoft.com/azure/azure-sql/database/reserved-capacity-overview) for more details.
+                            
+## Azure Database For PostgreSQL
+### Design Considerations
+* Consider using Flexible Server SKU for non-production workloads.
+  > Flexible servers provide better cost optimization controls with ability to stop/start your server and burstable compute tier that is ideal for workloads that do not need full compute capacity continuously.
+                            
+* The cloud native design of the Single Server service allows it to support 99.99% of availability eliminating the cost of passive hot standby.
+* Hyperscale (Citus) provides dynamic scalability without the cost of manual sharding with low application re-architecture required.
+  > Distributing table rows across multiple PostgreSQL servers is a key technique for scalable queries in Hyperscale (Citus). Together, multiple nodes can hold more data than a traditional database, and in many cases can use worker CPUs in parallel to execute queries potentially decreasing the database costs. Follow this [Shard data on worker nodes tutorial](https://docs.microsoft.com/en-us/azure/postgresql/tutorial-hyperscale-shard) to practice this potential savings architecture pattern.
+                            
+* Plan your RPO (Recovery Point Objective) according to your operation level requirement.
+  > There is no additional charge for backup storage for up to 100% of your total provisioned server storage. Additional consumption of backup storage will be charged in GB/month.
+                            
+* Take advantage of the scaling capabilities of Azure Database for PostgreSQL to decrease consumption cost whenever possible.
+  > This [how to article](https://techcommunity.microsoft.com/t5/azure-database-support-blog/how-to-auto-scale-an-azure-database-for-mysql-postgresql/ba-p/369177) from Microsoft Support covers the automation process using runbooks to scale up and down your database as needed.
+                            
+### Configuration Recommendations
+* Consider Reserved Capacity for Azure Database for PostgreSQL Single Server and Hyperscale (Citus).
+  > Compute costs associated with Azure Database For PostgreSQL [Single Server Reservation Discount](https://docs.microsoft.com/en-us/azure/postgresql/concept-reserved-pricing) and [Hyperscale (Citus) Reservation Discount](https://docs.microsoft.com/en-us/azure/postgresql/concepts-hyperscale-reserved-pricing). Once the total compute capacity and performance tier for Azure Database for PostgreSQL in a region is determined, this information can be used to reserve the capacity. The reservation can span 1 or 3 years. You can realize significant cost optimization with this commitment.
+                            
+* Chose the appropriate server size for your workload.
+  > Configuration options: [Single Server](https://docs.microsoft.com/en-us/azure/postgresql/concepts-pricing-tiers), [Flexible Server](https://docs.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-compute-storage), [Hyperscale (Citus)](https://docs.microsoft.com/en-us/azure/postgresql/concepts-hyperscale-configuration-options).
+                            
+## Azure Database For MySQL
+### Design Considerations
+* Consider using Flexible Server SKU for non-production workloads.
+  > Flexible servers provide better cost optimization controls with ability to stop/start your server and burstable compute tier that is ideal for workloads that do not need full compute capacity continuously.
+                            
+* The cloud native design of the Single Server service allows it to support 99.99% of availability eliminating the cost of passive hot standby.
+* Plan your RPO (Recovery Point Objective) according to your operation level requirement.
+  > There is no additional charge for backup storage for up to 100% of your total provisioned server storage. Additional consumption of backup storage will be charged in GB/month.
+                            
+* Take advantage of the scaling capabilities of Azure Database for MySQL to decrease consumption cost whenever possible.
+  > This [how to article](https://techcommunity.microsoft.com/t5/azure-database-support-blog/how-to-auto-scale-an-azure-database-for-mysql-postgresql/ba-p/369177) from Microsoft Support covers the automation process using runbooks to scale up and down your database as needed.
+                            
+### Configuration Recommendations
+* Consider Reserved Capacity for Azure Database for MySQL Single Server.
+  > Compute costs associated with Azure Database For MySQL [Single Server Reservation Discount](https://docs.microsoft.com/en-us/azure/mysql/concept-reserved-pricing). Once the total compute capacity and performance tier for Azure Database for MySQL in a region is determined, this information can be used to reserve the capacity. The reservation can span 1 or 3 years. You can realize significant cost optimization with this commitment.
+                            
+* Chose the appropriate server size for your workload.
+  > Configuration options: [Single Server](https://docs.microsoft.com/en-us/azure/mysql/concepts-pricing-tiers), [Flexible Server](https://docs.microsoft.com/en-us/azure/mysql/flexible-server/concepts-compute-storage).
                             
 # Storage
         
@@ -152,4 +198,42 @@ This list contains design considerations and recommended configuration options, 
 ### Configuration Recommendations
 * PIPs (Public IPs) are free until used. Static PIPs are paid even when not assigned to resources.
   > There's a difference in billing for regular and static public IP addresses. There should be a process to look for orphan network interface cards (NICs) and PIPs that are not being used in production and non-production.
+                            
+# Monitoring
+        
+## Log Analytics Workspace
+### Design Considerations
+* Consider how long to retain data on Log Analytics.
+  > Data ingested into Log Analytics workspace can be retained at no charge up to 31 days. Consider general aspects to configure the [Log Analytics workspace level default retention](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/manage-cost-storage#workspace-level-default-retention) and specific needs to configure data [retention by data type](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/manage-cost-storage#retention-by-data-type), that can be as low as 4 days. Ex: Usually, performance data doens't need to be retained longer, instead, security logs may need to be retained longer.
+                            
+* Consider export data for long term retention and/or auditing purposes.
+  > Data retained for audit purposes may be exported to a cheapest storage type. Refer to [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/logs-data-export?tabs=portal) about Log Analytics workspace data export.
+                            
+### Configuration Recommendations
+* Consider adoption of Commitment Tiers pricing model to the Log Analytics workspace.
+  > The usage of Commitment Tiers enable saving as much as 30% compared to Pay-As-You-Go pricing. Commitment Tiers starts at 100 GB/day and any usage above the reservation level is billed at the Pay-As-You-Go rate. Refer to [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/manage-cost-storage#changing-pricing-tier) about how to change Log Analytics pricing tier to Capacity Reservations. Use the [Log Analytics Usage and Estimated Costs page](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/manage-cost-storage#understand-your-usage-and-estimate-costs) to analyze data usage and calculate possible Commitment Tiers. *Note: Azure Defender (Security Center) billing includes 500 MB/node/day allocation against the [security data types](https://docs.microsoft.com/en-us/azure/azure-monitor/reference/tables/tables-category#security). Take it into consideration when calculating Commitment Tiers*
+                            
+* Evaluate usage of daily cap to limit the daily ingestion for your workspace.
+  > Daily cap is intended to be used as a way to manage an unexpected increase in data volume from your managed resources, or when you want to limit unplanned charges for your workspace. Use care with this configuration as it may implicate in some data not being writen on Log Analytics workspace if the daily cap is reached, impacting services whose functionality may depend on up-to-date data being available in the workspace. Refer to [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/manage-cost-storage#set-the-daily-cap) about how to set the Daily Cap.
+                            
+* Understand Log Analytics workspace usage.
+  > When Log Analytics workspace usage is higher than expected, consider the [troubleshooting](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/manage-cost-storage#troubleshooting-why-usage-is-higher-than-expected) guide and the [Understanding ingested data volume](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/manage-cost-storage#understanding-ingested-data-volume) guide to understand the unexpected behavior.
+                            
+* Evaluate possible data ingestion volume reducing.
+  > Refer to this [Tips for reducing data volume](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/manage-cost-storage#tips-for-reducing-data-volume) documentation to help configure data ingestion on a proper way.
+                            
+## Application Insights
+### Design Considerations
+* Consider use sampling to reduce the ammount of telemetry that&#39;s sent.
+  > Sampling is a feature in Application Insights. It is recommended way to reduce telemetry traffic, data and storage costs. Refer to this [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/app/sampling) about sampling.
+                            
+* Consider turning off collection for unneeded modules.
+  > On the configuration files you can enable or disable Telemetry Modules and initializers for tracking telemetry from your applications. Refer to this [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/app/configuration-with-applicationinsights-config) about how to manage Application Insights packages.
+                            
+* Consider limit Ajax calls.
+  > Ajax calls can be limitted to reduce costs. Refer to this [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/app/javascript#configuration) that explains the fields and its configurations.
+                            
+### Configuration Recommendations
+* Evaluate usage of daily cap to limit the daily ingestion for your workspace.
+  > Daily cap is intended to be used as a way to manage an unexpected increase in data volume or when you want to limit unplanned charges for your workspace. Use care with this configuration as it may implicate in some data not being writen on Log Analytics workspace if the daily cap is reached, impacting services whose functionality may depend on up-to-date data being available in the workspace. Refer to [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/app/pricing#set-the-daily-cap) about how to set the Daily Cap in Application Insights. *Note: If you have a workspace-based Application Insights, the recommendation is to use workspace's daily cap to limit ingestion and costs instead of the cap in Application Insights*
                             
