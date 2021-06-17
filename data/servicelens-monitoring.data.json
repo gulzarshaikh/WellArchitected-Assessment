@@ -1,0 +1,112 @@
+[
+  {
+    "type": "Design Considerations",
+    "pillars": [
+      "costoptimization"
+    ],
+    "lens": "service",
+    "category": "Monitoring",
+    "subCategory": "Log Analytics Workspace",
+    "title": "Consider how long to retain data on Log Analytics.",
+    "context": "Data ingested into Log Analytics workspace can be retained at no charge up to 31 days. Consider general aspects to configure the [Log Analytics workspace level default retention](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/manage-cost-storage#workspace-level-default-retention) and specific needs to configure data [retention by data type](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/manage-cost-storage#retention-by-data-type), that can be as low as 4 days. Ex: Usually, performance data doens't need to be retained longer, instead, security logs may need to be retained longer."
+  },
+  {
+    "type": "Design Considerations",
+    "pillars": [
+      "costoptimization"
+    ],
+    "lens": "service",
+    "category": "Monitoring",
+    "subCategory": "Log Analytics Workspace",
+    "title": "Consider export data for long term retention and/or auditing purposes.",
+    "context": "Data retained for audit purposes may be exported to a cheapest storage type. Refer to [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/logs-data-export?tabs=portal) about Log Analytics workspace data export."
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "costoptimization"
+    ],
+    "lens": "service",
+    "category": "Monitoring",
+    "subCategory": "Log Analytics Workspace",
+    "title": "Consider adoption of Commitment Tiers pricing model to the Log Analytics workspace.",
+    "context": "The usage of Commitment Tiers enable saving as much as 30% compared to Pay-As-You-Go pricing. Commitment Tiers starts at 100 GB/day and any usage above the reservation level is billed at the Pay-As-You-Go rate. Refer to [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/manage-cost-storage#changing-pricing-tier) about how to change Log Analytics pricing tier to Capacity Reservations. Use the [Log Analytics Usage and Estimated Costs page](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/manage-cost-storage#understand-your-usage-and-estimate-costs) to analyze data usage and calculate possible Commitment Tiers. *Note: Azure Defender (Security Center) billing includes 500 MB/node/day allocation against the [security data types](https://docs.microsoft.com/en-us/azure/azure-monitor/reference/tables/tables-category#security). Take it into consideration when calculating Commitment Tiers*"
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "costoptimization"
+    ],
+    "lens": "service",
+    "category": "Monitoring",
+    "subCategory": "Log Analytics Workspace",
+    "title": "Evaluate usage of daily cap to limit the daily ingestion for your workspace.",
+    "context": "Daily cap is intended to be used as a way to manage an unexpected increase in data volume from your managed resources, or when you want to limit unplanned charges for your workspace. Use care with this configuration as it may implicate in some data not being writen on Log Analytics workspace if the daily cap is reached, impacting services whose functionality may depend on up-to-date data being available in the workspace. Refer to [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/manage-cost-storage#set-the-daily-cap) about how to set the Daily Cap."
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "costoptimization"
+    ],
+    "lens": "service",
+    "category": "Monitoring",
+    "subCategory": "Log Analytics Workspace",
+    "title": "Understand Log Analytics workspace usage.",
+    "context": "When Log Analytics workspace usage is higher than expected, consider the [troubleshooting](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/manage-cost-storage#troubleshooting-why-usage-is-higher-than-expected) guide and the [Understanding ingested data volume](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/manage-cost-storage#understanding-ingested-data-volume) guide to understand the unexpected behavior."
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "costoptimization"
+    ],
+    "lens": "service",
+    "category": "Monitoring",
+    "subCategory": "Log Analytics Workspace",
+    "title": "Evaluate possible data ingestion volume reducing.",
+    "context": "Refer to this [Tips for reducing data volume](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/manage-cost-storage#tips-for-reducing-data-volume) documentation to help configure data ingestion on a proper way."
+  },
+  {
+    "type": "Design Considerations",
+    "pillars": [
+      "costoptimization"
+    ],
+    "lens": "service",
+    "category": "Monitoring",
+    "subCategory": "Application Insights",
+    "title": "Consider use sampling to reduce the ammount of telemetry that's sent.",
+    "context": "Sampling is a feature in Application Insights. It is recommended way to reduce telemetry traffic, data and storage costs. Refer to this [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/app/sampling) about sampling."
+  },
+  {
+    "type": "Design Considerations",
+    "pillars": [
+      "costoptimization"
+    ],
+    "lens": "service",
+    "category": "Monitoring",
+    "subCategory": "Application Insights",
+    "title": "Consider turning off collection for unneeded modules.",
+    "context": "On the configuration files you can enable or disable Telemetry Modules and initializers for tracking telemetry from your applications. Refer to this [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/app/configuration-with-applicationinsights-config) about how to manage Application Insights packages."
+  },
+  {
+    "type": "Design Considerations",
+    "pillars": [
+      "costoptimization"
+    ],
+    "lens": "service",
+    "category": "Monitoring",
+    "subCategory": "Application Insights",
+    "title": "Consider limit Ajax calls.",
+    "context": "Ajax calls can be limitted to reduce costs. Refer to this [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/app/javascript#configuration) that explains the fields and its configurations."
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "costoptimization"
+    ],
+    "lens": "service",
+    "category": "Monitoring",
+    "subCategory": "Application Insights",
+    "title": "Evaluate usage of daily cap to limit the daily ingestion for your workspace.",
+    "context": "Daily cap is intended to be used as a way to manage an unexpected increase in data volume or when you want to limit unplanned charges for your workspace. Use care with this configuration as it may implicate in some data not being writen on Log Analytics workspace if the daily cap is reached, impacting services whose functionality may depend on up-to-date data being available in the workspace. Refer to [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/app/pricing#set-the-daily-cap) about how to set the Daily Cap in Application Insights. *Note: If you have a workspace-based Application Insights, the recommendation is to use workspace's daily cap to limit ingestion and costs instead of the cap in Application Insights*"
+  }
+]
