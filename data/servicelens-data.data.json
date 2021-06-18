@@ -1044,7 +1044,7 @@
     "lens": "service",
     "category": "Data",
     "subCategory": "Azure Database For PostgreSQL",
-    "title": "Chose the appropriate server size for your workload.",
+    "title": "Choose the appropriate server size for your workload.",
     "context": "Configuration options: [Single Server](https://docs.microsoft.com/en-us/azure/postgresql/concepts-pricing-tiers), [Flexible Server](https://docs.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-compute-storage), [Hyperscale (Citus)](https://docs.microsoft.com/en-us/azure/postgresql/concepts-hyperscale-configuration-options).",
     "id": "ff2a4c9c-cb1c-41e1-9c32-1d8944bcf54c"
   },
@@ -1115,7 +1115,7 @@
     "lens": "service",
     "category": "Data",
     "subCategory": "Azure Database For MySQL",
-    "title": "Chose the appropriate server size for your workload.",
+    "title": "Choose the appropriate server size for your workload.",
     "context": "Configuration options: [Single Server](https://docs.microsoft.com/en-us/azure/mysql/concepts-pricing-tiers), [Flexible Server](https://docs.microsoft.com/en-us/azure/mysql/flexible-server/concepts-compute-storage).",
     "id": "dac2b294-5f4b-4f0b-bbff-a5066610f045"
   }
