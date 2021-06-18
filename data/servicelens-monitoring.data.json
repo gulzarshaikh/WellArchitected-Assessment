@@ -68,7 +68,7 @@
     "category": "Monitoring",
     "subCategory": "Log Analytics Workspace",
     "title": "Evaluate possible data ingestion volume reducing.",
-    "context": "Refer to this [Tips for reducing data volume](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/manage-cost-storage#tips-for-reducing-data-volume) documentation to help configure data ingestion on a proper way.",
+    "context": "Refer to this [Tips for reducing data volume](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/manage-cost-storage#tips-for-reducing-data-volume) documentation to help configure data ingestion properly.",
     "id": "ba2c4138-320f-4a9a-ac76-c665067f4ae7"
   },
   {
