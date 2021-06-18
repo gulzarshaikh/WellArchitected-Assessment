@@ -79,7 +79,7 @@
     "lens": "service",
     "category": "Monitoring",
     "subCategory": "Application Insights",
-    "title": "Consider use sampling to reduce the ammount of telemetry that's sent.",
+    "title": "Consider use sampling to reduce the amount of telemetry that's sent.",
     "context": "Sampling is a feature in Application Insights. It is recommended way to reduce telemetry traffic, data and storage costs. Refer to this [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/app/sampling) about sampling.",
     "id": "8cbd7374-24fe-4ace-b247-b2a0a1c85b75"
   },
