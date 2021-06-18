@@ -20,7 +20,7 @@
     "category": "Monitoring",
     "subCategory": "Log Analytics Workspace",
     "title": "Consider exporting data for long term retention and/or auditing purposes.",
-    "context": "Data retained for audit purposes may be exported to a cheapest storage type. Refer to [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/logs-data-export?tabs=portal) about Log Analytics workspace data export.",
+    "context": "Data retained for audit purposes may be exported to a cheaper storage type. Refer to [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/logs-data-export?tabs=portal) about Log Analytics workspace data export.",
     "id": "7452e491-5702-4918-baf2-f35142c25c69"
   },
   {
