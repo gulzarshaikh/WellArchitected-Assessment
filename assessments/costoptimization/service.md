@@ -230,7 +230,7 @@ This list contains design considerations and recommended configuration options, 
 * Consider turning off collection for unneeded modules.
   > On the configuration files you can enable or disable Telemetry Modules and initializers for tracking telemetry from your applications. Refer to this [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/app/configuration-with-applicationinsights-config) about how to manage Application Insights packages.
                             
-* Consider limit Ajax calls.
+* Consider limit tracing of Ajax calls.
   > Ajax calls can be limitted to reduce costs. Refer to this [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/app/javascript#configuration) that explains the fields and its configurations.
                             
 ### Configuration Recommendations
