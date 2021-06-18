@@ -8,7 +8,7 @@
     "category": "Monitoring",
     "subCategory": "Log Analytics Workspace",
     "title": "Consider how long to retain data on Log Analytics.",
-    "context": "Data ingested into Log Analytics workspace can be retained at no additional charge up to first 31 days. Consider general aspects to configure the [Log Analytics workspace level default retention](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/manage-cost-storage#workspace-level-default-retention) and specific needs to configure data [retention by data type](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/manage-cost-storage#retention-by-data-type), that can be as low as 4 days. Ex: Usually, performance data doens't need to be retained longer, instead, security logs may need to be retained longer.",
+    "context": "Data ingested into Log Analytics workspace can be retained at no additional charge up to first 31 days. Consider general aspects to configure the [Log Analytics workspace level default retention](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/manage-cost-storage#workspace-level-default-retention) and specific needs to configure data [retention by data type](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/manage-cost-storage#retention-by-data-type), that can be as low as 4 days. Example: Usually, performance data doens't need to be retained longer, instead, security logs may need to be retained longer.",
     "id": "7b7e5229-b654-4146-a864-583e4fd85bbe"
   },
   {
