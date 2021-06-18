@@ -103,7 +103,7 @@
     "lens": "service",
     "category": "Monitoring",
     "subCategory": "Application Insights",
-    "title": "Consider limit Ajax calls.",
+    "title": "Consider limit tracing of Ajax calls.",
     "context": "Ajax calls can be limitted to reduce costs. Refer to this [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/app/javascript#configuration) that explains the fields and its configurations.",
     "id": "d39495c9-40a0-498e-bce9-829feb0cef16"
   },
