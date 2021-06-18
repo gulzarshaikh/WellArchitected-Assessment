@@ -44,7 +44,7 @@
     "category": "Monitoring",
     "subCategory": "Log Analytics Workspace",
     "title": "Evaluate usage of daily cap to limit the daily ingestion for your workspace.",
-    "context": "Daily cap is intended to be used as a way to manage an unexpected increase in data volume from your managed resources, or when you want to limit unplanned charges for your workspace. Use care with this configuration as it may implicate in some data not being writen on Log Analytics workspace if the daily cap is reached, impacting services whose functionality may depend on up-to-date data being available in the workspace. Refer to [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/manage-cost-storage#set-the-daily-cap) about how to set the Daily Cap.",
+    "context": "Daily cap is intended to be used as a way to manage an unexpected increase in data volume from your managed resources, or when you want to limit unplanned charges for your workspace. Use care with this configuration as it may implicate in some data not being written to Log Analytics workspace if the daily cap is reached, impacting services whose functionality may depend on up-to-date data being available in the workspace. Refer to [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/manage-cost-storage#set-the-daily-cap) about how to set the Daily Cap.",
     "id": "dbc7e92c-2d04-4fb7-927b-51cd90c93a13"
   },
   {
