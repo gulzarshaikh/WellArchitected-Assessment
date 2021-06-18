@@ -98,7 +98,7 @@ This list contains design considerations and recommended configuration options, 
 * Consider Reserved Capacity for Azure Database for PostgreSQL Single Server and Hyperscale (Citus).
   > Compute costs associated with Azure Database For PostgreSQL [Single Server Reservation Discount](https://docs.microsoft.com/en-us/azure/postgresql/concept-reserved-pricing) and [Hyperscale (Citus) Reservation Discount](https://docs.microsoft.com/en-us/azure/postgresql/concepts-hyperscale-reserved-pricing). Once the total compute capacity and performance tier for Azure Database for PostgreSQL in a region is determined, this information can be used to reserve the capacity. The reservation can span 1 or 3 years. You can realize significant cost optimization with this commitment.
                             
-* Chose the appropriate server size for your workload.
+* Choose the appropriate server size for your workload.
   > Configuration options: [Single Server](https://docs.microsoft.com/en-us/azure/postgresql/concepts-pricing-tiers), [Flexible Server](https://docs.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-compute-storage), [Hyperscale (Citus)](https://docs.microsoft.com/en-us/azure/postgresql/concepts-hyperscale-configuration-options).
                             
 ## Azure Database For MySQL
@@ -117,7 +117,7 @@ This list contains design considerations and recommended configuration options, 
 * Consider Reserved Capacity for Azure Database for MySQL Single Server.
   > Compute costs associated with Azure Database For MySQL [Single Server Reservation Discount](https://docs.microsoft.com/en-us/azure/mysql/concept-reserved-pricing). Once the total compute capacity and performance tier for Azure Database for MySQL in a region is determined, this information can be used to reserve the capacity. The reservation can span 1 or 3 years. You can realize significant cost optimization with this commitment.
                             
-* Chose the appropriate server size for your workload.
+* Choose the appropriate server size for your workload.
   > Configuration options: [Single Server](https://docs.microsoft.com/en-us/azure/mysql/concepts-pricing-tiers), [Flexible Server](https://docs.microsoft.com/en-us/azure/mysql/flexible-server/concepts-compute-storage).
                             
 # Storage
