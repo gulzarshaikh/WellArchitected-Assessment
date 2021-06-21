@@ -964,5 +964,159 @@
     "subCategory": "Azure SQL Database",
     "title": "Consider Reserved Capacity for Azure SQL Database.",
     "context": "Compute costs associated with Azure SQL Database can be reduced by using [Reservation Discount](https://docs.microsoft.com/azure/cost-management-billing/reservations/understand-reservation-charges). Once the total compute capacity and performance tier for Azure SQL databases in a region is determined, this information can be used to reserve the capacity. The reservation can span 1 or 3 years. Significant cost optimization can be realized with this commitment. Refer to documentation on [Save costs for resources with reserved capacity](https://docs.microsoft.com/azure/azure-sql/database/reserved-capacity-overview) for more details."
+  },
+  {
+    "type": "Design Considerations",
+    "pillars": [
+      "costoptimization"
+    ],
+    "lens": "service",
+    "category": "Data",
+    "subCategory": "Azure Database For PostgreSQL",
+    "title": "Consider using Flexible Server SKU for non-production workloads.",
+    "context": "Flexible servers provide better cost optimization controls with ability to stop/start your server and burstable compute tier that is ideal for workloads that do not need full compute capacity continuously.",
+    "id": "3f341296-8da3-43b0-87c7-30acc3a686b2"
+  },
+  {
+    "type": "Design Considerations",
+    "pillars": [
+      "costoptimization"
+    ],
+    "lens": "service",
+    "category": "Data",
+    "subCategory": "Azure Database For PostgreSQL",
+    "title": "The cloud native design of the Single Server service allows it to support 99.99% of availability eliminating the cost of passive hot standby.",
+    "id": "2a51fd33-36c3-4635-a271-cee9f5b43a76"
+  },
+  {
+    "type": "Design Considerations",
+    "pillars": [
+      "costoptimization"
+    ],
+    "lens": "service",
+    "category": "Data",
+    "subCategory": "Azure Database For PostgreSQL",
+    "title": "Hyperscale (Citus) provides dynamic scalability without the cost of manual sharding with low application re-architecture required.",
+    "context": "Distributing table rows across multiple PostgreSQL servers is a key technique for scalable queries in Hyperscale (Citus). Together, multiple nodes can hold more data than a traditional database, and in many cases can use worker CPUs in parallel to execute queries potentially decreasing the database costs. Follow this [Shard data on worker nodes tutorial](https://docs.microsoft.com/en-us/azure/postgresql/tutorial-hyperscale-shard) to practice this potential savings architecture pattern.",
+    "id": "70fb08da-ab6e-46c0-8ded-7da1d55db4bc"
+  },
+  {
+    "type": "Design Considerations",
+    "pillars": [
+      "costoptimization"
+    ],
+    "lens": "service",
+    "category": "Data",
+    "subCategory": "Azure Database For PostgreSQL",
+    "title": "Plan your RPO (Recovery Point Objective) according to your operation level requirement.",
+    "context": "There is no additional charge for backup storage for up to 100% of your total provisioned server storage. Additional consumption of backup storage will be charged in GB/month.",
+    "id": "1e0f45d3-1fc1-4129-a3b2-6a6880442f9d"
+  },
+  {
+    "type": "Design Considerations",
+    "pillars": [
+      "costoptimization"
+    ],
+    "lens": "service",
+    "category": "Data",
+    "subCategory": "Azure Database For PostgreSQL",
+    "title": "Take advantage of the scaling capabilities of Azure Database for PostgreSQL to decrease consumption cost whenever possible.",
+    "context": "This [how to article](https://techcommunity.microsoft.com/t5/azure-database-support-blog/how-to-auto-scale-an-azure-database-for-mysql-postgresql/ba-p/369177) from Microsoft Support covers the automation process using runbooks to scale up and down your database as needed.",
+    "id": "8984f04d-8059-4b05-b812-1a9e03f0adc4"
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "costoptimization"
+    ],
+    "lens": "service",
+    "category": "Data",
+    "subCategory": "Azure Database For PostgreSQL",
+    "title": "Consider Reserved Capacity for Azure Database for PostgreSQL Single Server and Hyperscale (Citus).",
+    "context": "Compute costs associated with Azure Database For PostgreSQL [Single Server Reservation Discount](https://docs.microsoft.com/en-us/azure/postgresql/concept-reserved-pricing) and [Hyperscale (Citus) Reservation Discount](https://docs.microsoft.com/en-us/azure/postgresql/concepts-hyperscale-reserved-pricing). Once the total compute capacity and performance tier for Azure Database for PostgreSQL in a region is determined, this information can be used to reserve the capacity. The reservation can span 1 or 3 years. You can realize significant cost optimization with this commitment.",
+    "id": "3e0847a2-cae0-45df-a79e-4aa7ae49e300"
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "costoptimization"
+    ],
+    "lens": "service",
+    "category": "Data",
+    "subCategory": "Azure Database For PostgreSQL",
+    "title": "Choose the appropriate server size for your workload.",
+    "context": "Configuration options: [Single Server](https://docs.microsoft.com/en-us/azure/postgresql/concepts-pricing-tiers), [Flexible Server](https://docs.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-compute-storage), [Hyperscale (Citus)](https://docs.microsoft.com/en-us/azure/postgresql/concepts-hyperscale-configuration-options).",
+    "id": "ff2a4c9c-cb1c-41e1-9c32-1d8944bcf54c"
+  },
+  {
+    "type": "Design Considerations",
+    "pillars": [
+      "costoptimization"
+    ],
+    "lens": "service",
+    "category": "Data",
+    "subCategory": "Azure Database For MySQL",
+    "title": "Consider using Flexible Server SKU for non-production workloads.",
+    "context": "Flexible servers provide better cost optimization controls with ability to stop/start your server and burstable compute tier that is ideal for workloads that do not need full compute capacity continuously.",
+    "id": "1d4fef93-9f22-46d2-88a0-867351f74485"
+  },
+  {
+    "type": "Design Considerations",
+    "pillars": [
+      "costoptimization"
+    ],
+    "lens": "service",
+    "category": "Data",
+    "subCategory": "Azure Database For MySQL",
+    "title": "The cloud native design of the Single Server service allows it to support 99.99% of availability eliminating the cost of passive hot standby.",
+    "id": "0fa961db-9956-409a-bc51-d94a27a25537"
+  },
+  {
+    "type": "Design Considerations",
+    "pillars": [
+      "costoptimization"
+    ],
+    "lens": "service",
+    "category": "Data",
+    "subCategory": "Azure Database For MySQL",
+    "title": "Plan your RPO (Recovery Point Objective) according to your operation level requirement.",
+    "context": "There is no additional charge for backup storage for up to 100% of your total provisioned server storage. Additional consumption of backup storage will be charged in GB/month.",
+    "id": "5809ad20-9316-4f04-84b1-c593d764934c"
+  },
+  {
+    "type": "Design Considerations",
+    "pillars": [
+      "costoptimization"
+    ],
+    "lens": "service",
+    "category": "Data",
+    "subCategory": "Azure Database For MySQL",
+    "title": "Take advantage of the scaling capabilities of Azure Database for MySQL to decrease consumption cost whenever possible.",
+    "context": "This [how to article](https://techcommunity.microsoft.com/t5/azure-database-support-blog/how-to-auto-scale-an-azure-database-for-mysql-postgresql/ba-p/369177) from Microsoft Support covers the automation process using runbooks to scale up and down your database as needed.",
+    "id": "27dd1966-6aa5-4351-924b-f38861aeda83"
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "costoptimization"
+    ],
+    "lens": "service",
+    "category": "Data",
+    "subCategory": "Azure Database For MySQL",
+    "title": "Consider Reserved Capacity for Azure Database for MySQL Single Server.",
+    "context": "Compute costs associated with Azure Database For MySQL [Single Server Reservation Discount](https://docs.microsoft.com/en-us/azure/mysql/concept-reserved-pricing). Once the total compute capacity and performance tier for Azure Database for MySQL in a region is determined, this information can be used to reserve the capacity. The reservation can span 1 or 3 years. You can realize significant cost optimization with this commitment.",
+    "id": "8c2dddc9-e84d-4c9a-8dd5-f37ec11f094e"
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "costoptimization"
+    ],
+    "lens": "service",
+    "category": "Data",
+    "subCategory": "Azure Database For MySQL",
+    "title": "Choose the appropriate server size for your workload.",
+    "context": "Configuration options: [Single Server](https://docs.microsoft.com/en-us/azure/mysql/concepts-pricing-tiers), [Flexible Server](https://docs.microsoft.com/en-us/azure/mysql/flexible-server/concepts-compute-storage).",
+    "id": "dac2b294-5f4b-4f0b-bbff-a5066610f045"
   }
 ]

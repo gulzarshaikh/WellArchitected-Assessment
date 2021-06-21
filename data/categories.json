@@ -290,6 +290,12 @@
       },
       {
         "title": "Azure Databricks"
+      },
+      {
+        "title": "Azure Database For PostgreSQL"
+      },
+      {
+        "title": "Azure Database For MySQL"
       }
     ]
   },
@@ -387,6 +393,17 @@
       },
       {
         "title": "Platform support"
+      }
+    ]
+  },
+  {
+    "title": "Monitoring",
+    "subCategories": [
+      {
+        "title": "Log Analytics Workspace"
+      },
+      {
+        "title": "Application Insights"
       }
     ]
   }
