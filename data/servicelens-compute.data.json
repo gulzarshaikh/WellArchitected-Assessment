@@ -1004,7 +1004,8 @@
     "category": "Compute",
     "subCategory": "Azure App Service",
     "title": "Always use a scale-out and scale-in rule combination.",
-    "context": "There are cases where you may have to set multiple rules in a profile. On scale-out, autoscale runs if any rule is met. On scale-in, autoscale require all rules to be met."
+    "context": "There are cases where you may have to set multiple rules in a profile. On scale-out, autoscale runs if any rule is met. On scale-in, autoscale require all rules to be met.",
+    "id": "465519ac-1476-4320-8734-b69c72744282"
   },
   {
     "type": "Configuration Recommendations",

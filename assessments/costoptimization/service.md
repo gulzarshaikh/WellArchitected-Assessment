@@ -32,6 +32,15 @@ This list contains design considerations and recommended configuration options, 
 * Consider the cost savings of using App Service Premium v3 plan over the Premium v2 plan.
   > The App Service Premium (v3) Plan has a 20% discount versus comparable Pv2 configurations. Reserved Instance commitment (1Y, 3Y, Dev/Test) discounts are available for App Services running in the Premium v3 plan.
                             
+* Non-production Usage.
+  > For non-prod App Service Plans, if used, consider scaling them to Basic or Free Tier and scale up as needed and scale down when not in use – e.g. during Load Test exercise or based on the capabilities provided (custom domain, SSL, etc.).
+                            
+* Always use a scale-out and scale-in rule combination.
+  > There are cases where you may have to set multiple rules in a profile. On scale-out, autoscale runs if any rule is met. On scale-in, autoscale require all rules to be met.
+                            
+* Considerations for scaling when multiple rules are configured in a profile.
+  > If you use only one part of the combination, autoscale will only take action in a single direction (scale out, or in) until it reaches the maximum, or minimum instance counts of defined in the profile. This is not optimal, ideally you want your resource to scale up at times of high usage to ensure availability. Similarly, at times of low usage you want your resource to scale down, so you can realize cost savings.
+                            
 ## Azure Kubernetes Service (AKS)
 ### Configuration Recommendations
 * Scalability
