@@ -1004,7 +1004,7 @@
     "category": "Compute",
     "subCategory": "Azure App Service",
     "title": "Always use a scale-out and scale-in rule combination.",
-    "context": "There are cases where you may have to set multiple rules in a profile. On scale-out, autoscale runs if any rule is met. On scale-in, autoscale require all rules to be met.",
+    "context": "If you use only one part of the combination, autoscale will only take action in a single direction (scale out, or in) until it reaches the maximum, or minimum instance counts of defined in the profile. This is not optimal, ideally you want your resource to scale up at times of high usage to ensure availability. Similarly, at times of low usage you want your resource to scale down, so you can realize cost savings.",
     "id": "465519ac-1476-4320-8734-b69c72744282"
   },
   {
@@ -1016,7 +1016,7 @@
     "category": "Compute",
     "subCategory": "Azure App Service",
     "title": "Considerations for scaling when multiple rules are configured in a profile.",
-    "context": "If you use only one part of the combination, autoscale will only take action in a single direction (scale out, or in) until it reaches the maximum, or minimum instance counts of defined in the profile. This is not optimal, ideally you want your resource to scale up at times of high usage to ensure availability. Similarly, at times of low usage you want your resource to scale down, so you can realize cost savings.",
+    "context": "There are cases where you may have to set multiple rules in a profile. On scale-out, autoscale runs if 'any' rule is met. On scale-in, autoscale require 'all' rules to be met.",
     "id": "41858fd9-0721-48cb-a6a3-efe4397f1b58"
   },
   {
