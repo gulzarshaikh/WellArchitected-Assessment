@@ -10,7 +10,7 @@
     "lens": "service",
     "category": "Storage",
     "subCategory": "Storage Accounts",
-    "title": "Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. "
+    "title": "Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only."
   },
   {
     "id": "2984c033-3c92-46a0-ab12-c8df45ba896b",
