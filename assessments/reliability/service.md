@@ -566,7 +566,7 @@ Resources
         
 ## Storage Accounts
 ### Design Considerations
-* Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
+* Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. 
 * Storage account names must be unique within Azure. No two storage accounts can have the same name.
 * The current [SLA for Storage Accounts](https://azure.microsoft.com/support/legal/sla/storage/v1_5/) (v1.5, June 2019) specifies a 99.9% guarantee for LRS, ZRS and GRS accounts and a 99.99% guarantee for RA-GRS (provided that requests to RA-GRS switch to secondary endpoints if there is no success on the primary endpoint) to successfully process requests to **read data**. And at least 99.9% to successfully process requests to **write data**. SLAs for other storage tiers might differ. Go to [Azure Storage redundancy](https://docs.microsoft.com/azure/storage/common/storage-redundancy) to see which redundancy option is best for a specific scenario.
 * General-purpose v1 storage accounts provide access to all Azure Storage services, but may not have the latest features or the lowest per gigabyte pricing. It is recommended to use general-purpose v2 storage accounts in most cases. Reasons to still use v1 are:
