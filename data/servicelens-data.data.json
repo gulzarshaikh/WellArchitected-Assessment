@@ -974,7 +974,8 @@
     "category": "Data",
     "subCategory": "Azure SQL Database",
     "title": "Evaluate DTU Usage.",
-    "context": "Evaluate the DTU usage for all Databases and determine if they have been sized/provisioned correctly. For non-prod Databases, consider using Basic Tier or S0 and configure the DTUs accordingly, as applicable. The DTUs can be scaled on demand e.g. when running a load test, etc."
+    "context": "Evaluate the DTU usage for all Databases and determine if they have been sized/provisioned correctly. For non-prod Databases, consider using Basic Tier or S0 and configure the DTUs accordingly, as applicable. The DTUs can be scaled on demand e.g. when running a load test, etc.",
+    "id": "282281d5-c7e0-4ec4-8b63-e5e1934eae6d"
   },
   {
     "type": "Configuration Recommendations",
@@ -985,7 +986,8 @@
     "category": "Data",
     "subCategory": "Azure SQL Database",
     "title": "Optimize Queries.",
-    "context": "Optimize the queries/Tables/DB using [Query Performance Insights](https://docs.microsoft.com/en-us/azure/azure-sql/database/query-performance-insight-use) to help reduce the resource consumption and arrive at appropriate configuration "
+    "context": "Optimize the queries/Tables/DB using [Query Performance Insights](https://docs.microsoft.com/en-us/azure/azure-sql/database/query-performance-insight-use) to help reduce the resource consumption and arrive at appropriate configuration ",
+    "id": "c7517dfd-6d18-4522-aef7-484c196aa767"
   },
   {
     "type": "Design Considerations",

@@ -79,6 +79,12 @@ This list contains design considerations and recommended configuration options, 
 * Consider Reserved Capacity for Azure SQL Database.
   > Compute costs associated with Azure SQL Database can be reduced by using [Reservation Discount](https://docs.microsoft.com/azure/cost-management-billing/reservations/understand-reservation-charges). Once the total compute capacity and performance tier for Azure SQL databases in a region is determined, this information can be used to reserve the capacity. The reservation can span 1 or 3 years. Significant cost optimization can be realized with this commitment. Refer to documentation on [Save costs for resources with reserved capacity](https://docs.microsoft.com/azure/azure-sql/database/reserved-capacity-overview) for more details.
                             
+* Evaluate DTU Usage.
+  > Evaluate the DTU usage for all Databases and determine if they have been sized/provisioned correctly. For non-prod Databases, consider using Basic Tier or S0 and configure the DTUs accordingly, as applicable. The DTUs can be scaled on demand e.g. when running a load test, etc.
+                            
+* Optimize Queries.
+  > Optimize the queries/Tables/DB using [Query Performance Insights](https://docs.microsoft.com/en-us/azure/azure-sql/database/query-performance-insight-use) to help reduce the resource consumption and arrive at appropriate configuration 
+                            
 ## Azure Database For PostgreSQL
 ### Design Considerations
 * Consider using Flexible Server SKU for non-production workloads.
