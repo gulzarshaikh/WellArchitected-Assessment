@@ -88,6 +88,9 @@ This list contains design considerations and recommended configuration options, 
 * Consider Reserved Capacity for Azure SQL Database.
   > Compute costs associated with Azure SQL Database can be reduced by using [Reservation Discount](https://docs.microsoft.com/azure/cost-management-billing/reservations/understand-reservation-charges). Once the total compute capacity and performance tier for Azure SQL databases in a region is determined, this information can be used to reserve the capacity. The reservation can span 1 or 3 years. Significant cost optimization can be realized with this commitment. Refer to documentation on [Save costs for resources with reserved capacity](https://docs.microsoft.com/azure/azure-sql/database/reserved-capacity-overview) for more details.
                             
+* Evaluate Azure SQL Database Serverless.
+  > Consider using Azure SQL Database Serverless over Provisioned Computing Tier. Serverless is a compute tier for single databases that automatically scales compute based on workload demand and bills for the amount of compute used per second. The serverless compute tier also automatically pauses databases during inactive periods when only storage is billed and automatically resumes databases when activity returns. Azure SQL Database serverless is 'not for all' scenarios, but if you have a database that is not always heavily used and if you have periods of complete inactivity, this is a very interesting solution that can you guarantee performances and that can help you on saving a lot of costs.
+                            
 * Evaluate DTU Usage.
   > Evaluate the DTU usage for all Databases and determine if they have been sized/provisioned correctly. For non-prod Databases, consider using Basic Tier or S0 and configure the DTUs accordingly, as applicable. The DTUs can be scaled on demand e.g. when running a load test, etc.
                             
