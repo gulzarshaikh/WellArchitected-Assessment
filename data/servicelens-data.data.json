@@ -986,7 +986,7 @@
     "category": "Data",
     "subCategory": "Azure SQL Database",
     "title": "Optimize Queries.",
-    "context": "Optimize the queries/Tables/DB using [Query Performance Insights](https://docs.microsoft.com/en-us/azure/azure-sql/database/query-performance-insight-use) to help reduce the resource consumption and arrive at appropriate configuration ",
+    "context": "Optimize the queries/Tables/DB using [Query Performance Insights](https://docs.microsoft.com/en-us/azure/azure-sql/database/query-performance-insight-use) and [Performance Recommendations](https://docs.microsoft.com/en-us/azure/azure-sql/database/database-advisor-find-recommendations-portal) to help reduce the resource consumption and arrive at appropriate configuration ",
     "id": "c7517dfd-6d18-4522-aef7-484c196aa767"
   },
   {
