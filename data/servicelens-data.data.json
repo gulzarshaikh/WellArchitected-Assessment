@@ -973,6 +973,17 @@
     "lens": "service",
     "category": "Data",
     "subCategory": "Azure SQL Database",
+    "title": "Evaluate Azure SQL Database Serverless.",
+    "context": "Consider using Azure SQL Database Serverless over Provisioned Computing Tier. Serverless is a compute tier for single databases that automatically scales compute based on workload demand and bills for the amount of compute used per second. The serverless compute tier also automatically pauses databases during inactive periods when only storage is billed and automatically resumes databases when activity returns. Azure SQL Database serverless is 'not for all' scenarios, but if you have a database that is not always heavily used and if you have periods of complete inactivity, this is a very interesting solution that can you guarantee performances and that can help you on saving a lot of costs.",
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "costoptimization"
+    ],
+    "lens": "service",
+    "category": "Data",
+    "subCategory": "Azure SQL Database",
     "title": "Evaluate DTU Usage.",
     "context": "Evaluate the DTU usage for all Databases and determine if they have been sized/provisioned correctly. For non-prod Databases, consider using Basic Tier or S0 and configure the DTUs accordingly, as applicable. The DTUs can be scaled on demand e.g. when running a load test, etc.",
     "id": "282281d5-c7e0-4ec4-8b63-e5e1934eae6d"
