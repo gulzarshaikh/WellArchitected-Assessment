@@ -95,7 +95,7 @@ This list contains design considerations and recommended configuration options, 
   > Evaluate the DTU usage for all Databases and determine if they have been sized/provisioned correctly. For non-prod Databases, consider using Basic Tier or S0 and configure the DTUs accordingly, as applicable. The DTUs can be scaled on demand e.g. when running a load test, etc.
                             
 * Optimize Queries.
-  > Optimize the queries/Tables/DB using [Query Performance Insights](https://docs.microsoft.com/en-us/azure/azure-sql/database/query-performance-insight-use) and [Performance Recommendations](https://docs.microsoft.com/en-us/azure/azure-sql/database/database-advisor-find-recommendations-portal) to help reduce the resource consumption and arrive at appropriate configuration 
+  > Optimize the queries/tables/databases using [Query Performance Insights](https://docs.microsoft.com/azure/azure-sql/database/query-performance-insight-use) and [Performance Recommendations](https://docs.microsoft.com/azure/azure-sql/database/database-advisor-find-recommendations-portal) to help reduce the resource consumption and arrive at appropriate configuration 
                             
 ## Azure Database For PostgreSQL
 ### Design Considerations
