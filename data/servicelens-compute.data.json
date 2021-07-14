@@ -992,7 +992,7 @@
     "category": "Compute",
     "subCategory": "Azure App Service",
     "title": "Consider Basic or Free tier for non-production usage.",
-    "context": "For non-prod App Service Plans, if used, consider scaling them to Basic or Free Tier and scale up as needed and scale down when not in use – e.g. during Load Test exercise or based on the capabilities provided (custom domain, SSL, etc.).",
+    "context": "For non-prod App Service Plans consider scaling them to Basic or Free Tier and scale up as needed and scale down when not in use – e.g. during Load Test exercise or based on the capabilities provided (custom domain, SSL, etc.).",
     "id": "5268c45c-b745-4ee0-a34b-0d0337fb5600"
   },
   {
