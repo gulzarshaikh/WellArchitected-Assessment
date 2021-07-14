@@ -1016,7 +1016,7 @@
     "category": "Compute",
     "subCategory": "Azure App Service",
     "title": "Understand the behavior of multiple scaling rules in a profile.",
-    "context": "There are cases where you may have to set multiple rules in a profile. On scale-out, autoscale runs if 'any' rule is met. On scale-in, autoscale require 'all' rules to be met.",
+    "context": "There are cases where you may have to set multiple rules in a profile. On scale-out, autoscale runs if ANY rule is met. On scale-in, autoscale requires ALL rules to be met.",
     "id": "41858fd9-0721-48cb-a6a3-efe4397f1b58"
   },
   {
