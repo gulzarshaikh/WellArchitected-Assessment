@@ -88,6 +88,10 @@ This list contains design considerations and recommended configuration options, 
     > It is a good practice to regularly review service-related diagnostics and recommendations and take action as appropriate.
                                 
                             
+  - Evaluate [per-app scaling](https://docs.microsoft.com/azure/app-service/manage-scale-per-app) for High-density hosting on Azure App Service.
+    > Per-app scaling can be enabled at the App Service plan level to allow for scaling an app independently from the App Service plan that hosts it. This way, an App Service plan can be scaled to 10 instances, but an app can be set to use only five. Apps are allocated to available App Service plan using a best effort approach for an even distribution across instances. While an even distribution is not guaranteed, the platform will make sure that two instances of the same app will not be hosted on the same App Service plan instance.
+                                
+                            
 * For App Service Environments, ensure the [ASE Network](https://docs.microsoft.com/azure/app-service/environment/network-info) is configured correctly.
   > One common ASE pitfall occurs when ASE is deployed into a subnet with an IP Address space that is too small to support future expansion. In such cases, ASE can be left unable to scale without redeploying the entire environment into a larger subnet. It is highly recommended that adequate IP addresses be used to support either the maximum number of workers or the largest number considered workloads will need. A single ASE cluster can scale to 201 instance, which would require a /24 subnet.
                             

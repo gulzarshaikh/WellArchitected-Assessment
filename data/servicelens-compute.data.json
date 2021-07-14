@@ -659,6 +659,11 @@
         "id": "a10c440a-ea6f-494d-b6d9-799c9ef34b6c",
         "title": "Review [Azure App Service diagnostics](https://docs.microsoft.com/azure/app-service/overview-diagnostics) to ensure common problems are addressed.",
         "context": "It is a good practice to regularly review service-related diagnostics and recommendations and take action as appropriate."
+      },
+      {
+        "title": "Evaluate [per-app scaling](https://docs.microsoft.com/azure/app-service/manage-scale-per-app) for High-density hosting on Azure App Service.",
+        "context": "Per-app scaling can be enabled at the App Service plan level to allow for scaling an app independently from the App Service plan that hosts it. This way, an App Service plan can be scaled to 10 instances, but an app can be set to use only five. Apps are allocated to available App Service plan using a best effort approach for an even distribution across instances. While an even distribution is not guaranteed, the platform will make sure that two instances of the same app will not be hosted on the same App Service plan instance.",
+        "id": "0637b751-15a5-4c01-8943-547df21f2036"
       }
     ]
   },
@@ -977,6 +982,42 @@
     "subCategory": "Azure App Service",
     "title": "Consider the cost savings of using App Service Premium v3 plan over the Premium v2 plan.",
     "context": "The App Service Premium (v3) Plan has a 20% discount versus comparable Pv2 configurations. Reserved Instance commitment (1Y, 3Y, Dev/Test) discounts are available for App Services running in the Premium v3 plan."
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "costoptimization"
+    ],
+    "lens": "service",
+    "category": "Compute",
+    "subCategory": "Azure App Service",
+    "title": "Consider Basic or Free tier for non-production usage.",
+    "context": "For non-prod App Service Plans consider scaling them to Basic or Free Tier and scale up as needed and scale down when not in use – e.g. during Load Test exercise or based on the capabilities provided (custom domain, SSL, etc.).",
+    "id": "5268c45c-b745-4ee0-a34b-0d0337fb5600"
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "costoptimization"
+    ],
+    "lens": "service",
+    "category": "Compute",
+    "subCategory": "Azure App Service",
+    "title": "Always use a scale-out and scale-in rule combination.",
+    "context": "If you use only one part of the combination, autoscale will only take action in a single direction (scale out, or in) until it reaches the maximum, or minimum instance counts of defined in the profile. This is not optimal, ideally you want your resource to scale up at times of high usage to ensure availability. Similarly, at times of low usage you want your resource to scale down, so you can realize cost savings.",
+    "id": "465519ac-1476-4320-8734-b69c72744282"
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "costoptimization"
+    ],
+    "lens": "service",
+    "category": "Compute",
+    "subCategory": "Azure App Service",
+    "title": "Understand the behavior of multiple scaling rules in a profile.",
+    "context": "There are cases where you may have to set multiple rules in a profile. On scale-out, autoscale runs if ANY rule is met. On scale-in, autoscale requires ALL rules to be met.",
+    "id": "41858fd9-0721-48cb-a6a3-efe4397f1b58"
   },
   {
     "id": "6c63c516-41be-48fa-a880-3f2ee48edb82",

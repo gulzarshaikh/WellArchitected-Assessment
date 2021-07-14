@@ -88,6 +88,10 @@ This list contains design considerations and recommended configuration options, 
     > It is a good practice to regularly review service-related diagnostics and recommendations and take action as appropriate.
                                 
                             
+  - Evaluate [per-app scaling](https://docs.microsoft.com/azure/app-service/manage-scale-per-app) for High-density hosting on Azure App Service.
+    > Per-app scaling can be enabled at the App Service plan level to allow for scaling an app independently from the App Service plan that hosts it. This way, an App Service plan can be scaled to 10 instances, but an app can be set to use only five. Apps are allocated to available App Service plan using a best effort approach for an even distribution across instances. While an even distribution is not guaranteed, the platform will make sure that two instances of the same app will not be hosted on the same App Service plan instance.
+                                
+                            
 * For App Service Environments, ensure ASE is deployed within in [highly available configuration](https://docs.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/ase-high-availability-deployment) across Availability Zones.
   > Configuring ASE to use Availability Zones by deploying ASE across specific zones ensures applications can continue to operate even in the event of a data center level failure. This provides excellent redundancy without requiring multiple deployments in different Azure regions.
                             
