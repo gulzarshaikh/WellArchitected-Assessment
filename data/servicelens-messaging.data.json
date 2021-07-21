@@ -853,7 +853,7 @@
     "lens": "service",
     "category": "Messaging",
     "subCategory": "Functions",
-    "title": "Evaluate if Azure Functions requires HTTP trigger. Azure Functions supports multiple specific triggers and binding. These include blob storage, Cosmos DB, Service Bus and many more. If HTTP trigger is needed then consider protecting that HTTP endpoint like any other web application. Common protection measures include keeping HTTP endpoint internal to specific Azure Virtual Networks. If Functions HTTP endpoint is to be exposed to internet then it must be secured behind a Web Application Firewall (WAF)."
+    "title": "Evaluate if Azure Functions requires HTTP trigger. Azure Functions supports multiple specific triggers and bindings. These include blob storage, Cosmos DB, Service Bus and many more. If HTTP trigger is needed then consider protecting that HTTP endpoint like any other web application. Common protection measures include keeping HTTP endpoint internal to specific Azure Virtual Networks by using [Private endpoint connections](https://docs.microsoft.com/azure/azure-functions/functions-networking-options#private-endpoint-connections) or [service endpoints](https://docs.microsoft.com/azure/azure-functions/functions-networking-options#use-service-endpoints). Consider using guidance available on [Azure Functions networking options](https://docs.microsoft.com/azure/azure-functions/functions-networking-options) for more information. If Functions HTTP endpoint is to be exposed to internet then it is recommended to be secured behind a Web Application Firewall (WAF)."
   },
   {
     "id": "8a331cbc-32d1-4930-b41a-44c56656500d",
