@@ -2740,11 +2740,11 @@
           "title": "Limit long-standing write access to production environments only to service principals.",
           "context": "",
           "links": [
-        {
-          "title": "No standing access / Just in Time privileges",
-          "url": "https://docs.microsoft.com/azure/architecture/framework/security/design-admins#no-standing-access--just-in-time-privileges"
-        }
-      ],
+            {
+              "title": "No standing access / Just in Time privileges",
+              "url": "https://docs.microsoft.com/azure/architecture/framework/security/design-admins#no-standing-access--just-in-time-privileges"
+            }
+          ],
           "priority": 50
         }
       }
