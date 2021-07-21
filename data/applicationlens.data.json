@@ -1802,9 +1802,14 @@
     "title": "Are the expiry dates of SSL/TLS certificates monitored and are processes in place to renew them?",
     "context": "Expired SSL/TLS certificates are one of the most common yet avoidable causes of application outages; even Azure and more recently Microsoft Teams have experienced outages due to expired certificates.",
     "recommendation": {
-      "title": "Tracking expiry dates of SSL/TLS certificates and renewing them in due time is therefore highly critical. Ideally the process should be automated, although this often depends on leveraged CA. If not automated, sufficient alerting should be applied to ensure expiry dates do not go unnoticed.",
-      "context": "",
-      "links": [],
+      "title": "Implement lifecycle management process for SSL/TLS certificates",
+      "context": "Tracking expiry dates of SSL/TLS certificates and renewing them in due time is therefore highly critical. Ideally the process should be automated, although this often depends on leveraged CA. If not automated, sufficient alerting should be applied to ensure expiry dates do not go unnoticed.",
+      "links": [
+        {
+          "title": "Configure certificate auto-rotation in Key Vault",
+          "url": "https://docs.microsoft.com/azure/key-vault/certificates/tutorial-rotate-certificates"
+        }
+      ],
       "priority": 70
     }
   },
