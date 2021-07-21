@@ -675,7 +675,7 @@ Compared to reviewing the whole Azure landscape of an organization, this focus a
 * Where is application configuration information stored and how does the application access it?
 
   _Application configuration information can be stored together with the application itself or preferably using a dedicated configuration management system like Azure App Configuration or Azure Key Vault._
-  > Preferably configuration information is stored using a dedicated configuration management system like Azure App Configuration or Azure Key Vault so that it can be updated independently of the application code
+  > Consider storing application configuration in a dedicated management system like Azure App Configuration or Azure Key Vault
 * How are passwords and other secrets managed?
 
   _API keys, database connection strings and passwords are all sensitive to leakage, occasionally require rotation and are prone to expiration. Storing them in a secure store and not within the application code or configuration simplifies operational tasks like key rotation as well as improving overall security._

@@ -708,7 +708,7 @@ Compared to reviewing the whole Azure landscape of an organization, this focus a
 * Where is application configuration information stored and how does the application access it?
 
   _Application configuration information can be stored together with the application itself or preferably using a dedicated configuration management system like Azure App Configuration or Azure Key Vault._
-  > Preferably configuration information is stored using a dedicated configuration management system like Azure App Configuration or Azure Key Vault so that it can be updated independently of the application code
+  > Consider storing application configuration in a dedicated management system like Azure App Configuration or Azure Key Vault
 * Do you have procedures in place for secret rotation?
 
   _In the situation where a key or secret becomes compromised, it is important to be able to quickly act and generate new versions. Key rotation reduces the attack vectors and should be automated and executed without any human interactions._
