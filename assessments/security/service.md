@@ -174,6 +174,7 @@ Resources
 * Evaluate if Azure Functions requires HTTP trigger. Azure Functions supports multiple specific triggers and binding. These include blob storage, Cosmos DB, Service Bus and many more. If HTTP trigger is needed then consider protecting that HTTP endpoint like any other web application. Common protection measures include keeping HTTP endpoint internal to specific Azure Virtual Networks. If Functions HTTP endpoint is to be exposed to internet then it must be secured behind a Web Application Firewall (WAF).
 * Treat Azure Functions code just like any other code. Subject it to code scanning tools that are integrated with CI/CD pipeline.
 * Consider using [Azure Functions Proxy](https://docs.microsoft.com/azure/azure-functions/functions-proxies) to act as a facade. Functions Proxy can inspect and modify incoming request and responses.
+* Use guidance available on [Securing Azure Functions](https://docs.microsoft.com/azure/azure-functions/security-concepts). This guidance addresses key security concerns such as operations, deployment and network security.
 # Networking
         
 ## Azure Firewall
