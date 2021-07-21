@@ -362,6 +362,9 @@ Compared to reviewing the whole Azure landscape of an organization, this focus a
 
   _Attackers constantly scan public cloud IP ranges for open management ports and attempt “easy” attacks like common passwords and known unpatched vulnerabilities. Limiting internet access from within an application server can prevent data exfiltration or stop the attacker from downloading additional tools._
   > Prohibit direct internet access of virtual machines with policy, logging, and monitoring
+  
+    Additional resources:
+    - [Remove Virtual Machine (VM) direct internet connectivity](https://docs.microsoft.com/azure/architecture/framework/Security/governance#remove-virtual-machine-vm-direct-internet-connectivity)
 * Does the organization have the capability and plans in place to mitigate DDoS attacks for this workload?
 
   _DDoS attacks can be very debilitating and completely block access to your services or even take down the services, depending on the type of DDoS attack._
