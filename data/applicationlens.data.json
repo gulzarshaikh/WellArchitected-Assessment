@@ -6029,7 +6029,12 @@
     "recommendation": {
       "title": "Prohibit direct internet access of virtual machines with policy, logging, and monitoring",
       "context": "",
-      "links": [],
+      "links": [
+        {
+          "title": "Remove Virtual Machine (VM) direct internet connectivity",
+          "url": "https://docs.microsoft.com/azure/architecture/framework/Security/governance#remove-virtual-machine-vm-direct-internet-connectivity"
+        }
+      ],
       "priority": 70
     }
   },
