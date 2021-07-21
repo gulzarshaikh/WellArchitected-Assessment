@@ -5220,7 +5220,7 @@
         "title": "Does the organization have an CI/CD process for publishing code in this workload?",
         "context": "Developers shouldn't publish their code directly to app servers - automated and gated CI/CD process should manage this.",
         "recommendation": {
-          "title": "Implement an automated and gated CD/CD deployment process",
+          "title": "Implement an automated and gated CI/CD deployment process",
           "context": "",
           "links": [],
           "priority": 70
