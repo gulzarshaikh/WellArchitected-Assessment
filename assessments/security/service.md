@@ -13,6 +13,8 @@ This list contains design considerations and recommended configuration options, 
     - [Azure Databricks](#Azure-Databricks)
   - [Storage](#Storage)
     - [Storage Accounts](#Storage-Accounts)
+  - [Messaging](#Messaging)
+    - [Functions](#Functions)
   - [Networking](#Networking)
     - [Azure Firewall](#Azure-Firewall)
 # Compute
@@ -165,6 +167,13 @@ Resources
     > Turning on firewall rules for storage accounts blocks incoming requests for data by default, unless the requests originate from a service operating within an Azure Virtual Network (VNet) or from allowed public IP addresses. Requests that are blocked include those from other Azure services, from the Azure portal, from logging and metrics services, and so on. You can permit requests from other Azure services by adding an exception to allow trusted Microsoft services to access the storage account. For more information about adding an exception for trusted Microsoft services, see [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security).
                                 
                             
+# Messaging
+        
+## Functions
+### Design Considerations
+* Evaluate if Azure Functions requires HTTP trigger. Azure Functions supports multiple specific triggers and binding. These include blob storage, Cosmos DB, Service Bus and many more. If HTTP trigger is needed then consider protecting that HTTP endpoint like any other web application. Common protection measures include keeping HTTP endpoint internal to specific Azure Virtual Networks. If Functions HTTP endpoint is to be exposed to internet then it must be secured behind a Web Application Firewall (WAF).
+* Treat Azure Functions code just like any other code. Subject it to code scanning tools that are integrated with CI/CD pipeline.
+* Consider using [Azure Functions Proxy](https://docs.microsoft.com/azure/azure-functions/functions-proxies) to act as a facade. Functions Proxy can inspect and modify incoming request and responses.
 # Networking
         
 ## Azure Firewall
