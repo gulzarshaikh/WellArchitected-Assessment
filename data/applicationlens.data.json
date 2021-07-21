@@ -5040,7 +5040,12 @@
     "recommendation": {
       "title": "Use managed identity providers to authenticate to this workload",
       "context": "",
-      "links": [],
+      "links": [
+            {
+              "title": "Use identity-based authentication",
+              "url": "https://docs.microsoft.com/azure/architecture/framework/security/design-identity-authentication#use-identity-based-authentication"
+            }
+      ],
       "priority": 50
     }
   },
