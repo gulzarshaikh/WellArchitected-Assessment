@@ -1631,7 +1631,7 @@
     "title": "Where is application configuration information stored and how does the application access it?",
     "context": "Application configuration information can be stored together with the application itself or preferably using a dedicated configuration management system like Azure App Configuration or Azure Key Vault.",
     "recommendation": {
-      "title": "Preferably configuration information is stored using a dedicated configuration management system like Azure App Configuration or Azure Key Vault so that it can be updated independently of the application code",
+      "title": "Consider storing application configuration in a dedicated management system like Azure App Configuration or Azure Key Vault",
       "context": "",
       "links": [],
       "priority": 50
