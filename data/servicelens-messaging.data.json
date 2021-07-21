@@ -843,5 +843,16 @@
     "category": "Messaging",
     "subCategory": "IoT Hub Device Provisioning Service",
     "title": "Azure IoT Hub Device Provisioning Service has a [published SLA](https://azure.microsoft.com/support/legal/sla/iot-hub) of 99.9%."
+  },
+  {
+    "id": "63f45ba4-5a5b-4f6a-89af-da71bea8847f",
+    "type": "Design Considerations",
+    "pillars": [
+      "security"
+    ],
+    "lens": "service",
+    "category": "Messaging",
+    "subCategory": "Functions",
+    "title": "Evaluate if Azure Functions requires HTTP trigger. Azure Functions supports multiple specific triggers and binding. These include blob storage, Cosmos DB, Service Bus and many more. If HTTP trigger is needed then consider protecting that HTTP endpoint like any other web application. Common protection measures include keeping HTTP endpoint internal to specific Azure Virtual Networks. If Functions HTTP endpoint is to be exposed to internet then it must be secured behind a Web Application Firewall (WAF)."
   }
 ]

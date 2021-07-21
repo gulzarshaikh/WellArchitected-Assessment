@@ -338,6 +338,9 @@
       },
       {
         "title": "IoT Hub Device Provisioning Service"
+      },
+      {
+        "title": "Functions"
       }
     ]
   },
