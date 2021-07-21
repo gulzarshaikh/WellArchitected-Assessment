@@ -357,7 +357,7 @@ Compared to reviewing the whole Azure landscape of an organization, this focus a
     - Does the organization have an CI/CD process for publishing code in this workload?
 
       _Developers shouldn't publish their code directly to app servers - automated and gated CI/CD process should manage this._
-      > Implement an automated and gated CD/CD deployment process
+      > Implement an automated and gated CI/CD deployment process
 * Do workload virtual machines running on premises or in the cloud have direct internet connectivity for users that may perform interactive logins, or by applications running on virtual machines?
 
   _Attackers constantly scan public cloud IP ranges for open management ports and attempt “easy” attacks like common passwords and known unpatched vulnerabilities. Limiting internet access from within an application server can prevent data exfiltration or stop the attacker from downloading additional tools._
