@@ -537,6 +537,10 @@ Compared to reviewing the whole Azure landscape of an organization, this focus a
 * Does the organization prioritize authentication via identity services for this workload vs. cryptographic keys?
 
   _Consideration should always be given to authenticating with identity services rather than cryptographic keys when available. Managing keys securely with application code is difficult and regularly leads to mistakes like accidentally publishing sensitive access keys to code repositories like GitHub. Identity systems (such as Azure Active Directory) offer secure and usable experience for access control with built-in sophisticated mechanisms for key rotation, monitoring for anomalies, and more._
+  > Use identity services instead of cryptographic keys when available
+  
+    Additional resources:
+    - [Key and secret management considerations in Azure](https://docs.microsoft.com/azure/architecture/framework/security/design-storage-keys)
 * Does the organization synchronize current on-premises Active Directory with Azure AD, or other cloud identity systems?
 
   _Consistency of identities across cloud and on-premises will reduce human errors and resulting security risk. Teams managing resources in both environments need a consistent authoritative source to achieve security assurances._

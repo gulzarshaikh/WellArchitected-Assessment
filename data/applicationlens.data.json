@@ -5099,7 +5099,7 @@
           "title": "Key and secret management considerations in Azure",
           "url": "https://docs.microsoft.com/azure/architecture/framework/security/design-storage-keys"
         }
-     ],
+      ],
       "priority": 50
     }
   },
