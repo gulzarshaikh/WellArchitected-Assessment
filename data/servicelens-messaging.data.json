@@ -876,5 +876,16 @@
     "category": "Messaging",
     "subCategory": "Functions",
     "title": "Consider using [Azure Functions Proxy](https://docs.microsoft.com/azure/azure-functions/functions-proxies) to act as a facade. Functions Proxy can inspect and modify incoming request and responses."
+  },
+  {
+    "id": "bcf25672-6095-4af0-ab67-3c62397075c0",
+    "type": "Design Considerations",
+    "pillars": [
+      "security"
+    ],
+    "lens": "service",
+    "category": "Messaging",
+    "subCategory": "Functions",
+    "title": "Use guidance available on [Securing Azure Functions](https://docs.microsoft.com/azure/azure-functions/security-concepts). This guidance addresses key security concerns such as operations, deployment and network security."
   }
 ]
