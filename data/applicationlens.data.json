@@ -5038,7 +5038,7 @@
     "title": "How is user authentication handled in this workload?",
     "context": "If possible, applications should utilize Azure Active Directory or other managed identity providers (such as Microsoft Account, Azure B2C...) to avoid managing user credentials with custom implementation. Modern protocols like OAuth 2.0 use token-based authentication with limited timespan, identity providers offer additional functionality like multi-factor authentication, password reset etc.",
     "recommendation": {
-      "title": "",
+      "title": "Use managed identity providers to authenticate to this workload",
       "context": "",
       "links": [],
       "priority": 50
