@@ -1102,5 +1102,49 @@
     "subCategory": "Azure Kubernetes Service (AKS)",
     "title": "Use the Start/Stop feature in Azure Kubernetes Services (AKS).",
     "context": "(in preview as of 11/2020) The AKS Stop/Start cluster feature now in public preview allows AKS customers to completely pause an AKS cluster, saving time and cost. The stop/start feature keeps cluster configurations in place and customers can pick up where they left off without reconfiguring the clusters."
+  },
+  {
+    "id": "b14db805-f94a-4c55-8848-02a514505f41",
+    "type": "Design Considerations",
+    "pillars": [
+      "security"
+    ],
+    "lens": "service",
+    "category": "Compute",
+    "subCategory": "Functions",
+    "title": "Evaluate if Azure Functions requires HTTP trigger. Azure Functions supports multiple specific triggers and bindings. These include blob storage, Cosmos DB, Service Bus and many more. If HTTP trigger is needed then consider protecting that HTTP endpoint like any other web application. Common protection measures include keeping HTTP endpoint internal to specific Azure Virtual Networks by using [Private endpoint connections](https://docs.microsoft.com/azure/azure-functions/functions-networking-options#private-endpoint-connections) or [service endpoints](https://docs.microsoft.com/azure/azure-functions/functions-networking-options#use-service-endpoints). Consider using guidance available on [Azure Functions networking options](https://docs.microsoft.com/azure/azure-functions/functions-networking-options) for more information. If Functions HTTP endpoint is to be exposed to internet then it is recommended to be secured behind a Web Application Firewall (WAF)."
+  },
+  {
+    "id": "8a331cbc-32d1-4930-b41a-44c56656500d",
+    "type": "Design Considerations",
+    "pillars": [
+      "security"
+    ],
+    "lens": "service",
+    "category": "Compute",
+    "subCategory": "Functions",
+    "title": "Treat Azure Functions code just like any other code. Subject it to code scanning tools that are integrated with CI/CD pipeline."
+  },
+  {
+    "id": "0ff2f301-2cf6-4a40-a791-c8a90d8c34ec",
+    "type": "Design Considerations",
+    "pillars": [
+      "security"
+    ],
+    "lens": "service",
+    "category": "Compute",
+    "subCategory": "Functions",
+    "title": "Consider using [Azure Functions Proxy](https://docs.microsoft.com/azure/azure-functions/functions-proxies) to act as a facade. Functions Proxy can inspect and modify incoming request and responses."
+  },
+  {
+    "id": "bcf25672-6095-4af0-ab67-3c62397075c0",
+    "type": "Design Considerations",
+    "pillars": [
+      "security"
+    ],
+    "lens": "service",
+    "category": "Compute",
+    "subCategory": "Functions",
+    "title": "Use guidance available on [Securing Azure Functions](https://docs.microsoft.com/azure/azure-functions/security-concepts). This guidance addresses key security concerns such as operations, deployment and network security."
   }
 ]

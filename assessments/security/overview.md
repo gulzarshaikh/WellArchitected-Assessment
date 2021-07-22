@@ -53,6 +53,7 @@ This security assessment has been produced to help the global CE&S community to 
   - [Compute](./service.md#Compute)
     - [Azure Kubernetes Service (AKS)](./service.md#Azure-Kubernetes-Service-AKS)
     - [Service Fabric](./service.md#Service-Fabric)
+    - [Functions](./service.md#Functions)
   - [Data](./service.md#Data)
     - [Azure Databricks](./service.md#Azure-Databricks)
   - [Storage](./service.md#Storage)

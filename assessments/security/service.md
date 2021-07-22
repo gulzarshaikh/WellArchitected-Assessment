@@ -9,6 +9,7 @@ This list contains design considerations and recommended configuration options, 
   - [Compute](#Compute)
     - [Azure Kubernetes Service (AKS)](#Azure-Kubernetes-Service-AKS)
     - [Service Fabric](#Service-Fabric)
+    - [Functions](#Functions)
   - [Data](#Data)
     - [Azure Databricks](#Azure-Databricks)
   - [Storage](#Storage)
@@ -68,6 +69,12 @@ Resources
 * Apply Network Security Groups (NSG) to restrict traffic flow between subnets/node types. Ensure that the [correct ports](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-networking#cluster-networking) are opened for managing the cluster.
   > For example, you may have an API Management instance (one subnet), a frontend subnet (exposing a website directly) and a backend subnet (accessible only to frontend), each implemented on a different VM Scale Set.
                             
+## Functions
+### Design Considerations
+* Evaluate if Azure Functions requires HTTP trigger. Azure Functions supports multiple specific triggers and bindings. These include blob storage, Cosmos DB, Service Bus and many more. If HTTP trigger is needed then consider protecting that HTTP endpoint like any other web application. Common protection measures include keeping HTTP endpoint internal to specific Azure Virtual Networks by using [Private endpoint connections](https://docs.microsoft.com/azure/azure-functions/functions-networking-options#private-endpoint-connections) or [service endpoints](https://docs.microsoft.com/azure/azure-functions/functions-networking-options#use-service-endpoints). Consider using guidance available on [Azure Functions networking options](https://docs.microsoft.com/azure/azure-functions/functions-networking-options) for more information. If Functions HTTP endpoint is to be exposed to internet then it is recommended to be secured behind a Web Application Firewall (WAF).
+* Treat Azure Functions code just like any other code. Subject it to code scanning tools that are integrated with CI/CD pipeline.
+* Consider using [Azure Functions Proxy](https://docs.microsoft.com/azure/azure-functions/functions-proxies) to act as a facade. Functions Proxy can inspect and modify incoming request and responses.
+* Use guidance available on [Securing Azure Functions](https://docs.microsoft.com/azure/azure-functions/security-concepts). This guidance addresses key security concerns such as operations, deployment and network security.
 # Data
         
 ## Azure Databricks
