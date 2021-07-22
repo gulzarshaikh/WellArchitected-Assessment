@@ -270,6 +270,9 @@
       },
       {
         "title": "Virtual Machines"
+      },
+      {
+        "title": "Functions"
       }
     ]
   },
@@ -338,9 +341,6 @@
       },
       {
         "title": "IoT Hub Device Provisioning Service"
-      },
-      {
-        "title": "Functions"
       }
     ]
   },
