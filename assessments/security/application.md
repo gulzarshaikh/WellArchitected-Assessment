@@ -790,7 +790,7 @@ Compared to reviewing the whole Azure landscape of an organization, this focus a
 * Are branch policies used in source control management of this workload? How are they configured?
 
   _Branch policies provide additional level of control over the code which is commited to the product. It is a common practice to not allow pushing against the main branch and require pull-request (PR) with code review before merging the changes by at least one reviewer, other than the change author. Different branches can have different purposes and access levels, for example: feature branches are created by developers and are open to push, integration branch requires PR and code-review and production branch requires additional approval from a senior developer before merging._
-  > Implement branch policy strategy to enhance DevOps security
+  > Implement a branch policy strategy to enhance DevOps security
 ### Application Infrastructure Provisioning
             
 * Is direct write access to the infrastructure possible and are any resources provisioned or configured outside of IaC processes?
