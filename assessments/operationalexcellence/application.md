@@ -687,6 +687,8 @@ Compared to reviewing the whole Azure landscape of an organization, this focus a
 
   _Application configuration information can be stored together with the application itself or preferably using a dedicated configuration management system like Azure App Configuration or Azure Key Vault._
   > Consider storing application configuration in a dedicated management system like Azure App Configuration or Azure Key Vault
+  > 
+  > *Storing application configuration outside of the application code makes it possible to update it separately and have tighter access control.*
 * Can configuration settings be changed or modified without rebuilding or redeploying the application?
 
   > Application code and configuration should not share the same lifecycle to enable operational activities that change and update specific configurations without developer involvement or redeployment
@@ -976,7 +978,7 @@ Compared to reviewing the whole Azure landscape of an organization, this focus a
     - Does anyone have long-standing write-access to production environments?
 
       _Regular, long-standing write access to production environments by user accounts can pose a security risk and manual intervention is often prone to errors._
-      > Limit long-standing write access to production environments only to service principals.
+      > Limit long-standing write access to production environments only to service principals
   
       Additional resources:
         - [No standing access / Just in Time privileges](https://docs.microsoft.com/azure/architecture/framework/security/design-admins#no-standing-access--just-in-time-privileges)
