@@ -1632,7 +1632,7 @@
     "context": "Application configuration information can be stored together with the application itself or preferably using a dedicated configuration management system like Azure App Configuration or Azure Key Vault.",
     "recommendation": {
       "title": "Consider storing application configuration in a dedicated management system like Azure App Configuration or Azure Key Vault",
-      "context": "",
+      "context": "Storing application configuration outside of the application code makes it possible to update it separately and have tighter access control.",
       "links": [],
       "priority": 50
     }
