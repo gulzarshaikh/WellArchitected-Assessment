@@ -357,11 +357,14 @@ Compared to reviewing the whole Azure landscape of an organization, this focus a
     - Does the organization have an CI/CD process for publishing code in this workload?
 
       _Developers shouldn't publish their code directly to app servers - automated and gated CI/CD process should manage this._
-      > Implement an automated and gated CD/CD deployment process
+      > Implement an automated and gated CI/CD deployment process
 * Do workload virtual machines running on premises or in the cloud have direct internet connectivity for users that may perform interactive logins, or by applications running on virtual machines?
 
   _Attackers constantly scan public cloud IP ranges for open management ports and attempt “easy” attacks like common passwords and known unpatched vulnerabilities. Limiting internet access from within an application server can prevent data exfiltration or stop the attacker from downloading additional tools._
   > Prohibit direct internet access of virtual machines with policy, logging, and monitoring
+  
+    Additional resources:
+    - [Remove Virtual Machine (VM) direct internet connectivity](https://docs.microsoft.com/azure/architecture/framework/Security/governance#remove-virtual-machine-vm-direct-internet-connectivity)
 * Does the organization have the capability and plans in place to mitigate DDoS attacks for this workload?
 
   _DDoS attacks can be very debilitating and completely block access to your services or even take down the services, depending on the type of DDoS attack._
@@ -522,6 +525,10 @@ Compared to reviewing the whole Azure landscape of an organization, this focus a
 * How is user authentication handled in this workload?
 
   _If possible, applications should utilize Azure Active Directory or other managed identity providers (such as Microsoft Account, Azure B2C...) to avoid managing user credentials with custom implementation. Modern protocols like OAuth 2.0 use token-based authentication with limited timespan, identity providers offer additional functionality like multi-factor authentication, password reset etc._
+  > Use managed identity providers to authenticate to this workload
+  
+    Additional resources:
+    - [Use identity-based authentication](https://docs.microsoft.com/azure/architecture/framework/security/design-identity-authentication#use-identity-based-authentication)
 * Does the organization enforce conditional access for this workload?
 
   _Modern cloud-based applications are often accessible over the internet and location-based networking restrictions don't make much sense, but it needs to be mapped and understood what kind of restrictions are required. Multi-factor Authentication (MFA) is a necessity for remote access, IP-based filtering can be used to enable ad-hoc debugging, but VPNs are preferred._
@@ -533,6 +540,10 @@ Compared to reviewing the whole Azure landscape of an organization, this focus a
 * Does the organization prioritize authentication via identity services for this workload vs. cryptographic keys?
 
   _Consideration should always be given to authenticating with identity services rather than cryptographic keys when available. Managing keys securely with application code is difficult and regularly leads to mistakes like accidentally publishing sensitive access keys to code repositories like GitHub. Identity systems (such as Azure Active Directory) offer secure and usable experience for access control with built-in sophisticated mechanisms for key rotation, monitoring for anomalies, and more._
+  > Use identity services instead of cryptographic keys when available
+  
+    Additional resources:
+    - [Key and secret management considerations in Azure](https://docs.microsoft.com/azure/architecture/framework/security/design-storage-keys)
 * Does the organization synchronize current on-premises Active Directory with Azure AD, or other cloud identity systems?
 
   _Consistency of identities across cloud and on-premises will reduce human errors and resulting security risk. Teams managing resources in both environments need a consistent authoritative source to achieve security assurances._
@@ -675,7 +686,9 @@ Compared to reviewing the whole Azure landscape of an organization, this focus a
 * Where is application configuration information stored and how does the application access it?
 
   _Application configuration information can be stored together with the application itself or preferably using a dedicated configuration management system like Azure App Configuration or Azure Key Vault._
-  > Preferably configuration information is stored using a dedicated configuration management system like Azure App Configuration or Azure Key Vault so that it can be updated independently of the application code
+  > Consider storing application configuration in a dedicated management system like Azure App Configuration or Azure Key Vault
+  > 
+  > *Storing application configuration outside of the application code makes it possible to update it separately and have tighter access control.*
 * How are passwords and other secrets managed?
 
   _API keys, database connection strings and passwords are all sensitive to leakage, occasionally require rotation and are prone to expiration. Storing them in a secure store and not within the application code or configuration simplifies operational tasks like key rotation as well as improving overall security._
@@ -706,7 +719,12 @@ Compared to reviewing the whole Azure landscape of an organization, this focus a
 * Are the expiry dates of SSL/TLS certificates monitored and are processes in place to renew them?
 
   _Expired SSL/TLS certificates are one of the most common yet avoidable causes of application outages; even Azure and more recently Microsoft Teams have experienced outages due to expired certificates._
-  > Tracking expiry dates of SSL/TLS certificates and renewing them in due time is therefore highly critical. Ideally the process should be automated, although this often depends on leveraged CA. If not automated, sufficient alerting should be applied to ensure expiry dates do not go unnoticed.
+  > Implement lifecycle management process for SSL/TLS certificates
+  > 
+  > *Tracking expiry dates of SSL/TLS certificates and renewing them in due time is therefore highly critical. Ideally the process should be automated, although this often depends on leveraged CA. If not automated, sufficient alerting should be applied to ensure expiry dates do not go unnoticed.*
+  
+    Additional resources:
+    - [Configure certificate auto-rotation in Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/tutorial-rotate-certificates)
 * Is there a defined access model for keys and secrets for this workload?
 
   _Permissions to keys and secrets have to be controlled with an [access model](https://docs.microsoft.com/azure/key-vault/general/secure-your-key-vault)._
@@ -774,7 +792,7 @@ Compared to reviewing the whole Azure landscape of an organization, this focus a
 * Are branch policies used in source control management of this workload? How are they configured?
 
   _Branch policies provide additional level of control over the code which is commited to the product. It is a common practice to not allow pushing against the main branch and require pull-request (PR) with code review before merging the changes by at least one reviewer, other than the change author. Different branches can have different purposes and access levels, for example: feature branches are created by developers and are open to push, integration branch requires PR and code-review and production branch requires additional approval from a senior developer before merging._
-  > Implement branch policy strategy to enhance DevOps security
+  > Implement a branch policy strategy to enhance DevOps security
 ### Application Infrastructure Provisioning
             
 * Is direct write access to the infrastructure possible and are any resources provisioned or configured outside of IaC processes?
@@ -832,7 +850,13 @@ Compared to reviewing the whole Azure landscape of an organization, this focus a
     - Does anyone have long-standing write-access to production environments?
 
       _Regular, long-standing write access to production environments by user accounts can pose a security risk and manual intervention is often prone to errors._
-      > Limit long-standing write access to production environments only to service principals.
+      > Limit long-standing write access to production environments only to service principals
+  
+      Additional resources:
+        - [No standing access / Just in Time privileges](https://docs.microsoft.com/azure/architecture/framework/security/design-admins#no-standing-access--just-in-time-privileges)
+  
+    Additional resources:
+    - [No standing access / Just in Time privileges](https://docs.microsoft.com/azure/architecture/framework/security/design-admins#no-standing-access--just-in-time-privileges)
 * Does the organization clearly define CI/CD roles and permissions for this workload?
 
   _Defining CI/CD permissions properly ensures that only users responsible for production releases are able to initiate the process and that only developers can access the source code. Azure DevOps offers pre-defined roles which can be assigned to individual users of groups. Using them properly can make sure that for example only users responsible for production releases are able to initiate the process and that only developers can access the source code. Variable groups often contain sensitive configuration information and can be protected as well._

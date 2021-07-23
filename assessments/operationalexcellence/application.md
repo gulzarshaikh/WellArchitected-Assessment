@@ -686,7 +686,9 @@ Compared to reviewing the whole Azure landscape of an organization, this focus a
 * Where is application configuration information stored and how does the application access it?
 
   _Application configuration information can be stored together with the application itself or preferably using a dedicated configuration management system like Azure App Configuration or Azure Key Vault._
-  > Preferably configuration information is stored using a dedicated configuration management system like Azure App Configuration or Azure Key Vault so that it can be updated independently of the application code
+  > Consider storing application configuration in a dedicated management system like Azure App Configuration or Azure Key Vault
+  > 
+  > *Storing application configuration outside of the application code makes it possible to update it separately and have tighter access control.*
 * Can configuration settings be changed or modified without rebuilding or redeploying the application?
 
   > Application code and configuration should not share the same lifecycle to enable operational activities that change and update specific configurations without developer involvement or redeployment
@@ -737,7 +739,12 @@ Compared to reviewing the whole Azure landscape of an organization, this focus a
 * Are the expiry dates of SSL/TLS certificates monitored and are processes in place to renew them?
 
   _Expired SSL/TLS certificates are one of the most common yet avoidable causes of application outages; even Azure and more recently Microsoft Teams have experienced outages due to expired certificates._
-  > Tracking expiry dates of SSL/TLS certificates and renewing them in due time is therefore highly critical. Ideally the process should be automated, although this often depends on leveraged CA. If not automated, sufficient alerting should be applied to ensure expiry dates do not go unnoticed.
+  > Implement lifecycle management process for SSL/TLS certificates
+  > 
+  > *Tracking expiry dates of SSL/TLS certificates and renewing them in due time is therefore highly critical. Ideally the process should be automated, although this often depends on leveraged CA. If not automated, sufficient alerting should be applied to ensure expiry dates do not go unnoticed.*
+  
+    Additional resources:
+    - [Configure certificate auto-rotation in Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/tutorial-rotate-certificates)
 ### Operational Lifecycles
             
 * How are operational shortcomings and failures analyzed?
@@ -971,7 +978,13 @@ Compared to reviewing the whole Azure landscape of an organization, this focus a
     - Does anyone have long-standing write-access to production environments?
 
       _Regular, long-standing write access to production environments by user accounts can pose a security risk and manual intervention is often prone to errors._
-      > Limit long-standing write access to production environments only to service principals.
+      > Limit long-standing write access to production environments only to service principals
+  
+      Additional resources:
+        - [No standing access / Just in Time privileges](https://docs.microsoft.com/azure/architecture/framework/security/design-admins#no-standing-access--just-in-time-privileges)
+  
+    Additional resources:
+    - [No standing access / Just in Time privileges](https://docs.microsoft.com/azure/architecture/framework/security/design-admins#no-standing-access--just-in-time-privileges)
 * Does the organization have the appropriate emergency access accounts configured for this workload in case of an emergency?
 
   _While rare, sometimes extreme circumstances arise where all normal means of administrative access are unavailable and for this reason emergency access accounts (also refered to as 'break glass' accounts) should be available. These accounts are strictly controlled in accordance with best practice guidance, and they are closely monitored for unsanctioned use to ensure they are not compromised or used for nefarious purposes._
