@@ -303,9 +303,9 @@ Resources
 ## Virtual Machines
 ### Design Considerations
 * Microsoft provides the following [SLAs for virtual machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/):
-  - 95% SLA for single instance virtual machines using Standard HDD storage for all OS and Data disks
+  - 95% SLA for single instance virtual machines using Standard HDD Managed Disks for OS and Data disks
                             
-  - 99.5% SLA for single instance virtual machines using Standard SSD storage for all OS and Data disks
+  - 99.5% SLA for single instance virtual machines using Standard SSD Managed Disks for OS and Data disks
                             
   - 99.9% SLA for single instance virtual machines using Premium storage for all OS and Data disks
                             
