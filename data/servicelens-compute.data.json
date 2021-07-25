@@ -13,11 +13,11 @@
     "children": [
       {
         "id": "a132fba6-27fd-4a6c-8cf8-8ff071239bc9",
-        "title": "95% SLA for single instance virtual machines using Standard HDD storage for all OS and Data disks"
+        "title": "95% SLA for single instance virtual machines using Standard HDD Managed Disks for OS and Data disks"
       },
       {
         "id": "ceb8f4df-bdda-4ee6-bedf-965cfe6cd6ca",
-        "title": "99.5% SLA for single instance virtual machines using Standard SSD storage for all OS and Data disks"
+        "title": "99.5% SLA for single instance virtual machines using Standard SSD Managed Disks for OS and Data disks"
       },
       {
         "id": "faf49a76-3170-4f16-9f21-59459f480ee0",
