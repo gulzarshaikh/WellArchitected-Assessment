@@ -12,24 +12,24 @@
     "title": "Microsoft provides the following [SLAs for virtual machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/):",
     "children": [
       {
-        "id": "a132fba6-27fd-4a6c-8cf8-8ff071239bc9",
-        "title": "95% SLA for single instance virtual machines using Standard HDD storage for all OS and Data disks"
+        "title": "95% SLA for single instance virtual machines using Standard HDD Managed Disks for OS and Data disks",
+        "id": "4a184e0c-9839-4477-b631-e69694aef232"
       },
       {
-        "id": "ceb8f4df-bdda-4ee6-bedf-965cfe6cd6ca",
-        "title": "99.5% SLA for single instance virtual machines using Standard SSD storage for all OS and Data disks"
+        "title": "99.5% SLA for single instance virtual machines using Standard SSD Managed Disks for OS and Data disks",
+        "id": "d7689f4e-f514-4e80-80f2-9ff01251e65a"
       },
       {
-        "id": "faf49a76-3170-4f16-9f21-59459f480ee0",
-        "title": "99.9% SLA for single instance virtual machines using Premium storage for all OS and Data disks"
+        "title": "99.9% SLA for single instance virtual machines using Premium storage for all OS and Data disks",
+        "id": "027a975e-24ad-4a36-97b1-a985e37fe8b9"
       },
       {
-        "id": "c72a89eb-d625-438e-bd49-d16ec361572c",
-        "title": "99.95% SLA for all virtual machines that have two or more instances in the same Availability Set or Dedicated Host Group"
+        "title": "99.95% SLA for all virtual machines that have two or more instances in the same Availability Set or Dedicated Host Group",
+        "id": "f9c24175-840b-49b4-894c-fca7e9e6dfe3"
       },
       {
-        "id": "e1f4e640-78e6-4099-b5be-286ffb00baeb",
-        "title": "99.99% SLA for all virtual machines that have two or more instances deployed across two or more Availability Zones in the same region"
+        "title": "99.99% SLA for all virtual machines that have two or more instances deployed across two or more Availability Zones in the same region",
+        "id": "eddb7acd-f35a-4474-95b4-f7c8bac35a26"
       }
     ]
   },
