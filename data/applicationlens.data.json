@@ -73,6 +73,7 @@
     "category": "Application Design",
     "subCategory": "Design",
     "title": "Is the workload deployed across multiple regions?",
+    "statement": "The workload is deployed across multiple regions.",
     "context": "Multiple regions should be used for failover purposes in a disaster state, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active strategies. Additional cost needs to be taken into consideration - mostly from compute, data and networking perspective, but also services like [Azure Site Recovery (ASR)](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview).",
     "recommendation": {
       "title": "Deploy across multiple regions for higher availability",
@@ -93,6 +94,7 @@
       {
         "id": "06ec755b-c423-4f8b-92c4-073750567022",
         "title": "Were regions chosen based on location and proximity to your users or based on resource types that were available?",
+        "statement": "Regions were chosen based on location, proximity to users, and resource type availability.",
         "context": "Not only is it important to utilize regions close to your audience, but it is equally important to choose regions that offer the SKUs that will support your future growth. Not all regions share the same parity when it comes to product SKUs.",
         "recommendation": {
           "title": "Plan your growth, then choose regions that will support those plans",
@@ -108,6 +110,7 @@
       {
         "id": "7a12b9a0-b9cd-4971-9af7-838703da94b0",
         "title": "Are paired regions used?",
+        "statement": "Paired regions are used appropriately.",
         "context": "[Paired regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) exist within the same geography and provide native replication features for recovery purposes, such as Geo-Redundant Storage (GRS) asynchronous replication. In the event of planned maintenance, updates to a region will be performed sequentially only.",
         "recommendation": {
           "title": "",
@@ -124,6 +127,7 @@
       {
         "id": "ea0bef13-9c1e-49f1-9d7a-62f23b7698c6",
         "title": "Have you ensured that both (all) regions in use have the same performance and scale SKUs that are currently leveraged in the primary region?",
+        "statement": "You have ensured that both (all) regions in use have the same performance and scale SKUs that are currently leveraged in the primary region.",
         "context": "When planning for scale and efficiency, it is important that regions are not only paired, but homogenous in their service offerings. Additionally, you should make sure that, if one region fails, the second region can scale appropriately to sufficiently handle the influx of additional user requests.",
         "recommendation": {
           "title": "",
@@ -152,6 +156,7 @@
     "category": "Application Design",
     "subCategory": "Design",
     "title": "Within a region is the application architecture designed to use Availability Zones?",
+    "statement": "Within a region the application architecture is designed to use Availability Zones.",
     "context": "[Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones) can be used to optimize application availability within a region by providing datacenter level fault tolerance. However, the application architecture must not share dependencies between zones to use them effectively. It is also important to note that Availability Zones may introduce performance and cost considerations for applications which are extremely 'chatty' across zones given the implied physical separation between each zone and inter-zone bandwidth charges. That also means that AZ can be considered to get higher Service Level Agreement (SLA) for lower cost. Be aware of [pricing changes](https://azure.microsoft.com/pricing/details/bandwidth/) coming to Availability Zone bandwidth starting February 2021.",
     "recommendation": {
       "title": "Use Availability Zones where applicable to improve reliability and optimize costs",
@@ -177,6 +182,7 @@
     "category": "Application Design",
     "subCategory": "Design",
     "title": "Is the application implemented with strategies for resiliency and self-healing?",
+    "statement": "The application is implemented with strategies for resiliency and self-healing.",
     "context": "Strategies for resiliency and self-healing include retrying transient failures and failing over to a secondary instance or even another region.",
     "recommendation": {
       "title": "Consider implementing strategies and capabilities for resiliency and self-healing needed to achieve workload availability targets. Programming paradigms such as retry patterns, request timeouts, and circuit breaker patterns can improve application resiliency by automatically recovering from transient faults.",
@@ -2842,6 +2848,7 @@
     "category": "Application Design",
     "subCategory": "Design",
     "title": "Is component proximity required for application performance reasons?",
+    "statement": "Component proximity is considered for application performance reasons.",
     "context": "If all or part of the application is highly sensitive to latency it may mandate component co-locality which can limit the applicability of multi-region and multi-zone strategies.",
     "recommendation": {
       "title": "Consider using the same datacenter region, Availability Zone and [Proximity Placement Groups](https://azure.microsoft.com/blog/announcing-the-general-availability-of-proximity-placement-groups/) and other options to bring latency sensitive components closer together. Keep also in mind that additional charges may apply when chatty workloads are spread across zones and region.",
@@ -2861,6 +2868,7 @@
     "category": "Application Design",
     "subCategory": "Design",
     "title": "Can the application operate with reduced functionality or degraded performance in the presence of an outage?",
+    "statement": "The application can operate with reduced functionality or degraded performance in the case of an outage.",
     "context": "Avoiding failure is impossible in the public cloud, and as a result applications require resilience to respond to outages and deliver reliability. The application should therefore be designed to operate even when impacted by regional, zonal, service or component failures across critical application scenarios and functionality.",
     "recommendation": {
       "title": "",
@@ -7490,7 +7498,8 @@
     "lens": "application",
     "category": "Application Design",
     "subCategory": "Design",
-    "title": "What datasources are you using? Were you able to choose the data source during the design phase?",
+    "title": "What datastores are you using? Were you able to choose the data store during the design phase?",
+    "statement": "You choose appropriate datastores for the workload during the application design.",
     "context": "Your application will most likely require more than one type of datastore depending on business requirements. Choosing the right mix and correct implementation is extremely important for optimizing application performance.",
     "recommendation": {
       "title": "",
@@ -7509,6 +7518,7 @@
     "category": "Application Design",
     "subCategory": "Design",
     "title": "Would you consider the application design to be a microservice architecture?",
+    "statement": "Your application is using a microservice architecture.",
     "context": "As compared to a monolithic architecture--an application that is tightly coupled with synchronous communication and often a single datastore--microservices leverage concepts such as asynchronous communication, service discovery, various resiliency strategies, and each service has its own datastore.",
     "recommendation": {
       "title": "",
