@@ -456,7 +456,6 @@
         }
       },
       {
-        "id": "",
         "title": "Is there a strategy in place to manage events that may cause a spike in load?",
         "context": "",
         "recommendation": {
@@ -464,7 +463,8 @@
           "context": "",
           "links": [],
           "priority": 50
-        }
+        },
+        "id": "b2852b4d-00c2-466e-8628-c4653972bfb3"
       },
       {
         "id": "a2aa6296-448a-477d-be39-55f565ca9838",
@@ -3824,7 +3824,6 @@
     }
   },
   {
-    "id": "",
     "type": "Questions",
     "pillars": [
       "performanceefficiency"
@@ -3840,7 +3839,8 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "id": "93201ac6-a512-4207-a683-472cd2b3d1bd"
   },
   {
     "id": "e76fc3b0-6446-4590-84ef-4df313593f37",
@@ -4046,7 +4046,6 @@
         }
       },
       {
-        "id": "",
         "title": "Is autoscaling configured with automatic schedule to add resources based on time of day trends?",
         "context": "",
         "recommendation": {
@@ -4054,7 +4053,8 @@
           "context": "",
           "links": [],
           "priority": 50
-        }
+        },
+        "id": "0280d76d-5afe-4478-9434-9d21f88a412e"
       }
     ]
   },
@@ -8448,7 +8448,6 @@
     }
   },
   {
-    "id": "",
     "type": "Questions",
     "pillars": [
       "performanceefficiency"
@@ -8463,10 +8462,10 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "id": "ccbe2f40-9e9d-4962-98b1-d2b5f442eb87"
   },
   {
-    "id": "",
     "type": "Questions",
     "pillars": [
       "performanceefficiency"
@@ -8482,10 +8481,10 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "id": "b7011024-93fa-47a0-b51b-d5f936eb155f"
   },
   {
-    "id": "",
     "type": "Questions",
     "pillars": [
       "performanceefficiency"
@@ -8501,10 +8500,10 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "id": "53280d22-67fc-4e2e-86af-7528d5d10a48"
   },
   {
-    "id": "",
     "type": "Questions",
     "pillars": [
       "performanceefficiency"
@@ -8520,10 +8519,10 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "id": "a9ad477e-6584-431a-a2d2-5f38636216eb"
   },
   {
-    "id": "",
     "type": "Questions",
     "pillars": [
       "performanceefficiency"
@@ -8539,6 +8538,7 @@
       "context": "",
       "links": [],
       "priority": 50
-    }
+    },
+    "id": "1252ceae-898e-4a4d-a726-31d885ae488f"
   }
 ]

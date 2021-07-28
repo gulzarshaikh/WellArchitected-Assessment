@@ -257,6 +257,8 @@ Compared to reviewing the whole Azure landscape of an organization, this focus a
 
       _Scale operations (horizontal - changing the number of identical instances, vertical - switching to more/less powerful instances) can be fast, but usually take time to complete. It's important to understand how this delay affects the application under load and if degraded performance is acceptable._
       > The application should be designed to scale to cope with spikes in load in-line with what is an acceptable duration for degraded performance
+    - Is there a strategy in place to manage events that may cause a spike in load?
+
     - What is the maximum traffic volume the application is expected to serve without performance degradation?
 
       _Scale requirements the application must be able to effectively satisfy, such as the number of concurrent users or requests per second, is a critical lens for assessing operations. From the cost perspective, it's recommended to set a budget for extreme circumstances and indicate upper limit for cost (when it's not worth serving more traffic due to overall costs)._
@@ -637,6 +639,8 @@ Compared to reviewing the whole Azure landscape of an organization, this focus a
     - Has autoscaling been tested under sustained load?
 
       _The scaling on any single component may have an impact on downstream application components and dependencies. Autoscaling should therefore be tested regularly to help inform and validate a capacity model describing when and how application components should scale._
+    - Is autoscaling configured with automatic schedule to add resources based on time of day trends?
+
 ## Operational Procedures
     
 ### Recovery &amp; Failover
