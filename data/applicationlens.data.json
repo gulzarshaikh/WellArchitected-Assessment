@@ -456,6 +456,17 @@
         }
       },
       {
+        "id": "",
+        "title": "Is there a strategy in place to manage events that may cause a spike in load?",
+        "context": "",
+        "recommendation": {
+          "title": "",
+          "context": "",
+          "links": [],
+          "priority": 50
+        }
+      },
+      {
         "id": "a2aa6296-448a-477d-be39-55f565ca9838",
         "title": "What is the maximum traffic volume the application is expected to serve without performance degradation?",
         "context": "Scale requirements the application must be able to effectively satisfy, such as the number of concurrent users or requests per second, is a critical lens for assessing operations. From the cost perspective, it's recommended to set a budget for extreme circumstances and indicate upper limit for cost (when it's not worth serving more traffic due to overall costs).",
@@ -1033,6 +1044,7 @@
       {
         "id": "ba919d0a-8b8a-496d-bdcc-b2b521daed88",
         "title": "Are critical system flows used to inform the health model?",
+        "statement": "Critical system flows are used to inform the health model.",
         "context": "",
         "recommendation": {
           "title": "The health model should be able to surface the respective health of critical system flows or key subsystems to ensure appropriate operational prioritization is applied. For example, the health model should be able to represent the current state of the user login transaction flow.",
@@ -1044,6 +1056,7 @@
       {
         "id": "7277055a-fd82-4d38-9da5-afb52e75d5c1",
         "title": "Can the health model distinguish between transient and non-transient faults?",
+        "statement": "The health model can distinguish between transient and non-transient faults.",
         "context": "Is the health model treating all failures the same?",
         "recommendation": {
           "title": "The health model should clearly distinguish between expected transient but recoverable failures and a true disaster state",
@@ -3811,6 +3824,25 @@
     }
   },
   {
+    "id": "",
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Application Performance Management",
+    "subCategory": "Data Size/Growth",
+    "title": "Are the plans for data growth and retention documented?",
+    "statement": "You have documented plans for data growth and retention.",
+    "context": "",
+    "recommendation": {
+      "title": "",
+      "context": "",
+      "links": [],
+      "priority": 50
+    }
+  },
+  {
     "id": "e76fc3b0-6446-4590-84ef-4df313593f37",
     "type": "Questions",
     "pillars": [
@@ -4006,6 +4038,17 @@
         "id": "55480e81-91e3-493a-838f-98c28a533971",
         "title": "Has autoscaling been tested under sustained load?",
         "context": "The scaling on any single component may have an impact on downstream application components and dependencies. Autoscaling should therefore be tested regularly to help inform and validate a capacity model describing when and how application components should scale.",
+        "recommendation": {
+          "title": "",
+          "context": "",
+          "links": [],
+          "priority": 50
+        }
+      },
+      {
+        "id": "",
+        "title": "Is autoscaling configured with automatic schedule to add resources based on time of day trends?",
+        "context": "",
         "recommendation": {
           "title": "",
           "context": "",
@@ -8035,6 +8078,7 @@
       {
         "id": "88290052-414d-4a23-88cc-b65667a74014",
         "title": "What are the metrics of a performance test under standard loads?",
+        "statement": "You are aware of the appropriate metrics to monitor for performance tests under standard load.",
         "context": "A true performance test measures how the application performs under a standard load. It is critical to understand how your application operates--including CPU utilization and memory consumption--under a standard load. First, this will help you plan accordingly as you anticipate future user growth. Second, this gives you a baseline for performance regression testing.",
         "recommendation": {
           "title": "",
@@ -8270,6 +8314,7 @@
     "category": "Performance Testing",
     "subCategory": "Troubleshooting",
     "title": "Does the application spend a lot of time in the database?",
+    "statement": "You have steps to troubleshoot database issues.",
     "context": "Applications that spend a lot of execution time in the database layers can benefit from a database tuning analysis. This analysis will only focus on the data tier components and may require special resources such as DBA's to tune queries, indexes, execution plans, and more.",
     "recommendation": {
       "title": "",
@@ -8288,6 +8333,7 @@
     "category": "Performance Testing",
     "subCategory": "Troubleshooting",
     "title": "Does the application have high CPU or memory utilization?",
+    "statement": "You know how to handle high CPU or memory situations.",
     "context": "If the application has very high CPU or memory utilization, then consider scaling the application either horizontal or vertical. Scaling horizontal to more compute resources will spread the load across more machines. This will, however, increase the network complexity as there will be more machines to support the system. Scaling the application vertical to a larger machine this is optimized for higher CPU or memory workloads may also be considered. Profiling the application code can be useful to find code structures that may be sub-optimal and replace them with better-optimized code. These decisions are a balance of several factors that can include cost, system complexity, and time to implement.",
     "recommendation": {
       "title": "",
@@ -8330,6 +8376,7 @@
     "category": "Performance Testing",
     "subCategory": "Troubleshooting",
     "title": "Does the application response times increase while not using all the CPU or memory allocated to the system regardless of the load?",
+    "statement": "You know what to do when the application response times increase while not using all the CPU or memory allocated to the system.",
     "context": "When the system response times increase without any increase in the CPU or memory, this is an indicator that there is a resource that is time-blocked. This can mean many things such as thread sleep, connection wait, message queueing, etc. The list can go on. The bottom line is there is something that is consuming time but not compute resources. Try to locate these issues with tracing data that can deliver time spans for each layer of the application architecture that is correlated to an application transaction.",
     "recommendation": {
       "title": "",
@@ -8372,6 +8419,7 @@
     "category": "Performance Testing",
     "subCategory": "Troubleshooting",
     "title": "Do you profile the application code with any profiling tools?",
+    "statement": "You use profiling tools to profile your application code.",
     "context": "Application profiling will involve tooling like Visual Studio Performance Profile, AQTime, dotTrace, and others. These tools will give you in-depth analysis of individual code paths.",
     "recommendation": {
       "title": "",
@@ -8390,7 +8438,102 @@
     "category": "Performance Testing",
     "subCategory": "Troubleshooting",
     "title": "Do you profile the network with any traffic capturing tools?",
+    "statement": "You have a response plan for network performance problems that includes traffic capturing tools.",
     "context": "Network capture tooling can capture the network traffic and dive deeper into the interactions at the network layer that may affect your application due to network configuration and/or other network traffic issues.",
+    "recommendation": {
+      "title": "",
+      "context": "",
+      "links": [],
+      "priority": 50
+    }
+  },
+  {
+    "id": "",
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Health Modelling & Monitoring",
+    "subCategory": "Resource and Infrastructure Level Monitoring",
+    "title": "Are scaling policies configured to use appropriate metrics?",
+    "context": "",
+    "recommendation": {
+      "title": "",
+      "context": "",
+      "links": [],
+      "priority": 50
+    }
+  },
+  {
+    "id": "",
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Application Performance Management",
+    "subCategory": "Data Size/Growth",
+    "title": "Is the workload data designed for eventual consistency?",
+    "statement": "Design for eventual consistency.",
+    "context": "",
+    "recommendation": {
+      "title": "",
+      "context": "",
+      "links": [],
+      "priority": 50
+    }
+  },
+  {
+    "id": "",
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Application Performance Management",
+    "subCategory": "Data Size/Growth",
+    "title": "Is the workload's data normalized appropriately?",
+    "statement": "Normalize the data appropriately.",
+    "context": "",
+    "recommendation": {
+      "title": "",
+      "context": "",
+      "links": [],
+      "priority": 50
+    }
+  },
+  {
+    "id": "",
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Health Modelling & Monitoring",
+    "subCategory": "Resource and Infrastructure Level Monitoring",
+    "title": "Are you tracking when resources scale in and out?",
+    "statement": "Track when resources scale in and out.",
+    "context": "",
+    "recommendation": {
+      "title": "",
+      "context": "",
+      "links": [],
+      "priority": 50
+    }
+  },
+  {
+    "id": "",
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Health Modelling & Monitoring",
+    "subCategory": "Resource and Infrastructure Level Monitoring",
+    "title": "Is there an overall monitoring strategy for scalability and performance?",
+    "statement": "Have an overall monitoring strategy for scalability and performance.",
+    "context": "",
     "recommendation": {
       "title": "",
       "context": "",
