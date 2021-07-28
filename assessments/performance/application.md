@@ -119,7 +119,7 @@ Compared to reviewing the whole Azure landscape of an organization, this focus a
 * When designing the application, which of the following design considerations were considered? (Latency between layers, Request time, Payload sizes, High Availability)
 
   _When designing a new application or reviewing and existing one, there are three concepts to think about: 1) reducing latency; 2) reducing total request time; and, 3) reducing overall payload sizes. Implementing any combination of these concepts can dramatically improve overall application performance._
-* What datasources are you using? Were you able to choose the data source during the design phase?
+* What datastores are you using? Were you able to choose the data store during the design phase?
 
   _Your application will most likely require more than one type of datastore depending on business requirements. Choosing the right mix and correct implementation is extremely important for optimizing application performance._
 * Would you consider the application design to be a microservice architecture?
