@@ -824,6 +824,7 @@
     "category": "Health Modelling & Monitoring",
     "subCategory": "Application Level Monitoring",
     "title": "Are application events correlated across all application components?",
+    "statement": "Application events are correlated across all application components.",
     "context": "[Distributed tracing](https://docs.microsoft.com/azure/architecture/microservices/logging-monitoring#distributed-tracing) provides the ability to build and visualize end-to-end transaction flows for the application.",
     "recommendation": {
       "title": "Events coming from different application components or different component tiers of the application should be correlated to build end-to-end transaction flows",
@@ -958,6 +959,7 @@
     "category": "Health Modelling & Monitoring",
     "subCategory": "Dependencies",
     "title": "Are critical external dependencies monitored?",
+    "statement": "You monitor critical external dependencies for performance.",
     "context": "It's common for applications to depend on other services or libraries. Despite these are external, it is still possible to monitor their health and availability using probes.",
     "recommendation": {
       "title": "Monitor critical external dependencies",
@@ -2369,6 +2371,7 @@
       {
         "id": "fdd44349-dbfd-4897-8502-05962c134c1f",
         "title": "When do you do test for performance, scalability, and resiliency?",
+        "statement": "Performance tests are performed regularly.",
         "context": "Regular testing should be performed as part of each major change and if possible on a regular basis to validate existing thresholds, targets and assumptions, as well as ensuring the validity of the health model, capacity model and operational procedures.",
         "recommendation": {
           "title": "",
@@ -2380,6 +2383,7 @@
       {
         "id": "46674ef4-13a3-4c87-9430-695b1792633c",
         "title": "Are any tests performed in production?",
+        "statement": "Some tests are performed in production.",
         "context": "While the majority of testing should be performed within the testing and staging environments, it is often beneficial to also run a subset of tests against the production system.",
         "recommendation": {
           "title": "",
@@ -2391,6 +2395,7 @@
       {
         "id": "80cc9d6c-c573-4e02-8219-098a8df796a4",
         "title": "Is the application tested with injected faults?",
+        "statement": "The testing plan includes occasionally injecting faults.",
         "context": "It is a common \"chaos monkey\" practice to verify the effectiveness of operational procedures using artificial faults. For example, taking dependencies offline (stopping API apps, shutting down VMs, etc.), restricting access (enabling firewall rules, changing connection strings, etc.) or forcing failover (database level, Front Door, etc.) is a good way to validate that the application is able to handle faults gracefully.",
         "recommendation": {
           "title": "",
@@ -7568,6 +7573,18 @@
           "links": [],
           "priority": 50
         }
+      },
+      {
+        "id": "",
+        "title": "Are you minimizing the load on datastore?",
+        "statement": "Minimize the load on the data store.",
+        "context": "",
+        "recommendation": {
+          "title": "",
+          "context": "",
+          "links": [],
+          "priority": 50
+        }
       }
     ]
   },
@@ -7714,6 +7731,7 @@
     "category": "Performance Testing",
     "subCategory": "Tools & Planning",
     "title": "Have you identified the required human and environment resources needed to create performance tests?",
+    "statement": "You have identified the human and environmental resources needed to create performance tests.",
     "context": "Successfully implementing meaningful performance tests requires a number of resources. If is not just a single developer or QA Analyst running some tests on their local machine. Instead, performance tests need a test environment (also known as a test bed) that tests can be executed against without interfering with production environments and data. Performance testing requires input and commitment from developers, architects, database administrators, and network administrators. In short, solid performance testing is a team responsibility.<br />Additionally, to run scaled tests, a machine with enough resources (e.g. memory, processors, network connections, etc.) needs to be made available. While this machine can be located within a data center or on-premises, it is often advantageous to perform performance testing from instances located from multiple geographies. This better simulates what an end-user can expect.",
     "recommendation": {
       "title": "",
@@ -7732,6 +7750,7 @@
     "category": "Performance Testing",
     "subCategory": "Tools & Planning",
     "title": "Are you currently using tools for conducting performance testing?",
+    "statement": "You are using appropriate tools to conduct performance tests on this workload.",
     "context": "There are various performance testing tools available for DevOps. Some tools like JMeter only perform testing against endpoints and tests HTTP statuses. Other tools like K6 and Selenium can perform tests that also check data quality and variations. Application Insights, while not necessarily designed to test server load, can test the performance of an application within the user's browser. When determining what testing tools you will implement, it is always important to remember what type of performance testing you are attempting to execute.",
     "recommendation": {
       "title": "",
@@ -7765,6 +7784,7 @@
       {
         "id": "4bef2450-c3ef-4c60-addb-069eec18e032",
         "title": "Considering the three major application layers of frontend, services, and database, what parts of the application are being tested for performance?",
+        "statement": "You are testing all appropriate components for performance.",
         "context": "",
         "recommendation": {
           "title": "",
@@ -7785,6 +7805,7 @@
     "category": "Performance Testing",
     "subCategory": "Benchmarking",
     "title": "Have you identified goals or baselines for application performance?",
+    "statement": "You have identified goals or a baseline for workload performance.",
     "context": "There are many types of goals when determining baselines for application performance. Perhaps baselines center around a certain number of visitors within a given time period, the time it takes to render a page, type  required for executing a stored procedure, or a desired number of transactions if your site conducts some type of e-commerce. It is important to identify and maintain a shared understanding of these baselines so that you can architect a system that meets them.<br />Baselines can vary based on types of connections or platforms that a user may leverage for accessing the application. It may be important to establish baselines that address the diversity of connections, platforms, and other elements (like time of day, or weekday versus weekend).",
     "recommendation": {
       "title": "",
@@ -7796,6 +7817,7 @@
       {
         "id": "0dbb0386-e21e-4bda-bdba-9b7bea968d5b",
         "title": "Are your goals based on device and/or connectivity type, or are they considered the same across the board?",
+        "statement": "Performance goals are based on device and/or connectivity type as appropriate.",
         "context": "It is important to identify how users are connecting to your application. Are they primarily connecting via a wired connection, wireless, or by using a mobile device? Additionally, you should seek to understand the targeted device types, whether that a mobile device, a tablet or laptop/desktop PC. All of these factors play a major role in performance as it relates to data transmission (e.g. sending data to and receiving data from a remote service) and processing (e.g. displaying that data to a user via a graph, table, etc.). For example, if the site has a large amount of widgets, it may be advantageous to create an experience that is optimized for mobile devices since these devices tend to have smaller processors and less memory.",
         "recommendation": {
           "title": "",
@@ -7816,6 +7838,7 @@
     "category": "Performance Testing",
     "subCategory": "Benchmarking",
     "title": "Do you have goals defined for establishing an initial connection to a service?",
+    "statement": "You have defined an initial connection goal for your workload.",
     "context": "It would be helpful to determine a goal that is based upon from when the connection reaches the server, to when the service spins/cycles up, to providing a response. By establishing this baseline, you and your customer can determine if adequate resources have been assigned to the machine. These resources can included, but are not limited to processors, RAM, and disk IOPS. Finally, creating rules for \"Always-On\" or properly configuring idle time-outs (e.g. IIS, containers, etc.) will be especially helpful for optimizing response times.",
     "recommendation": {
       "title": "",
@@ -7834,6 +7857,7 @@
     "category": "Performance Testing",
     "subCategory": "Benchmarking",
     "title": "Do you have goals defined for a complete page load?",
+    "statement": "There is a goal defined for complete page load times.",
     "context": "What are your goals for a completed page load? When formulating this metric, it is important to note the varying thresholds that can be deemed acceptable. Some companies, whose primary audience is internal and are salary-based, may base their thresholds on the user's mental capacity to sit at the application screen. Other customers that have service-related users (i.e. users who are paid for performance) may base their thresholds on the ability to keep the user working as fast as possible (mental state is not the primary motivator) because increased productivity typically increases revenue. Typically, most industry standards target page load times to 1-2 seconds, while 3-5 seconds is \"acceptable,\" and more than 5 is unacceptable. If applications are being hosted in Azure App Services, there are a number of tactics that can increase page performance.",
     "recommendation": {
       "title": "",
@@ -7876,6 +7900,7 @@
     "category": "Performance Testing",
     "subCategory": "Benchmarking",
     "title": "Do you have goals defined for an API (service) endpoint complete response?",
+    "statement": "You have defined goals for an API (service) endpoint complete response.",
     "context": "Data-centric applications are comprised of pulling data from various API endpoints. For a single page, this could mean many server requests. The page is only as fast as the slowest endpoint. It is important for you to test the performance of your APIs to quickly identify bottlenecks in the application that impede user experience. As an example, if a dashboard page requires data from ten API endpoints and one of those endpoints requires 6.0 seconds to return data while the remaining endpoints only a few hundred milliseconds, this is a good indicator that the single endpoint needs to be inspected and targeted for optimization.",
     "recommendation": {
       "title": "",
@@ -7918,6 +7943,7 @@
     "category": "Performance Testing",
     "subCategory": "Benchmarking",
     "title": "Do you have goals defined for server response times?",
+    "statement": "There are goals defined for server response time.",
     "context": "Similar to previous questions regarding the initial connection to a service, you will also want to understand how long it takes for the server to receive, process, and then return data. This round-trip can also help ensure that enough hardware resources have been assigned to the environment. Additionally, it is possible to identify \"noisy neighbors\", applications running on the same disk (typically in a virtualized environment) or sharing the same network, that are consuming available resources. Finally, another bottleneck in many environments is traffic on a network that is being shared with a data store (e.g. SQL). If an application server and its database server share the same network as general traffic, then the overall performance of the application can be greatly affected.",
     "recommendation": {
       "title": "",
@@ -7960,6 +7986,7 @@
     "category": "Performance Testing",
     "subCategory": "Benchmarking",
     "title": "Do you have goals for latency between systems/microservices?",
+    "statement": "You have goals for latency between the systems & microservices of your workload.",
     "context": "Performance should not only be monitored within the application itself, but response times between service tiers should also be noted. While this is important for n-Tier applications, it is especially crucial for microservices. Most microservices leverage some type of pub-sub architecture where communication is asynchronous. However, validation for sending and receiving messages should still take place. In these instances, understanding the routing and latency between services is imperative to improving performance.",
     "recommendation": {
       "title": "",
@@ -8002,7 +8029,7 @@
     "category": "Performance Testing",
     "subCategory": "Benchmarking",
     "title": "Do you have goals for database queries?",
-    "statement": "Optimize database queries and indexes.",
+    "statement": "There are goals on database query efficiency.",
     "context": "Ensuring the data operations are optimized is a key component to any performance assessment. It is important to understand what data is being queried and when. The data life-cycle, if abused, can adversely affect the performance of any application (or microservice). Confirm that a database administrator (a data architect is preferred) is part of the assessment as they will have the necessary tools for monitoring and optimizing a database and its queries.",
     "recommendation": {
       "title": "",
@@ -8063,6 +8090,7 @@
     "category": "Performance Testing",
     "subCategory": "Tools & Planning",
     "title": "Have you identified all services being utilized in Azure (and on-prem) that need to be measured?",
+    "statement": "You have identified all services being utilized in Azure (and on-premise) that need to be measured.",
     "context": "Your assessment may already be complete, but it helps to identify some currently utilized systems to being measuring load capacity. Once these environments have been identified, created benchmarks should include these systems.",
     "recommendation": {
       "title": "",
@@ -8100,6 +8128,7 @@
     "category": "Performance Testing",
     "subCategory": "Load Capacity",
     "title": "Have you determined an acceptable operational margin between your peak utilization and the applications maximum load?",
+    "statement": "You have determined an acceptable operational margin between your peak utilization and the application's maximum load, and monitor for this.",
     "context": "What is the maximum taxation you wish to place on resources? Factors such as memory, CPU, and disk IOPS should all be considered. Once a stress test has been performed resulting in the maximum supported load and an operational margin has been chosen, it is best to determine an operational threshold. Then, environment scaling (automatic or manual) can be performed once the threshold has been reached.",
     "recommendation": {
       "title": "",
@@ -8295,6 +8324,7 @@
     "category": "Performance Testing",
     "subCategory": "Benchmarking",
     "title": "How do you know when you have reached acceptable efficiency?",
+    "statement": "You have a methodology to determine what acceptable performance is.",
     "context": "There is almost no limit to how much an application can be performance-tuned. How do you know when you have tuned an application enough? It really comes down to the 80/20 rule--generally, 80% of the application can be optimized by focusing on just 20%. While you can continue optimizing certain elements of the application, after optimizing the initial 20%, a company typically sees a diminishing return on any further optimization. The question the customer must answer is how much of the remaining 80% of the application is worth optimizing for the business. In other words, how much will optimizing the remaining 80% help the business reach its goals (e.g. customer acquisition/retention, sales, etc.)? The business must determine their own realistic definition of \"acceptable.\"",
     "recommendation": {
       "title": "",
