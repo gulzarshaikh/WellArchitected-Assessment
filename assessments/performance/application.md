@@ -396,7 +396,7 @@ Compared to reviewing the whole Azure landscape of an organization, this focus a
   _Applications with stringent throughput requirements may require dedicated bandwidth to remove the risks associated with noisy neighbor scenarios._
 ### Elasticity
             
-* Can the application scale horizontally in response to changing load?
+* Can the workload scale horizontally in response to changing load?
 
   _A scale-unit approach should be taken to ensure that each application component and the application as a whole can scale effectively in response to changing demand. A robust capacity model should be used to define when and how the application should scale._
 * Is autoscaling enabled and integrated within Azure Monitor?
@@ -418,6 +418,8 @@ Compared to reviewing the whole Azure landscape of an organization, this focus a
 
   _[Stateless services](https://docs.microsoft.com/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices) and processes can easily be hosted across multiple compute instances to meet scale demands, as well as helping to reduce complexity and ensure high cacheability._
   > Use externalized data store for stateful applications
+  > 
+  > *Strive to design stateless services for scalability. If state must be maintained server side, consider an out-of-process caching service where all application instances can access.*
   
     Additional resources:
     - [Stateless web services](https://docs.microsoft.com/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices)
