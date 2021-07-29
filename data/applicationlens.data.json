@@ -377,6 +377,7 @@
     "category": "Application Design",
     "subCategory": "Targets & Non-Functional Requirements",
     "title": "Are you able to predict general application usage?",
+    "statement": "You are able to predict general application usage.",
     "context": "It is important to understand application and environment usage. The customer may have an understanding of certain seasons or incidents that increase user load (e.g. a weather service being hit by users facing a storm, an e-commerce site during the holiday season).",
     "recommendation": {
       "title": "Traffic patterns should be identified by analyzing historical traffic data and the effect of significant external events on the application",
@@ -442,6 +443,7 @@
     "category": "Application Design",
     "subCategory": "Targets & Non-Functional Requirements",
     "title": "Are there well-defined performance requirements for the application and/or key scenarios?",
+    "statement": "There are well-defined performance requirements for the workload and its key scenarios.",
     "context": "Non-functional performance requirements, such as those relating to end-user experiences (e.g. average and maximum response times) are vital to assessing the overall health of an application, and is a critical lens required for assessing operations.",
     "recommendation": {
       "title": "Identify sensible non-functional requirements",
@@ -453,6 +455,7 @@
       {
         "id": "89333b94-6ced-45ad-abb2-73e82b0d560b",
         "title": "Are there any targets defined for the time it takes to perform scale operations?",
+        "statement": "Targets for scale operations are defined.",
         "context": "Scale operations (horizontal - changing the number of identical instances, vertical - switching to more/less powerful instances) can be fast, but usually take time to complete. It's important to understand how this delay affects the application under load and if degraded performance is acceptable.",
         "recommendation": {
           "title": "The application should be designed to scale to cope with spikes in load in-line with what is an acceptable duration for degraded performance",
@@ -463,6 +466,7 @@
       },
       {
         "title": "Is there a strategy in place to manage events that may cause a spike in load?",
+        "statement": "There is a strategy in place to manage events that may cause a spike in load.",
         "context": "",
         "recommendation": {
           "title": "",
@@ -475,6 +479,7 @@
       {
         "id": "a2aa6296-448a-477d-be39-55f565ca9838",
         "title": "What is the maximum traffic volume the application is expected to serve without performance degradation?",
+        "statement": "You understand and have documented the expected maximum traffic volume before performance degradation occurs.",
         "context": "Scale requirements the application must be able to effectively satisfy, such as the number of concurrent users or requests per second, is a critical lens for assessing operations. From the cost perspective, it's recommended to set a budget for extreme circumstances and indicate upper limit for cost (when it's not worth serving more traffic due to overall costs).",
         "recommendation": {
           "title": "Traffic limits for the application should be defined in quantified and measurable manner",
@@ -1497,6 +1502,7 @@
     "category": "Capacity & Service Availability Planning",
     "subCategory": "Scalability & Capacity Model",
     "title": "Is there a capacity model for the application?",
+    "statement": "There is a capacity model for the workload.",
     "context": "A capacity model should describe the relationships between the utilization of various components as a ratio, to capture when and how application components should scale-out.",
     "recommendation": {
       "title": "A capacity model should describe the relationships between the utilization of various components as a ratio, to capture when and how application components should scale-out. For instance, scaling the number of Application Gateway v2 instances may put excess pressure on downstream components unless also scaled to a degree. When modelling capacity for critical system components it is therefore recommended that an N+1 model be applied to ensure complete tolerance to transient faults, where N describes the capacity required to satisfy performance and availability requirements. This also prevents cost-related surprises when scaling out and realizing that multiple services need to be scaled at the same time.",
@@ -1521,6 +1527,7 @@
     "category": "Capacity & Service Availability Planning",
     "subCategory": "Scalability & Capacity Model",
     "title": "Is auto-scaling enabled for supporting PaaS and IaaS services?",
+    "statement": "You have enabled auto-scaling for all PaaS and IaaS services that support it.",
     "context": "Are built-in capabilities for automatic scale being used vs. scaling being always a manual decision?",
     "recommendation": {
       "title": "Leveraging built-in Auto-scaling capabilities can help to maintain system reliability in times of increased demand while not needing to overprovision resources up-front, by letting a service automatically scale within a pre-configured range of resources. It greatly simplifies management and operational burdens. However, it must take into account the capacity model, else automated scaling of one component can impact downstream services if those are not also automatically scaled accordingly.",
@@ -1541,6 +1548,7 @@
     "category": "Capacity & Service Availability Planning",
     "subCategory": "Scalability & Capacity Model",
     "title": "Is the process to provision and deprovision capacity codified?",
+    "statement": "A process for provisioning and de-provisioning capacity has been established.",
     "context": "Codifying and automating the process helps to avoid human error, varying results and to speed up the overall process.",
     "recommendation": {
       "title": "Fluctuation in application traffic is typically expected. To ensure optimal operation is maintained, such variations should be met by automated scalability. The significance of automated capacity responses underpinned by a robust capacity model was highlighted by the COVID-19 crisis where many applications experienced severe traffic variations. While Auto-scaling enables a PaaS or IaaS service to scale within a pre-configured (and often times limited) range of resources, is provisioning or de-provisioning capacity a more advanced and complex process of for example adding additional scale units like additional clusters, instances or deployments. The process should be codified, automated and the effects of adding/removing capacity should be well understood.",
@@ -1623,6 +1631,7 @@
     "category": "Capacity & Service Availability Planning",
     "subCategory": "Scalability & Capacity Model",
     "title": "Is capacity utilization monitored and used to forecast future growth?",
+    "statement": "Capacity utilization is monitored and used to forecast future growth.",
     "context": "Predicting future growth and capacity demands can prevent outages due to insufficient provisioned capacity over time.",
     "recommendation": {
       "title": "Especially when demand is fluctuating, it is useful to monitor historical capacity utilization to derive predictions about future growth. Azure Monitor provides the ability to collect utilization metrics for Azure services so that they can be operationalized in the context of a defined capacity model. The Azure Portal can also be used to inspect current subscription usage and quota status.",
@@ -2332,6 +2341,7 @@
     "category": "Deployment & Testing",
     "subCategory": "Testing & Validation",
     "title": "Is the application tested for performance, scalability, and resiliency?",
+    "statement": "There is a defined testing strategy.",
     "context": "**Performance testing** is the superset of both load and stress testing. The primary goal of performance testing is to validate benchmark behavior for the application.<br />**Load Testing** validates application scalability by rapidly and/or gradually increasing the load on the application until it reaches a threshold/limit.<br />**Stress Testing** is a type of negative testing which involves various activities to overload existing resources and remove components to understand overall resiliency and how the application responds to issues.",
     "recommendation": {
       "title": "Define a testing strategy",
@@ -3263,10 +3273,11 @@
     "category": "Operational Procedures",
     "subCategory": "Configuration & Secrets Management",
     "title": "Is the application stateless or stateful? If it is stateful, is the state externalized in a data store?",
+    "statement": "You understand where state will be stored for the workload.",
     "context": "[Stateless services](https://docs.microsoft.com/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices) and processes can easily be hosted across multiple compute instances to meet scale demands, as well as helping to reduce complexity and ensure high cacheability.",
     "recommendation": {
       "title": "Use externalized data store for stateful applications",
-      "context": "",
+      "context": "Strive to design stateless services for scalability. If state must be maintained server side, consider an out-of-process caching service where all application instances can access.",
       "links": [
         {
           "title": "Stateless web services",
@@ -3804,6 +3815,7 @@
     "category": "Application Performance Management",
     "subCategory": "Data Size/Growth",
     "title": "Do you know the growth rate of your data?",
+    "statement": "You know the growth rate of your data.",
     "context": "Your solution might work great in the first week or month, but what happens when data just keeps increasing? Will the solution slow down, or will it even break at a particular threshold? Planning for data growth, data retention, and archiving is essential in capacity planning. Without adequately planning capacity for your datastores, performance will be negatively affected.",
     "recommendation": {
       "title": "",
@@ -3880,6 +3892,7 @@
     "category": "Application Performance Management",
     "subCategory": "Data Latency and Throughput",
     "title": "Are latency targets defined, tested, and validated for key scenarios?",
+    "statement": "You have defined, tested, and validated latency targets for key scenarios.",
     "context": "Latency targets, which are commonly defined as first byte in to last byte out, should be defined and measured for key application scenarios, as well as each individual component, to validate overall application performance and health.",
     "recommendation": {
       "title": "",
@@ -3899,6 +3912,7 @@
     "category": "Application Performance Management",
     "subCategory": "Data Latency and Throughput",
     "title": "Are throughput targets defined, tested, and validated for key scenarios?",
+    "statement": "You have defined, tested, and validated throughput targets for key scenarios.",
     "context": "Throughput targets, which are commonly defined in terms of IOPS, MB/s and Block Size, should be defined and measured for key application scenarios, as well as each individual component, to validate overall application performance and health. Available throughput typically varies based on SKU, so defined targets should be used to inform the use of appropriate SKUs.",
     "recommendation": {
       "title": "",
@@ -3918,6 +3932,7 @@
     "category": "Application Performance Management",
     "subCategory": "Network Throughput and Latency",
     "title": "Are there any components/scenarios that are very sensitive to network latency?",
+    "statement": "You have identified all components that are sensitive to network latency.",
     "context": "Components or scenarios that are sensitive to network latency may indicate a need for co-locality within a single Availability Zone or even closer using [Proximity Placement Groups](https://docs.microsoft.com/azure/virtual-machines/windows/co-location#proximity-placement-groups) with Accelerated Networking enabled.",
     "recommendation": {
       "title": "",
@@ -3965,6 +3980,7 @@
     "category": "Application Performance Management",
     "subCategory": "Network Throughput and Latency",
     "title": "Does the application require dedicated bandwidth?",
+    "statement": "Dedicated bandwidth has been acquired where needed.",
     "context": "Applications with stringent throughput requirements may require dedicated bandwidth to remove the risks associated with noisy neighbor scenarios.",
     "recommendation": {
       "title": "",
@@ -4014,7 +4030,8 @@
     "lens": "application",
     "category": "Application Performance Management",
     "subCategory": "Elasticity",
-    "title": "Can the application scale horizontally in response to changing load?",
+    "title": "Can the workload scale horizontally in response to changing load?",
+    "statement": "The workload can scale horizontally in response to changing load.",
     "context": "A scale-unit approach should be taken to ensure that each application component and the application as a whole can scale effectively in response to changing demand. A robust capacity model should be used to define when and how the application should scale.",
     "recommendation": {
       "title": "",
@@ -4045,6 +4062,7 @@
       {
         "id": "55480e81-91e3-493a-838f-98c28a533971",
         "title": "Has autoscaling been tested under sustained load?",
+        "statement": "Autoscaling has been tested under sustained load.",
         "context": "The scaling on any single component may have an impact on downstream application components and dependencies. Autoscaling should therefore be tested regularly to help inform and validate a capacity model describing when and how application components should scale.",
         "recommendation": {
           "title": "",
@@ -4055,6 +4073,7 @@
       },
       {
         "title": "Is autoscaling configured with automatic schedule to add resources based on time of day trends?",
+        "statement": "Automatically schedule autoscaling to add resources based on time of day trends.",
         "context": "",
         "recommendation": {
           "title": "",
@@ -4077,6 +4096,7 @@
     "category": "Application Performance Management",
     "subCategory": "Elasticity",
     "title": "Has the time to scale in/out been measured?",
+    "statement": "You have measured the time it takes to scale in and out.",
     "context": "Time to scale-in and scale-out can vary between Azure services and instance sizes and should be assessed to determine if a certain amount of pre-scaling is required to handle scale requirements and expected traffic patterns, such as seasonal load variations.",
     "recommendation": {
       "title": "",
@@ -7675,6 +7695,7 @@
     "category": "Capacity & Service Availability Planning",
     "subCategory": "Service SKU",
     "title": "Is the required peak capacity aligned with the subscription quotas and limits?",
+    "statement": "You are aware of relevant Azure service limits and quotas.",
     "context": "Limitless scale requires dedicated design and one of the important design considerations is the limits and quotas of Azure subscriptions. Some services are almost limitless, others require more planning. Some services have 'soft' limits that can be increased by contacting support.",
     "recommendation": {
       "title": "",
@@ -7981,6 +8002,7 @@
     "category": "Performance Testing",
     "subCategory": "Benchmarking",
     "title": "Do you have goals for database queries?",
+    "statement": "Optimize database queries and indexes.",
     "context": "Ensuring the data operations are optimized is a key component to any performance assessment. It is important to understand what data is being queried and when. The data life-cycle, if abused, can adversely affect the performance of any application (or microservice). Confirm that a database administrator (a data architect is preferred) is part of the assessment as they will have the necessary tools for monitoring and optimizing a database and its queries.",
     "recommendation": {
       "title": "",
@@ -8059,6 +8081,7 @@
     "category": "Capacity & Service Availability Planning",
     "subCategory": "Scalability & Capacity Model",
     "title": "Are you confident that the correct SKUs and configurations have been applied to the services in order to support your anticipated loads?",
+    "statement": "You have validated the SKU and configuration choices are appropriate for your anticipated loads.",
     "context": "Understand which SKUs you have selected and ensure that they are the correct size. Additionally, ensure you understand the configuration of those SKUs (e.g. auto-scale settings for Application Gateways and App Services).",
     "recommendation": {
       "title": "",
@@ -8196,6 +8219,7 @@
     "category": "Networking & Connectivity",
     "subCategory": "Endpoints",
     "title": "Are you using any Content Delivery Networks (CDN)?",
+    "statement": "You are using a Content Delivery Network.",
     "context": "CDNs store static files in locations that are typically geographically closer to the user than the data center. This increases overall application performance as latency for delivery and downloading these artifacts is reduced. Also, from a security point of view, CDNs can be used to separate the hosting platform from end users. Azure CDN contains a rule engine to remove platform-specific information and headers. The use of Azure CDN or 3rd party CDN will have different cost implications depending on what is chosen for the workload.",
     "recommendation": {
       "title": "Use CDN to optimize delivery performance to users and obfuscate hosting platform from users/clients",
@@ -8214,6 +8238,7 @@
     "category": "Networking & Connectivity",
     "subCategory": "Endpoints",
     "title": "Are you using SSL offloading?",
+    "statement": "You are offloading SSL.",
     "context": "SSL offloading places the SSL certificate at an appliance that sits in front of the web server, instead of on the web server itself. This is beneficial for two reasons. First, the verification of the SSL certificate is conducted by the appliance instead of the web server, which reduces the taxation on the server. Second, SSL offloading increases operational efficiency as it can often eliminate the need to manage certificates across microservices.",
     "recommendation": {
       "title": "",
@@ -8232,6 +8257,7 @@
     "category": "Networking & Connectivity",
     "subCategory": "Endpoints",
     "title": "Are you using authentication/token verification offloading?",
+    "statement": "You are using authentication/token verification offloading.",
     "context": "Like SSL offloading, authentication/token verification offloading on an appliance can reduce taxation on the server. Additionally, authentication verification offloading can greatly reduce development complication as developers no longer need to worry with the complications of SAML or OAuth tokens and, instead, can focus specifically on the business logic.",
     "recommendation": {
       "title": "",
@@ -8250,6 +8276,7 @@
     "category": "Application Performance Management",
     "subCategory": "Data Latency and Throughput",
     "title": "Are you using database replicas and data partitioning?",
+    "statement": "You are using database replicas and data partitioning (sharding) as appropriate.",
     "context": "Database replicas and data partitioning can improve application performance by providing multiple copies of the data and/or reducing the taxation of database operations. Both mechanisms involve conversations and planning between developers and database administrators.",
     "recommendation": {
       "title": "",
@@ -8466,6 +8493,7 @@
     "category": "Health Modelling & Monitoring",
     "subCategory": "Resource and Infrastructure Level Monitoring",
     "title": "Are scaling policies configured to use appropriate metrics?",
+    "statement": "Configured scaling policies to use the appropriate metrics.",
     "context": "",
     "recommendation": {
       "title": "",
