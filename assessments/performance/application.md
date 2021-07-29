@@ -130,6 +130,8 @@ Compared to reviewing the whole Azure landscape of an organization, this focus a
       _One of the fundamental concepts of a microservice is that it uses its own datastore. Not only does this help with resiliency, but can also improve performance by reducing load on a single source, thus eliminating bottlenecks due to long-running queries._
     - Are the datastores&#39; access restricted only to their respective service or can multiple microservices access the datastores directly?
 
+    - Are you minimizing the load on datastore?
+
 ### Targets &amp; Non-Functional Requirements
             
 * Are you able to predict general application usage?
