@@ -83,7 +83,7 @@ Compared to reviewing the whole Azure landscape of an organization, this focus a
     - [Failover strategies](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones)
   
     - [About Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)
-* Within a region is the application architecture designed to use Availability Zones?
+* Is the application architecture designed to use Availability Zones within a region?
 
   _[Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones) can be used to optimize application availability within a region by providing datacenter level fault tolerance. However, the application architecture must not share dependencies between zones to use them effectively. It is also important to note that Availability Zones may introduce performance and cost considerations for applications which are extremely 'chatty' across zones given the implied physical separation between each zone and inter-zone bandwidth charges. That also means that AZ can be considered to get higher Service Level Agreement (SLA) for lower cost. Be aware of [pricing changes](https://azure.microsoft.com/pricing/details/bandwidth/) coming to Availability Zone bandwidth starting February 2021._
   > Use Availability Zones where applicable to improve reliability and optimize costs
@@ -119,7 +119,7 @@ Compared to reviewing the whole Azure landscape of an organization, this focus a
 * When designing the application, which of the following design considerations were considered? (Latency between layers, Request time, Payload sizes, High Availability)
 
   _When designing a new application or reviewing and existing one, there are three concepts to think about: 1) reducing latency; 2) reducing total request time; and, 3) reducing overall payload sizes. Implementing any combination of these concepts can dramatically improve overall application performance._
-* What datasources are you using? Were you able to choose the data source during the design phase?
+* What datastores are you using? Were you able to choose the datastore during the design phase?
 
   _Your application will most likely require more than one type of datastore depending on business requirements. Choosing the right mix and correct implementation is extremely important for optimizing application performance._
 * Would you consider the application design to be a microservice architecture?
@@ -129,6 +129,8 @@ Compared to reviewing the whole Azure landscape of an organization, this focus a
 
       _One of the fundamental concepts of a microservice is that it uses its own datastore. Not only does this help with resiliency, but can also improve performance by reducing load on a single source, thus eliminating bottlenecks due to long-running queries._
     - Are the datastores&#39; access restricted only to their respective service or can multiple microservices access the datastores directly?
+
+    - Are you minimizing the load on datastore?
 
 ### Targets &amp; Non-Functional Requirements
             
@@ -156,6 +158,8 @@ Compared to reviewing the whole Azure landscape of an organization, this focus a
 
       _Scale operations (horizontal - changing the number of identical instances, vertical - switching to more/less powerful instances) can be fast, but usually take time to complete. It's important to understand how this delay affects the application under load and if degraded performance is acceptable._
       > The application should be designed to scale to cope with spikes in load in-line with what is an acceptable duration for degraded performance
+    - Is there a strategy in place to manage events that may cause a spike in load?
+
     - What is the maximum traffic volume the application is expected to serve without performance degradation?
 
       _Scale requirements the application must be able to effectively satisfy, such as the number of concurrent users or requests per second, is a critical lens for assessing operations. From the cost perspective, it's recommended to set a budget for extreme circumstances and indicate upper limit for cost (when it's not worth serving more traffic due to overall costs)._
@@ -236,6 +240,12 @@ Compared to reviewing the whole Azure landscape of an organization, this focus a
 
   _To be able to build a robust application health model it is vital that visibility into the operational state of critical internal dependencies, such as a shared NVA or Express Route connection, be achieved._
   > Collect and store logs and key metrics of critical components
+* Are scaling policies configured to use appropriate metrics?
+
+* Are you tracking when resources scale in and out?
+
+* Is there an overall monitoring strategy for scalability and performance?
+
 ### Dependencies
             
 * Are critical external dependencies monitored?
@@ -358,6 +368,12 @@ Compared to reviewing the whole Azure landscape of an organization, this focus a
 * Are target data sizes and associated growth rates calculated per scenario or service?
 
   _Scale limits and recovery options should be assessed in the context of target data sizes and growth rates to ensure suitable capacity exists._
+* Are the plans for data growth and retention documented?
+
+* Is the workload data designed for eventual consistency?
+
+* Is the workload's data normalized appropriately?
+
 ### Data Latency and Throughput
             
 * Are latency targets defined, tested, and validated for key scenarios?
@@ -382,7 +398,7 @@ Compared to reviewing the whole Azure landscape of an organization, this focus a
   _Applications with stringent throughput requirements may require dedicated bandwidth to remove the risks associated with noisy neighbor scenarios._
 ### Elasticity
             
-* Can the application scale horizontally in response to changing load?
+* Can the workload scale horizontally in response to changing load?
 
   _A scale-unit approach should be taken to ensure that each application component and the application as a whole can scale effectively in response to changing demand. A robust capacity model should be used to define when and how the application should scale._
 * Is autoscaling enabled and integrated within Azure Monitor?
@@ -391,6 +407,8 @@ Compared to reviewing the whole Azure landscape of an organization, this focus a
     - Has autoscaling been tested under sustained load?
 
       _The scaling on any single component may have an impact on downstream application components and dependencies. Autoscaling should therefore be tested regularly to help inform and validate a capacity model describing when and how application components should scale._
+    - Is autoscaling configured with automatic schedule to add resources based on time of day trends?
+
 * Has the time to scale in/out been measured?
 
   _Time to scale-in and scale-out can vary between Azure services and instance sizes and should be assessed to determine if a certain amount of pre-scaling is required to handle scale requirements and expected traffic patterns, such as seasonal load variations._
@@ -402,6 +420,8 @@ Compared to reviewing the whole Azure landscape of an organization, this focus a
 
   _[Stateless services](https://docs.microsoft.com/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices) and processes can easily be hosted across multiple compute instances to meet scale demands, as well as helping to reduce complexity and ensure high cacheability._
   > Use externalized data store for stateful applications
+  > 
+  > *Strive to design stateless services for scalability. If state must be maintained server side, consider an out-of-process caching service where all application instances can access.*
   
     Additional resources:
     - [Stateless web services](https://docs.microsoft.com/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices)

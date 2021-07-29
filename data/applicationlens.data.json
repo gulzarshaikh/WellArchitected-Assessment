@@ -73,6 +73,7 @@
     "category": "Application Design",
     "subCategory": "Design",
     "title": "Is the workload deployed across multiple regions?",
+    "statement": "The workload is deployed across multiple regions.",
     "context": "Multiple regions should be used for failover purposes in a disaster state, as part of either re-deployment, warm-spare active-passive, or hot-spare active-active strategies. Additional cost needs to be taken into consideration - mostly from compute, data and networking perspective, but also services like [Azure Site Recovery (ASR)](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview).",
     "recommendation": {
       "title": "Deploy across multiple regions for higher availability",
@@ -93,6 +94,7 @@
       {
         "id": "06ec755b-c423-4f8b-92c4-073750567022",
         "title": "Were regions chosen based on location and proximity to your users or based on resource types that were available?",
+        "statement": "Regions were chosen based on location, proximity to users, and resource type availability.",
         "context": "Not only is it important to utilize regions close to your audience, but it is equally important to choose regions that offer the SKUs that will support your future growth. Not all regions share the same parity when it comes to product SKUs.",
         "recommendation": {
           "title": "Plan your growth, then choose regions that will support those plans",
@@ -108,6 +110,7 @@
       {
         "id": "7a12b9a0-b9cd-4971-9af7-838703da94b0",
         "title": "Are paired regions used?",
+        "statement": "Paired regions are used appropriately.",
         "context": "[Paired regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) exist within the same geography and provide native replication features for recovery purposes, such as Geo-Redundant Storage (GRS) asynchronous replication. In the event of planned maintenance, updates to a region will be performed sequentially only.",
         "recommendation": {
           "title": "",
@@ -124,6 +127,7 @@
       {
         "id": "ea0bef13-9c1e-49f1-9d7a-62f23b7698c6",
         "title": "Have you ensured that both (all) regions in use have the same performance and scale SKUs that are currently leveraged in the primary region?",
+        "statement": "You have ensured that both (all) regions in use have the same performance and scale SKUs that are currently leveraged in the primary region.",
         "context": "When planning for scale and efficiency, it is important that regions are not only paired, but homogenous in their service offerings. Additionally, you should make sure that, if one region fails, the second region can scale appropriately to sufficiently handle the influx of additional user requests.",
         "recommendation": {
           "title": "",
@@ -151,7 +155,8 @@
     "lens": "application",
     "category": "Application Design",
     "subCategory": "Design",
-    "title": "Within a region is the application architecture designed to use Availability Zones?",
+    "title": "Is the application architecture designed to use Availability Zones within a region?",
+    "statement": "Within a region the application architecture is designed to use Availability Zones.",
     "context": "[Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones) can be used to optimize application availability within a region by providing datacenter level fault tolerance. However, the application architecture must not share dependencies between zones to use them effectively. It is also important to note that Availability Zones may introduce performance and cost considerations for applications which are extremely 'chatty' across zones given the implied physical separation between each zone and inter-zone bandwidth charges. That also means that AZ can be considered to get higher Service Level Agreement (SLA) for lower cost. Be aware of [pricing changes](https://azure.microsoft.com/pricing/details/bandwidth/) coming to Availability Zone bandwidth starting February 2021.",
     "recommendation": {
       "title": "Use Availability Zones where applicable to improve reliability and optimize costs",
@@ -177,6 +182,7 @@
     "category": "Application Design",
     "subCategory": "Design",
     "title": "Is the application implemented with strategies for resiliency and self-healing?",
+    "statement": "The application is implemented with strategies for resiliency and self-healing.",
     "context": "Strategies for resiliency and self-healing include retrying transient failures and failing over to a secondary instance or even another region.",
     "recommendation": {
       "title": "Consider implementing strategies and capabilities for resiliency and self-healing needed to achieve workload availability targets. Programming paradigms such as retry patterns, request timeouts, and circuit breaker patterns can improve application resiliency by automatically recovering from transient faults.",
@@ -371,6 +377,7 @@
     "category": "Application Design",
     "subCategory": "Targets & Non-Functional Requirements",
     "title": "Are you able to predict general application usage?",
+    "statement": "You are able to predict general application usage.",
     "context": "It is important to understand application and environment usage. The customer may have an understanding of certain seasons or incidents that increase user load (e.g. a weather service being hit by users facing a storm, an e-commerce site during the holiday season).",
     "recommendation": {
       "title": "Traffic patterns should be identified by analyzing historical traffic data and the effect of significant external events on the application",
@@ -436,6 +443,7 @@
     "category": "Application Design",
     "subCategory": "Targets & Non-Functional Requirements",
     "title": "Are there well-defined performance requirements for the application and/or key scenarios?",
+    "statement": "There are well-defined performance requirements for the workload and its key scenarios.",
     "context": "Non-functional performance requirements, such as those relating to end-user experiences (e.g. average and maximum response times) are vital to assessing the overall health of an application, and is a critical lens required for assessing operations.",
     "recommendation": {
       "title": "Identify sensible non-functional requirements",
@@ -447,6 +455,7 @@
       {
         "id": "89333b94-6ced-45ad-abb2-73e82b0d560b",
         "title": "Are there any targets defined for the time it takes to perform scale operations?",
+        "statement": "Targets for scale operations are defined.",
         "context": "Scale operations (horizontal - changing the number of identical instances, vertical - switching to more/less powerful instances) can be fast, but usually take time to complete. It's important to understand how this delay affects the application under load and if degraded performance is acceptable.",
         "recommendation": {
           "title": "The application should be designed to scale to cope with spikes in load in-line with what is an acceptable duration for degraded performance",
@@ -456,8 +465,21 @@
         }
       },
       {
+        "title": "Is there a strategy in place to manage events that may cause a spike in load?",
+        "statement": "There is a strategy in place to manage events that may cause a spike in load.",
+        "context": "",
+        "recommendation": {
+          "title": "",
+          "context": "",
+          "links": [],
+          "priority": 50
+        },
+        "id": "b2852b4d-00c2-466e-8628-c4653972bfb3"
+      },
+      {
         "id": "a2aa6296-448a-477d-be39-55f565ca9838",
         "title": "What is the maximum traffic volume the application is expected to serve without performance degradation?",
+        "statement": "You understand and have documented the expected maximum traffic volume before performance degradation occurs.",
         "context": "Scale requirements the application must be able to effectively satisfy, such as the number of concurrent users or requests per second, is a critical lens for assessing operations. From the cost perspective, it's recommended to set a budget for extreme circumstances and indicate upper limit for cost (when it's not worth serving more traffic due to overall costs).",
         "recommendation": {
           "title": "Traffic limits for the application should be defined in quantified and measurable manner",
@@ -802,6 +824,7 @@
     "category": "Health Modelling & Monitoring",
     "subCategory": "Application Level Monitoring",
     "title": "Are application events correlated across all application components?",
+    "statement": "Application events are correlated across all application components.",
     "context": "[Distributed tracing](https://docs.microsoft.com/azure/architecture/microservices/logging-monitoring#distributed-tracing) provides the ability to build and visualize end-to-end transaction flows for the application.",
     "recommendation": {
       "title": "Events coming from different application components or different component tiers of the application should be correlated to build end-to-end transaction flows",
@@ -936,6 +959,7 @@
     "category": "Health Modelling & Monitoring",
     "subCategory": "Dependencies",
     "title": "Are critical external dependencies monitored?",
+    "statement": "You monitor critical external dependencies for performance.",
     "context": "It's common for applications to depend on other services or libraries. Despite these are external, it is still possible to monitor their health and availability using probes.",
     "recommendation": {
       "title": "Monitor critical external dependencies",
@@ -1033,6 +1057,7 @@
       {
         "id": "ba919d0a-8b8a-496d-bdcc-b2b521daed88",
         "title": "Are critical system flows used to inform the health model?",
+        "statement": "Critical system flows are used to inform the health model.",
         "context": "",
         "recommendation": {
           "title": "The health model should be able to surface the respective health of critical system flows or key subsystems to ensure appropriate operational prioritization is applied. For example, the health model should be able to represent the current state of the user login transaction flow.",
@@ -1044,6 +1069,7 @@
       {
         "id": "7277055a-fd82-4d38-9da5-afb52e75d5c1",
         "title": "Can the health model distinguish between transient and non-transient faults?",
+        "statement": "The health model can distinguish between transient and non-transient faults.",
         "context": "Is the health model treating all failures the same?",
         "recommendation": {
           "title": "The health model should clearly distinguish between expected transient but recoverable failures and a true disaster state",
@@ -1478,6 +1504,7 @@
     "category": "Capacity & Service Availability Planning",
     "subCategory": "Scalability & Capacity Model",
     "title": "Is there a capacity model for the application?",
+    "statement": "There is a capacity model for the workload.",
     "context": "A capacity model should describe the relationships between the utilization of various components as a ratio, to capture when and how application components should scale-out.",
     "recommendation": {
       "title": "A capacity model should describe the relationships between the utilization of various components as a ratio, to capture when and how application components should scale-out. For instance, scaling the number of Application Gateway v2 instances may put excess pressure on downstream components unless also scaled to a degree. When modelling capacity for critical system components it is therefore recommended that an N+1 model be applied to ensure complete tolerance to transient faults, where N describes the capacity required to satisfy performance and availability requirements. This also prevents cost-related surprises when scaling out and realizing that multiple services need to be scaled at the same time.",
@@ -1502,6 +1529,7 @@
     "category": "Capacity & Service Availability Planning",
     "subCategory": "Scalability & Capacity Model",
     "title": "Is auto-scaling enabled for supporting PaaS and IaaS services?",
+    "statement": "You have enabled auto-scaling for all PaaS and IaaS services that support it.",
     "context": "Are built-in capabilities for automatic scale being used vs. scaling being always a manual decision?",
     "recommendation": {
       "title": "Leveraging built-in Auto-scaling capabilities can help to maintain system reliability in times of increased demand while not needing to overprovision resources up-front, by letting a service automatically scale within a pre-configured range of resources. It greatly simplifies management and operational burdens. However, it must take into account the capacity model, else automated scaling of one component can impact downstream services if those are not also automatically scaled accordingly.",
@@ -1522,6 +1550,7 @@
     "category": "Capacity & Service Availability Planning",
     "subCategory": "Scalability & Capacity Model",
     "title": "Is the process to provision and deprovision capacity codified?",
+    "statement": "A process for provisioning and de-provisioning capacity has been established.",
     "context": "Codifying and automating the process helps to avoid human error, varying results and to speed up the overall process.",
     "recommendation": {
       "title": "Fluctuation in application traffic is typically expected. To ensure optimal operation is maintained, such variations should be met by automated scalability. The significance of automated capacity responses underpinned by a robust capacity model was highlighted by the COVID-19 crisis where many applications experienced severe traffic variations. While Auto-scaling enables a PaaS or IaaS service to scale within a pre-configured (and often times limited) range of resources, is provisioning or de-provisioning capacity a more advanced and complex process of for example adding additional scale units like additional clusters, instances or deployments. The process should be codified, automated and the effects of adding/removing capacity should be well understood.",
@@ -1604,6 +1633,7 @@
     "category": "Capacity & Service Availability Planning",
     "subCategory": "Scalability & Capacity Model",
     "title": "Is capacity utilization monitored and used to forecast future growth?",
+    "statement": "Capacity utilization is monitored and used to forecast future growth.",
     "context": "Predicting future growth and capacity demands can prevent outages due to insufficient provisioned capacity over time.",
     "recommendation": {
       "title": "Especially when demand is fluctuating, it is useful to monitor historical capacity utilization to derive predictions about future growth. Azure Monitor provides the ability to collect utilization metrics for Azure services so that they can be operationalized in the context of a defined capacity model. The Azure Portal can also be used to inspect current subscription usage and quota status.",
@@ -2313,6 +2343,7 @@
     "category": "Deployment & Testing",
     "subCategory": "Testing & Validation",
     "title": "Is the application tested for performance, scalability, and resiliency?",
+    "statement": "There is a defined testing strategy.",
     "context": "**Performance testing** is the superset of both load and stress testing. The primary goal of performance testing is to validate benchmark behavior for the application.<br />**Load Testing** validates application scalability by rapidly and/or gradually increasing the load on the application until it reaches a threshold/limit.<br />**Stress Testing** is a type of negative testing which involves various activities to overload existing resources and remove components to understand overall resiliency and how the application responds to issues.",
     "recommendation": {
       "title": "Define a testing strategy",
@@ -2340,6 +2371,7 @@
       {
         "id": "fdd44349-dbfd-4897-8502-05962c134c1f",
         "title": "When do you do test for performance, scalability, and resiliency?",
+        "statement": "Performance tests are performed regularly.",
         "context": "Regular testing should be performed as part of each major change and if possible on a regular basis to validate existing thresholds, targets and assumptions, as well as ensuring the validity of the health model, capacity model and operational procedures.",
         "recommendation": {
           "title": "",
@@ -2351,6 +2383,7 @@
       {
         "id": "46674ef4-13a3-4c87-9430-695b1792633c",
         "title": "Are any tests performed in production?",
+        "statement": "Some tests are performed in production.",
         "context": "While the majority of testing should be performed within the testing and staging environments, it is often beneficial to also run a subset of tests against the production system.",
         "recommendation": {
           "title": "",
@@ -2362,6 +2395,7 @@
       {
         "id": "80cc9d6c-c573-4e02-8219-098a8df796a4",
         "title": "Is the application tested with injected faults?",
+        "statement": "The testing plan includes occasionally injecting faults.",
         "context": "It is a common \"chaos monkey\" practice to verify the effectiveness of operational procedures using artificial faults. For example, taking dependencies offline (stopping API apps, shutting down VMs, etc.), restricting access (enabling firewall rules, changing connection strings, etc.) or forcing failover (database level, Front Door, etc.) is a good way to validate that the application is able to handle faults gracefully.",
         "recommendation": {
           "title": "",
@@ -2829,6 +2863,7 @@
     "category": "Application Design",
     "subCategory": "Design",
     "title": "Is component proximity required for application performance reasons?",
+    "statement": "Component proximity is considered for application performance reasons.",
     "context": "If all or part of the application is highly sensitive to latency it may mandate component co-locality which can limit the applicability of multi-region and multi-zone strategies.",
     "recommendation": {
       "title": "Consider using the same datacenter region, Availability Zone and [Proximity Placement Groups](https://azure.microsoft.com/blog/announcing-the-general-availability-of-proximity-placement-groups/) and other options to bring latency sensitive components closer together. Keep also in mind that additional charges may apply when chatty workloads are spread across zones and region.",
@@ -2848,6 +2883,7 @@
     "category": "Application Design",
     "subCategory": "Design",
     "title": "Can the application operate with reduced functionality or degraded performance in the presence of an outage?",
+    "statement": "The application can operate with reduced functionality or degraded performance in the case of an outage.",
     "context": "Avoiding failure is impossible in the public cloud, and as a result applications require resilience to respond to outages and deliver reliability. The application should therefore be designed to operate even when impacted by regional, zonal, service or component failures across critical application scenarios and functionality.",
     "recommendation": {
       "title": "",
@@ -3242,10 +3278,11 @@
     "category": "Operational Procedures",
     "subCategory": "Configuration & Secrets Management",
     "title": "Is the application stateless or stateful? If it is stateful, is the state externalized in a data store?",
+    "statement": "You understand where state will be stored for the workload.",
     "context": "[Stateless services](https://docs.microsoft.com/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices) and processes can easily be hosted across multiple compute instances to meet scale demands, as well as helping to reduce complexity and ensure high cacheability.",
     "recommendation": {
       "title": "Use externalized data store for stateful applications",
-      "context": "",
+      "context": "Strive to design stateless services for scalability. If state must be maintained server side, consider an out-of-process caching service where all application instances can access.",
       "links": [
         {
           "title": "Stateless web services",
@@ -3783,6 +3820,7 @@
     "category": "Application Performance Management",
     "subCategory": "Data Size/Growth",
     "title": "Do you know the growth rate of your data?",
+    "statement": "You know the growth rate of your data.",
     "context": "Your solution might work great in the first week or month, but what happens when data just keeps increasing? Will the solution slow down, or will it even break at a particular threshold? Planning for data growth, data retention, and archiving is essential in capacity planning. Without adequately planning capacity for your datastores, performance will be negatively affected.",
     "recommendation": {
       "title": "",
@@ -3809,6 +3847,25 @@
       "links": [],
       "priority": 50
     }
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Application Performance Management",
+    "subCategory": "Data Size/Growth",
+    "title": "Are the plans for data growth and retention documented?",
+    "statement": "You have documented plans for data growth and retention.",
+    "context": "",
+    "recommendation": {
+      "title": "",
+      "context": "",
+      "links": [],
+      "priority": 50
+    },
+    "id": "93201ac6-a512-4207-a683-472cd2b3d1bd"
   },
   {
     "id": "e76fc3b0-6446-4590-84ef-4df313593f37",
@@ -3840,6 +3897,7 @@
     "category": "Application Performance Management",
     "subCategory": "Data Latency and Throughput",
     "title": "Are latency targets defined, tested, and validated for key scenarios?",
+    "statement": "You have defined, tested, and validated latency targets for key scenarios.",
     "context": "Latency targets, which are commonly defined as first byte in to last byte out, should be defined and measured for key application scenarios, as well as each individual component, to validate overall application performance and health.",
     "recommendation": {
       "title": "",
@@ -3859,6 +3917,7 @@
     "category": "Application Performance Management",
     "subCategory": "Data Latency and Throughput",
     "title": "Are throughput targets defined, tested, and validated for key scenarios?",
+    "statement": "You have defined, tested, and validated throughput targets for key scenarios.",
     "context": "Throughput targets, which are commonly defined in terms of IOPS, MB/s and Block Size, should be defined and measured for key application scenarios, as well as each individual component, to validate overall application performance and health. Available throughput typically varies based on SKU, so defined targets should be used to inform the use of appropriate SKUs.",
     "recommendation": {
       "title": "",
@@ -3878,6 +3937,7 @@
     "category": "Application Performance Management",
     "subCategory": "Network Throughput and Latency",
     "title": "Are there any components/scenarios that are very sensitive to network latency?",
+    "statement": "You have identified all components that are sensitive to network latency.",
     "context": "Components or scenarios that are sensitive to network latency may indicate a need for co-locality within a single Availability Zone or even closer using [Proximity Placement Groups](https://docs.microsoft.com/azure/virtual-machines/windows/co-location#proximity-placement-groups) with Accelerated Networking enabled.",
     "recommendation": {
       "title": "",
@@ -3925,6 +3985,7 @@
     "category": "Application Performance Management",
     "subCategory": "Network Throughput and Latency",
     "title": "Does the application require dedicated bandwidth?",
+    "statement": "Dedicated bandwidth has been acquired where needed.",
     "context": "Applications with stringent throughput requirements may require dedicated bandwidth to remove the risks associated with noisy neighbor scenarios.",
     "recommendation": {
       "title": "",
@@ -3974,7 +4035,8 @@
     "lens": "application",
     "category": "Application Performance Management",
     "subCategory": "Elasticity",
-    "title": "Can the application scale horizontally in response to changing load?",
+    "title": "Can the workload scale horizontally in response to changing load?",
+    "statement": "The workload can scale horizontally in response to changing load.",
     "context": "A scale-unit approach should be taken to ensure that each application component and the application as a whole can scale effectively in response to changing demand. A robust capacity model should be used to define when and how the application should scale.",
     "recommendation": {
       "title": "",
@@ -4005,6 +4067,7 @@
       {
         "id": "55480e81-91e3-493a-838f-98c28a533971",
         "title": "Has autoscaling been tested under sustained load?",
+        "statement": "Autoscaling has been tested under sustained load.",
         "context": "The scaling on any single component may have an impact on downstream application components and dependencies. Autoscaling should therefore be tested regularly to help inform and validate a capacity model describing when and how application components should scale.",
         "recommendation": {
           "title": "",
@@ -4012,6 +4075,18 @@
           "links": [],
           "priority": 50
         }
+      },
+      {
+        "title": "Is autoscaling configured with automatic schedule to add resources based on time of day trends?",
+        "statement": "Automatically schedule autoscaling to add resources based on time of day trends.",
+        "context": "",
+        "recommendation": {
+          "title": "",
+          "context": "",
+          "links": [],
+          "priority": 50
+        },
+        "id": "0280d76d-5afe-4478-9434-9d21f88a412e"
       }
     ]
   },
@@ -4026,6 +4101,7 @@
     "category": "Application Performance Management",
     "subCategory": "Elasticity",
     "title": "Has the time to scale in/out been measured?",
+    "statement": "You have measured the time it takes to scale in and out.",
     "context": "Time to scale-in and scale-out can vary between Azure services and instance sizes and should be assessed to determine if a certain amount of pre-scaling is required to handle scale requirements and expected traffic patterns, such as seasonal load variations.",
     "recommendation": {
       "title": "",
@@ -7447,7 +7523,8 @@
     "lens": "application",
     "category": "Application Design",
     "subCategory": "Design",
-    "title": "What datasources are you using? Were you able to choose the data source during the design phase?",
+    "title": "What datastores are you using? Were you able to choose the datastore during the design phase?",
+    "statement": "You choose appropriate datastores for the workload during the application design.",
     "context": "Your application will most likely require more than one type of datastore depending on business requirements. Choosing the right mix and correct implementation is extremely important for optimizing application performance.",
     "recommendation": {
       "title": "",
@@ -7466,6 +7543,7 @@
     "category": "Application Design",
     "subCategory": "Design",
     "title": "Would you consider the application design to be a microservice architecture?",
+    "statement": "The application is using a microservice architecture.",
     "context": "As compared to a monolithic architecture--an application that is tightly coupled with synchronous communication and often a single datastore--microservices leverage concepts such as asynchronous communication, service discovery, various resiliency strategies, and each service has its own datastore.",
     "recommendation": {
       "title": "",
@@ -7495,6 +7573,18 @@
           "links": [],
           "priority": 50
         }
+      },
+      {
+        "title": "Are you minimizing the load on datastore?",
+        "statement": "Minimize the load on the data store.",
+        "context": "",
+        "recommendation": {
+          "title": "",
+          "context": "",
+          "links": [],
+          "priority": 50
+        },
+        "id": "be2d57e8-e378-4dca-b41f-81cd3a334bd6"
       }
     ]
   },
@@ -7622,6 +7712,7 @@
     "category": "Capacity & Service Availability Planning",
     "subCategory": "Service SKU",
     "title": "Is the required peak capacity aligned with the subscription quotas and limits?",
+    "statement": "You are aware of relevant Azure service limits and quotas.",
     "context": "Limitless scale requires dedicated design and one of the important design considerations is the limits and quotas of Azure subscriptions. Some services are almost limitless, others require more planning. Some services have 'soft' limits that can be increased by contacting support.",
     "recommendation": {
       "title": "",
@@ -7640,6 +7731,7 @@
     "category": "Performance Testing",
     "subCategory": "Tools & Planning",
     "title": "Have you identified the required human and environment resources needed to create performance tests?",
+    "statement": "You have identified the human and environmental resources needed to create performance tests.",
     "context": "Successfully implementing meaningful performance tests requires a number of resources. If is not just a single developer or QA Analyst running some tests on their local machine. Instead, performance tests need a test environment (also known as a test bed) that tests can be executed against without interfering with production environments and data. Performance testing requires input and commitment from developers, architects, database administrators, and network administrators. In short, solid performance testing is a team responsibility.<br />Additionally, to run scaled tests, a machine with enough resources (e.g. memory, processors, network connections, etc.) needs to be made available. While this machine can be located within a data center or on-premises, it is often advantageous to perform performance testing from instances located from multiple geographies. This better simulates what an end-user can expect.",
     "recommendation": {
       "title": "",
@@ -7658,6 +7750,7 @@
     "category": "Performance Testing",
     "subCategory": "Tools & Planning",
     "title": "Are you currently using tools for conducting performance testing?",
+    "statement": "You are using appropriate tools to conduct performance tests on this workload.",
     "context": "There are various performance testing tools available for DevOps. Some tools like JMeter only perform testing against endpoints and tests HTTP statuses. Other tools like K6 and Selenium can perform tests that also check data quality and variations. Application Insights, while not necessarily designed to test server load, can test the performance of an application within the user's browser. When determining what testing tools you will implement, it is always important to remember what type of performance testing you are attempting to execute.",
     "recommendation": {
       "title": "",
@@ -7691,6 +7784,7 @@
       {
         "id": "4bef2450-c3ef-4c60-addb-069eec18e032",
         "title": "Considering the three major application layers of frontend, services, and database, what parts of the application are being tested for performance?",
+        "statement": "You are testing all appropriate components for performance.",
         "context": "",
         "recommendation": {
           "title": "",
@@ -7711,6 +7805,7 @@
     "category": "Performance Testing",
     "subCategory": "Benchmarking",
     "title": "Have you identified goals or baselines for application performance?",
+    "statement": "You have identified goals or a baseline for workload performance.",
     "context": "There are many types of goals when determining baselines for application performance. Perhaps baselines center around a certain number of visitors within a given time period, the time it takes to render a page, type  required for executing a stored procedure, or a desired number of transactions if your site conducts some type of e-commerce. It is important to identify and maintain a shared understanding of these baselines so that you can architect a system that meets them.<br />Baselines can vary based on types of connections or platforms that a user may leverage for accessing the application. It may be important to establish baselines that address the diversity of connections, platforms, and other elements (like time of day, or weekday versus weekend).",
     "recommendation": {
       "title": "",
@@ -7722,6 +7817,7 @@
       {
         "id": "0dbb0386-e21e-4bda-bdba-9b7bea968d5b",
         "title": "Are your goals based on device and/or connectivity type, or are they considered the same across the board?",
+        "statement": "Performance goals are based on device and/or connectivity type as appropriate.",
         "context": "It is important to identify how users are connecting to your application. Are they primarily connecting via a wired connection, wireless, or by using a mobile device? Additionally, you should seek to understand the targeted device types, whether that a mobile device, a tablet or laptop/desktop PC. All of these factors play a major role in performance as it relates to data transmission (e.g. sending data to and receiving data from a remote service) and processing (e.g. displaying that data to a user via a graph, table, etc.). For example, if the site has a large amount of widgets, it may be advantageous to create an experience that is optimized for mobile devices since these devices tend to have smaller processors and less memory.",
         "recommendation": {
           "title": "",
@@ -7742,6 +7838,7 @@
     "category": "Performance Testing",
     "subCategory": "Benchmarking",
     "title": "Do you have goals defined for establishing an initial connection to a service?",
+    "statement": "You have defined an initial connection goal for your workload.",
     "context": "It would be helpful to determine a goal that is based upon from when the connection reaches the server, to when the service spins/cycles up, to providing a response. By establishing this baseline, you and your customer can determine if adequate resources have been assigned to the machine. These resources can included, but are not limited to processors, RAM, and disk IOPS. Finally, creating rules for \"Always-On\" or properly configuring idle time-outs (e.g. IIS, containers, etc.) will be especially helpful for optimizing response times.",
     "recommendation": {
       "title": "",
@@ -7760,6 +7857,7 @@
     "category": "Performance Testing",
     "subCategory": "Benchmarking",
     "title": "Do you have goals defined for a complete page load?",
+    "statement": "There is a goal defined for complete page load times.",
     "context": "What are your goals for a completed page load? When formulating this metric, it is important to note the varying thresholds that can be deemed acceptable. Some companies, whose primary audience is internal and are salary-based, may base their thresholds on the user's mental capacity to sit at the application screen. Other customers that have service-related users (i.e. users who are paid for performance) may base their thresholds on the ability to keep the user working as fast as possible (mental state is not the primary motivator) because increased productivity typically increases revenue. Typically, most industry standards target page load times to 1-2 seconds, while 3-5 seconds is \"acceptable,\" and more than 5 is unacceptable. If applications are being hosted in Azure App Services, there are a number of tactics that can increase page performance.",
     "recommendation": {
       "title": "",
@@ -7802,6 +7900,7 @@
     "category": "Performance Testing",
     "subCategory": "Benchmarking",
     "title": "Do you have goals defined for an API (service) endpoint complete response?",
+    "statement": "You have defined goals for an API (service) endpoint complete response.",
     "context": "Data-centric applications are comprised of pulling data from various API endpoints. For a single page, this could mean many server requests. The page is only as fast as the slowest endpoint. It is important for you to test the performance of your APIs to quickly identify bottlenecks in the application that impede user experience. As an example, if a dashboard page requires data from ten API endpoints and one of those endpoints requires 6.0 seconds to return data while the remaining endpoints only a few hundred milliseconds, this is a good indicator that the single endpoint needs to be inspected and targeted for optimization.",
     "recommendation": {
       "title": "",
@@ -7844,6 +7943,7 @@
     "category": "Performance Testing",
     "subCategory": "Benchmarking",
     "title": "Do you have goals defined for server response times?",
+    "statement": "There are goals defined for server response time.",
     "context": "Similar to previous questions regarding the initial connection to a service, you will also want to understand how long it takes for the server to receive, process, and then return data. This round-trip can also help ensure that enough hardware resources have been assigned to the environment. Additionally, it is possible to identify \"noisy neighbors\", applications running on the same disk (typically in a virtualized environment) or sharing the same network, that are consuming available resources. Finally, another bottleneck in many environments is traffic on a network that is being shared with a data store (e.g. SQL). If an application server and its database server share the same network as general traffic, then the overall performance of the application can be greatly affected.",
     "recommendation": {
       "title": "",
@@ -7886,6 +7986,7 @@
     "category": "Performance Testing",
     "subCategory": "Benchmarking",
     "title": "Do you have goals for latency between systems/microservices?",
+    "statement": "You have goals for latency between the systems & microservices of your workload.",
     "context": "Performance should not only be monitored within the application itself, but response times between service tiers should also be noted. While this is important for n-Tier applications, it is especially crucial for microservices. Most microservices leverage some type of pub-sub architecture where communication is asynchronous. However, validation for sending and receiving messages should still take place. In these instances, understanding the routing and latency between services is imperative to improving performance.",
     "recommendation": {
       "title": "",
@@ -7928,6 +8029,7 @@
     "category": "Performance Testing",
     "subCategory": "Benchmarking",
     "title": "Do you have goals for database queries?",
+    "statement": "There are goals on database query efficiency.",
     "context": "Ensuring the data operations are optimized is a key component to any performance assessment. It is important to understand what data is being queried and when. The data life-cycle, if abused, can adversely affect the performance of any application (or microservice). Confirm that a database administrator (a data architect is preferred) is part of the assessment as they will have the necessary tools for monitoring and optimizing a database and its queries.",
     "recommendation": {
       "title": "",
@@ -7988,6 +8090,7 @@
     "category": "Performance Testing",
     "subCategory": "Tools & Planning",
     "title": "Have you identified all services being utilized in Azure (and on-prem) that need to be measured?",
+    "statement": "You have identified all services being utilized in Azure (and on-premise) that need to be measured.",
     "context": "Your assessment may already be complete, but it helps to identify some currently utilized systems to being measuring load capacity. Once these environments have been identified, created benchmarks should include these systems.",
     "recommendation": {
       "title": "",
@@ -8006,6 +8109,7 @@
     "category": "Capacity & Service Availability Planning",
     "subCategory": "Scalability & Capacity Model",
     "title": "Are you confident that the correct SKUs and configurations have been applied to the services in order to support your anticipated loads?",
+    "statement": "You have validated the SKU and configuration choices are appropriate for your anticipated loads.",
     "context": "Understand which SKUs you have selected and ensure that they are the correct size. Additionally, ensure you understand the configuration of those SKUs (e.g. auto-scale settings for Application Gateways and App Services).",
     "recommendation": {
       "title": "",
@@ -8024,6 +8128,7 @@
     "category": "Performance Testing",
     "subCategory": "Load Capacity",
     "title": "Have you determined an acceptable operational margin between your peak utilization and the applications maximum load?",
+    "statement": "You have determined an acceptable operational margin between your peak utilization and the application's maximum load, and monitor for this.",
     "context": "What is the maximum taxation you wish to place on resources? Factors such as memory, CPU, and disk IOPS should all be considered. Once a stress test has been performed resulting in the maximum supported load and an operational margin has been chosen, it is best to determine an operational threshold. Then, environment scaling (automatic or manual) can be performed once the threshold has been reached.",
     "recommendation": {
       "title": "",
@@ -8035,6 +8140,7 @@
       {
         "id": "88290052-414d-4a23-88cc-b65667a74014",
         "title": "What are the metrics of a performance test under standard loads?",
+        "statement": "You are aware of the appropriate metrics to monitor for performance tests under standard load.",
         "context": "A true performance test measures how the application performs under a standard load. It is critical to understand how your application operates--including CPU utilization and memory consumption--under a standard load. First, this will help you plan accordingly as you anticipate future user growth. Second, this gives you a baseline for performance regression testing.",
         "recommendation": {
           "title": "",
@@ -8142,6 +8248,7 @@
     "category": "Networking & Connectivity",
     "subCategory": "Endpoints",
     "title": "Are you using any Content Delivery Networks (CDN)?",
+    "statement": "You are using a Content Delivery Network.",
     "context": "CDNs store static files in locations that are typically geographically closer to the user than the data center. This increases overall application performance as latency for delivery and downloading these artifacts is reduced. Also, from a security point of view, CDNs can be used to separate the hosting platform from end users. Azure CDN contains a rule engine to remove platform-specific information and headers. The use of Azure CDN or 3rd party CDN will have different cost implications depending on what is chosen for the workload.",
     "recommendation": {
       "title": "Use CDN to optimize delivery performance to users and obfuscate hosting platform from users/clients",
@@ -8160,6 +8267,7 @@
     "category": "Networking & Connectivity",
     "subCategory": "Endpoints",
     "title": "Are you using SSL offloading?",
+    "statement": "You are offloading SSL.",
     "context": "SSL offloading places the SSL certificate at an appliance that sits in front of the web server, instead of on the web server itself. This is beneficial for two reasons. First, the verification of the SSL certificate is conducted by the appliance instead of the web server, which reduces the taxation on the server. Second, SSL offloading increases operational efficiency as it can often eliminate the need to manage certificates across microservices.",
     "recommendation": {
       "title": "",
@@ -8178,6 +8286,7 @@
     "category": "Networking & Connectivity",
     "subCategory": "Endpoints",
     "title": "Are you using authentication/token verification offloading?",
+    "statement": "You are using authentication/token verification offloading.",
     "context": "Like SSL offloading, authentication/token verification offloading on an appliance can reduce taxation on the server. Additionally, authentication verification offloading can greatly reduce development complication as developers no longer need to worry with the complications of SAML or OAuth tokens and, instead, can focus specifically on the business logic.",
     "recommendation": {
       "title": "",
@@ -8196,6 +8305,7 @@
     "category": "Application Performance Management",
     "subCategory": "Data Latency and Throughput",
     "title": "Are you using database replicas and data partitioning?",
+    "statement": "You are using database replicas and data partitioning (sharding) as appropriate.",
     "context": "Database replicas and data partitioning can improve application performance by providing multiple copies of the data and/or reducing the taxation of database operations. Both mechanisms involve conversations and planning between developers and database administrators.",
     "recommendation": {
       "title": "",
@@ -8214,6 +8324,7 @@
     "category": "Performance Testing",
     "subCategory": "Benchmarking",
     "title": "How do you know when you have reached acceptable efficiency?",
+    "statement": "You have a methodology to determine what acceptable performance is.",
     "context": "There is almost no limit to how much an application can be performance-tuned. How do you know when you have tuned an application enough? It really comes down to the 80/20 rule--generally, 80% of the application can be optimized by focusing on just 20%. While you can continue optimizing certain elements of the application, after optimizing the initial 20%, a company typically sees a diminishing return on any further optimization. The question the customer must answer is how much of the remaining 80% of the application is worth optimizing for the business. In other words, how much will optimizing the remaining 80% help the business reach its goals (e.g. customer acquisition/retention, sales, etc.)? The business must determine their own realistic definition of \"acceptable.\"",
     "recommendation": {
       "title": "",
@@ -8270,6 +8381,7 @@
     "category": "Performance Testing",
     "subCategory": "Troubleshooting",
     "title": "Does the application spend a lot of time in the database?",
+    "statement": "You have steps to troubleshoot database issues.",
     "context": "Applications that spend a lot of execution time in the database layers can benefit from a database tuning analysis. This analysis will only focus on the data tier components and may require special resources such as DBA's to tune queries, indexes, execution plans, and more.",
     "recommendation": {
       "title": "",
@@ -8288,6 +8400,7 @@
     "category": "Performance Testing",
     "subCategory": "Troubleshooting",
     "title": "Does the application have high CPU or memory utilization?",
+    "statement": "You know how to handle high CPU or memory situations.",
     "context": "If the application has very high CPU or memory utilization, then consider scaling the application either horizontal or vertical. Scaling horizontal to more compute resources will spread the load across more machines. This will, however, increase the network complexity as there will be more machines to support the system. Scaling the application vertical to a larger machine this is optimized for higher CPU or memory workloads may also be considered. Profiling the application code can be useful to find code structures that may be sub-optimal and replace them with better-optimized code. These decisions are a balance of several factors that can include cost, system complexity, and time to implement.",
     "recommendation": {
       "title": "",
@@ -8330,6 +8443,7 @@
     "category": "Performance Testing",
     "subCategory": "Troubleshooting",
     "title": "Does the application response times increase while not using all the CPU or memory allocated to the system regardless of the load?",
+    "statement": "You know what to do when the application response times increase while not using all the CPU or memory allocated to the system.",
     "context": "When the system response times increase without any increase in the CPU or memory, this is an indicator that there is a resource that is time-blocked. This can mean many things such as thread sleep, connection wait, message queueing, etc. The list can go on. The bottom line is there is something that is consuming time but not compute resources. Try to locate these issues with tracing data that can deliver time spans for each layer of the application architecture that is correlated to an application transaction.",
     "recommendation": {
       "title": "",
@@ -8372,6 +8486,7 @@
     "category": "Performance Testing",
     "subCategory": "Troubleshooting",
     "title": "Do you profile the application code with any profiling tools?",
+    "statement": "You use profiling tools to profile your application code.",
     "context": "Application profiling will involve tooling like Visual Studio Performance Profile, AQTime, dotTrace, and others. These tools will give you in-depth analysis of individual code paths.",
     "recommendation": {
       "title": "",
@@ -8390,6 +8505,7 @@
     "category": "Performance Testing",
     "subCategory": "Troubleshooting",
     "title": "Do you profile the network with any traffic capturing tools?",
+    "statement": "You have a response plan for network performance problems that includes traffic capturing tools.",
     "context": "Network capture tooling can capture the network traffic and dive deeper into the interactions at the network layer that may affect your application due to network configuration and/or other network traffic issues.",
     "recommendation": {
       "title": "",
@@ -8397,5 +8513,100 @@
       "links": [],
       "priority": 50
     }
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Health Modelling & Monitoring",
+    "subCategory": "Resource and Infrastructure Level Monitoring",
+    "title": "Are scaling policies configured to use appropriate metrics?",
+    "statement": "Configured scaling policies to use the appropriate metrics.",
+    "context": "",
+    "recommendation": {
+      "title": "",
+      "context": "",
+      "links": [],
+      "priority": 50
+    },
+    "id": "ccbe2f40-9e9d-4962-98b1-d2b5f442eb87"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Application Performance Management",
+    "subCategory": "Data Size/Growth",
+    "title": "Is the workload data designed for eventual consistency?",
+    "statement": "Design for eventual consistency.",
+    "context": "",
+    "recommendation": {
+      "title": "",
+      "context": "",
+      "links": [],
+      "priority": 50
+    },
+    "id": "b7011024-93fa-47a0-b51b-d5f936eb155f"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Application Performance Management",
+    "subCategory": "Data Size/Growth",
+    "title": "Is the workload's data normalized appropriately?",
+    "statement": "Normalize the data appropriately.",
+    "context": "",
+    "recommendation": {
+      "title": "",
+      "context": "",
+      "links": [],
+      "priority": 50
+    },
+    "id": "53280d22-67fc-4e2e-86af-7528d5d10a48"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Health Modelling & Monitoring",
+    "subCategory": "Resource and Infrastructure Level Monitoring",
+    "title": "Are you tracking when resources scale in and out?",
+    "statement": "Track when resources scale in and out.",
+    "context": "",
+    "recommendation": {
+      "title": "",
+      "context": "",
+      "links": [],
+      "priority": 50
+    },
+    "id": "a9ad477e-6584-431a-a2d2-5f38636216eb"
+  },
+  {
+    "type": "Questions",
+    "pillars": [
+      "performanceefficiency"
+    ],
+    "lens": "application",
+    "category": "Health Modelling & Monitoring",
+    "subCategory": "Resource and Infrastructure Level Monitoring",
+    "title": "Is there an overall monitoring strategy for scalability and performance?",
+    "statement": "Have an overall monitoring strategy for scalability and performance.",
+    "context": "",
+    "recommendation": {
+      "title": "",
+      "context": "",
+      "links": [],
+      "priority": 50
+    },
+    "id": "1252ceae-898e-4a4d-a726-31d885ae488f"
   }
 ]

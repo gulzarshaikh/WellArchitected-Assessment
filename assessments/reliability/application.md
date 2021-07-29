@@ -148,7 +148,7 @@ Compared to reviewing the whole Azure landscape of an organization, this focus a
     - [Failover strategies](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones)
   
     - [About Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)
-* Within a region is the application architecture designed to use Availability Zones?
+* Is the application architecture designed to use Availability Zones within a region?
 
   _[Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones) can be used to optimize application availability within a region by providing datacenter level fault tolerance. However, the application architecture must not share dependencies between zones to use them effectively. It is also important to note that Availability Zones may introduce performance and cost considerations for applications which are extremely 'chatty' across zones given the implied physical separation between each zone and inter-zone bandwidth charges. That also means that AZ can be considered to get higher Service Level Agreement (SLA) for lower cost. Be aware of [pricing changes](https://azure.microsoft.com/pricing/details/bandwidth/) coming to Availability Zone bandwidth starting February 2021._
   > Use Availability Zones where applicable to improve reliability and optimize costs
@@ -627,7 +627,7 @@ Compared to reviewing the whole Azure landscape of an organization, this focus a
       _Autoscaling capabilities can vary between NVA solutions, but ultimately help to mitigate common bottle-neck situations._
 ### Elasticity
             
-* Can the application scale horizontally in response to changing load?
+* Can the workload scale horizontally in response to changing load?
 
   _A scale-unit approach should be taken to ensure that each application component and the application as a whole can scale effectively in response to changing demand. A robust capacity model should be used to define when and how the application should scale._
 * Has the time to scale in/out been measured?
@@ -741,6 +741,8 @@ Compared to reviewing the whole Azure landscape of an organization, this focus a
 
   _[Stateless services](https://docs.microsoft.com/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices) and processes can easily be hosted across multiple compute instances to meet scale demands, as well as helping to reduce complexity and ensure high cacheability._
   > Use externalized data store for stateful applications
+  > 
+  > *Strive to design stateless services for scalability. If state must be maintained server side, consider an out-of-process caching service where all application instances can access.*
   
     Additional resources:
     - [Stateless web services](https://docs.microsoft.com/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices)
