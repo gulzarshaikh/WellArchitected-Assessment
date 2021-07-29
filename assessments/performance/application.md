@@ -83,7 +83,7 @@ Compared to reviewing the whole Azure landscape of an organization, this focus a
     - [Failover strategies](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones)
   
     - [About Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)
-* Within a region is the application architecture designed to use Availability Zones?
+* Is the application architecture designed to use Availability Zones within a region?
 
   _[Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones) can be used to optimize application availability within a region by providing datacenter level fault tolerance. However, the application architecture must not share dependencies between zones to use them effectively. It is also important to note that Availability Zones may introduce performance and cost considerations for applications which are extremely 'chatty' across zones given the implied physical separation between each zone and inter-zone bandwidth charges. That also means that AZ can be considered to get higher Service Level Agreement (SLA) for lower cost. Be aware of [pricing changes](https://azure.microsoft.com/pricing/details/bandwidth/) coming to Availability Zone bandwidth starting February 2021._
   > Use Availability Zones where applicable to improve reliability and optimize costs
@@ -119,7 +119,7 @@ Compared to reviewing the whole Azure landscape of an organization, this focus a
 * When designing the application, which of the following design considerations were considered? (Latency between layers, Request time, Payload sizes, High Availability)
 
   _When designing a new application or reviewing and existing one, there are three concepts to think about: 1) reducing latency; 2) reducing total request time; and, 3) reducing overall payload sizes. Implementing any combination of these concepts can dramatically improve overall application performance._
-* What datastores are you using? Were you able to choose the data store during the design phase?
+* What datastores are you using? Were you able to choose the datastore during the design phase?
 
   _Your application will most likely require more than one type of datastore depending on business requirements. Choosing the right mix and correct implementation is extremely important for optimizing application performance._
 * Would you consider the application design to be a microservice architecture?
