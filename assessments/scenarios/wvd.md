@@ -21,7 +21,7 @@
                                 
                             
   - Enable Azure Monitor for WIndows Virtual Desktop
-    > [Azure Monitor for Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/azure-monitor) can be used to find and troubleshoot problems in deployments, view the status and health of host pools, diagnose user feedback and understand resource utilization.  
+    > [Azure Monitor for Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/azure-monitor) can be used to find and troubleshoot problems in deployments, view the status and health of host pools, diagnose user feedback and understand resource utilization.
                                 
                             
   - Windows Virtual Desktop Session Hosts should be backed up (when not using auto-scale/pooled)
@@ -30,9 +30,9 @@
                             
 ## FSLogix
 ### Design Considerations
-* [FSLogix](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix) technology allows for users profiles to be stored in a central location and accessed by WVD Session Hosts, side loading the disks in a seamless manner. If using a solution where your users can sign into different Windows Virtual Desktop Session Hosts (Multi-session for example), [FSLogix](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix) should be used to centralize users&#39; profiles.
+* [FSLogix](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix) technology allows for users profiles to be stored in a central location and accessed by WVD Session Hosts, side loading the disks in a seamless manner. If using a solution where your users can sign into different Windows Virtual Desktop Session Hosts (Multi-session for example), [FSLogix](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix) should be used to centralize users&#39; profiles.
   - (Storage) Storage requirements should be optimized for performance in the Windows Virtual Desktop service
-    > [Storage sizing for Azure Files and Azure NetApp Files](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix#performance-requirements) need to align with IOPS Requirements
+    > [Storage sizing for Azure Files and Azure NetApp Files](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix#performance-requirements) needs to align with IOPS Requirements
                                 
                             
   - (Storage) Size of the volumes should reflect the performance needed
@@ -78,14 +78,14 @@
     > Some application workloads may not be running in Azure which means that WVD will require access to third party datacenters (ExpressRoute, site-to-site VPN). It is recommended to migrate applications and workloads accessed by WVD into Azure as close to the WVD environment as possible following [Enterprise Scale Landing Zone guidance](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/).
                                 
                             
-  - Designing your solution architecture for scale
-    > Ensure that your network architecture has enough internal addresses to support the number of WVD Session Hosts in your environment
+  - Design your solution architecture for scale
+    > Ensure that your network architecture has enough internal IP addresses to support the number of WVD Session Hosts in your environment
                                 
                             
 ## Identity &amp; Access Control
 ### Design Considerations
 * Windows Virtual Desktop requires that there is a hybrid identity solution implemented
-  - Set up  [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-azure-ad-connect).
+  - Set up [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-azure-ad-connect).
     > This is a prerequisite for Windows Virtual Desktop. This is required to translate the user signing into the WVD Management plane via Azure AD to the user in the Active Directory forest
                                 
                             
