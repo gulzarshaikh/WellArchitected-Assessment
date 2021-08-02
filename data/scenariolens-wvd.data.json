@@ -88,7 +88,7 @@
         "id": "527ce6be-5a2f-4f97-a4e4-5e918547270b"
       },
       {
-        "title": "Designing your solution architecture for scale",
+        "title": "Design your solution architecture for scale",
         "context": "Ensure that your network architecture has enough internal addresses to support the number of WVD Session Hosts in your environment",
         "id": "e8bf4566-9793-49ad-9380-ff068d1c3d48"
       }
