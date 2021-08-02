@@ -17,7 +17,7 @@
                                 
                             
   - Configure the necessary performance counters for your monitoring services
-    > We recommend enabling [performance counters for WVD](https://docs.microsoft.com/azure/virtual-desktop/azure-monitor#set-up-performance-counters). Azure Monitor for Windows Virtual Desktop is currently in public preview so should not be used for production workloads.
+    > We recommend enabling [performance counters for WVD](https://docs.microsoft.com/en-gb/azure/virtual-desktop/azure-monitor#set-up-performance-counters). Azure Monitor for Windows Virtual Desktop is currently in public preview so should not be used for production workloads.
                                 
                             
   - Windows Virtual Desktop Session Hosts should be backed up (when not using auto-scale/pooled)
@@ -26,9 +26,9 @@
                             
 ## FSLogix
 ### Design Considerations
-* [FSLogix](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix) technology allows for users profiles to be stored in a central location and accessed by WVD Session Hosts, side loading the disks in a seamless manner. If using a solution where your users can sign into different Windows Virtual Desktop Session Hosts (Multi-session for example), [FSLogix](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix) should be used to centralize users&#39; profiles.
+* [FSLogix](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix) technology allows for users profiles to be stored in a central location and accessed by WVD Session Hosts, side loading the disks in a seamless manner. If using a solution where your users can sign into different Windows Virtual Desktop Session Hosts (Multi-session for example), [FSLogix](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix) should be used to centralize users&#39; profiles.
   - (Storage) Storage requirements should be optimized for performance in the Windows Virtual Desktop service
-    > [Storage sizing for Azure Files and Azure NetApp Files](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix#performance-requirements) need to align with IOPS Requirements
+    > [Storage sizing for Azure Files and Azure NetApp Files](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix#performance-requirements) need to align with IOPS Requirements
                                 
                             
   - (Storage) Size of the volumes should reflect the performance needed
@@ -40,7 +40,7 @@
                                 
                             
   - The chosen storage service for FSLogix
-    > Azure Files ([Azure AD Domain Services](https://docs.microsoft.com/azure/virtual-desktop/create-profile-container-adds) or [Active Directory Domain Services](https://docs.microsoft.com/azure/virtual-desktop/create-file-share), [Azure NetApp Files](https://docs.microsoft.com/azure/virtual-desktop/create-fslogix-profile-container), [VM-based file share](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-user-profile)
+    > Azure Files ([Azure AD Domain Services](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-profile-container-adds) or [Active Directory Domain Services](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-file-share), [Azure NetApp Files](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-fslogix-profile-container), [VM-based file share](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-host-pools-user-profile)
                                 
                             
   - [FSLogix Cloud Cache](https://docs.microsoft.com/en-us/fslogix/cloud-cache-resiliency-availability-cncpt) for Business Continuity &amp; Disaster Recovery

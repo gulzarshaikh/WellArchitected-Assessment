@@ -1,154 +1,179 @@
 [
-    {
-        "type": "Design Considerations",
-        "pillars": [
-            "scenario/wvd"
-        ],
-        "lens": "scenario",
-        "category": "WVD",
-        "subCategory": "FSLogix",
-        "title": "[FSLogix](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix) technology allows for users profiles to be stored in a central location and accessed by WVD Session Hosts, side loading the disks in a seamless manner. If using a solution where your users can sign into different Windows Virtual Desktop Session Hosts (Multi-session for example), [FSLogix](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix) should be used to centralize users' profiles.",
-        "recommendation": {
-            "title": "Review your central profile store architecture and incorporate FSLogix if you are using multi-session",
-            "context": "",
-            "links": []          
-        },  
-        "children": [
-            {
-                "title": "(Storage) Storage requirements should be optimized for performance in the Windows Virtual Desktop service",
-                "context": "[Storage sizing for Azure Files and Azure NetApp Files](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix#performance-requirements) need to align with IOPS Requirements"
-            },
-            {
-                "title": "(Storage) Size of the volumes should reflect the performance needed",
-                "context": "Consideration of the size of the volume where user profiles will be stored on a per user profile size basis"
-            },
-            {
-                "title": "(Storage - Azure Files) SKU of the Azure Files Storage Account",
-                "context": "Light users - Standard File Shares, Medium users - Standard/Premium File Shares, Heavy users - Premium File Shares, Power users - Premium File Shares"
-            },
-            {
-                "title": "The chosen storage service for FSLogix",
-                "context": "Azure Files ([Azure AD Domain Services](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-profile-container-adds) or [Active Directory Domain Services](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-file-share), [Azure NetApp Files](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-fslogix-profile-container), [VM-based file share](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-host-pools-user-profile)"
-            },
-            {
-                "title": "[FSLogix Cloud Cache](https://docs.microsoft.com/en-us/fslogix/cloud-cache-resiliency-availability-cncpt) for Business Continuity & Disaster Recovery",
-                "context": "FSLogix Cloud Cache is used for best practice failover and quick recovery scenarios"
-            },
-            {
-                "title": "Backup solution for the chosen storage service that FSLogix will be using",
-                "context": "It is just as vital to implement a backup solution next to your disaster recovery solution. [Azure NetApps Files supports scheduled snapshots](https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-manage-snapshots) and Azure Backup should be considered for [File Shares(https://docs.microsoft.com/en-us/azure/backup/azure-file-share-backup-overview)]"
-            },
-            {
-                "title": "Design your storage to reside as close as possible to your session hosts",
-                "context": "This increases performance and latency for a better end user experience"
-            },
-            {
-                "title": "Exclude user profile VHD(x) from AV and malware scans",
-                "context": "All files inside the VHD would be scanned on demand"
-            }
-        ]
+  {
+    "type": "Design Considerations",
+    "pillars": [
+      "scenario/wvd"
+    ],
+    "lens": "scenario",
+    "category": "WVD",
+    "subCategory": "FSLogix",
+    "title": "[FSLogix](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix) technology allows for users profiles to be stored in a central location and accessed by WVD Session Hosts, side loading the disks in a seamless manner. If using a solution where your users can sign into different Windows Virtual Desktop Session Hosts (Multi-session for example), [FSLogix](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix) should be used to centralize users' profiles.",
+    "recommendation": {
+      "title": "Review your central profile store architecture and incorporate FSLogix if you are using multi-session",
+      "context": "",
+      "links": []
     },
-    {
-        "type": "Design Considerations",
-        "pillars":[
-            "scenario/wvd"
-        ],
-        "lens":"scenario",
-        "category":"WVD",
-        "subCategory": "Networking & Connectivity",
-        "title": "Placement of your Windows Virtual Desktop session hosts in your network is a key consideration and should be included in your design",
-        "recommendation": {
-            "title": "WVD Session Hosts have to exist on a Virtual Network so Virtual Network/Subnet configuration will have to be considered. We have [example scenario architecture](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop#architecture) which can help visualize network connectivity.",
-            "context": "",
-            "links": []
-        },
-        "children":[
-            {
-                "title": "Active Directory Domain Services line of site",
-                "context": "For WVD Session Hosts to join onto your Active Directory domain, the Virtual Network they reside on should be able to resolve your Active Directory domain name. It is strongly recommended to extend and build [Domain Controllers in Azure](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/identity/adds-extend-domain)."
-            },
-            {
-                "title": "Connection to application(s), Active Directory Domain Services and workloads should be in line with the expected availability requirements for the environment",
-                "context": "Availability of applications, domain services and connectivity methods should adhere to the availability requirements. Refer back to [Networking Reliability](https://github.com/Azure/WellArchitected-Assessment/blob/main/assessments/reliability/application.md#networking--connectivity) for more information."
-            },
-            {
-                "title": "Application workload line of sight from your WVD Session Host(s)",
-                "context": "Some application workloads may not be running in Azure which means that WVD will require access to third party datacenters (ExpressRoute, site-to-site VPN). It is recommended to migrate applications and workloads accessed by WVD into Azure as close to the WVD environment as possible following [Enterprise Scale Landing Zone guidance](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/)."
-            },
-            {
-                "title": "Designing your solution architecture for scale",
-                "context": "Ensure that your network architecture has enough internal addresses to support the number of WVD Session Hosts in your environment"
-            }
-        ]
+    "children": [
+      {
+        "title": "(Storage) Storage requirements should be optimized for performance in the Windows Virtual Desktop service",
+        "context": "[Storage sizing for Azure Files and Azure NetApp Files](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix#performance-requirements) need to align with IOPS Requirements",
+        "id": "10fd7357-e5d3-4a22-b5e8-5fe698651ab6"
+      },
+      {
+        "title": "(Storage) Size of the volumes should reflect the performance needed",
+        "context": "Consideration of the size of the volume where user profiles will be stored on a per user profile size basis",
+        "id": "a46ddf00-2fdf-4e61-a7bd-50be19bcd97e"
+      },
+      {
+        "title": "(Storage - Azure Files) SKU of the Azure Files Storage Account",
+        "context": "Light users - Standard File Shares, Medium users - Standard/Premium File Shares, Heavy users - Premium File Shares, Power users - Premium File Shares",
+        "id": "2eb28737-ebc8-4e46-84e5-3ee61187e42f"
+      },
+      {
+        "title": "The chosen storage service for FSLogix",
+        "context": "Azure Files ([Azure AD Domain Services](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-profile-container-adds) or [Active Directory Domain Services](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-file-share), [Azure NetApp Files](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-fslogix-profile-container), [VM-based file share](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-host-pools-user-profile)",
+        "id": "196806be-9bba-4c1a-840f-21295381d2b5"
+      },
+      {
+        "title": "[FSLogix Cloud Cache](https://docs.microsoft.com/en-us/fslogix/cloud-cache-resiliency-availability-cncpt) for Business Continuity & Disaster Recovery",
+        "context": "FSLogix Cloud Cache is used for best practice failover and quick recovery scenarios",
+        "id": "ff539c70-e892-46a8-ab7c-9a65a12dc411"
+      },
+      {
+        "title": "Backup solution for the chosen storage service that FSLogix will be using",
+        "context": "It is just as vital to implement a backup solution next to your disaster recovery solution. [Azure NetApps Files supports scheduled snapshots](https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-manage-snapshots) and Azure Backup should be considered for [File Shares(https://docs.microsoft.com/en-us/azure/backup/azure-file-share-backup-overview)]",
+        "id": "caaadea9-d365-4b31-bf37-02b0db301fa3"
+      },
+      {
+        "title": "Design your storage to reside as close as possible to your session hosts",
+        "context": "This increases performance and latency for a better end user experience",
+        "id": "ef33cd8e-e26f-4f49-9794-746b8315bc8f"
+      },
+      {
+        "title": "Exclude user profile VHD(x) from AV and malware scans",
+        "context": "All files inside the VHD would be scanned on demand",
+        "id": "5cc76841-7496-4b37-9789-4d95e7ddc99e"
+      }
+    ],
+    "id": "b7501eef-9c93-4476-934b-0d1c0be48e1d"
+  },
+  {
+    "type": "Design Considerations",
+    "pillars": [
+      "scenario/wvd"
+    ],
+    "lens": "scenario",
+    "category": "WVD",
+    "subCategory": "Networking & Connectivity",
+    "title": "Placement of your Windows Virtual Desktop session hosts in your network is a key consideration and should be included in your design",
+    "recommendation": {
+      "title": "WVD Session Hosts have to exist on a Virtual Network so Virtual Network/Subnet configuration will have to be considered. We have [example scenario architecture](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop#architecture) which can help visualize network connectivity.",
+      "context": "",
+      "links": []
     },
-    {
-        "type": "Design Considerations",
-        "pillars":[
-            "scenario/wvd"
-        ],
-        "lens":"scenario",
-        "category":"WVD",
-        "subCategory": "Identity & Access Control",
-        "title": "Windows Virtual Desktop requires that there is a hybrid identity solution implemented",
-        "recommendation": {
-            "title": "The hybrid identity solution in this instance would be Azure AD Connect",
-            "context": "",
-            "links": []
-        }, 
-        "children":[
-            {
-                "title": "Set up  [Azure AD Connect](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/whatis-azure-ad-connect).",
-                "context": "This is a prerequisite for Windows Virtual Desktop. This is required to translate the user signing into the WVD Management plane via Azure AD to the user in the Active Directory forest"
-            },
-            {
-                "title": "WVD Users must be sourced from the same Active Directory Domain Service (ADDS) that is synchronising to Azure AD. WVD Does not support B2B or Microsoft Accounts",
-                "context": "Synchronize all identities to a single Azure AD using Azure AD Connect"
-            },
-            {
-                "title": "The account used for domain join during the session host building cannot have multi-factor authentication or other interactive prompts",
-                "context": "During the session host building phase/automation the account used to work on those hosts cannot have multi-factor authentication"
-            },
-            {
-                "title": "Specifying the Organizational Unit (OU) that WVD Session Hosts will reside in",
-                "context": "Segregate the WVD Session Host Virtual Machines (VMs) into Active Directory OUs (Organizational Units) for each host pool to manage policies and orphaned objects"
-            },
-            {
-                "title": "Follow the principle of least privilege",
-                "context": "[Built-in RBAC Roles](https://docs.microsoft.com/en-us/azure/virtual-desktop/rbac) should be reviewed. Assignment to groups can provide lower administration rather than user assignment."
-            },
-            {
-                "title": "Leverage Azure AD Conditional Access policies",
-                "context": "Create policies for WVD. For example, multi-factor authentication can be enforced on conditions such as risky sign-ins increasing an organizations security posture"
-            }
-        ]
+    "children": [
+      {
+        "title": "Active Directory Domain Services line of site",
+        "context": "For WVD Session Hosts to join onto your Active Directory domain, the Virtual Network they reside on should be able to resolve your Active Directory domain name. It is strongly recommended to extend and build [Domain Controllers in Azure](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/identity/adds-extend-domain).",
+        "id": "01d9cd3a-5c03-492a-8a2c-06b350d13532"
+      },
+      {
+        "title": "Connection to application(s), Active Directory Domain Services and workloads should be in line with the expected availability requirements for the environment",
+        "context": "Availability of applications, domain services and connectivity methods should adhere to the availability requirements. Refer back to [Networking Reliability](https://github.com/Azure/WellArchitected-Assessment/blob/main/assessments/reliability/application.md#networking--connectivity) for more information.",
+        "id": "8e502947-c1df-4769-b479-933fa797756b"
+      },
+      {
+        "title": "Application workload line of sight from your WVD Session Host(s)",
+        "context": "Some application workloads may not be running in Azure which means that WVD will require access to third party datacenters (ExpressRoute, site-to-site VPN). It is recommended to migrate applications and workloads accessed by WVD into Azure as close to the WVD environment as possible following [Enterprise Scale Landing Zone guidance](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/).",
+        "id": "527ce6be-5a2f-4f97-a4e4-5e918547270b"
+      },
+      {
+        "title": "Designing your solution architecture for scale",
+        "context": "Ensure that your network architecture has enough internal addresses to support the number of WVD Session Hosts in your environment",
+        "id": "e8bf4566-9793-49ad-9380-ff068d1c3d48"
+      }
+    ],
+    "id": "f4b11384-c035-4526-86df-398ba6ded963"
+  },
+  {
+    "type": "Design Considerations",
+    "pillars": [
+      "scenario/wvd"
+    ],
+    "lens": "scenario",
+    "category": "WVD",
+    "subCategory": "Identity & Access Control",
+    "title": "Windows Virtual Desktop requires that there is a hybrid identity solution implemented",
+    "recommendation": {
+      "title": "The hybrid identity solution in this instance would be Azure AD Connect",
+      "context": "",
+      "links": []
     },
-    {
-        "type":"Design Considerations",
-        "pillars":[
-            "scenario/wvd"
-        ],
-        "lens":"scenario",
-        "category":"WVD",
-        "subCategory": "Management & Monitoring",
-        "title": "Managing and monitoring any Azure service is a core component from an operations standpoint which is why this is included in Design Considerations",
-        "recommendation": {
-            "title": "Azure Monitor, Azure Log Analytics and Azure Management tools generally available",
-            "context": "",
-            "links": [],
-        },
-        "children":[
-            {
-                "title": "Windows Virtual Desktop service logs should be integrated into Azure Monitor Log Analytics",
-                "context": "Azure Monitor allows for a central location around log and monitoring data in Azure"
-            },
-            {
-                "title": "Configure the necessary performance counters for your monitoring services",
-                "context": "We recommend enabling [performance counters for WVD](https://docs.microsoft.com/en-gb/azure/virtual-desktop/azure-monitor#set-up-performance-counters). Azure Monitor for Windows Virtual Desktop is currently in public preview so should not be used for production workloads."
-            },
-            {
-                "title": "Windows Virtual Desktop Session Hosts should be backed up (when not using auto-scale/pooled)",
-                "context": "[WVD Session Hosts backed up](https://github.com/Azure/RDS-Templates/tree/master/EnableBackupScript) can be used to back up WVD Session Hosts"
-            }
-        ]
-    }
+    "children": [
+      {
+        "title": "Set up  [Azure AD Connect](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/whatis-azure-ad-connect).",
+        "context": "This is a prerequisite for Windows Virtual Desktop. This is required to translate the user signing into the WVD Management plane via Azure AD to the user in the Active Directory forest",
+        "id": "2a94bff5-41db-4f67-b1d3-a5cc5842aa42"
+      },
+      {
+        "title": "WVD Users must be sourced from the same Active Directory Domain Service (ADDS) that is synchronising to Azure AD. WVD Does not support B2B or Microsoft Accounts",
+        "context": "Synchronize all identities to a single Azure AD using Azure AD Connect",
+        "id": "2f57a2f4-5cae-40f2-9f78-db5c118e7bad"
+      },
+      {
+        "title": "The account used for domain join during the session host building cannot have multi-factor authentication or other interactive prompts",
+        "context": "During the session host building phase/automation the account used to work on those hosts cannot have multi-factor authentication",
+        "id": "6b0832d8-5fa3-4c76-a01d-f2b743ca6ce1"
+      },
+      {
+        "title": "Specifying the Organizational Unit (OU) that WVD Session Hosts will reside in",
+        "context": "Segregate the WVD Session Host Virtual Machines (VMs) into Active Directory OUs (Organizational Units) for each host pool to manage policies and orphaned objects",
+        "id": "9562cf7b-79f5-47a0-80bf-cac8f65cd5ae"
+      },
+      {
+        "title": "Follow the principle of least privilege",
+        "context": "[Built-in RBAC Roles](https://docs.microsoft.com/en-us/azure/virtual-desktop/rbac) should be reviewed. Assignment to groups can provide lower administration rather than user assignment.",
+        "id": "b9a76ef5-712c-4051-a5e9-1b503afd1f4c"
+      },
+      {
+        "title": "Leverage Azure AD Conditional Access policies",
+        "context": "Create policies for WVD. For example, multi-factor authentication can be enforced on conditions such as risky sign-ins increasing an organizations security posture",
+        "id": "a6e74c5b-fe1c-4df7-8e14-c910acb0d150"
+      }
+    ],
+    "id": "d3bc8bab-7584-40ed-866a-9fb2be6059e6"
+  },
+  {
+    "type": "Design Considerations",
+    "pillars": [
+      "scenario/wvd"
+    ],
+    "lens": "scenario",
+    "category": "WVD",
+    "subCategory": "Management & Monitoring",
+    "title": "Managing and monitoring any Azure service is a core component from an operations standpoint which is why this is included in Design Considerations",
+    "recommendation": {
+      "title": "Azure Monitor, Azure Log Analytics and Azure Management tools generally available",
+      "context": "",
+      "links": []
+    },
+    "children": [
+      {
+        "title": "Windows Virtual Desktop service logs should be integrated into Azure Monitor Log Analytics",
+        "context": "Azure Monitor allows for a central location around log and monitoring data in Azure",
+        "id": "6f3bc2d6-6a48-4fcd-807b-20c767b38a83"
+      },
+      {
+        "title": "Configure the necessary performance counters for your monitoring services",
+        "context": "We recommend enabling [performance counters for WVD](https://docs.microsoft.com/en-gb/azure/virtual-desktop/azure-monitor#set-up-performance-counters). Azure Monitor for Windows Virtual Desktop is currently in public preview so should not be used for production workloads.",
+        "id": "de274d66-74b9-4063-b470-66e80230f5f6"
+      },
+      {
+        "title": "Windows Virtual Desktop Session Hosts should be backed up (when not using auto-scale/pooled)",
+        "context": "[WVD Session Hosts backed up](https://github.com/Azure/RDS-Templates/tree/master/EnableBackupScript) can be used to back up WVD Session Hosts",
+        "id": "9bccf12d-08ca-41f5-a2f2-1b7808e6c346"
+      }
+    ],
+    "id": "71f8a6e9-b460-4291-bcda-3bdd2e70192b"
+  }
 ]
