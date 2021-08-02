@@ -1,47 +1,98 @@
 [
-    {
-        "type": "Questions",
-        "pillars": [
-            "scenario/sap"
-        ],
-        "lens": "scenario",
-        "category": "SAP",
-        "subCategory": "Design",
-        "title": "Are all SAP components used in your design supported on Azure and on the SKU of choice?",
-        "context": "SAP has strict requirements on what versions of their software can run on Azure and with what configuration this is supported.",
-        "recommendation": "Review both the SAP software specifics you want to run on Azure. Consult the [Microsoft](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-certifications) and SAP documentation.",
-        "children": [
-            {
-                "title": "Is your SAP software supported on Azure?",
-                "context": "In order to gain support from SAP you must run supported software on Azure.",
-                "recommendation": "Start with the [SAP software support documentation by Microsoft](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure) and then cross validate against the SAP notes"
-            },
-            {
-                "title": "Using HANA? Is your HANA scale mechanism supported?",
-                "context": "HANA Scale out has limited support, whereas scale up is generally well supported. Validate your support.",
-                "recommendation": "Validate if your database of choice with  supported in the [SAP HANA Hardware Directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)",
-                "id": "sap_design_support_hw_scaleout"
-            },
-            {
-                "title": "Not running HANA? Is your database of choice with software supported?",
-                "context": "Validate whether you run Windows or Linux and are supported.",
-                "recommendation": "Reference [SAP Note #1928533](https://launchpad.support.sap.com/#/notes/1928533) to validate whether your choice of VM SKU is supported.",
-                "id": "sap_design_support_hw_anydb"
-            }
-        ],
-        "id": "sap_design_support_hw"
+  {
+    "id": "b3d5467c-0d97-404c-a13d-59f62a4bc5d2",
+    "type": "Questions",
+    "pillars": [
+      "scenario/sap"
+    ],
+    "lens": "scenario",
+    "category": "SAP",
+    "subCategory": "Design",
+    "title": "Are all SAP components used in your design supported on Azure and on the SKU of choice?",
+    "context": "SAP has strict requirements on what versions of their software can run on Azure and with what configuration this is supported.",
+    "recommendation": {
+      "title": "Review both the SAP software specifics you want to run on Azure. Consult the [Microsoft](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-certifications) and SAP documentation.",
+      "context": "",
+      "links": [
+        {
+          "title": "",
+          "url": ""
+        }
+      ],
+      "priority": 50
     },
-    {
-        "type": "Questions",
-        "pillars": [
-            "scenario/sap"
-        ],
-        "lens": "scenario",
-        "category": "SAP",
-        "subCategory": "Platform support",
-        "title": "For HANA, when using premium disks on Mv1/Mv2, is `write accelerator` enabled on log disks?",
-        "context": "Write Accelerator must be enabled to be in a supported scenario.",
-        "recommendation": "Ensure write accelerator is enabled for any log disks attached. Ensure that the [prescribed caching mechanisms](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines) for these disks are set.",
-        "id": "sap_design_support_software"
+    "children": [
+      {
+        "id": "667fdf69-1917-417d-8854-f32a44e85964",
+        "title": "Is your SAP software supported on Azure?",
+        "context": "In order to gain support from SAP you must run supported software on Azure.",
+        "recommendation": {
+          "title": "Start with the [SAP software support documentation by Microsoft](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure) and then cross validate against the SAP notes",
+          "context": "",
+          "links": [
+            {
+              "title": "",
+              "url": ""
+            }
+          ],
+          "priority": 50
+        }
+      },
+      {
+        "id": "5c3386ba-a849-4c32-96eb-9c6f89700bb7",
+        "title": "Using HANA? Is your HANA scale mechanism supported?",
+        "context": "HANA Scale out has limited support, whereas scale up is generally well supported. Validate your support.",
+        "recommendation": {
+          "title": "Validate if your database of choice with  supported in the [SAP HANA Hardware Directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)",
+          "context": "",
+          "links": [
+            {
+              "title": "",
+              "url": ""
+            }
+          ],
+          "priority": 50
+        }
+      },
+      {
+        "id": "fa5fda78-37e6-4368-b147-ba1015302615",
+        "title": "Not running HANA? Is your database of choice with software supported?",
+        "context": "Validate whether you run Windows or Linux and are supported.",
+        "recommendation": {
+          "title": "Reference [SAP Note #1928533](https://launchpad.support.sap.com/#/notes/1928533) to validate whether your choice of VM SKU is supported.",
+          "context": "",
+          "links": [
+            {
+              "title": "",
+              "url": ""
+            }
+          ],
+          "priority": 50
+        }
+      }
+    ]
+  },
+  {
+    "id": "f32c0dc1-1539-45a2-a558-4a3cda096def",
+    "type": "Questions",
+    "pillars": [
+      "scenario/sap"
+    ],
+    "lens": "scenario",
+    "category": "SAP",
+    "subCategory": "Platform support",
+    "title": "For HANA, when using premium disks on Mv1/Mv2, is `write accelerator` enabled on log disks?",
+    "context": "Write Accelerator must be enabled to be in a supported scenario.",
+    "recommendation": {
+      "title": "Ensure write accelerator is enabled for any log disks attached. Ensure that the [prescribed caching mechanisms](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines) for these disks are set.",
+      "context": "",
+      "links": [
+        {
+          "title": "",
+          "url": ""
+        }
+      ],
+      "priority": 50
     }
+  }
 ]

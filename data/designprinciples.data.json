@@ -1,62 +1,278 @@
 [
-    {
-        "type": "Design Principles",
-        "pillars": [
-            "operationalexcellence"
-        ],
-        "lens": "application",
-        "category": "General",
-        "subCategory": "Unassigned",
-        "title": "Optimize build and release processes",
-        "context": "From provisioning with Infrastructure as Code, to build and releases with CI/CD pipelines, to automated testing, embrace software engineering disciplines across your entire environment. This approach ensures the creation and management of environments throughout the software development lifecycle is consistent, repeatable, and enables early detection of issues.",
-        "id": "dp_opex_1"
-    },
-    {
-        "type": "Design Principles",
-        "pillars": [
-            "operationalexcellence"
-        ],
-        "lens": "application",
-        "category": "General",
-        "subCategory": "Unassigned",
-        "title": "Monitor entire system and understand operational health",
-        "context": "Implement systems and processes to monitor build and release processes, infrastructure health, and application health. Telemetry is critical to understanding the health of a workload and whether the service is meeting the business goals.",
-        "id": "dp_opex_2"
-    },
-    {
-        "type": "Design Principles",
-        "pillars": [
-            "operationalexcellence"
-        ],
-        "lens": "application",
-        "category": "General",
-        "subCategory": "Unassigned",
-        "title": "Rehearse recovery and practice failure",
-        "context": "Run DR drills on regular cadence and use chaos engineering practices to identify and remediate weak points in application reliability. Regular rehearsal of failure will validate the effectiveness of recovery processes and ensure teams are familiar with their responsibilities.",
-        "id": "dp_opex_3"
-    },
-    {
-        "type": "Design Principles",
-        "pillars": [
-            "operationalexcellence"
-        ],
-        "lens": "application",
-        "category": "General",
-        "subCategory": "Unassigned",
-        "title": "Embrace operational improvement",
-        "context": "Continuously evaluate and refine operational procedures and tasks, while striving to reduce complexity and ambiguity. This approach enables an organization to evolve processes over time, optimizing inefficiencies and learning from failures.",
-        "id": "dp_opex_4"
-    },
-    {
-        "type": "Design Principles",
-        "pillars": [
-            "operationalexcellence"
-        ],
-        "lens": "application",
-        "category": "General",
-        "subCategory": "Unassigned",
-        "title": "Use loosely coupled architecture",
-        "context": "Enable teams to independently test, deploy, and update their systems on demand without depending on other teams for support, services, resources, or approvals.",
-        "id": "dp_opex_5"
-    }
+  {
+    "type": "Design Principles",
+    "pillars": [
+      "operationalexcellence"
+    ],
+    "lens": "application",
+    "category": "General",
+    "subCategory": "Unassigned",
+    "title": "Optimize build and release processes",
+    "context": "From provisioning with Infrastructure as Code, to build and releases with CI/CD pipelines, to automated testing, embrace software engineering disciplines across your entire environment. This approach ensures the creation and management of environments throughout the software development lifecycle is consistent, repeatable, and enables early detection of issues.",
+    "id": "e45b8158-6693-44bd-ba34-05fd8fc9f843"
+  },
+  {
+    "type": "Design Principles",
+    "pillars": [
+      "operationalexcellence"
+    ],
+    "lens": "application",
+    "category": "General",
+    "subCategory": "Unassigned",
+    "title": "Understand operational health through focused and assertive monitoring",
+    "context": "Implement systems and processes to monitor build and release processes, infrastructure health, and application health. Telemetry is critical to understanding the health of a workload and whether the service is meeting the business goals.",
+    "id": "5d8b647b-6ff6-42f4-bd59-77a090b735be"
+  },
+  {
+    "type": "Design Principles",
+    "pillars": [
+      "operationalexcellence"
+    ],
+    "lens": "application",
+    "category": "General",
+    "subCategory": "Unassigned",
+    "title": "Rehearse recovery and practice failure",
+    "context": "Run DR drills on regular cadence and use chaos engineering practices to identify and remediate weak points in application reliability. Regular rehearsal of failure will validate the effectiveness of recovery processes and ensure teams are familiar with their responsibilities.",
+    "id": "8cc168f4-0aae-4bfa-99a5-b4d12d8fe4ce"
+  },
+  {
+    "type": "Design Principles",
+    "pillars": [
+      "operationalexcellence"
+    ],
+    "lens": "application",
+    "category": "General",
+    "subCategory": "Unassigned",
+    "title": "Embrace continuous operational improvement",
+    "context": "Continuously evaluate and refine operational procedures and tasks, while striving to reduce complexity and ambiguity. This approach enables an organization to evolve processes over time, optimizing inefficiencies and learning from failures.",
+    "id": "4cca294d-c9cd-43f9-bb16-e9392ff416b3"
+  },
+  {
+    "type": "Design Principles",
+    "pillars": [
+      "operationalexcellence"
+    ],
+    "lens": "application",
+    "category": "General",
+    "subCategory": "Unassigned",
+    "title": "Use loosely coupled architecture",
+    "context": "Enable teams to independently test, deploy, and update their systems on demand without depending on other teams for support, services, resources, or approvals.",
+    "id": "7f766fd0-12fd-4af4-86ab-51c06f8436c1"
+  },
+  {
+    "type": "Design Principles",
+    "pillars": [
+      "reliability"
+    ],
+    "lens": "application",
+    "category": "General",
+    "subCategory": "Unassigned",
+    "title": "Design for Business Requirements",
+    "context": "Reliability is a subjective concept and for an application to be appropriately reliable it must reflect the business requirements surrounding it. For example, a mission-critical application with a 99.999% SLA requires a higher level of reliability that another application with an SLA of 95%. There are obvious financial and opportunity cost implications for introducing greater reliability and high availability, and this trade-off should be carefully considered.",
+    "id": "2cc81c9f-d6fd-4647-b1a5-8a79ac5e8122"
+  },
+  {
+    "type": "Design Principles",
+    "pillars": [
+      "reliability"
+    ],
+    "lens": "application",
+    "category": "General",
+    "subCategory": "Unassigned",
+    "title": "Design for Failure",
+    "context": "Failure is impossible to avoid in a highly distributed multi-tenant environment like Azure. By anticipating failures, from individual components to entire Azure regions, a solution can be developed in a resilient way to increase reliability.",
+    "id": "8490261f-acb2-4b2c-a1fc-45d8e411b5fd"
+  },
+  {
+    "type": "Design Principles",
+    "pillars": [
+      "reliability"
+    ],
+    "lens": "application",
+    "category": "General",
+    "subCategory": "Unassigned",
+    "context": "Before issues impacting application reliability can be mitigated, they must first be detected. By monitoring the operation of an application relative to a known healthy state it becomes possible to detect or even predict reliability issues, allowing for swift remedial action to be taken.",
+    "title": "Observe Application Health",
+    "id": "7c3b43c8-1527-4a16-b6cd-9cbe548224d9"
+  },
+  {
+    "type": "Design Principles",
+    "pillars": [
+      "reliability"
+    ],
+    "lens": "application",
+    "category": "General",
+    "subCategory": "Unassigned",
+    "title": "Drive Automation",
+    "context": "One of the leading causes of application downtime is human error, whether that be due to the deployment of insufficiently tested software to misconfiguration. To minimize the possibility and impact of human errors, it is vital to strive for automation in all aspects of a cloud solution to improve reliability; automated testing, deployment, and management.",
+    "id": "099e13f1-748d-4d1c-9cca-9dd098511083"
+  },
+  {
+    "type": "Design Principles",
+    "pillars": [
+      "reliability"
+    ],
+    "lens": "application",
+    "category": "General",
+    "subCategory": "Unassigned",
+    "title": "Design for Self-Healing",
+    "context": "Self Healing describes a system's ability to deal with failures automatically through pre-defined remediation protocols connected to failure modes within the solution. It is an advanced concept that requires a high level of system maturity with monitoring and automation, but should be an aspiration from inception to maximize reliability.",
+    "id": "740c5681-e13b-4a10-bc15-db0233935895"
+  },
+  {
+    "type": "Design Principles",
+    "pillars": [
+      "reliability"
+    ],
+    "lens": "application",
+    "category": "General",
+    "subCategory": "Unassigned",
+    "title": "Design for Scale-out",
+    "context": "Scale-out is a concept that focuses on a system's ability to respond to demand through horizontal growth. This means that as traffic grows, _more_ resource units are added in parallel instead of increasing the size of the existing resources. A systems ability to handle expected and unexpected traffic increases through scale-units is essential to overall reliability and further reduces the impact of a single resource failure.",
+    "id": "89cc3451-2d32-4291-9aa0-f10c1b49274c"
+  },
+  {
+    "type": "Design Principles",
+    "pillars": [
+      "security"
+    ],
+    "lens": "application",
+    "category": "General",
+    "subCategory": "Unassigned",
+    "title": "Plan resources and determine how to harden them",
+    "context": "Ensure that security is taken into account when resources used by this workload are planned, and that it's understood how individual cloud services are protected. Use a service enablement framework to evaluate.",
+    "id": "83dea1de-46e0-4665-8109-bb9ec53a6b92"
+  },
+  {
+    "type": "Design Principles",
+    "pillars": [
+      "security"
+    ],
+    "lens": "application",
+    "category": "General",
+    "subCategory": "Unassigned",
+    "title": "Automate and use least privilege",
+    "context": "Implement least privilege throughout the application and control plane to protect against data exfiltration and malicious actor scenarios. Drive automation through DevSecOps to minimize the need for human interaction.",
+    "id": "2de95dfb-2b3e-4af9-9a42-7fac79e39144"
+  },
+  {
+    "type": "Design Principles",
+    "pillars": [
+      "security"
+    ],
+    "lens": "application",
+    "category": "General",
+    "subCategory": "Unassigned",
+    "title": "Classify and encrypt Data",
+    "context": "Classify data according to risk and apply industry standard encryption at rest and in transit holistically, ensuring keys and certificates are stored securely and managed properly.",
+    "id": "dec55461-c8f6-4a5a-9c55-c423958ec919"
+  },
+  {
+    "type": "Design Principles",
+    "pillars": [
+      "security"
+    ],
+    "lens": "application",
+    "category": "General",
+    "subCategory": "Unassigned",
+    "title": "Monitor security of entire system and plan incident responses",
+    "context": "Correlate security and audit events to model application health and identify active threats. Establish automated and manual procedures to respond to incidents leveraging SIEM tooling for tracking.",
+    "id": "6fadcf84-c39e-4ae5-bdcf-cca54f4b5271"
+  },
+  {
+    "type": "Design Principles",
+    "pillars": [
+      "security"
+    ],
+    "lens": "application",
+    "category": "General",
+    "subCategory": "Unassigned",
+    "title": "Identify and protect endpoints",
+    "context": "Monitor and protect the network integrity of internal and external endpoints through security appliances, such as firewalls or web application firewalls. Use industry standard approaches to protect against common attack vectors, such as DDoS (e.g. SlowLoris).",
+    "id": "91b6458c-b9a5-4757-ac70-3a39054bb046"
+  },
+  {
+    "type": "Design Principles",
+    "pillars": [
+      "security"
+    ],
+    "lens": "application",
+    "category": "General",
+    "subCategory": "Unassigned",
+    "title": "Protect against code level vulnerabilities",
+    "context": "Identify and mitigate code-level vulnerabilities (e.g. cross-site scripting, SQL injection). Regularly incorporate security fixes and patching of all parts of the codebase, including dependencies, into the operational lifecycle.",
+    "id": "c66e77fb-8d0e-431f-a31f-9ce9ff76da7f"
+  },
+  {
+    "type": "Design Principles",
+    "pillars": [
+      "security"
+    ],
+    "lens": "application",
+    "category": "General",
+    "subCategory": "Unassigned",
+    "title": "Model and test against potential threats",
+    "context": "Establish procedures to identify and mitigate known threats. Use penetration testing to verify threat mitigation, as well as static code analysis and code scanning to detect and prevent future vulnerabilities.",
+    "id": "f8cf1db8-4a33-4621-93b4-0008c0b9942b"
+  },
+  {
+    "type": "Design Principles",
+    "pillars": [
+      "costoptimization"
+    ],
+    "lens": "application",
+    "category": "General",
+    "subCategory": "Unassigned",
+    "title": "Choose the correct resources for your business goals",
+    "context": "Choose the right resources that are aligned with business goals and can handle the performance needs of the workload. When onboarding new workloads explore the possibility of modernization and cloud native offerings where possible. Using the PaaS or SaaS layer as opposed to IaaS is typically more cost effective.",
+    "id": "33a3dfa9-341f-4b09-a615-49c9ce9be1c0"
+  },
+  {
+    "type": "Design Principles",
+    "pillars": [
+      "costoptimization"
+    ],
+    "lens": "application",
+    "category": "General",
+    "subCategory": "Unassigned",
+    "title": "Set up budgets and keep within cost constraints",
+    "context": "Consider the budget constraints as part of the architectural design, identifying acceptable boundaries pertaining to scale, redundancy, and performance against cost. After initial estimations, set budgets and alerts at different scopes to continuously measure the cost.",
+    "id": "9f8948ef-cbb4-4ee7-9ad4-72c052e8b907"
+  },
+  {
+    "type": "Design Principles",
+    "pillars": [
+      "costoptimization"
+    ],
+    "lens": "application",
+    "category": "General",
+    "subCategory": "Unassigned",
+    "title": "Dynamically allocate and de-allocate resources to match performance needs",
+    "context": "Identify idle or underutilised resources (e.g. through Azure Advisor or other tools) and reconfigure, consolidate or shut down.",
+    "id": "67112449-5a97-4be9-844e-b1f30986102e"
+  },
+  {
+    "type": "Design Principles",
+    "pillars": [
+      "costoptimization"
+    ],
+    "lens": "application",
+    "category": "General",
+    "subCategory": "Unassigned",
+    "title": "Optimise your workloads and aim for scalable costs",
+    "context": "Consider the usage metrics and performance to determine the number of instances used as your workload cost should scale linearly with demand. The cost management process should be rigorous, iterative and a key principle of responsible cloud optimization.",
+    "id": "147e8f1f-cea3-4d33-abfb-4c398acd94e5"
+  },
+  {
+    "type": "Design Principles",
+    "pillars": [
+      "costoptimization"
+    ],
+    "lens": "application",
+    "category": "General",
+    "subCategory": "Unassigned",
+    "title": "Continuously monitor and optimise your cost management",
+    "context": "Conduct regular cost reviews, measure and forecast the capacity needs so that you can provision resources dynamically and scale with demand.",
+    "id": "8ad0485d-31df-4e94-9ca9-038bb7f5fc5e"
+  }
 ]

@@ -11,6 +11,8 @@
 
 The following Design Principles provide context for questions, why a certain aspect is important and how is it applicable to {{ .pillarDisplayName }}.
 
+These critical design principles are used as lenses to assess the {{ .pillarDisplayName }} of an application deployed on Azure, providing a framework for the application assessment questions that follow.
+
 {{ range $designPrinciple := $designPrinciples }}
 ## {{ safeHTML $designPrinciple.title }}
 
@@ -22,9 +24,19 @@ The following Design Principles provide context for questions, why a certain asp
 
 ---
 
-These critical design principals are used as lenses to assess the {{ .pillarDisplayName }} of an application deployed on Azure, providing a framework for the following application assessment questions.
-
 {{ end }}
+
+# Definition of Workload
+
+To ensure a successful assessment it is important to scope it to the right customer *workload*. We realize that the term is quite ambiguous and used in various contexts, so for the Well Architected assessments, we define it as:
+
+*A "workload" or "application" is a resource or collection of resources that provide end-to-end functionality to one or multiple clients (humans or systems). Another way to think of it: A workload is an end-to-end scenario (a process) and the IT infrastructure supporting it. It can be one application, it can be multiple apps, APIs and databases working together to deliver a specific functionality.*
+
+Some examples:
+* The Azure part of ticket ordering workload would be 1) the client web application, used by consumers to book tickets, 2) the payment gateway used to process credit card transactions, 3) the backend API handling communication, 4) the database where everything is stored, 5) the gateway to on-premises systems handling capacities and available seats, 5) the admin web application, 6) the shared AAD supporting authentication for administrators across the organization... etc.
+* A data processing pipeline, which every night 1) ingests data from SAP and other on-premises systems, 2) runs data analytics workbooks on Azure Databricks, 3) stores results into Storage Accounts, 4) is accessed by a desktop application, 5) only for authenticated users from the organization.
+
+Compared to reviewing the whole Azure landscape of an organization, this focus allows us to go deeper into the workload and architecture and provide more relevant recommendations, which are quite often transferrable to other workloads within the same customer as well. 
 
 # Application Assessment Checklist
 
@@ -38,26 +50,43 @@ These critical design principals are used as lenses to assess the {{ .pillarDisp
 ### {{ $subCategory.title }}
             {{ range $question := $questionsInSubCategory }}
 * {{ safeHTML $question.title }}
-
 {{ if $question.context }}
   _{{ safeHTML (trim $question.context " ") }}_
 {{- end -}}
-
-{{ if $question.recommendation }}
-  > {{ safeHTML (trim $question.recommendation " ") }}
+{{ if (and ($question.recommendation) ($question.recommendation.title)) }}
+  > {{ safeHTML (trim $question.recommendation.title " ") }}{{ if ($question.recommendation.context )}}
+  > 
+  > *{{ safeHTML (trim $question.recommendation.context " ") }}*{{- end -}}
 {{- end -}}
 {{ range $child := $question.children }}
     - {{ $child.title }}
-
 {{ if $child.context }}
       _{{ safeHTML (trim $child.context " ") }}_
-{{- end }}
-{{ if $child.recommendation }}
-      > {{ safeHTML (trim $child.recommendation " ") }}
 {{- end -}}
+{{ if (and ($child.recommendation) ($child.recommendation.title)) }}
+      > {{ safeHTML (trim $child.recommendation.title " ") }}{{ if ($child.recommendation.context )}}
+      > 
+      > *{{ safeHTML (trim $child.recommendation.context " ") }}*{{- end -}}
 {{- end -}}
+  {{ range $index, $link := $child.recommendation.links }}
+  {{ if (and (eq $index 0) ($link.title) ($link.url)) }}
+      Additional resources:
+  {{- end -}}
+  {{ if (and ($link.title) ($link.url)) }}
+        - [{{ safeHTML (trim $link.title " ")}}]({{ $link.url }})
+  {{- end -}}
+  {{- end -}}
+{{- end -}}
+  {{ range $index, $link := $question.recommendation.links }}
+  {{ if (and (eq $index 0) ($link.title) ($link.url)) }}
+    Additional resources:
+  {{- end -}}
+  {{ if (and ($link.title) ($link.url)) }}
+    - [{{ safeHTML (trim $link.title " ")}}]({{ $link.url }})
+  {{- end -}}
+  {{- end -}}
             {{- end -}}
         {{- end -}}
     {{- end }}
     {{- end }}
-{{- end -}}
+{{- end }}

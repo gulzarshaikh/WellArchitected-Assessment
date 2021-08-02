@@ -18,7 +18,7 @@
         "title": "Failure Mode Analysis"
       },
       {
-        "title": "Targets & Non Functional Requirements"
+        "title": "Targets & Non-Functional Requirements"
       },
       {
         "title": "Key Scenarios"
@@ -36,18 +36,27 @@
         "title": "Security Criteria & Data Classification"
       },
       {
-        "title": "Dependencies, frameworks and libraries"
+        "title": "Transactional"
+      },
+      {
+        "title": "Disaster Planning"
       }
     ]
   },
   {
-    "title": "Health Modelling",
+    "title": "Health Modelling & Monitoring",
     "subCategories": [
       {
         "title": "Application Level Monitoring"
       },
       {
-        "title": "Resource/Infrastructure Level Monitoring"
+        "title": "Resource and Infrastructure Level Monitoring"
+      },
+      {
+        "title": "Monitoring and Measurement"
+      },
+      {
+        "title": "Dependencies"
       },
       {
         "title": "Data Interpretation & Health Modelling"
@@ -59,21 +68,24 @@
         "title": "Alerting"
       },
       {
-        "title": "Monitoring and Measurement"
-      },
-      {
-        "title": "Auditing"
+        "title": "Performance Targets"
       }
     ]
   },
   {
-    "title": "Capacity & Service Availability",
+    "title": "Capacity & Service Availability Planning",
     "subCategories": [
+      {
+        "title": "Scalability & Capacity Model"
+      },
       {
         "title": "Service Availability"
       },
       {
-        "title": "Capacity"
+        "title": "Service SKU"
+      },
+      {
+        "title": "Efficiency"
       }
     ]
   },
@@ -120,11 +132,8 @@
     ]
   },
   {
-    "title": "Scalability & Performance",
+    "title": "Application Performance Management",
     "subCategories": [
-      {
-        "title": "App Performance"
-      },
       {
         "title": "Data Size/Growth"
       },
@@ -143,7 +152,16 @@
     "title": "Security & Compliance",
     "subCategories": [
       {
-        "title": "Identity and Access"
+        "title": "Compliance"
+      },
+      {
+        "title": "Separation of duties"
+      },
+      {
+        "title": "Control-plane RBAC"
+      },
+      {
+        "title": "Authentication and authorization"
       },
       {
         "title": "Security Center"
@@ -163,9 +181,6 @@
         "title": "Recovery & Failover"
       },
       {
-        "title": "Scalability & Capacity Model"
-      },
-      {
         "title": "Configuration & Secrets Management"
       },
       {
@@ -183,10 +198,10 @@
     "title": "Deployment & Testing",
     "subCategories": [
       {
-        "title": "Application Deployments"
+        "title": "Application Code Deployments"
       },
       {
-        "title": "Application Infrastructure Deployments & Infrastructure as Code (IaC)"
+        "title": "Application Infrastructure Provisioning"
       },
       {
         "title": "Build Environments"
@@ -204,9 +219,40 @@
       },
       {
         "title": "Roles & Responsibilities"
+      }
+    ]
+  },
+  {
+    "title": "Performance Testing",
+    "subCategories": [
+      {
+        "title": "Tools & Planning"
       },
       {
-        "title": "Common Engineering Criteria"
+        "title": "Benchmarking"
+      },
+      {
+        "title": "Load Capacity"
+      },
+      {
+        "title": "Troubleshooting"
+      }
+    ]
+  },
+  {
+    "title": "Governance",
+    "subCategories": [
+      {
+        "title": "Standards"
+      },
+      {
+        "title": "Financial Management & Cost Models"
+      },
+      {
+        "title": "Culture & Dynamics"
+      },
+      {
+        "title": "Licensing"
       }
     ]
   },
@@ -224,6 +270,9 @@
       },
       {
         "title": "Virtual Machines"
+      },
+      {
+        "title": "Functions"
       }
     ]
   },
@@ -241,6 +290,15 @@
       },
       {
         "title": "Azure Cache for Redis"
+      },
+      {
+        "title": "Azure Databricks"
+      },
+      {
+        "title": "Azure Database For PostgreSQL"
+      },
+      {
+        "title": "Azure Database For MySQL"
       }
     ]
   },
@@ -257,6 +315,9 @@
     "subCategories": [
       {
         "title": "Storage Accounts"
+      },
+      {
+        "title": "Disks"
       }
     ]
   },
@@ -284,16 +345,46 @@
     ]
   },
   {
-    "title": "Identity & Access Control",
+    "title": "Networking",
     "subCategories": [
       {
-        "title": "Separation of duties"
+        "title": "Azure Firewall"
       },
       {
-        "title": "Control-plane RBAC"
+        "title": "Network Virtual Appliances (NVA)"
       },
       {
-        "title": "Authentication and authorization"
+        "title": "Network Connectivity"
+      },
+      {
+        "title": "Azure Virtual Networks"
+      },
+      {
+        "title": "ExpressRoute"
+      },
+      {
+        "title": "Azure DNS"
+      },
+      {
+        "title": "Application Delivery (General)"
+      },
+      {
+        "title": "Azure Application Gateway v2"
+      },
+      {
+        "title": "Azure Front Door"
+      },
+      {
+        "title": "Azure Loadbalancer"
+      },
+      {
+        "title": "Traffic Manager"
+      },
+      {
+        "title": "API Management"
+      },
+      {
+        "title": "IP Addresses"
       }
     ]
   },
@@ -322,6 +413,17 @@
       },
       {
         "title": "Identity & Access Control"
+      }
+     ]
+  },
+  {
+    "title": "Monitoring",
+    "subCategories": [
+      {
+        "title": "Log Analytics Workspace"
+      },
+      {
+        "title": "Application Insights"
       }
     ]
   }

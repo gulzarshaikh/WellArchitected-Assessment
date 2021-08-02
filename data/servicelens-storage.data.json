@@ -1,172 +1,312 @@
 [
-    {
-        "type": "Design Considerations",
-        "pillars": [
-            "reliability",
-            "operationalexcellence",
-            "security"
-        ],
-        "lens": "service",
-        "category": "Storage",
-        "subCategory": "Storage Accounts",
-        "title": "Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only."
-    },
-    {
-        "type": "Design Considerations",
-        "pillars": [
-            "reliability",
-            "operationalexcellence",
-            "security"
-        ],
-        "lens": "service",
-        "category": "Storage",
-        "subCategory": "Storage Accounts",
-        "title": "Storage account names must be unique within Azure. No two storage accounts can have the same name."
-    },
-    {
-        "type": "Design Considerations",
-        "pillars": [
-            "reliability",
-            "operationalexcellence",
-            "security"
-        ],
-        "lens": "service",
-        "category": "Storage",
-        "subCategory": "Storage Accounts",
-        "title": "The current [SLA for Storage Accounts](https://azure.microsoft.com/support/legal/sla/storage/v1_5/) (v1.5, June 2019) specifies a 99.9% guarantee for LRS, ZRS and GRS accounts and a 99.99% guarantee for RA-GRS (provided that requests to RA-GRS switch to secondary endpoints if there is no success on the primary endpoint) to successfully process requests to **read data**. And at least 99.9% to successfully process requests to **write data**. SLAs for other storage tiers might differ. Go to [Azure Storage redundancy](https://docs.microsoft.com/azure/storage/common/storage-redundancy) to see which redundancy option is best for a specific scenario."
-    },
-    {
-        "type": "Configuration Recommendations",
-        "pillars": [
-            "operationalexcellence",
-            "security"
-        ],
-        "lens": "service",
-        "category": "Storage",
-        "subCategory": "Storage Accounts",
-        "title": "Enable Azure Defender for all of your storage accounts",
-        "context" : "Azure Defender for Azure Storage provides an additional layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit storage accounts. Security alerts are triggered in Azure Security Center when anomalies in activity occur and are also sent via email to subscription administrators, with details of suspicious activity and recommendations on how to investigate and remediate threats. For more information, see [Configure Azure Defender for Azure Storage](https://docs.microsoft.com/azure/storage/common/azure-defender-storage-configure)."
-    },
-    {
-        "type": "Design Considerations",
-        "pillars": [
-            "reliability",
-            "operationalexcellence"
-        ],
-        "lens": "service",
-        "category": "Storage",
-        "subCategory": "Storage Accounts",
-        "title": "General-purpose v1 storage accounts provide access to all Azure Storage services, but may not have the latest features or the lowest per gigabyte pricing. It is recommended to use general-purpose v2 storage accounts in most cases. Reasons to still use v1 are:\n   * Applications require the classic deployment model.\n   * Applications are transaction-intensive or use significant geo-replication bandwidth, but don't require large capacity.\n   * The use of a Storage Service REST API that is earlier than 2014-02-14 or a client library with a version lower than 4.x is required and an application upgrade is not possible.\n\n    See [Storage account overview](https://docs.microsoft.com/azure/storage/common/storage-account-overview) for more."
-    },
-    {
-        "type": "Configuration Recommendations",
-        "pillars": [
-            "reliability",
-            "operationalexcellence",
-            "security"
-        ],
-        "lens": "service",
-        "category": "Storage",
-        "subCategory": "Storage Accounts",
-        "title": "Turn on soft delete for blob data",
-        "context" : "[Soft delete for Azure Storage blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) enables you to recover blob data after it has been deleted."
-    },
-    {
-        "type": "Configuration Recommendations",
-        "pillars": [
-            "reliability",
-            "operationalexcellence",
-            "security"
-        ],
-        "lens": "service",
-        "category": "Storage",
-        "subCategory": "Storage Accounts",
-        "title": "Use Azure AD to authorize access to blob data",
-        "context" : "Azure AD provides superior security and ease of use over Shared Key for authorizing requests to Blob storage. It is recommended to use Azure AD authorization with your blob and queue applications when possible to minimize potential security vulnerabilities inherent in Shared Key. For more information, see [Authorize access to Azure blobs and queues using Azure Active Directory](https://docs.microsoft.com/azure/storage/common/storage-auth-aad).",
-        "children": [
-            {
-                "title": "Keep in mind the principal of least privilege when assigning permissions to an Azure AD security principal via Azure RBAC",
-                "context": "When assigning a role to a user, group, or application, grant that security principal only those permissions that are necessary for them to perform their tasks. Limiting access to resources helps prevent both unintentional and malicious misuse of your data."
-            },
-            {
-                "title": "Use Managed Identities to access blob and queue data",
-                "context" : "Azure Blob and Queue storage support Azure AD authentication with [managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Managed identities for Azure resources can authorize access to blob and queue data using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identities for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud as well as issues with expiring service principals. See [Authorize access to blob and queue data with managed identities for Azure resources](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-msi) for more information."
-            }
-        ]
-    },
-    {
-        "type": "Configuration Recommendations",
-        "pillars": [
-            "reliability",
-            "operationalexcellence",
-            "security"
-        ],
-        "lens": "service",
-        "category": "Storage",
-        "subCategory": "Storage Accounts",
-        "title": "Use blob versioning or immutable blobs to store business-critical data",
-        "context" : "Consider using [Blob versioning](https://docs.microsoft.com/azure/storage/blobs/versioning-overview) to automatically maintain previous versions of an object or the use of legal holds and time-based retention policies to store blob data in a WORM (Write Once, Read Many) state. Blobs stored immutably can be read, but cannot be modified or deleted for the duration of the retention interval. For more information, see [Store business-critical blob data with immutable storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage)."
-    },
-    {
-        "type": "Configuration Recommendations",
-        "pillars": [
-            "reliability",
-            "operationalexcellence",
-            "security"
-        ],
-        "lens": "service",
-        "category": "Storage",
-        "subCategory": "Storage Accounts",
-        "title": "Enable the Secure transfer required option on all of your storage accounts",
-        "context": "When you enable the Secure transfer required option, all requests made against the storage account must take place over secure connections. Any requests made over HTTP will fail. For more information, see [Require secure transfer in Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer).",
-        "children": [
-            {
-                "title": "Limit shared access signature (SAS) tokens to HTTPS connections only",
-                "context" : "Requiring HTTPS when a client uses a SAS token to access blob data helps to minimize the risk of eavesdropping. For more information, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)."                
-            },
-            {
-                "title": "Avoid/prevent using Shared Key authorization to access Storage Accounts",
-                "context": "It is recommended to use Azure AD to authorize requests to Azure Storage and possible to [prevent Shared Key Authorization](https://docs.microsoft.com/azure/storage/common/shared-key-authorization-prevent). For scenarios that require Shared Key authorization, always prefer SAS tokens over distributing the Shared Key."
-            },
-            {
-                "title": "Regenerate your account keys periodically",
-                "context": "Rotating the account keys periodically reduces the risk of exposing your data to malicious actors."
-            },
-            {
-                "title": "Have a revocation plan in place for any SAS that you issue to clients",
-                "context": "If a SAS is compromised, you will want to revoke that SAS as soon as possible. To revoke a user delegation SAS, revoke the user delegation key to quickly invalidate all signatures associated with that key. To revoke a service SAS that is associated with a stored access policy, you can delete the stored access policy, rename the policy, or change its expiry time to a time that is in the past."
-            },
-            {
-                "title": "Use near-term expiration times on an ad hoc SAS, service SAS or account SAS",
-                "context": "If a SAS is compromised, it's valid only for a short time. This practice is especially important if you cannot reference a stored access policy. Near-term expiration times also limit the amount of data that can be written to a blob by limiting the time available to upload to it. Clients should renew the SAS well before the expiration, in order to allow time for retries if the service providing the SAS is unavailable."
-            }
-        ]
-    },
-    {
-        "type": "Configuration Recommendations",
-        "pillars": [
-            "reliability",
-            "operationalexcellence",
-            "security"
-        ],
-        "lens": "service",
-        "category": "Storage",
-        "subCategory": "Storage Accounts",
-        "title": "Restrict default Internet access for Storage Accounts",
-        "context" : "By default network access to Storage Accounts is not restricted and open to all traffic coming from the Internet. Access to storage accounts should be granted to specific [Azure Virtual Networks only](https://docs.microsoft.com/azure/storage/common/storage-network-security) whenever possible or use [private endpoints](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) to allow clients on a virtual network (VNet) to securely access data over a [Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview). See [Use private endpoints for Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-private-endpoints) for more. Exception can be made for Storage Accounts that need to be accessible via the Internet.",
-        "children": [
-            {
-                "title": "Enable firewall rules",
-                "context": "Configure firewall rules to limit access to your storage account to requests that originate from specified IP addresses or ranges, or from a list of subnets in an Azure Virtual Network (VNet). For more information about configuring firewall rules, see [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security)."
-            },
-            {
-                "title": "Limit network access to specific networks",
-                "context": "[Limiting network access](https://docs.microsoft.com/azure/storage/common/storage-network-security) to networks hosting clients requiring access reduces the exposure of your resources to network attacks either by using the built-in [Firewall and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security) functionality or by using [private endpoints](https://docs.microsoft.com/azure/storage/common/storage-private-endpoints)."
-            },
-            {
-                "title": "Allow trusted Microsoft services to access the storage account",
-                "context": "Turning on firewall rules for storage accounts blocks incoming requests for data by default, unless the requests originate from a service operating within an Azure Virtual Network (VNet) or from allowed public IP addresses. Requests that are blocked include those from other Azure services, from the Azure portal, from logging and metrics services, and so on. You can permit requests from other Azure services by adding an exception to allow trusted Microsoft services to access the storage account. For more information about adding an exception for trusted Microsoft services, see [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security)."
-            }
-        ]
-    }
+  {
+    "id": "22ee3868-0cb1-42fe-a297-90dfddef9bb5",
+    "type": "Design Considerations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence",
+      "security"
+    ],
+    "lens": "service",
+    "category": "Storage",
+    "subCategory": "Storage Accounts",
+    "title": "Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only."
+  },
+  {
+    "id": "2984c033-3c92-46a0-ab12-c8df45ba896b",
+    "type": "Design Considerations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence",
+      "security"
+    ],
+    "lens": "service",
+    "category": "Storage",
+    "subCategory": "Storage Accounts",
+    "title": "Storage account names must be unique within Azure. No two storage accounts can have the same name."
+  },
+  {
+    "id": "43ea0f32-3af0-4e33-86e8-abf0f5a27fca",
+    "type": "Design Considerations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence",
+      "security"
+    ],
+    "lens": "service",
+    "category": "Storage",
+    "subCategory": "Storage Accounts",
+    "title": "The current [SLA for Storage Accounts](https://azure.microsoft.com/support/legal/sla/storage/v1_5/) (v1.5, June 2019) specifies a 99.9% guarantee for LRS, ZRS and GRS accounts and a 99.99% guarantee for RA-GRS (provided that requests to RA-GRS switch to secondary endpoints if there is no success on the primary endpoint) to successfully process requests to **read data**. And at least 99.9% to successfully process requests to **write data**. SLAs for other storage tiers might differ. Go to [Azure Storage redundancy](https://docs.microsoft.com/azure/storage/common/storage-redundancy) to see which redundancy option is best for a specific scenario."
+  },
+  {
+    "id": "3a40841c-170c-4abd-ba89-486cf36e1e47",
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "operationalexcellence",
+      "security"
+    ],
+    "lens": "service",
+    "category": "Storage",
+    "subCategory": "Storage Accounts",
+    "title": "Enable Azure Defender for all of your storage accounts",
+    "context": "Azure Defender for Azure Storage provides an additional layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit storage accounts. Security alerts are triggered in Azure Security Center when anomalies in activity occur and are also sent via email to subscription administrators, with details of suspicious activity and recommendations on how to investigate and remediate threats. For more information, see [Configure Azure Defender for Azure Storage](https://docs.microsoft.com/azure/storage/common/azure-defender-storage-configure)."
+  },
+  {
+    "id": "89cb3d6b-6453-414b-aaf3-0d3685935bb9",
+    "type": "Design Considerations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Storage",
+    "subCategory": "Storage Accounts",
+    "title": "General-purpose v1 storage accounts provide access to all Azure Storage services, but may not have the latest features or the lowest per gigabyte pricing. It is recommended to use general-purpose v2 storage accounts in most cases. Reasons to still use v1 are:\n   * Applications require the classic deployment model.\n   * Applications are transaction-intensive or use significant geo-replication bandwidth, but don't require large capacity.\n   * The use of a Storage Service REST API that is earlier than 2014-02-14 or a client library with a version lower than 4.x is required and an application upgrade is not possible.\n\n    See [Storage account overview](https://docs.microsoft.com/azure/storage/common/storage-account-overview) for more."
+  },
+  {
+    "id": "b7a8e290-0492-43fa-a3c0-25775240a949",
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence",
+      "security"
+    ],
+    "lens": "service",
+    "category": "Storage",
+    "subCategory": "Storage Accounts",
+    "title": "Turn on soft delete for blob data",
+    "context": "[Soft delete for Azure Storage blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) enables you to recover blob data after it has been deleted."
+  },
+  {
+    "id": "e61999af-64d2-4480-a98e-efefc2d95284",
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence",
+      "security"
+    ],
+    "lens": "service",
+    "category": "Storage",
+    "subCategory": "Storage Accounts",
+    "title": "Use Azure AD to authorize access to blob data",
+    "context": "Azure AD provides superior security and ease of use over Shared Key for authorizing requests to Blob storage. It is recommended to use Azure AD authorization with your blob and queue applications when possible to minimize potential security vulnerabilities inherent in Shared Key. For more information, see [Authorize access to Azure blobs and queues using Azure Active Directory](https://docs.microsoft.com/azure/storage/common/storage-auth-aad).",
+    "children": [
+      {
+        "id": "b2816efe-eeea-4716-842a-7518494ebab2",
+        "title": "Keep in mind the principal of least privilege when assigning permissions to an Azure AD security principal via Azure RBAC",
+        "context": "When assigning a role to a user, group, or application, grant that security principal only those permissions that are necessary for them to perform their tasks. Limiting access to resources helps prevent both unintentional and malicious misuse of your data."
+      },
+      {
+        "id": "0412b3bb-9371-488b-acba-bca7f2f135df",
+        "title": "Use Managed Identities to access blob and queue data",
+        "context": "Azure Blob and Queue storage support Azure AD authentication with [managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Managed identities for Azure resources can authorize access to blob and queue data using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identities for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud as well as issues with expiring service principals. See [Authorize access to blob and queue data with managed identities for Azure resources](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-msi) for more information."
+      }
+    ]
+  },
+  {
+    "id": "7f447eec-e71d-4519-ac2c-76ac4fb5a662",
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence",
+      "security"
+    ],
+    "lens": "service",
+    "category": "Storage",
+    "subCategory": "Storage Accounts",
+    "title": "Use blob versioning or immutable blobs to store business-critical data",
+    "context": "Consider using [Blob versioning](https://docs.microsoft.com/azure/storage/blobs/versioning-overview) to automatically maintain previous versions of an object or the use of legal holds and time-based retention policies to store blob data in a WORM (Write Once, Read Many) state. Blobs stored immutably can be read, but cannot be modified or deleted for the duration of the retention interval. For more information, see [Store business-critical blob data with immutable storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage)."
+  },
+  {
+    "id": "496252a4-402a-4dc8-838e-df6afaef6c8a",
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence",
+      "security"
+    ],
+    "lens": "service",
+    "category": "Storage",
+    "subCategory": "Storage Accounts",
+    "title": "Enable the Secure transfer required option on all of your storage accounts",
+    "context": "When you enable the Secure transfer required option, all requests made against the storage account must take place over secure connections. Any requests made over HTTP will fail. For more information, see [Require secure transfer in Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer).",
+    "children": [
+      {
+        "id": "00874d44-eca7-417d-9c31-61f18465ae51",
+        "title": "Limit shared access signature (SAS) tokens to HTTPS connections only",
+        "context": "Requiring HTTPS when a client uses a SAS token to access blob data helps to minimize the risk of eavesdropping. For more information, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)."
+      },
+      {
+        "id": "f5a396de-62e8-42dd-b316-6362e96e8e3a",
+        "title": "Avoid/prevent using Shared Key authorization to access Storage Accounts",
+        "context": "It is recommended to use Azure AD to authorize requests to Azure Storage and possible to [prevent Shared Key Authorization](https://docs.microsoft.com/azure/storage/common/shared-key-authorization-prevent). For scenarios that require Shared Key authorization, always prefer SAS tokens over distributing the Shared Key."
+      },
+      {
+        "id": "c380135d-94d3-4b94-a597-c223df1fa61c",
+        "title": "Regenerate your account keys periodically",
+        "context": "Rotating the account keys periodically reduces the risk of exposing your data to malicious actors."
+      },
+      {
+        "id": "59992c24-1ae5-4885-9f90-ab5b7564a462",
+        "title": "Have a revocation plan in place for any SAS that you issue to clients",
+        "context": "If a SAS is compromised, you will want to revoke that SAS as soon as possible. To revoke a user delegation SAS, revoke the user delegation key to quickly invalidate all signatures associated with that key. To revoke a service SAS that is associated with a stored access policy, you can delete the stored access policy, rename the policy, or change its expiry time to a time that is in the past."
+      },
+      {
+        "id": "1367d386-842d-4633-b4a8-1a4092014ffb",
+        "title": "Use near-term expiration times on an ad hoc SAS, service SAS or account SAS",
+        "context": "If a SAS is compromised, it's valid only for a short time. This practice is especially important if you cannot reference a stored access policy. Near-term expiration times also limit the amount of data that can be written to a blob by limiting the time available to upload to it. Clients should renew the SAS well before the expiration, in order to allow time for retries if the service providing the SAS is unavailable."
+      }
+    ]
+  },
+  {
+    "id": "893e2af5-f9c3-4ae2-8615-d96f8ca159c2",
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence",
+      "security"
+    ],
+    "lens": "service",
+    "category": "Storage",
+    "subCategory": "Storage Accounts",
+    "title": "Restrict default Internet access for Storage Accounts",
+    "context": "By default network access to Storage Accounts is not restricted and open to all traffic coming from the Internet. Access to storage accounts should be granted to specific [Azure Virtual Networks only](https://docs.microsoft.com/azure/storage/common/storage-network-security) whenever possible or use [private endpoints](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) to allow clients on a virtual network (VNet) to securely access data over a [Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview). See [Use private endpoints for Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-private-endpoints) for more. Exception can be made for Storage Accounts that need to be accessible via the Internet.",
+    "children": [
+      {
+        "id": "dd9a5592-254e-4c5e-8f96-7a0d89d91c7a",
+        "title": "Enable firewall rules",
+        "context": "Configure firewall rules to limit access to your storage account to requests that originate from specified IP addresses or ranges, or from a list of subnets in an Azure Virtual Network (VNet). For more information about configuring firewall rules, see [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security)."
+      },
+      {
+        "id": "fef8f60a-448a-43da-9506-ccf026121e97",
+        "title": "Limit network access to specific networks",
+        "context": "[Limiting network access](https://docs.microsoft.com/azure/storage/common/storage-network-security) to networks hosting clients requiring access reduces the exposure of your resources to network attacks either by using the built-in [Firewall and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security) functionality or by using [private endpoints](https://docs.microsoft.com/azure/storage/common/storage-private-endpoints)."
+      },
+      {
+        "id": "b7cce39c-6364-44b1-9ebb-6dc24ab4a9a5",
+        "title": "Allow trusted Microsoft services to access the storage account",
+        "context": "Turning on firewall rules for storage accounts blocks incoming requests for data by default, unless the requests originate from a service operating within an Azure Virtual Network (VNet) or from allowed public IP addresses. Requests that are blocked include those from other Azure services, from the Azure portal, from logging and metrics services, and so on. You can permit requests from other Azure services by adding an exception to allow trusted Microsoft services to access the storage account. For more information about adding an exception for trusted Microsoft services, see [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security)."
+      }
+    ]
+  },
+  {
+    "id": "17379ea8-c612-457a-8a50-be1f8ea5761f",
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "costoptimization"
+    ],
+    "lens": "service",
+    "category": "Storage",
+    "subCategory": "Storage Accounts",
+    "title": "Consider cost savings of reserving data capacity for block blob storage.",
+    "context": "Money can be saved by reserving capacity for block blob and for Azure Data Lake Storage gen 2 data in standard storage account when customer commits to 1 or 3 years reservation."
+  },
+  {
+    "id": "cb0d8e1d-f212-41d1-bf5c-db610a47a809",
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "costoptimization"
+    ],
+    "lens": "service",
+    "category": "Storage",
+    "subCategory": "Disks",
+    "title": "Consider using Premium disks (P30 & above).",
+    "context": "Premium Disks (P30 & above) can be reserved (1 or 3 years) at discounted price."
+  },
+  {
+    "id": "7e9cc9b1-5881-4611-a66b-f394b6757b74",
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "costoptimization"
+    ],
+    "lens": "service",
+    "category": "Storage",
+    "subCategory": "Storage Accounts",
+    "title": "Organize data into access tiers.",
+    "context": "You can reduce cost by placing blob data into the most cost-effective access tier. Place frequently accessed data in hot tier, less frequent in cold or archive tier. Use Premium storage for workloads with high transaction volumes or ones where latency is critical."
+  },
+  {
+    "id": "0e3c9932-156b-4b04-b2ae-962854694f06",
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "costoptimization"
+    ],
+    "lens": "service",
+    "category": "Storage",
+    "subCategory": "Storage Accounts",
+    "title": "Use lifecycle policy to move data between access tiers.",
+    "context": "Lifecycle management policy periodically moves data between tiers. Policies can move data based on rules that specified by the user. For example, you might create rules that move blobs to the archive tier if that blob has not been modified in 90 days. Unused data can be also completely removed using a policy. By creating policies that adjust the access tier of your data, you can design the least expensive storage options for your need. "
+  },
+  {
+    "id": "1b6744e7-50e4-47a8-9ba1-480af25e1171",
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "costoptimization"
+    ],
+    "lens": "service",
+    "category": "Storage",
+    "subCategory": "Disks",
+    "title": "Utilize bursting for P20 and below disks for workloads such as batch jobs, workloads which handle traffic spikes, and for improving OS boot time.",
+    "context": "Azure Disks offer variety of SKUs and sizes to satisfy different workload requirements. Some of the more recent features could help further optimize cost-performance of existing disk use cases. Firstly, you can leverage disk bursting for Premium (disks P20 and below). Example scenarios that could benefit from this feature are improving OS boot time, handling batch jobs and handling traffic spikes. "
+  },
+  {
+    "id": "f0ca08b7-fc52-49bf-b445-ed48daebfabe",
+    "type": "Design Considerations",
+    "pillars": [
+      "costoptimization"
+    ],
+    "lens": "service",
+    "category": "Storage",
+    "subCategory": "Disks",
+    "title": "Leverage shared disk for workload such SQL server failover cluster instance (FCI), file server for general use (IW workload) and SAP ASCS/SCS.",
+    "context": "You can leverage shared disks (in preview as of 11/2020) to enable cost-effective clustering instead of setting up own shared disks via S2D (Storage Spaces Direct). Sample workloads that would benefit from shared disks are: SQL Server Failover Cluster Instances (FCI), Scale-out File Server (SoFS), File Server for General Use (IW workload) and SAP ASCS/SCS."
+  },
+  {
+    "id": "76997b60-45c5-4279-9e04-70a2dedbdfbb",
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "costoptimization"
+    ],
+    "lens": "service",
+    "category": "Storage",
+    "subCategory": "Disks",
+    "title": "Configure data and log files on different disks for database workloads.",
+    "context": "You can optimize IaaS DB workload performance by configuring system, data and log files to be on different disk SKUs (leveraging Premium Disks for data and Ultra Disks for logs satisfies most production scenarios). Further, Ultra Disk cost/performance can be optimized by taking advantage of the ability to configure capacity, IOPS and throughput independently; and ability to dynamically configure these attributes. Example workloads are SQL on IaaS, Cassandra DB, Maria DB, MySql and Mongo DB on IaaS."
+  },
+  {
+    "id": "4fac087a-9aac-45c1-bf10-4c0311ea243d",
+    "type": "Design Considerations",
+    "pillars": [
+      "costoptimization"
+    ],
+    "lens": "service",
+    "category": "Storage",
+    "subCategory": "Storage Accounts",
+    "title": "Periodically dispose and clean up unused storage resources (e.g. unattached disks, old snapshots).",
+    "context": "Unused storage resources can incur cost and its good idea to regularly perform cleanup to reduce cost."
+  },
+  {
+    "id": "d463b8a4-cb70-4343-b89c-831356a12e80",
+    "type": "Design Considerations",
+    "pillars": [
+      "costoptimization"
+    ],
+    "lens": "service",
+    "category": "Storage",
+    "subCategory": "Disks",
+    "title": "Consider selective disk backup and restore for Azure VMs.",
+    "context": "Using the selective disks backup and restore functionality, you can back up a subset of the data disks in a VM. This provides an efficient and cost-effective solution for your backup and restore needs."
+  },
+  {
+    "id": "23a6e19d-6d0f-4e5c-a34b-bd3b42377eaa",
+    "type": "Design Considerations",
+    "pillars": [
+      "costoptimization"
+    ],
+    "lens": "service",
+    "category": "Storage",
+    "subCategory": "Storage Accounts",
+    "title": "Azure Blob access time tracking and access time-based lifecycle management",
+    "context": "(in preview as of 11/2020) Minimize your storage cost automatically by setting up a policy based on last access time to: cost-effective backup storage options. Transition your data from a hotter access tier to a cooler access tier (hot to cool, cool to archive, or hot to archive) if there is no access for a period. Delete your data if there is no access for an extended period."
+  }
 ]
