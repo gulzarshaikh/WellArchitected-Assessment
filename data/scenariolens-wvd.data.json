@@ -116,7 +116,7 @@
         "id": "2a94bff5-41db-4f67-b1d3-a5cc5842aa42"
       },
       {
-        "title": "WVD Users must be sourced from the same Active Directory Domain Service (ADDS) that is synchronising to Azure AD. WVD Does not support B2B or Microsoft Accounts",
+        "title": "WVD Users must be sourced from the same Active Directory Domain Service (ADDS) that is synchronising to Azure AD. WVD does not support B2B or Microsoft Accounts",
         "context": "Synchronize all identities to a single Azure AD using Azure AD Connect",
         "id": "2f57a2f4-5cae-40f2-9f78-db5c118e7bad"
       },
