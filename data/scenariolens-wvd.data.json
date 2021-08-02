@@ -8,7 +8,11 @@
         "category": "WVD",
         "subCategory": "FSLogix",
         "title": "[FSLogix](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix) technology allows for users profiles to be stored in a central location and accessed by WVD Session Hosts, side loading the disks in a seamless manner. If using a solution where your users can sign into different Windows Virtual Desktop Session Hosts (Multi-session for example), [FSLogix](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix) should be used to centralize users' profiles.",
-        "recommendation": "Review your central profile store architecture and incorporate FSLogix if you are using multi-session",
+        "recommendation": {
+            "title": "Review your central profile store architecture and incorporate FSLogix if you are using multi-session",
+            "context": "",
+            "links": []          
+        },  
         "children": [
             {
                 "title": "(Storage) Storage requirements should be optimized for performance in the Windows Virtual Desktop service",
@@ -53,7 +57,11 @@
         "category":"WVD",
         "subCategory": "Networking & Connectivity",
         "title": "Placement of your Windows Virtual Desktop session hosts in your network is a key consideration and should be included in your design",
-        "recommendation": "WVD Session Hosts have to exist on a Virtual Network so Virtual Network/Subnet configuration will have to be considered. We have [example scenario architecture](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop#architecture) which can help visualize network connectivity.",
+        "recommendation": {
+            "title": "WVD Session Hosts have to exist on a Virtual Network so Virtual Network/Subnet configuration will have to be considered. We have [example scenario architecture](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop#architecture) which can help visualize network connectivity.",
+            "context": "",
+            "links": []
+        },
         "children":[
             {
                 "title": "Active Directory Domain Services line of site",
@@ -82,7 +90,11 @@
         "category":"WVD",
         "subCategory": "Identity & Access Control",
         "title": "Windows Virtual Desktop requires that there is a hybrid identity solution implemented",
-        "recommendation": "The hybrid identity solution in this instance would be Azure AD Connect",
+        "recommendation": {
+            "title": "The hybrid identity solution in this instance would be Azure AD Connect",
+            "context": "",
+            "links": []
+        }, 
         "children":[
             {
                 "title": "Set up  [Azure AD Connect](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/whatis-azure-ad-connect).",
@@ -119,7 +131,11 @@
         "category":"WVD",
         "subCategory": "Management & Monitoring",
         "title": "Managing and monitoring any Azure service is a core component from an operations standpoint which is why this is included in Design Considerations",
-        "recommendation": "Azure Monitor, Azure Log Analytics and Azure Management tools generally available",
+        "recommendation": {
+            "title": "Azure Monitor, Azure Log Analytics and Azure Management tools generally available",
+            "context": "",
+            "links": [],
+        },
         "children":[
             {
                 "title": "Windows Virtual Desktop service logs should be integrated into Azure Monitor Log Analytics",
