@@ -67,7 +67,7 @@
     "subCategory": "Networking & Connectivity",
     "title": "Placement of your Windows Virtual Desktop session hosts in your network is a key consideration and should be included in your design",
     "recommendation": {
-      "title": "WVD Session Hosts have to exist on a Virtual Network so Virtual Network/Subnet configuration will have to be considered. We have [example scenario architecture](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop#architecture) which can help visualize network connectivity.",
+      "title": "WVD Session Hosts have to exist on a Virtual Network so Virtual Network/Subnet configuration will have to be considered. We have [example scenario architecture](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop#architecture) which can help visualize network connectivity.",
       "context": "",
       "links": []
     },
