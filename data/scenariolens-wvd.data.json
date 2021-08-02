@@ -170,7 +170,7 @@
       },
       {
         "title": "Enable Azure Monitor for WIndows Virtual Desktop",
-        "context": "[Azure Monitor for Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/azure-monitor) can be used to find and troubleshoot problems in deployments, view the status and health of host pools, diagnose user feedback and understand resource utilization.  ",
+        "context": "[Azure Monitor for Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/azure-monitor) can be used to find and troubleshoot problems in deployments, view the status and health of host pools, diagnose user feedback and understand resource utilization.",
         "id": "a35636ec-8d49-4d6f-a477-3384c59a7cc6"
       },
       {
