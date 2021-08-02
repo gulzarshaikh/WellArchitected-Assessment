@@ -41,7 +41,7 @@
       },
       {
         "title": "Backup solution for the chosen storage service that FSLogix will be using",
-        "context": "It is just as vital to implement a backup solution next to your disaster recovery solution. [Azure NetApps Files supports scheduled snapshots](https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-manage-snapshots) and Azure Backup should be considered for [File Shares(https://docs.microsoft.com/en-us/azure/backup/azure-file-share-backup-overview)]",
+        "context": "It is just as vital to implement a backup solution next to your disaster recovery solution. [Azure NetApps Files supports scheduled snapshots](https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-manage-snapshots) and Azure Backup should be considered for [File Shares](https://docs.microsoft.com/en-us/azure/backup/azure-file-share-backup-overview)",
         "id": "caaadea9-d365-4b31-bf37-02b0db301fa3"
       },
       {
