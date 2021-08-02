@@ -17,7 +17,7 @@
                                 
                             
   - Configure the necessary performance counters for your monitoring services
-    > We recommend enabling [performance counters for WVD](https://docs.microsoft.com/en-gb/azure/virtual-desktop/azure-monitor#set-up-performance-counters). Azure Monitor for Windows Virtual Desktop is currently in public preview so should not be used for production workloads.
+    > We recommend enabling [performance counters for WVD](https://docs.microsoft.com/azure/virtual-desktop/azure-monitor#set-up-performance-counters). Azure Monitor for Windows Virtual Desktop is currently in public preview so should not be used for production workloads.
                                 
                             
   - Windows Virtual Desktop Session Hosts should be backed up (when not using auto-scale/pooled)
