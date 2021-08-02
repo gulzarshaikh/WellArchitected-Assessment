@@ -17,11 +17,15 @@
                                 
                             
   - Configure the necessary performance counters for your monitoring services
-    > We recommend enabling [performance counters for WVD](https://docs.microsoft.com/azure/virtual-desktop/azure-monitor#set-up-performance-counters). Azure Monitor for Windows Virtual Desktop is currently in public preview so should not be used for production workloads.
+    > It is recommended to enable [performance counters for WVD](https://docs.microsoft.com/azure/virtual-desktop/azure-monitor#set-up-performance-counters)
+                                
+                            
+  - Enable Azure Monitor for WIndows Virtual Desktop
+    > [Azure Monitor for Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/azure-monitor) can be used to find and troubleshoot problems in deployments, view the status and health of host pools, diagnose user feedback and understand resource utilization.  
                                 
                             
   - Windows Virtual Desktop Session Hosts should be backed up (when not using auto-scale/pooled)
-    > [WVD Session Hosts backed up](https://github.com/Azure/RDS-Templates/tree/master/EnableBackupScript) can be used to back up WVD Session Hosts
+    > WVD [EnableBackupScript](https://github.com/Azure/RDS-Templates/tree/master/EnableBackupScript) can be used to back up WVD Session Hosts
                                 
                             
 ## FSLogix
@@ -94,7 +98,7 @@
                                 
                             
   - Specifying the Organizational Unit (OU) that WVD Session Hosts will reside in
-    > Segregate the WVD Session Host Virtual Machines (VMs) into Active Directory OUs (Organizational Units) for each host pool to manage policies and orphaned objects
+    > Segregate the WVD Session Host Virtual Machines (VMs) into Active Directory Organizational Units (OUs) for each host pool to manage policies and orphaned objects
                                 
                             
   - Follow the principle of least privilege
