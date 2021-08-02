@@ -111,7 +111,7 @@
     },
     "children": [
       {
-        "title": "Set up  [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-azure-ad-connect).",
+        "title": "Set up [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-azure-ad-connect).",
         "context": "This is a prerequisite for Windows Virtual Desktop. This is required to translate the user signing into the WVD Management plane via Azure AD to the user in the Active Directory forest",
         "id": "2a94bff5-41db-4f67-b1d3-a5cc5842aa42"
       },
