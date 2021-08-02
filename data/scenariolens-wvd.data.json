@@ -16,7 +16,7 @@
     "children": [
       {
         "title": "(Storage) Storage requirements should be optimized for performance in the Windows Virtual Desktop service",
-        "context": "[Storage sizing for Azure Files and Azure NetApp Files](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix#performance-requirements) need to align with IOPS Requirements",
+        "context": "[Storage sizing for Azure Files and Azure NetApp Files](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix#performance-requirements) needs to align with IOPS Requirements",
         "id": "10fd7357-e5d3-4a22-b5e8-5fe698651ab6"
       },
       {
