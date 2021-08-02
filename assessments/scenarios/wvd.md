@@ -40,7 +40,7 @@
                                 
                             
   - The chosen storage service for FSLogix
-    > Azure Files ([Azure AD Domain Services](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-profile-container-adds) or [Active Directory Domain Services](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-file-share), [Azure NetApp Files](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-fslogix-profile-container), [VM-based file share](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-host-pools-user-profile)
+    > Azure Files ([Azure AD Domain Services](https://docs.microsoft.com/azure/virtual-desktop/create-profile-container-adds) or [Active Directory Domain Services](https://docs.microsoft.com/azure/virtual-desktop/create-file-share), [Azure NetApp Files](https://docs.microsoft.com/azure/virtual-desktop/create-fslogix-profile-container), [VM-based file share](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-user-profile)
                                 
                             
   - [FSLogix Cloud Cache](https://docs.microsoft.com/en-us/fslogix/cloud-cache-resiliency-availability-cncpt) for Business Continuity &amp; Disaster Recovery
