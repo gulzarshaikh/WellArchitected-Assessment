@@ -2,9 +2,9 @@
 
 # Overview
 
-This Well-Architected Assessment has been produced to help identify key optimizations for applications built on Azure, providing key recommendations to better serve Microsoft customers.
+This Well-Architected Assessment has been produced to help the global CE&S community to identify key optimizations for applications built on Azure, providing key recommendations to better serve our customers.
 
-More specifically, it has been developed to help structure and frame Well-Architected Assessments by providing review questions and consolidated best-practice technical guidance aligned to the [Microsoft Azure Well-Architected Framework](https://docs.microsoft.com/azure/architecture/framework/).
+More specifically, it has been developed to help structure and frame Microsoft-driven Well-Architected Assessments by providing review questions and consolidated best-practice technical guidance aligned to the [Microsoft Azure Well-Architected Framework](https://docs.microsoft.com/azure/architecture/framework/).
 
 The assessment guidance contained within this repo is presented through the scope of each individual Well-Architected tenet (Cost Optimization, Operational Excellence, Performance Efficiency, Reliability, and Security), as well as across all tenets as a 'Go-Live' assessment.
 For each scoped assessment, the content is structured through three technical lenses:
