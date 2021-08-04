@@ -1,4 +1,4 @@
-# Go Live - Application Assessment
+# Go-Live Assessment - Application View
 
 {{- $pillars := (slice "reliability" "operationalexcellence" "costoptimization" "security" "performanceefficiency") }}
 
