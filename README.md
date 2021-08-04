@@ -20,7 +20,7 @@ For each scoped assessment, the content is structured through three technical le
 ## Pillars
 ||||
 | --- | --- | --- |
-| [**Go-Live**](./assessments/golive/overview.md) | Application | Service |
+| [**Go-Live**](./assessments/golive/overview.md) | [Application](./assessments/golive/application.md) | [Service](assessments/golive/service.md) |
 | [**Reliability**](./assessments/reliability/overview.md) | [Application](./assessments/reliability/application.md) | [Service](assessments/reliability/service.md) |
 | [**Operational Excellence**](./assessments/operationalexcellence/overview.md) | [Application](./assessments/operationalexcellence/application.md) | [Service](./assessments/operationalexcellence/service.md) | Scenario |
 | [**Security**](./assessments/security/overview.md) | [Application](./assessments/security/application.md) | [Service](./assessments/security/service.md) |
