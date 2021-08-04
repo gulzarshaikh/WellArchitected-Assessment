@@ -20,17 +20,25 @@ For each scoped assessment, the content is structured through three technical le
 ## Pillars
 ||||
 | --- | --- | --- |
-| [**Go-Live**](./assessments/golive/overview.md) | [Application](./assessments/golive/application.md) | [Service](assessments/golive/service.md) |
 | [**Reliability**](./assessments/reliability/overview.md) | [Application](./assessments/reliability/application.md) | [Service](assessments/reliability/service.md) |
 | [**Operational Excellence**](./assessments/operationalexcellence/overview.md) | [Application](./assessments/operationalexcellence/application.md) | [Service](./assessments/operationalexcellence/service.md) | Scenario |
 | [**Security**](./assessments/security/overview.md) | [Application](./assessments/security/application.md) | [Service](./assessments/security/service.md) |
 | [**Cost Optimization**](./assessments/costoptimization/overview.md) | [Application](./assessments/costoptimization/application.md) | [Service](./assessments/costoptimization/service.md) |
 | [**Performance Efficiency**](./assessments/performance/overview.md) | [Application](./assessments/performance/application.md) | [Service](./assessments/performance/service.md) |
+| <img width=200>| | |
+
+## Tailored Assessments
 ||||
+| --- | --- | --- |
+| [**Go-Live**](./assessments/golive/overview.md) | [Application](./assessments/golive/application.md) | [Service](assessments/golive/service.md) |
+| <img width=200>| | |
 
 ## Scenarios
-- [**SAP**](./assessments/scenarios/sap.md)
-- **IoT**
+||||
+| --- | --- | --- |
+| **SAP** | [Assessment](./assessments/scenarios/sap.md)
+| **IoT**
+| <img width=200>| | |
 
 # Repository Structure
 
