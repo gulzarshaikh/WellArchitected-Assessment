@@ -17,21 +17,19 @@ For each scoped assessment, the content is structured through three technical le
 
 # Assessment Navigation
 
-## Pillars
-||||
-| --- | --- | --- |
-| [**Go-Live**](./assessments/golive/overview.md) | Application | Service |
-| [**Reliability**](./assessments/reliability/overview.md) | [Application](./assessments/reliability/application.md) | [Service](assessments/reliability/service.md) |
-| [**Operational Excellence**](./assessments/operationalexcellence/overview.md) | [Application](./assessments/operationalexcellence/application.md) | [Service](./assessments/operationalexcellence/service.md) | Scenario |
-| [**Security**](./assessments/security/overview.md) | [Application](./assessments/security/application.md) | [Service](./assessments/security/service.md) |
-| [**Cost Optimization**](./assessments/costoptimization/overview.md) | [Application](./assessments/costoptimization/application.md) | [Service](./assessments/costoptimization/service.md) |
-| [**Performance Efficiency**](./assessments/performance/overview.md) | [Application](./assessments/performance/application.md) | [Service](./assessments/performance/service.md) |
-||||
-
-## Scenarios
-- [**WVD**](./assessments/scenarios/wvd.md)
-- [**SAP**](./assessments/scenarios/sap.md)
-- **IoT**
+| **Pillars** | | |
+|--- | --- | --- |
+| [Reliability](./assessments/reliability/overview.md)| [Application](./assessments/reliability/application.md) | [Service](assessments/reliability/service.md) |
+| [Operational Excellence](./assessments/operationalexcellence/overview.md) | [Application](./assessments/operationalexcellence/application.md) | [Service](./assessments/operationalexcellence/service.md) | Scenario |
+| [Security](./assessments/security/overview.md) | [Application](./assessments/security/application.md) | [Service](./assessments/security/service.md) |
+| [Cost Optimization](./assessments/costoptimization/overview.md) | [Application](./assessments/costoptimization/application.md) | [Service](./assessments/costoptimization/service.md) |
+| [Performance Efficiency](./assessments/performance/overview.md) | [Application](./assessments/performance/application.md) | [Service](./assessments/performance/service.md) |
+| <br />**Tailored Assessments** | | |
+| [Go-Live](./assessments/golive/overview.md) | [Application](./assessments/golive/application.md) | [Service](assessments/golive/service.md) |
+| <br />**Scenarios** |  |
+| SAP | [Assessment](./assessments/scenarios/sap.md) | - |
+| WVD | [Assessment](./assessments/scenarios/wvd.md) | - |
+| IoT | (in development) | - |
 
 # Repository Structure
 
