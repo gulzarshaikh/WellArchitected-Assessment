@@ -55,12 +55,12 @@
     > It is just as vital to implement a backup solution next to your disaster recovery solution. [Azure NetApps Files supports scheduled snapshots](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-manage-snapshots) and Azure Backup should be considered for [File Shares](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview)
                                 
                             
-  - Design your storage to reside as close as possible to your session hosts
+  - Design your profile storage solution to reside in the same Azure region as your session hosts, if not the next closest region
     > This increases performance and latency for a better end user experience
                                 
                             
   - Exclude user profile VHD(x) from AV and malware scans
-    > All files inside the VHD would be scanned on demand
+    > All files inside the VHD will be scanned on demand
                                 
                             
 ## Networking &amp; Connectivity
@@ -86,7 +86,7 @@
 ### Design Considerations
 * Windows Virtual Desktop requires that there is a hybrid identity solution implemented
   - Set up [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-azure-ad-connect).
-    > This is a prerequisite for Windows Virtual Desktop. This is required to translate the user signing into the WVD Management plane via Azure AD to the user in the Active Directory forest
+    > This is a prerequisite for Windows Virtual Desktop. This is required to translate the user signing into the WVD Management plane via Azure AD to the user in the Active Directory forest. Azure AD Join only is supported, but as of time of writing is in Public Preview.
                                 
                             
   - WVD Users must be sourced from the same Active Directory Domain Service (ADDS) that is synchronising to Azure AD. WVD does not support B2B or Microsoft Accounts
