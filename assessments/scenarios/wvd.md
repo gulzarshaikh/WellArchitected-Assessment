@@ -1,4 +1,4 @@
-# Scenario Windows Virtual Deskop
+# Scenario Azure Virtual Deskop
 
 # Navigation Menu
 
