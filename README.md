@@ -2,11 +2,12 @@
 
 # Overview
 
-This Well-Architected Assessment has been produced to help the global CE&S community to identify key optimizations for applications built on Azure, providing key recommendations to better serve our customers.
+This Well-Architected Assessment repo has been produced to help identify key optimizations for applications built on Azure, providing key recommendations to better serve Microsoft customers.
 
-More specifically, it has been developed to help structure and frame Microsoft-driven Well-Architected Assessments by providing review questions and consolidated best-practice technical guidance aligned to the [Microsoft Azure Well-Architected Framework](https://docs.microsoft.com/azure/architecture/framework/).
+More specifically, it has been developed to help structure and frame Well-Architected Assessments by providing review questions and consolidated best-practice technical guidance aligned to the [Microsoft Azure Well-Architected Framework](https://docs.microsoft.com/azure/architecture/framework/).
 
-The assessment guidance contained within this repo is presented through the scope of each individual Well-Architected tenet (Cost Optimization, Operational Excellence, Performance Efficiency, Reliability, and Security), as well as across all tenets as a 'Go-Live' assessment.
+The assessment guidance contained within this repo is presented through the scope of each individual Well-Architected tenet (Cost Optimization, Operational Excellence, Performance Efficiency, Reliability, and Security), as well as across all tenets as a 'Go-Live' assessment encompassing all five tenets
+.
 For each scoped assessment, the content is structured through three technical lenses:
 
 * _Application_: Provides end-to-end review guidance and questions for application assessments across all relevant technical domains
@@ -48,7 +49,7 @@ There are several ways to contribute to this project.
 
 ## Add Content
 
-This is a community maintained inner-source project with active members across the field and engineering. We welcome all contributions to the content, from additional questions and guidance to fixes for spelling errors and typos.
+This is a community maintained project with active members within the Microsoft Azure field and engineering organizations. We welcome all contributions to the content, from additional questions and guidance to fixes for spelling errors and typos.
 
 If you have content you would like to add, please feel free to contribute by creating a Pull Request, or by making the wider team aware of potential gaps by creating an Issue.
 
@@ -63,8 +64,6 @@ By default the content is generated into Markdown using [Hugo](https://gohugo.io
 ## Build Your Own Output
 
 Assessment markdown guidance for each individual tenet and all tenets combined is generated automatically using GitHub Actions. However, if you wish to build the content on a local machine, you can do so using the Hugo generator with proper configuration; see the Action definition for inspiration.
-
-## TODO: Community
 
 ## Disclaimer
 
