@@ -35,7 +35,7 @@
         "id": "196806be-9bba-4c1a-840f-21295381d2b5"
       },
       {
-        "title": "[FSLogix Cloud Cache](https://docs.microsoft.com/en-us/fslogix/cloud-cache-resiliency-availability-cncpt) for Business Continuity & Disaster Recovery",
+        "title": "[FSLogix Cloud Cache](https://docs.microsoft.com/fslogix/cloud-cache-resiliency-availability-cncpt) for Business Continuity & Disaster Recovery",
         "context": "FSLogix Cloud Cache is used for best practice failover and quick recovery scenarios",
         "id": "ff539c70-e892-46a8-ab7c-9a65a12dc411"
       },
@@ -67,14 +67,14 @@
     "subCategory": "Networking & Connectivity",
     "title": "Placement of your Azure Virtual Desktop session hosts in your network is a key consideration and should be included in your design",
     "recommendation": {
-      "title": "AVD Session Hosts have to exist on a Virtual Network so Virtual Network/Subnet configuration will have to be considered. We have [example scenario architecture](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop#architecture) which can help visualize network connectivity.",
+      "title": "AVD Session Hosts have to exist on a Virtual Network so Virtual Network/Subnet configuration will have to be considered. There is an [example scenario architecture](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop#architecture) which can help visualize network connectivity.",
       "context": "",
       "links": []
     },
     "children": [
       {
         "title": "Active Directory Domain Services line of site",
-        "context": "For AVD Session Hosts to join onto your Active Directory domain, the Virtual Network they reside on should be able to resolve your Active Directory domain name. It is strongly recommended to extend and build [Domain Controllers in Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/identity/adds-extend-domain).",
+        "context": "For AVD Session Hosts to join an Active Directory domain, the Virtual Network they reside on should be able to resolve your Active Directory domain name. It is strongly recommended to extend and build [Domain Controllers in Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/identity/adds-extend-domain).",
         "id": "01d9cd3a-5c03-492a-8a2c-06b350d13532"
       },
       {
@@ -84,7 +84,7 @@
       },
       {
         "title": "Application workload line of sight from your AVD Session Host(s)",
-        "context": "Some application workloads may not be running in Azure which means that AVD will require access to third party datacenters (ExpressRoute, site-to-site VPN). It is recommended to migrate applications and workloads accessed by AVD into Azure as close to the AVD environment as possible following [Enterprise Scale Landing Zone guidance](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/).",
+        "context": "Some application workloads may not be running in Azure which means that AVD will require access to third party datacenters (ExpressRoute, site-to-site VPN). It is recommended to migrate applications and workloads accessed by AVD into Azure as close to the AVD environment as possible following the [Enterprise Scale Landing Zone guidance](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/).",
         "id": "527ce6be-5a2f-4f97-a4e4-5e918547270b"
       },
       {
@@ -112,11 +112,11 @@
     "children": [
       {
         "title": "Set up [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-azure-ad-connect).",
-        "context": "This is a prerequisite for Azure Virtual Desktop. This is required to translate the user signing into the AVD Management plane via Azure AD to the user in the Active Directory forest",
+        "context": "This is a prerequisite for Azure Virtual Desktop. This is required to translate the user signing into the AVD Management plane via Azure AD to the user in the Active Directory forest.",
         "id": "2a94bff5-41db-4f67-b1d3-a5cc5842aa42"
       },
       {
-        "title": "AVD Users must be sourced from the same Active Directory Domain Service (ADDS) that is synchronising to Azure AD. AVD does not support B2B or Microsoft Accounts",
+        "title": "AVD Users must be sourced from the same Active Directory Domain Service (ADDS) that is synchronising to Azure AD. AVD does not support B2B or Microsoft Accounts.",
         "context": "Synchronize all identities to a single Azure AD using Azure AD Connect",
         "id": "2f57a2f4-5cae-40f2-9f78-db5c118e7bad"
       },
