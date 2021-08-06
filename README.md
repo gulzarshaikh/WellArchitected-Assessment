@@ -29,7 +29,7 @@ For each scoped assessment, the content is structured through three technical le
 | [Go-Live](./assessments/golive/overview.md) | [Application](./assessments/golive/application.md) | [Service](assessments/golive/service.md) |
 | <br />**Scenarios** |  |
 | SAP | [Assessment](./assessments/scenarios/sap.md) | - |
-| WVD | [Assessment](./assessments/scenarios/wvd.md) | - |
+| AVD | [Assessment](./assessments/scenarios/avd.md) | - |
 | IoT | (in development) | - |
 
 # Repository Structure
