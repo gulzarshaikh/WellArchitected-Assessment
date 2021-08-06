@@ -2,12 +2,12 @@
   {
     "type": "Design Considerations",
     "pillars": [
-      "scenario/wvd"
+      "scenario/AVD"
     ],
     "lens": "scenario",
-    "category": "WVD",
+    "category": "AVD",
     "subCategory": "FSLogix",
-    "title": "[FSLogix](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix) technology allows for users profiles to be stored in a central location and accessed by WVD Session Hosts, side loading the disks in a seamless manner. If using a solution where your users can sign into different Windows Virtual Desktop Session Hosts (Multi-session for example), [FSLogix](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix) should be used to centralize users' profiles.",
+    "title": "[FSLogix](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix) technology allows for users profiles to be stored in a central location and accessed by AVD Session Hosts, side loading the disks in a seamless manner. If using a solution where your users can sign into different Azure Virtual Desktop Session Hosts (Multi-session for example), [FSLogix](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix) should be used to centralize users' profiles.",
     "recommendation": {
       "title": "Review your central profile store architecture and incorporate FSLogix if you are using multi-session",
       "context": "",
@@ -15,7 +15,7 @@
     },
     "children": [
       {
-        "title": "(Storage) Storage requirements should be optimized for performance in the Windows Virtual Desktop service",
+        "title": "(Storage) Storage requirements should be optimized for performance in the Azure Virtual Desktop service",
         "context": "[Storage sizing for Azure Files and Azure NetApp Files](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix#performance-requirements) needs to align with IOPS Requirements",
         "id": "10fd7357-e5d3-4a22-b5e8-5fe698651ab6"
       },
@@ -60,21 +60,21 @@
   {
     "type": "Design Considerations",
     "pillars": [
-      "scenario/wvd"
+      "scenario/avd"
     ],
     "lens": "scenario",
-    "category": "WVD",
+    "category": "AVD",
     "subCategory": "Networking & Connectivity",
-    "title": "Placement of your Windows Virtual Desktop session hosts in your network is a key consideration and should be included in your design",
+    "title": "Placement of your Azure Virtual Desktop session hosts in your network is a key consideration and should be included in your design",
     "recommendation": {
-      "title": "WVD Session Hosts have to exist on a Virtual Network so Virtual Network/Subnet configuration will have to be considered. We have [example scenario architecture](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop#architecture) which can help visualize network connectivity.",
+      "title": "AVD Session Hosts have to exist on a Virtual Network so Virtual Network/Subnet configuration will have to be considered. We have [example scenario architecture](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop#architecture) which can help visualize network connectivity.",
       "context": "",
       "links": []
     },
     "children": [
       {
         "title": "Active Directory Domain Services line of site",
-        "context": "For WVD Session Hosts to join onto your Active Directory domain, the Virtual Network they reside on should be able to resolve your Active Directory domain name. It is strongly recommended to extend and build [Domain Controllers in Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/identity/adds-extend-domain).",
+        "context": "For AVD Session Hosts to join onto your Active Directory domain, the Virtual Network they reside on should be able to resolve your Active Directory domain name. It is strongly recommended to extend and build [Domain Controllers in Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/identity/adds-extend-domain).",
         "id": "01d9cd3a-5c03-492a-8a2c-06b350d13532"
       },
       {
@@ -83,13 +83,13 @@
         "id": "8e502947-c1df-4769-b479-933fa797756b"
       },
       {
-        "title": "Application workload line of sight from your WVD Session Host(s)",
-        "context": "Some application workloads may not be running in Azure which means that WVD will require access to third party datacenters (ExpressRoute, site-to-site VPN). It is recommended to migrate applications and workloads accessed by WVD into Azure as close to the WVD environment as possible following [Enterprise Scale Landing Zone guidance](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/).",
+        "title": "Application workload line of sight from your AVD Session Host(s)",
+        "context": "Some application workloads may not be running in Azure which means that AVD will require access to third party datacenters (ExpressRoute, site-to-site VPN). It is recommended to migrate applications and workloads accessed by AVD into Azure as close to the AVD environment as possible following [Enterprise Scale Landing Zone guidance](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/).",
         "id": "527ce6be-5a2f-4f97-a4e4-5e918547270b"
       },
       {
         "title": "Design your solution architecture for scale",
-        "context": "Ensure that your network architecture has enough internal IP addresses to support the number of WVD Session Hosts in your environment",
+        "context": "Ensure that your network architecture has enough internal IP addresses to support the number of AVD Session Hosts in your environment",
         "id": "e8bf4566-9793-49ad-9380-ff068d1c3d48"
       }
     ],
@@ -98,12 +98,12 @@
   {
     "type": "Design Considerations",
     "pillars": [
-      "scenario/wvd"
+      "scenario/avd"
     ],
     "lens": "scenario",
-    "category": "WVD",
+    "category": "AVD",
     "subCategory": "Identity & Access Control",
-    "title": "Windows Virtual Desktop requires that there is a hybrid identity solution implemented",
+    "title": "Azure Virtual Desktop requires that there is a hybrid identity solution implemented",
     "recommendation": {
       "title": "The hybrid identity solution in this instance would be Azure AD Connect",
       "context": "",
@@ -112,11 +112,11 @@
     "children": [
       {
         "title": "Set up [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-azure-ad-connect).",
-        "context": "This is a prerequisite for Windows Virtual Desktop. This is required to translate the user signing into the WVD Management plane via Azure AD to the user in the Active Directory forest",
+        "context": "This is a prerequisite for Azure Virtual Desktop. This is required to translate the user signing into the AVD Management plane via Azure AD to the user in the Active Directory forest",
         "id": "2a94bff5-41db-4f67-b1d3-a5cc5842aa42"
       },
       {
-        "title": "WVD Users must be sourced from the same Active Directory Domain Service (ADDS) that is synchronising to Azure AD. WVD does not support B2B or Microsoft Accounts",
+        "title": "AVD Users must be sourced from the same Active Directory Domain Service (ADDS) that is synchronising to Azure AD. AVD does not support B2B or Microsoft Accounts",
         "context": "Synchronize all identities to a single Azure AD using Azure AD Connect",
         "id": "2f57a2f4-5cae-40f2-9f78-db5c118e7bad"
       },
@@ -126,8 +126,8 @@
         "id": "6b0832d8-5fa3-4c76-a01d-f2b743ca6ce1"
       },
       {
-        "title": "Specifying the Organizational Unit (OU) that WVD Session Hosts will reside in",
-        "context": "Segregate the WVD Session Host Virtual Machines (VMs) into Active Directory Organizational Units (OUs) for each host pool to manage policies and orphaned objects",
+        "title": "Specifying the Organizational Unit (OU) that AVD Session Hosts will reside in",
+        "context": "Segregate the AVD Session Host Virtual Machines (VMs) into Active Directory Organizational Units (OUs) for each host pool to manage policies and orphaned objects",
         "id": "9562cf7b-79f5-47a0-80bf-cac8f65cd5ae"
       },
       {
@@ -137,7 +137,7 @@
       },
       {
         "title": "Leverage Azure AD Conditional Access policies",
-        "context": "Create policies for WVD. For example, multi-factor authentication can be enforced on conditions such as risky sign-ins increasing an organizations security posture",
+        "context": "Create policies for AVD. For example, multi-factor authentication can be enforced on conditions such as risky sign-ins increasing an organizations security posture",
         "id": "a6e74c5b-fe1c-4df7-8e14-c910acb0d150"
       }
     ],
@@ -146,10 +146,10 @@
   {
     "type": "Design Considerations",
     "pillars": [
-      "scenario/wvd"
+      "scenario/avd"
     ],
     "lens": "scenario",
-    "category": "WVD",
+    "category": "AVD",
     "subCategory": "Management & Monitoring",
     "title": "Managing and monitoring any Azure service is a core component from an operations standpoint which is why this is included in Design Considerations",
     "recommendation": {
@@ -159,23 +159,23 @@
     },
     "children": [
       {
-        "title": "Windows Virtual Desktop service logs should be integrated into Azure Monitor Log Analytics",
+        "title": "Azure Virtual Desktop service logs should be integrated into Azure Monitor Log Analytics",
         "context": "Azure Monitor allows for a central location around log and monitoring data in Azure",
         "id": "6f3bc2d6-6a48-4fcd-807b-20c767b38a83"
       },
       {
         "title": "Configure the necessary performance counters for your monitoring services",
-        "context": "It is recommended to enable [performance counters for WVD](https://docs.microsoft.com/azure/virtual-desktop/azure-monitor#set-up-performance-counters)",
+        "context": "It is recommended to enable [performance counters for AVD](https://docs.microsoft.com/azure/virtual-desktop/azure-monitor#set-up-performance-counters)",
         "id": "de274d66-74b9-4063-b470-66e80230f5f6"
       },
       {
-        "title": "Enable Azure Monitor for WIndows Virtual Desktop",
-        "context": "[Azure Monitor for Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/azure-monitor) can be used to find and troubleshoot problems in deployments, view the status and health of host pools, diagnose user feedback and understand resource utilization.",
+        "title": "Enable Azure Monitor for Azure Virtual Desktop",
+        "context": "[Azure Monitor for Azure Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/azure-monitor) can be used to find and troubleshoot problems in deployments, view the status and health of host pools, diagnose user feedback and understand resource utilization.",
         "id": "a35636ec-8d49-4d6f-a477-3384c59a7cc6"
       },
       {
-        "title": "Windows Virtual Desktop Session Hosts should be backed up (when not using auto-scale/pooled)",
-        "context": "WVD [EnableBackupScript](https://github.com/Azure/RDS-Templates/tree/master/EnableBackupScript) can be used to back up WVD Session Hosts",
+        "title": "Azure Virtual Desktop Session Hosts should be backed up (when not using auto-scale/pooled)",
+        "context": "AVD [EnableBackupScript](https://github.com/Azure/RDS-Templates/tree/master/EnableBackupScript) can be used to back up AVD Session Hosts",
         "id": "9bccf12d-08ca-41f5-a2f2-1b7808e6c346"
       }
     ],
