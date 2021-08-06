@@ -4,7 +4,6 @@
 
   - [AVD](#AVD)
     - [Management &amp; Monitoring](#Management--Monitoring)
-    - [FSLogix](#FSLogix)
     - [Networking &amp; Connectivity](#Networking--Connectivity)
     - [Identity &amp; Access Control](#Identity--Access-Control)
 # AVD
@@ -26,41 +25,6 @@
                             
   - Azure Virtual Desktop Session Hosts should be backed up (when not using auto-scale/pooled)
     > AVD [EnableBackupScript](https://github.com/Azure/RDS-Templates/tree/master/EnableBackupScript) can be used to back up AVD Session Hosts
-                                
-                            
-## FSLogix
-### Design Considerations
-* [FSLogix](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix) technology allows for users profiles to be stored in a central location and accessed by AVD Session Hosts, side loading the disks in a seamless manner. If using a solution where your users can sign into different Azure Virtual Desktop Session Hosts (Multi-session for example), [FSLogix](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix) should be used to centralize users&#39; profiles.
-  - (Storage) Storage requirements should be optimized for performance in the Azure Virtual Desktop service
-    > [Storage sizing for Azure Files and Azure NetApp Files](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix#performance-requirements) needs to align with IOPS Requirements
-                                
-                            
-  - (Storage) Size of the volumes should reflect the performance needed
-    > Consideration of the size of the volume where user profiles will be stored on a per user profile size basis
-                                
-                            
-  - (Storage - Azure Files) SKU of the Azure Files Storage Account
-    > Light users - Standard File Shares, Medium users - Standard/Premium File Shares, Heavy users - Premium File Shares, Power users - Premium File Shares
-                                
-                            
-  - The chosen storage service for FSLogix
-    > Azure Files ([Azure AD Domain Services](https://docs.microsoft.com/azure/virtual-desktop/create-profile-container-adds) or [Active Directory Domain Services](https://docs.microsoft.com/azure/virtual-desktop/create-file-share), [Azure NetApp Files](https://docs.microsoft.com/azure/virtual-desktop/create-fslogix-profile-container), [VM-based file share](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-user-profile))
-                                
-                            
-  - [FSLogix Cloud Cache](https://docs.microsoft.com/en-us/fslogix/cloud-cache-resiliency-availability-cncpt) for Business Continuity &amp; Disaster Recovery
-    > FSLogix Cloud Cache is used for best practice failover and quick recovery scenarios
-                                
-                            
-  - Backup solution for the chosen storage service that FSLogix will be using
-    > It is just as vital to implement a backup solution next to your disaster recovery solution. [Azure NetApps Files supports scheduled snapshots](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-manage-snapshots) and Azure Backup should be considered for [File Shares](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview)
-                                
-                            
-  - Design your profile storage solution to reside in the same Azure region as your session hosts, if not the next closest region
-    > This increases performance and latency for a better end user experience
-                                
-                            
-  - Exclude user profile VHD(x) from AV and malware scans
-    > All files inside the VHD will be scanned on demand
                                 
                             
 ## Networking &amp; Connectivity
@@ -86,7 +50,7 @@
 ### Design Considerations
 * Azure Virtual Desktop requires that there is a hybrid identity solution implemented
   - Set up [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-azure-ad-connect).
-    > This is a prerequisite for Azure Virtual Desktop. This is required to translate the user signing into the AVD Management plane via Azure AD to the user in the Active Directory forest. Azure AD Join only is supported, but as of time of writing is in Public Preview.
+    > This is a prerequisite for Azure Virtual Desktop. This is required to translate the user signing into the AVD Management plane via Azure AD to the user in the Active Directory forest
                                 
                             
   - AVD Users must be sourced from the same Active Directory Domain Service (ADDS) that is synchronising to Azure AD. AVD does not support B2B or Microsoft Accounts
