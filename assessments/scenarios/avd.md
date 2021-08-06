@@ -31,7 +31,7 @@
 ### Design Considerations
 * Placement of your Azure Virtual Desktop session hosts in your network is a key consideration and should be included in your design
   - Active Directory Domain Services line of site
-    > For AVD Session Hosts to join onto your Active Directory domain, the Virtual Network they reside on should be able to resolve your Active Directory domain name. It is strongly recommended to extend and build [Domain Controllers in Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/identity/adds-extend-domain).
+    > For AVD Session Hosts to join an Active Directory domain, the Virtual Network they reside on should be able to resolve your Active Directory domain name. It is strongly recommended to extend and build [Domain Controllers in Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/identity/adds-extend-domain).
                                 
                             
   - Connection to application(s), Active Directory Domain Services and workloads should be in line with the expected availability requirements for the environment
@@ -39,7 +39,7 @@
                                 
                             
   - Application workload line of sight from your AVD Session Host(s)
-    > Some application workloads may not be running in Azure which means that AVD will require access to third party datacenters (ExpressRoute, site-to-site VPN). It is recommended to migrate applications and workloads accessed by AVD into Azure as close to the AVD environment as possible following [Enterprise Scale Landing Zone guidance](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/).
+    > Some application workloads may not be running in Azure which means that AVD will require access to third party datacenters (ExpressRoute, site-to-site VPN). It is recommended to migrate applications and workloads accessed by AVD into Azure as close to the AVD environment as possible following the [Enterprise Scale Landing Zone guidance](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/).
                                 
                             
   - Design your solution architecture for scale
@@ -50,10 +50,10 @@
 ### Design Considerations
 * Azure Virtual Desktop requires that there is a hybrid identity solution implemented
   - Set up [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-azure-ad-connect).
-    > This is a prerequisite for Azure Virtual Desktop. This is required to translate the user signing into the AVD Management plane via Azure AD to the user in the Active Directory forest
+    > This is a prerequisite for Azure Virtual Desktop. This is required to translate the user signing into the AVD Management plane via Azure AD to the user in the Active Directory forest.
                                 
                             
-  - AVD Users must be sourced from the same Active Directory Domain Service (ADDS) that is synchronising to Azure AD. AVD does not support B2B or Microsoft Accounts
+  - AVD Users must be sourced from the same Active Directory Domain Service (ADDS) that is synchronising to Azure AD. AVD does not support B2B or Microsoft Accounts.
     > Synchronize all identities to a single Azure AD using Azure AD Connect
                                 
                             
