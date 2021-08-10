@@ -1155,13 +1155,26 @@
     "lens": "service",
     "category": "Compute",
     "subCategory": "Azure Batch",
+    "title": "Using multiple Batch accounts in various regions lets your application continue running if a Batch account in one region becomes unavailable. If your application needs to be highly available, having multiple accounts is especially important.",
+    "id": "5f9a90cf-b588-4fc8-843b-6bc49815f6dc"
+  },
+  {
+    "type": "Configuration Recommendations",
+    "pillars": [
+      "reliability",
+      "operationalexcellence"
+    ],
+    "lens": "service",
+    "category": "Compute",
+    "subCategory": "Azure Batch",
     "title": "Pre-create all required accounts in each region, such as the Batch account and storage account. There is often no charge for having accounts created, and charges accrue only when the account is used or when data is stored.",
     "id": "fd471938-8141-4c08-b2a0-76cca1851148"
   },
   {
-    "type": "Design Considerations",
+    "type": "Configuration Recommendations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Compute",
@@ -1172,7 +1185,8 @@
   {
     "type": "Design Considerations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Compute",
@@ -1183,23 +1197,13 @@
   {
     "type": "Design Considerations",
     "pillars": [
-      "reliability"
+      "reliability",
+      "operationalexcellence"
     ],
     "lens": "service",
     "category": "Compute",
     "subCategory": "Azure Batch",
     "title": "Keep application binaries and reference data up-to-date in all regions. Staying up-to-date will ensure the region can be brought online quickly without having to wait for the upload and deployment of files.",
     "id": "b6fbfa05-0f42-4606-bc97-f3b2b6e08629"
-  },
-  {
-    "type": "Design Considerations",
-    "pillars": [
-      "reliability"
-    ],
-    "lens": "service",
-    "category": "Compute",
-    "subCategory": "Azure Batch",
-    "title": "Using multiple Batch accounts in various regions lets your application continue running if a Batch account in one region becomes unavailable. If your application needs to be highly available, having multiple accounts is especially important.",
-    "id": "5f9a90cf-b588-4fc8-843b-6bc49815f6dc"
   }
 ]
