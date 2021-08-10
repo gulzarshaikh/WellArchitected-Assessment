@@ -355,7 +355,7 @@ Resources
   > Using a job to run a single task is inefficient. For example, it's more efficient to use a single job containing 1000 tasks rather than creating 100 jobs that contain 10 tasks each. Running 1000 jobs, each with a single task, would be the least efficient, slowest, and most expensive approach to take.
                             
 ### Configuration Recommendations
-* Pre-create all required accounts in each region, such as the Batch account and storage account.
+* Pre-create all required services in each region, such as the Batch account and storage account.
   > There is often no charge for having accounts created, and charges accrue only when the account is used or when data is stored.
                             
 * Make sure the appropriate quotas are set on all subscriptions ahead of time, so you can allocate the required number of cores using the Batch account.

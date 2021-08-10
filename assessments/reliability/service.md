@@ -405,7 +405,7 @@ Resources
   > Tasks should be designed to withstand failure and accommodate retry. This is especially important for long running tasks. To do this, ensure tasks generate the same, single result even if they are run more than once. One way to achieve this is to make your tasks "goal seeking". Another way is to make sure your tasks are idempotent (tasks will have the same outcome no matter how many times they are run).
                             
 ### Configuration Recommendations
-* Pre-create all required accounts in each region, such as the Batch account and storage account.
+* Pre-create all required services in each region, such as the Batch account and storage account.
   > There is often no charge for having accounts created, and charges accrue only when the account is used or when data is stored.
                             
 * Make sure the appropriate quotas are set on all subscriptions ahead of time, so you can allocate the required number of cores using the Batch account.
