@@ -439,11 +439,12 @@ Resources
 * Use guidance available on [Securing Azure Functions](https://docs.microsoft.com/azure/azure-functions/security-concepts). This guidance addresses key security concerns such as operations, deployment and network security.
 ## Azure Batch
 ### Design Considerations
-* Pre-create all required accounts in each region, such as the Batch account and storage account. There is often no charge for having accounts created, and charges accrue only when the account is used or when data is stored.
-* Make sure the appropriate quotas are set on all accounts ahead of time, so you can allocate the required number of cores using the Batch account.
+* Using multiple Batch accounts in various regions lets your application continue running if a Batch account in one region becomes unavailable. If your application needs to be highly available, having multiple accounts is especially important.
 * Use templates and/or scripts to automate the deployment of the application in a region.
 * Keep application binaries and reference data up-to-date in all regions. Staying up-to-date will ensure the region can be brought online quickly without having to wait for the upload and deployment of files.
-* Using multiple Batch accounts in various regions lets your application continue running if a Batch account in one region becomes unavailable. If your application needs to be highly available, having multiple accounts is especially important.
+### Configuration Recommendations
+* Pre-create all required accounts in each region, such as the Batch account and storage account. There is often no charge for having accounts created, and charges accrue only when the account is used or when data is stored.
+* Make sure the appropriate quotas are set on all accounts ahead of time, so you can allocate the required number of cores using the Batch account.
 # Data
         
 ## Azure SQL Database
