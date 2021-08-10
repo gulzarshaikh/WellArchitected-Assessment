@@ -9,6 +9,7 @@ This list contains design considerations and recommended configuration options, 
   - [Compute](#Compute)
     - [Azure Kubernetes Service (AKS)](#Azure-Kubernetes-Service-AKS)
     - [Service Fabric](#Service-Fabric)
+    - [Azure Batch](#Azure-Batch)
 # Compute
         
 ## Azure Kubernetes Service (AKS)
@@ -32,4 +33,9 @@ This list contains design considerations and recommended configuration options, 
 ### Configuration Recommendations
 * Exclude the Service Fabric processes from Windows Defender to improve performance.
   > By default, Windows Defender antivirus is installed on Windows Server 2016 and 2019. To reduce any performance impact and resource consumption overhead incurred by Windows Defender, and if your security policies allow you to exclude processes and paths for open-source software, you can [exclude](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-security#windows-defender) the Service Fabric executables from Defender scans.
+                            
+## Azure Batch
+### Design Considerations
+* Use fewer jobs and more tasks.
+  > Using a job to run a single task is inefficient. For example, it's more efficient to use a single job containing 1000 tasks rather than creating 100 jobs that contain 10 tasks each. Running 1000 jobs, each with a single task, would be the least efficient, slowest, and most expensive approach to take.
                             
