@@ -442,7 +442,6 @@ Resources
 * Using multiple Batch accounts in various regions lets your application continue running if an Azure Batch account in one region becomes unavailable.
   > If your application needs to be highly available, having multiple accounts is especially important.
                             
-* Use templates and/or scripts to automate the deployment of the application in a region.
 * Keep application binaries and reference data up-to-date in all regions
   > Staying up-to-date will ensure the region can be brought online quickly without having to wait for the upload and deployment of files.
                             

@@ -347,7 +347,6 @@ Resources
                             
 ## Azure Batch
 ### Design Considerations
-* Use templates and/or scripts to automate the deployment of the application in a region.
 * Keep application binaries and reference data up-to-date in all regions
   > Staying up-to-date will ensure the region can be brought online quickly without having to wait for the upload and deployment of files.
                             
