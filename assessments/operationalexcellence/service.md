@@ -348,9 +348,16 @@ Resources
 ## Azure Batch
 ### Design Considerations
 * Use templates and/or scripts to automate the deployment of the application in a region.
-* Keep application binaries and reference data up-to-date in all regions. Staying up-to-date will ensure the region can be brought online quickly without having to wait for the upload and deployment of files.
+* Keep application binaries and reference data up-to-date in all regions
+  > Staying up-to-date will ensure the region can be brought online quickly without having to wait for the upload and deployment of files.
+                            
+* Use fewer jobs and more tasks
+  > Using a job to run a single task is inefficient. For example, it's more efficient to use a single job containing 1000 tasks rather than creating 100 jobs that contain 10 tasks each. Running 1000 jobs, each with a single task, would be the least efficient, slowest, and most expensive approach to take.
+                            
 ### Configuration Recommendations
-* Pre-create all required accounts in each region, such as the Batch account and storage account. There is often no charge for having accounts created, and charges accrue only when the account is used or when data is stored.
+* Pre-create all required accounts in each region, such as the Batch account and storage account.
+  > There is often no charge for having accounts created, and charges accrue only when the account is used or when data is stored.
+                            
 * Make sure the appropriate quotas are set on all accounts ahead of time, so you can allocate the required number of cores using the Batch account.
 # Data
         
