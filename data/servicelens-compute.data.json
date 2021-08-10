@@ -1168,7 +1168,7 @@
     "lens": "service",
     "category": "Compute",
     "subCategory": "Azure Batch",
-    "title": "Pre-create all required accounts in each region, such as the Batch account and storage account.",
+    "title": "Pre-create all required services in each region, such as the Batch account and storage account.",
     "context": "There is often no charge for having accounts created, and charges accrue only when the account is used or when data is stored.",
     "id": "fd471938-8141-4c08-b2a0-76cca1851148"
   },
