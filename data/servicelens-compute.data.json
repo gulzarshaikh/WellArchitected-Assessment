@@ -1193,18 +1193,6 @@
     "lens": "service",
     "category": "Compute",
     "subCategory": "Azure Batch",
-    "title": "Use templates and/or scripts to automate the deployment of the application in a region.",
-    "id": "6e21746a-9046-40df-83fc-e7f58e03b7e1"
-  },
-  {
-    "type": "Design Considerations",
-    "pillars": [
-      "reliability",
-      "operationalexcellence"
-    ],
-    "lens": "service",
-    "category": "Compute",
-    "subCategory": "Azure Batch",
     "title": "Keep application binaries and reference data up-to-date in all regions",
     "context": "Staying up-to-date will ensure the region can be brought online quickly without having to wait for the upload and deployment of files.",
     "id": "b6fbfa05-0f42-4606-bc97-f3b2b6e08629"
