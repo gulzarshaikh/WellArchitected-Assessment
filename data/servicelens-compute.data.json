@@ -1155,7 +1155,8 @@
     "lens": "service",
     "category": "Compute",
     "subCategory": "Azure Batch",
-    "title": "Using multiple Batch accounts in various regions lets your application continue running if a Batch account in one region becomes unavailable. If your application needs to be highly available, having multiple accounts is especially important.",
+    "title": "Using multiple Batch accounts in various regions lets your application continue running if an Azure Batch account in one region becomes unavailable.",
+    "context": "If your application needs to be highly available, having multiple accounts is especially important.",
     "id": "5f9a90cf-b588-4fc8-843b-6bc49815f6dc"
   },
   {
@@ -1204,7 +1205,7 @@
     "lens": "service",
     "category": "Compute",
     "subCategory": "Azure Batch",
-    "title": "Keep application binaries and reference data up-to-date in all regions.",
+    "title": "Keep application binaries and reference data up-to-date in all regions",
     "context": "Staying up-to-date will ensure the region can be brought online quickly without having to wait for the upload and deployment of files.",
     "id": "b6fbfa05-0f42-4606-bc97-f3b2b6e08629"
   },
@@ -1218,7 +1219,7 @@
     "lens": "service",
     "category": "Compute",
     "subCategory": "Azure Batch",
-    "title": "Use fewer jobs and more tasks.",
+    "title": "Use fewer jobs and more tasks",
     "context": "Using a job to run a single task is inefficient. For example, it's more efficient to use a single job containing 1000 tasks rather than creating 100 jobs that contain 10 tasks each. Running 1000 jobs, each with a single task, would be the least efficient, slowest, and most expensive approach to take."
   },
   {
