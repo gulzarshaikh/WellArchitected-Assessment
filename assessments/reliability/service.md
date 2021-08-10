@@ -408,7 +408,7 @@ Resources
 * Pre-create all required accounts in each region, such as the Batch account and storage account.
   > There is often no charge for having accounts created, and charges accrue only when the account is used or when data is stored.
                             
-* Make sure the appropriate quotas are set on all accounts ahead of time, so you can allocate the required number of cores using the Batch account.
+* Make sure the appropriate quotas are set on all subscriptions ahead of time, so you can allocate the required number of cores using the Batch account.
 # Data
         
 ## Azure SQL Database
