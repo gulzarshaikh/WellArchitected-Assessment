@@ -11,6 +11,7 @@ This list contains design considerations and recommended configuration options, 
     - [Azure Kubernetes Service (AKS)](#Azure-Kubernetes-Service-AKS)
     - [Service Fabric](#Service-Fabric)
     - [Virtual Machines](#Virtual-Machines)
+    - [Azure Batch](#Azure-Batch)
   - [Data](#Data)
     - [Azure SQL Database](#Azure-SQL-Database)
     - [Azure SQL Managed Instance](#Azure-SQL-Managed-Instance)
@@ -388,6 +389,13 @@ Resources
 * Azure policy definition to **audit Availability Sets containing single instance VMs that are not protected by a SLA**. It will flag an audit event for all Availability Sets that does not contain multiple instances.
   > [Audit Availability Sets With Single Instances](../src/compute/policydefinition_Audit-AvailabilitySetSingleInstances.json)
                             
+## Azure Batch
+### Design Considerations
+* Pre-create all required accounts in each region, such as the Batch account and storage account. There is often no charge for having accounts created, and charges accrue only when the account is used or when data is stored.
+* Make sure the appropriate quotas are set on all accounts ahead of time, so you can allocate the required number of cores using the Batch account.
+* Use templates and/or scripts to automate the deployment of the application in a region.
+* Keep application binaries and reference data up-to-date in all regions. Staying up-to-date will ensure the region can be brought online quickly without having to wait for the upload and deployment of files.
+* Using multiple Batch accounts in various regions lets your application continue running if a Batch account in one region becomes unavailable. If your application needs to be highly available, having multiple accounts is especially important.
 # Data
         
 ## Azure SQL Database
