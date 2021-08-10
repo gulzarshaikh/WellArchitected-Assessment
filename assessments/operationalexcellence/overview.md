@@ -56,6 +56,7 @@ This operational excellence assessment has been produced to help the global CE&S
     - [Azure Kubernetes Service (AKS)](./service.md#Azure-Kubernetes-Service-AKS)
     - [Service Fabric](./service.md#Service-Fabric)
     - [Virtual Machines](./service.md#Virtual-Machines)
+    - [Azure Batch](./service.md#Azure-Batch)
   - [Data](./service.md#Data)
     - [Azure SQL Database](./service.md#Azure-SQL-Database)
     - [Azure SQL Managed Instance](./service.md#Azure-SQL-Managed-Instance)
