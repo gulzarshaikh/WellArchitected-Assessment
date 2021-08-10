@@ -1168,7 +1168,7 @@
     "lens": "service",
     "category": "Compute",
     "subCategory": "Azure Batch",
-    "title": "Pre-create all required accounts in each region, such as the Batch account and storage account.",
+    "title": "Pre-create all required services in each region, such as the Batch account and storage account.",
     "context": "There is often no charge for having accounts created, and charges accrue only when the account is used or when data is stored.",
     "id": "fd471938-8141-4c08-b2a0-76cca1851148"
   },
@@ -1181,7 +1181,7 @@
     "lens": "service",
     "category": "Compute",
     "subCategory": "Azure Batch",
-    "title": "Make sure the appropriate quotas are set on all accounts ahead of time, so you can allocate the required number of cores using the Batch account.",
+    "title": "Make sure the appropriate quotas are set on all subscriptions ahead of time, so you can allocate the required number of cores using the Batch account.",
     "id": "07806835-806f-4cbb-a4e0-e6ea55307cb3"
   },
   {
