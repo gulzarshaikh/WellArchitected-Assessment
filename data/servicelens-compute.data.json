@@ -1220,7 +1220,8 @@
     "category": "Compute",
     "subCategory": "Azure Batch",
     "title": "Use fewer jobs and more tasks",
-    "context": "Using a job to run a single task is inefficient. For example, it's more efficient to use a single job containing 1000 tasks rather than creating 100 jobs that contain 10 tasks each. Running 1000 jobs, each with a single task, would be the least efficient, slowest, and most expensive approach to take."
+    "context": "Using a job to run a single task is inefficient. For example, it's more efficient to use a single job containing 1000 tasks rather than creating 100 jobs that contain 10 tasks each. Running 1000 jobs, each with a single task, would be the least efficient, slowest, and most expensive approach to take.",
+    "id": "54e6104e-09ad-40c8-b037-e6b8b47c7745"
   },
   {
     "type": "Design Considerations",
@@ -1231,6 +1232,7 @@
     "category": "Compute",
     "subCategory": "Azure Batch",
     "title": "Build durable tasks",
-    "context": "Tasks should be designed to withstand failure and accommodate retry. This is especially important for long running tasks. To do this, ensure tasks generate the same, single result even if they are run more than once. One way to achieve this is to make your tasks \"goal seeking\". Another way is to make sure your tasks are idempotent (tasks will have the same outcome no matter how many times they are run)."
+    "context": "Tasks should be designed to withstand failure and accommodate retry. This is especially important for long running tasks. To do this, ensure tasks generate the same, single result even if they are run more than once. One way to achieve this is to make your tasks \"goal seeking\". Another way is to make sure your tasks are idempotent (tasks will have the same outcome no matter how many times they are run).",
+    "id": "174671be-7395-4a76-8a97-5087e6f9c119"
   }
 ]
