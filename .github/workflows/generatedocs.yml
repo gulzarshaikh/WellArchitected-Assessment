@@ -251,7 +251,7 @@ jobs:
       - name: Markdown links check
         uses: ruzickap/action-my-markdown-link-checker@v1
         with:
-          include: |
+          search_paths: |
             assessments/*/application.md
             assessments/*/service.md
           quiet: true
