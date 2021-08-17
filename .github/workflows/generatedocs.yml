@@ -253,6 +253,7 @@ jobs:
         with:
           exclude: |
             .github/
+          quiet: true
 
       - name: (Debug) Show all files
         if: ${{ always() }}
