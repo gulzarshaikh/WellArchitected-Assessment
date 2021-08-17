@@ -254,6 +254,7 @@ jobs:
           exclude: |
             .github/
             templates/
+            data/
           quiet: true
 
       - name: (Debug) Show all files
