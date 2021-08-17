@@ -254,6 +254,9 @@ jobs:
           search_paths: |
             assessments/*/application.md
             assessments/*/service.md
+          exclude: |
+            templates/
+            .github/
           quiet: true
 
       - name: (Debug) Show all files
