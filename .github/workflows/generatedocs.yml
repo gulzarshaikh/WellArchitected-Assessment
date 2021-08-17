@@ -252,11 +252,11 @@ jobs:
         uses: ruzickap/action-my-markdown-link-checker@v1
         with:
           search_paths: |
-            assessments/*/application.md
-            assessments/*/service.md
+            assessments/
           exclude: |
             templates/
             .github/
+            overview.md
           quiet: true
 
       - name: (Debug) Show all files
