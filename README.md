@@ -1,4 +1,4 @@
-[![Well-Architected Assessment](/templates/media/wellarchitected-icon.png "Well-Architected Assessment")](#)
+[![Well-Architected Assessment](./templates/media/wellarchitected-icon.png "Well-Architected Assessment")](#)
 
 # Overview
 
