@@ -1,4 +1,4 @@
-[![Cost Optimization Assessment](./templates/media/costoptimization-icon.png "Cost Optimization Assessment")](#)
+[![Cost Optimization Assessment](/templates/media/costoptimization-icon.png "Cost Optimization Assessment")](#)
 
 This assessment has been produced to help the global CE&S community to optimize the cost of applications built on Azure, providing key recommendations to better serve our customers.
 
