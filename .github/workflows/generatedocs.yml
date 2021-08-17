@@ -250,6 +250,9 @@ jobs:
 
       - name: Markdown links check
         uses: ruzickap/action-my-markdown-link-checker@v1
+        with:
+          exclude: |
+            .github/
 
       - name: (Debug) Show all files
         if: ${{ always() }}
