@@ -248,6 +248,9 @@ jobs:
             Write-Output "No changes to commit. Bye."
           }
 
+      - name: Markdown links check
+        uses: ruzickap/action-my-markdown-link-checker@v1
+
       - name: (Debug) Show all files
         if: ${{ always() }}
         shell: pwsh
