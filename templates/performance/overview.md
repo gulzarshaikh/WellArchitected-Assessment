@@ -1,4 +1,4 @@
-[![Performance Efficiency Assessment](./templates/media/performanceefficiency-icon.png "Performance Efficiency Assessment")](#)
+[![Performance Efficiency Assessment](/templates/media/performanceefficiency-icon.png "Performance Efficiency Assessment")](#)
 
 This assessment has been produced to help the global CE&S community to optimize the performance efficiency of applications built on Azure, providing key recommendations to better serve our customers.
 
