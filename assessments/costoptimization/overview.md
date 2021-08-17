@@ -6,7 +6,7 @@ This assessment has been produced to help the global CE&S community to optimize 
 
 ## Navigation Menu
 
-### [Application Cost Optimization](./application.md) 
+### [Application Cost Optimization](./application.md)
 
 - [Design Principles](./application.md#design-principles)
 - [Definition of Workload](./application.md#Workload-Definition)
